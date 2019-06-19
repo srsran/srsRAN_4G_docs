@@ -12,7 +12,7 @@ What is srsLTE?
 
 srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build a complete end-to-end 4G mobile network.
 
-.. image:: .imgs/srslte_architecture.png
+.. image:: .imgs/srs_architecture.png
 
 The srsLTE suite includes:
 
