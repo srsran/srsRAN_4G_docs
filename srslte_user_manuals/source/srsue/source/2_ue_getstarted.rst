@@ -62,9 +62,7 @@ With the UE attached to the network, type ``t`` in the console to enable the met
 Configuration
 *************
 
-The UE can be configured through the configuration file: ``ue.conf``. This configuration file provides parameters relating to operating frequencies, transmit power levels, USIM properties, logging levels and much more.
-
-To run srsUE with the installed configuration file, use ``sudo srsue ~/.config/srslte/ue.conf``.
+The UE can be configured through the configuration file: ``ue.conf``. This configuration file provides parameters relating to operating frequencies, transmit power levels, USIM properties, logging levels and much more. To run srsUE with the installed configuration file, use ``sudo srsue ~/.config/srslte/ue.conf``.
 
 All parameters specified in the configuration file can also be overwritten on the command line. For example, to run the UE with a different EARFCN, use ``sudo srsue ~/.config/srslte/ue.conf --rf.dl_earfcn 3350``.
 
@@ -125,6 +123,4 @@ The srsUE application supports packet capture at two levels - MAC layer and NAS 
 
 MAC layer captures are created by default at /tmp/ue.pcap and are encoded in compact mac-lte-framed form. To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=147, Payload Protocol=mac-lte-framed). For more information, see https://wiki.wireshark.org/MAC-LTE.
 
-NAS layer captures are created by default at /tmp/nas.pcap.
-
-.. warning:: Todo - add details for wireshark config for NAS pcaps.
+NAS layer captures are created by default at /tmp/nas.pcap. To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=148, Payload Protocol=nas-eps).
