@@ -15,25 +15,28 @@ Features
 
 The srsENB LTE eNodeB includes the following features:
 
-.. note::  To be updated.
-
-- LTE Release 15 compliant
-- TDD and FDD configurations
+- LTE Release 10 aligned
+- FDD configuration
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
-- Transmission modes 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
-- Manually configurable DL/UL carrier frequencies
-- Soft USIM supporting XOR/Milenage authentication
-- Hard USIM support via PC/SC
-- Snow3G and AES integrity/ciphering support
-- TUN virtual network kernel interface integration for Linux OS
+- Transmission mode 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
+- Frequency-based ZF and MMSE equalizer
+- Evolved multimedia broadcast and multicast service (eMBMS)
+- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+100 Mbps) and standard C (+25 Mbps)
+- MAC, RLC, PDCP, RRC, NAS, S1AP and GW layers
 - Detailed log system with per-layer log levels and hex dumps
-- MAC and NAS layer wireshark packet captures
+- MAC layer wireshark packet capture
 - Command-line trace metrics
 - Detailed input configuration files
-- Evolved multimedia broadcast and multicast service (eMBMS)
-- Frequency-based ZF and MMSE equalizers
-- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+100 Mbps) and standard C (+25 Mbps)
-- Supports Ettus USRP B2x0/X3x0 families, BladeRF, LimeSDR
+- Channel simulator for EPA, EVA, and ETU 3GPP channels
+- ZeroMQ-based fake RF driver for I/Q over IPC/network
+- Round Robin MAC scheduler with FAPI-like C++ API
+- SR support
+- Periodic and Aperiodic CQI feedback support
+- Standard S1AP and GTP-U interfaces to the Core Network
+- 150 Mbps DL in 20 MHz MIMO TM3/TM4 with commercial UEs
+- 75 Mbps DL in SISO configuration with commercial UEs
+- 50 Mbps UL in 20 MHz with commercial UEs
+- User-plane encryption
 
 eNodeB architecture
 *******************
@@ -46,18 +49,18 @@ eNodeB architecture
 
     Basic eNodeB Architecture
 
-The srsUE application includes layers 1, 2 and 3 as shown in the figure above.
+The srsENB application includes layers 1, 2 and 3 as shown in the figure above.
 
-At the bottom of the UE protocol stack, the Physical (PHY) layer carries all information from the MAC over the air interface. It is responsible for link adaptation, power control, cell search and cell measurement.
+At the bottom of the protocol stack, the Physical (PHY) layer carries all information from the MAC over the air interface. It is responsible for link adaptation and power control.
 
-The Medium Access Control (MAC) layer multiplexes data between one or more logical channels into Transport Blocks (TBs) which are passed to/from the PHY layer. The MAC is responsible for control and scheduling information exchange with the eNodeB, retransmission and error correction (HARQ) and priority handling between logical channels.
+The Medium Access Control (MAC) layer multiplexes data between one or more logical channels into Transport Blocks (TBs) which are passed to/from the PHY layer. The MAC is responsible for scheduling uplink and downlink transmissions for connected UEs via control signalling, retransmission and error correction (HARQ) and priority handling between logical channels.
 
-The Radio Link Control (RLC) layer can operate in one of three modes: Transparent Mode (TM), Unacknowledged Mode (UM) and Acknowledged Mode (AM). The RLC manages multiple logical channels or bearers, each of which operates in one of these three modes. Transparent Mode bearers simply pass data through the RLC. Unacknowledged Mode bearers perform concatenation, segmentation and reassembly of data units, reordering and duplication detection. Acknowledged Mode bearers additionally perform retransmission of missing data units and resegmentation.
+The Radio Link Control (RLC) layer can operate in one of three modes: Transparent Mode (TM), Unacknowledged Mode (UM) and Acknowledged Mode (AM). The RLC manages multiple logical channels or bearers for each connected UE. Each bearer operates in one of these three modes. Transparent Mode bearers simply pass data through the RLC. Unacknowledged Mode bearers perform concatenation, segmentation and reassembly of data units, reordering and duplication detection. Acknowledged Mode bearers additionally perform retransmission of missing data units and resegmentation.
 
-The Packet Data Convergence Protocol (PDCP) layer is responsible for ciphering of control and data plane traffic, integrity protection of control plane traffic, duplicate discarding and in-sequence delivery of control and data plane traffic to/from the RRC and GW layers respectively. The PDCP layer also performs header compression (ROHC) of IP data if supported.
+The Packet Data Convergence Protocol (PDCP) layer is responsible for ciphering of control and data plane traffic, integrity protection of control plane traffic, duplicate discarding and in-sequence delivery of control and data plane traffic to/from the RRC and GTP-U layers respectively. The PDCP layer also performs header compression (ROHC) of IP data if supported.
 
-The Radio Resource Control (RRC) layer manages control plane exchanges between the UE and the eNodeB. It uses System Information broadcast by the network to configure the lower layers of the UE and handles the establishment, maintenance and release of the RRC connection with the eNodeB. The RRC manages cell search to support cell selection as well as cell measurement reporting and mobility control for handover between neighbouring cells. The RRC is also responsible for handling and responding to paging messages from the network. Finally, the RRC manages security functions for key management and the establishment, configuration, maintenance and release of radio bearers.
+The Radio Resource Control (RRC) layer manages control plane exchanges between the eNodeB and connected UEs. It generates the System Information Blocks (SIBs) broadcast by the eNodeB and handles the establishment, maintenance and release of RRC connections with the UEs. The RRC also manages security functions for ciphering and integrity protection between the eNodeB and UEs.
 
-The Non-Access Stratum (NAS) layer manages control plane exchanges between the UE and entities within the core network (EPC). It controls PLMN selection and manages network attachment procedures, exchanging identification and authentication information with the EPC. The NAS is responsible for establishing and maintaining IP connectivity between the UE and the PDN gateway within the EPC.
+Above the RRC, the S1 Application Protocol (S1-AP) layer provides the control plane connection between the eNodeB and the core network (EPC). The S1-AP connects to the Mobility Management Entity (MME) in the core network. Messages from the MME to UEs are forwarded by S1-AP to the RRC layer, where they are encapsulated in RRC messages and sent down the stack for transmission. Messages from UEs to the MME are similarly encapsulated by the UE RRC and extracted at the eNodeB RRC before being passed to the S1-AP and on to the MME.
 
-The Gateway (GW) layer within srsUE is responsible for the creation and maintenance of the TUN virtual network kernel interface, simulating a network layer device within the Linux operating system. The GW layer permits srsUE to run as a user-space application and operates with data plane IP packets.
+The GPRS Tunnelling Protocol User Plane (GTP-U) layer within srsENB provides the data plane connection between the eNodeB and the core network (EPC). The GTP-U layer connects to the Serving Gateway (S-GW) in the core network. Data plane IP traffic is encapsulated in GTP packets at the GTP-U layer and these GTP packets are tunneled through the EPC. That IP traffic is extracted from the tunnel at the Packet Data Network Gateway (P-GW) and passed out into the internet.

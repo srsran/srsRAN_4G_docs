@@ -15,7 +15,7 @@ Features
 
 The srsUE LTE UE includes the following features:
 
-- LTE Release 10 compliant with features up to release 15
+- LTE Release 10 aligned with features up to release 15
 - TDD and FDD configurations
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
 - Transmission modes 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
