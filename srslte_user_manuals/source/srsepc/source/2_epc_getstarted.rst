@@ -78,7 +78,7 @@ So if you want to listen to eNB on the interface with IP *10.0.1.10*, you can do
 Connecting UEs to the Internet 
 ++++++++++++++++++++++++++++++
 
-Often, it is interesting to connect the UEs to the Internet. By default, the Linux kernel will not do packet forwarding from one subnet to another subnet. Also, it is necessary to perform IP masquerading so that the UEs can connect to the Internet, even thought they only have a private IP.
+To allow UEs to connect to the Internet, it is necessary to perform IP masquerading. Without masquerading, the Linux kernel will not do packet forwarding from one subnet to another.
 
 To enable this, you can run a convenience script ``sudo srsepc_if_masq <out_interface>``, where *out_interface* is the interface that connects the PC to the Internet.
 
