@@ -19,8 +19,7 @@ After installing the software you can install the configuration files into the d
 Running the software
 ********************
 
-To run srsEPC with default parameters, you can do ``sudo srsepc`` on the command line.
-This will start the EPC and it will wait for eNBs and UEs to connect to it.
+To run srsEPC with default parameters, run ``sudo srsepc`` on the command line. srsEPC needs to run with sudo admin privileges in order to create a TUN device. This will start the EPC and it will wait for eNBs and UEs to connect to it.
 
 srsEPC will start a TUN interface ``srs_spgw_sgi`` that will allow user-plane packets to reach the UEs.
 
@@ -89,11 +88,8 @@ To enable this, you can run a convenience script ``sudo srsepc_if_masq <out_inte
 Observing results
 *****************
 
-By default, log files are stored in ``/tmp/epc.log``. This files can be inspected to troubleshoot any issues related to srsEPC.
-Log files can have multiple verbosity levels, which can be configured in the ``epc.conf`` or through the command line. They can also be enabled on a per-layer capacity, which is usefull when troubleshooting a specific layer.
+By default, log files are stored in ``/tmp/epc.log``. This file can be inspected to troubleshoot any issues related to srsEPC.
+Log files can have multiple verbosity levels, which can be configured in the ``epc.conf`` or through the command line. They can also be enabled on a per-layer capacity, which is useful when troubleshooting a specific layer.
 
-The EPC can also record PCAPs with the S1AP messages between the MME and the eNBs. 
-This can be enabled on the ``epc.conf`` or command line, by setting the ``pcap.enable`` value to true.
-For wireshark to interpret the pcap correctly, it's necessary to associate the Wireshark S1AP dissector and with the value DLT of 150. 
-To use the dissector, go to the preferences in Wireshark and edit DLT_USER to add an entry with DLT=150, Payload Protocol=s1ap.
-
+The srsEPC application supports packet capture (pcap) of S1AP messages between the MME and eNodeBs. Enable packet captures in ``epc.conf`` or on the command line, by setting the ``pcap.enable`` value to true.
+Capture files are created by default at ``/tmp/epc.pcap`` and can be viewed using Wireshark (www.wireshark.org). To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=150, Payload Protocol=s1ap).

@@ -46,8 +46,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'srsEPC'
-copyright = u'2018, Paul Sutton'
-author = u'Paul Sutton'
+copyright = u'2018, Software Radio Systems'
+author = u'Software Radio Systems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -222,7 +222,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'srsEPC.tex', u'srsEPC Documentation',
-     u'Paul Sutton', 'manual'),
+     u'Software Radio Systems', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

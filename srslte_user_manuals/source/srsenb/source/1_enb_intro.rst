@@ -41,7 +41,7 @@ The srsENB LTE eNodeB includes the following features:
 eNodeB architecture
 *******************
 
-.. figure:: .imgs/ENB_Architecture_Basic.svg
+.. figure:: .imgs/enb_basic.svg
     :width: 400px
     :align: center
     :alt: alternate text

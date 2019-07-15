@@ -36,7 +36,7 @@ The srsUE LTE UE includes the following features:
 UE architecture
 ***************
 
-.. figure:: .imgs/UE_Architecture_Basic.svg
+.. figure:: .imgs/ue_basic.svg
     :width: 400px
     :align: center
     :alt: alternate text
