@@ -25,6 +25,13 @@ read.
 
 Both modules shall operate at the same base rate so their bandwidth expectations can be satisfied.
 
+Limitations
+***********
+The UE and the eNodeb have a number of timers specified by the 3GPP. Some of these timers are based on system timers and not in RF based timers. When ZMQ between two computers is used, the baseband throughput is so low that timers expire easily. This cause the UE to frequently fail to attach.
+
+Future work on the eNb and UE sides need to be carried out in order to fully support this opperation reliably.
+
+
 ZeroMQ Installation
 *******************
 The first thing one may try is installing ZeroMQ library using apt-get or equivalent. This may work but I highly
@@ -83,19 +90,19 @@ configuration. In this example, the ue will transmit through the TCP port 5555 a
 
 .. code::
 
-...
-device_name = zmq
-device_args = tx_port=tcp://*:5555,rx_port=tcp://localhost:5554,id=ue,base_srate=23.04e6
-...
+  ...
+  device_name = zmq
+  device_args = tx_port=tcp://*:5555,rx_port=tcp://localhost:5554,id=ue,base_srate=23.04e6
+  ...
 
 On the eNodeB side:
 
 .. code::
 
-...
-device_name = zmq
-device_args = tx_port=tcp://*:5554,rx_port=tcp://localhost:5555,id=enb,base_srate=23.04e6
-...
+  ...
+  device_name = zmq
+  device_args = tx_port=tcp://*:5554,rx_port=tcp://localhost:5555,id=enb,base_srate=23.04e6
+  ...
 
 One may find a bit frustrating the No-RF operation. The main reason for this is the timers implementations. Many timers
 in srsLTE are based on the system timers (i.e. gettimeofday) instead of using the radio as a timer. This causes that the
