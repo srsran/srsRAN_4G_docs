@@ -27,9 +27,10 @@ Both modules shall operate at the same base rate so their bandwidth expectations
 
 Limitations
 ***********
-The UE and the eNodeb have a number of timers specified by the 3GPP. Some of these timers are based on system timers and not in RF based timers. When ZMQ between two computers is used, the baseband throughput is so low that timers expire easily. This cause the UE to frequently fail to attach.
+The UE and the eNodeb have a number of timers specified by the 3GPP. Some of these timers are based on system timers and not in RF based timers. When ZMQ between two computers is used, the baseband throughput is so low that the latency sky-rockets and timers expire easily. This cause the UE to frequently fail to attach.
 
-Future work on the eNb and UE sides need to be carried out in order to fully support this opperation reliably.
+
+Future work on the eNb and UE sides needs to be carried out in order to fully support this opperation reliably.
 
 
 ZeroMQ Installation
