@@ -67,15 +67,14 @@ Finally, you need to compile srsLTE (assuming you have already installed all the
 
 Put extra attention in the cmake console output. Make sure you read the following line:
 
-.. code::
+.. math::
 
-...
--- FINDING ZEROMQ.
--- Checking for module 'ZeroMQ'
---   No package 'ZeroMQ' found
--- Found libZEROMQ: /usr/local/include, /usr/local/lib/libzmq.so
-...
-
+  ...
+  -- FINDING ZEROMQ.
+  -- Checking for module 'ZeroMQ'
+  --   No package 'ZeroMQ' found
+  -- Found libZEROMQ: /usr/local/include, /usr/local/lib/libzmq.so
+  ...
 
 Configuring srsLTE
 ******************
@@ -106,7 +105,7 @@ Despite this handicap, one can tweak the eNodeB for minimising the system timer 
 
 .. code::
 
-...
+  ...
     ue_timers_and_constants =
     {
         t300 = 2000; // in ms
@@ -116,44 +115,43 @@ Despite this handicap, one can tweak the eNodeB for minimising the system timer 
         t311 = 30000; // in ms
         n311 = 10;
     };
-...
-
+  ...
 
 Also, one needs to use a single physical layer thread, configure the ue.conf and the enb.conf:
 
 .. code::
 
-...
-nof_phy_threads      = 1
-...
+  ...
+  nof_phy_threads      = 1
+  ...
 
 Since you may run the UE and the EPC on the same machine, I recommend you setting a virtual machine with the EPC. For
 example, I have a VirtualBox with a Ubuntu server and IP address 192.168.56.101. The epc.conf gpt configuration is:
 
 .. code::
 
-...
-mme_bind_addr = 192.168.56.101
-...
-gtpu_bind_addr   = 192.168.56.101
-...
+  ...
+  mme_bind_addr = 192.168.56.101
+  ...
+  gtpu_bind_addr   = 192.168.56.101
+  ...
 
 At the eNodeB side, the GTP port needs to be configured too:
 
 .. code::
 
-...
-mme_addr = 192.168.56.101
-gtp_bind_addr = 192.168.56.1
-s1c_bind_addr = 192.168.56.1
-...
+  ...
+  mme_addr = 192.168.56.101
+  gtp_bind_addr = 192.168.56.1
+  s1c_bind_addr = 192.168.56.1
+  ...
 
 
 Integrating srsLTE in GNU radio
 *******************************
-
+...
 
 Known issues and future work
 ****************************
-
+...
 
