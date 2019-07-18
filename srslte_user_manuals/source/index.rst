@@ -28,17 +28,17 @@ Get srsLTE installed on your computer:
 
 Read the UE, eNodeB and EPC user manuals:
 
-  - :ref:`UE User Manual <ue_intro>`
-  - :ref:`eNodeB User Manual <enb_intro>`
-  - :ref:`EPC User Manual <epc_intro>`
+- :ref:`UE User Manual <ue_intro>`
+- :ref:`eNodeB User Manual <enb_intro>`
+- :ref:`EPC User Manual <epc_intro>`
   
 Take a look at the source code:
 
-  - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
+- `srsLTE on GitHub <https://github.com/srslte/srslte>`_
 
 Learn about the team behind srsLTE:
 
-  - `Software Radio Systems <https://softwareradiosystems.com>`_
+- `Software Radio Systems <https://softwareradiosystems.com>`_
 
 Links
 ------------
