@@ -22,23 +22,19 @@ All srsLTE software runs in linux with off-the-shelf compute and radio hardware.
 First Steps
 -----------
 
-Get srsLTE installed on your computer:
+| Get srsLTE installed on your computer:
+|   - :ref:`Installation <gen_installation>`
 
-- :ref:`Installation <gen_installation>`
-
-Read the UE, eNodeB and EPC user manuals:
-
-- :ref:`UE User Manual <ue_intro>`
-- :ref:`eNodeB User Manual <enb_intro>`
-- :ref:`EPC User Manual <epc_intro>`
+| Read the UE, eNodeB and EPC user manuals:
+|   - :ref:`UE User Manual <ue_intro>`
+|   - :ref:`eNodeB User Manual <enb_intro>`
+|   - :ref:`EPC User Manual <epc_intro>`
   
-Take a look at the source code:
+| Take a look at the source code:
+|   - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
 
-- `srsLTE on GitHub <https://github.com/srslte/srslte>`_
-
-Learn about the team behind srsLTE:
-
-- `Software Radio Systems <https://softwareradiosystems.com>`_
+| Learn about the team behind srsLTE:
+|   - `Software Radio Systems <https://softwareradiosystems.com>`_
 
 Links
 ------------

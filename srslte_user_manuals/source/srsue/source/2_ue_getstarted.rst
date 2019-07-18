@@ -68,7 +68,14 @@ The UE can be configured through the configuration file: ``ue.conf``. This confi
 
 All parameters specified in the configuration file can also be overwritten on the command line. For example, to run the UE with a different EARFCN, use ``sudo srsue ~/.config/srslte/ue.conf --rf.dl_earfcn 3350``.
 
-.. warning:: TODO - Authentication and security
+By default, srsUE uses a virtual USIM card, with parameters from ``ue.conf``. These parameters are:
+
+  - ALGO - the authentication algorithm to use (MILENAGE or XOR)
+  - IMSI - the unique identifier of the USIM
+  - K - the secret key shared with the HSS in the EPC
+  - OP or OPc - the Operator Code (only used with MILENAGE algorithm)
+
+To connect successfully to a network, these parameters will need to match those in the HSS of the EPC. MILENAGE is the algorithm used in most networks, the XOR algorithm is used primarily by test equipment and test USIM cards. OP is the network-wide operator code and OPc is the USIM-specific encrypted operator code - both are supported by srsUE.
 
 
 Hardware Setup
