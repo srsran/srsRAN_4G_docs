@@ -1,3 +1,5 @@
+.. _epc_getstarted:
+
 Getting Started
 ===============
 

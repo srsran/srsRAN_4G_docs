@@ -4,13 +4,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsLTE User Manual
-==================
+srsLTE Documentation
+====================
 
-What is srsLTE?
----------------
-
-srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build a complete end-to-end 4G mobile network.
+srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network. 
 
 .. image:: .imgs/srs_architecture.png
 
@@ -22,37 +19,39 @@ The srsLTE suite includes:
 
 All srsLTE software runs in linux with off-the-shelf compute and radio hardware.
 
-Install the latest srsLTE release on Ubuntu::
+First Steps
+-----------
 
-   $ sudo add-apt-repository ppa:srslte/releases
-   $ sudo apt-get update
-   $ sudo apt-get install srslte -y
+Get srsLTE installed on your computer:
 
-Source
-------
+- :ref:`Installation <gen_installation>`
 
-| The srsLTE source code is available on `GitHub <https://github.com/srslte/srslte>`_.
-| srsLTE is developed and maintained by `Software Radio Systems <https://softwareradiosystems.com>`_.
+Read the UE, eNodeB and EPC user manuals:
 
-User Manuals
+  - :ref:`UE User Manual <ue_intro>`
+  - :ref:`eNodeB User Manual <enb_intro>`
+  - :ref:`EPC User Manual <epc_intro>`
+  
+Take a look at the source code:
+
+  - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
+
+Learn about the team behind srsLTE:
+
+  - `Software Radio Systems <https://softwareradiosystems.com>`_
+
+Links
 ------------
 
 .. toctree::
    :maxdepth: 1
 
+   general/source/index.rst
    srsue/source/index.rst
-
-
-.. toctree::
-   :maxdepth: 1
-
    srsenb/source/index.rst
-
-
-.. toctree::
-   :maxdepth: 1
-
    srsepc/source/index.rst
+
+
 
 
 

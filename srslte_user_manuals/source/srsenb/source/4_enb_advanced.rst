@@ -1,3 +1,5 @@
+.. _enb_advanced:
+
 Advanced Usage
 ==============
 

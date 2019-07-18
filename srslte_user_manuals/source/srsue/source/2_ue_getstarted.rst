@@ -1,3 +1,5 @@
+.. _ue_getstarted:
+
 Getting Started
 ===============
 

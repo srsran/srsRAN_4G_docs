@@ -1,3 +1,5 @@
+.. _ue_advanced:
+
 Advanced Usage
 ==============
 

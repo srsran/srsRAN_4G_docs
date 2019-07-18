@@ -1,0 +1,126 @@
+.. _gen_release_notes:
+
+Release Notes
+=============
+
+- 19.03
+
+  * PHY library refactor
+  * TDD support for srsUE
+  * Carrier Aggregation support for srsUE
+  * Paging support for srsENB and srsEPC
+  * User-plane encryption for srsENB
+  * Channel simulator for EPA, EVA, and ETU 3GPP channels
+  * ZeroMQ-based fake RF driver for I/Q over IPC/network
+  * Many bug-fixes and improved stability and performance in all parts
+
+
+* 18.12
+
+  * Add new RRC ASN1 message pack/unpack library
+  * Refactor EPC and add encryption support
+  * Add IPv6 support to srsUE
+  * Fixed compilation issue for ARM and AVX512
+  * Add clang-format file
+  * Many bug-fixes and improved stability and performance in all parts
+
+- 18.09
+
+  * Improved Turbo Decoder performance
+  * Configurable SGi interface name and M1U params
+  * Support for GPTU echo mechanism
+  * Added UE detach capability
+  * Refactor RLC/PDCP classes
+  * Various fixes for ARM-based devices
+  * Added support for bladeRF 2.0 micro
+  * Many bug-fixes and improved stability and performance in all parts
+
+* 18.06.1
+
+  * Fixed RLC reestablish
+  * Fixed aperiodic QCI retx
+  * Fixed eNB instability
+  * Fixed Debian packaging
+
+- 18.06
+
+  * Added eMBMS support in srsUE/srsENB/srsEPC
+  * Added support for hard SIM cards
+  * Many bug-fixes and improved stability and performance in all parts
+
+* 18.03.1
+
+  * Fixed compilation for NEON
+  * Fixed logging and RLC AM issue
+
+- 18.03
+
+  * Many bug-fixes and improved stability and performance in all parts
+
+* 17.12
+
+  * Added support for MIMO 2x2 in srsENB (i.e. TM3/TM4)
+  * Added srsEPC, a light-weight core network implementation
+  * Added support for X2/S1 handover in srsUE
+  * Added support for user-plane encryption in srsUE
+  * Many bug-fixes and improved stability and performance in srsUE/srsENB
+
+- 17.09
+
+  * Added MIMO 2x2 in the PHY layer and srsUE (i.e. TM3/TM4)
+  * eMBMS support in the PHY layer
+  * Many bug-fixes and improved stability and performance in srsUE/srsENB
+
+* 002.000.000
+
+  * Added fully functional srsENB to srsLTE code
+  * Merged srsUE code into srsLTE and reestructured PHY code 
+  * Added support for SoapySDR devices (eg LimeSDR)
+  * Fixed issues in RLC AM 
+  * Added support for NEON and AVX in many kernels and Viterbi decoder
+  * Added support for CPU affinity
+  * Other minor bug-fixes and new features 
+
+- 001.004.000
+
+  * Fixed issue in rv for format1C causing incorrect SIB1 decoding in some networks
+  * Improved PDCCH decoding BER (fixed incorrect trellis initialization)
+  * Improved PUCCH RX performance
+
+* 001.003.000
+
+  * Bugfixes: 
+    
+    * x300 master clock rate
+    * PHICH: fixed bug causing more NACKs
+    * PBCH: fixed bug in encoding function
+    * channel estimation: fixed issue in time interpolation
+    * DCI: Fixed bug in Format1A packing
+    * DCI: Fixed bug in Format1C for RA-RNTI
+    * DCI: Fixed overflow in MIMO formats
+  
+  * Improvements: 
+    
+    * Changed and cleaned DCI blind search API
+    * Added eNodeB PHY processing functions
+
+- 001.002.000
+
+  * Bugfixes: 
+  
+    * Estimation of extrapolated of out-of-band carriers 
+    * PDCCH REG interleaving for certain cell IDs
+    * MIB decoding 
+    * Overflow in viterbi in PBCH
+
+  * Improvements: 
+  
+    * Synchronization in long multipath channels
+    * Better calibration of synchronization and estimation
+    * Averaging in channel estimation
+    * Improved 2-port diversity decoding
+
+
+* 001.001.000
+
+  * Added support for BladeRF

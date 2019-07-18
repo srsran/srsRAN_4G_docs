@@ -1,3 +1,5 @@
+.. _enb_getstarted:
+
 Getting Started
 ===============
 

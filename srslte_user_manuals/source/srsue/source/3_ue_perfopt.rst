@@ -1,3 +1,4 @@
+.. _ue_perfopt:
 
 Performance Optimization
 ========================

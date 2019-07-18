@@ -7,7 +7,6 @@
 SRS UE User Manual
 ==================
 
-
 .. toctree::
    :maxdepth: 2
 

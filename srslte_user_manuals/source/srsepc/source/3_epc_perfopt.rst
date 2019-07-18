@@ -1,3 +1,4 @@
+.. _epc_perfopt:
 
 Performance Optimization
 ========================
