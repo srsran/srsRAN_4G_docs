@@ -3,6 +3,8 @@
 Introduction
 ============
 
+.. image:: .imgs/srsenb_logo.png
+
 Overview
 ********
 

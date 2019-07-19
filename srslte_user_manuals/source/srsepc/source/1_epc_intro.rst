@@ -3,6 +3,8 @@
 Introduction
 ============
 
+.. image:: .imgs/srsepc_logo.png
+
 Overview
 ********
 
