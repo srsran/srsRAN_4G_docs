@@ -7,33 +7,49 @@ UE did not attach
 +++++++++++++++++
 
 If the UE could not attach it is important to see at what point the attach procedure broke down.
-The easiest way to do this is to inspect the NAS messages on the EPC PCAP.
+The easiest way to do this is to inspect the NAS messages on the EPC PCAP. See the :ref:`observing_res` section for instructions on how to obtain a PCAP from srsEPC.
 
-In the subsections below, some instructions on how to troubleshoot the most common causes of attach failure and some instructions on how to resolve them can be found. 
+In the subsections below, some instructions on how to troubleshoot the most common causes of attach failure and some instructions on how to resolve them can be found.
 
 Authentication failure
 ----------------------
 
-The most common case of attach failure is authentication failure. In LTE, the UE must authenticate the network, and for that there are four important parameters that must be configured correctly both at the UE and the HSS.
+The most common case of attach failure is authentication failure. In LTE, not only the network must authenticate the UE, but the UE must also authenticate the network.
+For that there is an authentication procedure as part of the attach procedure.
 
-Unkown UE
----------
+An simplified illustration of the messages involved in the authentication procedure can be found bellow:
+
+.. seqdiag::
+
+   seqdiag {
+     === User Authentication Procedure ===
+     UE -> MME [label = "Attach Request, PDN Connection Request"];
+           MME -> HSS [label = "Auth Info Request (IMSI)"];
+           MME <- HSS [label = "Auth Info Answer (Kasme, AUTN, RAND, XRES)"]
+     UE <- MME [label = "NAS Authentication Request"];
+     UE -> MME [label = "Authentication Response (RES)", note = "MME compares RES with XRES"];
+  }
+
+If when the MME compares the RES and XRES values and they do not match, that means that the parameters used to generate those values do not match.
+
+There are four important parameters that must be configured correctly both at the UE and the HSS: the IMSI, the authentication algorithm, the UE key, and OP/OPc.
+If you misconfigure your IMSI, you will see an `User not found. IMSI <Your_IMSI>` message in the epc.log. If you misconfigure the other parameters, you will see a "NAS Authentication Failure" message in the epc.pcap, with the failure code "MAC Code Failure."
+
+Instructions on how to configure these parameters can be found in the :ref:`config_csv` section.
 
 Mismatched APN
 --------------
 
-UE can ping SPGW, but has no Internet access
-++++++++++++++++++++++++++++++++++++++++++++
+Within the attach procedure, the UEs sends an APN setting, either in the "PDN connectivity request" message or in the "ESM information transfer" message.
+It is necessary that the configuration of the APN in the UE and the EPC match. Important parameters to check are the APN name, the PDN type (must be IPv4), and that no PAP/CHAP authentication is being used.
 
-If the UE can ping the SPGW, that means that the attach procedure went well and that the UE was able to obtain the IP.
+In srsUE you can configure these parameters in the NAS section of the ue.conf.
+If using a COTS UE, go to your APN settings and make sure that the APN configured in the UE matches the one configured in the EPC.
 
-That means that not being able to access the Internet is a problem not with srsLTE, but with the networking configuration of the system.
+I cannot access the Internet
+++++++++++++++++++++++++++++
 
-IP forwarding
--------------
+If the UE attached successfully and can ping the SPGW, that means that the attach procedure went well and that the UE was able to obtain the IP.
 
-IP Masquerading
----------------
-
-DNS not working
----------------
+That means that not being able to access the Internet is a problem not with srsLTE, but with the network configuration of the system.
+The most likely issue is that, by default, Linux will not forward packets from one subnet to another. See the :ref:`connecting_to_net` section on how to enable IP packet forwarding in Linux.
