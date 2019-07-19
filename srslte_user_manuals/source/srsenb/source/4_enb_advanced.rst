@@ -6,6 +6,10 @@ Advanced Usage
 MIMO
 ****
 
+.. warning::
+
+  TBA
+
 eMBMS
 *****
 
@@ -61,7 +65,9 @@ Traffic should make its way over the MBMS multicast link and arrive at the iperf
 Carrier Aggregation
 *******************
 
-TDD
-***
+.. warning::
+
+
+  TBA
 
 

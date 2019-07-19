@@ -3,6 +3,8 @@
 Introduction
 ============
 
+.. image:: .imgs/srsue_logo.png
+
 Overview
 ********
 

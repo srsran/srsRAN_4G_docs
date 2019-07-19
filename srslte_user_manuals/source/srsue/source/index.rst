@@ -16,7 +16,6 @@ SRS UE User Manual
    4_ue_advanced.rst
    5_ue_configref.rst
    6_ue_commandref.rst
-   7_ue_logfileref.rst
 
 
 
