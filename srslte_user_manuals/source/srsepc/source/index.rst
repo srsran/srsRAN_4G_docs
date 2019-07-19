@@ -13,7 +13,7 @@ SRS EPC User Manual
 
    1_epc_intro.rst
    2_epc_getstarted.rst
-   3_epc_perfopt.rst
+   3_epc_trouble.rst
    4_epc_advanced.rst
    5_epc_configref.rst
 

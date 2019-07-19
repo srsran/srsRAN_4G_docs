@@ -13,7 +13,7 @@ SRS eNodeB User Manual
 
    1_enb_intro.rst
    2_enb_getstarted.rst
-   3_enb_perfopt.rst
+   3_enb_trouble.rst
    4_enb_advanced.rst
    5_enb_configref.rst
    6_enb_commandref.rst

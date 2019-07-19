@@ -1,10 +1,7 @@
-.. _enb_perfopt:
-
-Performance Optimization
-========================
+.. _enb_trouble:
 
 Troubleshooting
-***************
+========================
 
 .. warning::
 

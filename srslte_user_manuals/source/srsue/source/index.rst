@@ -12,7 +12,7 @@ SRS UE User Manual
 
    1_ue_intro.rst
    2_ue_getstarted.rst
-   3_ue_perfopt.rst
+   3_ue_trouble.rst
    4_ue_advanced.rst
    5_ue_configref.rst
    6_ue_commandref.rst
