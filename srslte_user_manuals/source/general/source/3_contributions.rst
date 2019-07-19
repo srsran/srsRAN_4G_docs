@@ -19,7 +19,7 @@ The agreements used by the srsLTE project are standard documents provided by Pro
 2. How do I complete and submit the CLA?
 ----------------------------------------
 
-The srsLTE CLAs can be found [here](http://www.softwareradiosystems.com/files/cla/). Download the appropriate CLA, then print, sign and scan the document before sending by email to licensing@softwareradiosystems.com. 
+The srsLTE CLAs can be found `here <http://www.softwareradiosystems.com/files/cla/>`_. Download the appropriate CLA, then print, sign and scan the document before sending by email to licensing@softwareradiosystems.com.
 
 
 3. How will my contributions to srsLTE be used?
