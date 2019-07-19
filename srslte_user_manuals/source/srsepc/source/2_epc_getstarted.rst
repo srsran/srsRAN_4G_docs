@@ -37,6 +37,9 @@ This will include IMSI, authentication algorithms, K, OP or OPc, etc.
 
 In the following subsections, we will cover a few common configuration cases with srsEPC: adding a new UE to the HSS database, running the eNB and EPC on separate machines, and setting up network routing to enable UEs to connect to the Internet.
 
+
+.. _config_csv:
+
 Adding an UE to HSS database
 ++++++++++++++++++++++++++++
 
@@ -76,6 +79,8 @@ So if you want to listen to eNB on the interface with IP *10.0.1.10*, you can do
 
   sudo srsepc --mme.mme_bind_addr 10.0.1.10 --spgw.gtpu_bind_addr 10.0.1.10
 
+.. _connecting_to_net:
+
 Connecting UEs to the Internet 
 ++++++++++++++++++++++++++++++
 
@@ -86,6 +91,8 @@ To enable this, you can run a convenience script ``sudo srsepc_if_masq <out_inte
 .. warning::
 
   *out_interface* is NOT the *srs_spgw_sgi* interface, but the Ethernet or WiFi ethernet that connects the PC to the Internet.
+
+.. _observing_res:
 
 Observing results
 *****************
