@@ -64,30 +64,32 @@ the config file or by passing the option as an command line argument, e.g., run:
 
 eMBMS
 *****
-Multimedia Broadcast Multicast Services (eMBMS) is the broadcast mode of LTE. Using eMBMS, an eNodeB can efficiently broadcast the same data to all users attached to the cell.
+
+`Multimedia Broadcast Multicast Services (eMBMS) <https://www.sharetechnote.com/html/Handbook_LTE_MBSFN.html>`_ is the broadcast mode of LTE. Using eMBMS, an eNodeB can efficiently broadcast the same data to all users attached to the cell.
 
 
-* Setup:
+Setup:
+------
 
-For the UE, the presence of an eMBMS transmission will be automatically detected from the SIBs and subsequently the MCCH present in the signal. To activate the service present in the UE, the following parameter is set::
+For the UE, the presence of an eMBMS transmission will be automatically detected from the SIBs and the MCCH present in the downlink signal. To receive an active eMBMS service, the following parameter is set in ``ue.conf``::
 
   rrc.mbms_service_id = 0
 
-Note if you set your service id to a value besides 0 in the eNodeB, use that number for this parameter too.
+Note this service id must match the service id in use by the network.
 
-Additionally, there are also a number of settings that need to be altered to order to have good eMBMS functionality, specifically::
+In addition, we recommend the following expert settings for best performance with eMBMS::
 
   phy.interpolate_subframe_enabled = true
   phy.sub_estim_alg = empty
   phy.nof_phy_threads = 2
 
-Once all these configurations have been made, your network should be ready to run eMBMS.
+Once all these configurations have been made, your UE should be ready to run eMBMS.
 
 
-* Usage:
+Usage:
+------
 
-
-Once you have run srsue with an eMBMS enabled eNodeB you should see an output like this at the terminal of the UE::
+Upon running srsUE with an eMBMS enabled eNodeB you should see an output like this at the terminal of the UE::
 
 
   Searching cell in DL EARFCN=3400, f_dl=2685.0 MHz, f_ul=2565.0 MHz
@@ -101,22 +103,20 @@ Once you have run srsue with an eMBMS enabled eNodeB you should see an output li
   Software Radio Systems LTE (srsLTE)
 
 
-the "MBMS service started. Service id:0, port: 4321" indicates the eMBMS service has successfully started.
+the ``MBMS service started. Service id:0, port: 4321`` indicates the eMBMS service has successfully started.
 
-To test it run the following:
+To test the eMBMS service with live data, we can use `Iperf <https://en.wikipedia.org/wiki/Iperf>`_. First, add a route to the UE and start an iperf server::
 
-At mbms gateway::
+  sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev tun_srsue
+  iperf -s -u -B 239.255.1.1 -i 1
 
- sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev sgi_mb
- iperf -u -c 239.255.1.1 -b 10M -T 64 -t 60
+Then, use the iperf client to generate broadcast data. If you are using srsENB/srsEPC with the MBMS gateway, use the following at the MBMS gateway::
 
-At the UE::
-
- sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev tun_srsue
- iperf -s -u -B 239.255.1.1 -i 1
+  sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev sgi_mb
+  iperf -u -c 239.255.1.1 -b 10M -T 64 -t 60
 
 
-Traffic should make its way over the MBMS multicast link and arrive at the iperf server.
+Traffic should make its way over the MBMS multicast link and arrive at the iperf server on the UE.
 
 
 Carrier Aggregation
