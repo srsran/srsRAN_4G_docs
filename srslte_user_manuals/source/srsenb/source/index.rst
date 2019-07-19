@@ -17,7 +17,6 @@ SRS eNodeB User Manual
    4_enb_advanced.rst
    5_enb_configref.rst
    6_enb_commandref.rst
-   7_enb_logfileref.rst
 
 
 
