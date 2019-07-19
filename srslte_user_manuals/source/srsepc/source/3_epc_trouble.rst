@@ -11,13 +11,15 @@ UE did not attach
 If the UE could not attach it is important to see at what point the attach procedure broke down.
 The easiest way to do this is to inspect the NAS messages on the EPC PCAP. See the :ref:`observing_res` section for instructions on how to obtain a PCAP from srsEPC.
 
-In the subsections below, some instructions on how to troubleshoot the most common causes of attach failure and some instructions on how to resolve them can be found.
+The most common reasons for an attach failure are either an :ref:`auth_failure` or a :ref:`mismatch_apn`. Some instructions on addressing these issues can be found on the subsections below.
+
+.. _auth_failure:
 
 Authentication failure
 ----------------------
 
 The most common case of attach failure is authentication failure. In LTE, not only the network must authenticate the UE, but the UE must also authenticate the network.
-For that there is an authentication procedure as part of the attach procedure.
+For that reason, there is an authentication procedure within the attach procedure.
 
 An simplified illustration of the messages involved in the authentication procedure can be found bellow:
 
@@ -32,12 +34,14 @@ An simplified illustration of the messages involved in the authentication proced
      UE -> MME [label = "Authentication Response (RES)", note = "MME compares RES with XRES"];
   }
 
-If when the MME compares the RES and XRES values and they do not match, that means that the parameters used to generate those values do not match.
+If when the MME compares the RES and XRES and these values do not match, that means that the keys used to generate those values are different and authentication fails.
 
-There are four important parameters that must be configured correctly both at the UE and the HSS: the IMSI, the authentication algorithm, the UE key, and OP/OPc.
+For authentication, there are four important parameters that must be configured correctly both at the UE and the HSS: the IMSI, the authentication algorithm, the UE key and OP/OPc.
 If you misconfigure your IMSI, you will see an `User not found. IMSI <Your_IMSI>` message in the epc.log. If you misconfigure the other parameters, you will see a "NAS Authentication Failure" message in the epc.pcap, with the failure code "MAC Code Failure."
 
 Instructions on how to configure these parameters can be found in the :ref:`config_csv` section.
+
+.. _mismatch_apn:
 
 Mismatched APN
 --------------
