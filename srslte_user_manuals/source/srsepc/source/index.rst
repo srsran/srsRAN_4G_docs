@@ -16,7 +16,6 @@ SRS EPC User Manual
    3_epc_perfopt.rst
    4_epc_advanced.rst
    5_epc_configref.rst
-   6_epc_commandref.rst
 
 
 

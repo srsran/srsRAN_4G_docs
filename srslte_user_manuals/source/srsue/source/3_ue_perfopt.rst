@@ -3,13 +3,6 @@
 Performance Optimization
 ========================
 
-Troubleshooting
-***************
-
-- Failure to detect network
-- Failure to attach
-- Failure to transmit/receive dat
-
 RF Configuration
 ****************
 
@@ -57,10 +50,28 @@ At the receiver side, an Automatic Gain Control (AGC) module is activated when t
 
 When transmitting, the srsUE application provides a radio signal to the front-end and specifies the time at which the signal should be transmitted. Typically, an RF front-end will have a small fixed timing offset caused by delays in the RF chain. This offset is usually in the order of microseconds and can vary between different devices. To calibrate this offset, it is possible to use the *time_adv_nsamples* parameter. This compensates the delay and will ensure that the UE transmits at the correct time.
 
+Troubleshooting
+***************
+
+.. warning::
+
+  TBA
+
+- Failure to detect network
+- Failure to attach
+- Failure to transmit/receive dat
 
 Peak Throughput
 ***************
 
+.. warning::
+
+  TBA
+
 Handover
 ********
+
+.. warning::
+
+  TBA
 

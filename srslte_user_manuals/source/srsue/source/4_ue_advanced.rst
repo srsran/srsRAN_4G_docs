@@ -3,11 +3,6 @@
 Advanced Usage
 ==============
 
-MIMO
-****
-
-
-
 External USIM
 *************
 
@@ -66,8 +61,7 @@ the config file or by passing the option as an command line argument, e.g., run:
 
     $ ./srsue/src/srsue --usim.mode=pcsc
 
-eMBMS
-*****
+
 
 Carrier Aggregation
 *******************
@@ -124,9 +118,6 @@ If using more than one RF front-end, one can use *device_args_2* for the second 
   #device_args_2 = auto
   ...
 
-
-TDD
-***
 
 Channel Emulator
 ****************
@@ -200,3 +191,24 @@ The following example enables the RLF simulator for having 2 seconds of blackout
   ...
 
 
+MIMO
+****
+
+.. warning::
+
+  TBA
+
+
+TDD
+***
+
+.. warning::
+
+  TBA
+
+eMBMS
+*****
+
+.. warning::
+
+  TBA

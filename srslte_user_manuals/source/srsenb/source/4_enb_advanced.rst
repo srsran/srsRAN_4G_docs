@@ -6,13 +6,15 @@ Advanced Usage
 MIMO
 ****
 
+.. warning::
+
+  TBA
+
 eMBMS
 *****
 
-Carrier Aggregation
-*******************
+.. warning::
 
-TDD
-***
+  TBA
 
 
