@@ -3,6 +3,10 @@
 Contributions
 =============
 
+Contributions to the srsLTE software suite are always welcome. To easiest way to contribute is by issuing a pull request on the `srsLTE repository <https://github.com/srsLTE/srsLTE>`_. We use clang-format to maintain consistent code style - see our `default format <https://github.com/srsLTE/srsLTE/blob/master/.clang-format>`_.
+
+We ask srsLTE contributors to agree to a Copyright License Agreement. This provides us with necessary permissions to use contributed code. For more information, see the FAQ below. Viewing and accepting the CLA agreement is integrated into the GitHub pull request workflow using `CLAassistant <https://cla-assistant.io/>`_.
+
 FAQ
 ***
 
