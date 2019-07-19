@@ -3,6 +3,8 @@
 Troubleshooting
 ===============
 
+This section describes some of the most common issues with srsEPC and how to troubleshoot them.
+
 UE did not attach
 +++++++++++++++++
 
