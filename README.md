@@ -1,5 +1,5 @@
 # srsLTE_docs
-Documentation for the srsLTE project
+Documentation for the srsLTE project - see docs.srslte.com.
 
 # Local Installation 
 
