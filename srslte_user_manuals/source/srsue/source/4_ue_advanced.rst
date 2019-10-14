@@ -162,8 +162,7 @@ For UHD driver (x310, b210, b200mini and so on) the *device_name* shall be set t
 - *tx_subdev_spec*: transmitter sub-device specification according to Ettus Research documentation.
 - *rx_subdev_spec*: receiver sub-device specification according to Ettus Research documentation.
 
-If using more than one RF front-end, one can use *device_args_2* for the second device and *device_args_3* for a third one.
-
+If using more than one RF front-end, one can use *device_args_2* for the second device and *device_args_3* for a third one. 
 
 .. code::
 
@@ -173,6 +172,8 @@ If using more than one RF front-end, one can use *device_args_2* for the second 
   #device_args_1 = auto
   #device_args_2 = auto
   ...
+
+*IMPORTANT: if two UHD devices are used, the serial number or IP address shall be indicated in the device arguments. Otherwise, UHD may try to open twice the same device*
 
 
 Channel Emulator
@@ -246,13 +247,20 @@ The following example enables the RLF simulator for having 2 seconds of blackout
   dl.rlf.t_off_ms     = 2000
   ...
 
-
 MIMO
 ****
 
-.. warning::
+The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user can select the number of select antennas in the ``ue.conf``::
 
-  TBA
+.. code::
+
+  ...
+  [rf]
+  ...
+  nof_rx_ant = 2
+  ...
+
+Do you want to attach to a 2 port eNb and you have only one receive channel? No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage of spatial multiplexing and it will not acheive the maximum throughput.
 
 
 TDD
