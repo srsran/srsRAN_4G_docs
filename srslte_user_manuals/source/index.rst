@@ -8,6 +8,7 @@ srsLTE Documentation
 ====================
 
 srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network. 
+For more information, see `www.srslte.com <https://www.srslte.com>`_. 
 
 .. image:: .imgs/srs_architecture.png
 
