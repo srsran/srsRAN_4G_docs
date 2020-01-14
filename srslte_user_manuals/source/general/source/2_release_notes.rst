@@ -3,7 +3,21 @@
 Release Notes
 =============
 
+- 19.12
+
+  * Add 5G NR RRC and NGAP ASN1 packing/unpacking
+  * Add sync routines and broadcast channel for Sidelink
+  * Add cell search and MIB decoder for NB-IoT
+  * Add PDCP discard
+  * Improve RRC Reestablishment handling
+  * Improve RRC cell measurements and procedure handling
+  * Add multi-carrier and MIMO support to ZMQ radio
+  * Refactor eNB scheduler to support multiple carriers
+  * Apply clang-format style on entire code base
+  * Other bug-fixes and improved stability and performance in all parts
+
 - 19.09
+
   * Add initial support for NR in MAC/RLC/PDCP
   * Add sync code for NB-IoT
   * Add support for EIA3/EEA3 (i.e. ZUC)
