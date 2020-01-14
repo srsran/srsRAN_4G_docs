@@ -3,7 +3,7 @@
 Release Notes
 =============
 
-- 19.12
+* 19.12
 
   * Add 5G NR RRC and NGAP ASN1 packing/unpacking
   * Add sync routines and broadcast channel for Sidelink
@@ -28,14 +28,13 @@ Release Notes
   * Fixes in ZMQ, bladeRF and Soapy RF modules
   * Other bug-fixes and improved stability and performance in all parts
 
-- 19.06
+* 19.06
 
   * Add QAM256 support in srsUE
   * Add QoS support in srsUE
   * Add UL channel emulator
   * Refactor UE and eNB architecture
   * Many bug-fixes and improved stability and performance in all parts
-
 
 - 19.03
 
@@ -47,7 +46,6 @@ Release Notes
   * Channel simulator for EPA, EVA, and ETU 3GPP channels
   * ZeroMQ-based fake RF driver for I/Q over IPC/network
   * Many bug-fixes and improved stability and performance in all parts
-
 
 * 18.12
 
