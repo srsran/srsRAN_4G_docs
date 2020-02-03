@@ -15,20 +15,6 @@ With srsLTE this can be achieved by replacing the radio link between eNodeB and 
 exchange baseband IQ samples over an alternative transport. For this purpose, we've implemented a ZeroMQ-based RF driver that
 essentially acts as a transmit and receive pipe for exchanging IQ samples over TCP or IPC.
 
-#ZeroMQ has different modes of operation, srsLTE uses Request/Reply mode. The ZMQ module has two entities, a transmitter
-#as a repeater and as a requester. The receiver will asynchronously send requests for data to the transmitter and this
-#will reply with base-band samples. Consequently, the receiver will store the received data in a buffer, waiting to be
-#read.
-
-#Both modules shall operate at the same base rate so their bandwidth expectations can be satisfied.
-
-Limitations
-***********
-The UE and the eNodeb have a number of timers specified by the 3GPP. Some of these timers are based on system timers and not in RF based timers. When ZMQ between two computers is used, the baseband throughput is so low that the latency sky-rockets and timers expire easily. This cause the UE to frequently fail to attach.
-
-
-Future work on the eNb and UE sides needs to be carried out in order to fully support this opperation reliably.
-
 
 ZeroMQ Installation
 *******************
@@ -99,14 +85,14 @@ from the EPC's subnet, the Linux kernel would bypass the TUN interfaces when
 routing traffic between both ends. Therefore, we create a separate
 network namespace (netns) that the UE uses to create it's TUN interface in. 
 
-Let's start with creating a new network namespace called "lte1" for the (first) UE:
+Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
 .. code::
 
-  sudo ip netns add lte1
+  sudo ip netns add ue1
 
 
-To verify the new "lte1" netns exists, run:
+To verify the new "ue1" netns exists, run:
 
 .. code::
   sudo ip netns list
@@ -127,14 +113,14 @@ launched without root permissions.
 
 .. code::
 
-  ./srsenb/src/srsenb --rf.device_name=zmq --rf.device_args="tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6" --expert.nof_phy_threads=1
+  ./srsenb/src/srsenb --rf.device_name=zmq --rf.device_args="fail_on_disconnect=true,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6" --expert.nof_phy_threads=1
 
 
 Lastly we can launch the UE, again with root permissions to create the TUN device.
 
 .. code::
 
-  sudo ./srsue/src/srsue --rf.device_name=zmq --rf.device_args="tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6" --gw.netns=lte1 --phy.nof_phy_threads=1
+  sudo ./srsue/src/srsue --rf.device_name=zmq --rf.device_args="tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6" --gw.netns=ue1 --phy.nof_phy_threads=1
 
 
 The last command should start the UE and attach it to the core network.
@@ -152,11 +138,18 @@ In order to generate traffic in the uplink direction it is important to run the 
 in the UE's network namespace. 
 
 .. code::
-  sudo ip netns exec lte1 ping 172.160.0.1
+  sudo ip netns exec ue1 ping 172.160.0.1
 
 
-Known issues and future work
-****************************
+After finishing, make sure to remove the netns again.
 
-* The eNB needs to be started before the UE
-* The eNB needs to be restarted after the UE has been killed
+.. code:
+  sudo ip netns delete u1
+
+
+Known issues
+************
+
+* For a clean tear down, the UE needs to be terminated first, then the eNB.
+* eNB and UE can only run once, after the UE has been detached, the eNB needs to be restarted.
+* We currently only support a single eNB and a single UE.
