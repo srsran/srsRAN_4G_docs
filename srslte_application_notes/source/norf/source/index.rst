@@ -65,7 +65,7 @@ Finally, you need to compile srsLTE (assuming you have already installed all the
 
 Put extra attention in the cmake console output. Make sure you read the following line:
 
-.. math::
+.. code::
 
   ...
   -- FINDING ZEROMQ.
@@ -95,6 +95,7 @@ Let's start with creating a new network namespace called "ue1" for the (first) U
 To verify the new "ue1" netns exists, run:
 
 .. code::
+  
   sudo ip netns list
 
 
@@ -138,12 +139,14 @@ In order to generate traffic in the uplink direction it is important to run the 
 in the UE's network namespace. 
 
 .. code::
+
   sudo ip netns exec ue1 ping 172.160.0.1
 
 
 After finishing, make sure to remove the netns again.
 
-.. code:
+.. code::
+
   sudo ip netns delete u1
 
 
