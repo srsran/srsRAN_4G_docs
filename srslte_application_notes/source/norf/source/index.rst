@@ -7,9 +7,9 @@ SRS No RF Application note
 Introduction
 ************
 srsLTE is a full end-to-end LTE solution comprising a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
-are used in conjunction with actual RF front-ends for over-the-air transmissions. There are, however, a number
+are used with actual RF front-ends for over-the-air transmissions. There are, however, a number
 of use-cases for which RF front-ends might not be needed or wanted. Those use-cases include (but are not limited to) the
-use of srsLTE for educational or research purposes, continues integration and delivery (CI/CD) or development and debugging.
+use of srsLTE for educational or research purposes, continuous integration and delivery (CI/CD) or development and debugging.
 
 With srsLTE this can be achieved by replacing the radio link between eNodeB and UE with a machanism that allows to
 exchange baseband IQ samples over an alternative transport. For this purpose, we've implemented a ZeroMQ-based RF driver that
