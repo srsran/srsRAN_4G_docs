@@ -1,7 +1,9 @@
-.. srsLTE No RF Application Note
+.. srsLTE ZeroMQ Application Note
 
-SRS No RF Application note
-==========================
+.. _zeromq_appnote:
+
+ZeroMQ Application note
+===========================
 
 
 Introduction

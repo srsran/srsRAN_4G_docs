@@ -30,6 +30,9 @@ First Steps
 |   - :ref:`UE User Manual <ue_intro>`
 |   - :ref:`eNodeB User Manual <enb_intro>`
 |   - :ref:`EPC User Manual <epc_intro>`
+
+| Read the srsLTE Application Notes:
+|   - :ref:`Application Notes <app_notes>`
   
 | Take a look at the source code:
 |   - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
@@ -47,6 +50,7 @@ Links
    srsue/source/index.rst
    srsenb/source/index.rst
    srsepc/source/index.rst
+   app_notes/source/index.rst
 
 
 

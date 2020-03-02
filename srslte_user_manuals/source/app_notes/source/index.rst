@@ -1,3 +1,4 @@
+.. _app_notes:
 
 .. srsLTE documentation master file, created by
    sphinx-quickstart on Dec 13 2018.
@@ -12,13 +13,16 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 
 .. image:: .imgs/srs_architecture.png
 
+| Use srsLTE without RF hardware in the loop:
+|   - :ref:`ZeroMQ Application Note <zeromq_appnote>`
+
 Links
 ------------
 
 .. toctree::
    :maxdepth: 1
 
-   norf/source/index.rst
+   zeromq/source/index.rst
 
 
 
