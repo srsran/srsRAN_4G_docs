@@ -17,7 +17,7 @@ When using an RF front-end, the *dl_earfcn* field in ``ue.conf`` should be popul
   #ul_earfcn = 21400
   ...
 
-In some cases, one may use some custom bands which do not mach with any EARFCN. In these cases, the downlink and uplink frequencies can be forced by setting *dl_frequency* and *ul_frequency* respectively in Herz:
+In some cases, one may use some custom bands which do not mach with any EARFCN. In these cases, the downlink and uplink frequencies can be forced by setting *dl_frequency* and *ul_frequency* respectively in Hertzs:
 
 .. code::
 

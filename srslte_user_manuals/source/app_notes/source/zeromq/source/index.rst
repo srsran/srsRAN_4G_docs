@@ -21,14 +21,14 @@ essentially acts as a transmit and receive pipe for exchanging IQ samples over T
 ZeroMQ Installation
 *******************
 
-First thing is to install ZeroMQ and build srsLTE. On Ubuntu, ZereMQ development libraries can be installed
+First thing is to install ZeroMQ and build srsLTE. On Ubuntu, ZeroMQ development libraries can be installed
 with:
 
 .. code::
 
   sudo apt-get install libzmq3-dev
   
-Alternativly, installing from sources can also be done.
+Alternatively, installing from sources can also be done.
 
 First, one needs to install libzmq:
 
@@ -85,7 +85,7 @@ This is because both EPC and UE will be sharing the same network configuration,
 i.e. routing tables etc. Because the UE receives an IP address
 from the EPC's subnet, the Linux kernel would bypass the TUN interfaces when
 routing traffic between both ends. Therefore, we create a separate
-network namespace (netns) that the UE uses to create it's TUN interface in. 
+network namespace (netns) that the UE uses to create its TUN interface in. 
 
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
@@ -101,7 +101,7 @@ To verify the new "ue1" netns exists, run:
   sudo ip netns list
 
 
-Now let's start the EPC. That this will create a TUN device in the default
+Now let's start the EPC. This will create a TUN device in the default
 network namespace and therefore needs root permissions.
 
 .. code::
@@ -110,8 +110,8 @@ network namespace and therefore needs root permissions.
   
   
 Let's now launch the eNodeB. We use the default configuration in this example and pass
-all parameter that need to be tweeked for ZMQ through as command line arguments. If you
-want to make those persistant just add them to your local enb.conf. The eNB can be
+all parameters that need to be tweaked for ZMQ through as command line arguments. If you
+want to make those persistent just add them to your local enb.conf. The eNB can be
 launched without root permissions.
 
 .. code::
@@ -134,7 +134,7 @@ or iperf as usual on the command line, e.g.:
 
 .. code::
   
-  ping 172.160.0.2
+  ping 172.16.0.2
   
   
 In order to generate traffic in the uplink direction it is important to run the ping command
@@ -142,14 +142,14 @@ in the UE's network namespace.
 
 .. code::
 
-  sudo ip netns exec ue1 ping 172.160.0.1
+  sudo ip netns exec ue1 ping 172.16.0.1
 
 
 After finishing, make sure to remove the netns again.
 
 .. code::
 
-  sudo ip netns delete u1
+  sudo ip netns delete ue1
 
 
 Known issues

@@ -250,7 +250,7 @@ The following example enables the RLF simulator for having 2 seconds of blackout
 MIMO
 ****
 
-The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user can select the number of select antennas in the ``ue.conf``::
+The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user can select the number of select antennas in the ``ue.conf``:
 
 .. code::
 
@@ -260,7 +260,7 @@ The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user
   nof_rx_ant = 2
   ...
 
-Do you want to attach to a 2 port eNb and you have only one receive channel? No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage of spatial multiplexing and it will not acheive the maximum throughput.
+Do you want to attach to a 2 port eNb and you have only one receive channel? No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage of spatial multiplexing and it will not achieve the maximum throughput.
 
 
 TDD
