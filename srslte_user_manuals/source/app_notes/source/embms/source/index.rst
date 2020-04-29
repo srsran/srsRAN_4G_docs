@@ -37,49 +37,66 @@ parameters:
    * MCCH Subframe Allocation
    * MCCH Repetition Period
 
-In addition to using the eMBMS SIB configuration file, a number of configurations must be changed in the enb.conf.example::
+In addition to using the eMBMS SIB configuration file, a number of configurations must be changed in the ``enb.conf``::
 
-  expert.enable_mbsfn = true
-  scheduler.nof_ctrl_symbols = 2
-  expert.nof_phy_threads = 2
 
-Once all of these setting adjustments have been made, the eNodeB should be ready to run in eMBMS mode.
+  [expert]
+  enable_mbsfn = true
+
+  [scheduler]
+  nof_ctrl_symbols = 2
+
+  [phy]
+  nof_phy_threads = 2
+
+Once these setting adjustments have been made, the eNodeB should be ready to run in eMBMS mode.
 
 srsUE configuration
 --------------------
 
 For the UE, the presence of an eMBMS transmission will be automatically detected from the SIBs and the MCCH present in the downlink signal. To receive an active eMBMS service, the following parameter must be set in ``ue.conf``::
 
-  rrc.mbms_service_id = 0
+  [rrc]
+  mbms_service_id = 0
 
 Note this service id must match the service id in use by the network.
 
-In addition, we recommend the following expert settings for best performance with eMBMS::
+In addition, we recommend the following settings for best performance with eMBMS::
 
-  phy.interpolate_subframe_enabled = true
-  phy.sub_estim_alg = empty
-  phy.nof_phy_threads = 2
+  [phy]
+  interpolate_subframe_enabled = true
+  sub_estim_alg = empty
+  nof_phy_threads = 2
 
-Once all these configurations have been made, your UE should be ready to run eMBMS.
+Once these configurations have been made, your UE should be ready to run eMBMS.
 
 
 Usage
 *****
 
-First, run srsMBMS (the MBMS gateway), srsEPC and srsENB on the same machine. To run srsMBMS, use:
+First, run srsMBMS (the MBMS gateway), srsEPC and srsENB on the same machine:
 
 ``sudo ./srsmbms ~/.config/srslte/mbms.conf``
 
-This will create a TUN interface to which all traffic intended for multicast should be written. It will then forward this traffic to the eNodeB via a seperate GTPU tunnel that is dedicated to eMBMS traffic.
+``sudo ./srsepc ~/.config/srslte/epc.conf``
+
+``sudo ./srsenb ~/.config/srslte/enb.conf``
+
+The MBMS gateway will create a TUN interface to which all traffic intended for multicast should be written. It will then forward this traffic to the eNodeB via a seperate GTPU tunnel that is dedicated to eMBMS traffic.
 
 
-To test eMBMS with srsMBMS, srsEPC and srsENB, we can use `Iperf <https://en.wikipedia.org/wiki/Iperf>`_. At the MBMS gateway, create a route and start downlink traffic::
+To test eMBMS with srsMBMS, srsEPC and srsENB, we can use `Iperf <https://en.wikipedia.org/wiki/Iperf>`_. At the MBMS gateway, create a route and start downlink traffic:
 
- sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev sgi_mb
- iperf -u -c 239.255.1.1 -b 10M -T 64 -t 60
+``sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev sgi_mb``
+
+``iperf -u -c 239.255.1.1 -b 10M -T 64 -t 60``
 
 
-Next, we can run srsUE to receive the eMBMS data. Upon running srsUE with an eMBMS enabled eNodeB you should see the following output at the terminal of the UE::
+Next, we can run srsUE on a separate machine to receive the eMBMS data:
+
+``sudo ./srsue ~/.config/srslte/ue.conf``
+
+ Upon running srsUE with an eMBMS enabled eNodeB you should see the following output at the terminal of the UE::
 
 
   Searching cell in DL EARFCN=3400, f_dl=2685.0 MHz, f_ul=2565.0 MHz
@@ -93,9 +110,10 @@ Next, we can run srsUE to receive the eMBMS data. Upon running srsUE with an eMB
   Software Radio Systems LTE (srsLTE)
 
 
-the ``MBMS service started. Service id:0, port: 4321`` indicates the eMBMS service has successfully started.
+the *MBMS service started. Service id:0, port: 4321* indicates the eMBMS service has successfully started.
 
-To receive the multicast iperf data, add a route to the UE and start an iperf server::
+To receive the multicast iperf data, add a route to the UE and start an iperf server:
 
-  sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev tun_srsue
-  iperf -s -u -B 239.255.1.1 -i 1
+``sudo route add -net 239.255.1.0 netmask 255.255.255.0 dev tun_srsue``
+
+``iperf -s -u -B 239.255.1.1 -i 1``
