@@ -16,8 +16,10 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Use srsLTE without RF hardware in the loop:
 |   - :ref:`ZeroMQ Application Note <zeromq_appnote>`
 
-| Use two Carrier Aggregation:
-|   - :ref:`Two carrier aggregation Application Note <2ca_appnote>`
+
+| Carrier Aggregation:
+|   - :ref:`Carrier Aggregation Application Note <2ca_appnote>`
+
 
 Links
 ------------
