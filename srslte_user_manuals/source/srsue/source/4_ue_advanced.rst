@@ -119,61 +119,52 @@ Then, use the iperf client to generate broadcast data. If you are using srsENB/s
 Traffic should make its way over the MBMS multicast link and arrive at the iperf server on the UE.
 
 
-Carrier Aggregation
-*******************
 
-The srsUE application supports MIMO TM3/4 and Carrier Aggregation (CA). In order to use CA, you will need to configure the UE for the RF board configuration you wish to use.
-
-First of all, one can set a number of radios (1 or 2). This will open *nof_radios* instances of
-RF front-ends. Only one radio is synchronized to the Primary Cell. The second radio will be only used if the Primary Cell configures a Secondary Cell for Carrier Aggregation. Then the UE will use the second RF front-end for receiving and transmitting from that Secondary Cell.
-
-If one uses a RF device that can tune RF ports independently (like USRP X300, not B200 nor BladeRF), one can set *nof_rf_channels* to two for using a number of the available ports for carrier aggregation (not MIMO).
-
-For 2 Component Carrier Aggregation:
-
-.. code::
-
-  ...
-  nof_radios = 1
-  nof_rf_channels = 2
-  nof_rx_ant = 1
-  ...
-
-
-In contrast, the parameter *nof_rx_ant* is used for setting the number of receive antennas for MIMO (two layer TM3/4).
-
-For TM3/4 configuration:
-
-.. code::
-
-  ...
-  nof_radios = 1
-  nof_rf_channels = 1
-  nof_rx_ant = 2
-  ...
-
-You may wonder if one can force or specify what RF driver use. It is possible using *device_name* and *device_args*. These two parameters are used for specifying properties of the RF-front end to open.
-
-For UHD driver (x310, b210, b200mini and so on) the *device_name* shall be set to *uhd*. The parameter *device_args* accepts the following arguments:
-
-- UHD address and configuration arguments: default UHD driver arguments such as *type*, *serial*, *ip_address*, *master_clock_rate* and so on.
-- *clock*: specifies the clock source. Valid clock sources are *internal* (default), *external* and *gpsdo*
-- *otw_format*: specifies whether the baseband samples coming from the RF front-end width is 12 (*sc12*) or 16 (*sc16*) bit.
-- *tx_subdev_spec*: transmitter sub-device specification according to Ettus Research documentation.
-- *rx_subdev_spec*: receiver sub-device specification according to Ettus Research documentation.
-
-If using more than one RF front-end, one can use *device_args_2* for the second device and *device_args_3* for a third one. 
-
-.. code::
-
-  ...
-  device_name = uhd
-  device_args = type=b200,clock=gpsdo
-  #device_args_1 = auto
-  #device_args_2 = auto
-  ...
-
-*IMPORTANT: if two UHD devices are used, the serial number or IP address shall be indicated in the device arguments. Otherwise, UHD may try to open twice the same device*
+.. Carrier Aggregation
+.. *******************
+.. 
+.. The srsUE application supports MIMO TM3/4 and Carrier Aggregation (CA). In order to use CA, you will need to configure the UE for the RF board configuration you wish to use.
+.. 
+.. First of all, one can set a number of radios (1 or 2). This will open *nof_radios* instances of
+.. RF front-ends. Only one radio is synchronized to the Primary Cell. The second radio will be only used if the Primary Cell configures a Secondary Cell for Carrier Aggregation. Then the UE will use the second RF front-end for receiving and transmitting from that Secondary Cell.
+.. 
+.. If one uses a RF device that can tune RF ports independently (like USRP X300, not B200 nor BladeRF), one can set *nof_rf_channels* to two for using a number of the available ports for carrier aggregation (not MIMO).
+.. 
+.. For 2 Component Carrier Aggregation:
+.. 
+..   nof_radios = 1
+..   nof_rf_channels = 2
+..   nof_rx_ant = 1
+.. 
+.. 
+.. In contrast, the parameter *nof_rx_ant* is used for setting the number of receive antennas for MIMO (two layer TM3/4).
+.. 
+.. For TM3/4 configuration:
+.. 
+..   nof_radios = 1
+..   nof_rf_channels = 1
+..   nof_rx_ant = 2
+.. 
+.. You may wonder if one can force or specify what RF driver use. It is possible using *device_name* and *device_args*. These two parameters are used for specifying properties of the RF-front end to open.
+.. 
+.. For UHD driver (x310, b210, b200mini and so on) the *device_name* shall be set to *uhd*. The parameter *device_args* accepts the following arguments:
+.. 
+.. - UHD address and configuration arguments: default UHD driver arguments such as *type*, *serial*, *ip_address*, *master_clock_rate* and so on.
+.. - *clock*: specifies the clock source. Valid clock sources are *internal* (default), *external* and *gpsdo*
+.. - *otw_format*: specifies whether the baseband samples coming from the RF front-end width is 12 (*sc12*) or 16 (*sc16*) bit.
+.. - *tx_subdev_spec*: transmitter sub-device specification according to Ettus Research documentation.
+.. - *rx_subdev_spec*: receiver sub-device specification according to Ettus Research documentation.
+.. 
+.. If using more than one RF front-end, one can use *device_args_2* for the second device and *device_args_3* for a third one. 
+.. 
+.. 
+..   device_name = uhd
+..   device_args = type=b200,clock=gpsdo
+..   #device_args_1 = auto
+..   #device_args_2 = auto
+.. 
+.. 
+.. *IMPORTANT: if two UHD devices are used, the serial number or IP address shall be indicated in the device arguments. Otherwise, UHD may try to open twice the same device*
 
 
 Channel Emulator
