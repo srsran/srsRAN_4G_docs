@@ -116,7 +116,7 @@ For srsENB, configure the ``zmq`` RF device as follows:
 
   [rf]
   device_name = zmq
-  device_args = fail_on_disconnect=true,id=enb,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,tx_port1=tcp://*:2002,rx_port1=tcp://localhost:2003
+  device_args = fail_on_disconnect=true,id=enb,tx_port0=tcp://*:2000,tx_port1=tcp://*:2002,rx_port0=tcp://localhost:2001,rx_port1=tcp://localhost:2003
 
 
 UE Configuration
@@ -128,12 +128,12 @@ For srsUE, configure the ``zmq`` RF device as follows:
 
   [rf]
   device_name = zmq
-  device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,tx_port1=tcp://*:2003,rx_port1=tcp://localhost:2002,id=ue,tx_freq=2510e6,rx_freq=2630e6,tx_freq1=2516e6,rx_freq1=2636e6
+  device_args = tx_port0=tcp://*:2001,tx_port1=tcp://*:2003,rx_port0=tcp://localhost:2000,rx_port1=tcp://localhost:2002,id=ue,tx_freq0=2510e6,tx_freq1=2530e6,rx_freq0=2630e6,rx_freq1=2650e6
 
 
 Since the ZMQ module is frequency agnostic, it is important that Tx and 
-Rx frequencies are set in ZMQ. This will make possible internal carrier 
-switching.
+Rx frequencies are set in ZMQ config. This makes internal carrier 
+switching possible.
 
 Known issues
 ************
