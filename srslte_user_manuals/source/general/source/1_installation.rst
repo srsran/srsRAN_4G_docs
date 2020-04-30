@@ -101,7 +101,8 @@ If you have installed the software suite using ```sudo make install``` and
 have installed the example config files using ```sudo srslte_install_configs.sh```,
 you may just start all applications with their default parameters.
 
-### srsEPC
+srsEPC
+------
 
 On machine 1, run srsEPC as follows::
 
@@ -111,14 +112,16 @@ Using the default configuration, this creates a virtual network interface
 named "srs_spgw_sgi" on machine 1 with IP 172.16.0.1. All connected UEs
 will be assigned an IP in this network.
 
-### srsENB
+srsENB
+------
 
 Also on machine 1, but in another console, run srsENB as follows::
 
   sudo srsenb
 
 
-### srsUE
+srsUE
+-----
 
 On machine 2, run srsUE as follows::
 
