@@ -11,7 +11,7 @@ Introduction
 
 Before getting hands-on we recommend reading about `Carrier Aggregation <https://www.sharetechnote.com/html/Lte_Advanced_CarrierAggregation.html>`_.
 
-The srsLTE software suite supports 2-carrier aggregation in both srsENB and srsUE. To experiment with carrier aggregation using srsLTE over-the-air, you will need an RF device that can tune different frequencies in different channels. We recommend the X300 series from Ettus Research (NI). 
+The srsLTE software suite supports 2-carrier aggregation in both srsENB and srsUE. To experiment with carrier aggregation using srsLTE over-the-air, you will need an RF device that can tune different frequencies in different channels. We recommend the USRP X300 series from Ettus Research (NI) with UHD LTS version 3.9.7. 
 
 Alternatively, experiment with carrier aggregation without SDR hardware using our ZeroMQ-based RF layer emulation. See our :ref:`ZeroMQ Application Note <zeromq_appnote>` for more information about RF layer emulation.
 
@@ -23,7 +23,7 @@ eNodeB Configuration
 
 To configure the eNodeB for carrier aggregation, we must first configure the RF front-end. We must then configure srsENB for multiple cells and define the primary/secondary relationships between them.
 
-If you're using a real RF device such as the X310, simply use auto configuration:
+If you're using a real RF device such as the USRP X300, simply use auto configuration:
 
 .. code::
 
