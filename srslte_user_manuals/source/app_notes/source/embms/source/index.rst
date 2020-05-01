@@ -37,16 +37,19 @@ parameters:
    * MCCH Subframe Allocation
    * MCCH Repetition Period
 
-In addition to using the eMBMS SIB configuration file, a number of configurations must be changed in the ``enb.conf``::
+In addition to using the eMBMS SIB configuration file, a number of further configurations must be changed in the ``enb.conf``::
 
+  [enb_files]
+  sib_config = sib.conf.mbsfn
 
-  [expert]
-  enable_mbsfn = true
+  [embms]
+  enable = true
 
   [scheduler]
-  nof_ctrl_symbols = 2
+  min_nof_ctrl_symbols = 2
+  max_nof_ctrl_symbols = 2
 
-  [phy]
+  [expert]
   nof_phy_threads = 2
 
 Once these setting adjustments have been made, the eNodeB should be ready to run in eMBMS mode.
@@ -65,7 +68,7 @@ In addition, we recommend the following settings for best performance with eMBMS
 
   [phy]
   interpolate_subframe_enabled = true
-  sub_estim_alg = empty
+  snr_estim_alg = empty
   nof_phy_threads = 2
 
 Once these configurations have been made, your UE should be ready to run eMBMS.
