@@ -8,7 +8,7 @@
 srsLTE Application Notes
 =========================
 
-srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network. 
+srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network.
 For more information, see `www.srslte.com <https://www.srslte.com>`_. These application notes provide guides for specific srsLTE use-cases.
 
 .. image:: .imgs/srs_architecture.png
@@ -24,6 +24,8 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Use eMBMS to support multicast/broadcast traffic using srsLTE:
 |   - :ref:`eMBMS Application Note <embms_appnote>`
 
+| NB-IoT:
+|   - :ref:`NB-IoT Application Note <nbiot_appnote>`
 
 Links
 ------------
@@ -37,8 +39,4 @@ Links
 
    embms/source/index.rst
 
-
-
-
-
-
+   nbiot/source/index.rst
