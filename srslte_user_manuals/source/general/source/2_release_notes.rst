@@ -3,6 +3,13 @@
 Release Notes
 =============
 
+* 20.04.01
+
+  * Fix for UE MIMO segfault issue
+  * Fix for eNodeB SR configuration
+  * Clang compilation warning fixes
+  * Fix GPS tracking synchronization
+
 - 20.04
 
   * Carrier Aggregation and Time Alignment in srsENB
