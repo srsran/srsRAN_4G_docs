@@ -3,7 +3,7 @@
 Release Notes
 =============
 
-* 20.04.01
+* 20.04.1
 
   * Fix for UE MIMO segfault issue
   * Fix for eNodeB SR configuration
