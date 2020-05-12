@@ -27,6 +27,10 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | NB-IoT:
 |   - :ref:`NB-IoT Application Note <nbiot_appnote>`
 
+| Running srsLTE on the Raspberry Pi 4:
+|   - :ref:`Raspberry Pi 4 Application Note <pi4_appnote>`
+
+
 Links
 ------------
 
@@ -40,3 +44,5 @@ Links
    embms/source/index.rst
 
    nbiot/source/index.rst
+
+   pi4/source/index.rst
