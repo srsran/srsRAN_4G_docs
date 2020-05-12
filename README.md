@@ -17,7 +17,7 @@ Once dependenceies are installed,
 
 ```
 git clone https://github.com/srsLTE/srsLTE_docs.git
-srsLTE_docs/srslte_user_manuals
+cd srsLTE_docs/srslte_user_manuals
 make html
 ```
 
