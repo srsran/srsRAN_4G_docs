@@ -12,6 +12,7 @@ srsLTE is a full end-to-end LTE solution including a core network and an eNodeB.
 
 The concept of an ultra low cost, low power and open source SDR LTE femtocell has a lot of people excited!
 
+.. image:: .imgs/Pi4eNB.jpg
 
 Pi4 eNodeB Hardware Requirements
 ********************************
@@ -70,7 +71,8 @@ First thing is to install the SDR drivers and build srsLTE. UHD drivers are requ
   git clone https://github.com/myriadrf/LimeSuite.git
   cd LimeSuite
   git checkout tags/v20.01.0
-  mkdir build && cd build
+  ## build folder should exist already
+  cd build
   cmake ../
   make -j4
   sudo make install
@@ -100,7 +102,7 @@ Next, **srsLTE** can be compiled:
   sudo ldconfig
 
   ## copy configs to /root
-  sudo srslte_install_configs.sh user
+  sudo ./srslte_install_configs.sh user
 
 
 And finally, modify the **Pi CPU scaling_governor** to ensure it is running in performance mode:
@@ -199,9 +201,12 @@ Changes to default configs for srsLTE core network:
 
   S1-MME = sctp, port 36412  ||  S1-U = udp, port 2152
 
-  | If using iptables, 
-  |   sudo iptables -A INPUT -p sctp -m sctp --dport 36412 -j ACCEPT
-  |   sudo iptables -A INPUT -p udp -m udp --dport 2152 -j ACCEPT
+  If using iptables, 
+
+  .. code::    
+
+    sudo iptables -A INPUT -p sctp -m sctp --dport 36412 -j ACCEPT
+    sudo iptables -A INPUT -p udp -m udp --dport 2152 -j ACCEPT
 
 
 
@@ -209,7 +214,7 @@ Changes to default configs for srsLTE core network:
 Running the Pi4 eNodeB 
 **********************
 
-Launch the software in separate ssh windows or using screen. Remember to use an external power source for your SDR.
+Launch the software in separate ssh windows or using screen. Remember to use an external power source for your SDR. **The first time you run the srsenb software, you will need to wait a few minutes for it to finish setting up**. After the first time it will start without delay.
 
 
 Launch Pi4 eNodeB:
