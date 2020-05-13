@@ -218,7 +218,8 @@ Launch Pi4 eNodeB:
 
   sudo srsenb /root/.config/srslte/enb.conf
 
-
+.. Note::
+  Between runs when using the LimeSDR-USB, you sometimes need to physically unplug and reconnect the SDR to power cycle it. 
 
 Launch core network (on separate device, or on the Pi4 eNodeB when using USRP B210):
 
