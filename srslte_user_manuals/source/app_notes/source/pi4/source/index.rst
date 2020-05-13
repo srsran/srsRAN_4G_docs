@@ -27,45 +27,43 @@ Due to the power requirements of the SDRs, you must use an external power source
 Software Setup
 **************
 
-First thing is to install the SDR drivers and build srsLTE. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs.
+First thing is to install the SDR drivers and build srsLTE. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs. 
 
 **UHD Drivers** can be installed with:
 
 .. code::
 
-  sudo apt-get install libuhd-dev libuhd3.15.0 uhd-host
+  sudo apt install libuhd-dev libuhd3.15.0 uhd-host
   sudo /usr/lib/uhd/utils/uhd_images_downloader.py
 
   ## Then test the connection by typing:
   sudo uhd_usrp_probe
 
 
-**SoapySDR Drivers** and **LimeSuite** can be installed with:
+**SoapySDR** and **LimeSuite** can be installed with:
 
 .. code::
 
   git clone https://github.com/pothosware/SoapySDR.git
   cd SoapySDR
-  git checkout a489f3dca9d3ccd9b276b95a608ac3ef0299f635
+  git checkout tags/soapy-sdr-0.7.2
   mkdir build && cd build
   cmake ..
-  make
+  make -j4
   sudo make install
   sudo ldconfig
 
 .. code::
 
-  sudo apt-get install git g++ cmake libsqlite3-dev
-  sudo apt-get install libi2c-dev libusb-1.0-0-dev
-
+  sudo apt install libusb-1.0-0-dev
   git clone https://github.com/myriadrf/LimeSuite.git
   cd LimeSuite
+  git checkout tags/v20.01.0
   mkdir build && cd build
   cmake ../
-  make
+  make -j4
   sudo make install
   sudo ldconfig
-
   cd ..
   cd udev-rules
   sudo ./install.sh
@@ -76,18 +74,16 @@ First thing is to install the SDR drivers and build srsLTE. UHD drivers are requ
   SoapySDRUtil --find
 
 
-Next, compile **srsLTE**:
+Next, **srsLTE** can be compiled:
 
 .. code::
 
   git clone https://github.com/srsLTE/srsLTE.git
   cd srsLTE
-  git checkout d045213fb9cbf98c83c06d7c17197a9dcbfddacf
-  mkdir build
-  cd build
+  git checkout tags/release_19_12
+  mkdir build && cd build
   cmake ../
-  make
-
+  make -j4
   sudo make install
   sudo ldconfig
 
@@ -95,13 +91,12 @@ Next, compile **srsLTE**:
   sudo srslte_install_configs.sh user
 
 
-And finally, modify the **Pi CPU scaling_govenor** to ensure it is running in performance mode:
+And finally, modify the **Pi CPU scaling_governor** to ensure it is running in performance mode:
 
 .. code::
 
-  sudo apt install linux-tools-common
-  sudo apt install linux-tools-raspi
   sudo systemctl disable ondemand
+  sudo apt install linux-tools-raspi
 
   sudo nano /etc/default/cpufrequtils
   * insert:
@@ -110,7 +105,7 @@ And finally, modify the **Pi CPU scaling_govenor** to ensure it is running in pe
   ## reboot
 
   sudo cpupower frequency-info
-  sudo cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+  * should show that the CPU is running in performance mode, at maxiumum clock speed
 
 
 Standalone Pi4 LTE Network Config
@@ -119,6 +114,14 @@ Standalone Pi4 LTE Network Config
 During testing, the following eNB config options have been shown to be stable for 24hr+, so should be a good starting point for you.
 
 This eNB produces a 3MHz wide 2x2 MIMO cell on the USRP in LTE B3 (1800MHz band), DL=1878.40 UL=1783.40. This sits inside the UK's new "1800MHz shared access band", for which you can legally obtain a low cost, `low power shared access spectrum licence from Ofcom <https://www.ofcom.org.uk/manage-your-licence/radiocommunication-licences/shared-access>`_ if you are working in the UK.
+
+
+.. Note::
+  Download working configs here:
+
+  * :download:`enb.conf for USRP (tested B210)<enb_usrp.conf>`.
+  * :download:`enb.conf for LimeSDR (tested LimeSDR-USB and LimeSDR-Mini)<enb_lime.conf>`.
+
 
 .. code::
   
@@ -191,5 +194,9 @@ Known issues
 
 * When running with the soapy driver and a LimeSDR, UE will not connect. The message "UE is not ECM connected" is printed in the srsepc console
 * Stability issues were noted on the Pi with the most recent release of srsLTE (v20.04), hence srsLTE version 19.12 is being used.
+
+
+
+
 
 
