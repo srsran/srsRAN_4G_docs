@@ -191,16 +191,20 @@ Changes to default configs for srsLTE core network:
 
   S1-MME = sctp, port 36412  ||  S1-U = udp, port 2152
 
+  | If using iptables, 
+  |   iptables -A INPUT -p sctp -m sctp --dport 36412 -j ACCEPT
+  |   iptables -A INPUT -p udp -m udp --dport 2152 -j ACCEPT
 
 
 
-Running the Standalone Pi4 LTE Network 
-**************************************
+
+Running the Pi4 eNodeB 
+**********************
 
 Launch the software in separate ssh windows or using screen. Remember to use an external power source for your USRP.
 
 
-Launch eNodeB:
+Launch Pi4 eNodeB:
 
 .. code::
 
