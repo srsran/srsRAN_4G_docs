@@ -15,7 +15,7 @@ The concept of an ultra low cost, low power and open source SDR LTE femtocell ha
 
 Pi4 eNodeB Hardware Requirements
 ********************************
-The setup instructions provided below have been tested with a **Raspberry Pi 4B /4GB rev 1.2** running the Ubuntu Server 20.04 LTS x64 aarch64 image. It has not been tested with the rev 1.1 board, boards with 2GB of RAM or alternative operating systems. The Ubuntu image can be downloaded from the official `Ubuntu website <https://ubuntu.com/download/raspberry-pi>`_. You can visually identify your Pi4 hardware revision -- `this doc from Cytron <https://tutorial.cytron.io/2020/02/22/how-to-check-if-your-raspberry-pi-4-model-b-is-rev1-2/>`_ shows you how. 
+The setup instructions provided below have been tested with a **Raspberry Pi 4B /4GB rev 1.2** running the Ubuntu Server 20.04 LTS aarch64 image. It has not been tested with the rev 1.1 board, boards with 2GB of RAM or alternative operating systems. The Ubuntu image can be downloaded from the official `Ubuntu website <https://ubuntu.com/download/raspberry-pi>`_. You can visually identify your Pi4 hardware revision -- `this doc from Cytron <https://tutorial.cytron.io/2020/02/22/how-to-check-if-your-raspberry-pi-4-model-b-is-rev1-2/>`_ shows you how. 
 
 This setup has been tested with a USRP B210, a LimeSDR-USB and a LimeSDR-Mini. 
 
@@ -32,6 +32,13 @@ Software Setup
 **************
 
 First thing is to install the SDR drivers and build srsLTE. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs. 
+
+.. code::
+
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install cmake
+
 
 **UHD Drivers** can be installed with:
 
@@ -82,6 +89,7 @@ Next, **srsLTE** can be compiled:
 
 .. code::
 
+  sudo apt install libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev
   git clone https://github.com/srsLTE/srsLTE.git
   cd srsLTE
   git checkout tags/release_19_12
@@ -115,12 +123,12 @@ And finally, modify the **Pi CPU scaling_governor** to ensure it is running in p
 Pi4 eNodeB Config
 *****************
 
-During testing, the following eNodeB config options have been shown to be stable for 24hr+, so should be a good starting point for you.
+During testing, the following eNodeB config options have been shown to be stable for 24hr+ when running with the USRP B210, and stable for 2hr+ when running with the LimeSDRs, so should be a good starting point for you.
 
 The Pi4 eNodeB has been tested with a 3MHz wide cell in LTE B3 (1800MHz band), DL=1878.40 UL=1783.40. This sits inside the UK's new "1800MHz shared access band", for which you can legally obtain a low cost, `low power shared access spectrum licence from Ofcom <https://www.ofcom.org.uk/manage-your-licence/radiocommunication-licences/shared-access>`_ if you are working in the UK.
 
 
-Changes to default configs for **USRP B210**:
+Changes to default enb.conf for **USRP B210**:
 
 .. code::
   
@@ -144,7 +152,7 @@ Changes to default configs for **USRP B210**:
   device_args = auto         ## does not work with anything other than 'auto'
 
 
-Changes to default configs for **LimeSDR-USB or LimeSDR-Mini**:
+Changes to default enb.conf for **LimeSDR-USB or LimeSDR-Mini**:
 
 .. code::
   
@@ -192,8 +200,8 @@ Changes to default configs for srsLTE core network:
   S1-MME = sctp, port 36412  ||  S1-U = udp, port 2152
 
   | If using iptables, 
-  |   iptables -A INPUT -p sctp -m sctp --dport 36412 -j ACCEPT
-  |   iptables -A INPUT -p udp -m udp --dport 2152 -j ACCEPT
+  |   sudo iptables -A INPUT -p sctp -m sctp --dport 36412 -j ACCEPT
+  |   sudo iptables -A INPUT -p udp -m udp --dport 2152 -j ACCEPT
 
 
 
@@ -201,7 +209,7 @@ Changes to default configs for srsLTE core network:
 Running the Pi4 eNodeB 
 **********************
 
-Launch the software in separate ssh windows or using screen. Remember to use an external power source for your USRP.
+Launch the software in separate ssh windows or using screen. Remember to use an external power source for your SDR.
 
 
 Launch Pi4 eNodeB:
@@ -222,7 +230,7 @@ Launch core network (on separate device, or on the Pi4 eNodeB when using USRP B2
 
   
 
-The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the cell. The srsLTE software has been running for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srslte-users mailing list know!
+The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the USRP B210 cell. The srsLTE software has been running here for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srslte-users mailing list know!
 
 .. image:: .imgs/htop.png
 
