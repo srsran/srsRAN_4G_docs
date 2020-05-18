@@ -2,16 +2,16 @@
 
 .. _cv2x_appnote:
 
-##################
+######################
 C-V2X Application Note
-##################
+######################
 
 Introduction
 ============
 
 Cellular-V2X (C-V2X), or Cellular Vehicle to Everything, is a 3GPP standard to facilitate automated and (cooperative) intelligent transportation systems (C-ITS).
 With C-V2X, vehicles or other devices will be able to directly communicate with each other without having to go through
-the cellular infrastructure. This so called _Sidelink_ communication, has a couple of advantages such as reducing communication delay when peers are
+the cellular infrastructure. This so called **Sidelink** communication, has a couple of advantages such as reducing communication delay when peers are
 in close vicinity, but may also increase network capacity when communication resources can be reused in different locations.
 The vehicular extensions have first been introduced in 3GPP Release 14 but are in fact based on earlier attempts to support direct device to device (D2D)
 communication within cellular networks.
@@ -28,13 +28,13 @@ device.
 
 
 Requirements
-=============
+============
 The C-V2X example requires a radio that can process 10 or 20 MHz wide channels. Furthermore, the device needs to be capable of
 deriving timing information from GNSS signals, e.g. a GPS signal. We have tested with a Ettus Research B210 with GPSDO module.
 
 
 Anatomy of a C-V2X Signal
-=============
+=========================
 Let's first have a look at a typical signal as it will be transmitted and received by C-V2X devices. The image below shows
 a signal captures from a commercial C-V2X modem. This signal has been captured at 5.92 GHz (channel 184) with a sample
 rate of 11.52 MHz.
@@ -56,7 +56,7 @@ from Rohde+Schwarz.
 
 
 Decoding C-V2X Signals
-=============
+======================
 
 The COTS C-V2X device used in this app note by default uses channel 184 centered at 5.92 GHz for transmission.
 Also it uses the default channel bandwidth of 10 MHz (or 50 PRB). In preparation for this, make sure to turn
@@ -68,7 +68,7 @@ file, or we capture a live and decode it real-time. Let's start with the second 
 and decode the live signal, which is also the default case for `pssch_ue`.
 
 Capture and Decode in Real-time
-*****************************
+*******************************
 
 For this, we can simply run the `pssch_ue` example. It uses 5.92 GHz by default,
 but the frequency can be changed using the `-f` parameter.
@@ -126,7 +126,7 @@ but if you're device transmits actual ITS traffic, you should be able to see tha
 
 
 Capture Signal to File and Post-Process
-**************************************
+***************************************
 
 As a second option, we can also capture the signal first, save it into file and then post-process
 the capture. For example, the command below writes 200 subframes to `/tmp/usrp.dat`.
