@@ -243,7 +243,7 @@ The following htop screenshot shows the resource utilisation when running the so
 Known issues
 ************
 
-* Stability issues were noted on the Pi with the most recent release of srsLTE (v20.04), hence srsLTE version 19.12 is being used.
+* For bandwidths above 6 PRB it is recommended to use srsLTE 19.12 instead of the most recent release 20.04. We have identified the issue in the PRACH handling mainly affecting low-power devices. The fix will be included in the upcoming release.
 
 
 
