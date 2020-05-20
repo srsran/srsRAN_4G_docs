@@ -71,8 +71,7 @@ First thing is to install the SDR drivers and build srsLTE. UHD drivers are requ
   git clone https://github.com/myriadrf/LimeSuite.git
   cd LimeSuite
   git checkout tags/v20.01.0
-  ## build folder should exist already
-  cd build
+  mkdir builddir && cd builddir
   cmake ../
   make -j4
   sudo make install
