@@ -27,8 +27,13 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Use srsLTE to explore NB-IoT deployments:
 |   - :ref:`NB-IoT Application Note <nbiot_appnote>`
 
+| Running srsLTE on the Raspberry Pi 4:
+|   - :ref:`Raspberry Pi 4 Application Note <pi4_appnote>`
+
+
 | Experiment with CV2X signalling with srsLTE:
 |   - :ref:`CV2X Application Note <cv2x_appnote>`
+
 
 Links
 ------------
@@ -44,4 +49,7 @@ Links
 
    nbiot/source/index.rst
 
+   pi4/source/index.rst
+
    cv2x/source/index.rst
+
