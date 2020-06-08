@@ -142,3 +142,19 @@ the default SGi IP address::
   
 
 
+Examples
+**********************
+If srsLTE is build from source, then preconfigured example use-cases can be found in the following folder: ```./srsLTE/build/lib/examples``` 
+
+The following list outlines some of the use-cases covered: 
+
+ * Cell Search
+ * NB-IoT Cell Search
+ * A UE capable of decoding PDSCH packets
+ * An eNB capabale of creating and transmitting PDSCH packets
+
+Note, the above examples require RF-hardware to run. These examples also support the use 
+of srsGUI for real time plotting of data. 
+
+srsGUI can be found at: https://github.com/srslte/srsgui
+
