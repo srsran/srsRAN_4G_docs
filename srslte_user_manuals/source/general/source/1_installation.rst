@@ -80,7 +80,7 @@ This installs srsLTE and also copies the default srsLTE config files to
 the user's home directory (~/.srs).
 
 The following execution instructions are for users that have the appropriate RF-hardware 
-to simulate a network. If you would like to test use srsLTE without RF-hardware please 
+to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
 see the ZeroMQ application note. This can be found here: https://docs.srslte.com/en/latest/app_notes/source/
 
 
