@@ -16,6 +16,7 @@ long battery life requirements. It was first standardized in Release 13.
 This application note shows how to spot and decode commercial NB-IoT transmissions in the first part.
 The second part shows how to transmit and receive your own NB-IoT downlink signal.
 
+.. _Requirements:
 
 Requirements
 ************
@@ -25,12 +26,23 @@ sufficient to receive and decode the signal. For example, popular `RTL-SDR <http
 available for around 15-20 Euro are fine for decoding the signal.
 
 The eNB transmitter example requires a radio with transmitting capabilities.
-For example, a Ettus B200mini can be used as the eNB transmitter and an RTL-SDR as UE receiver.
+For example, an Ettus B200mini can be used as the eNB transmitter and an RTL-SDR as UE receiver.
 In principle, any device supported by either UHD or SoapySDR should work.
 
+The following application also supports `srsGUI <https://github.com/srsLTE/srsGUI>`_ for real time visualization of data. 
+
+All of the examples used here can be found in the following directory: ```./srsLTE/build/lib/examples```
 
 Spotting local NB-IoT deployments
 *********************************
+
+.. figure:: .imgs/nbIoT_cell.png
+    :width: 500px
+    :align: center
+    :alt: Cell search architecture block diagram
+    :figclass: align-center
+
+    Basic system architecture required to perform a cell search and decode transmissions.
 
 Most NB-IoT deployments can be found in the sub-GHz bands. In Europe especially band 20 (Downlink 791-821 MHz).
 To run a NB-IoT cell search on band 20 one can simply run:
@@ -134,9 +146,20 @@ Wireshark decoding the received signal.
 Transmit and Receive Downlink Signal
 ************************************
 
+.. figure:: .imgs/nbIoT_TxRx.png
+    :width: 500px
+    :align: center
+    :alt: Tx/ Rx architecture block diagram
+    :figclass: align-center
+
+    Basic system architecture required to transmit and recieve downlink signal.
+
 In this part of the tutorial we will show how we can use the provided example applications to
 transmit and receive our own NB-IoT signal. Please note that you should only do that in a
 cabled setup or Faraday cage in order to comply with emission rules of your country.
+
+Please check that the RF-frontend hardware you are using meets the :ref:`requirements<Requirements>` 
+previously outlined.
 
 To start the eNB example, simply execute the command shown below. This will launch the eNB which
 by default picks the first available RF device and transmits the signal. With the `-o` option
