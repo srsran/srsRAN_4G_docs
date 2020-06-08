@@ -74,10 +74,15 @@ Download and build srsLTE::
 Install srsLTE::
 
   sudo make install
-  sudo srslte_install_configs.sh
+  sudo srslte_install_configs.sh user
 
 This installs srsLTE and also copies the default srsLTE config files to
 the user's home directory (~/.srs).
+
+The following execution instructions are for users that have the appropriate RF-hardware 
+to simulate a network. If you would like to test use srsLTE without RF-hardware please 
+see the ZeroMQ application note. This can be found here: https://docs.srslte.com/en/latest/app_notes/source/
+
 
 
 Execution Instructions
@@ -134,4 +139,6 @@ IP traffic with machine 1 over the LTE link. For example, run a ping to
 the default SGi IP address::
 
   ping 172.16.0.1
+  
+
 
