@@ -81,7 +81,7 @@ the user's home directory (~/.srs).
 
 The following execution instructions are for users that have the appropriate RF-hardware 
 to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
-see the ZeroMQ application note. This can be found here: https://docs.srslte.com/en/latest/app_notes/source/
+see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
 
 
 
@@ -151,10 +151,10 @@ The following list outlines some of the use-cases covered:
  * Cell Search
  * NB-IoT Cell Search
  * A UE capable of decoding PDSCH packets
- * An eNB capabale of creating and transmitting PDSCH packets
+ * An eNB capable of creating and transmitting PDSCH packets
 
 Note, the above examples require RF-hardware to run. These examples also support the use 
-of srsGUI for real time plotting of data. 
+of `srsGUI <https://github.com/srsLTE/srsGUI>`_ for real time plotting of data. 
 
-srsGUI can be found at: https://github.com/srslte/srsgui
+
 
