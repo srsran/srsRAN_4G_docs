@@ -144,7 +144,7 @@ the default SGi IP address::
 
 Examples
 **********************
-If srsLTE is build from source, then preconfigured example use-cases can be found in the following folder: ```./srsLTE/build/lib/examples``` 
+If srsLTE is built from source, then preconfigured example use-cases can be found in the following folder: ```./srsLTE/build/lib/examples``` 
 
 The following list outlines some of the use-cases covered: 
 
