@@ -54,6 +54,8 @@ Note that depending on your flavor and version of Linux, the actual package name
   * srsgui:              https://github.com/srslte/srsgui - for real-time plotting.
   * libpcsclite-dev:     https://pcsclite.apdu.fr/ - for accessing smart card readers
 
+.. _Supported Drivers:
+
 * RF front-end driver:
 
   * UHD:                 https://github.com/EttusResearch/uhd
@@ -87,6 +89,29 @@ see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/so
 
 Execution Instructions
 **********************
+
+Baseline Hardware Requirements
+---------------------------------------
+The overall system requires 2 x RF-frontends and 2 x PCs with a Linux based OS.  
+This can be broken down as follows: 
+ 
+ * srsUE: 
+ 
+  * RF-frontend
+  * PC using a Linux based OS
+  
+ * srsENB & srsEPC:
+ 
+  * RF-frontend
+  * PC using a Linux based OS
+
+The UE will be instatiated on machine 1 with an RF-frontend attached, while the eNB will run on machine 2 with an RF-frontend attached 
+to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. 
+
+A list of supported RF-hardware drivers is outlined :ref:`here<Supported Drivers>`.  
+
+Instructions
+------------
 
 The srsUE, srsENB and srsEPC applications include example configuration files
 that should be copied (manually or by using the convenience script) and modified,
