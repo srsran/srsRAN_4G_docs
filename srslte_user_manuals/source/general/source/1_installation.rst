@@ -100,15 +100,28 @@ This can be broken down as follows:
   * RF-frontend
   * PC using a Linux based OS
   
- * srsENB & srsEPC:
+ * srsENB:
  
   * RF-frontend
   * PC using a Linux based OS
 
+ * srsEPC: 
+ 
+  * PC using a Linux based OS
+
 The UE will be instatiated on machine 1 with an RF-frontend attached, while the eNB will run on machine 2 with an RF-frontend attached 
-to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. 
+to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. See the following figure which outlines 
+the overall system architecture. 
 
 A list of supported RF-hardware drivers is outlined :ref:`here<Supported Drivers>`.  
+
+.. figure:: .imgs/basic_arch.png
+    :width: 800px
+    :align: center
+    :alt: Architecture block diagram
+    :figclass: align-center
+
+    Basic srsLTE System Architecture
 
 Instructions
 ------------
