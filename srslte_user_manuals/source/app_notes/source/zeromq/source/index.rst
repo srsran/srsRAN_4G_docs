@@ -87,6 +87,9 @@ from the EPC's subnet, the Linux kernel would bypass the TUN interfaces when
 routing traffic between both ends. Therefore, we create a separate
 network namespace (netns) that the UE uses to create its TUN interface in. 
 
+Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
+With the UE, eNB and EPC then being called from their associated directory. 
+
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
 .. code::
