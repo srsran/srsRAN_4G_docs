@@ -47,8 +47,6 @@ Spotting local NB-IoT deployments
 Most NB-IoT deployments can be found in the sub-GHz bands. In Europe especially band 20 (Downlink 791-821 MHz).
 To run a NB-IoT cell search on band 20 one can simply run:
 
-```./cell_search_nbiot -b 20```
-
 ::
 
   $ ./lib/examples/cell_search_nbiot -b 20
@@ -115,8 +113,6 @@ Once we've found the downlink frequency of an NB-IoT carrier, we can use the `np
 decode the signal. The application should synchronize on the carrier, detect the cell ID and start to
 decode MIB, SIB and SIB2.
 
-```./npdsch_ue -f 801.3e6```
-
 ::
 
   $ ./lib/examples/npdsch_ue -f 801.3e6
@@ -169,8 +165,6 @@ To start the eNB example, simply execute the command shown below. This will laun
 by default picks the first available RF device and transmits the signal. With the `-o` option
 the signal can also be written to file for offline processing.
 
-```./npdsch_enodeb -f 868e6```
-
 .. code::
 
   $ ./lib/examples/npdsch_enodeb -f 868e6
@@ -222,8 +216,6 @@ and hitting Enter.
 
 This test transmission can be decoded with the UE example. For this, we need to run the
 UE example by telling it to decode RNTI 0x1234 and skip SIB2 decoding (because it's not transmitted by eNB):
-
-```./npdsch_ue -f 868e6 -r 0x1234 -s```
 
 .. code::
 
