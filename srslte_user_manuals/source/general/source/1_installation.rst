@@ -86,30 +86,29 @@ to simulate a network. If you would like to test the use of srsLTE without RF-ha
 see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
 
 
-
-Execution Instructions
-**********************
-
 Baseline Hardware Requirements
----------------------------------------
+*********************************
 The overall system requires 2 x RF-frontends and 2 x PCs with a Linux based OS.  
 This can be broken down as follows: 
  
- * srsUE: 
- 
-  * RF-frontend
-  * PC using a Linux based OS
-  
- * srsENB:
- 
-  * RF-frontend
-  * PC using a Linux based OS
+.. list-table:: System Hardware Requirements
+   :widths: 25 20 25
+   :header-rows: 1
 
- * srsEPC: 
- 
-  * PC using a Linux based OS
+   * - Network Element
+     - RF-Frontend
+     - Linux based PC 
+   * - srsUE
+     - X
+     - X
+   * - srsENB
+     - X
+     - X
+   * - srsEPC
+     - 
+     - X
 
-The UE will be instatiated on machine 1 with an RF-frontend attached, while the eNB will run on machine 2 with an RF-frontend attached 
+The UE will be instatiated on machine 1 with an RF-frontend attached. The eNB will run on machine 2 with an RF-frontend attached 
 to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. See the following figure which outlines 
 the overall system architecture. 
 
@@ -122,9 +121,10 @@ A list of supported RF-hardware drivers is outlined :ref:`here<Supported Drivers
     :figclass: align-center
 
     Basic srsLTE System Architecture
+	
 
-Instructions
-------------
+Execution Instructions
+**********************
 
 The srsUE, srsENB and srsEPC applications include example configuration files
 that should be copied (manually or by using the convenience script) and modified,
