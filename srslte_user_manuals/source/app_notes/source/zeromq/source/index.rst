@@ -54,7 +54,9 @@ Second, install czmq:
   sudo make install
   sudo ldconfig
 
-Finally, you need to compile srsLTE (assuming you have already installed all the required dependencies):
+Finally, you need to compile srsLTE (assuming you have already installed all the required dependencies). 
+Note, if you have already built and installed srsLTE prior to installing ZMQ and other dependencies you 
+will have to re-run the make command to ensure srsLTE recognises the addition of ZMQ:
 
 .. code::
 
@@ -85,10 +87,24 @@ This is because both EPC and UE will be sharing the same network configuration,
 i.e. routing tables etc. Because the UE receives an IP address
 from the EPC's subnet, the Linux kernel would bypass the TUN interfaces when
 routing traffic between both ends. Therefore, we create a separate
-network namespace (netns) that the UE uses to create its TUN interface in. 
+network namespace (netns) that the UE uses to create its TUN interface in.
 
-Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
+We only require TUN interfaces for the UE and EPC as they are the only IP
+endpoints in the network and need to communicated over the TCP/IP stack.
+The TUN interfaces also allow for the sharing of IP packets, which is essential for 
+the successful emulation of a network. 
+
+Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
+
+We will instantiate each element on a seperate terminal instance, ping tests and any other traffic generation
+will be done in different terminals. 
+
+The following set-up can be used to test the base build of srsLTE or user-modified builds. The implemenetation 
+shown illustrates how to successfully run a full end-to-end LTE network without the need for RF-hardware. 
+
+Network Namespace Creation
+--------------------------
 
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
@@ -104,25 +120,37 @@ To verify the new "ue1" netns exists, run:
   sudo ip netns list
 
 
+Note, this can be done on any terminal instance.
+
+EPC Configuration
+-----------------
+
 Now let's start the EPC. This will create a TUN device in the default
-network namespace and therefore needs root permissions.
+network namespace and therefore needs root permissions. This can be run 
+on the same terminal used to create the UE network namespace.
 
 .. code::
 
   sudo ./srsepc/src/srsepc
-  
+
+eNB Configuration
+-----------------  
   
 Let's now launch the eNodeB. We use the default configuration in this example and pass
 all parameters that need to be tweaked for ZMQ through as command line arguments. If you
 want to make those persistent just add them to your local enb.conf. The eNB can be
-launched without root permissions.
+launched without root permissions. This must be done in a seperate terminal to the EPC.
 
 .. code::
 
   ./srsenb/src/srsenb --rf.device_name=zmq --rf.device_args="fail_on_disconnect=true,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6"
 
 
-Lastly we can launch the UE, again with root permissions to create the TUN device.
+UE Configuration
+-----------------
+
+Lastly we can launch the UE, again with root permissions to create the TUN device. Again, 
+this should be done in a new terminal. 
 
 .. code::
 
@@ -132,8 +160,11 @@ Lastly we can launch the UE, again with root permissions to create the TUN devic
 The last command should start the UE and attach it to the core network.
 The UE will be assigned an IP address in the configured range (e.g. 172.16.0.2).
 
-To exchange traffic in the downlink direction, i.e. from the the EPC, just run ping
-or iperf as usual on the command line, e.g.:
+Traffic Generation
+-------------------
+
+To exchange traffic in the downlink direction, i.e. from the the EPC just run ping
+or iperf as usual on the command line in a seperate terminal:
 
 .. code::
   
@@ -141,12 +172,15 @@ or iperf as usual on the command line, e.g.:
   
   
 In order to generate traffic in the uplink direction it is important to run the ping command
-in the UE's network namespace. 
+in the UE's network namespace. This can either be done in the same terminal as the ping 
+command after stopping the command, or in parallel in a sepertate terminal. 
 
 .. code::
 
   sudo ip netns exec ue1 ping 172.16.0.1
 
+Namespace Deletion
+-------------------
 
 After finishing, make sure to remove the netns again.
 
