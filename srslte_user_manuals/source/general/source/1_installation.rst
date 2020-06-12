@@ -54,6 +54,8 @@ Note that depending on your flavor and version of Linux, the actual package name
   * srsgui:              https://github.com/srslte/srsgui - for real-time plotting.
   * libpcsclite-dev:     https://pcsclite.apdu.fr/ - for accessing smart card readers
 
+.. _Supported Drivers:
+
 * RF front-end driver:
 
   * UHD:                 https://github.com/EttusResearch/uhd
@@ -83,7 +85,41 @@ The following execution instructions are for users that have the appropriate RF-
 to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
 see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
 
+Baseline Hardware Requirements
+*********************************
+The overall system requires 2 x RF-frontends and 2 x PCs with a Linux based OS.  
+This can be broken down as follows: 
+ 
+.. list-table:: System Hardware Requirements
+   :widths: 25 20 25
+   :header-rows: 1
 
+   * - Network Element
+     - RF-Frontend
+     - Linux based PC 
+   * - srsUE
+     - X
+     - X
+   * - srsENB
+     - X
+     - X
+   * - srsEPC
+     - 
+     - X
+
+The UE will be instatiated on machine 1 with an RF-frontend attached. The eNB will run on machine 2 with an RF-frontend attached 
+to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. See the following figure which outlines 
+the overall system architecture. 
+
+A list of supported RF-hardware drivers is outlined :ref:`here<Supported Drivers>`.  
+
+.. figure:: .imgs/basic_arch.png
+    :width: 800px
+    :align: center
+    :alt: Architecture block diagram
+    :figclass: align-center
+
+    Basic srsLTE System Architecture
 
 Execution Instructions
 **********************
@@ -144,7 +180,7 @@ the default SGi IP address::
 
 Examples
 **********************
-If srsLTE is built from source, then preconfigured example use-cases can be found in the following folder: ```./srsLTE/build/lib/examples``` 
+If srsLTE is build from source, then preconfigured example use-cases can be found in the following folder: ```./srsLTE/build/lib/examples``` 
 
 The following list outlines some of the use-cases covered: 
 
