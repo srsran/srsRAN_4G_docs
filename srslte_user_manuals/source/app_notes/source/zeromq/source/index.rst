@@ -106,6 +106,9 @@ shown illustrates how to successfully run a full end-to-end LTE network without 
 Network Namespace Creation
 --------------------------
 
+Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
+With the UE, eNB and EPC then being called from their associated directory. 
+
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
 .. code::
