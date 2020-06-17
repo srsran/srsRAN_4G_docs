@@ -54,7 +54,7 @@ Note that depending on your flavor and version of Linux, the actual package name
   * srsgui:              https://github.com/srslte/srsgui - for real-time plotting.
   * libpcsclite-dev:     https://pcsclite.apdu.fr/ - for accessing smart card readers
 
-.. _Supported Drivers:
+.. _Drivers:
 
 * RF front-end driver:
 
@@ -112,7 +112,7 @@ The UE will be instatiated on machine 1 with an RF-frontend attached. The eNB wi
 to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. See the following figure which outlines 
 the overall system architecture. 
 
-A list of supported RF-hardware drivers is outlined :ref:`here<Supported Drivers>`.  
+A list of supported RF front-end drivers is outlined :ref:`here<Drivers>`.  
 
 .. figure:: .imgs/basic_arch.png
     :width: 800px

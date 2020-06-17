@@ -95,7 +95,7 @@ endpoints in the network and need to communicate over the TCP/IP stack.
 We will run each srsLTE application in a seperate terminal instance.
 Applications such as ping and iperf used to generate traffic will be run in separate terminals.
 
-Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
+Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
 
 
