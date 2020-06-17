@@ -94,9 +94,6 @@ endpoints in the network and need to communicate over the TCP/IP stack.
 The TUN interfaces also allow for the sharing of IP packets, which is essential for 
 the successful emulation of a network. 
 
-Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
-With the UE, eNB and EPC then being called from their associated directory. 
-
 We will instantiate each element in a seperate terminal instance, ping tests and any other traffic generation
 will be done in different terminals. 
 
@@ -106,7 +103,7 @@ shown illustrates how to successfully run a full end-to-end LTE network without 
 Network Namespace Creation
 --------------------------
 
-Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
+Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
 
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
