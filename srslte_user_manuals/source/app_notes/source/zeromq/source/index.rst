@@ -90,17 +90,17 @@ routing traffic between both ends. Therefore, we create a separate
 network namespace (netns) that the UE uses to create its TUN interface in.
 
 We only require TUN interfaces for the UE and EPC as they are the only IP
-endpoints in the network and need to communicated over the TCP/IP stack.
+endpoints in the network and need to communicate over the TCP/IP stack.
 The TUN interfaces also allow for the sharing of IP packets, which is essential for 
 the successful emulation of a network. 
 
 Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
 
-We will instantiate each element on a seperate terminal instance, ping tests and any other traffic generation
+We will instantiate each element in a seperate terminal instance, ping tests and any other traffic generation
 will be done in different terminals. 
 
-The following set-up can be used to test the base build of srsLTE or user-modified builds. The implemenetation 
+The following set-up can be used to test the base build of srsLTE or user-modified builds. The implementation 
 shown illustrates how to successfully run a full end-to-end LTE network without the need for RF-hardware. 
 
 Network Namespace Creation
@@ -130,7 +130,7 @@ EPC Configuration
 
 Now let's start the EPC. This will create a TUN device in the default
 network namespace and therefore needs root permissions. This can be run 
-on the same terminal used to create the UE network namespace.
+in the same terminal used to create the UE network namespace.
 
 .. code::
 
@@ -176,7 +176,7 @@ or iperf as usual on the command line in a seperate terminal:
   
 In order to generate traffic in the uplink direction it is important to run the ping command
 in the UE's network namespace. This can either be done in the same terminal as the ping 
-command after stopping the command, or in parallel in a sepertate terminal. 
+command after stopping the command, or in parallel in a separate terminal. 
 
 .. code::
 
