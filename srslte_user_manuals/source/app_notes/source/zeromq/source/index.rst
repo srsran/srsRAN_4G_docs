@@ -54,7 +54,9 @@ Second, install czmq:
   sudo make install
   sudo ldconfig
 
-Finally, you need to compile srsLTE (assuming you have already installed all the required dependencies):
+Finally, you need to compile srsLTE (assuming you have already installed all the required dependencies). 
+Note, if you have already built and installed srsLTE prior to installing ZMQ and other dependencies you 
+will have to re-run the make command to ensure srsLTE recognises the addition of ZMQ:
 
 .. code::
 
@@ -87,8 +89,18 @@ from the EPC's subnet, the Linux kernel would bypass the TUN interfaces when
 routing traffic between both ends. Therefore, we create a separate
 network namespace (netns) that the UE uses to create its TUN interface in. 
 
+We only require TUN interfaces for the UE and EPC as they are the only IP
+endpoints in the network and need to communicate over the TCP/IP stack.
+
+We will run each srsLTE application in a seperate terminal instance.
+Applications such as ping and iperf used to generate traffic will be run in separate terminals.
+
 Note, the examples used here can be found in the following directory: ```./srsLTE/build/lib/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
+
+
+Network Namespace Creation
+--------------------------
 
 Let's start with creating a new network namespace called "ue1" for the (first) UE:
 
@@ -104,6 +116,9 @@ To verify the new "ue1" netns exists, run:
   sudo ip netns list
 
 
+Running the EPC 
+---------------
+
 Now let's start the EPC. This will create a TUN device in the default
 network namespace and therefore needs root permissions.
 
@@ -111,6 +126,9 @@ network namespace and therefore needs root permissions.
 
   sudo ./srsepc/src/srsepc
   
+
+Running the eNodeB 
+------------------
   
 Let's now launch the eNodeB. We use the default configuration in this example and pass
 all parameters that need to be tweaked for ZMQ through as command line arguments. If you
@@ -122,6 +140,9 @@ launched without root permissions.
   ./srsenb/src/srsenb --rf.device_name=zmq --rf.device_args="fail_on_disconnect=true,tx_port=tcp://*:2000,rx_port=tcp://localhost:2001,id=enb,base_srate=23.04e6"
 
 
+Running the UE 
+--------------
+
 Lastly we can launch the UE, again with root permissions to create the TUN device.
 
 .. code::
@@ -131,6 +152,10 @@ Lastly we can launch the UE, again with root permissions to create the TUN devic
 
 The last command should start the UE and attach it to the core network.
 The UE will be assigned an IP address in the configured range (e.g. 172.16.0.2).
+
+
+Traffic Generation
+-------------------
 
 To exchange traffic in the downlink direction, i.e. from the the EPC, just run ping
 or iperf as usual on the command line, e.g.:
@@ -147,6 +172,8 @@ in the UE's network namespace.
 
   sudo ip netns exec ue1 ping 172.16.0.1
 
+Namespace Deletion
+-------------------
 
 After finishing, make sure to remove the netns again.
 

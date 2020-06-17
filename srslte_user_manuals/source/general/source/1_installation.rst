@@ -85,6 +85,7 @@ The following execution instructions are for users that have the appropriate RF-
 to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
 see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
 
+
 Baseline Hardware Requirements
 *********************************
 The overall system requires 2 x RF-frontends and 2 x PCs with a Linux based OS.  
