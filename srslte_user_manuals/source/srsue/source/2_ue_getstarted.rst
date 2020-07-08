@@ -81,7 +81,7 @@ To connect successfully to a network, these parameters will need to match those 
 Hardware Setup
 **************
 
-To use srsUE to connect over-the-air to a local network, you will need an RF front-end and suitable antennas. The default EARFCN is 3400 (2565MHz uplink, 2865MHz downlink). To reduce TX-RX crosstalk, we recommend orienting TX and RX antennas at a 90 degree angle to each other.
+To use srsUE to connect over-the-air to a local network, you will need an RF front-end and suitable antennas. The default EARFCN is 3400 (2565MHz uplink, 2685MHz downlink). To reduce TX-RX crosstalk, we recommend orienting TX and RX antennas at a 90 degree angle to each other.
 
 The srsUE can also be used over a cabled connection. The cable configuration and required RF components will depend upon your RF front-end. For RF front-ends such as the USRP, connect TX to RX and ensure at least 30dB of attenuation to avoid damage to your devices. For more detailed information about cabled connections, see :doc:`Advanced Usage <4_ue_advanced>`.
 
