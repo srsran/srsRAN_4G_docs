@@ -5,12 +5,12 @@
 COTS UE Application Note
 ====================================
 
+**Please note, operating a private LTE network on cellular frequency bands may be tightly regulated in your jurisdiction. Seek the approval of your telecommunications regulator before doing so.**
 
 Introduction
 ************
-srsLTE is usually run end-to-end using PCs and RF-frontends for the UE, eNB and EPC. But the standard srsUE can be replaced with a COTS handest, allowing 
-users to connect to the network and perform multiple tasks. There are two options for network set-up when connecting a COTS UE. The network can be left as is, 
-and the UE can communicate locally within the network. Or, the EPC can be connected to the internet through the P-GW, allowing the UE to access the internet for 
+This application note aims to demonstrate how to set up your own LTE network using srsENB, srsEPC and a COTS UE. There are two options for network set-up when connecting a COTS UE: The network can be left as is, 
+and the UE can communicate locally within the network, or the EPC can be connected to the internet through the P-GW, allowing the UE to access the internet for 
 web-browsing, email etc. 
 
 Hardware Required
@@ -19,7 +19,8 @@ Creating a network and connecting a COTS UE requires the following:
 
  - PC with a Linux based OS, with srsLTE installed and built
  - An RF-frontend capable of both Tx & Rx
- - A COTS UE with compatable USIM/ SIM card 
+ - A COTS UE 
+ - USIM/ SIM card (This must be a test card or a programmable card, with known keys)
  
 The following diagram outlines the set-up: 
  
@@ -33,7 +34,7 @@ For this implementation the following equipment was used:
 	
 Driver & Conf. File Set-Up
 ******************************
-Before instantiating the network and conneting the UE you need to first ensure you have the correct drivers installed and that the configuartion files are edited appropriately. 
+Before instantiating the network and connecting the UE you need to first ensure you have the correct drivers installed and that the configuration files are edited appropriately. 
 
 Drivers
 ----------
@@ -45,7 +46,6 @@ they are up to date and are from a stable release. This step can be skipped if y
   * UHD:                 https://github.com/EttusResearch/uhd
   * SoapySDR:            https://github.com/pothosware/SoapySDR
   * BladeRF:             https://github.com/Nuand/bladeRF
-  * ZeroMQ:              https://github.com/zeromq
 
 When the drivers have been installed/ updated you should connect your hardware and check that everything is working correctly. To do this for a USRP using the UHD drivers run the following command:: 
 
@@ -72,7 +72,7 @@ The base configuration files for srsLTE can be installed by running the followin
 
 	sudo srslte_install_configs.sh <user/service>
 	
-You have the option to install the conifugrations files to the user directory or as a service. For this example the configuration files have been installed as a service by
+You have the option to install the configurations files to the user directory or for all users. For this example the configuration files have been installed for all users by
 running the following command ``sudo srslte_install_configs.sh service``. The config files can then be found in the following folder: ``~./etc/srslte``
 
 You will need to edit the following files before you can run a COTS UE over the network: 
@@ -104,38 +104,24 @@ The above changes must be mirrored in the eNB config. file. The following screen
 		
 Here, the MMC and MNC values at lines 21 & 22 are changed to the values used in the EPC. 
 
-For both of the config files the rest of the values can be left at the defulat values. They may be changed as needed, but further customization 
+For both of the config files the rest of the values can be left at the default values. They may be changed as needed, but further customization 
 is not necessary to enable the successful connection of a COTS UE. 
 
 **User DB:**
 
-The following table describes the fields contained in the ``user_db.csv`` file, found in the same folder as the .conf files. As standard, this file 
-will come with two dummy UEs entered in to the CSV, these help to provide an example of how the file should be filled in. 
+The following list describes the fields contained in the ``user_db.csv`` file, found in the same folder as the .conf files. As standard, this file 
+will come with two dummy UEs entered into the CSV, these help to provide an example of how the file should be filled in. 
 
-.. list-table:: DB Fields
-	:widths: 10 10 10 10 10 10 10 10 10 10
-	:header-rows: 1
-
-	* 	- Name
-		- Auth
-		- IMSI
-		- Key
-		- OP Type
-		- OP
-		- AMF
-		- SQN
-		- QCI
-		- IP Alloc
-	*	- Any human readable value
-		- Authentication algorithm (xor/ mil)
-		- UE's IMSI value
-		- UE's key, hex value
-		- Operatoer's code type (OP/ OPc)
-		- OP/ OPc code, hex value
-		- Authentication management field, hex value must be above 8000
-		- UE's Sequence number for freshness of the authentication
-		- QoS Class Identifier for the UE's default bearer
-		- IP allocation stratagy for the SPGW
+	- Name: Any human readable value
+	- Auth: Authentication algorithm (xor/ mil)
+	- IMSI: UE's IMSI value
+	- Key: UE's key, hex value
+	- OP Type: Operator's code type (OP/ OPc)
+	- OP: OP/ OPc code, hex value
+	- AMF: Authentication management field, hex value must be above 8000
+	- SQN: UE's Sequence number for freshness of the authentication
+	- QCI: QoS Class Identifier for the UE's default bearer
+	- IP Alloc: IP allocation strategy for the SPGW
 
 The AMF, SQN, QCI and IP Alloc fields can be populated with the following values: 
 	
@@ -148,9 +134,55 @@ This will result in a user_db.csv file that should look something like the follo
 
 Line 22 shows the entry for the USIM being used in the COTS UE. The values assigned to the AMF, SQN, QCI & IP Alloc are default values above, 
 as outlined :ref:`here <config_csv>` in the EPC documentation. Ensure there is no white space between the values in each entry, as this will cause 
-the file to be read wrong. 
+the file to be read incorrectly. 
 
-The configuration files and DB should now be set up appropriatly to allow a COTS UE to connect to the eNB and Core. 
+Adding an APN
+----------------------
+
+An APN is needed to allow the UE to access the internet. This is created from the UE and then a change is made to the EPC config file to reflect this. 
+
+From the UE navigate to the Network settings for the SIM being used. From here an APN can be added, usually under *"Access point names"*. Create a new APN with the name and APN "test123", as shown in the following figure. 
+
+	.. image:: .imgs/apn_ue.jpg
+		:align: center
+		:height: 250px
+
+The addition of this APN must be reflected in the EPC config file, to do this add the APN to the config. This is shown in the following figure: 
+
+	.. image:: .imgs/apn_epc.png
+		:align: center
+		:height: 250px
+		
+The APN has been added at line 30 in the above figure. This must match the APN on the UE to enable a successful connection. 
+
+Run Masquerading Script
+------------------------------------
+To allow UE to connect to the internet via the EPC, the pre-configured masquerading script must be run. This can be found in ``srsLTE/srsepc``. The 
+masquerading script enables IP forwarding and sets up Network Address Translation to pass traffic between the srsLTE network and the external network. 
+The script must be run each time the machine is re-booted, and can be done before or while the network is running. The UE will not be able to communicate 
+with the interet until this script has been run. 
+
+Before running the script it is important to identify the interface being used to connect your PC to the internet. As the script requires this to be passed 
+in as an argument. This can be done by running the following command::
+
+	route
+
+You will see an output similar to the following: 
+
+	.. image:: .imgs/route.png
+		:align: center
+
+The interface (Iface) associated with the *default* destination is one which must be passed into the masq. script. In the above figure that is the wlp2s0 interface. 
+
+The masq. script can now be run from the follow folder: ``srsLTE/srsEPC``:: 
+
+	sudo ./srsepc_if_masq.sh <interface>
+
+If it has executed successfully you will see the following message: *Masquerading Interface <interface>* .
+
+
+
+The configuration files, user DB and UE should now be set up appropriately to allow the COTS UE to connect to the eNB and Core. 
 
 Connecting a COTS UE to srsLTE
 ****************************************
@@ -169,7 +201,7 @@ The following output should be displayed on the console:
 		:align: center
 		:height: 180px
 		
-The eNB can then be brought online in a seperate console by running::
+The eNB can then be brought online in a separate console by running::
 
 	sudo srsenb 
 	
@@ -179,7 +211,7 @@ The console should display the following:
 		:align: center
 		:height: 220px
 		
-The EPC console should now print an update if the eNB has sucessfuly connected to the core: 
+The EPC console should now print an update if the eNB has successfully connected to the core: 
 		
 	.. image:: .imgs/enb_connect.png
 		:align: center
@@ -190,9 +222,9 @@ The network is now ready for the COTS UE to connect.
 Connecting the UE
 ---------------------------
 
-Connecting the UE to the network is a quick and easy process if the above steps have been completed successfully. 
+Connecting the UE to the network is a quick and easy process if the above steps have been completed successfully.
 
-Firstly, make sure the USIM is inserted properly in the UE. Then follow the following steps: 
+You can now connect the UE to the network by taking the following steps: 
 
 	- Open the Settings menu and navigate to the Sim & Network options
 
@@ -200,7 +232,7 @@ Firstly, make sure the USIM is inserted properly in the UE. Then follow the foll
 		:align: center
 		:height: 250px
 
-	- Open this menu and proceed to the sub-menu asociated with the USIM being used. It should look something like the following: 
+	- Open this menu and proceed to the sub-menu associated with the USIM being used. It should look something like the following: 
 
 	.. image:: .imgs/sim_settings.jpg
 		:align: center
@@ -214,18 +246,18 @@ Firstly, make sure the USIM is inserted properly in the UE. Then follow the foll
 
 	- Select the network that is a combination of your MMC & MNC values. For this example it is the network labelled 90170 4G. The UE should then automatically connect to the network. 
 	
-The UE should now be conected to the network. To check for a successfull connection use the logs prointed to the console. 
+The UE should now be connected to the network. To check for a successful connection use the logs output to the console. 
 
 Confirming Connection
 --------------------------------
 
-Once the UE has been connected to the network, logs will be output to the consoles running the eNB and EPC. These can be used to confirm a succesful connection of the UE. 
+Once the UE has been connected to the network, logs will be output to the consoles running the eNB and EPC. These can be used to confirm a successful connection of the UE. 
 
 **EPC Logs:**
 
-The following ouptut is shown for the EPC after a successful attach. First a confirmation message in the form of *UL NAS: Received Attach Complete* will be displayed, secondly
-the EPS bearers will be given out and the ID confirmed on the output, and lastly the *Sending EMM Impformation Message* output will be shown. If all of these are displayed in the 
-logs, then an attach is succesful. These messages are seen in the last five lines of the console output in the following figure. 
+The following output is shown for the EPC after a successful attach. First a confirmation message in the form of *UL NAS: Received Attach Complete* will be displayed, secondly
+the EPS bearers will be given out and the ID confirmed on the output, and lastly the *Sending EMM Information Message* output will be shown. If all of these are displayed in the 
+logs, then an attach is successful. These messages are seen in the last five lines of the console output in the following figure. 
 
 	.. image:: .imgs/epc_attach.png
 		:align: center
@@ -233,7 +265,7 @@ logs, then an attach is succesful. These messages are seen in the last five line
 
 **eNB Logs:**
 
-The eNB logs also display messages to confirm an attach. A *RACH* message should be seen followed by a *USER 0xX connected* message. Where "*0xX*" is a hex ID respresenting the UE. 
+The eNB logs also display messages to confirm an attach. A *RACH* message should be seen followed by a *USER 0xX connected* message. Where "*0xX*" is a hex ID representing the UE. 
 
 NOTE, you may see some other RACHs and *Disconnecting rtni=0xX* messages. This may be from other devices trying to connect to the network, if you have seen a clear connection between the UE and network 
 these can be ignored. 
@@ -244,74 +276,17 @@ The following figure shows an output from the eNB that indicates a successful at
 		:align: center
 		:height: 240px
 
-The UE is now connected to the network. This can be used to test modifications to the network or other use-cases in which a user would like to test 
-network connectivity with a COTS UE. The UE should now automatically connect to this network each time. You should keep the UE in aeroplane mode until you want to connect it to the network. 
+The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect it to the network. The UE 
+should now also have access to the internet - as if connected to a standard 4G network.
 
-The UE will not be able to communicate outside of the network. To do this please follow the steps in the following section.
-
-Connecting a COTS UE to the Internet
-*********************************************
-The following steps aim to show how to successfully enable an internet connection on a COTS UE, using srsEPC and srsENB. This will follow on from the steps outlined above, with one prerequisit before spinning up 
-the network. The other steps required will be as before. 
-
-Adding an APN to the UE
--------------------------------------
-Firstly an APN is needed to allow the UE to access the internet. This is created from the UE and then a change is made to the EPC config file to reflect this. 
-
-From the UE navigate to the Network settings for the SIM being used. From here an APN can be added, usually under *"Access point names"*. Create a new APN with the name and APN "test123", as shown in the following figure. 
-
-	.. image:: .imgs/apn_ue.jpg
-		:align: center
-		:height: 250px
-
-The addition of this APN must be reflected in the EPC config file, to do this add the APN to the config. This is shown in the following figure: 
-
-	.. image:: .imgs/apn_epc.png
-		:align: center
-		:height: 250px
-		
-The APN has been added at line 30 in the above figure. This must match the APN on the UE to enable a successful connection. 
- 
-Run Masquerading Script
-------------------------------------
-To allow connection to the internet via the EPC, the pre-configured masquerading script must be run. This can be found in ``srsLTE/srsepc``. 
-
-Before running the script it is imporant to identify the interface being used to connecct your PC to the internet. As the script requires this to be passed 
-in as an arguement. This can be done by running the following command::
-
-	route
-
-You will see an output similar to the following: 
-
-	.. image:: .imgs/route.png
-		:align: center
-
-The interface (Iface) associated with the *default* destination is one which must be passed into the masq. script. In the above figure that is the wlp2s0 interface. 
-
-The masq. script can now be run from the follow folder: ``srsLTE/srsEPC``:: 
-
-	sudo ./srsepc_if_masq.sh <interface>
-
-If it has executed successfully you will see the following message: *Masquerading Interface <interface>* .
-
-Instantiate Network
-----------------------------
-The network can now be instantiated in the same way as before. 
-
-Firstly, run the EPC, followed by the eNB, and lastly connect the UE to the network. Confirmation messages will be displayed if a successful attach has been achieved in the same way as before. 
-The user should not have to do anything else to get the UE to connect. 
-
-Connect UE
------------------
-The UE can now be connected to the network. To enable connection to the internet ensure mobile data is turned on. The UE should now be able to browse the internet, send email and stream video - as if connected to a standard 
-4G network. 
 
 Troubleshooting
 *******************
-- Some users may experience trouble connecting to the internet, even after running the masquerading scipt. Ensure that IP forwarding is enabled, and check your network configuration as this may be stopping the UE from connecting successfully. 
+- Some users may experience trouble connecting to the internet, even after running the masquerading script. Ensure that IP forwarding is enabled, and check your network configuration as this may be stopping the UE from connecting successfully. 
 
-- Users may also have trouble connecting to the networ. Firstly check that all information in the config. and DB files is correct. You may also need to adjust the gain parameters in the eNB config. file - without high enough power (<pmax threshold), the UE won't PRACH. 
+- Users may also have trouble connecting to the network. Firstly check all information in the config. and DB files are correct. You may also need to adjust the gain parameters in the eNB config. file - without high enough power (<pmax threshold), the UE won't PRACH. 
 
-- Some SIMs may not be compatable in UEs that are "locked" to certain network operators. 
+- Some SIMs may not be compatible in UEs that are "locked" to certain network operators. 
+
 
 

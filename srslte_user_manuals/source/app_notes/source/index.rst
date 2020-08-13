@@ -34,6 +34,9 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Experiment with CV2X signalling with srsLTE:
 |   - :ref:`CV2X Application Note <cv2x_appnote>`
 
+| Connect a COTS UE to srsLTE:
+|   - :ref:`COTS UE Application Note<cots_ue_appnote>`
+
 
 Links
 ------------
@@ -52,4 +55,6 @@ Links
    pi4/source/index.rst
 
    cv2x/source/index.rst
+   
+   cots_ue/source/index.rst
 
