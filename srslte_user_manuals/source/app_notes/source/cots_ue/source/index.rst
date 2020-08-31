@@ -132,7 +132,7 @@ This will result in a user_db.csv file that should look something like the follo
 	.. image:: .imgs/user_db.png
 		:align: center
 
-Line 22 shows the entry for the USIM being used in the COTS UE. The values assigned to the AMF, SQN, QCI & IP Alloc are default values above, 
+Line 20 shows the entry for the USIM being used in the COTS UE. The values assigned to the AMF, SQN, QCI & IP Alloc are default values above, 
 as outlined :ref:`here <config_csv>` in the EPC documentation. Ensure there is no white space between the values in each entry, as this will cause 
 the file to be read incorrectly. 
 
@@ -145,13 +145,12 @@ From the UE navigate to the Network settings for the SIM being used. From here a
 
 	.. image:: .imgs/apn_ue.jpg
 		:align: center
-		:height: 250px
+		:height: 360px
 
 The addition of this APN must be reflected in the EPC config file, to do this add the APN to the config. This is shown in the following figure: 
 
 	.. image:: .imgs/apn_epc.png
 		:align: center
-		:height: 250px
 		
 The APN has been added at line 30 in the above figure. This must match the APN on the UE to enable a successful connection. 
 
@@ -230,19 +229,19 @@ You can now connect the UE to the network by taking the following steps:
 
 	.. image:: .imgs/ue_settings.jpg
 		:align: center
-		:height: 250px
+		:height: 360px
 
 	- Open this menu and proceed to the sub-menu associated with the USIM being used. It should look something like the following: 
 
 	.. image:: .imgs/sim_settings.jpg
 		:align: center
-		:height: 250px
+		:height: 360px
 
 	- Under the Network Operators find the network which you have just instantiated using srsLTE
 
 	.. image:: .imgs/networks.jpg
 		:align: center
-		:height: 250px
+		:height: 360px
 
 	- Select the network that is a combination of your MMC & MNC values. For this example it is the network labelled 90170 4G. The UE should then automatically connect to the network. 
 	
@@ -261,7 +260,7 @@ logs, then an attach is successful. These messages are seen in the last five lin
 
 	.. image:: .imgs/epc_attach.png
 		:align: center
-		:height: 400px
+		:height: 600px
 
 **eNB Logs:**
 
@@ -274,7 +273,7 @@ The following figure shows an output from the eNB that indicates a successful at
 
 	.. image:: .imgs/enb_attach.png
 		:align: center
-		:height: 240px
+		:height: 300px
 
 The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect it to the network. The UE 
 should now also have access to the internet - as if connected to a standard 4G network.
