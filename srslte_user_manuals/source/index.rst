@@ -33,15 +33,6 @@ First Steps
 
 | Read the srsLTE Application Notes:
 |   - :ref:`Application Notes <app_notes>`
-<<<<<<< HEAD
-=======
-
-| Explore example use-cases included in the source files:
-|   - :ref:`Examples <gen_examples>`
-
-| FAQs and troubleshooting support:
-|   - :ref:`Support <faqs_ts>`
->>>>>>> 2d502ed... COTS UE app note, changes made as per comments on initial pull request.
   
 | Take a look at the source code:
 |   - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
@@ -60,7 +51,6 @@ Links
    srsenb/source/index.rst
    srsepc/source/index.rst
    app_notes/source/index.rst
-   support/source/index.rst
 
 
 
