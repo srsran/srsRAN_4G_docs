@@ -25,6 +25,8 @@ To run srsEPC with default parameters, run ``sudo srsepc`` on the command line. 
 
 srsEPC will start a TUN interface ``srs_spgw_sgi`` that will allow user-plane packets to reach the UEs.
 
+.. _epcConfig:
+
 Configuration
 *************
 
