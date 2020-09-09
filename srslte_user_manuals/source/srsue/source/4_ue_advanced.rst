@@ -6,6 +6,8 @@ Advanced Usage
 External USIM
 *************
 
+**This section is only needed if you do not have access to the USIM credentials, or have no control over the network. Note, most USIM cards ship with their credentials.**
+
 Using an actual SIM card to authenticate the user against the network is an advanced feature.
 It requires a SIM card reader attached to the PC running srsUE that is supported by
 `PCSClite <https://pcsclite.apdu.fr/>`_.
@@ -142,15 +144,15 @@ The delay simulator generates the delay according to the next formula:
 
 .. math::
 
-   d(t) = delay.minimum_us + (delay.maximum_us - delay.minimum_us) * (1.0 + sin(2*pi*t/delay.period)) / 2.0
+   d(t) = delay.min_us + (delay.max_us - delay.min_us) * (1 + sin(2*pi*t/delay.period)) / 2
 
-Where *delay.minimum_us* and *delay.maximum_us* are specified in microseconds while *delay.period* must be in seconds.
+Where *delay.min_us* and *delay.max_us* are specified in microseconds while *delay.period* must be in seconds.
 
 Hence, the maximum simulated speed is given by:
 
 .. math::
 
-   v_max = (delay.maximum_us - delay.minimum_us) * pi * 300 / delay.period
+   v_max = (delay.max_us - delay.min_us) * pi * 300 / delay.period
 
 The following example enables the delay simulator for having a period of 1h with a minimum delay of 10 microseconds and a maximum delay of 100 microseconds:
 
@@ -159,8 +161,8 @@ The following example enables the delay simulator for having a period of 1h with
   ...
   dl.delay.enable     = true
   dl.delay.period     = 3600
-  dl.delay.maximum_us = 100
-  dl.delay.minimum_us = 10
+  dl.delay.max_us = 100
+  dl.delay.min_us = 10
   ...
 
 Finally, the Radio-Link Failure (RLF) simulator has two states:
@@ -199,8 +201,6 @@ Do you want to attach to a 2 port eNb and you have only one receive channel? No 
 TDD
 ***
 
-.. warning::
-
-  TBA
+TDD is currently only supported by srsUE, but is fully tested and implemented.
 
 

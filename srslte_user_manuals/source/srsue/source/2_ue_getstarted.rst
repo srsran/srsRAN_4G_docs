@@ -61,6 +61,8 @@ With the UE attached to the network, type ``t`` in the console to enable the met
      0   -77    77   1.2k    24    32  0.84   5.8M     0%   0.0    18   192k   629k     0%
 
 
+.. _ueConfig:
+
 Configuration
 *************
 
@@ -94,8 +96,6 @@ The srsUE runs in user-space with standard linux kernels. For best performance, 
   for f in /sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_governor ; do
     echo performance > $f
   done
-
-
 
 
 Observing results
