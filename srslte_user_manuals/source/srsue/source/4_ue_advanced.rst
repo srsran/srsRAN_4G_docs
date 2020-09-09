@@ -6,7 +6,7 @@ Advanced Usage
 External USIM
 *************
 
-**This section is only needed if you do not have access to the USIM credentials, or have no control over the network. Note, most USIM cards ship with their credentials.**
+**This section is only needed if you do not have access to the USIM credentials, or have no control over the network. Note, most programmable or test USIM cards ship with their credentials.**
 
 Using an actual SIM card to authenticate the user against the network is an advanced feature.
 It requires a SIM card reader attached to the PC running srsUE that is supported by
@@ -196,11 +196,5 @@ The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user
   ...
 
 Do you want to attach to a 2 port eNb and you have only one receive channel? No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage of spatial multiplexing and it will not achieve the maximum throughput.
-
-
-TDD
-***
-
-TDD is currently only supported by srsUE, but is fully tested and implemented.
 
 

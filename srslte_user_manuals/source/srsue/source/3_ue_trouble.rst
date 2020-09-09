@@ -109,8 +109,7 @@ The computational requirements of the srsUE application are closely tied to the 
 
 RF Hardware
 ---------------------------------
-The RF-signal itself can also affect the peak throughput a network can achieve. Ensure the radio being used is correctly calibrated and that the appropriate gain settings are used. The health of an RF-signal can be quickly checked using the 
-console trace output by srsUE. 
+The RF-signal itself can also affect the peak throughput a network can achieve. Ensure the radio being used is correctly calibrated and that the appropriate gain settings are used. The health of an RF-signal can be quickly checked using the console trace output by srsUE.
 
 The following is an example of a "healthy" console trace from srsUE. This trace is for a 50-PRB network configuration.
 Note the relatively low CFO of 3.1kHz, the high SNR value, the high MCS values and the 0% BLER on both DL and UL::
