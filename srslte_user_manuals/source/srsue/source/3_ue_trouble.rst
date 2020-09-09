@@ -95,7 +95,7 @@ Maximum achievable srsUE peak throughput may be limited for a number of differen
 
 Computational Power
 ---------------------------------
-In order to achieve peak throughput, we recommend using a PC with an 8th Gen i7 processor or above, running Ubuntu 16.04 OS or highe. Machines with lower specs can also run srsLTE sucessfully but with lower maximum throughput. 
+In order to achieve peak throughput, we recommend using a PC with an 8th Gen i7 processor or above, running Ubuntu 16.04 OS or higher. Machines with lower specs can also run srsLTE sucessfully but with lower maximum throughput. 
 
 The CPU governor of the PC should be set to performance mode to allow for maximum compute power and throughput. This can be configured for e.g. Ubuntu using::
 	
