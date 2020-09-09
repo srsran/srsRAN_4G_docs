@@ -59,11 +59,11 @@ There are two main reasons for a network attach failing:
  - A misconfigured network
  - RF issues
  
-Both may stop the UE being able to see the eNB, cause the UE to fail to connect, or cause the UE to connect but with poor stability. 
+Either may stop the UE being able to see the eNB, cause the UE to fail to connect, or cause the UE to connect but with poor stability. 
 
 Misconfigured Network
 ---------------------------------
-A misconfigured network may stop the UE being able to see the eNB and/ or connect to the EPC. It may be helpful to reference the EPC user manual, namely the :ref:`configuration section<epcConfig>`. To ensure the EPC has been configured correctly. The UE configuration file should also be checked to ensure the relevant information is reflected across the 
+A misconfigured network may stop the UE being able to see the eNB and/ or connect to the EPC. It may be helpful to reference the EPC user manual, namely the :ref:`configuration section<epcConfig>` to ensure the EPC has been configured correctly. The UE configuration file should also be checked to ensure the relevant information is reflected across the 
 two files. See the :ref:`configuration section <ueConfig>` of the UE documentation for notes on this.
 
 An unsuccessful attach can be down to how the UE's credentials are reflected in the EPC's config file and database. See the :ref:`COTS UE <cots_ue_appnote>` Application Note for info on how to add a UE to the EPC's database and ensure the correct network configuration. Note, 
@@ -73,47 +73,47 @@ Users should also keep an eye on the console outputs of the UE, eNB and EPC to e
 
 RF Issues
 --------------
-The RF-Hardware and hardware configuration should also be checked if a network attach continues to fail.
+The RF hardware and configuration should also be checked if a network attach continues to fail.
 
 First check that the hardware is correctly connected and running over USB 3.0, also check the drivers for your HW are up to date. The latest drivers can be found :ref:`here <Drivers>`.
 
-The antenna choice and position is important to ensuring the correct operation of the SDR and overall network. We recommend using the `Vert2450 <https://www.ettus.com/all-products/vert2450/>`_ antenna from Ettus (or similar). The Antenna should 
-be positioned at 90° to each other. You should also ensure the correct ports are used for the antenna, for reference, on the b200 mini the *RX2* & *TRX* ports are used. 
+The antenna choice and position is important to ensure the correct operation of the SDR and overall network. We recommend using the `Vert2450 <https://www.ettus.com/all-products/vert2450/>`_ antenna from Ettus (or similar). The antennae should 
+be positioned at 90° to each other. You should also ensure the correct ports are used for the antennae. For example, on the b200 mini the *TRX* and *RX2* ports are used. 
 
 It is also important that the correct configuration settings are used as described :ref:`above <rfConfig>`. 
 
 If possible you should use a spectrum analyser or other such piece of equipment to check the state of the signal(s) being transmitted by the RF-hardware. If the signal is too weak or malformed then an attach will not be successful.  
-GNU-radio has a block that can be used as a spectrum analyser called `Fosphor <https://kb.ettus.com/Fosphor>`_, which can be used with an SDR to analise spectrum space in real time. 
+The `gr-fosphor tool <https://github.com/osmocom/gr-fosphor>`_ is a very useful SDR spectrum analyzer which can be used to check the properties of transmitted RF signals. 
 
-Carrier frequency offset (CFO) may also result in a UE not being able to sucessfully attach to an eNB. Check the configration files so that the CFOs match. You may also need to calibrate your SDR, as the clock accuracy may result 
-in the CFO being outside of the accepted tolerance. Multiple open source tools like `Kalibrate-RTL <https://github.com/steve-m/kalibrate-rtl>`_ can be used to calculate the oscialltor offset of your SDR and help with getting the correct CFO. An external reference clock 
-or other such method of clocking can be used to increase clock accuracy. Calibrating your SDR may also help with Peak Throughput and stability. 
+Carrier frequency offset (CFO) may also result in a UE not being able to sucessfully attach to an eNB. Check the configration files so that EARFCNs and carrier frequencies match. You may also need to calibrate your SDR, as low clock accuracy may result 
+in the CFO being outside of the accepted tolerance. Multiple open source tools like `Kalibrate-RTL <https://github.com/steve-m/kalibrate-rtl>`_ can be used to calculate the oscillator offset of your SDR and help to minimize CFO. An external clock reference
+or GPSODO can also be used to increase clock accuracy. Calibrating your SDR may also help with peak throughput and stability. 
 
 Peak Throughput
 ***************
-The peak throughput available to a network can be down to the limitations of the PC being used, the network configuration, the RF-hardware and the physical network conditions. 
+Maximum achievable srsUE peak throughput may be limited for a number of different reasons. These include limitations in the PC being used, the network configuration, the RF-hardware and the physical network conditions. 
 
 Computational Power
 ---------------------------------
-We reccomend using a PC with an 8th Gen i7 processor or above, running Ubuntu 16.04 OS or higher, to achieve the best throughput. Machines with lower specs can also run srsLTE sucessfully but with lower maximum throughput. 
+In order to achieve peak throughput, we recommend using a PC with an 8th Gen i7 processor or above, running Ubuntu 16.04 OS or highe. Machines with lower specs can also run srsLTE sucessfully but with lower maximum throughput. 
 
-The PCs CPU governor should be set to performance mode to allow for maximum compute power and throughput. This can be done by entering the following command via a terminal::
+The CPU governor of the PC should be set to performance mode to allow for maximum compute power and throughput. This can be configured for e.g. Ubuntu using::
 	
 	echo "performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 	
 Again, you should also ensure your SDR drivers are up to date and that you are running over USB 3.0, as this will also affect maximum throughput. 
 
-If using a laptop, users should keep the PC connected to a power-source at all times while running srsLTE, as this will increase overall performance of the machine. 
+If using a laptop, users should keep the PC connected to a power-source at all times while running srsLTE, as this will avoid performance loss due to CPU frequency scaling on the machine. 
 
-As well as the above steps, users can achieve peak throughput with the available hardware by adjusting the configuration of network elements. For example, the number of PRBs will be limited by the available hardware, users should adjust this accordingly. 
-Users can also optimise network elements depnding on the use case, to improve peak throughput. How this is done will be user and use-case dependent. 
+The computational requirements of the srsUE application are closely tied to the bandwidth of the LTE carrier being used. For example, maximum throughput using 100-PRB carrier will require a more powerful CPU than maximum throughput using a 25-PRB carrier. If your machine is not powerful enough to support srsUE with a given network configuration, you will see Late and/or Overflow packet reports from the SDR front-end.
 
 RF Hardware
 ---------------------------------
 The RF-signal itself can also affect the peak throughput a network can achieve. Ensure the radio being used is correctly calibrated and that the appropriate gain settings are used. The health of an RF-signal can be quickly checked using the 
 console trace output by srsUE. 
 
-The following is an example of a "healthy" console trace from srsUE. This set-up uses 50 PRBs and had a CFO of -2.9 kHz, the SDR being used is an Ettus B210:: 
+The following is an example of a "healthy" console trace from srsUE. This trace is for a 50-PRB network configuration.
+Note the relatively low CFO of 3.1kHz, the high SNR value, the high MCS values and the 0% BLER on both DL and UL::
 
 	--------Signal--------------DL-------------------------------------UL----------------------
 	cc pci  rsrp    pl    cfo   mcs   snr turbo  brate   bler   ta_us  mcs   buff  brate   bler
@@ -129,7 +129,6 @@ The following is an example of a "healthy" console trace from srsUE. This set-up
 	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
 	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
 	
-The SNR, CFO and BLER can be used to de-bug the health of an RF signal. See the section on UE :ref:`command line reference <ue_commandref>` for information regarding the console trace. 
+The SNR, CFO and BLER can be used to debug the health of an LTE signal connection. See the section on UE :ref:`command line reference <ue_commandref>` for information regarding the console trace. 
 
-You should also check to see if there are any overflows or lates being seen by the SDR. 
 
