@@ -343,11 +343,11 @@ You can now connect the UE to the network by taking the following steps:
 The UE should now be connected to the network. To check for a successful connection use the logs output to the console. 
 
 Confirming Connection
---------------------------------
+----------------------
 
-Once the UE has been connected to the network, logs will be output to the consoles running the eNB and EPC. These can be used to confirm a successful connection of the UE. 
+Once the UE has connected to the network, the console outputs of the srsENB and srsEPC can be used to confirm a successful connection. 
 
-**EPC Logs:**
+**EPC Console:**
 
 The following output is shown for the EPC after a successful attach. First a confirmation message in the form of *UL NAS: Received Attach Complete* will be displayed, secondly
 the EPS bearers will be given out and the ID confirmed on the output, and lastly the *Sending EMM Information Message* output will be shown. If all of these are displayed in the 
@@ -421,9 +421,9 @@ logs, then an attach is successful. These messages are seen in the last five lin
 	Received GTP-C PDU. Message type: GTPC_MSG_TYPE_MODIFY_BEARER_REQUEST
 	Sending EMM Information
 
-**eNB Logs:**
+**eNB Console:**
 
-The eNB logs also display messages to confirm an attach. A *RACH* message should be seen followed by a *USER 0xX connected* message. Where "*0xX*" is a hex ID representing the UE. 
+The eNB console also display messages to confirm an attach. A *RACH* message should be seen followed by a *USER 0xX connected* message. Where "*0xX*" is a hex ID representing the UE. 
 
 NOTE, you may see some other RACHs and *Disconnecting rtni=0xX* messages. This may be from other devices trying to connect to the network, if you have seen a clear connection between the UE and network 
 these can be ignored. 
@@ -455,17 +455,16 @@ The following shows an output from the eNB that indicates a successful attach::
 	RACH:  tti=521, preamble=44, offset=1, temp_crnti=0x46
 	User 0x46 connected
 
-The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect it to the network. The UE 
-should now also have access to the internet - as if connected to a standard 4G network.
+The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect it to the network. The UE should now also have access to the internet - as if connected to a commercial 4G network.
 
 
 Troubleshooting
-*******************
+****************
 - Some users may experience trouble connecting to the internet, even after running the masquerading script. Ensure that IP forwarding is enabled, and check your network configuration as this may be stopping the UE from connecting successfully. 
 
-- Users may also have trouble connecting to the network. Firstly check all information in the config. and DB files are correct. You may also need to adjust the gain parameters in the eNB config. file - without high enough power (<pmax threshold), the UE won't PRACH. 
+- Users may also have trouble connecting to the network. Firstly check all information in the configuration and user DB files are correct. You may also need to adjust the gain parameters in the eNB config. file - without high enough power (pmax threshold), the UE won't PRACH. 
 
-- Some SIMs may not be compatible in UEs that are "locked" to certain network operators. 
+- Note that some USIM cards may not be compatible in UEs that are "locked" to certain network operators. 
 
 
 
