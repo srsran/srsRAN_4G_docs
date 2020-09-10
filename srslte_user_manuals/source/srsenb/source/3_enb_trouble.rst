@@ -28,6 +28,12 @@ If an attached UE cannot access the internet, this may be due to a misconfigured
 
 Another common reason is misconfigured IP routing at the EPC. If using srsEPC, make sure to follow the instructions on IP Masquerading in the :ref:`app note <cots_ue_appnote>`.
 
+iPhone Unable to See Network
+-------------------------------------------
+iPhones using intel chipsets may sometimes fail to see the network. This is to do with the PLMN code (MMC/ MNC combination) being used. The use of certain test values for these codes results in the UE not being able to see the network. For example, 
+using MCC/MNC values of 901/70 or 001/01 will not work. Instead, you should set the MCC to your country specific value - for Ireland this would be 272. A full list can be found `here <https://en.wikipedia.org/wiki/Mobile_country_code>`_. The MNC 
+value can then be set to any value that is not currently in use by a Mobile Network Operator. Tested values include 77, 78 and 79. 
+
 Peak Throughput
 ***************
 Maximum achievable srsENB peak throughput may be limited for a number of different reasons. These include limitations in the PC being used, the network configuration, the RF-hardware and the physical network conditions. 
