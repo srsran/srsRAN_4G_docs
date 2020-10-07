@@ -6,16 +6,16 @@ Installation Guide
 Which Installation Should I Use? 
 **************************************
 
-srsLTE can be installed using a package installation or installed from source. The following decision tree should help users decide which is best for them: 
+srsLTE can be installed from packages or from source. The following decision tree should help users decide which is best for them: 
 
 .. figure:: .imgs/download_decision.png
 	:align: center
 
-In short, users looking for a simple install that only intend to run 'vanilla' srsLTE with USRPs should use the package installation. Users who want 
-to modify srsLTE and user other RF-hardware such as limeSDR and BladeRF should install from source. 
+In short, users looking for a simple installation who only expect to run basic srsLTE applications with USRP front-ends should use the package installation.
+Users who wish to modify srsLTE and/or use alternative RF front-ends such as limeSDR and BladeRF should install from source.
 
-Package Installation on Ubuntu
-*******************************
+Package Installation
+*********************
 
 The srsLTE software suite can be installed using packages on Ubuntu::
 
