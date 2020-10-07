@@ -22,6 +22,16 @@ The srsLTE software suite can be installed using packages on Ubuntu::
   sudo add-apt-repository ppa:srslte/releases
   sudo apt-get update
   sudo apt-get install srslte -y
+  
+Package installs are also available for other distributions.
+
+ - `openSUSE <https://software.opensuse.org/package/srsLTE?search_term=srslte>`_
+ - `Arch Linux <https://www.archlinux.org/packages/?q=srsLTE>`_
+ - `Debian (Pop OS, Mint, etc) <https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords=srsLTE>`_ 
+ 
+Note, only Ubuntu packages are maintained by SRS. Package managers keep other distributions up to date and may not always have the latest version of srsLTE. Check which version is available before downloading. 
+
+Fedora does not yet have support for a package installation of srsLTE. 
 
 Installation from Source
 ************************
