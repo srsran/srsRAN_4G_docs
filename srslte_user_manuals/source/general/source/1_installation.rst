@@ -29,7 +29,8 @@ Package installs are also available for other distributions.
  - `Arch Linux <https://www.archlinux.org/packages/?q=srsLTE>`_
  - `Debian (Pop OS, Mint, etc) <https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords=srsLTE>`_ 
  
-Note, only Ubuntu packages are maintained by SRS. Package managers keep other distributions up to date and may not always have the latest version of srsLTE. Check which version is available before downloading. 
+Note, only the Launchpad packages for Ubuntu are maintained by SRS. Different distributions will maintain their own packages for srsLTE, which may or may not be up to date. Check the available version before installing 
+to ensure you are using the desired version of srsLTE. 
 
 Fedora does not yet have support for a package installation of srsLTE. 
 
