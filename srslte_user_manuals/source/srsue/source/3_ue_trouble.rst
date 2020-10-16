@@ -24,8 +24,8 @@ In some cases, one may use some custom bands which do not mach with any EARFCN. 
 .. code::
 
   ...
-  dl_frequency = 400e6
-  ul_frequency = 450e6
+  dl_freq = 400e6
+  ul_freq = 450e6
   ...
 
 Attention: the eNB and UE DL EARFCNs calculate some security sequences using the DL EARFCN. If they do not match, the UE may fail to perform some actions.
