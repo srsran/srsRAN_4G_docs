@@ -32,5 +32,5 @@ Metrics are provided for the received signal (Signal), downlink (DL) and uplink 
 :turbo: Average number of turbo decoder iterations
 :brate: Bitrate (bits/sec)
 :bler: Block error rate
-:ta_us: Time advance (uS)
+:ta_us: `Timing advance <https://www.sharetechnote.com/html/Handbook_LTE_TimingAdvance.html>`_ (uS) 
 :buff: `Uplink buffer status <https://www.sharetechnote.com/html/Handbook_LTE_BSR.html>`_ - data waiting to be transmitted (bytes)
