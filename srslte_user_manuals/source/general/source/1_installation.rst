@@ -85,6 +85,8 @@ Note that depending on your flavor and version of Linux, the actual package name
   * BladeRF:             https://github.com/Nuand/bladeRF
   * ZeroMQ:              https://github.com/zeromq
 
+Note, if using UHD we recommend version 3.15 LTS. 
+
 Download and build srsLTE::
 
   git clone https://github.com/srsLTE/srsLTE.git
