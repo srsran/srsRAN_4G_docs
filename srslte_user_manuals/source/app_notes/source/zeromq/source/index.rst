@@ -182,54 +182,6 @@ After finishing, make sure to remove the netns again.
   sudo ip netns delete ue1
 
 
-GNU-Radio Companion Integration 
-***********************************************
-
-GNU-Radio Companion can be easily integrated with a ZMQ based instance of srsLTE. This can be used to manipulate, and/ or visualise baseband I/Q data as it is sent between the UE and eNB. 
-It does this by using the ZMQ-compatible blocks within GRC connected to the TCP ports used to transmit data between the two network elements. Data going both from the UE to the eNB, 
-and from the eNB to the UE can be handled via a GRC Broker. 
-
-The following figure shows a basic GRC Broker: 
-
-.. figure:: .imgs/grc_standard.png
-    :align: center
-
-The above figure shows how the broker acts as a man-in-the-middle between the UE and the eNB. The blue boxes and arrows show the direction of data between the network elements. 
-The following ports are used in this example: 
-
-.. list-table:: Ports Used
-   :widths: 25 25 25
-   :header-rows: 1
-   :align: center
-
-   * - Port Direction
-     - srsUE
-     - srsENB
-   * - TX
-     - 2001
-     - 2101
-   * - Rx
-     - 2000
-     - 2100
-
-Building on this simple example, the I/Q data sent between elements can be processed, manipulated and/ or visualised as needed. This would lead to a GRC architecture simliar to what is 
-shown in the following figure. 
-
-.. figure:: .imgs/grc_SP.png
-    :align: center
-
-The signal processing clouds between elements here represent where any processing of the data would take place. 
-
-When running an E2E Network with a Broker between elements the following steps must be taken when spinning up the network: 
-	
-  1. Start up the EPC
-  2. Start the eNB using ZMQ
-  3. Start the UE using ZMQ
-  4. Run the GRC Flowgraph associated with the broker. 
-	
-Note, the UE will not connect to the eNB until the broker has been started, as the UL and DL channels are not directly connected between the UE and eNB. You will also need to restart the GRC 
-Broker each time the network is restarted. 
-
 Known issues
 ************
 

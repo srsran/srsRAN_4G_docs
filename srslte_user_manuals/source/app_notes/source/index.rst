@@ -37,6 +37,9 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Connect a COTS UE to srsLTE:
 |   - :ref:`COTS UE Application Note<cots_ue_appnote>`
 
+| Simulate Intra-eNB & S1 Handover using ZMQ:
+|   - :ref:`Handover Application Note<handover_appnote>`
+
 .. toctree::
    :maxdepth: 1
 
@@ -53,4 +56,6 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
    cv2x/source/index.rst
    
    cots_ue/source/index.rst
+   
+   handover/source/index.rst
 
