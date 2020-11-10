@@ -181,13 +181,13 @@ After finishing, make sure to remove the netns again.
 
   sudo ip netns delete ue1
 
-=======
+
 GNU-Radio Companion Integration 
-****************************************
+***********************************************
 
 GNU-Radio Companion can be easily integrated with a ZMQ based instance of srsLTE. This can be used to manipulate, and/ or visualise data as it is sent between the UE and eNB. 
 It does this by utilizing the ZMQ compatable blocks within GRC connected to the TCP ports used to transmit data between the two network elements. Data going both from the UE to the eNB, 
-and from the eNB to the UE can be handled via a GRC "Broker". 
+and from the eNB to the UE can be handled via a GRC Broker. 
 
 The following figure shows a basic GRC Broker: 
 

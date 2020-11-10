@@ -37,10 +37,6 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Connect a COTS UE to srsLTE:
 |   - :ref:`COTS UE Application Note<cots_ue_appnote>`
 
-
-Links
-------------
-
 .. toctree::
    :maxdepth: 1
 
