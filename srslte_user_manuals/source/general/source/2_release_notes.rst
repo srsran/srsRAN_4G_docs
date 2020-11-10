@@ -3,6 +3,14 @@
 Release Notes
 =============
 
+- 20.10
+
+  * EUTRA mobility support
+  * Fix for QAM256 support for eNB
+  * New logging framework
+  * PHY optimizations
+  * Other performance and stability improvements
+
 * 20.04.1
 
   * Fix for UE MIMO segfault issue
