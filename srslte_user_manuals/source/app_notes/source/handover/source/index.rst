@@ -421,10 +421,15 @@ Handover can now be repeated as many times as needed by repeating the above step
 S1 Handover
 ***************
  
-**Note, srsEPC does not support handover via the S1 interface, as it is designed to be a lightweight core for network-in-a-box type deployments. To allow for S1 handover a third party EPC must be used.**
+**Note, srsEPC does not support handover via the S1 interface, as it is designed to be a lightweight core 
+for network-in-a-box type deployments. To support S1 handover, a third party EPC must be used. We will use 
+Open5GS for the purposes of this note, however any third-party EPC supporting S1 handover can be used.**
 
-S1 handover takes place over the S1-interface as a UE transitions from the coverage of one eNB to the next. This differs from intra-enb handover as the UE is leaving the coverage of all sectors in an eNBs coverage, it is a handover to a new eNB. 
-The following steps outline how this can be demonstrated using srsUE, srsENB and a third-party open source core. In this case the EPC from Open5GS is used. Other third party options would also work in this case, so long as they support S1 handover. 
+S1 handover takes place over the S1-interface as a UE transitions from the coverage of one eNB to the next. 
+This differs from intra-enb handover as the UE is leaving the coverage of all sectors in an eNBs coverage, 
+it is a handover to a new eNB. 
+The following steps outline how this can be demonstrated using srsUE, srsENB and a third-party open source core. 
+In this case the EPC from Open5GS is used. Other third party options would also work in this case, so long as they support S1 handover. 
 
 The following diagram outlines the network architecture: 
 
@@ -434,17 +439,19 @@ The following diagram outlines the network architecture:
 Open5GS EPC
 ---------------------
 
-The EPC from Open5gs is used here as srsEPC does not yet support S1 Handover. This is another open source core network solution and is inter-operable with srsLTE. The software can be installed from packages if using Ubuntu, 
-shown via the `open5GS docs <https://open5gs.org/open5gs/docs/guide/01-quickstart/>`_. The EPC, and the rest of the Open5GS applications, run out of the box and only require a small amount of modification to use with srsLTE. 
+The Open5GS EPC is an open source core network solution which is inter-operable with srsLTE. The software can be installed 
+from packages if using Ubuntu, as shown via the `open5GS docs <https://open5gs.org/open5gs/docs/guide/01-quickstart/>`_. 
+The EPC, and the rest of the Open5GS applications, run out of the box and only require minor configuration for use with srsLTE. 
 
 EPC Set-Up
 ------------------
 
-The EPC requires little modification to make it inter-operable with srsLTE. The only changes required are to the MME configuration and adding the UE to the user database. 
+The EPC needs to be configured for use with srsLTE. The only changes required are to the MME configuration and adding the UE to the user database. 
 
 **MME Config:**
 
-In the file mme.yaml, the TAC must be changed to 7, this is the standard configuration for srsLTE. You could also leave these settings as is and re-configure the srsLTE elements, but the approach outlined here leads to less possibility for misconfiguration of the network. 
+In the file mme.yaml, the TAC must be changed to 7, this is the standard configuration for srsLTE. You could also leave 
+these settings as they are and configure the srsLTE elements instead. 
 
 The following shows the MME configuration used::
 
@@ -472,24 +479,26 @@ The following shows the MME configuration used::
 		  full: Open5GS
 		mme_name: open5gs-mme0
 
-For reference, this code can be found from line 204 to 226. 
+For reference, this configuration can be found from line 204 to 226. 
 
 **Subscriber List:**
 
-Adding subscribers to the network is done via the web-UI provided by open5GS. Their documentation outlines how this is done `here <https://open5gs.org/open5gs/docs/guide/01-quickstart/>`_, under the section *Register Subscriber Information*.
+Adding subscribers to the network is done via the web-UI provided by open5GS. Their documentation outlines 
+how this is done `here <https://open5gs.org/open5gs/docs/guide/01-quickstart/>`_, under the section *Register Subscriber Information*.
 
 First open the UI, found at http://localhost:3000, and enter the credentials found in the UE configuration file (ue.conf). The following credentials are used: 
 
 .. figure:: .imgs/ue_creds.png
     :align: center
 
-Note, the first five digits (PLMN) in the IMSI to 90170, and OPc (Milenage Authentication) is being used. This differs from the USIM configuration found in ue.conf, the changes made here will later be reflected in the ue.conf file. The IMSI is edited to reflect 
+Note, the first five digits (PLMN) in the IMSI to 90170, and OPc (Milenage Authentication) is being used. 
+This differs from the USIM configuration found in ue.conf, the changes made here will later be reflected in the ue.conf file. The IMSI is edited to reflect 
 the values used for the MCC and MNC. Milenage is used here to show how the sim credentials can be changed to suit certain use-cases. 
 
 srsLTE Set-Up
 ----------------------
 
-To ensure srsLTE is correctly configured to implement S1 Handover, changes must be made to the UE configuration and eNB configuration; the rrc configuration must also be modified. 
+To ensure srsLTE is correctly configured to implement S1 Handover, changes must be made to the UE and eNB configurations. 
 
 **UE:**
 
@@ -529,9 +538,10 @@ For the eNB config the PLMN must be changed, the MME address must also be change
 	#tm = 4
 	#nof_ports = 2
 	
-**RR:**
+**eNB RR:**
 
-The rr.conf file must also be edited to allow for S1 Handover. To do this, two new rr.conf files are created, named rr1.conf and rr2.conf. As there will be two eNBs, there is an rr.conf associated with each. It is recommend that the 
+The rr.conf file must also be edited to allow for S1 Handover. To do this, two new rr.conf files are created, 
+named rr1.conf and rr2.conf. As there will be two eNBs, there is an rr.conf associated with each. It is recommend that the 
 existing rr.conf is simply copied into two new files, and only the *cell_list* changed for each of the new filles. This should help to avoid misconfiguration. 
 
 **rr1.conf:**
@@ -581,7 +591,8 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 	  }
 	);
 	
-Here the TAC is set to 7, and the DL EARFCN is set to 2850. To ensure S1 Handover is successful the cell(s) associated with the second eNB must be added to the *meas_cell_list*. This can be seen here where a cell with *eci = 0x19C01* is included, this is the cell 
+Here the TAC is set to 7, and the DL EARFCN is set to 2850. To ensure S1 Handover is successful the cell(s) 
+associated with the second eNB must be added to the *meas_cell_list*. This can be seen here where a cell with *eci = 0x19C01* is included, this is the cell 
 associated with the second eNB. The cell with *eci = 0x19B01* is the cell active on the current eNB. The DL EARFCN is the same across both. 
 
 **rr2.conf:**
@@ -631,17 +642,20 @@ Similarly to rr1.conf, a file rr2.conf must be created where the other configura
 	  }
 	);
 	
-It is possible to enable both intra-eNB and S1 handover at the same time by combining the rr configuration used for intra-enb HO with those shown above. Although, that will not be covered in this application note. 
+It is possible to enable both intra-eNB and S1 handover at the same time by combining the rr configuration used 
+for intra-enb HO with those shown above. Although, that will not be covered in this application note. 
 
 Using Scripts
 --------------------
 
-To efficiently instantiate and run the network for S1 HO, Bash scripts will be employed. Scripts will be used to run the two eNBs and the UE. The scripts should be created in the same folder as the other configuration files to avoid any 
+To efficiently instantiate and run the network for S1 HO, Bash scripts will be employed. Scripts will be used 
+to run the two eNBs and the UE. The scripts should be created in the same folder as the other configuration files to avoid any 
 errors when passing file names and when running them. 
 
 **eNB 1:**
 
-The first eNB will need to have ZMQ set as the RF device, and the ports assigned. As well as this, the new rr1.conf file must be set as the radio resource configuration to be used:: 
+The first eNB will need to have ZMQ set as the RF device, and the ports assigned. As well as this, the new rr1.conf 
+file must be set as the radio resource configuration to be used:: 
 
 	#!/bin/bash
 	
@@ -654,11 +668,13 @@ The first eNB will need to have ZMQ set as the RF device, and the ports assigned
 	
 	sudo srsenb enb.conf ${LOG_ARGS} ${ZMQ_ARGS} ${OTHER_ARGS} $@
 
-Note how the logging level is also set here using the script. Every argument in the configuration file can be changed via the command line when the eNB is instantiated, this shows how it is done when using a script with the logging as the example. 
+Note how the logging level is also set here using the script. Every argument in the configuration file can be changed via 
+the command line when the eNB is instantiated, this shows how it is done when using a script with the logging as the example. 
 
 **eNB 2:**
 
-For this eNB we will need to set the ZMQ device, with the correct ports as above. The rr2.conf file must also be given as the rr configuration file to be used. Additional steps must be taken with this eNB so as to allow it to be 
+For the second eNB we will need to set the ZMQ device, with the correct ports as above. The rr2.conf file must 
+also be given as the rr configuration file to be used. Additional steps must be taken with this eNB so as to allow it to be 
 instantiated correctly. The eNB ID must be changed, and the GTP and S1C bind addresses must be modified. This is done with the following script:: 
 
 	#!/bin/bash
@@ -732,7 +748,7 @@ Running the Network
 
 To run the network the following steps must be taken: 
 
-	1. Run the scripts to initiate each of the network elements
+	1. Run the scripts to start each of the network elements
 	2. Run the GRC Broker to connect the UE to the eNB(s) 
 	
 The eNB that the UE connects to first is known as the Source eNB, in this case it will be eNB 1. The Target eNB will be eNB 2, i.e. the eNB that the UE will be transferred to. 
