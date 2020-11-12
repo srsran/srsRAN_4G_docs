@@ -5,6 +5,8 @@
 Handover Application Note
 ====================================
 
+**srsLTE Release 20.10 or later is required to run the following applications**
+
 Introduction
 ************
 This application note focuses on mobility and handover. Specifically, we show how to configure an end-to-end network to support user-controlled handover. We address both intra-eNB and S1 handover using srsLTE with ZeroMQ-based RF emulation and we use the GNURadio Companion as a broker for controlling cell gains to trigger handover. Creating an E2E network using ZMQ and adding GRC functionality is demonstrated in our :ref:`ZMQ App Note <zeromq_appnote>`.
@@ -28,11 +30,11 @@ If you have had to install or update your drivers and/or dependencies without ha
 
 To make a clean build execute the following commands in your terminal:: 
 	
-		cd ./srsLTE/build
-		rm CMakeCache.txt
-		make clean
-		cmake ..
-		make
+	cd ./srsLTE/build
+	rm CMakeCache.txt
+	make clean
+	cmake ..
+	make
 		
 Your hardware and drivers should now be working correctly and be ready to use correctly with srsLTE. 
 
@@ -60,14 +62,14 @@ In the eNB the RF Device and Args should be set so that ZMQ is used and two Tx/R
 
 The following example shows how this is done::
 
-	61 | #####################################################################
-	62 | [rf]
-	63 | tx_gain = 80
-	64 | rx_gain = 40
-	65 | 
-	66 | device_name = zmq
-	67 | device_args = fail_on_disconnect=true,id=enb,tx_port0=tcp://*:2101,tx_port1=tcp://*:2201,rx_port0=tcp://localhost:2100,rx_port1=tcp://localhost:2200,id=enb,base_srate=23.04e6
-	68 | #####################################################################
+	#####################################################################
+	[rf]
+	tx_gain = 80
+	rx_gain = 40
+	
+	device_name = zmq
+	device_args = fail_on_disconnect=true,id=enb,tx_port0=tcp://*:2101,tx_port1=tcp://*:2201,rx_port0=tcp://localhost:2100,rx_port1=tcp://localhost:2200,id=enb,base_srate=23.04e6
+	#####################################################################
 	
 The following table should make clear how the TCP ports are allocated across the cells: 
 
@@ -93,57 +95,57 @@ becomes easier to debug. The second most significant unit is used to indicate wh
 
 The rr.conf is where the cells (sectors) are added to the eNB, this is also where the handover flags are enabled. The following shows how this is done:: 
 
-	50  | cell_list =
-	51  | (
-	52  | 	{
-	53  | 		rf_port = 0;
-	54  | 		cell_id = 0x01;
-	55  | 		tac = 0x0007;
-	56  | 		pci = 1;
-	57  | 		root_seq_idx = 204;
-	58  | 		dl_earfcn = 2850;
-	59  | 		ho_active = true;
-	60  | 		
-	61  | 		// Cells available for handover
-	62  | 		meas_cell_list =
-	63  | 		(
-	64  | 		);
-	65  | 		
-	66  | 		// ReportCfg (only A3 supported)
-	67  | 		meas_report_desc = {
-	68  | 		a3_report_type = "RSRP";
-	69  | 		a3_offset = 6;
-	70  | 		a3_hysteresis = 0;
-	71  | 		a3_time_to_trigger = 480;
-	72  | 		rsrq_config = 4;
-	73  | 		rsrp_config = 4;
-	74  | 		};
-	75  | 	},
-	76  | 	{
-	77  | 		rf_port = 1;
-	78  | 		cell_id = 0x02;
-	79  | 		tac = 0x0007;
-	80  | 		pci = 6;
-	81  | 		root_seq_idx = 268;
-	82  | 		dl_earfcn = 2850;
-	83  | 		ho_active = true;
-	84  | 		
-	85  | 		// Cells available for handover
-	86  | 		meas_cell_list =
-	87  | 		(
-	88  | 		);
-	89  | 		
-	90  | 		// ReportCfg (only A3 supported)
-	91  | 		meas_report_desc = {
-	92  | 		a3_report_type = "RSRP";
-	93  | 		a3_offset = 6;
-	94  | 		a3_hysteresis = 0;
-	95  | 		a3_time_to_trigger = 480;
-	96  | 		rsrq_config = 4;
-	97  | 		rsrp_config = 4;
-	98  |		};
-	99  | 	}
-	100 | );
+	cell_list =
+	( 
+	 {
+	 	rf_port = 0;
+	 	cell_id = 0x01;
+	 	tac = 0x0007;
+	 	pci = 1;
+	 	root_seq_idx = 204;
+	 	dl_earfcn = 2850;
+	 	ho_active = true;
+	 	
+	 	// Cells available for handover
+	 	meas_cell_list =
+	 	(
+	 	);
+	 	
+	 	// ReportCfg (only A3 supported)
+	 	meas_report_desc = {
+	 	a3_report_type = "RSRP";
+	 	a3_offset = 6;
+	 	a3_hysteresis = 0;
+	 	a3_time_to_trigger = 480;
+	 	rsrq_config = 4;
+	 	rsrp_config = 4;
+	 	};
+	 },
+	 {
+	 	rf_port = 1;
+	 	cell_id = 0x02;
+	 	tac = 0x0007;
+	 	pci = 6;
+	 	root_seq_idx = 268;
+	 	dl_earfcn = 2850;
+	 	ho_active = true;
+	 	
+	 	// Cells available for handover
+	 	meas_cell_list =
+	 	(
+	 	);
+	 	
+	 	// ReportCfg (only A3 supported)
+	 	meas_report_desc = {
+	 	a3_report_type = "RSRP";
+	 	a3_offset = 6;
+	 	a3_hysteresis = 0;
+	 	a3_time_to_trigger = 480;
+	 	rsrq_config = 4;
+	 	rsrp_config = 4;
+			};
+	 }
+	);
 
 Note, the TAC of the cells must match that of the MME, and the EARFCN must be the same across both cells and the UE. The PCI of each cell with the same EARFCN must be different, such that *PCI%3* for the cells is not equal. 
 
@@ -152,16 +154,16 @@ Note, the TAC of the cells must match that of the MME, and the EARFCN must be th
 For the UE configuration, ZMQ must be set as the default device and the appropriate TCP ports set for Tx & Rx. As well as this the EARFCN value must be checked to ensure it is the same as that set for the cells in rr.conf. The following 
 example shows how the ue.conf file must be modified:: 
 
-	29 | #####################################################################
-	30 | [rf]
-	31 | dl_earfcn = 2850
-	32 | freq_offset = 0
-	33 | tx_gain = 80
-	34 | #rx_gain = 40
-	35 | 
-	36 | device_name = zmq
-	37 | device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
-	38 | #####################################################################
+	#####################################################################
+	[rf]
+	dl_earfcn = 2850
+	freq_offset = 0
+	tx_gain = 80
+	#rx_gain = 40
+	
+	device_name = zmq
+	device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
+	#####################################################################
 	
 The default USIM configuration can be used, as it is already present in the user_db.csv file used by the EPC to authenticate the UE. If you want to use a custom USIM set up this will need to be added to the relevant section in the ue.conf file 
 and reflected in the user_db.csv to ensure the UE is authenticated correctly. 
@@ -185,6 +187,9 @@ the default device for both the eNB and UE.
 
 GNU-Radio Companion
 ----------------------
+
+The GRC file can be downloaded :download:`here <handover_broker.grc>`. Download and/ or save the file as a *.grc* file. Run with GNU-Radio Companion when needed. 
+
 
 The GRC Broker will be used to force handover between cells. This will be done by manually controlling the gain of each cell using variables and a slider. ZMQ REQ Source and REP Sink blocks will be used to link the flowgraph to the ZMQ instances 
 of srsENB and srsUE. The following figure illustrated how this is done: 
@@ -313,6 +318,7 @@ should display the interactive slider for controlling the gain of the two cells.
 .. figure:: .imgs/gnu_slider.png
     :align: center
 
+
 Confirming Connection
 ----------------------
 
@@ -397,15 +403,16 @@ This can be done with the following command::
 Forcing Handover
 ---------------------------------------
 
-Handover is simply forced by using the slider for the gain parameters within GRC. Once the handover is successful a message should be displayed by the UE acknowledging a successful handover. 
+Handover is simply forced by using the slider to change the gain variables within GRC. Once the handover is successful a message should be displayed by the UE acknowledging a successful handover. 
 
 **GRC:**
 
-The Following steps outline how handover can be forced with GRC: 
+The Following steps outline how handover can be forced with GRC. Aagain, this is done using the sliders for the gain variables: 
 
 	1. Set the gain of *cell1* to 0.5
 	2. Slowly increase the gain of *cell2* to above 0.5 and on to 1. 
-	3. Move the gain of *cell1* to 0. 
+	3. Wait for handover to be acknowledged.
+	4. Move the gain of *cell1* to 0. 
 	
 **UE Console:**
 
@@ -718,6 +725,8 @@ The UE does not require any other parameters to be passed when it is instantiate
 GNU-Radio
 -----------------
 
+The GRC file can be downloaded :download:`here <handover_broker.grc>`. Download and/ or save the file as a *.grc* file. Run with GNU-Radio Companion when needed.
+
 The GRC Broker used here is the same as that used for intra-eNB HO. The following figure shows the flowgraph used: 
 
 .. figure:: .imgs/grc_intra.png
@@ -742,6 +751,7 @@ The following outlines which ports belong to which network element:
       - 2101
       - 2201
       - 2001
+
 
 Running the Network
 ------------------------------
@@ -845,7 +855,8 @@ The network is now ready for handover to be forced, this is done in the same way
 
 	1. Set the gain of the *Source eNB* from 1 to 0.5
 	2. Slowly increase the gain of the *Target eNB* from 0, to above 0.5, and on to 1. 
-	3. Move the gain of the *Source eNB* to 0. 
+	3. Wait for handover to be acknowledged. 
+	4. Move the gain of the *Source eNB* to 0. 
 
 If HO is successful the following will be seen on the relevant console outputs: 
 
