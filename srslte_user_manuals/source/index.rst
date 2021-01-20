@@ -4,7 +4,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsLTE 20.10.01 Documentation
+srsLTE 20.10.1 Documentation
 =============================
 
 srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network. 
