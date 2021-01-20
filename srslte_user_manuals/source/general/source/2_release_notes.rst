@@ -3,6 +3,10 @@
 Release Notes
 =============
 
+* 20.10.01
+
+  * Fix eNB issue relating to uplink hybrid ARQ
+
 - 20.10
 
   * EUTRA mobility support
