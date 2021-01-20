@@ -3,7 +3,7 @@
 Release Notes
 =============
 
-* 20.10.01
+* 20.10.1
 
   * Fix eNB issue relating to uplink hybrid ARQ
 
