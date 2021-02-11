@@ -105,10 +105,30 @@ Install srsLTE::
 This installs srsLTE and also copies the default srsLTE config files to
 the user's home directory (~/.srs).
 
-The following execution instructions are for users that have the appropriate RF-hardware 
-to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
-see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
+Building with Debug Symbols
+---------------------------
 
+First make sure srsLTE has been downloaded, and you have created and navigated to the build folder::
+  
+  git clone https://github.com/srsLTE/srsLTE.git
+  cd srsLTE
+  mkdir build
+  cd build
+  
+To build srsLTE with debug symbols, the following steps can be taken. If srsLTE has already been built, the original build folder should be cleared before proceeding.  
+This can be done with the following command:: 
+
+  cd ./srsLTE/build
+  rm CMakeCache.txt
+  make clean  
+
+The following command can then be used to build srsLTE with debug symbols enabled::
+
+  cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../
+  make
+  make test
+  
+The log file containing the debug info can be found in the ``srsLTE_backtrace.log`` file.  
 
 Baseline Hardware Requirements
 *********************************
@@ -148,6 +168,10 @@ A list of supported RF front-end drivers is outlined :ref:`here<Drivers>`.
 
 Execution Instructions
 **********************
+
+The following execution instructions are for users that have the appropriate RF-hardware 
+to simulate a network. If you would like to test the use of srsLTE without RF-hardware please 
+see the `ZeroMQ application note <https://docs.srslte.com/en/latest/app_notes/source/>`_.
 
 The srsUE, srsENB and srsEPC applications include example configuration files
 that should be copied (manually or by using the convenience script) and modified,
