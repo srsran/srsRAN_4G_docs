@@ -14,6 +14,7 @@ General
    1_installation.rst
    2_release_notes.rst
    3_contributions.rst
+   4_troubleshooting.rst
 
 
 
