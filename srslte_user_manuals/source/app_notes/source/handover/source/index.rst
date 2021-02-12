@@ -858,6 +858,14 @@ The network is now ready for handover to be forced, this is done in the same way
 	3. Wait for handover to be acknowledged. 
 	4. Move the gain of the *Source eNB* to 0. 
 
+Additionally, a python script :download:`here <s1_handover.py>` has been developed to automatically adjust the gains of the *Source eNB* and *Target enB* in order to reproduce a handover scenario. Ryn with Python3. ::
+
+    python3 s1_handover.py <interval>
+
+where *interval* (in s) is the wait time between the gradual increases of the *Target eNB* gain. Default is 4. 
+
+Consecutive handovers are going to take place periodically with period *10 x <interval> + 10* s.   
+
 If HO is successful the following will be seen on the relevant console outputs: 
 
 Source eNB::
