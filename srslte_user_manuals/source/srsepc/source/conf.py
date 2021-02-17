@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'srsEPC'
-copyright = u'2019, Software Radio Systems'
+copyright = u'2019-2021, Software Radio Systems'
 author = u'Software Radio Systems'
 
 # The version info for the project you're documenting, acts as replacement for

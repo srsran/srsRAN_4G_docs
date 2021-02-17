@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Handover application note'
-copyright = u'2020, SRS'
+copyright = u'2019-2021, SRS'
 author = u'SRS'
 
 # The short X.Y version

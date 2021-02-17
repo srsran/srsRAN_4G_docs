@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'srsLTE Application Notes'
-copyright = u'2020, SRS'
+copyright = u'2019-2021, SRS'
 author = u'SRS'
 
 # The short X.Y version
