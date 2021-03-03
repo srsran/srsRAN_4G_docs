@@ -53,6 +53,9 @@ they are up to date and are from a stable release. This step can be skipped if y
   * SoapySDR:            https://github.com/pothosware/SoapySDR
   * BladeRF:             https://github.com/Nuand/bladeRF
 
+.. note::
+  This app note was tested using a b200-mini and UHD v4.0, but we recommend using UHD v3.15 where possible.  
+
 When the drivers have been installed/ updated you should connect your hardware and check that everything is working correctly. To do this for a USRP using the UHD drivers run the following command:: 
 
 	uhd_usrp_probe
