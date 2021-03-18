@@ -34,9 +34,6 @@ Other useful things to take into account when choosing a compute platform for SD
 	* **Cooling ability** - More cooling ability will ensure CPU performance does not drop off significantly under heavy load 
 	* **Portability** - Some use-cases may benefit from a PC that is portable
 
-.. note::
-  We recommend using Intel processors when running srsLTE for maximum performance and stability. 
-
 SDR Criteria
 -----------------------
 When selecting the SDR options to highlight we took the following into account: 
