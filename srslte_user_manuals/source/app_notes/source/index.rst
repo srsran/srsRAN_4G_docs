@@ -40,6 +40,10 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
 | Simulate Intra-eNB & S1 Handover using ZMQ:
 |   - :ref:`Handover Application Note<handover_appnote>`
 
+
+| Suggested hardware packages for experimentation & development:
+|   - :ref:`Suggested Hardware Packages<suggestedHW_appnote>`
+
 .. toctree::
    :maxdepth: 1
 
@@ -58,4 +62,6 @@ For more information, see `www.srslte.com <https://www.srslte.com>`_. These appl
    cots_ue/source/index.rst
    
    handover/source/index.rst
+   
+   hw_packs/source/index.rst
 
