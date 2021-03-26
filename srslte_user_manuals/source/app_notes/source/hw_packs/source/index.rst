@@ -30,6 +30,7 @@ This is not an exhaustive list of criteria to look at when selecting a compute p
 
 Other useful things to take into account when choosing a compute platform for SDR research and experimentation are: 
  
+	* **srsLTE Benchmark score** - Hosted on OpenBenchmarking this looks at the performance of multiple processors under a variety of tests.The tests look specifically at srsLTE and how processor perform while running the software by testing certain metrics. Including PHY downlink rates for the UE and eNB, and an OFDM processing test. Find out more `here <https://openbenchmarking.org/test/pts/srslte&eval=37d1fabd06bb845a3c239f1ea2e442486e9e7b4e#metrics>`_. 
 	* **Processor Cinebench score** - This gives a good indication of a processor's ability to deal with high computational load. Find out more `here <https://www.notebookcheck.net/CineBench-R20-benchmark-now-available-is-8x-more-demanding-than-CineBench-R15.413751.0.html>`_.
 	* **Cooling ability** - More cooling ability will ensure CPU performance does not drop off significantly under heavy load 
 	* **Portability** - Some use-cases may benefit from a PC that is portable
