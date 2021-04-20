@@ -19,13 +19,13 @@ Package Installation
 
 The srsRAN software suite can be installed using packages on Ubuntu::
 
-  sudo add-apt-repository ppa:srsRAN/releases
+  sudo add-apt-repository ppa:srsran/releases
   sudo apt-get update
-  sudo apt-get install srsRAN -y
+  sudo apt-get install srsran -y
   
 Package installs are also available for other distributions.
 
- - `openSUSE <https://software.opensuse.org/package/srsRAN?search_term=srsRAN>`_
+ - `openSUSE <https://software.opensuse.org/package/srsRAN?search_term=srsran>`_
  - `Arch Linux <https://www.archlinux.org/packages/?q=srsRAN>`_
  - `Debian (Pop OS, Mint, etc) <https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords=srsRAN>`_ 
  
@@ -75,7 +75,7 @@ Note that depending on your flavor and version of Linux, the actual package name
 
 * Optional requirements: 
 
-  * srsgui:              https://github.com/srsRAN/srsgui - for real-time plotting.
+  * srsgui:              https://github.com/srsran/srsgui - for real-time plotting.
   * libpcsclite-dev:     https://pcsclite.apdu.fr/ - for accessing smart card readers
   * libdw-dev            libdw - for truly informative backtraces using backward-cpp
 
@@ -104,7 +104,7 @@ Download and build srsRAN::
 Install srsRAN::
 
   sudo make install
-  sudo srsRAN_install_configs.sh user
+  sudo srsran_install_configs.sh user
 
 This installs srsRAN and also copies the default srsRAN config files to
 the user's home directory (~/.srs).

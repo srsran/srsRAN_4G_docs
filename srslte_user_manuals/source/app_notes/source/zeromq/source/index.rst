@@ -8,7 +8,7 @@ ZeroMQ Application note
 
 Introduction
 ************
-srsRAN is a 5g RAN and end-to-end 4G ioen source software solution. The 4G network consists of a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
+srsRAN is a 4G and 5g software radio suite. The 4G network consists of a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
 are used with actual RF front-ends for over-the-air transmissions. There are, however, a number
 of use-cases for which RF front-ends might not be needed or wanted. Those use-cases include (but are not limited to) the
 use of srsRAN for educational or research purposes, continuous integration and delivery (CI/CD) or development and debugging.
@@ -61,7 +61,7 @@ will have to re-run the make command to ensure srsRAN recognises the addition of
 .. code::
 
   git clone https://github.com/srsRAN/srsRAN.git
-  cd srsran
+  cd srsRAN
   mkdir build
   cd build
   cmake ../

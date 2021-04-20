@@ -8,7 +8,7 @@ Raspberry Pi 4 Application note
 
 Introduction
 ************
-srsRAN is a 5G RAN and end-to-end LTE software solution. The 4G LTE systems includes a core network and an eNodeB. Most people in the srsRAN community run the software on high performance computers, however the eNodeB can also be run on the low power Raspberry Pi 4 with a variety of SDRs.
+srsRAN is a 4G and 5G software radio suite. The 4G LTE systems includes a core network and an eNodeB. Most people in the srsRAN community run the software on high performance computers, however the eNodeB can also be run on the low power Raspberry Pi 4 with a variety of SDRs.
 
 The concept of an ultra low cost, low power and open source SDR LTE femtocell has a lot of people excited!
 
@@ -101,7 +101,7 @@ Next, **srsRAN** can be compiled:
   sudo ldconfig
 
   ## copy configs to /root
-  sudo ./srsRAN_install_configs.sh user
+  sudo ./srsran_install_configs.sh user
 
 
 And finally, modify the **Pi CPU scaling_governor** to ensure it is running in performance mode:
@@ -235,7 +235,7 @@ Launch core network (on separate device, or on the Pi4 eNodeB when using USRP B2
 
   
 
-The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the USRP B210 cell. The srsRAN software has been running here for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srsRAN-users mailing list know!
+The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the USRP B210 cell. The srsRAN software has been running here for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srsran-users mailing list know!
 
 .. image:: .imgs/htop.png
 

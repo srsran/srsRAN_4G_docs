@@ -79,11 +79,11 @@ Usage
 
 First, run srsMBMS (the MBMS gateway), srsEPC and srsENB on the same machine:
 
-``sudo ./srsmbms ~/.config/srsRAN/mbms.conf``
+``sudo ./srsmbms ~/.config/srsran/mbms.conf``
 
-``sudo ./srsepc ~/.config/srsRAN/epc.conf``
+``sudo ./srsepc ~/.config/srsran/epc.conf``
 
-``sudo ./srsenb ~/.config/srsRAN/enb.conf``
+``sudo ./srsenb ~/.config/srsran/enb.conf``
 
 The MBMS gateway will create a TUN interface to which all traffic intended for multicast should be written. It will then forward this traffic to the eNodeB via a seperate GTPU tunnel that is dedicated to eMBMS traffic.
 
@@ -97,7 +97,7 @@ To test eMBMS with srsMBMS, srsEPC and srsENB, we can use `Iperf <https://en.wik
 
 Next, we can run srsUE on a separate machine to receive the eMBMS data:
 
-``sudo ./srsue ~/.config/srsRAN/ue.conf``
+``sudo ./srsue ~/.config/srsran/ue.conf``
 
  Upon running srsUE with an eMBMS enabled eNodeB you should see the following output at the terminal of the UE::
 

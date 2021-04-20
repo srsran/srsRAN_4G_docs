@@ -82,7 +82,7 @@ The base configuration files for srsRAN can be installed by running the followin
 	sudo srsRAN_install_configs.sh <user/service>
 	
 You have the option to install the configurations files to the user directory or for all users. For this example the configuration files have been installed for all users by
-running the following command ``sudo srsRAN_install_configs.sh service``. The config files can then be found in the following folder: ``~./etc/srsRAN``
+running the following command ``sudo srsran_install_configs.sh service``. The config files can then be found in the following folder: ``~./etc/srsran``
 
 You will need to edit the following files before you can run a COTS UE over the network: 
 
@@ -265,7 +265,7 @@ The following output should be displayed on the console::
 	
 	---  Software Radio Systems EPC  ---
 	
-	Reading configuration file /etc/srsRAN/epc.conf...
+	Reading configuration file /etc/srsran/epc.conf...
 	HSS Initialized.
 	MME S11 Initialized
 	MME GTP-C Initialized
@@ -283,7 +283,7 @@ The console should display the following::
 
 	---  Software Radio Systems LTE eNodeB  ---
 
-	Reading configuration file /etc/srsRAN/enb.conf...
+	Reading configuration file /etc/srsran/enb.conf...
 	
 	Built in Release mode using commit c892ae56b on branch master.
 	
@@ -361,7 +361,7 @@ logs, then an attach is successful. These messages are seen in the last five lin
 
 	---  Software Radio Systems EPC  ---
 	
-	Reading configuration file /etc/srsRAN/epc.conf...
+	Reading configuration file /etc/srsran/epc.conf...
 	HSS Initialized.
 	MME S11 Initialized
 	MME GTP-C Initialized
@@ -435,7 +435,7 @@ The following shows an output from the eNB that indicates a successful attach::
 
 	---  Software Radio Systems LTE eNodeB  ---
 	
-	Reading configuration file /etc/srsRAN/enb.conf...
+	Reading configuration file /etc/srsran/enb.conf...
 	
 	Built in Release mode using commit c892ae56b on branch master.
 	

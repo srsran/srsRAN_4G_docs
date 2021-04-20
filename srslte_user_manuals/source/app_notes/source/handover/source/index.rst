@@ -393,7 +393,7 @@ The UE console will display the following::
 	Random Access Complete.     c-rnti=0x46, ta=0
 	RRC Connected
 	Network attach successful. IP: 172.16.0.2
-	Software Radio Systems LTE (srsran) 21/10/2020 12:47:43 TZ:0
+	Software Radio Systems LTE (srsRAN) 21/10/2020 12:47:43 TZ:0
 
 The network is now ready for handover to be initiated and tested. To keep the UE from entering idle, you should send traffic between the UE and the eNB. 
 This can be done with the following command:: 
