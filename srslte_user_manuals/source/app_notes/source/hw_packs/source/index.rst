@@ -8,7 +8,7 @@ This information is correct as of March 15th 2021
 
 Introduction
 *************
-This document aims to provide users with an overview of the suggested PC and SDR hardware combinations that can be used to best explore the functionality of srsLTE. There are 100’s of possible combinations of PC, notebook, single board computer and SDR hardware that can demonstrate the uses of srsLTE. This list aims to provide three possible hardware packages that can help to guide users when choosing what to buy. These packages are grouped by price, with full set-ups costing >$400, >$3,000 and finally >$16,000. The three packages proposed here should provide any user with enough information to create their ideal set-up, which easily meets their needs.  
+This document aims to provide users with an overview of the suggested PC and SDR hardware combinations that can be used to best explore the functionality of srsRAN. There are 100’s of possible combinations of PC, notebook, single board computer and SDR hardware that can demonstrate the uses of srsRAN. This list aims to provide three possible hardware packages that can help to guide users when choosing what to buy. These packages are grouped by price, with full set-ups cotsing >$400, >$3,000 and finally >$16,000. The three packages proposed here should provide any user with enough information to create their ideal set-up, which easily meets their needs.  
 
 Choosing Hardware
 ***********************
@@ -30,7 +30,6 @@ This is not an exhaustive list of criteria to look at when selecting a compute p
 
 Other useful things to take into account when choosing a compute platform for SDR research and experimentation are: 
  
-	* **srsLTE Benchmark score** - Hosted on OpenBenchmarking, this looks at the performance of multiple processors when running srsLTE tests for certain metrics. These include PHY downlink rates for the UE and eNB, and an OFDM processing test. Find out more `here <https://openbenchmarking.org/test/pts/srslte&eval=37d1fabd06bb845a3c239f1ea2e442486e9e7b4e#metrics>`_. 
 	* **Processor Cinebench score** - This gives a good indication of a processor's ability to deal with high computational load. Find out more `here <https://www.notebookcheck.net/CineBench-R20-benchmark-now-available-is-8x-more-demanding-than-CineBench-R15.413751.0.html>`_.
 	* **Cooling ability** - More cooling ability will ensure CPU performance does not drop off significantly under heavy load 
 	* **Portability** - Some use-cases may benefit from a PC that is portable
@@ -122,11 +121,11 @@ Limitations
 ZMQ	
 ******
 
-srsLTE has been designed with support for Zero-MQ. This is a "fake RF" driver, which allows users to set-up a virtual end-to-end network without the use of physical RF-hardware. This is a powerful tool for experimentations and development for users that do not have access to hardware, or for those who cannot purchase it. 
+srsRAN has been designed with support for Zero-MQ. This is a "fake RF" driver, which allows users to set-up a virtual end-to-end network without the use of physical RF-hardware. This is a powerful tool for experimentations and development for users that do not have access to hardware, or for those who cannot purchase it. 
 
 ZMQ does not require large amounts of computational resources to run, meaning most PCs and notebooks (including the R. Pi4) can run it without sacrificing performance. ZMQ replaces the radio link between the eNB and UE, by creating a transmit and receive pipe for exchanging IQ samples TCP or IPC. 
 
-Our :ref:`ZMQ app note <zeromq_appnote>` clearly demonstrates how srsLTE can be used with ZMQ.
+Our :ref:`ZMQ app note <zeromq_appnote>` clearly demonstrates how srsRAN can be used with ZMQ.
 
 
 

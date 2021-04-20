@@ -1,4 +1,4 @@
-.. srsLTE Pi4 Application Note
+.. srsRAN Pi4 Application Note
 
 .. _pi4_appnote:
 
@@ -8,7 +8,7 @@ Raspberry Pi 4 Application note
 
 Introduction
 ************
-srsLTE is a full end-to-end LTE solution including a core network and an eNodeB. Most people in the srsLTE community run the software on high performance computers, however the eNodeB can also be run on the low power Raspberry Pi 4 with a variety of SDRs.
+srsRAN is a 5G RAN and end-to-end LTE software solution. The 4G LTE systems includes a core network and an eNodeB. Most people in the srsRAN community run the software on high performance computers, however the eNodeB can also be run on the low power Raspberry Pi 4 with a variety of SDRs.
 
 The concept of an ultra low cost, low power and open source SDR LTE femtocell has a lot of people excited!
 
@@ -32,7 +32,7 @@ Due to the power requirements of the SDRs, you must use an external power source
 Software Setup
 **************
 
-First thing is to install the SDR drivers and build srsLTE. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs. 
+First thing is to install the SDR drivers and build srsRAN. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs. 
 
 .. code::
 
@@ -86,13 +86,13 @@ First thing is to install the SDR drivers and build srsLTE. UHD drivers are requ
   SoapySDRUtil --find
 
 
-Next, **srsLTE** can be compiled:
+Next, **srsRAN** can be compiled:
 
 .. code::
 
   sudo apt install libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev
-  git clone https://github.com/srsLTE/srsLTE.git
-  cd srsLTE
+  git clone https://github.com/srsRAN/srsRAN.git
+  cd srsran
   git checkout tags/release_19_12
   mkdir build && cd build
   cmake ../
@@ -101,7 +101,7 @@ Next, **srsLTE** can be compiled:
   sudo ldconfig
 
   ## copy configs to /root
-  sudo ./srslte_install_configs.sh user
+  sudo ./srsRAN_install_configs.sh user
 
 
 And finally, modify the **Pi CPU scaling_governor** to ensure it is running in performance mode:
@@ -133,7 +133,7 @@ Changes to default enb.conf for **USRP B210**:
 
 .. code::
   
-  sudo nano /root/.config/srslte/enb.conf
+  sudo nano /root/.config/srsran/enb.conf
 
   [enb]
   mcc = <yourMCC>
@@ -157,7 +157,7 @@ Changes to default enb.conf for **LimeSDR-USB or LimeSDR-Mini**:
 
 .. code::
   
-  sudo nano /root/.config/srslte/enb.conf
+  sudo nano /root/.config/srsran/enb.conf
 
   [enb]
   mcc = <yourMCC>
@@ -177,11 +177,11 @@ Changes to default enb.conf for **LimeSDR-USB or LimeSDR-Mini**:
   device_args = auto         ## does not work with anything other than 'auto'
 
 
-Changes to default configs for srsLTE core network:
+Changes to default configs for srsRAN core network:
 
 .. code::
 
-  sudo nano /root/.config/srslte/epc.conf
+  sudo nano /root/.config/srsran/epc.conf
 
   [mme]
   mcc = <yourMCC>
@@ -190,13 +190,13 @@ Changes to default configs for srsLTE core network:
 
 .. code::
    
-  sudo nano /root/.config/srslte/user_db.csv
+  sudo nano /root/.config/srsran/user_db.csv
 
   * add details of your SIM cards
 
 
 .. Note::
-  When running the srsLTE core network (srsepc) on an external device (eg. another Pi), you must open incoming firewall ports to allow the S1-MME and S1-U connections from srsenb. 
+  When running the srsRAN core network (srsepc) on an external device (eg. another Pi), you must open incoming firewall ports to allow the S1-MME and S1-U connections from srsenb. 
 
   S1-MME = sctp, port 36412  ||  S1-U = udp, port 2152
 
@@ -220,7 +220,7 @@ Launch Pi4 eNodeB:
 
 .. code::
 
-  sudo srsenb /root/.config/srslte/enb.conf
+  sudo srsenb /root/.config/srsran/enb.conf
 
 .. Note::
   Between runs when using the LimeSDR-USB, you sometimes need to physically unplug and reconnect the SDR to power cycle it. 
@@ -229,20 +229,20 @@ Launch core network (on separate device, or on the Pi4 eNodeB when using USRP B2
 
 .. code::
 
-  sudo srsepc /root/.config/srslte/epc.conf
+  sudo srsepc /root/.config/srsran/epc.conf
   sudo /usr/local/bin/srsepc_if_masq.sh eth0
 
 
   
 
-The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the USRP B210 cell. The srsLTE software has been running here for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srslte-users mailing list know!
+The following htop screenshot shows the resource utilisation when running the software on the Pi 4B /4GB RAM with x2 UEs attached to the USRP B210 cell. The srsRAN software has been running here for more than 18 hours without any problems. Only half of the RAM is used, and the CPU cores are sitting at around 25%. There is a chance, therefore, that this software configuration will work with the Pi 4B /2GB RAM version, and maybe also on other recent Arm based dev boards. If you can get a working cell going with alternative hardware, let the srsRAN-users mailing list know!
 
 .. image:: .imgs/htop.png
 
 Known issues
 ************
 
-* For bandwidths above 6 PRB it is recommended to use srsLTE 19.12 instead of the most recent release 20.04. We have identified the issue in the PRACH handling mainly affecting low-power devices. The fix will be included in the upcoming release.
+* For bandwidths above 6 PRB it is recommended to use srsRAN 19.12 instead of the most recent release 20.04. We have identified the issue in the PRACH handling mainly affecting low-power devices. The fix will be included in the upcoming release.
 
 
 

@@ -1,4 +1,4 @@
-.. srsLTE ZeroMQ Application Note
+.. srsRAN ZeroMQ Application Note
 
 .. _zeromq_appnote:
 
@@ -8,12 +8,12 @@ ZeroMQ Application note
 
 Introduction
 ************
-srsLTE is a full end-to-end LTE solution comprising a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
+srsRAN is a 5g RAN and end-to-end 4G ioen source software solution. The 4G network consists of a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
 are used with actual RF front-ends for over-the-air transmissions. There are, however, a number
 of use-cases for which RF front-ends might not be needed or wanted. Those use-cases include (but are not limited to) the
-use of srsLTE for educational or research purposes, continuous integration and delivery (CI/CD) or development and debugging.
+use of srsRAN for educational or research purposes, continuous integration and delivery (CI/CD) or development and debugging.
 
-With srsLTE this can be achieved by replacing the radio link between eNodeB and UE with a mechanism that allows to
+With srsRAN this can be achieved by replacing the radio link between eNodeB and UE with a mechanism that allows to
 exchange baseband IQ samples over an alternative transport. For this purpose, we've implemented a ZeroMQ-based RF driver that
 essentially acts as a transmit and receive pipe for exchanging IQ samples over TCP or IPC.
 
@@ -21,7 +21,7 @@ essentially acts as a transmit and receive pipe for exchanging IQ samples over T
 ZeroMQ Installation
 *******************
 
-First thing is to install ZeroMQ and build srsLTE. On Ubuntu, ZeroMQ development libraries can be installed
+First thing is to install ZeroMQ and build srsRAN. On Ubuntu, ZeroMQ development libraries can be installed
 with:
 
 .. code::
@@ -54,14 +54,14 @@ Second, install czmq:
   sudo make install
   sudo ldconfig
 
-Finally, you need to compile srsLTE (assuming you have already installed all the required dependencies). 
-Note, if you have already built and installed srsLTE prior to installing ZMQ and other dependencies you 
-will have to re-run the make command to ensure srsLTE recognises the addition of ZMQ:
+Finally, you need to compile srsRAN (assuming you have already installed all the required dependencies). 
+Note, if you have already built and installed srsRAN prior to installing ZMQ and other dependencies you 
+will have to re-run the make command to ensure srsRAN recognises the addition of ZMQ:
 
 .. code::
 
-  git clone https://github.com/srsLTE/srsLTE.git
-  cd srsLTE
+  git clone https://github.com/srsRAN/srsRAN.git
+  cd srsran
   mkdir build
   cd build
   cmake ../
@@ -92,10 +92,10 @@ network namespace (netns) that the UE uses to create its TUN interface in.
 We only require TUN interfaces for the UE and EPC as they are the only IP
 endpoints in the network and need to communicate over the TCP/IP stack.
 
-We will run each srsLTE application in a seperate terminal instance.
+We will run each srsRAN application in a seperate terminal instance.
 Applications such as ping and iperf used to generate traffic will be run in separate terminals.
 
-Note, the examples used here can be found in the following directory: ```./srsLTE/build/```. 
+Note, the examples used here can be found in the following directory: ```./srsRAN/build/```. 
 With the UE, eNB and EPC then being called from their associated directory. 
 
 
@@ -185,7 +185,7 @@ After finishing, make sure to remove the netns again.
 GNU-Radio Companion Integration 
 ***********************************************
 
-GNU-Radio Companion can be easily integrated with a ZMQ based instance of srsLTE. This can be used to manipulate, and/ or visualise baseband I/Q data as it is sent between the UE and eNB. 
+GNU-Radio Companion can be easily integrated with a ZMQ based instance of srsRAN. This can be used to manipulate, and/ or visualise baseband I/Q data as it is sent between the UE and eNB. 
 It does this by using the ZMQ-compatible blocks within GRC connected to the TCP ports used to transmit data between the two network elements. Data going both from the UE to the eNB, 
 and from the eNB to the UE can be handled via a GRC Broker. 
 

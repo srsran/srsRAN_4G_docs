@@ -3,7 +3,7 @@
 Release Roadmap
 =================
 
-srsLTE follows a bi-annual release schedule, with new releases published in April and October each year.
+srsRAN follows a bi-annual release schedule, with new releases published in April and October each year.
 Each new release brings a range of new features, bugfixes and performance improvements.
 Minor intermediate releases to address priority bugfixes occur on an ad-hoc basis between releases.
 

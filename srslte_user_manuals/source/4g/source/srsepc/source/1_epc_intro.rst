@@ -35,7 +35,7 @@ Features
 ********
 
 The srsEPC LTE core network includes the implementation of the MME, HSS and SPGW entities.
-The features of each of these entities is furthered described below.
+The features of each of these entities is further described below.
 
 MME Features
 ++++++++++++

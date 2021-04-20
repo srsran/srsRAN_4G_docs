@@ -1,4 +1,4 @@
-.. srsLTE COTS UE Application Note
+.. srsRAN COTS UE Application Note
 
 .. _cots_ue_appnote:
 
@@ -17,7 +17,7 @@ Hardware Required
 ----------------------------
 Creating a network and connecting a COTS UE requires the following: 
 
- - PC with a Linux based OS, with srsLTE installed and built
+ - PC with a Linux based OS, with srsRAN installed and built
  - An RF-frontend capable of both Tx & Rx
  - A COTS UE 
  - USIM/ SIM card (This must be a test card or a programmable card, with known keys)
@@ -63,26 +63,26 @@ When the drivers have been installed/ updated you should connect your hardware a
 This should be done anytime you are using a USRP before carrying out any testing or implementation to check a stable connection to the radio. Note, you should be using a USB 3.0 interface
 when using an SDR for this use case.  
 
-If you have had to install or update your drivers and everything is working as intended, then you will need to rebuild srsLTE to ensure it picks up on the new/ updated drivers. 
+If you have had to install or update your drivers and everything is working as intended, then you will need to rebuild srsRAN to ensure it picks up on the new/ updated drivers. 
 
 To make a clean build execute the following commands in your terminal:: 
 	
-		cd ./srsLTE/build
+		cd ./srsRAN/build
 		rm CMakeCache.txt
 		make clean
 		cmake ..
 		make
 		
-Your hardware and drivers should now be working correctly and be ready to use for connecting a COTS UE to srsLTE. 
+Your hardware and drivers should now be working correctly and be ready to use for connecting a COTS UE to srsRAN. 
 
 Conf. Files
 ----------------
-The base configuration files for srsLTE can be installed by running the following command in the build folder:: 
+The base configuration files for srsRAN can be installed by running the following command in the build folder:: 
 
-	sudo srslte_install_configs.sh <user/service>
+	sudo srsRAN_install_configs.sh <user/service>
 	
 You have the option to install the configurations files to the user directory or for all users. For this example the configuration files have been installed for all users by
-running the following command ``sudo srslte_install_configs.sh service``. The config files can then be found in the following folder: ``~./etc/srslte``
+running the following command ``sudo srsRAN_install_configs.sh service``. The config files can then be found in the following folder: ``~./etc/srsRAN``
 
 You will need to edit the following files before you can run a COTS UE over the network: 
 
@@ -218,8 +218,8 @@ The APN has been added at line 30 above. This must match the APN on the UE to en
 
 Run Masquerading Script
 ------------------------------------
-To allow UE to connect to the internet via the EPC, the pre-configured masquerading script must be run. This can be found in ``srsLTE/srsepc``. The 
-masquerading script enables IP forwarding and sets up Network Address Translation to pass traffic between the srsLTE network and the external network. 
+To allow UE to connect to the internet via the EPC, the pre-configured masquerading script must be run. This can be found in ``srsRAN/srsepc``. The 
+masquerading script enables IP forwarding and sets up Network Address Translation to pass traffic between the srsRAN network and the external network. 
 The script must be run each time the machine is re-booted, and can be done before or while the network is running. The UE will not be able to communicate 
 with the interet until this script has been run. 
 
@@ -238,7 +238,7 @@ You will see an output similar to the following::
 
 The interface (Iface) associated with the *default* destination is one which must be passed into the masq. script. In the above output that is the wlp2s0 interface. 
 
-The masq. script can now be run from the follow folder: ``srsLTE/srsEPC``:: 
+The masq. script can now be run from the follow folder: ``srsRAN/srsEPC``:: 
 
 	sudo ./srsepc_if_masq.sh <interface>
 
@@ -248,14 +248,14 @@ If it has executed successfully you will see the following message::
 	
 The configuration files, user DB and UE should now be set up appropriately to allow the COTS UE to connect to the eNB and Core. 
 
-Connecting a COTS UE to srsLTE
+Connecting a COTS UE to srsRAN
 ****************************************
-The final step in connecting a COTS UE to srsLTE is to first spin up the network and then connect to that network from the UE. The following sections 
+The final step in connecting a COTS UE to srsRAN is to first spin up the network and then connect to that network from the UE. The following sections 
 will outline how this is achieved. 
 
 Running srsEPC & srsENB
 ---------------------------------------
-First navigate to the srsLTE folder. Then initialise the EPC by running::
+First navigate to the srsRAN folder. Then initialise the EPC by running::
 	
 	sudo srsepc
 	
@@ -265,7 +265,7 @@ The following output should be displayed on the console::
 	
 	---  Software Radio Systems EPC  ---
 	
-	Reading configuration file /etc/srslte/epc.conf...
+	Reading configuration file /etc/srsRAN/epc.conf...
 	HSS Initialized.
 	MME S11 Initialized
 	MME GTP-C Initialized
@@ -283,7 +283,7 @@ The console should display the following::
 
 	---  Software Radio Systems LTE eNodeB  ---
 
-	Reading configuration file /etc/srslte/enb.conf...
+	Reading configuration file /etc/srsRAN/enb.conf...
 	
 	Built in Release mode using commit c892ae56b on branch master.
 	
@@ -335,7 +335,7 @@ You can now connect the UE to the network by taking the following steps:
 		:align: center
 		:height: 360px
 
-	- Under the Network Operators find the network which you have just instantiated using srsLTE
+	- Under the Network Operators find the network which you have just instantiated using srsRAN
 
 	.. image:: .imgs/networks.jpg
 		:align: center
@@ -361,7 +361,7 @@ logs, then an attach is successful. These messages are seen in the last five lin
 
 	---  Software Radio Systems EPC  ---
 	
-	Reading configuration file /etc/srslte/epc.conf...
+	Reading configuration file /etc/srsRAN/epc.conf...
 	HSS Initialized.
 	MME S11 Initialized
 	MME GTP-C Initialized
@@ -435,7 +435,7 @@ The following shows an output from the eNB that indicates a successful attach::
 
 	---  Software Radio Systems LTE eNodeB  ---
 	
-	Reading configuration file /etc/srslte/enb.conf...
+	Reading configuration file /etc/srsRAN/enb.conf...
 	
 	Built in Release mode using commit c892ae56b on branch master.
 	

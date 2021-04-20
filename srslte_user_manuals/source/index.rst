@@ -1,43 +1,48 @@
 
-.. srsLTE documentation master file, created by
+.. srsRAN documentation master file, created by
    sphinx-quickstart on Dec 13 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsLTE 20.10.1 Documentation
+srsRAN 21.04 Documentation
 =============================
 
-srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network. 
-For more information, see `www.srslte.com <https://www.srslte.com>`_. 
+srsRAN is a free and open-source 4G and 5G software radio suite. 
 
-.. image:: .imgs/srs_architecture.png
+Featuring both UE and eNodeB/gNodeB applications, srsRAN can be used with third-party core network solutions to build complete end-to-end mobile wireless networks. For more information, see `www.srsran.com <https://www.srsran.com>`_. 
 
-The srsLTE suite includes:
+.. image:: .imgs/srsran_architecture.png
 
-- srsUE - a complete SDR LTE UE (User Equipment) application
-- srsENB - a complete SDR LTE eNodeB (Basestation) application
-- srsEPC - a light-weight LTE EPC (Core Network) implementation with MME, HSS and S/P-GW
+The srsRAN suite currently includes:
 
-All srsLTE software runs in linux with off-the-shelf compute and radio hardware.
+- srsUE - a full-stack 4G and 5G NSA UE (User Equipment) application **(5G SA coming soon)**
+- srsENB - a full-stack 4G eNodeB (Basestation) application **(5G NSA and SA coming soon)**
+- srsEPC - a light-weight 4G EPC (Core Network) implementation with MME, HSS and S/P-GW
+
+All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
 
 First Steps
 -----------
 
-| Get srsLTE installed on your computer:
+| Get srsRAN installed on your computer:
 |   - :ref:`Installation <gen_installation>`
 
-| Read the UE, eNodeB and EPC user manuals:
-|   - :ref:`UE User Manual <ue_intro>`
-|   - :ref:`eNodeB User Manual <enb_intro>`
-|   - :ref:`EPC User Manual <epc_intro>`
+| Get a 4G network up and running:
+|   - :ref:`4G LTE Set-up <gen_4g>`
 
-| Read the srsLTE Application Notes:
+| Read the user manuals:
+|   - :ref:`4G UE User Manual <ue_intro>`
+|   - :ref:`4G eNobeB User Manual <enb_intro>`
+|   - :ref:`4G EPC User Manual <epc_intro>`
+|   - :ref:`5G UE User Manual <5g_ue_intro>`
+
+| Read the srsRAN Application Notes:
 |   - :ref:`Application Notes <app_notes>`
   
 | Take a look at the source code:
-|   - `srsLTE on GitHub <https://github.com/srslte/srslte>`_
+|   - `srsRAN on GitHub <https://github.com/srsran/srsran>`_
 
-| Learn about the team behind srsLTE:
+| Learn about the team behind srsRAN:
 |   - `Software Radio Systems <https://softwareradiosystems.com>`_
 
 Links
@@ -47,9 +52,8 @@ Links
    :maxdepth: 1
 
    general/source/index.rst
-   srsue/source/index.rst
-   srsenb/source/index.rst
-   srsepc/source/index.rst
+   4g/source/index.rst
+   5g/source/index.rst
    app_notes/source/index.rst
 
 

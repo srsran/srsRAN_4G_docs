@@ -1,4 +1,4 @@
-.. srsLTE C-V2X Application Note
+.. srsRAN C-V2X Application Note
 
 .. _cv2x_appnote:
 
@@ -19,11 +19,11 @@ Although C-V2X is considered a key enabler for future transportation systems and
 providers, are heavily pushing the technology, only few devices are available. But even if they are officially announced it is extremely difficult to
 purchase them for developers or researchers, especially in small quantities.
 
-As of version 20.04, srsLTE includes a complete implementation of the 3GPP Sidelink physical layer standardized in Release 14 licensed under AGPL v3.
+As of version 20.04, srsRAN includes a complete implementation of the 3GPP Sidelink physical layer standardized in Release 14 licensed under AGPL v3.
 This includes all control and data channels and signals for all transmission modes for both receive and transmit operation.
 This allows to build complete and fully compatible C-V2X modems using software radios.
 
-This application note shows how to use the receive-only example provided in srsLTE 20.04 to decode transmissions from a third-party commercial C-V2X
+This application note shows how to use the receive-only example provided in srsRAN 20.04 to decode transmissions from a third-party commercial C-V2X
 device.
 
 
@@ -110,7 +110,7 @@ We have to make sure we use the device in GPS-sync mode via parameter though.
   num_decoded_sci=4 num_decoded_tb=4
   Saving PCAP file to /tmp/pssch.pcap
 
-If you've compiled srsLTE with GUI support you should see something like this on your screen.
+If you've compiled srsRAN with GUI support you should see something like this on your screen.
 In this particular examples we can see the QPSK constellation of the control channel (PSCCH)
 and the 16-QAM constellation of the data channel (PSSCH).
 

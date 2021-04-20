@@ -1,4 +1,4 @@
-.. srsLTE eMBMS Application Note
+.. srsRAN eMBMS Application Note
 
 .. _embms_appnote:
 
@@ -11,7 +11,7 @@ Introduction
 
 `enhanced Multimedia Broadcast Multicast Services (eMBMS) <https://www.sharetechnote.com/html/Handbook_LTE_MBSFN.html>`_
 is the broadcast mode of LTE. Using eMBMS, an eNodeB can efficiently broadcast the same data to all users attached to the cell.
-srsLTE supports eMBMS in the end-to-end system including srsUE, srsENB and srsEPC. In addition to these, a new application
+srsRAN supports eMBMS in the end-to-end system including srsUE, srsENB and srsEPC. In addition to these, a new application
 is introduced - srsMBMS. srsMBMS is the SRS MBMS gateway, an additional network component which receives multicast data on
 a TUN virtual network interface and provides it to the eMBMS bearer in the eNodeB.
 
@@ -19,7 +19,7 @@ a TUN virtual network interface and provides it to the eMBMS bearer in the eNode
 Setup
 *****
 
-To run an end-to-end srsLTE system with eMBMS, some additional configuration of the srsENB and srsUE applications are required.
+To run an end-to-end srsRAN system with eMBMS, some additional configuration of the srsENB and srsUE applications are required.
 In the sample configurations provided, it is assumed that srsmbms, srsepc and srsenb run on the same physical machine.
 
 srsENB configuration
@@ -79,11 +79,11 @@ Usage
 
 First, run srsMBMS (the MBMS gateway), srsEPC and srsENB on the same machine:
 
-``sudo ./srsmbms ~/.config/srslte/mbms.conf``
+``sudo ./srsmbms ~/.config/srsRAN/mbms.conf``
 
-``sudo ./srsepc ~/.config/srslte/epc.conf``
+``sudo ./srsepc ~/.config/srsRAN/epc.conf``
 
-``sudo ./srsenb ~/.config/srslte/enb.conf``
+``sudo ./srsenb ~/.config/srsRAN/enb.conf``
 
 The MBMS gateway will create a TUN interface to which all traffic intended for multicast should be written. It will then forward this traffic to the eNodeB via a seperate GTPU tunnel that is dedicated to eMBMS traffic.
 
@@ -97,7 +97,7 @@ To test eMBMS with srsMBMS, srsEPC and srsENB, we can use `Iperf <https://en.wik
 
 Next, we can run srsUE on a separate machine to receive the eMBMS data:
 
-``sudo ./srsue ~/.config/srslte/ue.conf``
+``sudo ./srsue ~/.config/srsRAN/ue.conf``
 
  Upon running srsUE with an eMBMS enabled eNodeB you should see the following output at the terminal of the UE::
 
@@ -110,7 +110,7 @@ Next, we can run srsUE on a separate machine to receive the eMBMS data:
   RRC Connected
   MBMS service started. Service id:0, port: 4321
   Network attach successful. IP: 172.16.0.2
-  Software Radio Systems LTE (srsLTE)
+  Software Radio Systems LTE (srsRAN)
 
 
 the *MBMS service started. Service id:0, port: 4321* indicates the eMBMS service has successfully started.

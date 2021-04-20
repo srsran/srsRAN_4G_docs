@@ -1,4 +1,4 @@
-.. srsLTE NB-IoT Application Note
+.. srsRAN NB-IoT Application Note
 
 .. _nbiot_appnote:
 
@@ -29,9 +29,9 @@ The eNB transmitter example requires a radio with transmitting capabilities.
 For example, an Ettus B200mini can be used as the eNB transmitter and an RTL-SDR as UE receiver.
 In principle, any device supported by either UHD or SoapySDR should work.
 
-The following application also supports `srsGUI <https://github.com/srsLTE/srsGUI>`_ for real time visualization of data. 
+The following application also supports `srsGUI <https://github.com/srsRAN/srsGUI>`_ for real time visualization of data. 
 
-All of the examples used here can be found in the following directory: ```./srsLTE/build/lib/examples```
+All of the examples used here can be found in the following directory: ```./srsRAN/build/lib/examples```
 
 Spotting local NB-IoT deployments
 *********************************
@@ -130,7 +130,7 @@ decode MIB, SIB and SIB2.
   CFO:  -2,76 kHz, RSRP: 28,0 dBm SNR:  5,0 dB, RSRQ: -11,5 dB, NPDCCH detected: 0, NPDSCH-BLER:  0,00% (0 of total 2), NPDSCH-Rate:  0,10
   ..
 
-If you've compiled srsLTE with GUI support you should see something like this on your screen.
+If you've compiled srsRAN with GUI support you should see something like this on your screen.
 
 .. image:: .imgs/npdsch_ue_example.png
 

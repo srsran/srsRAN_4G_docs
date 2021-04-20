@@ -135,8 +135,8 @@ Release Notes
 
 * 002.000.000
 
-  * Added fully functional srsENB to srsLTE code
-  * Merged srsUE code into srsLTE and reestructured PHY code 
+  * Added fully functional srsENB to srsRAN code
+  * Merged srsUE code into srsRAN and reestructured PHY code 
   * Added support for SoapySDR devices (eg LimeSDR)
   * Fixed issues in RLC AM 
   * Added support for NEON and AVX in many kernels and Viterbi decoder

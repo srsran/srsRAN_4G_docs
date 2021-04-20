@@ -25,22 +25,29 @@ The srsENB LTE eNodeB includes the following features:
 - Transmission mode 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
 - Frequency-based ZF and MMSE equalizer
 - Evolved multimedia broadcast and multicast service (eMBMS)
-- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+100 Mbps) and standard C (+25 Mbps)
-- MAC, RLC, PDCP, RRC, NAS, S1AP and GW layers
+- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+150 Mbps)
 - Detailed log system with per-layer log levels and hex dumps
 - MAC layer wireshark packet capture
 - Command-line trace metrics
 - Detailed input configuration files
 - Channel simulator for EPA, EVA, and ETU 3GPP channels
 - ZeroMQ-based fake RF driver for I/Q over IPC/network
-- Round Robin MAC scheduler with FAPI-like C++ API
+- Intra-ENB and Inter-ENB (S1) mobility support
+- Proportional-fair and round-robin MAC scheduler with FAPI-like C++ API
 - SR support
 - Periodic and Aperiodic CQI feedback support
 - Standard S1AP and GTP-U interfaces to the Core Network
-- 150 Mbps DL in 20 MHz MIMO TM3/TM4 with commercial UEs
+- 150 Mbps DL in 20 MHz MIMO TM3/TM4 with commercial UEs (195 Mbps with QAM256)
 - 75 Mbps DL in SISO configuration with commercial UEs
 - 50 Mbps UL in 20 MHz with commercial UEs
 - User-plane encryption
+
+srsENB has been tested and validated with a broad range of COTS handsets including:
+
+- LG Nexus 5 and 4
+- Motorola Moto G4 plus and G5
+- Huawei P9/P9lite, P10/P10lite, P20/P20lite
+- Huawei dongles: E3276 and E398
 
 eNodeB architecture
 *******************

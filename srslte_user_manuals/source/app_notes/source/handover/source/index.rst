@@ -5,18 +5,18 @@
 Handover Application Note
 ====================================
 
-**srsLTE Release 20.10 or later is required to run the following applications**
+**srsRAN Release 20.10 or later is required to run the following applications**
 
 Introduction
 ************
-This application note focuses on mobility and handover. Specifically, we show how to configure an end-to-end network to support user-controlled handover. We address both intra-eNB and S1 handover using srsLTE with ZeroMQ-based RF emulation and we use the GNURadio Companion as a broker for controlling cell gains to trigger handover. Creating an E2E network using ZMQ and adding GRC functionality is demonstrated in our :ref:`ZMQ App Note <zeromq_appnote>`.
+This application note focuses on mobility and handover. Specifically, we show how to configure an end-to-end network to support user-controlled handover. We address both intra-eNB and S1 handover using srsRAN with ZeroMQ-based RF emulation and we use the GNURadio Companion as a broker for controlling cell gains to trigger handover. Creating an E2E network using ZMQ and adding GRC functionality is demonstrated in our :ref:`ZMQ App Note <zeromq_appnote>`.
 
 Hardware & Software Required
 ----------------------------
 Both Intra-eNB and S1  handover have the following hardware and software requirements: 
   
-	- A PC/ Laptop running a Linux based OS with the latest version of srsLTE installed and built.
-	- ZMQ installed and working with srsLTE.
+	- A PC/ Laptop running a Linux based OS with the latest version of srsRAN installed and built.
+	- ZMQ installed and working with srsRAN.
 	- GNU-Radio Companion, which can be downloaded `from this link <https://wiki.gnuradio.org/index.php/InstallingGR>`_. 
 	- Fully up to date drivers & dependencies.
 
@@ -24,24 +24,24 @@ The following command will ensure the correct dependencies are installed (Ubuntu
 
 	sudo apt-get install cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev
 
-For a full guide on installing srsLTE see the :ref:`installation guide <gen_installation>`. The :ref:`ZMQ app note <zeromq_appnote>` shows how to correctly install and run ZMQ. 
+For a full guide on installing srsRAN see the :ref:`installation guide <gen_installation>`. The :ref:`ZMQ app note <zeromq_appnote>` shows how to correctly install and run ZMQ. 
 
-If you have had to install or update your drivers and/or dependencies without having re-built srsLTE, then you will need to do so to ensure srsLTE picks up on the new/ updated drivers. 
+If you have had to install or update your drivers and/or dependencies without having re-built srsRAN, then you will need to do so to ensure srsRAN picks up on the new/ updated drivers. 
 
 To make a clean build execute the following commands in your terminal:: 
 	
-	cd ./srsLTE/build
+	cd ./srsran/build
 	rm CMakeCache.txt
 	make clean
 	cmake ..
 	make
 		
-Your hardware and drivers should now be working correctly and be ready to use correctly with srsLTE. 
+Your hardware and drivers should now be working correctly and be ready to use correctly with srsRAN. 
 
 Intra-eNB Handover
 ******************
 Intra-eNB Handover describes the handover between cells when a UE moves from one sector to another sector which are managed by the same eNB. The following steps 
-show how ZMQ and GRC can be used with srsLTE to demonstrate such a handover. 
+show how ZMQ and GRC can be used with srsRAN to demonstrate such a handover. 
 
 The following figure shows the overall architecture used: 
 
@@ -52,7 +52,7 @@ This set-up will allow intra-frequency intra-enb handover.
 
 Note, ZMQ elements have not been included here so as to simplify the diagram, although they do form a key aspect of this implementation. 
 
-srsLTE Set-Up
+srsRAN Set-Up
 ---------------------
 To enable the successful execution of intra-eNB handover the configuration files of the eNB, radio resources and the UE must be modified. 
 
@@ -237,7 +237,7 @@ The EPC should display the following::
 	
 	---  Software Radio Systems EPC  ---
 	
-	Reading configuration file /etc/srslte/epc.conf...
+	Reading configuration file /etc/srsran/epc.conf...
 	HSS Initialized.
 	MME S11 Initialized
 	MME GTP-C Initialized
@@ -256,7 +256,7 @@ You should then see the following in the console::
 
 	---  Software Radio Systems LTE eNodeB  ---
 	
-	Reading configuration file /etc/srslte/enb.conf...
+	Reading configuration file /etc/srsran/enb.conf...
 	
 	Built in Release mode using commit 7e60d8aae on branch next.
 	
@@ -294,7 +294,7 @@ The UE now needs to be run, this can be done with the following command::
 	
 The UE console should then display this:: 
 
-	Reading configuration file /etc/srslte/ue.conf...
+	Reading configuration file /etc/srsran/ue.conf...
 	
 	Built in Release mode using commit 7e60d8aae on branch next.
 	
@@ -393,7 +393,7 @@ The UE console will display the following::
 	Random Access Complete.     c-rnti=0x46, ta=0
 	RRC Connected
 	Network attach successful. IP: 172.16.0.2
-	Software Radio Systems LTE (srsLTE) 21/10/2020 12:47:43 TZ:0
+	Software Radio Systems LTE (srsran) 21/10/2020 12:47:43 TZ:0
 
 The network is now ready for handover to be initiated and tested. To keep the UE from entering idle, you should send traffic between the UE and the eNB. 
 This can be done with the following command:: 
@@ -446,19 +446,19 @@ The following diagram outlines the network architecture:
 Open5GS EPC
 ---------------------
 
-The Open5GS EPC is an open source core network solution which is inter-operable with srsLTE. The software can be installed 
+The Open5GS EPC is an open source core network solution which is inter-operable with srsRAN. The software can be installed 
 from packages if using Ubuntu, as shown via the `open5GS docs <https://open5gs.org/open5gs/docs/guide/01-quickstart/>`_. 
-The EPC, and the rest of the Open5GS applications, run out of the box and only require minor configuration for use with srsLTE. 
+The EPC, and the rest of the Open5GS applications, run out of the box and only require minor configuration for use with srsRAN. 
 
 EPC Set-Up
 ------------------
 
-The EPC needs to be configured for use with srsLTE. The only changes required are to the MME configuration and adding the UE to the user database. 
+The EPC needs to be configured for use with srsRAN. The only changes required are to the MME configuration and adding the UE to the user database. 
 
 **MME Config:**
 
-In the file mme.yaml, the TAC must be changed to 7, this is the standard configuration for srsLTE. You could also leave 
-these settings as they are and configure the srsLTE elements instead. 
+In the file mme.yaml, the TAC must be changed to 7, this is the standard configuration for srsRAN. You could also leave 
+these settings as they are and configure the srsRAN elements instead. 
 
 The following shows the MME configuration used::
 
@@ -502,10 +502,10 @@ Note, the first five digits (PLMN) in the IMSI to 90170, and OPc (Milenage Authe
 This differs from the USIM configuration found in ue.conf, the changes made here will later be reflected in the ue.conf file. The IMSI is edited to reflect 
 the values used for the MCC and MNC. Milenage is used here to show how the sim credentials can be changed to suit certain use-cases. 
 
-srsLTE Set-Up
+srsRAN Set-Up
 ----------------------
 
-To ensure srsLTE is correctly configured to implement S1 Handover, changes must be made to the UE and eNB configurations. 
+To ensure srsRAN is correctly configured to implement S1 Handover, changes must be made to the UE and eNB configurations. 
 
 **UE:**
 

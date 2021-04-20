@@ -17,7 +17,7 @@ This User Guide provides all the information needed to get up and running with t
 Features
 ********
 
-The srsUE LTE UE includes the following features:
+The SRS LTE UE includes the following features:
 
 - LTE Release 10 aligned with features up to release 15
 - TDD and FDD configurations
@@ -34,8 +34,20 @@ The srsUE LTE UE includes the following features:
 - Detailed input configuration files
 - Evolved multimedia broadcast and multicast service (eMBMS)
 - Frequency-based ZF and MMSE equalizers
-- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+100 Mbps) and standard C (+25 Mbps)
+- Highly optimized Turbo Decoder available in Intel SSE4.1/AVX2 (+150 Mbps)
+- Channel simulator for EPA, EVA, and ETU 3GPP channels
+- QoS support
+- 150 Mbps DL in 20 MHz MIMO TM3/TM4 or 2xCA configuration (195 Mbps with QAM256)
+- 75 Mbps DL in 20 MHz SISO configuration (98 Mbps with QAM256)
+- 36 Mbps DL in 10 MHz SISO configuration
 - Supports Ettus USRP B2x0/X3x0 families, BladeRF, LimeSDR
+
+srsUE has been fully tested and validated with the following network equipment: 
+
+- Amarisoft LTE100 eNodeB and EPC
+- Nokia FlexiRadio family FSMF system module with 1800MHz FHED radio module and TravelHawk EPC simulator
+- Huawei DBS3900 
+- Octasic Flexicell LTE-FDD NIB
 
 UE architecture
 ***************

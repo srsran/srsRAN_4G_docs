@@ -1,45 +1,44 @@
 .. _app_notes:
 
-.. srsLTE documentation master file, created by
+.. srsRAN documentation master file, created by
    sphinx-quickstart on Dec 13 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsLTE Application Notes
+srsRAN Application Notes
 =========================
 
-srsLTE is a free and open-source 4G LTE software suite. Using srsLTE, you can build an end-to-end software radio mobile network.
-For more information, see `www.srslte.com <https://www.srslte.com>`_. These application notes provide guides for specific srsLTE use-cases.
+srsRAN is a free and open-source 4G and 5G software radio suite. 
 
-.. image:: .imgs/srs_architecture.png
+Featuring both UE and eNodeB/gNodeB applications, srsRAN can be used with third-party core network solutions to build complete end-to-end mobile wireless networks. For more information, see `www.srsran.com <https://www.srsran.com>`_. 
 
-| Use srsLTE without RF hardware in the loop:
+These application notes provide guides for specific srsRAN use-cases, using external applications, and guides on hardware choices and use.
+
+.. image:: .imgs/srsran_architecture.png
+
+| Use srsRAN without RF hardware in the loop:
 |   - :ref:`ZeroMQ Application Note <zeromq_appnote>`
-
 
 | Carrier Aggregation:
 |   - :ref:`Carrier Aggregation Application Note <2ca_appnote>`
 
-
-| Use eMBMS to support multicast/broadcast traffic using srsLTE:
+| Use eMBMS to support multicast/broadcast traffic using srsRAN:
 |   - :ref:`eMBMS Application Note <embms_appnote>`
 
-| Use srsLTE to explore NB-IoT deployments:
+| Use srsRAN to explore NB-IoT deployments:
 |   - :ref:`NB-IoT Application Note <nbiot_appnote>`
 
-| Running srsLTE on the Raspberry Pi 4:
+| Running srsRAN on the Raspberry Pi 4:
 |   - :ref:`Raspberry Pi 4 Application Note <pi4_appnote>`
 
-
-| Experiment with CV2X signalling with srsLTE:
+| Experiment with CV2X signalling with srsRAN:
 |   - :ref:`CV2X Application Note <cv2x_appnote>`
 
-| Connect a COTS UE to srsLTE:
+| Connect a COTS UE to srsRAN:
 |   - :ref:`COTS UE Application Note<cots_ue_appnote>`
 
 | Simulate Intra-eNB & S1 Handover using ZMQ:
 |   - :ref:`Handover Application Note<handover_appnote>`
-
 
 | Suggested hardware packages for experimentation & development:
 |   - :ref:`Suggested Hardware Packages<suggestedHW_appnote>`

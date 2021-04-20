@@ -4,18 +4,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-SRS UE User Manual
-==================
+UE User Manual
+==============
 
 .. toctree::
    :maxdepth: 2
 
-   1_ue_intro.rst
-   2_ue_getstarted.rst
-   3_ue_trouble.rst
-   4_ue_advanced.rst
-   5_ue_configref.rst
-   6_ue_commandref.rst
+   1_5g_ue_intro.rst
+   2_5g_ue_getstarted.rst
+   3_5g_ue_trouble.rst
+   4_5g_ue_advanced.rst
+   5_5g_ue_configref.rst
+   6_5g_ue_commandref.rst
 
 
 

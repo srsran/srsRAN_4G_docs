@@ -91,8 +91,6 @@ The srsENB runs in user-space with standard linux kernels. For best performance,
   done
 
 
-.. _Wireshark:
-
 Observing results
 *****************
 
@@ -121,8 +119,4 @@ PHY-layer log messages have additional details::
 e.g.::
 
     17:52:26.094 [PHY1]  Info  [05788]  PDSCH:    l_crb= 1, harq=0, snr=22.1 dB, CW0: tbs=55, mcs=22, rv=0, crc=OK, it=1, dec_time=  12 us
-
-
-The srsENB application supports MAC layer packet captures. Packet capture (pcap) files can be viewed using Wireshark (www.wireshark.org). MAC layer captures are created by default at /tmp/enb.pcap and are encoded in compact mac-lte-framed form. To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=147, Payload Protocol=mac-lte-framed). For more information, see https://wiki.wireshark.org/MAC-LTE.
-
 
