@@ -52,7 +52,19 @@ USRP front-end. Both UE and Callbox require accurate clocks - in our testing we 
 Hardware Setup
 **************
 
-**TBA**
+.. image:: .imgs/wiring.png
+		:align: center
+
+The UE is made up of the following components: 
+
+	* PC running a linux based OS
+	* An Ettus Research USRP X300 (an x310 could also be used)
+	
+The Callbox runs both the eNB/ gNB and the EPC.
+
+For this set-up a wired connection is used between the UE and the eNB/ gNB (i.e from the x300 to the PCIe SDR cards 
+on the Callbox). These conections run through -30 dB attenuators. This is shown clearly on the figure above. The 
+PSS inputs for the accurate clocking of both the UE and Callbox are also shown.
 
 Limitations
 ***********
@@ -287,6 +299,99 @@ The Callbox should now be correctly configured to enable it to work correctly wi
 
 Implementation
 **************
+
+Once the UE and Callbox are properly configured the next step is to run the UE and Callbox. The following order should
+be used when running the network: 
+
+	1. MME
+	2. eNB/ gNB
+	3. UE
+
+MME
+----
+To run the MME the following command is used::
+	
+	sudo ltemme mme.cfg
+	
+eNB/ gNB
+----------
+Next the eNB/ gNB should be instantiated, using the following command::
+	
+	sudo lteenb enb.cfg
+	
+The following will be output to the console:: 
+
+	LTE Base Station version 2021-03-15, Copyright (C) 2012-2021 Amarisoft
+	This software is licensed to Software Radio Systems (SRS).
+	Support and software update available until 2021-10-29.
+	RF0: sample_rate=11.520 MHz dl_freq=2140.000 MHz ul_freq=1950.000 MHz (band 1) dl_ant=1 ul_ant=1
+	RF1: sample_rate=23.040 MHz dl_freq=3507.840 MHz ul_freq=3507.840 MHz (band n78) dl_ant=1 ul_ant=1
+	
+You should now run the UE. 
+	
+UE
+----
+
+To run the UE used the following command:: 
+
+	sudo srsue ue.conf
+
+Once the UE has been initialised you should see the following::
+
+	Opening 2 channels in RF device=uhd with args=type=x300,serial=30B8658,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6,None
+	
+This will be followed by some information regarding the USRP. You will then see the following, which will indicate 
+the UE is running as it should:: 
+
+	Waiting PHY to initialize ... done!
+	Attaching UE...
+	Enter t to stop trace.
+	
+Once the cell has been found successfully you should see the following:: 
+
+	Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CFO=0.1 KHz
+	Found PLMN:  Id=90170, TAC=7
+	Could not find Home PLMN Id=00101, trying to connect to PLMN Id=90170
+	Random Access Transmission: seq=17, tti=8494, ra-rnti=0x5
+	RRC Connected
+	Random Access Complete.     c-rnti=0x3d, ta=3
+	Random Access Transmission: seq=39, tti=8564, ra-rnti=0x5
+	Random Access Complete.     c-rnti=0x3d, ta=3
+	Network attach successful. IP: 192.168.4.2
+	Amarisoft Network (Amarisoft) 20/4/2021 23:32:40 TZ:105
+	RRC NR reconfiguration successful.
+	Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0x7f, tti=8979
+	Random Access Complete.     c-rnti=0x4601, ta=23
+	--------Signal--------------DL-------------------------------------UL----------------------
+	cc pci  rsrp    pl    cfo   mcs   snr turbo  brate   bler   ta_us  mcs   buff  brate   bler
+	 0   1   -53    15     21    12    40  0.50    12k     0%   1.6    16    0.0    13k     9%
+	 1   0   5.1   0.0     25   2.0    39   1.0    0.0     0%   0.0    26    0.0    32k     0%
+	 0   1   -51   8.6    2.7    28    40  0.50   1.4k     0%   1.6    20    0.0    840    33%
+	 1   0   4.5   0.0    1.2    27    42   1.0   1.3k     0%   0.0    28    0.0   148k     0%
+	 0   1   -59    17    5.8    28    40  0.50   1.4k     0%   1.6   0.0    0.0    0.0     0%
+	 1   0   5.0   0.0    4.7    27    41   1.5   1.3k     0%   0.0    28    0.0   148k     0%
+	 0   1   -62    20    7.8    28    40  0.50   1.4k     0%   1.6   0.0    0.0    0.0     0%
+	 1   0   5.0   0.0    2.8    28    32   1.9   3.0M     0%   0.0    28    0.0   132k     1%
+	......
+
+
+To confirm the UE successfully connected, you should see the following on the console output of the **eNB**::
+
+	PRACH: cell=00 seq=17 ta=3 snr=28.3 dB
+	PRACH: cell=00 seq=39 ta=3 snr=29.0 dB
+	PRACH: cell=02 seq=0 ta=23 snr=28.3 dB
+	               ----DL----------------------- --UL------------------------------------------------
+	UE_ID  CL RNTI C cqi ri  mcs retx txok brate  snr puc1  mcs rxko rxok brate     #its phr  pl   ta
+	    1 000 003d 1  15  1 15.0    0   16 5.58k 15.4 34.7 18.8    3   13 5.27k  1/3.7/6  31  38  0.0
+	    3 002 4601 1  15  1 27.0    0    1   320 36.2   -  27.7    0   87 64.0k  1/2.1/4   -   - -0.3
+	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.2 34.8 20.0    1    1   420  1/3.5/6  31  38  0.0
+	    3 002 4601 1  15  1 27.0    0    4 1.28k 28.1   -  28.0    0  200  148k  2/2.1/3   -   - -0.3
+	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.1 34.8    -    0    0     0        -  31  38  0.0
+	    3 002 4601 1  15  1 27.9    0 1037 16.8M 29.9   -  27.9    1   21 16.1k  1/2.3/5   -   - -0.3
+	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.3 35.2    -    0    0     0        -  31  38  0.0
+	    3 002 4601 1  15  1 27.9    5 1120 18.3M 29.9   -     -    0    0     0        -   -   -    -
+	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.0 34.8    -    0    0     0        -  31  38  0.0
+	    3 002 4601 1  15  1 27.9    0 1125 18.4M 29.9   -     -    0    0     0        -   -   -    -
 
 Troubleshooting
 ***************
