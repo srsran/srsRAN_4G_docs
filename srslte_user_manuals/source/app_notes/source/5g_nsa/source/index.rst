@@ -77,7 +77,7 @@ in Amarisoft (and likely any other gNB). The key feature limitations are as foll
   * Only DCI format 0_0 (for Uplink) and 1_0 (for Downlink) supported
   * No cell search and reference signal measurements (NR carrier PCI needs to be known)
   * NR carrier needs to use RLC UM (NR RLC AM not yet supported)
-  
+
 
 Configuration
 *************
@@ -95,11 +95,9 @@ UE files:
 
 Callbox files:
 
-  * :download:`DRB config <drb.cfg>`
-  * :download:`NR DRB config <drb_nr.cfg>`
-  * :download:`gNB NSA config <gnb-nsa.cfg>`
   * :download:`MME config <mme.cfg>`
-  * :download:`SIB config <sib23.asn>`
+  * :download:`gNB NSA config <gnb-nsa.cfg>`
+
 
 srsUE
 -----
@@ -294,13 +292,12 @@ The final changes to the configuration file are made to pusch settings::
     /* mcs: 16, */
   },
 
-The Callbox should now be correctly configured to enable it to work correctly with srsUE for 
-5G NSA testing. 
+The Callbox should now be correctly configured for 5G NSA testing with srsUE. 
 
 Implementation
 **************
 
-Once the UE and Callbox are properly configured the next step is to run the UE and Callbox. The following order should
+Following configuration, we can run the UE and Callbox. The following order should
 be used when running the network: 
 
 	1. MME
@@ -319,7 +316,7 @@ Next the eNB/ gNB should be instantiated, using the following command::
 	
 	sudo lteenb enb.cfg
 	
-The following will be output to the console:: 
+Console output should be similar to:: 
 
 	LTE Base Station version 2021-03-15, Copyright (C) 2012-2021 Amarisoft
 	This software is licensed to Software Radio Systems (SRS).
@@ -327,12 +324,10 @@ The following will be output to the console::
 	RF0: sample_rate=11.520 MHz dl_freq=2140.000 MHz ul_freq=1950.000 MHz (band 1) dl_ant=1 ul_ant=1
 	RF1: sample_rate=23.040 MHz dl_freq=3507.840 MHz ul_freq=3507.840 MHz (band n78) dl_ant=1 ul_ant=1
 	
-You should now run the UE. 
-	
 UE
 ----
 
-To run the UE used the following command:: 
+To run the UE, use the following command:: 
 
 	sudo srsue ue.conf
 
