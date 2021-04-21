@@ -62,9 +62,10 @@ The UE is made up of the following components:
 	
 The Callbox runs both the eNB/ gNB and the EPC.
 
-For this set-up a wired connection is used between the UE and the eNB/ gNB (i.e from the x300 to the PCIe SDR cards 
-on the Callbox). These conections run through -30 dB attenuators. This is shown clearly on the figure above. The 
-PSS inputs for the accurate clocking of both the UE and Callbox are also shown.
+Tests may be carried out over-the-air or using a cabled setup.
+For this example, we use a cabled setup between the UE and the eNB/ gNB (i.e from the x300 to the PCIe SDR cards 
+on the Callbox). These conections run through -30 dB attenuators as shown in the figure above. The 
+PPS inputs for the accurate clocking of both the UE and Callbox are also shown.
 
 Limitations
 ***********
