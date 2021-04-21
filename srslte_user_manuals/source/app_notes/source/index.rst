@@ -40,6 +40,9 @@ These application notes provide guides for specific srsRAN use-cases, using exte
 | Simulate Intra-eNB & S1 Handover using ZMQ:
 |   - :ref:`Handover Application Note<handover_appnote>`
 
+| Set-up and test your first 5G NSA network: 
+|   - :ref:`5G NSA Application Note<5gnsa_appnote>`
+
 | Suggested hardware packages for experimentation & development:
 |   - :ref:`Suggested Hardware Packages<suggestedHW_appnote>`
 
@@ -61,6 +64,8 @@ These application notes provide guides for specific srsRAN use-cases, using exte
    cots_ue/source/index.rst
    
    handover/source/index.rst
+   
+   5g_nsa/source/index.rst
    
    hw_packs/source/index.rst
 
