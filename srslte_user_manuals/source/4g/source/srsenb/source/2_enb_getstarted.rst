@@ -120,3 +120,4 @@ e.g.::
 
     17:52:26.094 [PHY1]  Info  [05788]  PDSCH:    l_crb= 1, harq=0, snr=22.1 dB, CW0: tbs=55, mcs=22, rv=0, crc=OK, it=1, dec_time=  12 us
 
+See the explanation :ref:`here <wireshark>` on setting up wireshark to decdode the pcaps captured by srsENB.  

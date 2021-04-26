@@ -102,5 +102,3 @@ Observing results
 By default, log files are stored in ``/tmp/epc.log``. This file can be inspected to troubleshoot any issues related to srsEPC.
 Log files can have multiple verbosity levels, which can be configured in the ``epc.conf`` or through the command line. They can also be enabled on a per-layer capacity, which is useful when troubleshooting a specific layer.
 
-The srsEPC application supports packet capture (pcap) of S1AP messages between the MME and eNodeBs. Enable packet captures in ``epc.conf`` or on the command line, by setting the ``pcap.enable`` value to true.
-Capture files are created by default at ``/tmp/epc.pcap`` and can be viewed using Wireshark (www.wireshark.org). To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=150, Payload Protocol=s1ap).

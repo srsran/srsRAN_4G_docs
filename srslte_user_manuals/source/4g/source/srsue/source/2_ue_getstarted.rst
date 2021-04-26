@@ -130,6 +130,4 @@ e.g.::
 
 The srsUE application supports packet capture at two levels - MAC layer and NAS layer. MAC layer captures include both control and data traffic and will be encrypted if configured by the network. NAS layer captures include control traffic only and will not be encrypted. Packet capture (pcap) files can be viewed using Wireshark (www.wireshark.org).
 
-MAC layer captures are created by default at /tmp/ue.pcap and are encoded in compact mac-lte-framed form. To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=147, Payload Protocol=mac-lte-framed). For more information, see https://wiki.wireshark.org/MAC-LTE.
-
-NAS layer captures are created by default at /tmp/nas.pcap. To view in wireshark, edit the preferences of the DLT_USER dissector (add an entry with DLT=148, Payload Protocol=nas-eps).
+See the explanation :ref:`here <wireshark>` on setting up wireshark to decdode pcaps.  
