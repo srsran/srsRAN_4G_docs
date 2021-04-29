@@ -1,5 +1,5 @@
-# srsLTE_docs
-Documentation for the srsLTE project - see [docs.srslte.com](http://docs.srslte.com)
+# srsRAN_docs
+Documentation for the srsRAN project - see [docs.srsran.com](http://docs.srsran.com)
 
 # Local Installation 
 
@@ -16,8 +16,8 @@ pip install sphinx sphinx_rtd_theme sphinxcontrib.blockdiag sphinxcontrib.seqdia
 Once dependenceies are installed,
 
 ```
-git clone https://github.com/srsLTE/srsLTE_docs.git
-cd srsLTE_docs/srslte_user_manuals
+git clone https://github.com/srsRAN/srsRAN_docs.git
+cd srsRAN_docs/srsran_user_manuals
 make html
 ```
 
