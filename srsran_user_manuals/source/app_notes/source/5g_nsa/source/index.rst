@@ -358,18 +358,10 @@ Once the cell has been found successfully you should see the following::
 	RRC NR reconfiguration successful.
 	Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0x7f, tti=8979
 	Random Access Complete.     c-rnti=0x4601, ta=23
-	--------Signal--------------DL-------------------------------------UL----------------------
-	cc pci  rsrp    pl    cfo   mcs   snr turbo  brate   bler   ta_us  mcs   buff  brate   bler
-	 0   1   -53    15     21    12    40  0.50    12k     0%   1.6    16    0.0    13k     9%
-	 1   0   5.1   0.0     25   2.0    39   1.0    0.0     0%   0.0    26    0.0    32k     0%
-	 0   1   -51   8.6    2.7    28    40  0.50   1.4k     0%   1.6    20    0.0    840    33%
-	 1   0   4.5   0.0    1.2    27    42   1.0   1.3k     0%   0.0    28    0.0   148k     0%
-	 0   1   -59    17    5.8    28    40  0.50   1.4k     0%   1.6   0.0    0.0    0.0     0%
-	 1   0   5.0   0.0    4.7    27    41   1.5   1.3k     0%   0.0    28    0.0   148k     0%
-	 0   1   -62    20    7.8    28    40  0.50   1.4k     0%   1.6   0.0    0.0    0.0     0%
-	 1   0   5.0   0.0    2.8    28    32   1.9   3.0M     0%   0.0    28    0.0   132k     1%
-	......
-
+	---------Signal----------|-----------------DL-----------------|-----------UL-----------
+	rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
+	lte  ....
+	 nr  ....
 
 To confirm the UE successfully connected, you should see the following on the console output of the **eNB**::
 
@@ -388,6 +380,101 @@ To confirm the UE successfully connected, you should see the following on the co
 	    3 002 4601 1  15  1 27.9    5 1120 18.3M 29.9   -     -    0    0     0        -   -   -    -
 	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.0 34.8    -    0    0     0        -  31  38  0.0
 	    3 002 4601 1  15  1 27.9    0 1125 18.4M 29.9   -     -    0    0     0        -   -   -    -
+
+srsGUI Support
+---------------
+
+.. image:: .imgs/gui.png
+		:align: center
+		
+srsGUI is also supported for use with the UE in NSA mode. An example of the plots produced can be seen above. 
+
+To enable srsGUI, see `here <https://github.com/srslte/srsgui>`_. 
+
+.. Note:: 
+
+	If you have already built srsRAN without srsGUI support, you must re-do so after srsGUI has been built. 
+
+Understanding the console Trace
+------------------------------------------
+
+The console trace output from the UE contains useful metrics by which the state and performance of the UE can be measured. 
+The following metrics are given in the console trace:: 
+
+	---------Signal----------|-----------------DL-----------------|-----------UL-----------
+	rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
+	
+The following gives a brief description of which each column represents: 
+
+	* **RAT:** This is a NR UE specific metric. It will display either NR or LTE depending on which carrier is being used in NSA mode. 
+	* **PCI:** `Physcial Cell ID <https://www.sharetechnote.com/html/Handbook_LTE_PCI.html>`_
+	* **RSRP:** `Reference Signal Receive Power <https://www.sharetechnote.com/html/Handbook_LTE_RSRP.html>`_ (dBm)
+	* **PL:** `Pathloss <https://en.wikipedia.org/wiki/Path_loss>`_ (dB)
+	* **CFO:** `Carrier Frequency Offset <https://en.wikipedia.org/wiki/Carrier_frequency_offset>`_ (Hz)
+	* **MCS:** `Modulation and coding scheme <https://www.sharetechnote.com/html/Handbook_LTE_MCS_ModulationOrder.html>`_ (0-28)
+	* **SNR:** `Signal-to-Noise Ratio <https://www.sharetechnote.com/html/RF_Handbook_SNR.html>`_ (dB)
+	* **ITER:** Average number of turbo decoder iterations
+	* **BRATE:** Bitrate (bits/sec)
+	* **BLER:** Block error rate
+	* **TA_US:** `Timing advance <https://www.sharetechnote.com/html/Handbook_LTE_TimingAdvance.html>`_ (uS)
+	* **BUFF:** `Uplink buffer status <https://www.sharetechnote.com/html/Handbook_LTE_BSR.html>`_ - data waiting to be transmitted (bytes)
+	
+
+Calculating Throughput
+------------------------
+
+To help understand the UL/DL rates achieved by using NSA mode, this `throughput calculator <https://5g-tools.com/5g-nr-throughput-calculator/>`_ 
+can be used. This can help in observing how changing certain config settings may lead to a change in the rates achieved. It can also allow users 
+to check that they are achieving the rates they should based on their set-up. 
+
+To do this, we need to get the TDD config, this can be taken from the UE RRC log. The following information is obtained:: 
+
+	"tdd-UL-DL-ConfigurationCommon": {
+          "referenceSubcarrierSpacing": "kHz15",
+          "pattern1": {
+            "dl-UL-TransmissionPeriodicity": "ms10",
+            "nrofDownlinkSlots": 6,
+            "nrofDownlinkSymbols": 0,
+            "nrofUplinkSlots": 3,
+            "nrofUplinkSymbols": 0
+          }	
+
+This can then be input to the webtool: 
+
+**DL**
+
+	* DL
+	* TDD
+	* v(j)Layers: 1
+	* MU-MIMO: no
+	* Mode of Modulation and Code Rate: auto
+	* 5G NR table from 38.214: Table 1
+	* Rmax (calculated): 0.92
+	* f(j) Scaling factor: 1
+	* BW: BW:10MHz FR1 µ:15kHz
+	* Mode of Symbols allocation at Slot: manual
+	* 0.4 (6 DL symbols (from table above) / 14)
+	* Resulting DL rate: 18 Mbit
+	
+**UL**
+
+	* UL
+	* TDD
+	* v(j)Layers: 1
+	* MU-MIMO: no
+	* Mode of Modulation and Code Rate: auto
+	* 5G NR table from 38.214: Table 1
+	* Rmax (calculated): 0.92
+	* f(j) Scaling factor: 1
+	* BW: BW:10MHz FR1 µ:15kHz
+	* Mode of Symbols allocation at Slot: manual
+	* 0.3 (3 UL symbols (from table above) / 14)
+	* Resulting DL rate: 14 Mbit
+
+.. Note:: 
+	
+	Achieved UL rate in a lab setting was 11 Mbps, not 14 Mbps as given by the calculator. This may be down to the number of PRBs reserved for PUCCH and PRACH. 
+	Removing PUCCH and PRACH resources may help to increase UL rates. 
 
 Troubleshooting
 ***************
