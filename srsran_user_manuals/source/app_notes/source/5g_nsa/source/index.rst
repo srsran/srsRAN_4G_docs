@@ -9,18 +9,18 @@ Introduction
 ************
 
 The 21.04 release of srsRAN brings 5G NSA (Non-Standalone) support to the SRS UE application.
-This application note shows the UE can be used with a third-party 5G NSA network. In this example,
-we use the Amari Callbox from Amarisoft to provide the network.
+This application note shows how the UE can be used with a third-party 5G NSA network. In this example,
+we use the Amari Callbox Classic from Amarisoft to provide the network.
 
 Amari Callbox
 *************
 
-The Amari Callbox is an LTE/NR SDR test solution from Amarisoft, designed for 
-testing UEs. It contains an EPC/5GC, an eNodeB, a gNodeB, an IMS server, an 
-eMBMS server and an Intel i7 Linux PC with PCI SDR cards. The gNodeB is release 15 compliant and 
+The Amari Callbox is an LTE/NR SDR-based UE test solution from Amarisoft.
+It contains an EPC/5GC, an eNodeB, a gNodeB, an IMS server, an 
+eMBMS server and an Intel i7 Linux PC with PCIe SDR cards. The gNodeB is release 15 compliant and 
 supports both NSA and SA modes. A further outline of the specifications can be found in the 
 `data sheet <https://www.amarisoft.com/app/uploads/2020/02/AMARI-Callbox-Classic.pdf>`_.
-This test solution was chosen as it's widely available, easily configurable and user-friendly.
+This test solution was chosen as it's widely available, easily configurable, and user-friendly.
 
 5G NSA: What you need to know
 *****************************
@@ -40,7 +40,7 @@ of 5G NSA services, but existing 4G devices are not disrupted.
 Hardware Requirements
 *********************
 
-For this application note, the following hardware is required: 
+For this application note, the following hardware is used:
 
 	* An Amari Callbox with 5G NSA support (this example uses the Callbox Classic)
 	* A PC running a Linux based OS (e.g. Ubuntu)
@@ -57,14 +57,14 @@ Hardware Setup
 
 The UE is made up of the following components: 
 
-	* PC running a linux based OS
-	* An Ettus Research USRP X300 (an x310 could also be used)
+	* AMD Ryzen5 3600X based PC running a Linux based OS
+	* Ettus Research USRP X310 connected over 10GigE (an X300 could also be used)
 	
-The Callbox runs both the eNB/ gNB and the EPC.
+The Callbox runs both the eNB/gNB and the EPC.
 
 Tests may be carried out over-the-air or using a cabled setup.
-For this example, we use a cabled setup between the UE and the eNB/ gNB (i.e from the x300 to the PCIe SDR cards 
-on the Callbox). These conections run through -30 dB attenuators as shown in the figure above. The 
+For this example, we use a cabled setup between the UE and the eNB/gNB (i.e from the X310 to the PCIe SDR cards 
+on the Callbox). These connections run through 30dB attenuators as shown in the figure above. The 
 PPS inputs for the accurate clocking of both the UE and Callbox are also shown.
 
 Limitations
@@ -73,7 +73,7 @@ Limitations
 The current 5G NSA UE application has a few feature limitations that require configuration changes
 in Amarisoft (and likely any other gNB). The key feature limitations are as follows:
 
-  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth
+  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (we've tested 10 and 20 MHz)
   * Support for NR in TDD mode for sub-6Ghz (FR1) in unpaired spectrum
   * Only DCI format 0_0 (for Uplink) and 1_0 (for Downlink) supported
   * No cell search and reference signal measurements (NR carrier PCI needs to be known)
@@ -107,7 +107,7 @@ The following changes need to be made to the UE configuration file to allow it t
 the Callbox in NSA mode. 
 
 Firstly the following parameters need to be changed under the **[rf]** options so that the 
-X300 is configured optimally::
+X310 is configured optimally::
 
   [rf]
   tx_gain = 10
@@ -116,7 +116,7 @@ X300 is configured optimally::
   device_args = type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6
   srate = 11.52e6
 
-The next set of changes need to be made to the **[rat.eutra]** options. This help to ensure 
+The next set of changes need to be made to the **[rat.eutra]** options. This make sure 
 the anchor cell is found by the UE:: 
 
   [rat.eutra]
@@ -253,7 +253,7 @@ QAM 64 must be selected for the Modulation Coding Scheme (MCS) table::
 
 In the PUCCH set-up frequency hopping needs to be turned off:: 
 
-	Freq_hopping: false, 
+	freq_hopping: false, 
 
 For the *pucch2* entry, the following settings can be selected, while the 
 entries for *pucch3* and *pucch4* can be removed fully::
@@ -264,7 +264,7 @@ entries for *pucch3* and *pucch4* can be removed fully::
    freq_hopping: false,
    simultaneous_harq_ack_csi: false, 
    max_code_rate: 0.25,
-  },
+ },
 
 The final changes to the configuration file are made to pusch settings:: 
 
@@ -315,7 +315,7 @@ eNB/ gNB
 ----------
 Next the eNB/ gNB should be instantiated, using the following command::
 	
-	sudo lteenb enb.cfg
+	sudo lteenb gnb-nsa.cfg
 	
 Console output should be similar to:: 
 
@@ -334,24 +334,16 @@ To run the UE, use the following command::
 
 Once the UE has been initialised you should see the following::
 
-	Opening 2 channels in RF device=uhd with args=type=x300,serial=30B8658,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6,None
+	Opening 2 channels in RF device=uhd with args=type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6,None
 	
-This will be followed by some information regarding the USRP. You will then see the following, which will indicate 
-the UE is running as it should:: 
+This will be followed by some information regarding the USRP. Once the cell has been found successfully you should see the following:: 
 
-	Waiting PHY to initialize ... done!
+  Waiting PHY to initialize ... done!
 	Attaching UE...
-	Enter t to stop trace.
-	
-Once the cell has been found successfully you should see the following:: 
-
 	Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CFO=0.1 KHz
-	Found PLMN:  Id=90170, TAC=7
-	Could not find Home PLMN Id=00101, trying to connect to PLMN Id=90170
+	Found PLMN:  Id=00101, TAC=7
 	Random Access Transmission: seq=17, tti=8494, ra-rnti=0x5
 	RRC Connected
-	Random Access Complete.     c-rnti=0x3d, ta=3
-	Random Access Transmission: seq=39, tti=8564, ra-rnti=0x5
 	Random Access Complete.     c-rnti=0x3d, ta=3
 	Network attach successful. IP: 192.168.4.2
 	Amarisoft Network (Amarisoft) 20/4/2021 23:32:40 TZ:105
@@ -366,7 +358,6 @@ Once the cell has been found successfully you should see the following::
 To confirm the UE successfully connected, you should see the following on the console output of the **eNB**::
 
 	PRACH: cell=00 seq=17 ta=3 snr=28.3 dB
-	PRACH: cell=00 seq=39 ta=3 snr=29.0 dB
 	PRACH: cell=02 seq=0 ta=23 snr=28.3 dB
 	               ----DL----------------------- --UL------------------------------------------------
 	UE_ID  CL RNTI C cqi ri  mcs retx txok brate  snr puc1  mcs rxko rxok brate     #its phr  pl   ta
@@ -399,6 +390,7 @@ Understanding the console Trace
 ------------------------------------------
 
 The console trace output from the UE contains useful metrics by which the state and performance of the UE can be measured. 
+The traces can be activated by pressing t+Enter after UE has started.
 The following metrics are given in the console trace:: 
 
 	---------Signal----------|-----------------DL-----------------|-----------UL-----------
@@ -406,17 +398,17 @@ The following metrics are given in the console trace::
 	
 The following gives a brief description of which each column represents: 
 
-	* **RAT:** This is a NR UE specific metric. It will display either NR or LTE depending on which carrier is being used in NSA mode. 
+	* **RAT:** This is a NSA specific column. It indicates the carrier for which the information is displayed. 
 	* **PCI:** `Physcial Cell ID <https://www.sharetechnote.com/html/Handbook_LTE_PCI.html>`_
 	* **RSRP:** `Reference Signal Receive Power <https://www.sharetechnote.com/html/Handbook_LTE_RSRP.html>`_ (dBm)
 	* **PL:** `Pathloss <https://en.wikipedia.org/wiki/Path_loss>`_ (dB)
 	* **CFO:** `Carrier Frequency Offset <https://en.wikipedia.org/wiki/Carrier_frequency_offset>`_ (Hz)
 	* **MCS:** `Modulation and coding scheme <https://www.sharetechnote.com/html/Handbook_LTE_MCS_ModulationOrder.html>`_ (0-28)
 	* **SNR:** `Signal-to-Noise Ratio <https://www.sharetechnote.com/html/RF_Handbook_SNR.html>`_ (dB)
-	* **ITER:** Average number of turbo decoder iterations
+	* **ITER:** Average number of turbo decoder (LTE) or LDPC (NR) iterations
 	* **BRATE:** Bitrate (bits/sec)
 	* **BLER:** Block error rate
-	* **TA_US:** `Timing advance <https://www.sharetechnote.com/html/Handbook_LTE_TimingAdvance.html>`_ (uS)
+	* **TA_US:** `Timing advance <https://www.sharetechnote.com/html/Handbook_LTE_TimingAdvance.html>`_ (us)
 	* **BUFF:** `Uplink buffer status <https://www.sharetechnote.com/html/Handbook_LTE_BSR.html>`_ - data waiting to be transmitted (bytes)
 	
 
