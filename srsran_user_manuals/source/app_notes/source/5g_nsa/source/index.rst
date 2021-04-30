@@ -428,62 +428,6 @@ The following gives a brief description of which each column represents:
 	* **BUFF:** `Uplink buffer status <https://www.sharetechnote.com/html/Handbook_LTE_BSR.html>`_ - data waiting to be transmitted (bytes)
 	
 
-Calculating Throughput
-------------------------
-
-To help understand the UL/DL rates achieved by using NSA mode, this `throughput calculator <https://5g-tools.com/5g-nr-throughput-calculator/>`_ 
-can be used. This can help in observing how changing certain config settings may lead to a change in the rates achieved. It can also allow users 
-to check that they are achieving the rates they should based on their set-up. 
-
-To do this, we need to get the TDD config, this can be taken from the UE RRC log. The following information is obtained:: 
-
-	"tdd-UL-DL-ConfigurationCommon": {
-          "referenceSubcarrierSpacing": "kHz15",
-          "pattern1": {
-            "dl-UL-TransmissionPeriodicity": "ms10",
-            "nrofDownlinkSlots": 6,
-            "nrofDownlinkSymbols": 0,
-            "nrofUplinkSlots": 3,
-            "nrofUplinkSymbols": 0
-          }	
-
-This can then be input to the webtool: 
-
-**DL**
-
-	* DL
-	* TDD
-	* v(j)Layers: 1
-	* MU-MIMO: no
-	* Mode of Modulation and Code Rate: auto
-	* 5G NR table from 38.214: Table 1
-	* Rmax (calculated): 0.92
-	* f(j) Scaling factor: 1
-	* BW: BW:10MHz FR1 µ:15kHz
-	* Mode of Symbols allocation at Slot: manual
-	* 0.4 (6 DL symbols (from table above) / 14)
-	* Resulting DL rate: 18 Mbit
-	
-**UL**
-
-	* UL
-	* TDD
-	* v(j)Layers: 1
-	* MU-MIMO: no
-	* Mode of Modulation and Code Rate: auto
-	* 5G NR table from 38.214: Table 1
-	* Rmax (calculated): 0.92
-	* f(j) Scaling factor: 1
-	* BW: BW:10MHz FR1 µ:15kHz
-	* Mode of Symbols allocation at Slot: manual
-	* 0.3 (3 UL symbols (from table above) / 14)
-	* Resulting DL rate: 14 Mbit
-
-.. Note:: 
-	
-	Achieved UL rate in a lab setting was 11 Mbps, not 14 Mbps as given by the calculator. This may be down to the number of PRBs reserved for PUCCH and PRACH. 
-	Removing PUCCH and PRACH resources may help to increase UL rates. 
-
 Troubleshooting
 ***************
 
