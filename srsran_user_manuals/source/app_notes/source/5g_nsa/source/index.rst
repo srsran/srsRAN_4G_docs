@@ -8,19 +8,10 @@
 Introduction
 ************
 
-The 21.04 release of srsRAN brings 5G NSA (Non-Standalone) support to the SRS UE application.
+The 21.04 release of srsRAN brings 5G NSA (Non-Standalone) support to srsUE.
 This application note shows how the UE can be used with a third-party 5G NSA network. In this example,
 we use the Amari Callbox Classic from Amarisoft to provide the network.
 
-Amari Callbox
-*************
-
-The Amari Callbox is an LTE/NR SDR-based UE test solution from Amarisoft.
-It contains an EPC/5GC, an eNodeB, a gNodeB, an IMS server, an 
-eMBMS server and an Intel i7 Linux PC with PCIe SDR cards. The gNodeB is release 15 compliant and 
-supports both NSA and SA modes. A further outline of the specifications can be found in the 
-`data sheet <https://www.amarisoft.com/app/uploads/2020/02/AMARI-Callbox-Classic.pdf>`_.
-This test solution was chosen as it's widely available, easily configurable, and user-friendly.
 
 5G NSA: What you need to know
 *****************************
@@ -37,6 +28,31 @@ This approach has been used for the majority of commercial 5G network deployment
 improved data rates while leveraging existing 4G infrastructure. UEs must support 5G NSA to take advantage
 of 5G NSA services, but existing 4G devices are not disrupted.
 
+
+Limitations
+***********
+
+The current 5G NSA UE application has a few feature limitations that require certain configuration
+settings at both the gNB and the core network. The key feature limitations are as follows:
+
+  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (we've tested 10 and 20 MHz)
+  * Support for NR in TDD mode for sub-6Ghz (FR1) in unpaired spectrum
+  * Only DCI format 0_0 (for Uplink) and 1_0 (for Downlink) supported
+  * No cell search and reference signal measurements (NR carrier PCI needs to be known)
+  * NR carrier needs to use RLC UM (NR RLC AM not yet supported)
+
+
+Amari Callbox
+*************
+
+The Amari Callbox is an LTE/NR SDR-based UE test solution from Amarisoft.
+It contains an EPC/5GC, an eNodeB, a gNodeB, an IMS server, an 
+eMBMS server and an Intel i7 Linux PC with PCIe SDR cards. The gNodeB is release 15 compliant and 
+supports both NSA and SA modes. A further outline of the specifications can be found in the 
+`data sheet <https://www.amarisoft.com/app/uploads/2020/02/AMARI-Callbox-Classic.pdf>`_.
+This test solution was chosen as it's widely available, easily configurable, and user-friendly.
+
+
 Hardware Requirements
 *********************
 
@@ -48,6 +64,7 @@ For this application note, the following hardware is used:
 
 The Callbox provides the eNB/gNB and core network, while the UE runs on the PC and uses the
 USRP front-end. Both UE and Callbox require accurate clocks - in our testing we provide PPS inputs to both.
+
 
 Hardware Setup
 **************
@@ -67,24 +84,13 @@ For this example, we use a cabled setup between the UE and the eNB/gNB (i.e from
 on the Callbox). These connections run through 30dB attenuators as shown in the figure above. The 
 PPS inputs for the accurate clocking of both the UE and Callbox are also shown.
 
-Limitations
-***********
-
-The current 5G NSA UE application has a few feature limitations that require configuration changes
-in Amarisoft (and likely any other gNB). The key feature limitations are as follows:
-
-  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (we've tested 10 and 20 MHz)
-  * Support for NR in TDD mode for sub-6Ghz (FR1) in unpaired spectrum
-  * Only DCI format 0_0 (for Uplink) and 1_0 (for Downlink) supported
-  * No cell search and reference signal measurements (NR carrier PCI needs to be known)
-  * NR carrier needs to use RLC UM (NR RLC AM not yet supported)
 
 
 Configuration
 *************
 
 To set-up and run the 5G NSA network and UE, the configuration files for both the 
-Callbox and the srsRAN UE must be changed.
+Callbox and srsUE must be changed.
 
 All of the modified configuration files have been included as attachments to this App Note. It is 
 recommended you use these files to avoid errors while changing configs manually. Any configuration
@@ -338,22 +344,32 @@ Once the UE has been initialised you should see the following::
 	
 This will be followed by some information regarding the USRP. Once the cell has been found successfully you should see the following:: 
 
-  Waiting PHY to initialize ... done!
-	Attaching UE...
-	Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CFO=0.1 KHz
-	Found PLMN:  Id=00101, TAC=7
-	Random Access Transmission: seq=17, tti=8494, ra-rnti=0x5
-	RRC Connected
-	Random Access Complete.     c-rnti=0x3d, ta=3
-	Network attach successful. IP: 192.168.4.2
-	Amarisoft Network (Amarisoft) 20/4/2021 23:32:40 TZ:105
-	RRC NR reconfiguration successful.
-	Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0x7f, tti=8979
-	Random Access Complete.     c-rnti=0x4601, ta=23
-	---------Signal----------|-----------------DL-----------------|-----------UL-----------
-	rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-	lte  ....
-	 nr  ....
+  Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CFO=0.1 KHz
+  Found PLMN:  Id=00101, TAC=7
+  Random Access Transmission: seq=17, tti=8494, ra-rnti=0x5
+  RRC Connected
+  Random Access Complete.     c-rnti=0x3d, ta=3
+  Network attach successful. IP: 192.168.4.2
+  Amarisoft Network (Amarisoft) 20/4/2021 23:32:40 TZ:105
+  RRC NR reconfiguration successful.
+  Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0x7f, tti=8979
+  Random Access Complete.     c-rnti=0x4601, ta=23
+  ---------Signal----------|-----------------DL-----------------|-----------UL-----------
+  rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
+  lte    1   -52  13    12 |  19   40   0.5    15k    0%    7.3 |  16    0.0    10k    4%
+   nr  500     4   0  881m |   2   31   1.0    0.0    0%    0.0 |  17    0.0   6.0k    0%
+  lte    1   -49   7  -4.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     3   0  -5.9 |  27   35   1.0   1.3k    0%    0.0 |  28    0.0   148k    0%
+  lte    1   -58  16  -3.7 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     3   0  -7.7 |  27   35   1.0   1.3k    0%    0.0 |  28    0.0   148k    0%
+  lte    1   -61  19  428m |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     4   0   2.2 |  27   30   1.4    67k    0%    0.0 |  28     28   143k    0%
+  lte    1   -61  19 -507m |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     4   0  924m |  27   24   1.9    18M    0%    0.0 |  28    0.0   3.7k    0%
+  lte    1   -61  19   3.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     4   0   3.5 |  27   24   1.9    18M    0%    0.0 |   0    0.0    0.0    0%
+  lte    1   -61  19   3.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
+   nr  500     4   0   3.1 |  27   24   1.9    18M    0%    0.0 |   0    0.0    0.0    0%
 
 To confirm the UE successfully connected, you should see the following on the console output of the **eNB**::
 
