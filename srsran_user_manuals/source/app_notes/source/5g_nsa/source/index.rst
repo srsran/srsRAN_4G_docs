@@ -42,8 +42,14 @@ settings at both the gNB and the core network. The key feature limitations are a
   * NR carrier needs to use RLC UM (NR RLC AM not yet supported)
 
 
-Amari Callbox
-*************
+Hardware Requirements
+*********************
+
+For this application note, the following components are used:
+
+  * Amari Callbox with 5G NSA support as eNB/gNB and core
+  * AMD Ryzen5 3600X Linux PC as UE compute platform
+  * Ettus Research USRP X310 connected over 10GigE as UE RF front-end
 
 The Amari Callbox is an LTE/NR SDR-based UE test solution from Amarisoft.
 It contains an EPC/5GC, an eNodeB, a gNodeB, an IMS server, an 
@@ -53,36 +59,17 @@ supports both NSA and SA modes. A further outline of the specifications can be f
 This test solution was chosen as it's widely available, easily configurable, and user-friendly.
 
 
-Hardware Requirements
-*********************
-
-For this application note, the following hardware is used:
-
-	* An Amari Callbox with 5G NSA support (this example uses the Callbox Classic)
-	* A PC running a Linux based OS (e.g. Ubuntu)
-	* An Ettus X300 or X310 USRP
-
-The Callbox provides the eNB/gNB and core network, while the UE runs on the PC and uses the
-USRP front-end. Both UE and Callbox require accurate clocks - in our testing we provide PPS inputs to both.
-
-
 Hardware Setup
 **************
 
 .. image:: .imgs/wiring.png
 		:align: center
 
-The UE is made up of the following components: 
-
-	* AMD Ryzen5 3600X based PC running a Linux based OS
-	* Ettus Research USRP X310 connected over 10GigE (an X300 could also be used)
-	
-The Callbox runs both the eNB/gNB and the EPC.
-
 Tests may be carried out over-the-air or using a cabled setup.
 For this example, we use a cabled setup between the UE and the eNB/gNB (i.e from the X310 to the PCIe SDR cards 
 on the Callbox). These connections run through 30dB attenuators as shown in the figure above. The 
 PPS inputs for the accurate clocking of both the UE and Callbox are also shown.
+Both UE and Callbox require accurate clocks - in our testing we provide PPS inputs to both.
 
 
 
@@ -301,8 +288,8 @@ The final changes to the configuration file are made to pusch settings::
 
 The Callbox should now be correctly configured for 5G NSA testing with srsUE. 
 
-Implementation
-**************
+Usage
+*****
 
 Following configuration, we can run the UE and Callbox. The following order should
 be used when running the network: 
