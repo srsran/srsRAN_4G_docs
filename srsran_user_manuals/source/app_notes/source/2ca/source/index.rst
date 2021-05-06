@@ -11,7 +11,7 @@ Introduction
 
 Before getting hands-on we recommend reading about `Carrier Aggregation <https://www.sharetechnote.com/html/Lte_Advanced_CarrierAggregation.html>`_.
 
-The srsRAN software suite supports 2-carrier aggregation in both srsENB and srsUE. To experiment with carrier aggregation using srsRAN over-the-air, you will need an RF device that can tune different frequencies in different channels. We recommend the USRP X300 series from Ettus Research (NI) with UHD LTS version 3.9.7. 
+The srsRAN software suite supports 2-carrier aggregation in both srsENB and srsUE. To experiment with carrier aggregation using srsRAN over-the-air, you will need an RF device that can tune different frequencies in different channels, for example the USRP X300 series from Ettus Research (NI). We've tested with UHD 3.15 LTS and UHD 4.0.
 
 Alternatively, experiment with carrier aggregation without SDR hardware using our ZeroMQ-based RF layer emulation. See our :ref:`ZeroMQ Application Note <zeromq_appnote>` for more information about RF layer emulation.
 
@@ -23,13 +23,15 @@ eNodeB Configuration
 
 To configure the eNodeB for carrier aggregation, we must first configure the RF front-end. We must then configure srsENB for multiple cells and define the primary/secondary relationships between them.
 
-If you're using a real RF device such as the USRP X300, simply use auto configuration:
+If you're using a real RF device such as the USRP X300 it's advisable to use an external clock reference, either using the 10 MHz/1 PPS input (``clock=external``) or the GPSDO (``clock=gpsdo``).
+For the X300, especially for newer UHD versions, it's also required to specific the sample rate upon radio initialization. For example, if you're planning to use 10 MHz cells (50 PRB)
+the sample rate of the radio will be 11.52 Msamples/s, hence a ``sampling_rate=11.52e6`` shall be used. For 20 MHz cells (100 PRB) the sample rate will be 23.04 Msamples/s, hence ``sampling_rate=23.04e6`` shall be used.
 
 .. code::
 
   [rf]
-  device_name = auto
-  device_args = auto
+  device_name = uhd
+  device_args = type=x300,clock=external,sampling_rate=23.04e6
 
 
 The second step is to configure srsENB with two cells. For this, one needs to modify ``rr.conf``:
