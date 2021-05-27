@@ -30,7 +30,7 @@ For this implementation the following equipment was used:
 	
 	- Razer Blade Stealth running Ubuntu 18.04
 	- B200 mini USRP
-	- Song Xperia XA with a Sysmocom USIM 
+	- Sony Xperia XA with a Sysmocom USIM 
 	
 The following photo shows the real world implementation of the equipment for this use case: 
 
@@ -90,12 +90,12 @@ You will need to edit the following files before you can run a COTS UE over the 
  - enb.conf
  - user_db.csv 
  
-The eNB & EPC config files will need to be edited such that the MMC & MNC values are the same across both files. The user DB file needs to be updated so that 
+The eNB & EPC config files will need to be edited such that the MCC & MNC values are the same across both files. The user DB file needs to be updated so that 
 it contains the credentials associated with the USIM card being used in the UE. 
  
 **EPC:**
 
-The following snippet shows where to change the MMC & MNC values in the EPC config file:: 
+The following snippet shows where to change the MCC & MNC values in the EPC config file:: 
 	
 	22 | #####################################################################
 	23 | [mme]
@@ -133,7 +133,7 @@ The above changes must be mirrored in the eNB config. file. The following snippe
 	29 | 
 	30 | #####################################################################
 
-Here, the MMC and MNC values at lines 21 & 22 are changed to the values used in the EPC. 
+Here, the MCC and MNC values at lines 21 & 22 are changed to the values used in the EPC. 
 
 For both of the config files the rest of the values can be left at the default values. They may be changed as needed, but further customization 
 is not necessary to enable the successful connection of a COTS UE. 
