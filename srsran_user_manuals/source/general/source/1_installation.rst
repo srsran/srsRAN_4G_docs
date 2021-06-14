@@ -19,7 +19,7 @@ Package Installation
 
 The srsRAN software suite can be installed using packages on Ubuntu::
 
-  sudo add-apt-repository ppa:srsran/releases
+  sudo add-apt-repository ppa:softwareradiosystems/srsran
   sudo apt-get update
   sudo apt-get install srsran -y
   
