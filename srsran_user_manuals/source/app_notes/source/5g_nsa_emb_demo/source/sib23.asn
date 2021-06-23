@@ -1,0 +1,116 @@
+{
+  message c1: systemInformation: {
+    criticalExtensions systemInformation-r8: {
+      sib-TypeAndInfo {
+        sib2: {
+          radioResourceConfigCommon {
+            rach-ConfigCommon {
+              preambleInfo {
+                numberOfRA-Preambles n52
+              },
+              powerRampingParameters {
+                powerRampingStep dB2,
+                preambleInitialReceivedTargetPower dBm-104
+              },
+              ra-SupervisionInfo {
+                preambleTransMax n10,
+                ra-ResponseWindowSize sf10,
+                mac-ContentionResolutionTimer sf40
+              },
+              maxHARQ-Msg3Tx 5
+            },
+            bcch-Config {
+              modificationPeriodCoeff n4
+            },
+            pcch-Config {
+              defaultPagingCycle rf128,
+              nB oneT
+            },
+            prach-Config {
+              rootSequenceIndex 0, /* patched by eNB */
+              prach-ConfigInfo {
+                prach-ConfigIndex 4, /* patched by eNB */
+                highSpeedFlag FALSE,
+                zeroCorrelationZoneConfig 11,
+                prach-FreqOffset 4 /* patched by eNB */
+              }
+            },
+            pdsch-ConfigCommon {
+              referenceSignalPower -8, /* patched by eNB */
+              p-b 1 /* patched by eNB */
+            },
+            pusch-ConfigCommon {
+              pusch-ConfigBasic {
+                n-SB 1,
+                hoppingMode interSubFrame,
+                pusch-HoppingOffset 8, /* patched by eNB */
+                enable64QAM FALSE /* patched by eNB */
+              },
+              ul-ReferenceSignalsPUSCH {
+                groupHoppingEnabled FALSE,
+                groupAssignmentPUSCH 0,
+                sequenceHoppingEnabled FALSE,
+                cyclicShift 0
+              }
+            },
+            pucch-ConfigCommon {
+              deltaPUCCH-Shift ds2,
+              nRB-CQI 4, /* patched by eNB */
+              nCS-AN 0,
+              n1PUCCH-AN 12 /* patched by eNB */
+            },
+            soundingRS-UL-ConfigCommon setup: {
+              srs-BandwidthConfig bw2, /* patched by eNB */
+              srs-SubframeConfig sc3, /* patched by eNB */
+              ackNackSRS-SimultaneousTransmission TRUE
+            },
+            uplinkPowerControlCommon {
+              p0-NominalPUSCH -85,
+              alpha al1,
+              p0-NominalPUCCH -117,
+              deltaFList-PUCCH {
+                deltaF-PUCCH-Format1 deltaF0,
+                deltaF-PUCCH-Format1b deltaF3,
+                deltaF-PUCCH-Format2 deltaF1,
+                deltaF-PUCCH-Format2a deltaF2,
+                deltaF-PUCCH-Format2b deltaF2
+              },
+              deltaPreambleMsg3 4
+            },
+            ul-CyclicPrefixLength len1
+          },
+          ue-TimersAndConstants {
+            t300 ms200,
+            t301 ms200,
+            t310 ms200,
+            n310 n6,
+            t311 ms10000,
+            n311 n5
+          },
+          freqInfo {
+            additionalSpectrumEmission 1
+          },
+          timeAlignmentTimerCommon infinity
+        },
+        sib3: {
+          cellReselectionInfoCommon {
+            q-Hyst dB2
+          },
+          cellReselectionServingFreqInfo {
+            s-NonIntraSearch 3,
+            threshServingLow 2,
+            cellReselectionPriority 6
+          },
+          intraFreqCellReselectionInfo {
+            q-RxLevMin -61,
+            p-Max 23,
+            s-IntraSearch 5,
+            presenceAntennaPort1 TRUE,
+            neighCellConfig '01'B,
+            t-ReselectionEUTRA 1
+          }
+        }
+      }
+    }
+  }
+}
