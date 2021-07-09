@@ -67,7 +67,7 @@ The lack of a complete RF front-end also introduces the following limitations:
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. Whereas
 this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), a list of key
-feature limitations is provided below for the sack of thoroughness:
+feature limitations is provided below for the sake of thoroughness:
 
   * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5, 10 and 20 MHz)
   * Only DCI format 1_0 (Downlink) is supported
@@ -85,7 +85,7 @@ The use of an external 10 MHz reference signal ensures the accuracy of the syste
 also be shared with the gNB. In order to enable the use of an external reference in the ZCU111 board,
 the following actions are required:
 
-  1. Disconnect the jumper in *J110* to power-off the 12.8 MHz TXCO that is connected by default to *CLKin0* of the LMK04208 PLL used to generate the ADC/DAC reference clocks in the ZCU111.
+  1. Disconnect the jumper in *J110* to power-off the 12.8 MHz TCXO that is connected by default to *CLKin0* of the LMK04208 PLL used to generate the ADC/DAC reference clocks in the ZCU111.
   2. Connect a 10 MHz clock reference to the *J109* SMA port in the ZCU111 (e.g., cabled output from octoclock).
 
 .. image:: .imgs/zcu111_J109_J100_config.png
@@ -207,7 +207,7 @@ be changed under the **[rf]** options in the eNB configuration file, so that the
 optimally (the example provided below is for a 25 PRB DL configuration)::
 
   [rf]
-  tx_gain = 5
+  tx_gain = 10
   srate=7.68e6
   device_name = uhd
   device_args=type=x300,clock=external,lo_freq_offset_hz=7.68e6,sampling_rate=7.68e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64
@@ -386,7 +386,7 @@ Once the UE has been initialised you should see the following::
   FPGA bitstream built on 0000/00/00 00:00:00:00 using commit 00000000
   Synchronizing to the cell [pci=0] ...
 
-Once the cell has been found successfully you should see the following::
+Once the FPGA has correctly synchronized to the selected cell you should see the following::
 
 	Found cell:
 	 - Type:            FDD
@@ -416,7 +416,7 @@ of the UE can be measured. A brief description of the output metrics follows:
 	* **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time, *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms) and *processing* represents the mean data-rate over the processing time
 	* **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
 	* **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
-	* **TB:** Provides metrics for the decded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
+	* **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
 
 Troubleshooting
 ***************
