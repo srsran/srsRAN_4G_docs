@@ -48,8 +48,9 @@ The demo aims at providing a proof-of-concept of the capacity of the RFSoC to ho
 NR UE implementation. With this purpose in mind, PHY-layer test NSA NR UE and eNB applications have been
 developed (i.e, they are not fully featured applications, as they are basically implementing the DL
 functionality). Nevertheless, its SDR implementation will enable the user to modify the specific configuration
-of the 4G and 5G DL signals (e.g., number of PRBs, mcs) and observe the effect of these on the performance
-metrics provided by the embedded UE (i.e., console outputs).
+of the 4G and 5G DL signals (e.g., DL signal bandwidth, number of allocated PRBs, modulation and coding scheme)
+and observe the effect of these on the performance metrics provided by the embedded UE (i.e., console outputs).
+Moreover, the NR frame format has been fixed so that all slots are used for DL transmission.
 
 Limitations
 -----------
@@ -61,17 +62,16 @@ processing will be implemented as part of the DL demonstration).
 The lack of a complete RF front-end also introduces the following limitations:
 
 	* A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
-	* The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range **TBD:(we've mainly tested 2400 MHz)**. **DELETE?** Moreover, center frequency must be multiple of sampling rate.
-	* **TBD:** Use of a Tx gain between X and Y is advised in the gNB side. (TABLE DEPENDING ON BW? e.g., 100 PRB might need lower)
+	* The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
+	* Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. Whereas
 this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), a list of key
 feature limitations is provided below for the sack of thoroughness:
 
-  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (**TBD: current bitstream supports 5, 10 and 20 MHz**)
-  * **RELEVANT?** Support for NR in TDD mode for sub-6Ghz (FR1) in unpaired spectrum
-  * **VERIFY** Only DCI formats 1_0 and 1_1 (Downlink) supported
-  * No cell search and reference signal measurements (NR carrier PCI needs to be known)
+  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5, 10 and 20 MHz)
+  * Only DCI format 1_0 (Downlink) is supported
+  * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be known)
 
 Configuration
 *************
@@ -114,15 +114,12 @@ placed between the cables coming from the gNB and the SMA connectors in the XM50
 The bitstream and binaries implementing the embedded NSA DL UE are hosted in an SD card, which is
 organized as detailed below:
 
-	* **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA bistream and boot binaries, the Petalinux and the device tree.
+	* **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA bistream and boot binaries, the Petalinux Kernel image and the device tree.
 	* **rootfs partition**: includes the root file system, which contains the user applications (e.g., srsUE).
 
-A ready to use image of the SD card used by the Demonstration System is made available below, with all
-required contents:
-
-* :download:`emb_nsa_ue_dl_demo_sd_card.img <https://shared-folder.com/emb_nsa_ue_dl_demo_sd_card.img>`
-
-Run the following command to write it to a new SD card::
+A ready to use image of the SD card used by the Demonstration System is available and will provide
+all required files to replicate the embedded NSA DL UE. In order to write the contents of the image
+to a new SD card, simply run the following command ::
 
   sudo pv -tpreb emb_nsa_ue_dl_demo.img | sudo dd of=/dev/sdb bs=32M conv=fsync
 
@@ -196,31 +193,63 @@ changed. In more detail, all NR parameters of interest to the demonstration syst
 through the configuration file.
 
 A few example configuration files have been included as attachments to this App Note. It is
-recommended you use these files for testing as your starting point.
+recommended you use these files to avoid errors while changing configs manually.
 
 eNB/gNB configuration files:
 
-  * **TBD** :download:`eNB/gNB 25 PRB configuration example <enb.25prb.conf.example>`
-	* **TBD** :download:`eNB/gNB 52 PRB configuration example <enb.52prb.conf.example>`
-	* **TBD** :download:`eNB/gNB 106 PRB configuration example <enb.106prb.conf.example>`
+	* :download:`eNB/gNB 25 PRB configuration file <enb_25rb.conf>`
+	* :download:`eNB/gNB 52 PRB configuration file <enb_50rb.conf>`
+	* :download:`eNB/gNB 106 PRB configuration file <enb_100rb.conf>`
+	* :download:`radio resources configuration file <nr_rr.conf>`
 
-**TBD** A short description of the required changes follows. Firstly the following parameters need to
-be changed under the **[rf]** options so that the X310 is configured optimally (the sampling rate
-used below is for a 52 PRB DL configuration)::
+A short description of the required changes follows. Firstly the following parameters need to
+be changed under the **[rf]** options in the eNB configuration file, so that the X310 is configured
+optimally (the example provided below is for a 25 PRB DL configuration)::
 
-   [rf]
-   tx_gain = 10
-   nof_antennas = 1
-   device_name = uhd
-   device_args = type=x300,clock=external,sampling_rate=15.36e6,lo_freq_offset_hz=30.72e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64
-   srate = 15.36e6
+  [rf]
+  tx_gain = 5
+  srate=7.68e6
+  device_name = uhd
+  device_args=type=x300,clock=external,lo_freq_offset_hz=7.68e6,sampling_rate=7.68e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64
 
-**TBD** Likewise, the NR carrier will be active from start (i.e., no SSB is implemented) ADD ALL MISSING
+Likewise, the NR carrier will be active from start (i.e., no SSB is implemented), hence it needs
+to be included in the **cell_list** as part of the radio resources configuration file::
+
+	cell_list =
+	(
+
+	  {
+	    rf_port = 0;
+	    cell_id = 1;
+	    tac = 7;
+	    pci = 0;
+	    root_seq_idx = 204;
+	    dl_earfcn = 2850;
+	    type = "lte";
+	    dl_freq=2400e6;
+	  }
+	  ,
+	  {
+	    rf_port = 1;
+	    cell_id = 2;
+	    tac = 7;
+	    pci = 1;
+	    root_seq_idx = 204;
+	    dl_earfcn = 2850;
+	    type = "nr";
+	    dl_freq=2457.6e6;
+	  }
+	);
+
+In the example above, two carriers are defined: first the LTE one at 2.4 GHz and with a PHY cell ID of 0
+(**pci = 0**), then the NR carrier is added at 2.4576 GHz and using a PHY cell ID of 1 (**pci = 1**). When
+launching the UE, make sure to pass the same parameter values used in the radio resources configuration
+file (not needed if no modifications are made to the file provided here).
 
 Usage
 *****
 
-**TBD** Following configuration, we can run the UE and gNB. The following order should
+Following configuration, we can run the UE and gNB. The following order should
 be used when running the DL demo system:
 
 	1. eNB/ gNB
@@ -231,129 +260,171 @@ eNB/ gNB
 
 *The commands listed below are to be run on host #0.*
 
-**TBD** First, the eNB/ gNB should be instantiated, using the following command::
+To facilitate the execution of the eNB/gNB application, while ensuring that the correct configuration
+file is used when modifying the target DL signal bandwidth, a launch script has been also included as
+attachment to this App Note.
 
-	sudo lteenb gnb-nsa.cfg
+	* :download:`eNB/gNB launch script <run_gnb.sh>`
 
-**TBD** LIST SPECIFIC PARAMETERS THAN CAN BE CHANGED THROUDH COMMAND LINE (only PRB and MCS)?
+Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, use the command below::
 
+	./run_gnb.sh 4g_nprb
+	  4g_nprb nof_prb of the 4G carrier {25, 50, 100}
 
-**TBD** Console output should be similar to::
+It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and available
+PRBs), as detailed in the table below.
 
-	LTE Base Station version 2021-03-15, Copyright (C) 2012-2021 Amarisoft
-	This software is licensed to Software Radio Systems (SRS).
-	Support and software update available until 2021-10-29.
-	RF0: sample_rate=11.520 MHz dl_freq=2140.000 MHz ul_freq=1950.000 MHz (band 1) dl_ant=1 ul_ant=1
-	RF1: sample_rate=23.040 MHz dl_freq=3507.840 MHz ul_freq=3507.840 MHz (band n78) dl_ant=1 ul_ant=1
++---------+-------------+---------+
+| 4G_nprb | 4G/NR DL BW | NR_nprb |
++=========+=============+=========+
+| 25      | 5 MHz       |  25     |
++---------+-------------+---------+
+| 50      | 10 MHz      |  52     |
++---------+-------------+---------+
+| 100     | 20 MHz      |  106    |
++---------+-------------+---------+
+
+Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. Nevertheless,
+the application supports changing the PRB allocation of the NR carrier within this bandwidth, as well
+as the modulation and coding scheme that it uses, on-the-fly. This can be done by using the command
+below in the console, where **rb_start** is the index of the first allocated PRB, **rb_length** is the
+allocation length in PRBs and **mcs** is the modulation and coding scheme (e.g., in a 5 MHz DL bandwidth,
+*nr_dci 0 25 10* will result in a fully allocated DL BW, using 16-QAM)::
+
+	nr_dci [rb_start] [rb_length] [mcs]
+
+The onsole output should be similar to::
+
+  ---  Software Radio Systems LTE eNodeB  ---
+
+  Reading configuration file enb_50rb.conf...
+
+  Built in RelWithDebInfo mode using commit e5e929bdd on branch fpga_demo.
+
+  PARSER ERROR: Field "ul_freq" doesn't exist.
+  PARSER ERROR: Field "ul_freq" doesn't exist.
+
+  Opening 2 channels in RF device=uhd with args=type=x300,clock=external,lo_freq_offset_hz=15.36e6,sampling_rate=15.36e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64
+  [INFO] [UHD] linux; GNU C++ version 9.3.0; Boost_107100; UHD_3.15.0.0-62-g7a3f1516
+  [INFO] [LOGGING] Fastpath logging disabled at runtime.
+  Opening USRP channels=2, args: type=x300,lo_freq_offset_hz=15.36e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64,master_clock_rate=184.32e6
+  [INFO] [UHD RF] RF UHD Generic instance constructed
+  [INFO] [X300] X300 initialization sequence...
+  [INFO] [X300] Maximum frame size: 8000 bytes.
+  [INFO] [X300] Radio 1x clock: 184.32 MHz
+  [INFO] [0/DmaFIFO_0] Initializing block control (NOC ID: 0xF1F0D00000000000)
+  [INFO] [0/DmaFIFO_0] BIST passed (Throughput: 1317 MB/s)
+  [INFO] [0/DmaFIFO_0] BIST passed (Throughput: 1307 MB/s)
+  [INFO] [0/Radio_0] Initializing block control (NOC ID: 0x12AD100000000001)
+  [INFO] [0/Radio_1] Initializing block control (NOC ID: 0x12AD100000000001)
+  [INFO] [0/DDC_0] Initializing block control (NOC ID: 0xDDC0000000000000)
+  [INFO] [0/DDC_1] Initializing block control (NOC ID: 0xDDC0000000000000)
+  [INFO] [0/DUC_0] Initializing block control (NOC ID: 0xD0C0000000000000)
+  [INFO] [0/DUC_1] Initializing block control (NOC ID: 0xD0C0000000000000)
+  [INFO] [MULTI_USRP]     1) catch time transition at pps edge
+  [INFO] [MULTI_USRP]     2) set times next pps (synchronously)
+  Setting frequency: DL=2400.0 Mhz, UL=2510.0 MHz for cc_idx=0 nof_prb=50
+  Setting frequency: DL=2457.6 Mhz, UL=2510.0 MHz for cc_idx=1 nof_prb=0
+
+  ==== eNodeB started ===
+  Type <t> to view trace
+
+Once the eNB/gNB is started, the user can enter the desired PRB allocation and modulation and
+coding scheme configuration in the console, trhough the *nr_dci* command.
 
 UE
 ----
 
 *The commands listed below are to be run on the zcu111 (i.e., through SSH via host #1).*
 
-**TBD** To run the UE, first we'll need to load the custom srsUE drivers for the ZCU111, using the following
-command (i.e., script handling the required *insmod* calls)::
+To run the UE, first we'll need to load the custom srsUE DMA drivers for the ZCU111. This can
+be conveniently done through a script that handles the required *insmod* calls, which has also
+been included as attachment to this App Note.
 
-	./install_drivers.sh
+	* :download:`srsUE DL demo DMA drivers <install_srsue_drivers.sh>`
 
-**TBD** Later the embedded srsUE will be executed using the following command (example for a 52 PRB
-DL configuration)::
+To load the srsUE drivers use the following command::
 
-  ./fpga_pdsch_ue_nr -f 2400000000 -p 52 -g 50 -r 0x4601
+	./install_srsue_drivers.sh
 
+Later the embedded srsUE will be executed using the following command::
 
-**TBD** LIST SPECIFIC PARAMETERS THAN CAN BE CHANGED THROUDH COMMAND LINE (only freq and PRB)?
+  ./fpga_pdsch_ue_nr [-afFpcCv] -f 4g_carrier_frequency (in Hz) -F nr_carrier_frequency (in Hz) -c 4g_pci -C nr_pci
+    -a RF args [Default "clock=external"]
+    -f frequency in Hz of the 4G carrier {10000000.000000-2500000000.000000} [Default 2400000000.000000]
+    -F frequency in Hz of the NR carrier {10000000.000000-2500000000.000000} [Default 2457600000.000000]
+    -p nof_prb of the NR carrier (NR_nprb) {25, 52, 106} [Default 52]
+    -c LTE physical cell ID {0-503} [Default 0]
+    -C NR physical cell ID {0-503} [Default 1]
+    -v srsran_verbose [Default None]
 
-**TBD** Once the UE has been initialised you should see the following::
+It is important to note that the UE call fixes both the 4G and NR DL signal bandwidth	(and available
+PRBs), as detailed in the table below.
 
-	Opening 2 channels in RF device=uhd with args=type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6,None
+	+---------+-------------+---------+
+	| NR_nprb | 4G/NR DL BW | 4G nprb |
+	+=========+=============+=========+
+	| 25      | 5 MHz       |  25     |
+	+---------+-------------+---------+
+	| 52      | 10 MHz      |  50     |
+	+---------+-------------+---------+
+	| 106     | 20 MHz      |  100    |
+	+---------+-------------+---------+
 
-**TBD** This will be followed by some information regarding the USRP. Once the cell has been found successfully you should see the following::
+Once the UE has been initialised you should see the following::
 
-  Found Cell:  Mode=FDD, PCI=1, PRB=50, Ports=1, CFO=0.1 KHz
-  Found PLMN:  Id=00101, TAC=7
-  Random Access Transmission: seq=17, tti=8494, ra-rnti=0x5
-  RRC Connected
-  Random Access Complete.     c-rnti=0x3d, ta=3
-  Network attach successful. IP: 192.168.4.2
-  Amarisoft Network (Amarisoft) 20/4/2021 23:32:40 TZ:105
-  RRC NR reconfiguration successful.
-  Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0x7f, tti=8979
-  Random Access Complete.     c-rnti=0x4601, ta=23
-  ---------Signal----------|-----------------DL-----------------|-----------UL-----------
-  rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-  lte    1   -52  13    12 |  19   40   0.5    15k    0%    7.3 |  16    0.0    10k    4%
-   nr  500     4   0  881m |   2   31   1.0    0.0    0%    0.0 |  17    0.0   6.0k    0%
-  lte    1   -49   7  -4.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     3   0  -5.9 |  27   35   1.0   1.3k    0%    0.0 |  28    0.0   148k    0%
-  lte    1   -58  16  -3.7 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     3   0  -7.7 |  27   35   1.0   1.3k    0%    0.0 |  28    0.0   148k    0%
-  lte    1   -61  19  428m |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     4   0   2.2 |  27   30   1.4    67k    0%    0.0 |  28     28   143k    0%
-  lte    1   -61  19 -507m |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     4   0  924m |  27   24   1.9    18M    0%    0.0 |  28    0.0   3.7k    0%
-  lte    1   -61  19   3.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     4   0   3.5 |  27   24   1.9    18M    0%    0.0 |   0    0.0    0.0    0%
-  lte    1   -61  19   3.8 |  28   40   0.5   1.4k    0%    7.3 |   0    0.0    0.0    0%
-   nr  500     4   0   3.1 |  27   24   1.9    18M    0%    0.0 |   0    0.0    0.0    0%
+  Opening RF device
+  metal: info:      Registered shmem provider linux_shm.
+  metal: info:      Registered shmem provider ion.reserved.
+  metal: info:      Registered shmem provider ion.ion_system_contig_heap.
+  metal: info:      Registered shmem provider ion.ion_system_heap.
+  Configuring LMK04208 to use external clock source
+  LMX configured
+  Setting sampling rate 15.36 MHz
+  Tuning receiver to 2400.000MHz (LTE) and 2457.600MHz (NR)
+  Initializing FPGA
+  FPGA bitstream built on 0000/00/00 00:00:00:00 using commit 00000000
+  Synchronizing to the cell [pci=0] ...
 
-**TBD** REMOVE To confirm the UE successfully connected, you should see the following on the console output of the **eNB**::
+Once the cell has been found successfully you should see the following::
 
-	PRACH: cell=00 seq=17 ta=3 snr=28.3 dB
-	PRACH: cell=02 seq=0 ta=23 snr=28.3 dB
-	               ----DL----------------------- --UL------------------------------------------------
-	UE_ID  CL RNTI C cqi ri  mcs retx txok brate  snr puc1  mcs rxko rxok brate     #its phr  pl   ta
-	    1 000 003d 1  15  1 15.0    0   16 5.58k 15.4 34.7 18.8    3   13 5.27k  1/3.7/6  31  38  0.0
-	    3 002 4601 1  15  1 27.0    0    1   320 36.2   -  27.7    0   87 64.0k  1/2.1/4   -   - -0.3
-	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.2 34.8 20.0    1    1   420  1/3.5/6  31  38  0.0
-	    3 002 4601 1  15  1 27.0    0    4 1.28k 28.1   -  28.0    0  200  148k  2/2.1/3   -   - -0.3
-	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.1 34.8    -    0    0     0        -  31  38  0.0
-	    3 002 4601 1  15  1 27.9    0 1037 16.8M 29.9   -  27.9    1   21 16.1k  1/2.3/5   -   - -0.3
-	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.3 35.2    -    0    0     0        -  31  38  0.0
-	    3 002 4601 1  15  1 27.9    5 1120 18.3M 29.9   -     -    0    0     0        -   -   -    -
-	    1 000 003d 1  15  1 28.0    0    4 1.42k 16.0 34.8    -    0    0     0        -  31  38  0.0
-	    3 002 4601 1  15  1 27.9    0 1125 18.4M 29.9   -     -    0    0     0        -   -   -    -
+	Found cell:
+	 - Type:            FDD
+	 - PCI:             0
+	 - Nof ports:       1
+	 - CP:              Normal
+	 - PRB:             50
+	 - PHICH Length:    Normal
+	 - PHICH Resources: 1/6
+	 - SFN:             572
+	Decoded MIB. SFN: 572, offset: 3
+	FPGA synchronized to the LTE cell [pci=0]
 
-**TBD** REMOVE/ADAPT ALL BELOW
+Finally, the NR DL metrics will be periodically updated as shown below::
+
+           Rb:  18.43 /  18.43 /  37.75 Mbps (net/maximum/processing)
+   PDCCH-Miss:  0.00%
+   PDSCH-BLER:  0.00%
+           TB: mcs=20; tbs=18432
 
 Understanding the console Trace
 ------------------------------------------
 
-The console trace output from the UE contains useful metrics by which the state and performance of the UE can be measured.
-The traces can be activated by pressing t+Enter after UE has started.
-The following metrics are given in the console trace::
+The console trace output from the UE, as shown above, contains useful metrics by which performance
+of the UE can be measured. A brief description of the output metrics follows:
 
-	---------Signal----------|-----------------DL-----------------|-----------UL-----------
-	rat  pci  rsrp  pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-
-The following gives a brief description of which each column represents:
-
-	* **RAT:** This is a NSA specific column. It indicates the carrier for which the information is displayed.
-	* **PCI:** `Physcial Cell ID <https://www.sharetechnote.com/html/Handbook_LTE_PCI.html>`_
-	* **RSRP:** `Reference Signal Receive Power <https://www.sharetechnote.com/html/Handbook_LTE_RSRP.html>`_ (dBm)
-	* **PL:** `Pathloss <https://en.wikipedia.org/wiki/Path_loss>`_ (dB)
-	* **CFO:** `Carrier Frequency Offset <https://en.wikipedia.org/wiki/Carrier_frequency_offset>`_ (Hz)
-	* **MCS:** `Modulation and coding scheme <https://www.sharetechnote.com/html/Handbook_LTE_MCS_ModulationOrder.html>`_ (0-28)
-	* **SNR:** `Signal-to-Noise Ratio <https://www.sharetechnote.com/html/RF_Handbook_SNR.html>`_ (dB)
-	* **ITER:** Average number of turbo decoder (LTE) or LDPC (NR) iterations
-	* **BRATE:** Bitrate (bits/sec)
-	* **BLER:** Block error rate
-	* **TA_US:** `Timing advance <https://www.sharetechnote.com/html/Handbook_LTE_TimingAdvance.html>`_ (us)
-	* **BUFF:** `Uplink buffer status <https://www.sharetechnote.com/html/Handbook_LTE_BSR.html>`_ - data waiting to be transmitted (bytes)
-
+	* **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time, *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms) and *processing* represents the mean data-rate over the processing time
+	* **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
+	* **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
+	* **TB:** Provides metrics for the decded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
 
 Troubleshooting
 ***************
 
-The UE currently doesn't support NR cell search and cell measurements. It therefore uses
-a pre-configured physical cell id (PCI) to send artificial NR cell measurements to the eNB.
-The reported PCI in those measurements is 500 by default (default value in Amarisoft configurations).
-If the selected PCI for the cell of interest is different, the value can we overwritten with::
-
-   $ ./srsue/src/srsue --rrc.nr_measurement_pci=140
-
-
-Or by updating the **[rrc]** options in the config file::
-
-  [rrc]
-  nr_measurement_pci = 140
+The embedded 5G NSA UE DL demonstration system is built on top of a fixed hardware setup with the
+limitations above. Moreover, being a DL demonstration only, the UE currently doesn't support cell
+search and cell measurements. For these reasons, a number of configuration parameters need to be
+known a priory (e.g., DL bandwidth, PHY cell IDs and center frequencies of both carriers). Hence,
+it is essential to the correct behaviour of the system, that both the utilized laboratory setup
+is as described in this App Note, as well as validating that the configuration parameters described
+by the configuration files do match those passed as arguments to the UE application.
