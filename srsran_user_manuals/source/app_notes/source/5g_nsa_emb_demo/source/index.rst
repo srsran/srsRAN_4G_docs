@@ -422,9 +422,16 @@ Troubleshooting
 ***************
 
 The embedded 5G NSA UE DL demonstration system is built on top of a fixed hardware setup with the
-limitations above. Moreover, being a DL demonstration only, the UE currently doesn't support cell
-search and cell measurements. For these reasons, a number of configuration parameters need to be
-known a priory (e.g., DL bandwidth, PHY cell IDs and center frequencies of both carriers). Hence,
-it is essential to the correct behaviour of the system, that both the utilized laboratory setup
-is as described in this App Note, as well as validating that the configuration parameters described
-by the configuration files do match those passed as arguments to the UE application.
+limitations described above. Hence, it is essential to the correct behaviour of the system, that the
+utilized laboratory setup is as described in this App Note. Moreover, being a DL demonstration system
+only, the UE currently doesn't support cell search and cell measurements. For these reasons, a number
+of configuration parameters need to be known a priory (e.g., DL bandwidth, PHY cell IDs and center
+frequencies of both carriers). Thus, it is also very important to validate that the configuration
+parameters described by the configuration files do match those passed as arguments to the UE application.
+In more detail, the following pairs of values must coincide:
+
+  * **4g_nprb** parameter in the *run_gnb.sh* call has to match **nof_prb** (-p) parameter in *fpga_pdsch_ue_nr* call.
+  * **pci** field in the **first cell** defined in *nr_rr.conf* has to match the **LTE physical cell ID** (-c) parameter in *fpga_pdsch_ue_nr* call.
+  * **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
+  * **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
+  * **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
