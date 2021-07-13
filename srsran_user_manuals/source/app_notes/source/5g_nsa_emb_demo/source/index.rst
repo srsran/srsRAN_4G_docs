@@ -73,6 +73,57 @@ feature limitations is provided below for the sake of thoroughness:
   * Only DCI format 1_0 (Downlink) is supported
   * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be known)
 
+Building the applications
+**************************
+
+Both the eNB/gNB and embedded 5G NSA UE applications need to be built from the SRS FPGA repository,
+as their features have been tailored to the goals of the DL demonstration system. Still, because each
+has a different target host architecture, different steps need to be followed in the build process.
+
+eNB/gNB (x86)
+-------------
+
+In command line, go to the path where the SRS FPGA repository is cloned locally. Then, run the following
+commands, paying special attention to the *cmake* arguments::
+
+  cd srsLTE_FPGA
+  mkdir build_enb && cd build_enb
+  cmake -DENABLE_RFDC=OFF -DENABLE_UHD=ON -DENABLE_SRSUE=ON -DENABLE_SRSENB=ON -DENABLE_SRSEPC=ON ../
+  make -j12 srsenb
+
+UE (RFSoC)
+----------
+
+First, you'll need to have a Petalinux build based on the exported hardware configuration files of the
+implemented Vivado project for the DL demo UE (you can find the related *.xsa* file in the code
+repository; under the *RFdc timestamping IP section in
+/lib/src/phy/ue/fpga_ue/RFdc_timestamping/petalinux_files/nsa_ue_dl_demo*).
+
+The first step towards building the embedded NSA UE DL application is to install the toolchain that
+was built via *petalinux-tools*. This file is located at
+*/PETALINUX_BUILD_PATH/xilinx-zcu111-2019.2/images/linux*. To install it, use the following command::
+
+ ./sdk.sh
+
+You will be prompted to specify the toolchain installation path (for instace, use */opt/plnx_sdk_rfsoc*).
+When the installation finishes, set up the following environment variables::
+
+  . /opt/plnx_sdk_rfsoc/environment-setup-aarch64-xilinx-linux
+
+Then, go to the path where the SRS FPGA repository is cloned locally. Then, run the following
+commands, paying special attention to the *cmake* argument (which points to the *toolchain.cmake*
+file linked below and for which you will need a local copy)::
+
+  cd srsLTE_FPGA
+  mkdir build && cd build
+  cmake -DCMAKE_TOOLCHAIN_FILE=~/toolchain.cmake
+  make -j12
+
+When the build finishes, you will find the application at *lib/examples/fpga_pdsch_ue_nr*
+within your local repository.
+
+  * :download:`toolchain.cmake file to build the UE <toolchain.cmake>`
+
 Configuration
 *************
 
@@ -341,7 +392,7 @@ To run the UE, first we'll need to load the custom srsUE DMA drivers for the ZCU
 be conveniently done through a script that handles the required *insmod* calls, which has also
 been included as attachment to this App Note.
 
-	* :download:`srsUE DL demo DMA drivers <install_srsue_drivers.sh>`
+	* :download:`srsUE DL demo DMA drivers installation script <install_srsue_drivers.sh>`
 
 To load the srsUE drivers use the following command::
 
