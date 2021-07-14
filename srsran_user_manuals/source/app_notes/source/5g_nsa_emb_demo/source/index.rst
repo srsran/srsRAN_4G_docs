@@ -319,8 +319,8 @@ attachment to this App Note.
 
 Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, use the command below::
 
-	./run_gnb.sh 4g_nprb
-	  4g_nprb nof_prb of the 4G carrier {25, 50, 100}
+	./run_gnb.sh [4g_nprb]
+	  [4g_nprb] nof_prb of the 4G carrier {25, 50, 100}
 
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and available
 PRBs), as detailed in the table below.
@@ -338,11 +338,12 @@ PRBs), as detailed in the table below.
 Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. Nevertheless,
 the application supports changing the PRB allocation of the NR carrier within this bandwidth, as well
 as the modulation and coding scheme that it uses, on-the-fly. This can be done by using the command
-below in the console, where **rb_start** is the index of the first allocated PRB, **rb_length** is the
-allocation length in PRBs and **mcs** is the modulation and coding scheme (e.g., in a 5 MHz DL bandwidth,
-*nr_dci 0 25 10* will result in a fully allocated DL BW, using 16-QAM)::
+below in the console::
 
-	nr_dci [rb_start] [rb_length] [mcs]
+  nr_dci [rb_start] [rb_length] [mcs]
+    [rb_start] index of the first allocated PRB {0-4g_nprb-1} [Default 0]
+    [rb_length] PRB allocation length {0-4g_nprb} [Default 4g_nprb]
+    [mcs] modullation and conding scheme {0-27} [Default 16]
 
 The onsole output should be similar to::
 
