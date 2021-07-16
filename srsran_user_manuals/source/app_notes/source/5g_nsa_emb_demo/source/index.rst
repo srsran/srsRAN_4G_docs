@@ -73,8 +73,6 @@ feature limitations is provided below for the sake of thoroughness:
   * Only DCI format 1_0 (Downlink) is supported
   * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be known)
 
-.. * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5, 10 and 20 MHz)
-
 Building the applications
 **************************
 
@@ -254,8 +252,6 @@ eNB/gNB configuration files:
 	* :download:`eNB/gNB 52 PRB configuration file <enb_50rb.conf>`
 	* :download:`radio resources configuration file <nr_rr.conf>`
 
-.. * :download:`eNB/gNB 106 PRB configuration file <enb_100rb.conf>`
-
 A short description of the required changes follows. Firstly the following parameters need to
 be changed under the **[rf]** options in the eNB configuration file, so that the X310 is configured
 optimally (the example provided below is for a 25 PRB DL configuration)::
@@ -325,8 +321,6 @@ Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, 
 	./run_gnb.sh [4g_nprb]
     [4g_nprb] nof_prb of the 4G carrier {25, 50}
 
-..	  [4g_nprb] nof_prb of the 4G carrier {25, 50, 100}
-
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and available
 PRBs), as detailed in the table below.
 
@@ -337,9 +331,6 @@ PRBs), as detailed in the table below.
 +---------+-------------+---------+
 | 50      | 10 MHz      |  52     |
 +---------+-------------+---------+
-
-.. | 100     | 20 MHz      |  106    |
-.. +---------+-------------+---------+
 
 Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. Nevertheless,
 the application supports changing the PRB allocation of the NR carrier within this bandwidth, as well
@@ -416,8 +407,6 @@ Later the embedded srsUE will be executed using the following command::
     -C NR physical cell ID {0-503} [Default 1]
     -v srsran_verbose [Default None]
 
-.. -p nof_prb of the NR carrier (NR_nprb) {25, 52, 106} [Default 52]
-
 It is important to note that the UE call fixes both the 4G and NR DL signal bandwidth	(and available
 PRBs), as detailed in the table below.
 
@@ -428,9 +417,6 @@ PRBs), as detailed in the table below.
 	+---------+-------------+---------+
 	| 52      | 10 MHz      |  50     |
 	+---------+-------------+---------+
-
-	.. | 106     | 20 MHz      |  100    |
-	.. +---------+-------------+---------+
 
 Once the UE has been initialised you should see the following::
 
