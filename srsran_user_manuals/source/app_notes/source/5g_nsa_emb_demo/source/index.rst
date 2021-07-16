@@ -349,7 +349,7 @@ below in the console::
   nr_dci [rb_start] [rb_length] [mcs]
     [rb_start] index of the first allocated PRB {0-4g_nprb-1} [Default 0]
     [rb_length] PRB allocation length {0-4g_nprb} [Default 25]
-    [mcs] modullation and conding scheme {0-27} [Default 16]
+    [mcs] modullation and conding scheme {0-28} [Default 16]
 
 The onsole output should be similar to::
 
