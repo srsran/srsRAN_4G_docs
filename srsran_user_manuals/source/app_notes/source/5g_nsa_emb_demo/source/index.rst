@@ -69,9 +69,11 @@ The embedded 5G NSA UE implementation inherits those feature limitations of its 
 this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), a list of key
 feature limitations is provided below for the sake of thoroughness:
 
-  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5, 10 and 20 MHz)
+  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5 and 10 MHz)
   * Only DCI format 1_0 (Downlink) is supported
   * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be known)
+
+.. * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5, 10 and 20 MHz)
 
 Building the applications
 **************************
@@ -250,8 +252,9 @@ eNB/gNB configuration files:
 
 	* :download:`eNB/gNB 25 PRB configuration file <enb_25rb.conf>`
 	* :download:`eNB/gNB 52 PRB configuration file <enb_50rb.conf>`
-	* :download:`eNB/gNB 106 PRB configuration file <enb_100rb.conf>`
 	* :download:`radio resources configuration file <nr_rr.conf>`
+
+.. * :download:`eNB/gNB 106 PRB configuration file <enb_100rb.conf>`
 
 A short description of the required changes follows. Firstly the following parameters need to
 be changed under the **[rf]** options in the eNB configuration file, so that the X310 is configured
@@ -320,7 +323,9 @@ attachment to this App Note.
 Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, use the command below::
 
 	./run_gnb.sh [4g_nprb]
-	  [4g_nprb] nof_prb of the 4G carrier {25, 50, 100}
+    [4g_nprb] nof_prb of the 4G carrier {25, 50}
+
+..	  [4g_nprb] nof_prb of the 4G carrier {25, 50, 100}
 
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and available
 PRBs), as detailed in the table below.
@@ -332,8 +337,9 @@ PRBs), as detailed in the table below.
 +---------+-------------+---------+
 | 50      | 10 MHz      |  52     |
 +---------+-------------+---------+
-| 100     | 20 MHz      |  106    |
-+---------+-------------+---------+
+
+.. | 100     | 20 MHz      |  106    |
+.. +---------+-------------+---------+
 
 Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. Nevertheless,
 the application supports changing the PRB allocation of the NR carrier within this bandwidth, as well
@@ -342,7 +348,7 @@ below in the console::
 
   nr_dci [rb_start] [rb_length] [mcs]
     [rb_start] index of the first allocated PRB {0-4g_nprb-1} [Default 0]
-    [rb_length] PRB allocation length {0-4g_nprb} [Default 4g_nprb]
+    [rb_length] PRB allocation length {0-4g_nprb} [Default 25]
     [mcs] modullation and conding scheme {0-27} [Default 16]
 
 The onsole output should be similar to::
@@ -405,10 +411,12 @@ Later the embedded srsUE will be executed using the following command::
     -a RF args [Default "clock=external"]
     -f frequency in Hz of the 4G carrier {10000000.000000-2500000000.000000} [Default 2400000000.000000]
     -F frequency in Hz of the NR carrier {10000000.000000-2500000000.000000} [Default 2457600000.000000]
-    -p nof_prb of the NR carrier (NR_nprb) {25, 52, 106} [Default 52]
+    -p nof_prb of the NR carrier (NR_nprb) {25, 52} [Default 52]
     -c LTE physical cell ID {0-503} [Default 0]
     -C NR physical cell ID {0-503} [Default 1]
     -v srsran_verbose [Default None]
+
+.. -p nof_prb of the NR carrier (NR_nprb) {25, 52, 106} [Default 52]
 
 It is important to note that the UE call fixes both the 4G and NR DL signal bandwidth	(and available
 PRBs), as detailed in the table below.
@@ -420,8 +428,9 @@ PRBs), as detailed in the table below.
 	+---------+-------------+---------+
 	| 52      | 10 MHz      |  50     |
 	+---------+-------------+---------+
-	| 106     | 20 MHz      |  100    |
-	+---------+-------------+---------+
+
+	.. | 106     | 20 MHz      |  100    |
+	.. +---------+-------------+---------+
 
 Once the UE has been initialised you should see the following::
 
@@ -465,7 +474,7 @@ Understanding the console Trace
 The console trace output from the UE, as shown above, contains useful metrics by which performance
 of the UE can be measured. A brief description of the output metrics follows:
 
-	* **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time, *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms) and *processing* represents the mean data-rate over the processing time
+	* **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA)
 	* **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
 	* **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
 	* **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))

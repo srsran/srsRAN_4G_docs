@@ -46,9 +46,6 @@ These application notes provide guides for specific srsRAN use-cases, using exte
 | Suggested hardware packages for experimentation & development:
 |   - :ref:`Suggested Hardware Packages<suggestedHW_appnote>`
 
-| Set-up and test the embedded 5G NSA DL demonstration system:
-|   - :ref:`Embedded 5G NSA DL Demonstration System Application Note<5g_nsa_emb_demo_appnote>`
-
 .. toctree::
    :maxdepth: 1
 
@@ -71,5 +68,3 @@ These application notes provide guides for specific srsRAN use-cases, using exte
    5g_nsa/source/index.rst
 
    hw_packs/source/index.rst
-
-   5g_nsa_emb_demo/source/index.rst
