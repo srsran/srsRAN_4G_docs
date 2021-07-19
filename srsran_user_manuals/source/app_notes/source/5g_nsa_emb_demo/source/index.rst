@@ -31,6 +31,7 @@ As shown in the figure above, the main components of the Embedded NSA DL demonst
   * **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB front-end.
   * **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
   * **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded NSA SRS UE. Will also display run-time DL metrics.
+  * **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the x300 USRP device.
 
 Hardware Setup
 --------------
@@ -44,20 +45,27 @@ The connection between the different components comprising the demos system is a
 DL Demonstration Goals and Reach
 ********************************
 
+Features
+--------
+
 The demo aims at providing a proof-of-concept of the capacity of the RFSoC to host an SDR-based embedded
 NR UE implementation. With this purpose in mind, PHY-layer test NSA NR UE and eNB applications have been
-developed (i.e, they are not fully featured applications, as they are basically implementing the DL
-functionality). Nevertheless, its SDR implementation will enable the user to modify the specific configuration
-of the 4G and 5G DL signals (e.g., DL signal bandwidth, number of allocated PRBs, modulation and coding scheme)
-and observe the effect of these on the performance metrics provided by the embedded UE (i.e., console outputs).
-Moreover, the NR frame format has been fixed so that all slots are used for DL transmission.
+developed, enabling the user to modify the following DL signal parameters:
+
+  * Set the DL bandwidth to either 5 or 10 MHz.
+  * Modify the PRB allocation at run-time.
+  * Modify the modulation and coding scheme at run-time.
+
+Moreover, run-time metrics are provided through the console, enabling to observe the effects that the
+different DL signal configuration parameters have in the performance of the UE.
 
 Limitations
 -----------
 
 The most obvious limitation is that the UE and gNB applications, as well as the FPGA-accelerated PHY-layer
 implementation, are not fully-featured, as their scope is limited to the DL functionality (i.e., no UL
-processing will be implemented as part of the DL demonstration).
+processing will be implemented as part of the DL demonstration). Moreover, the NR frame format has been fixed
+so that all slots are used for DL transmission.
 
 The lack of a complete RF front-end also introduces the following limitations:
 
@@ -177,7 +185,7 @@ to a new SD card, simply run the following command ::
 In any case, the instructions to build an SD card from scratch are fully covered in the code repository
 (see	*lib/src/phy/ue/fpga_ue/srsRAN_RFSoC.md*).
 
-srsgNB (X300 & host #0 setup)
+srsENB (X300 & host #0 setup)
 -----------------------------
 
 *Shared reference signal with the ZCU111*
@@ -187,7 +195,7 @@ port. The use of the counterpart PPS input remains optional.
 
 *X300 port usage*
 
-As in the FPGA case, the utilization of the two RF ports in the X300 is predefined in the srsgNB
+As in the FPGA case, the utilization of the two RF ports in the X300 is predefined in the srsENB
 application, as indicated below:
 
 	* The 4G DL signal will be transmitted from RF channel A, TX/RX port.
@@ -239,7 +247,7 @@ automate the x300 initialization procedure::
 
 *eNB/gNB configuration file*
 
-To set-up the 5G NSA DL signal, the configuration file for both the srsgNB application must be
+To set-up the 5G NSA DL signal, the configuration file for both the srsENB application must be
 changed. In more detail, all NR parameters of interest to the demonstration system will be set
 through the configuration file.
 
