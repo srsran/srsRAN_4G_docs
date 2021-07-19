@@ -384,7 +384,8 @@ coding scheme configuration in the console, trhough the *nr_dci* command.
 UE
 ----
 
-*The commands listed below are to be run on the zcu111 (i.e., through SSH via host #1).*
+*The commands listed below are to be run on the zcu111 (i.e., through SSH via host #1). Note that
+in the provided SD card image, you will find the application and related scripts at home/root.*
 
 To run the UE, first we'll need to load the custom srsUE DMA drivers for the ZCU111. This can
 be conveniently done through a script that handles the required *insmod* calls, which has also
@@ -482,3 +483,13 @@ In more detail, the following pairs of values must coincide:
   * **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
   * **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
   * **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
+
+Under some circumstances (e.g., wrongful termination of the aplication or multiple relaunches with
+different DL bandwidth configurations) there are known issues with resetting some Xilinx IPs (i.e., FIR
+filters, RFdc and/or DMA). In such occurrences, the UE application gets in an unknown state which may
+lead to its incapacity to resynchronize to the 4G cell (e.g., buffer overrun/misaligned packet error messages).
+To overcome this situation, a system-reset can be forced with the command below (while rebooting the board
+remains as the last resort)::
+
+  devmem 0xa004039c w 1 && devmem 0xa0040010 w [FFT_size]
+    [FFT_size] size of the FFT that was used when the UE crashed {512, 1024}
