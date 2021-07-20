@@ -464,7 +464,7 @@ Finally, the NR DL metrics will be periodically updated as shown below::
            TB: mcs=20; tbs=18432
 
 Understanding the console Trace
-------------------------------------------
+--------------------------------
 
 The console trace output from the UE, as shown above, contains useful metrics by which performance
 of the UE can be measured. A brief description of the output metrics follows:
@@ -473,6 +473,16 @@ of the UE can be measured. A brief description of the output metrics follows:
 	* **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
 	* **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
 	* **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
+
+Run-time observation of equalized data in the FPGA
+--------------------------------------------------
+
+The default bitstream (as provided in the SD card image) does include an integrated logic analyser (ILA)
+IP core that enables observing at run-time the equalized data that is being forwarded to the NR channel
+decoding stage, as well as plotting it (shown below a captured 64-QAM constellation).
+
+.. image:: .imgs/equalized_ILA_view.png
+		:align: center
 
 Troubleshooting
 ***************
