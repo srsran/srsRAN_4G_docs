@@ -492,12 +492,20 @@ In more detail, the following pairs of values must coincide:
   * **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
   * **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
 
-Under some circumstances (e.g., wrongful termination of the aplication or multiple relaunches with
-different DL bandwidth configurations) there are known issues with resetting some Xilinx IPs (i.e., FIR
-filters, RFdc and/or DMA). In such occurrences, the UE application gets in an unknown state which may
-lead to its incapacity to resynchronize to the 4G cell (e.g., buffer overrun/misaligned packet error messages).
-To overcome this situation, a system-reset can be forced with the command below (while rebooting the board
-remains as the last resort)::
+Even though the embedded NSA DL UE application has the means to recover itself in case that upon
+a relaunch it starts from an unknown state (e.g., wrongful termination of the aplication), it is known
+that in some rare cases the application won't be able to properly initialize either the ADC-DMA channel
+shared with the FPGA or the RFdc block (e.g., after multiple relaunches with different DL bandwidth
+configurations, some IP cores might not be properly reset). In that case, a similar error message to the
+one below will appear::
+
+  Error writing to buffer in rx thread, ret is 0 but should be 30720
+  /SRS_RAN_PATH/lib/src/phy/utils/ringbuffer.c.133: Buffer overrun: lost 24 bytes
+  /SRS_RAN_PATH/lib/src/phy/utils/ringbuffer.c.133: Buffer overrun: lost 30720 bytes
+
+In such rare occurrences where the UE cannot resume normal operation on its own, (re)synchronization
+to the 4G cell won't be possible. To overcome this situation, a system-reset can be forced with the
+command below (while rebooting the board remains as the last resort)::
 
   devmem 0xa004039c w 1 && devmem 0xa0040010 w [FFT_size]
     [FFT_size] size of the FFT that was used when the UE crashed {512, 1024}
