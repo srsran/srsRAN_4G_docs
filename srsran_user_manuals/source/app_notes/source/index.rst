@@ -8,9 +8,9 @@
 srsRAN Application Notes
 =========================
 
-srsRAN is a free and open-source 4G and 5G software radio suite. 
+srsRAN is a free and open-source 4G and 5G software radio suite.
 
-Featuring both UE and eNodeB/gNodeB applications, srsRAN can be used with third-party core network solutions to build complete end-to-end mobile wireless networks. For more information, see `www.srsran.com <https://www.srsran.com>`_. 
+Featuring both UE and eNodeB/gNodeB applications, srsRAN can be used with third-party core network solutions to build complete end-to-end mobile wireless networks. For more information, see `www.srsran.com <https://www.srsran.com>`_.
 
 These application notes provide guides for specific srsRAN use-cases, using external applications, and guides on hardware choices and use.
 
@@ -40,7 +40,7 @@ These application notes provide guides for specific srsRAN use-cases, using exte
 | Simulate Intra-eNB & S1 Handover using ZMQ:
 |   - :ref:`Handover Application Note<handover_appnote>`
 
-| Set-up and test your first 5G NSA network: 
+| Set-up and test your first 5G NSA network:
 |   - :ref:`5G NSA Application Note<5gnsa_appnote>`
 
 | Suggested hardware packages for experimentation & development:
@@ -60,12 +60,11 @@ These application notes provide guides for specific srsRAN use-cases, using exte
    pi4/source/index.rst
 
    cv2x/source/index.rst
-   
-   cots_ue/source/index.rst
-   
-   handover/source/index.rst
-   
-   5g_nsa/source/index.rst
-   
-   hw_packs/source/index.rst
 
+   cots_ue/source/index.rst
+
+   handover/source/index.rst
+
+   5g_nsa/source/index.rst
+
+   hw_packs/source/index.rst
