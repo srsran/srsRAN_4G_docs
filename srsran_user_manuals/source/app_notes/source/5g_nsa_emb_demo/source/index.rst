@@ -124,7 +124,7 @@ file linked below and for which you will need a local copy)::
 
   cd srsLTE_FPGA
   mkdir build && cd build
-  cmake -DCMAKE_TOOLCHAIN_FILE=~/toolchain.cmake
+  cmake -DCMAKE_TOOLCHAIN_FILE=~/toolchain.cmake ..
   make -j12
 
 When the build finishes, you will find the application at *lib/examples/fpga_pdsch_ue_nr*
