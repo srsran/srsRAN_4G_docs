@@ -38,9 +38,9 @@ Hardware Setup
 
 The connection between the different components comprising the demos system is as follows:
 
-  * The X300 will be directly cabled with the XM500. Note that the latter does not include RF gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes equipped with suitable external filters). Additionally, a common 10 MHz reference signal will be shared between them (e.g., octoclock).
-  * The x300 will be interfaced to the x86 host #0 via 10GE.
-  * Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
+  - The X300 will be directly cabled with the XM500. Note that the latter does not include RF gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes equipped with suitable external filters). Additionally, a common 10 MHz reference signal will be shared between them (e.g., octoclock).
+  - The x300 will be interfaced to the x86 host #0 via 10GE.
+  - Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
 
 DL Demonstration Goals and Reach
 ********************************
@@ -69,9 +69,9 @@ so that all slots are used for DL transmission.
 
 The lack of a complete RF front-end also introduces the following limitations:
 
-	* A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
-	* The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
-	* Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
+  - A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
+  - The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
+  - Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. Whereas
 this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), a list of key
@@ -124,13 +124,13 @@ file linked below and for which you will need a local copy)::
 
   cd srsLTE_FPGA
   mkdir build && cd build
-  cmake -DCMAKE_TOOLCHAIN_FILE=~/toolchain.cmake
+  cmake -DCMAKE_TOOLCHAIN_FILE=~/toolchain.cmake ..
   make -j12
 
 When the build finishes, you will find the application at *lib/examples/fpga_pdsch_ue_nr*
 within your local repository.
 
-  * :download:`toolchain.cmake file to build the UE <toolchain.cmake>`
+  - :download:`toolchain.cmake file to build the UE <toolchain.cmake>`
 
 Configuration
 *************
@@ -159,8 +159,8 @@ application is already including them. The full details are provided in the code
 As per FPGA design (i.e., fixed in the demonstration bistream), a specific set of connectors needs
 to be used in the XM500 daughter-board, as indicated below:
 
-	* The 4G DL signal shall be received from ADC Tile 224, channel 1 (labelled as **ADC224_T0_CH1** in the board).
-	* The NR DL signal shall be received from ADC Tile 224, channel 0 (labelled as **ADC224_T0_CH0** in the board).
+  * The 4G DL signal shall be received from ADC Tile 224, channel 1 (labelled as **ADC224_T0_CH1** in the board).
+  * The NR DL signal shall be received from ADC Tile 224, channel 0 (labelled as **ADC224_T0_CH0** in the board).
 
 Moreover, the external DC-2500 MHz low-pass filters (**VLFX-2500+**) shipped alongisde the XM500 needs to be
 placed between the cables coming from the gNB and the SMA connectors in the XM500, as shown below.
@@ -173,8 +173,8 @@ placed between the cables coming from the gNB and the SMA connectors in the XM50
 The bitstream and binaries implementing the embedded NSA DL UE are hosted in an SD card, which is
 organized as detailed below:
 
-	* **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA bistream and boot binaries, the Petalinux Kernel image and the device tree.
-	* **rootfs partition**: includes the root file system, which contains the user applications (e.g., srsUE).
+  - **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA bistream and boot binaries, the Petalinux Kernel image and the device tree.
+  - **rootfs partition**: includes the root file system, which contains the user applications (e.g., srsUE).
 
 A ready to use image of the SD card used by the Demonstration System is available and will provide
 all required files to replicate the embedded NSA DL UE. In order to write the contents of the image
@@ -198,8 +198,8 @@ port. The use of the counterpart PPS input remains optional.
 As in the FPGA case, the utilization of the two RF ports in the X300 is predefined in the srsENB
 application, as indicated below:
 
-	* The 4G DL signal will be transmitted from RF channel A, TX/RX port.
-	* The NR DL signal will be transmitted form RF channel B, TX/RX port.
+  * The 4G DL signal will be transmitted from RF channel A, TX/RX port.
+  * The NR DL signal will be transmitted form RF channel B, TX/RX port.
 
 Accordingly, each DL signal will be connected to the other end of the external RF filter of the
 counterpart receive ADC channel in the XM500 daugther-board.
@@ -210,40 +210,40 @@ The Embedded NSA UE demonstration system has been tested by using version *3.15.
 of the UHD driver. The following script (or a customized variation) might prove quite helpful to
 automate the x300 initialization procedure::
 
-	#!/bin/sh
-	# Setup parameters
-	export UHD_INSTALL_PATH=/usr/local/
-	#export UHD_VERSION=3.15
-	export VIVADO=/opt/Xilinx/Vivado_Lab/2019.2/bin/vivado_lab
+  #!/bin/sh
+  # Setup parameters
+  export UHD_INSTALL_PATH=/usr/local/
+  #export UHD_VERSION=3.15
+  export VIVADO=/opt/Xilinx/Vivado_Lab/2019.2/bin/vivado_lab
 
-	# Setup network interface
-	sudo ifconfig enp3s0f0 192.168.40.1 mtu 9000
+  # Setup network interface
+  sudo ifconfig enp3s0f0 192.168.40.1 mtu 9000
 
-	# Export UHD RFNOC paths (available versions 4.0, 3.15.LTS)
-	export UHD_RFNOC_DIR=$UHD_INSTALL_PATH/share/uhd/rfnoc/
-	export LD_LIBRARY_PATH=$UHD_INSTALL_PATH/lib
+  # Export UHD RFNOC paths (available versions 4.0, 3.15.LTS)
+  export UHD_RFNOC_DIR=$UHD_INSTALL_PATH/share/uhd/rfnoc/
+  export LD_LIBRARY_PATH=$UHD_INSTALL_PATH/lib
 
-	# Setup kernel parameters for best X300 performance
-	sudo sysctl -w net.core.wmem_max=24862979
-	sudo sysctl -w net.core.rmem_max=24862979
+  # Setup kernel parameters for best X300 performance
+  sudo sysctl -w net.core.wmem_max=24862979
+  sudo sysctl -w net.core.rmem_max=24862979
 
-	# Load FPGA with VIVADO
-	cat << EOM >/tmp/load-x300.tcl
-	open_hw_manager
-	connect_hw_server -allow_non_jtag
-	open_hw_target {localhost:3121/xilinx_tcf/Digilent/2516351B0A87A}
-	current_hw_device [get_hw_devices xc7k325t_0]
-	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
-	set_property PROGRAM.FILE {$UHD_INSTALL_PATH/share/uhd/images/usrp_x300_fpga_XG.bit} [get_hw_devices xc7k325t_0]
-	set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
-	set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
-	program_hw_devices [get_hw_devices xc7k325t_0]
-	refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
-	close_hw_manager
-	EOM
-	$VIVADO -mode batch -source /tmp/load-x300.tcl
+  # Load FPGA with VIVADO
+  cat << EOM >/tmp/load-x300.tcl
+  open_hw_manager
+  connect_hw_server -allow_non_jtag
+  open_hw_target {localhost:3121/xilinx_tcf/Digilent/2516351B0A87A}
+  current_hw_device [get_hw_devices xc7k325t_0]
+  refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
+  set_property PROGRAM.FILE {$UHD_INSTALL_PATH/share/uhd/images/usrp_x300_fpga_XG.bit} [get_hw_devices xc7k325t_0]
+  set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+  set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+  program_hw_devices [get_hw_devices xc7k325t_0]
+  refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+  close_hw_manager
+  EOM
+  $VIVADO -mode batch -source /tmp/load-x300.tcl
 
-	echo "Done!"
+  echo "Done!"
 
 *eNB/gNB configuration file*
 
@@ -256,9 +256,9 @@ recommended you use these files to avoid errors while changing configs manually.
 
 eNB/gNB configuration files:
 
-	* :download:`eNB/gNB 25 PRB configuration file <enb_25rb.conf>`
-	* :download:`eNB/gNB 52 PRB configuration file <enb_50rb.conf>`
-	* :download:`radio resources configuration file <nr_rr.conf>`
+  - :download:`eNB/gNB 25 PRB configuration file <enb_25rb.conf>`
+  - :download:`eNB/gNB 52 PRB configuration file <enb_50rb.conf>`
+  - :download:`radio resources configuration file <nr_rr.conf>`
 
 A short description of the required changes follows. Firstly the following parameters need to
 be changed under the **[rf]** options in the eNB configuration file, so that the X310 is configured
@@ -310,8 +310,8 @@ Usage
 Following configuration, we can run the UE and gNB. The following order should
 be used when running the DL demo system:
 
-	1. eNB/ gNB
-	2. UE
+  1. eNB/ gNB
+  2. UE
 
 eNB/ gNB
 ----------
@@ -322,11 +322,11 @@ To facilitate the execution of the eNB/gNB application, while ensuring that the 
 file is used when modifying the target DL signal bandwidth, a launch script has been also included as
 attachment to this App Note.
 
-	* :download:`eNB/gNB launch script <run_gnb.sh>`
+  * :download:`eNB/gNB launch script <run_gnb.sh>`
 
 Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, use the command below::
 
-	./run_gnb.sh [4g_nprb]
+  ./run_gnb.sh [4g_nprb]
     [4g_nprb] nof_prb of the 4G carrier {25, 50}
 
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and available
@@ -399,11 +399,11 @@ To run the UE, first we'll need to load the custom srsUE DMA drivers for the ZCU
 be conveniently done through a script that handles the required *insmod* calls, which has also
 been included as attachment to this App Note.
 
-	* :download:`srsUE DL demo DMA drivers installation script <install_srsue_drivers.sh>`
+  - :download:`srsUE DL demo DMA drivers installation script <install_srsue_drivers.sh>`
 
 To load the srsUE drivers use the following command::
 
-	./install_srsue_drivers.sh
+  ./install_srsue_drivers.sh
 
 Later the embedded srsUE will be executed using the following command::
 
@@ -444,17 +444,17 @@ Once the UE has been initialised you should see the following::
 
 Once the FPGA has correctly synchronized to the selected cell you should see the following::
 
-	Found cell:
-	 - Type:            FDD
-	 - PCI:             0
-	 - Nof ports:       1
-	 - CP:              Normal
-	 - PRB:             50
-	 - PHICH Length:    Normal
-	 - PHICH Resources: 1/6
-	 - SFN:             572
-	Decoded MIB. SFN: 572, offset: 3
-	FPGA synchronized to the LTE cell [pci=0]
+  Found cell:
+   - Type:            FDD
+   - PCI:             0
+   - Nof ports:       1
+   - CP:              Normal
+   - PRB:             50
+   - PHICH Length:    Normal
+   - PHICH Resources: 1/6
+   - SFN:             572
+  Decoded MIB. SFN: 572, offset: 3
+  FPGA synchronized to the LTE cell [pci=0]
 
 Finally, the NR DL metrics will be periodically updated as shown below::
 
@@ -469,10 +469,10 @@ Understanding the console Trace
 The console trace output from the UE, as shown above, contains useful metrics by which performance
 of the UE can be measured. A brief description of the output metrics follows:
 
-	* **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA)
-	* **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
-	* **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
-	* **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
+  * **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA)
+  * **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
+  * **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
+  * **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
 
 Run-time observation of equalized data in the FPGA
 --------------------------------------------------
@@ -496,11 +496,11 @@ frequencies of both carriers). Thus, it is also very important to validate that 
 parameters described by the configuration files do match those passed as arguments to the UE application.
 In more detail, the following pairs of values must coincide:
 
-  * **4g_nprb** parameter in the *run_gnb.sh* call has to match **nof_prb** (-p) parameter in *fpga_pdsch_ue_nr* call.
-  * **pci** field in the **first cell** defined in *nr_rr.conf* has to match the **LTE physical cell ID** (-c) parameter in *fpga_pdsch_ue_nr* call.
-  * **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
-  * **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
-  * **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
+  - **4g_nprb** parameter in the *run_gnb.sh* call has to match **nof_prb** (-p) parameter in *fpga_pdsch_ue_nr* call.
+  - **pci** field in the **first cell** defined in *nr_rr.conf* has to match the **LTE physical cell ID** (-c) parameter in *fpga_pdsch_ue_nr* call.
+  - **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
+  - **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
+  - **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
 
 Even though the embedded NSA DL UE application has the means to recover itself in case that upon
 a relaunch it starts from an unknown state (e.g., wrongful termination of the aplication), it is known
