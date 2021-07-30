@@ -175,6 +175,7 @@ ZCU111 board, the following actions are required:
 
 .. image:: .imgs/zcu111_J109_J100_config.png
   :align: center
+|
 
 Note, that some modifications are also required in the software end. Nevertheless, the srsUE DL 
 Demo application is already including them. The full details are provided in the code repository 
@@ -196,6 +197,7 @@ shown below.
 
 .. image:: .imgs/zcu111_external_filter_detail.png
   :align: center
+|
 
 *SD card*
 
