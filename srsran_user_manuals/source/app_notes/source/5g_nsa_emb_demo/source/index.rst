@@ -19,11 +19,11 @@ control the system).
 DL Demonstration System Overview
 ********************************
 
-.. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
-  :align: center
-
 Hardware Requirements
 ---------------------
+
+.. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
+  :align: center
 
 As shown in the figure above, the main components of the Embedded NSA DL demonstration system are 
 listed below:
