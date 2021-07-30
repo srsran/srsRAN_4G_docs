@@ -29,18 +29,18 @@ As shown in the figure above, the main components of the Embedded NSA DL demonst
 listed below:
 
   - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded 
-    NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL 
-    NR PHY (FFT, channel estimation and PDCCH/PDSCH).
+  NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL 
+  NR PHY (FFT, channel estimation and PDCCH/PDSCH).
   - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and 
-    provides external access to the ADCs/DACs in the RFSoC.
+  provides external access to the ADCs/DACs in the RFSoC.
   - **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains 
-    and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB 
-    front-end.
+  and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB 
+  front-end.
   - **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
   - **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the 
-    embedded NSA SRS UE. Will also display run-time DL metrics.
+  embedded NSA SRS UE. Will also display run-time DL metrics.
   - **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the 
-    x300 USRP device.
+  x300 USRP device.
 
 Hardware Setup
 --------------
