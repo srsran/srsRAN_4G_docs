@@ -19,7 +19,7 @@ control the system).
 DL Demonstration System Overview
 ********************************
 
-.. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
+.. figure:: .imgs/5g_nsa_emb_demo_lab_setup.png
   :align: center
 
 Hardware Requirements
@@ -139,7 +139,7 @@ You will be prompted to specify the toolchain installation path (for instace, us
 */opt/plnx_sdk_rfsoc*). When the installation finishes, set up the following environment 
 variables::
 
-  . /opt/plnx_sdk_rfsoc/environment-setup-aarch64-xilinx-linux
+  ./opt/plnx_sdk_rfsoc/environment-setup-aarch64-xilinx-linux
 
 Then, go to the path where the SRS FPGA repository is cloned locally. Then, run the following
 commands, paying special attention to the *cmake* argument (which points to the *toolchain.cmake*
@@ -172,7 +172,7 @@ ZCU111 board, the following actions are required:
   2. Connect a 10 MHz clock reference to the *J109* SMA port in the ZCU111 (e.g., cabled output 
      from octoclock).
 
-.. image:: .imgs/zcu111_J109_J100_config.png
+.. figure:: .imgs/zcu111_J109_J100_config.png
   :align: center
 
 Note, that some modifications are also required in the software end. Nevertheless, the srsUE DL 
@@ -193,7 +193,7 @@ Moreover, the external DC-2500 MHz low-pass filters (**VLFX-2500+**) shipped alo
 needs to be placed between the cables coming from the gNB and the SMA connectors in the XM500, as 
 shown below.
 
-.. image:: .imgs/zcu111_external_filter_detail.png
+.. figure:: .imgs/zcu111_external_filter_detail.png
   :align: center
 
 *SD card*
@@ -529,7 +529,7 @@ analyser (ILA) IP core that enables observing at run-time the equalized data tha
 forwarded to the NR channel decoding stage, as well as plotting it (shown below a captured 
 64-QAM constellation).
 
-.. image:: .imgs/equalized_ILA_view.png
+.. figure:: .imgs/equalized_ILA_view.png
   :align: center 
 
 Troubleshooting
