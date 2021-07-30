@@ -29,21 +29,32 @@ Hardware Requirements
 As shown in the figure above, the main components of the Embedded NSA DL demonstration system are 
 listed below:
 
-- **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL NR PHY (FFT, channel estimation and PDCCH/PDSCH).
-- **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and provides external access to the ADCs/DACs in the RFSoC.
-- **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB front-end.
+- **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded NSA 
+  SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL NR PHY 
+  (FFT, channel estimation and PDCCH/PDSCH).
+- **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and provides 
+  external access to the ADCs/DACs in the RFSoC.
+- **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 
+  10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB 
+  front-end.
 - **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
-- **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded NSA SRS UE. Will also display run-time DL metrics.
-- **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the x300 USRP device.
+- **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded 
+  NSA SRS UE. Will also display run-time DL metrics.
+- **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the 
+  x300 USRP device.
 
 Hardware Setup
 --------------
 
 The connection between the different components comprising the demos system is as follows:
 
-* The X300 will be directly cabled with the XM500. Note that the latter does not include RF gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes equipped with suitable external filters). Additionally, a common 10 MHz reference signal will be shared between them (e.g., octoclock).
+* The X300 will be directly cabled with the XM500. Note that the latter does not include RF 
+  gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes 
+  equipped with suitable external filters). Additionally, a common 10 MHz reference signal will 
+  be shared between them (e.g., octoclock).
 * The x300 will be interfaced to the x86 host #0 via 10GE.
-* Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
+* Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable 
+  the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
 
 DL Demonstration Goals and Reach
 ********************************
@@ -72,18 +83,24 @@ Moreover, the NR frame format has been fixed so that all slots are used for DL t
 
 The lack of a complete RF front-end also introduces the following limitations:
 
-* A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
-* The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
-* Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
+* A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 
+  daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no 
+  AGC functionalities are implemented.
+* The center frequencies supported by the specific hardware setup being utilized are constrained 
+  to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and 
+  *2457.6 MHz* for the NR one).
+* Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the 
+  settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. 
 Whereas this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), 
 a list of key feature limitations is provided below for the sake of thoroughness:
 
-- 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the current bitstream supports 5 and 10 MHz).
+- 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the 
+  current bitstream supports 5 and 10 MHz).
 - Only DCI format 1_0 (Downlink) is supported.
-- No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be known).
-
+- No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be 
+  known).
 
 Building the applications
 **************************
@@ -151,8 +168,10 @@ The use of an external 10 MHz reference signal ensures the accuracy of the syste
 will also be shared with the gNB. In order to enable the use of an external reference in the 
 ZCU111 board, the following actions are required:
 
-1. Disconnect the jumper in *J110* to power-off the 12.8 MHz TCXO that is connected by default to *CLKin0* of the LMK04208 PLL used to generate the ADC/DAC reference clocks in the ZCU111.
-2. Connect a 10 MHz clock reference to the *J109* SMA port in the ZCU111 (e.g., cabled output from octoclock).
+1. Disconnect the jumper in *J110* to power-off the 12.8 MHz TCXO that is connected by default to 
+   *CLKin0* of the LMK04208 PLL used to generate the ADC/DAC reference clocks in the ZCU111.
+2. Connect a 10 MHz clock reference to the *J109* SMA port in the ZCU111 (e.g., cabled output 
+   from octoclock).
 
 .. image:: .imgs/zcu111_J109_J100_config.png
   :align: center
@@ -166,8 +185,10 @@ Demo application is already including them. The full details are provided in the
 As per FPGA design (i.e., fixed in the demonstration bistream), a specific set of connectors 
 needs to be used in the XM500 daughter-board, as indicated below:
 
-- The 4G DL signal shall be received from ADC Tile 224, channel 1 (labelled as **ADC224_T0_CH1** in the board).
-- The NR DL signal shall be received from ADC Tile 224, channel 0 (labelled as **ADC224_T0_CH0** in the board).
+- The 4G DL signal shall be received from ADC Tile 224, channel 1 (labelled as **ADC224_T0_CH1** 
+  in the board).
+- The NR DL signal shall be received from ADC Tile 224, channel 0 (labelled as **ADC224_T0_CH0** 
+  in the board).
 
 Moreover, the external DC-2500 MHz low-pass filters (**VLFX-2500+**) shipped alongisde the XM500 
 needs to be placed between the cables coming from the gNB and the SMA connectors in the XM500, as 
@@ -181,8 +202,10 @@ shown below.
 The bitstream and binaries implementing the embedded NSA DL UE are hosted in an SD card, which is
 organized as detailed below:
 
-* **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA bistream and boot binaries, the Petalinux Kernel image and the device tree.
-* **rootfs partition**: includes the root file system, which contains the user applications (e.g., srsUE).
+* **BOOT partition**: includes the demonstration boot image (*BOOT.BIN*), which groups the FPGA 
+  bistream and boot binaries, the Petalinux Kernel image and the device tree.
+* **rootfs partition**: includes the root file system, which contains the user applications 
+  (e.g., srsUE).
 
 A ready to use image of the SD card used by the Demonstration System is available and will 
 provide all required files to replicate the embedded NSA DL UE. In order to write the contents of 
@@ -478,10 +501,14 @@ Understanding the console Trace
 The console trace output from the UE, as shown above, contains useful metrics by which 
 performance of the UE can be measured. A brief description of the output metrics follows:
 
-- **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA).
+- **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate 
+  over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT 
+  (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the 
+  processing time (from first FFT outputs in slot to decoded TB returned by FPGA).
 - **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot).
 - **PDSCH-BLER:** Block error rate of the DL (NR PDSCH).
-- **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits)).
+- **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} 
+  and TB size (bits)).
 
 Run-time observation of equalized data in the FPGA
 --------------------------------------------------
@@ -508,11 +535,16 @@ to validate that the configuration parameters described by the configuration fil
 passed as arguments to the UE application. In more detail, the following pairs of values must 
 coincide:
 
-* **4g_nprb** parameter in the *run_gnb.sh* call has to match **nof_prb** (-p) parameter in *fpga_pdsch_ue_nr* call.
-* **pci** field in the **first cell** defined in *nr_rr.conf* has to match the **LTE physical cell ID** (-c) parameter in *fpga_pdsch_ue_nr* call.
-* **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
-* **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
-* **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
+* **4g_nprb** parameter in the *run_gnb.sh* call has to match **nof_prb** (-p) parameter in 
+  *fpga_pdsch_ue_nr* call.
+* **pci** field in the **first cell** defined in *nr_rr.conf* has to match the **LTE physical 
+  cell ID** (-c) parameter in *fpga_pdsch_ue_nr* call.
+* **dl_freq** field in the **first cell** defined in *nr_rr.conf* has to match the **frequency 
+  in Hz of the 4G carrier** (-f) parameter in *fpga_pdsch_ue_nr* call.
+* **pci** field in the **second cell** defined in *nr_rr.conf* has to match the **NR physical 
+  cell ID** (-C) parameter in *fpga_pdsch_ue_nr* call.
+* **dl_freq** field in the **second cell** defined in *nr_rr.conf* has to match the **frequency 
+  in Hz of the NR carrier** (-F) parameter in *fpga_pdsch_ue_nr* call.
 
 Even though the embedded NSA DL UE application has the means to recover itself in case that upon 
 a relaunch it starts from an unknown state (e.g., wrongful termination of the aplication), it is 
