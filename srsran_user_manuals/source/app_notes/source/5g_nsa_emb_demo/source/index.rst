@@ -19,7 +19,7 @@ DL Demonstration System Overview
 ********************************
 
 .. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
-		:align: center
+  :align: center
 
 Hardware Requirements
 ---------------------
@@ -166,7 +166,7 @@ Moreover, the external DC-2500 MHz low-pass filters (**VLFX-2500+**) shipped alo
 placed between the cables coming from the gNB and the SMA connectors in the XM500, as shown below.
 
 .. image:: .imgs/zcu111_external_filter_detail.png
-		:align: center
+  :align: center
 
 *SD card*
 
@@ -183,7 +183,7 @@ to a new SD card, simply run the following command ::
   sudo pv -tpreb emb_nsa_ue_dl_demo.img | sudo dd of=/dev/sdb bs=32M conv=fsync
 
 In any case, the instructions to build an SD card from scratch are fully covered in the code repository
-(see	*lib/src/phy/ue/fpga_ue/srsRAN_RFSoC.md*).
+(see *lib/src/phy/ue/fpga_ue/srsRAN_RFSoC.md*).
 
 srsENB (X300 & host #0 setup)
 -----------------------------
@@ -481,7 +481,7 @@ IP core that enables observing at run-time the equalized data that is being forw
 decoding stage, as well as plotting it (shown below a captured 64-QAM constellation).
 
 .. image:: .imgs/equalized_ILA_view.png
-		:align: center
+  :align: center
 
 Troubleshooting
 ***************
