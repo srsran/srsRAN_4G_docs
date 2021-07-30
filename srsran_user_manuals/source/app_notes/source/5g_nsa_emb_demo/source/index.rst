@@ -26,21 +26,21 @@ Hardware Requirements
 
 As shown in the figure above, the main components of the Embedded NSA DL demonstration system are listed below:
 
-  * **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL NR PHY (FFT, channel estimation and PDCCH/PDSCH).
-  * **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and provides external access to the ADCs/DACs in the RFSoC.
-  * **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB front-end.
-  * **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
-  * **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded NSA SRS UE. Will also display run-time DL metrics.
-  * **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the x300 USRP device.
+  - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL NR PHY (FFT, channel estimation and PDCCH/PDSCH).
+  - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and provides external access to the ADCs/DACs in the RFSoC.
+  - **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB front-end.
+  - **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
+  - **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded NSA SRS UE. Will also display run-time DL metrics.
+  - **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the x300 USRP device.
 
 Hardware Setup
 --------------
 
 The connection between the different components comprising the demos system is as follows:
 
-  - The X300 will be directly cabled with the XM500. Note that the latter does not include RF gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes equipped with suitable external filters). Additionally, a common 10 MHz reference signal will be shared between them (e.g., octoclock).
-  - The x300 will be interfaced to the x86 host #0 via 10GE.
-  - Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
+  * The X300 will be directly cabled with the XM500. Note that the latter does not include RF gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes equipped with suitable external filters). Additionally, a common 10 MHz reference signal will be shared between them (e.g., octoclock).
+  * The x300 will be interfaced to the x86 host #0 via 10GE.
+  * Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
 
 DL Demonstration Goals and Reach
 ********************************
@@ -69,9 +69,9 @@ so that all slots are used for DL transmission.
 
 The lack of a complete RF front-end also introduces the following limitations:
 
-  - A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
-  - The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
-  - Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
+  * A cabled setup is required, as no gain and/or RF filtering components are included in the XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). Consequently, no AGC functionalities are implemented.
+  * The center frequencies supported by the specific hardware setup being utilized are constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier and *2457.6 MHz* for the NR one).
+  * Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. Whereas
 this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), a list of key
@@ -273,31 +273,30 @@ optimally (the example provided below is for a 25 PRB DL configuration)::
 Likewise, the NR carrier will be active from start (i.e., no SSB is implemented), hence it needs
 to be included in the **cell_list** as part of the radio resources configuration file::
 
-	cell_list =
-	(
-
-	  {
-	    rf_port = 0;
-	    cell_id = 1;
-	    tac = 7;
-	    pci = 0;
-	    root_seq_idx = 204;
-	    dl_earfcn = 2850;
-	    type = "lte";
-	    dl_freq=2400e6;
-	  }
-	  ,
-	  {
-	    rf_port = 1;
-	    cell_id = 2;
-	    tac = 7;
-	    pci = 1;
-	    root_seq_idx = 204;
-	    dl_earfcn = 2850;
-	    type = "nr";
-	    dl_freq=2457.6e6;
-	  }
-	);
+  cell_list =
+  (
+    {
+      rf_port = 0;
+      cell_id = 1;
+      tac = 7;
+      pci = 0;
+      root_seq_idx = 204;
+      dl_earfcn = 2850;
+      type = "lte";
+      dl_freq=2400e6;
+    }
+    ,
+    {
+      rf_port = 1;
+      cell_id = 2;
+      tac = 7;
+      pci = 1;
+      root_seq_idx = 204;
+      dl_earfcn = 2850;
+      type = "nr";
+      dl_freq=2457.6e6;
+    }
+  );
 
 In the example above, two carriers are defined: first the LTE one at 2.4 GHz and with a PHY cell ID of 0
 (**pci = 0**), then the NR carrier is added at 2.4576 GHz and using a PHY cell ID of 1 (**pci = 1**). When
@@ -322,7 +321,7 @@ To facilitate the execution of the eNB/gNB application, while ensuring that the 
 file is used when modifying the target DL signal bandwidth, a launch script has been also included as
 attachment to this App Note.
 
-  * :download:`eNB/gNB launch script <run_gnb.sh>`
+  - :download:`eNB/gNB launch script <run_gnb.sh>`
 
 Make sure that **SRSRAN_PATH** points to the correct eNB/gNB binary path. Then, use the command below::
 
@@ -469,10 +468,10 @@ Understanding the console Trace
 The console trace output from the UE, as shown above, contains useful metrics by which performance
 of the UE can be measured. A brief description of the output metrics follows:
 
-  * **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA)
-  * **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
-  * **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
-  * **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
+  - **Rb:** Indicates the data-rate (Mbits/sec) as follows; *net* represents the mean data-rate over the measure time (actual UE data-rate), *maximum* represents the mean data-rate per GRANT (i.e., over 1 ms; ideal UE data-rate) and *processing* represents the mean data-rate over the processing time (from first FFT outputs in slot to decoded TB returned by FPGA)
+  - **PDCCH-Miss:** Indicates the number of DCI decoding errors over time (i.e., per slot)
+  - **PDSCH-BLER:** Block error rate of the DL (NR PDSCH)
+  - **TB:** Provides metrics for the decoded TB in the PDSCH (modulation and coding scheme {0-28} and TB size (bits))
 
 Run-time observation of equalized data in the FPGA
 --------------------------------------------------
