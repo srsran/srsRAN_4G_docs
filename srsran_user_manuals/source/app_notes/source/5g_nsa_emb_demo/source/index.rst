@@ -19,8 +19,9 @@ control the system).
 DL Demonstration System Overview
 ********************************
 
-.. figure:: .imgs/5g_nsa_emb_demo_lab_setup.png
+.. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
   :align: center
+|
 
 Hardware Requirements
 ---------------------
@@ -28,24 +29,31 @@ Hardware Requirements
 As shown in the figure above, the main components of the Embedded NSA DL demonstration system are 
 listed below:
 
-  - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL NR PHY (FFT, channel estimation and PDCCH/PDSCH).
-  - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and provides external access to the ADCs/DACs in the RFSoC.
-  - **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB front-end.
+  - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded 
+    NSA SRS UE demo system. The latter includes the 4G sync (PSS and SSS detection) and the DL 
+    NR PHY (FFT, channel estimation and PDCCH/PDSCH).
+  - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and 
+    provides external access to the ADCs/DACs in the RFSoC.
+  - **X300 USRP**: high-performance FPGA-based SDR front-end, including two complete RF chains 
+    and 10GE connectivity for high-speed I/Q sample exchange. It will constitute the NSA SRS eNB 
+    front-end.
   - **x86 host #0**: will host the NSA SRS eNB transmitter to provide both 4G and 5G DL signals.
-  - **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the embedded NSA SRS UE. Will also display run-time DL metrics.
-  - **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the x300 USRP device.
+  - **x86 host #1**: will provide SSH access to the ZCU111 board, in order to control the 
+    embedded NSA SRS UE. Will also display run-time DL metrics.
+  - **octoclock**: will provide a shared 10 MHz reference signal between the ZCU111 board and the 
+    x300 USRP device.
 
 Hardware Setup
 --------------
 
 The connection between the different components comprising the demos system is as follows:
 
-  - The X300 will be directly cabled with the XM500. Note that the latter does not include RF 
+  * The X300 will be directly cabled with the XM500. Note that the latter does not include RF 
     gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes 
     equipped with suitable external filters). Additionally, a common 10 MHz reference signal will 
     be shared between them (e.g., octoclock).
-  - The x300 will be interfaced to the x86 host #0 via 10GE.
-  - Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will 
+  * The x300 will be interfaced to the x86 host #0 via 10GE.
+  * Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will 
     enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
 
 DL Demonstration Goals and Reach
@@ -58,10 +66,10 @@ The demo aims at providing a proof-of-concept of the capacity of the RFSoC to ho
 embedded NR UE implementation. With this purpose in mind, PHY-layer test NSA NR UE and eNB 
 applications have been developed, enabling the user to modify the following DL signal parameters:
 
-  - Set the DL bandwidth to either 5 or 10 MHz.
-  - Modify the PRB allocation at run-time.
-  - Modify the modulation and coding scheme at run-time.
-  
+  * Set the DL bandwidth to either 5 or 10 MHz.
+  * Modify the PRB allocation at run-time.
+  * Modify the modulation and coding scheme at run-time.
+
 Moreover, run-time metrics are provided through the console, enabling to observe the effects that 
 the different DL signal configuration parameters have in the performance of the UE.
 
@@ -75,23 +83,23 @@ Moreover, the NR frame format has been fixed so that all slots are used for DL t
 
 The lack of a complete RF front-end also introduces the following limitations:
 
-  - A cabled setup is required, as no gain and/or RF filtering components are included in the 
+  * A cabled setup is required, as no gain and/or RF filtering components are included in the 
     XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). 
     Consequently, no AGC functionalities are implemented.
-  - The center frequencies supported by the specific hardware setup being utilized are 
+  * The center frequencies supported by the specific hardware setup being utilized are 
     constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier 
     and *2457.6 MHz* for the NR one).
-  - Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the 
+  * Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the 
     settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. 
 Whereas this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), 
 a list of key feature limitations is provided below for the sake of thoroughness:
 
-  - 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the 
+  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the 
     current bitstream supports 5 and 10 MHz).
-  - Only DCI format 1_0 (Downlink) is supported.
-  - No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be 
+  * Only DCI format 1_0 (Downlink) is supported.
+  * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be 
     known).
 
 Building the applications
@@ -132,7 +140,7 @@ You will be prompted to specify the toolchain installation path (for instace, us
 */opt/plnx_sdk_rfsoc*). When the installation finishes, set up the following environment 
 variables::
 
-  ./opt/plnx_sdk_rfsoc/environment-setup-aarch64-xilinx-linux
+  . /opt/plnx_sdk_rfsoc/environment-setup-aarch64-xilinx-linux
 
 Then, go to the path where the SRS FPGA repository is cloned locally. Then, run the following
 commands, paying special attention to the *cmake* argument (which points to the *toolchain.cmake*
@@ -165,8 +173,9 @@ ZCU111 board, the following actions are required:
   2. Connect a 10 MHz clock reference to the *J109* SMA port in the ZCU111 (e.g., cabled output 
      from octoclock).
 
-.. figure:: .imgs/zcu111_J109_J100_config.png
+.. image:: .imgs/zcu111_J109_J100_config.png
   :align: center
+|
 
 Note, that some modifications are also required in the software end. Nevertheless, the srsUE DL 
 Demo application is already including them. The full details are provided in the code repository 
@@ -186,8 +195,9 @@ Moreover, the external DC-2500 MHz low-pass filters (**VLFX-2500+**) shipped alo
 needs to be placed between the cables coming from the gNB and the SMA connectors in the XM500, as 
 shown below.
 
-.. figure:: .imgs/zcu111_external_filter_detail.png
+.. image:: .imgs/zcu111_external_filter_detail.png
   :align: center
+|
 
 *SD card*
 
@@ -221,8 +231,8 @@ Connect the same 10 MHz reference signal source (e.g., octoclock) used with the 
 As in the FPGA case, the utilization of the two RF ports in the X300 is predefined in the srsENB 
 application, as indicated below:
 
-  - The 4G DL signal will be transmitted from RF channel A, TX/RX port.
-  - The NR DL signal will be transmitted form RF channel B, TX/RX port.
+  * The 4G DL signal will be transmitted from RF channel A, TX/RX port.
+  * The NR DL signal will be transmitted form RF channel B, TX/RX port.
 
 Accordingly, each DL signal will be connected to the other end of the external RF filter of the
 counterpart receive ADC channel in the XM500 daugther-board.
@@ -333,8 +343,8 @@ Usage
 Following configuration, we can run the UE and gNB. The following order should be used when 
 running the DL demo system:
 
-  1. eNB/ gNB
-  2. UE
+1. eNB/ gNB
+2. UE
 
 eNB/ gNB
 --------
@@ -356,19 +366,13 @@ below::
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and 
 available PRBs), as detailed in the table below.
 
-.. list-table:: eNB Set-up
-    :widths: 20 20 20
-    :header-rows: 1
-
-    * - 4G_nprb
-      - 4G/NR DL BW 
-      - NR_nprb
-    * - 25
-      - 5 MHz
-      - 25
-    * - 50
-      - 10 MHz
-      - 52
++---------+-------------+---------+
+| 4G_nprb | 4G/NR DL BW | NR_nprb |
++=========+=============+=========+
+| 25      | 5 MHz       |  25     |
++---------+-------------+---------+
+| 50      | 10 MHz      |  52     |
++---------+-------------+---------+
 
 Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. 
 Nevertheless, the application supports changing the PRB allocation of the NR carrier within this 
@@ -449,20 +453,14 @@ Later the embedded srsUE will be executed using the following command::
 It is important to note that the UE call fixes both the 4G and NR DL signal bandwidth (and 
 available PRBs), as detailed in the table below.
 
-.. list-table:: eNB Set-up
-    :widths: 20 20 20
-    :header-rows: 1
++---------+-------------+---------+
+| NR_nprb | 4G/NR DL BW | 4G nprb |
++=========+=============+=========+
+| 25      | 5 MHz       |  25     |
++---------+-------------+---------+
+| 52      | 10 MHz      |  50     |
++---------+-------------+---------+
 
-    * - NR_nprb
-      - 4G/NR DL BW 
-      - 4G_nprb
-    * - 25
-      - 5 MHz
-      - 25
-    * - 52
-      - 10 MHz
-      - 50
-      
 Once the UE has been initialised you should see the following::
 
   Opening RF device
@@ -522,8 +520,9 @@ analyser (ILA) IP core that enables observing at run-time the equalized data tha
 forwarded to the NR channel decoding stage, as well as plotting it (shown below a captured 
 64-QAM constellation).
 
-.. figure:: .imgs/equalized_ILA_view.png
+.. image:: .imgs/equalized_ILA_view.png
   :align: center 
+|
 
 Troubleshooting
 ***************
@@ -567,4 +566,5 @@ resort)::
 
   devmem 0xa004039c w 1 && devmem 0xa0040010 w [FFT_size]
     [FFT_size] size of the FFT that was used when the UE crashed {512, 1024}
+
 
