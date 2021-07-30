@@ -340,8 +340,8 @@ Usage
 Following configuration, we can run the UE and gNB. The following order should be used when 
 running the DL demo system:
 
-1. eNB/ gNB
-2. UE
+  1. eNB/ gNB
+  2. UE
 
 eNB/ gNB
 --------
@@ -363,13 +363,20 @@ below::
 It is important to note that the eNB call fixes both the 4G and NR DL signal bandwidth (and 
 available PRBs), as detailed in the table below.
 
-+---------+-------------+---------+
-| 4G_nprb | 4G/NR DL BW | NR_nprb |
-+=========+=============+=========+
-| 25      | 5 MHz       |  25     |
-+---------+-------------+---------+
-| 50      | 10 MHz      |  52     |
-+---------+-------------+---------+
+.. list-table:: eNB Set-up
+    :widths: 20 20 20
+    :header-rows: 1
+    :stub-columns: 1
+
+    * - 4G_nprb
+      - 4G/NR DL BW 
+      - NR_nprb
+    * - 25
+      - 5 MHz
+      - 25
+    * - 50
+      - 10 MHz
+      - 52
 
 Once the eNB application is running, the DL bandwidth of the signals will be kept fixed. 
 Nevertheless, the application supports changing the PRB allocation of the NR carrier within this 
@@ -450,14 +457,21 @@ Later the embedded srsUE will be executed using the following command::
 It is important to note that the UE call fixes both the 4G and NR DL signal bandwidth (and 
 available PRBs), as detailed in the table below.
 
-+---------+-------------+---------+
-| NR_nprb | 4G/NR DL BW | 4G nprb |
-+=========+=============+=========+
-| 25      | 5 MHz       |  25     |
-+---------+-------------+---------+
-| 52      | 10 MHz      |  50     |
-+---------+-------------+---------+
+.. list-table:: eNB Set-up
+    :widths: 20 20 20
+    :header-rows: 1
+    :stub-columns: 1
 
+    * - NR_nprb
+      - 4G/NR DL BW 
+      - 4G_nprb
+    * - 25
+      - 5 MHz
+      - 25
+    * - 52
+      - 10 MHz
+      - 50
+      
 Once the UE has been initialised you should see the following::
 
   Opening RF device
