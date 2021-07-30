@@ -366,7 +366,6 @@ available PRBs), as detailed in the table below.
 .. list-table:: eNB Set-up
     :widths: 20 20 20
     :header-rows: 1
-    :stub-columns: 1
 
     * - 4G_nprb
       - 4G/NR DL BW 
@@ -460,7 +459,6 @@ available PRBs), as detailed in the table below.
 .. list-table:: eNB Set-up
     :widths: 20 20 20
     :header-rows: 1
-    :stub-columns: 1
 
     * - NR_nprb
       - 4G/NR DL BW 
