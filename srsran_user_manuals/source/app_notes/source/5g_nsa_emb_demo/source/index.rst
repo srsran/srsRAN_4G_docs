@@ -21,7 +21,6 @@ DL Demonstration System Overview
 
 .. image:: .imgs/5g_nsa_emb_demo_lab_setup.png
   :align: center
-|
 
 Hardware Requirements
 ---------------------
@@ -48,12 +47,12 @@ Hardware Setup
 
 The connection between the different components comprising the demos system is as follows:
 
-  * The X300 will be directly cabled with the XM500. Note that the latter does not include RF 
+  - The X300 will be directly cabled with the XM500. Note that the latter does not include RF 
     gain/filtering components, but enables a cabled setup via the onboard SMA connectors (comes 
     equipped with suitable external filters). Additionally, a common 10 MHz reference signal will 
     be shared between them (e.g., octoclock).
-  * The x300 will be interfaced to the x86 host #0 via 10GE.
-  * Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will 
+  - The x300 will be interfaced to the x86 host #0 via 10GE.
+  - Both x86 host #1 and the ZCU111 will be connected to the same LAN (Ethernet), which will 
     enable the host to access (SSH) the ZCU111 and interact with the embedded ARM (RFSoC).
 
 DL Demonstration Goals and Reach
@@ -66,10 +65,10 @@ The demo aims at providing a proof-of-concept of the capacity of the RFSoC to ho
 embedded NR UE implementation. With this purpose in mind, PHY-layer test NSA NR UE and eNB 
 applications have been developed, enabling the user to modify the following DL signal parameters:
 
-  * Set the DL bandwidth to either 5 or 10 MHz.
-  * Modify the PRB allocation at run-time.
-  * Modify the modulation and coding scheme at run-time.
-
+  - Set the DL bandwidth to either 5 or 10 MHz.
+  - Modify the PRB allocation at run-time.
+  - Modify the modulation and coding scheme at run-time.
+  
 Moreover, run-time metrics are provided through the console, enabling to observe the effects that 
 the different DL signal configuration parameters have in the performance of the UE.
 
@@ -83,23 +82,23 @@ Moreover, the NR frame format has been fixed so that all slots are used for DL t
 
 The lack of a complete RF front-end also introduces the following limitations:
 
-  * A cabled setup is required, as no gain and/or RF filtering components are included in the 
+  - A cabled setup is required, as no gain and/or RF filtering components are included in the 
     XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns). 
     Consequently, no AGC functionalities are implemented.
-  * The center frequencies supported by the specific hardware setup being utilized are 
+  - The center frequencies supported by the specific hardware setup being utilized are 
     constrained to the 10-2500 MHz range (e.g., testing has used *2400 MHz* for the LTE carrier 
     and *2457.6 MHz* for the NR one).
-  * Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the 
+  - Regarding the Tx gain, it needs to be carefully fixed, for which we do recommend using the 
     settings described in the eNB/gNB configuration files provided below.
 
 The embedded 5G NSA UE implementation inherits those feature limitations of its x86 counterpart. 
 Whereas this is transparent to the user (i.e., both gNB and UE applications are provided by SRS), 
 a list of key feature limitations is provided below for the sake of thoroughness:
 
-  * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the 
+  - 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (the 
     current bitstream supports 5 and 10 MHz).
-  * Only DCI format 1_0 (Downlink) is supported.
-  * No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be 
+  - Only DCI format 1_0 (Downlink) is supported.
+  - No cell search and reference signal measurements (PCI for LTE and NR carriers needs to be 
     known).
 
 Building the applications
@@ -175,7 +174,6 @@ ZCU111 board, the following actions are required:
 
 .. image:: .imgs/zcu111_J109_J100_config.png
   :align: center
-|
 
 Note, that some modifications are also required in the software end. Nevertheless, the srsUE DL 
 Demo application is already including them. The full details are provided in the code repository 
@@ -197,7 +195,6 @@ shown below.
 
 .. image:: .imgs/zcu111_external_filter_detail.png
   :align: center
-|
 
 *SD card*
 
@@ -231,8 +228,8 @@ Connect the same 10 MHz reference signal source (e.g., octoclock) used with the 
 As in the FPGA case, the utilization of the two RF ports in the X300 is predefined in the srsENB 
 application, as indicated below:
 
-  * The 4G DL signal will be transmitted from RF channel A, TX/RX port.
-  * The NR DL signal will be transmitted form RF channel B, TX/RX port.
+  - The 4G DL signal will be transmitted from RF channel A, TX/RX port.
+  - The NR DL signal will be transmitted form RF channel B, TX/RX port.
 
 Accordingly, each DL signal will be connected to the other end of the external RF filter of the
 counterpart receive ADC channel in the XM500 daugther-board.
@@ -522,7 +519,6 @@ forwarded to the NR channel decoding stage, as well as plotting it (shown below 
 
 .. image:: .imgs/equalized_ILA_view.png
   :align: center 
-|
 
 Troubleshooting
 ***************
