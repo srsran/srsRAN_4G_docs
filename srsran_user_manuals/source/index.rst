@@ -4,8 +4,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsRAN 21.04 Documentation
-=============================
+srsRAN |version| Documentation
+==============================
+
+.. meta::
+    :description lang=en:
+        Documentation for the srsRAN 4G/5G project. User manuals for the srsRAN UE, 
+        eNodeB, gNodeB and EPC applications. Up-to-date installation guides. Step-by-step 
+        application notes for some of the most interesting srsRAN use-cases.
 
 srsRAN is a free and open-source 4G and 5G software radio suite. 
 
