@@ -10,7 +10,7 @@ The docs require following Sphinx extensions:
 On Ubuntu, they can be installed with:
 ```
 sudo apt install python-pip
-pip install sphinx sphinx_rtd_theme sphinxcontrib.blockdiag sphinxcontrib.seqdiag
+pip install -r requirements.txt
 ```
 
 Once dependenceies are installed,
@@ -30,9 +30,9 @@ google-chrome build/html/index.html
 To enable live build previews when editing documentation install the following extension: 
 - sphinx-autobuild 
 
-This can be installed with
+This can be installed from the requirements file. 
 ```
-pip install sphinx-autobuild
+pip install -r requirements.txt
 ```
 
 To build the docs first run
@@ -44,4 +44,4 @@ Then run the following command from the docs main folder
 ```
 sphinx-autobuild srsran_user_manuals/source/ srsran_user_manuals/source/_build/html
 ```
-This will start a server at http://127.0.0.1:8000, any changes to the docs will be shown here in a live preview. You can view this in your browser. 
+This will start a server at http://127.0.0.1:8000 which can be viewed in your browser, any changes to the docs will be shown here once saved. 
