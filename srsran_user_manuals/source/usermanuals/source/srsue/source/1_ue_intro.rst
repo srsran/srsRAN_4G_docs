@@ -53,7 +53,7 @@ srsUE has been fully tested and validated with the following network equipment:
 UE architecture
 ***************
 
-.. figure:: .imgs/ue_basic.svg
+.. figure:: .imgs/ue_basic.png
     :width: 400px
     :align: center
     :alt: alternate text

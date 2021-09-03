@@ -10,7 +10,7 @@ Overview
 
 srsEPC is a lightweight implementation of a complete LTE core network (EPC). The srsEPC application runs as a single binary but provides the key EPC components of Home Subscriber Service (HSS), Mobility Management Entity (MME), Service Gateway (S-GW) and Packet Data Network Gateway (P-GW).
 
-.. figure:: .imgs/epc_basic.svg
+.. figure:: .imgs/epc_basic.png
     :align: center
     :alt: alternate text
     :figclass: align-center

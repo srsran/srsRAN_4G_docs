@@ -52,7 +52,7 @@ srsENB has been tested and validated with a broad range of COTS handsets includi
 eNodeB architecture
 *******************
 
-.. figure:: .imgs/enb_basic.svg
+.. figure:: .imgs/enb_basic.png
     :width: 400px
     :align: center
     :alt: alternate text
