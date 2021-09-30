@@ -4,8 +4,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-srsRAN 21.04 Documentation
-=============================
+srsRAN |version| Documentation
+==============================
+
+.. meta::
+    :description lang=en:
+        Documentation for the srsRAN 4G/5G project. User manuals for the srsRAN UE, 
+        eNodeB, gNodeB and EPC applications. Up-to-date installation guides. Step-by-step 
+        application notes for some of the most interesting srsRAN use-cases.
+
 
 srsRAN is a free and open-source 4G and 5G software radio suite. 
 
@@ -21,40 +28,10 @@ The srsRAN suite currently includes:
 
 All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
 
-First Steps
------------
-
-| Get srsRAN installed on your computer:
-|   - :ref:`Installation <gen_installation>`
-
-| Get a network up and running:
-|   - :ref:`End-to-end Network Setup <gen_4g>`
-
-| Read the user manuals:
-|   - :ref:`UE User Manual <ue_intro>`
-|   - :ref:`eNodeB User Manual <enb_intro>`
-|   - :ref:`EPC User Manual <epc_intro>`
-
-| Read the srsRAN Application Notes:
-|   - :ref:`Application Notes <app_notes>`
-  
-| Take a look at the source code:
-|   - `srsRAN on GitHub <https://github.com/srsran/srsran>`_
-
-| Learn about the team behind srsRAN:
-|   - `Software Radio Systems <https://srs.io>`_
-
-Links
-------------
-
 .. toctree::
-   :maxdepth: 1
-
+   :maxdepth: 2
+   
+   first_steps.rst
    general/source/index.rst
-   usermanuals/source/index.rst
+   usermanuals/source/index.rst 
    app_notes/source/index.rst
-
-
-
-
-

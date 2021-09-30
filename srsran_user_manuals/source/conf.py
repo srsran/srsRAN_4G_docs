@@ -15,6 +15,12 @@
 import sys
 import os
 
+#auxilary libraries
+from datetime import date
+
+#variables
+year = str(date.today().year)
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -46,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'srsRAN'
-copyright = u'2019-2021, Software Radio Systems'
+copyright = u'2019-' + year + ', Software Radio Systems.'
 author = u'Software Radio Systems'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -138,7 +144,7 @@ html_favicon = '.imgs/favicon.png'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['.static']
+#html_static_path = ['.static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -207,16 +213,19 @@ htmlhelp_basename = 'srsRANdoc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '11pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
 
 # Latex figure (float) alignment
 #'figure_align': 'htbp',
+
+#Remove blank pages from PDF build 
+'classoptions': ',openany',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -233,7 +242,7 @@ latex_documents = [
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
-#latex_use_parts = False
+latex_use_parts = False
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
