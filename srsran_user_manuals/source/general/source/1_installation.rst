@@ -112,10 +112,7 @@ the user's home directory (~/.srs).
 Getting Support
 ***************
 
-Users can go to the srsRAN mailing list with any questions they may have. We encourage all users to join, 
-as it is a great way to ask questions and get help, but also a great way to see the other types of projects 
-users are working on. 
+Join the community on the `srsRAN-users <https://lists.srsran.com/mailman/listinfo/srsran-users>`_ mailing list.
+The mailing list is a great place to ask questions, get support from the community and learn more about the various projects 
+users are working on.
 
-The mailing list is managed by SRS. Users typically get answers from members of our team, but can also get answers from other members of the community. 
-
-Click `here <https://lists.srsran.com/mailman/listinfo/srsran-users>`_  to join the mailing list! 
