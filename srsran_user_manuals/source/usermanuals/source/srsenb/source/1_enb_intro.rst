@@ -42,13 +42,6 @@ The srsENB LTE eNodeB includes the following features:
 - 50 Mbps UL in 20 MHz with commercial UEs
 - User-plane encryption
 
-srsENB has been tested and validated with a broad range of COTS handsets including:
-
-- LG Nexus 5 and 4
-- Motorola Moto G4 plus and G5
-- Huawei P9/P9lite, P10/P10lite, P20/P20lite
-- Huawei dongles: E3276 and E398
-
 eNodeB architecture
 *******************
 

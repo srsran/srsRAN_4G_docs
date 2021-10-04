@@ -43,13 +43,6 @@ The SRS UE includes the following features:
 - 36 Mbps DL in 10 MHz SISO configuration
 - Supports Ettus USRP B2x0/X3x0 families, BladeRF, LimeSDR
 
-srsUE has been fully tested and validated with the following network equipment: 
-
-- Amarisoft LTE100 eNodeB and EPC
-- Nokia FlexiRadio family FSMF system module with 1800MHz FHED radio module and TravelHawk EPC simulator
-- Huawei DBS3900 
-- Octasic Flexicell LTE-FDD NIB
-
 UE architecture
 ***************
 
