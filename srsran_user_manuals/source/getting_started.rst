@@ -1,7 +1,7 @@
-.. _first_steps:
+.. _getting_started:
 
-First Steps
------------
+Getting Started
+---------------
 
 | Get srsRAN installed on your computer:
 |   - :ref:`Installation <gen_installation>`
@@ -22,4 +22,7 @@ First Steps
 
 | Learn about the team behind srsRAN:
 |   - `Software Radio Systems <https://srs.io>`_
+
+| Join our mailing list for news and user support:
+|   - `Mailing List <https://lists.srsran.com/mailman/listinfo/srsran-users>`_ 
 
