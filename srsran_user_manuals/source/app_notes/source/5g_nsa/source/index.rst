@@ -16,8 +16,10 @@ we use the Amari Callbox Classic from Amarisoft to provide the network.
 5G NSA: What you need to know
 *****************************
 
-.. image:: .imgs/nsa.jpg
-		:align: center
+.. figure:: .imgs/5G_NSA_mode3.png
+  :align: center
+  
+  5G NSA Mode 3
 
 5G Non-Standalone mode provides 5G support by building upon and using pre-existing 4G infrastructure.
 A secondary 5G carrier is provided in addition to the primary 4G carrier. A 5G NSA UE connects first 
