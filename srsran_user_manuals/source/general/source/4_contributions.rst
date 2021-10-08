@@ -23,7 +23,7 @@ The agreements used by the srsRAN project are standard documents provided by Pro
 2. How do I complete and submit the CLA?
 ----------------------------------------
 
-The srsRAN CLAs can be found `here <http://www.softwareradiosystems.com/files/cla/>`_. Download the appropriate CLA, then print, sign and scan the document before sending by email to licensing@softwareradiosystems.com.
+The srsRAN CLA for Individual contributions can be found :download:`here <SRS-CLA-Individual.pdf>`. The srsRAN CLA for Entity contributions can be found :download:`here <SRS-CLA-Entity.pdf>`. Download the appropriate CLA, then print, sign and scan the document before sending by email to licensing@softwareradiosystems.com.
 
 
 3. How will my contributions to srsRAN be used?
