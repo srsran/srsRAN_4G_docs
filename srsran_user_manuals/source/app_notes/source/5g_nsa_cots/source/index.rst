@@ -86,10 +86,10 @@ Configuration
 
 The network will have to be configured to support the NSA network and to work with a COTS UE. The following srsRAN configuration files will need to be updated: 
 
-  * enb.conf
-  * rr.conf
-  * epc.conf
-  * user_db.csv 
+  * :download:`enb.conf<enb.conf>` 
+  * :download:`rr.conf <rr.conf>`
+  * :download:`epc.conf<epc.conf>`
+  * :download:`user_db.csv<user_db.csv>`
  
 
 The enb.conf and epc.conf files will need to be edited such that the MCC & MNC values match those of the USIM. 
@@ -208,26 +208,26 @@ The AMF, SQN, QCI and IP Alloc fields can be populated with the following values
 
 This will result in a user_db.csv file that should look something like the following:: 
 
-	1 | #                                                                                           
-	2 | # .csv to store UE's information in HSS                                                     
-	3 | # Kept in the following format: "Name,Auth,IMSI,Key,OP_Type,OP,AMF,SQN,QCI,IP_alloc"      
-	4 | #                                                                                           
-	5 | # Name:     Human readable name to help distinguish UE's. Ignored by the HSS                
-	6 | # IMSI:     UE's IMSI value                                                                 
-	7 | # Auth:     Authentication algorithm used by the UE. Valid algorithms are XOR               
-	8 | #           (xor) and MILENAGE (mil)                                                        
-	9 | # Key:      UE's key, where other keys are derived from. Stored in hexadecimal              
-	10| # OP_Type:  Operator's code type, either OP or OPc                                          
-	11| # OP/OPc:   Operator Code/Cyphered Operator Code, stored in hexadecimal                     
-	12| # AMF:      Authentication management field, stored in hexadecimal                          
-	13| # SQN:      UE's Sequence number for freshness of the authentication                        
-	14| # QCI:      QoS Class Identifier for the UE's default bearer.                               
-	15| # IP_alloc: IP allocation stratagy for the SPGW.                                            
-	16| #           With 'dynamic' the SPGW will automatically allocate IPs                         
-	17| #           With a valid IPv4 (e.g. '172.16.0.2') the UE will have a statically assigned IP.
-	18| #                                                                                           
-	19| # Note: Lines starting by '#' are ignored and will be overwritten                           
-	20| COTS_UE,mil,901700000020936,4933f9c5a83e5718c52e54066dc78dcf,opc,fc632f97bd249ce0d16ba79e6505d300,9000,0000000060f8,9,dynamic
+	#                                                                                           
+	# .csv to store UE's information in HSS                                                     
+	# Kept in the following format: "Name,Auth,IMSI,Key,OP_Type,OP,AMF,SQN,QCI,IP_alloc"      
+	#                                                                                           
+	# Name:     Human readable name to help distinguish UE's. Ignored by the HSS                
+	# IMSI:     UE's IMSI value                                                                 
+	# Auth:     Authentication algorithm used by the UE. Valid algorithms are XOR               
+	#           (xor) and MILENAGE (mil)                                                        
+	# Key:      UE's key, where other keys are derived from. Stored in hexadecimal              
+	# OP_Type:  Operator's code type, either OP or OPc                                          
+	# OP/OPc:   Operator Code/Cyphered Operator Code, stored in hexadecimal                     
+	# AMF:      Authentication management field, stored in hexadecimal                          
+	# SQN:      UE's Sequence number for freshness of the authentication                        
+	# QCI:      QoS Class Identifier for the UE's default bearer.                               
+	# IP_alloc: IP allocation stratagy for the SPGW.                                            
+	#           With 'dynamic' the SPGW will automatically allocate IPs                         
+	#           With a valid IPv4 (e.g. '172.16.0.2') the UE will have a statically assigned IP.
+	#                                                                                           
+	# Note: Lines starting by '#' are ignored and will be overwritten                           
+	COTS_UE,mil,901700000020936,4933f9c5a83e5718c52e54066dc78dcf,opc,fc632f97bd249ce0d16ba79e6505d300,9000,0000000060f8,9,dynamic
 
 The auth, IMSI, key, OP Type and OP are values associated with the USIM being used. The values assigned to the AMF, SQN, QCI & IP Alloc are the default values above, which is explained further :ref:`here <config_csv>` in the EPC documentation. Ensure there is no white space between the values in each entry, as this will cause the file to be read incorrectly. 
 
@@ -263,21 +263,141 @@ If it has executed successfully you will see the following message::
 The configuration files, user DB and UE are now set up appropriately to allow the COTS UE to connect to the eNB and Core. 
 
 
-Network Set-up
-**************
+Connecting to the Network
+*************************
 
-<RUN EXPERIMENT>
+The final step in connecting a COTS UE to srsRAN is to first run the EPC and eNB, and then connect to that network from the UE. 
+The following sections will outline how this is achieved.
 
 Core
 ==== 
+First run srsEPC:: 
+	
+	sudo srsepc
+	
+The following output should be displayed on the console:: 
 
-gNB
-=====
+	Built in Release mode using commit c892ae56b on branch master.
+	
+	---  Software Radio Systems EPC  ---
+	
+	Reading configuration file /etc/srsran/epc.conf...
+	HSS Initialized.
+	MME S11 Initialized
+	MME GTP-C Initialized
+	MME Initialized. MCC: 0xf901, MNC: 0xff70
+	SPGW GTP-U Initialized.
+	SPGW S11 Initialized.
+	SP-GW Initialized.
 
+srsENB
+======
+
+Now start srsENB:: 
+
+	sudo srsenb 
+	
+The console should display the following or similar:: 
+
+	---  Software Radio Systems LTE eNodeB  ---
+
+	Opening 2 channels in RF device=uhd with args=type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=23.04e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64,None
+	[INFO] [UHD] linux; GNU C++ version 9.3.1 20200408 (Red Hat 9.3.1-2); Boost_106900; UHD_3.15.0.0-62-g7a3f1516
+	[INFO] [LOGGING] Fastpath logging disabled at runtime.
+	Opening USRP channels=2, args: type=x300,lo_freq_offset_hz=23.04e6,send_frame_size=8000,recv_frame_size=8000,num_send_frames=64,num_recv_frames=64,None=,master_clock_rate=184.32e6
+	[INFO] [UHD RF] RF UHD Generic instance constructed
+	[INFO] [X300] X300 initialization sequence...
+	[INFO] [X300] Maximum frame size: 8000 bytes.
+	[INFO] [X300] Radio 1x clock: 184.32 MHz
+	[INFO] [0/DmaFIFO_0] Initializing block control (NOC ID: 0xF1F0D00000000000)
+	[INFO] [0/DmaFIFO_0] BIST passed (Throughput: 1315 MB/s)
+	[INFO] [0/DmaFIFO_0] BIST passed (Throughput: 1307 MB/s)
+	[INFO] [0/Radio_0] Initializing block control (NOC ID: 0x12AD100000000001)
+	[INFO] [0/Radio_1] Initializing block control (NOC ID: 0x12AD100000000001)
+	[INFO] [0/DDC_0] Initializing block control (NOC ID: 0xDDC0000000000000)
+	[INFO] [0/DDC_1] Initializing block control (NOC ID: 0xDDC0000000000000)
+	[INFO] [0/DUC_0] Initializing block control (NOC ID: 0xD0C0000000000000)
+	[INFO] [0/DUC_1] Initializing block control (NOC ID: 0xD0C0000000000000)
+	[INFO] [MULTI_USRP]     1) catch time transition at pps edge
+	[INFO] [MULTI_USRP]     2) set times next pps (synchronously)
+
+	==== eNodeB started ===
+	Type <t> to view trace
+	Setting frequency: DL=806.0 Mhz, UL=847.0 MHz for cc_idx=0 nof_prb=50
+	Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=1 nof_prb=52
+
+The EPC console should now print an update if the eNB has successfully connected to the core:: 
+		
+	Received S1 Setup Request.
+	S1 Setup Request - eNB Name: srsenb01, eNB id: 0x19b
+	S1 Setup Request - MCC:901, MNC:70, PLMN: 651527
+	S1 Setup Request - TAC 0, B-PLMN 0
+	S1 Setup Request - Paging DRX v128
+	Sending S1 Setup Response
+		
+The network is now ready for the COTS UE to connect.
 
 UE
 ===
 
-Ping
-==== 
+You can now connect the UE to the network by taking the following steps: 
+
+Open the Settings menu and navigate to the Sim & Network options
+
+.. image:: .imgs/ue_settings.jpg
+	:align: center
+	:height: 500px
+
+Open this menu and proceed to the sub-menu associated with the USIM being used. It should look something like the following: 
+
+.. image:: .imgs/sim_settings.jpg
+	:align: center
+	:height: 500px
+
+Under the Network Operators find the network which you have just instantiated using srsRAN
+
+Select the network that is a combination of your MMC & MNC values. The UE should then automatically connect to the network. 
+	
+To check for a successful connection use the logs output to the console. 
+
+Confirming connection
+*********************
+
+Once the UE has connected to the network, the console outputs of the srsENB and srsEPC can be used to confirm a successful connection. 
+
+srsENB
+======
+If a successful connection is made, a ``RACH`` message should be seen followed by a ``USER <ID> connected`` message. Where "<ID>" is a hex ID representing the UE. 
+
+You may see some other RACHs and ``Disconnecting rtni=<ID>`` messages. This may be from interference, if you have seen a clear connection between the UE and network 
+these can be ignored. 
+
+If the UE connects properly you should see something similar to the following in the srsENB console:: 
+
+	==== eNodeB started ===
+	Type <t> to view trace
+	Setting frequency: DL=806.0 Mhz, UL=847.0 MHz for cc_idx=0 nof_prb=50
+	Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=1 nof_prb=52
+	User 0x46 connected
+	RACH:  slot=7691, cc=0, preamble=41, offset=1, temp_crnti=0x4602
+
+	          -----------------DL----------------|-------------------------UL-------------------------
+	lte   46   12   0    5   2.5k    4    0   0% |  25.7    9.4   23   23    17k    4    0   0%    0.0
+	 nr 4601  n/a   0    0      0    0    0   0% |   n/a    n/a    0    0    38k    4    0   0%    0.0
+	lte   46   13   0    0      0    0    0   0% |   n/a    6.2    0    0      0    0    0   0%    0.0
+	 nr 4601  n/a   0    0      0    0    0   0% |   n/a    n/a    0    0      0    0    0   0%    0.0
+	lte   46   13   0    0      0    0    0   0% |   n/a    6.2    0    0      0    0    0   0%    0.0
+
+The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect 
+it to the network. The UE should now also have access to the internet - as if connected to a commercial 5G network.
+
+Troubleshooting
+***************
+
+- Some UEs have issues detecting networks operating on a test PLMN such as 00101. Using the MCC of your local country can increase the chance to find the network. Even better results 
+  are achieved by using an existing PLMN from another commercial network. 
+
+.. warning::
+   These should be done with the UE in a shielded environment, so not to interfere with commercial networks. 
+
 
