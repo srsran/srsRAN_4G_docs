@@ -2,8 +2,8 @@
 
 .. _zeromq_appnote:
 
-ZeroMQ Application note
-===========================
+Using ZMQ with srsRAN
+=====================
 
 
 Introduction

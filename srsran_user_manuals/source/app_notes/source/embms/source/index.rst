@@ -2,8 +2,8 @@
 
 .. _embms_appnote:
 
-eMBMS Application note
-===========================
+Configuring srsRAN for eMBMS
+============================
 
 
 Introduction
