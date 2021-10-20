@@ -14,10 +14,7 @@
 Introduction
 ************
 
-This application note aims to demonstrate how to set up your own 5G NSA network using srsENB, srsEPC and a 5G capable COTS UE. There 
-are two options for network set-up when connecting a COTS UE: The network can be left as is, and the UE can communicate locally 
-within the network, or the EPC can be connected to the internet through the P-GW, allowing the UE to access the internet for 
-web-browsing, email etc. 
+This application note shows how to create your own 5G NSA network using srsENB, srsEPC and a 5G capable COTS UE. There are two options for network setup when connecting a COTS UE: The network can be left as is, and the UE can communicate locally within the network, or the EPC can be connected to the internet through the P-GW, allowing the UE to access the internet for web-browsing, email etc. 
 
 Network & Hardware Overview
 ***************************
@@ -30,8 +27,8 @@ Network & Hardware Overview
 Setting up a 5G NSA network and connecting a 5G COTS UE requires the following: 
 
  - PC with a Linux based OS, with srsRAN installed and built
- - An dual channel RF-frontend capable of Tx & Rx, with an RF chain for each 
- - A 5G COTS UE 
+ - An dual channel RF-frontend with independent RF chains
+ - A 5G UE 
  - USIM/ SIM card (This must be a test card or a programmable card, with known keys)
 
 For this implementation the following equipment is used: 
@@ -40,16 +37,12 @@ For this implementation the following equipment is used:
 	- X300 USRP
 	- OnePlus Nord 5G with a Sysmocom USIM 
 
-RF-Frontend 
-===========
+UE Considerations
+=================
 
-<Why we need 2 rf chains>
-
-COTS UE
-=======
-
-<what features must the phone have>
-<sim being used>
+- Many 5G handsets may contain a carrier policy file that limits the permitted 5G NSA frequency band combinations, based on the PLMN of the USIM (first 6 digits of IMSI). Carrier policy files typically don't include test network PLMNs, so setting a test PLMN may result in 5G being disabled. If possible, using a shielded box and configuring the network with a commercial carrier PLMN may avoid policy file issues. Check the supported band combinations for your handset using `<https://cacombos.com/>`_.
+- On some handsets, when using a test USIM, you may need to activate 5G NR using ``*#*#4636#*#*``.
+- If your handset supports "Smart 5G", disable this option as it may force the handset to 4G and activate roaming.
 
 Dependencies
 ************
@@ -67,11 +60,10 @@ can be found here:
 srsRAN
 ======
 
-If you have not already done so, install the latest version of srsRAN and it's dependencies. This is outlined in the :ref:`installation guide <gen_installation>`. 
+If you have not already done so, install the latest version of srsRAN and dependencies. This is outlined in the :ref:`installation guide <gen_installation>`. 
 
 .. note::
-   If you install or update your driver **after** installing srsRAN, you will have to re-build srsRAN. This is because if the driver is not present 
-   at build time, srsRAN will not recongnise it at run-time. 
+   If you install or update your driver **after** installing srsRAN, you will have to re-build srsRAN.
 
 Checking Drivers
 ================
@@ -92,8 +84,7 @@ If you are using UHD as your driver, you should see the following output if srsR
 Configuration
 **************
 
-The network will have to be configured to support the NSA network and to work with a COTS UE. The following srsRAN configuration files will need to be 
-updated: 
+The network will have to be configured to support the NSA network and to work with a COTS UE. The following srsRAN configuration files will need to be updated: 
 
   * enb.conf
   * rr.conf
@@ -101,25 +92,23 @@ updated:
   * user_db.csv 
  
 
-The enb.conf and epc.conf files will need to be edited such that the MCC & MNC values are the same as those associated with the SIM/ USIM. 
+The enb.conf and epc.conf files will need to be edited such that the MCC & MNC values match those of the USIM. 
 The rr.conf needs to be updated to add the NR cell. The user_db.csv file needs to be updated so that it contains the credentials associated with the USIM card being used in the UE.
 
-An APN will also need to be added to the COTS UE to allow it to access the internet. This is created from the UE and reflected in the EPC config file. 
+An APN will also need to be added to the COTS UE to allow it to access the internet. This is reflected in the EPC config file. 
 
-The configuration files used for this example set-up are attached above for reference. Users will have to edit the relevant fields so that their COTS UE will be 
-supported by the network. 
+The configuration files used for this example set-up are attached above for reference. Users may need to edit the relevant fields so that their specific COTS UE will be supported by the network. 
 
 Add APN to COTS UE
 ==================
 
-To add an APN to the UE navigate to the Network settings for the SIM being used. From here an APN can be added, usually under ``Access point names``. Create 
-a new APN with the name and APN ``test123``, as shown in the following figure. 
+To add an APN to the UE, navigate to the Network settings for the USIM being used. From here an APN can be added, usually under ``Access point names``. Create a new APN with the name and APN ``test123``, as shown below. 
 
 	.. image:: .imgs/apn_ue.jpg
 		:align: center
 		:height: 500px
 
-All of the other settings can be left on the default options. The name of the APN here does not actually matter, so long as the naming is consistent between the UE and the EPC.
+All other settings can be left on the default options. The name of the APN here does not actually matter, as long as the naming is consistent between the UE and the EPC.
 
 srsENB
 ======
@@ -146,8 +135,6 @@ The ``MCC`` & ``MNC`` codes must be updated in the enb.conf to reflect the value
 The rest of the options can be left at the default values. They may be changed as needed, but further modification 
 is not necessary to enable the successful connection of a COTS UE. 
 
-<does the EARFCN need to be changed?>
-
 rr.conf 
 --------
 
@@ -172,10 +159,7 @@ The main change to the rr.conf file is the addition of the NR cell to the cell l
 	  }
 	);
 
-Here we have added both the TDD and FDD configs. For this example we will be using the FDD configuration, so the TDD configuration is commented out. The TDD and FDD configs can be swapped 
-by stopping srsENB, making the necessary changes to this file, and restarting srsENB. So long as the UE supports both. If the UE only supports one then that should be used.  
-
-<choosing bands?>
+Here we have added both the TDD and FDD configs. For this example we will be using the FDD configuration, so the TDD configuration is commented out. Check that the UE model supports the chosen bands.
 
 Core 
 ====
@@ -183,7 +167,7 @@ Core
 epc.conf
 --------
 
-The EPC config file must be modificed to reflect the ``MCC`` & ``MNC``, as well as the ``APN`` being used by the UE:: 
+The EPC config file must be modified to reflect the ``MCC`` & ``MNC``, as well as the ``APN`` being used by the UE:: 
 	
 	#####################################################################
 	[mme]
@@ -245,23 +229,16 @@ This will result in a user_db.csv file that should look something like the follo
 	19| # Note: Lines starting by '#' are ignored and will be overwritten                           
 	20| COTS_UE,mil,901700000020936,4933f9c5a83e5718c52e54066dc78dcf,opc,fc632f97bd249ce0d16ba79e6505d300,9000,0000000060f8,9,dynamic
 
-The auth, IMSI, key, OP Type and OP are values associated with the sim being used. The values assigned to the AMF, SQN, QCI & IP Alloc are the default values above, which is 
-explained further :ref:`here <config_csv>` in the EPC documentation. Ensure there is no white space between the values in each entry, as this will cause 
-the file to be read incorrectly. 
-
-<what are our values?>
+The auth, IMSI, key, OP Type and OP are values associated with the USIM being used. The values assigned to the AMF, SQN, QCI & IP Alloc are the default values above, which is explained further :ref:`here <config_csv>` in the EPC documentation. Ensure there is no white space between the values in each entry, as this will cause the file to be read incorrectly. 
 
 Masquerading Script
 ===================
 
 To allow UE to connect to the internet via the EPC, the pre-configured masquerading script must be run. This can be found in ``srsRAN/srsepc``. 
 
-The masquerading script enables IP forwarding and sets up Network Address Translation to pass traffic between the srsRAN network and the external network. 
-The script must be run each time the machine is re-booted, and can be done before or while the srsRAN is running. The UE will not be able to communicate 
-with the interet until this script has been run. 
+The masquerading script enables IP forwarding and sets up Network Address Translation to pass traffic between the srsRAN network and the external network. The script must be run each time the machine is re-booted, and can be done before or while the srsRAN is running. The UE will not be able to communicate with the wider internet until this script has been run. 
 
-Before running the script it is important to identify the interface being used to connect your PC to the internet. As the script requires this to be passed 
-in as an argument. This can be done by running the following command:: 
+Before running the script it is important to identify the interface being used to connect your PC to the internet. The script requires this as an argument as shown below:: 
 
    route
 
@@ -304,10 +281,3 @@ UE
 Ping
 ==== 
 
-Limitations
-***********
-
-<HARDWARE AND SOFTWARE>
-
-Troubleshooting
-***************

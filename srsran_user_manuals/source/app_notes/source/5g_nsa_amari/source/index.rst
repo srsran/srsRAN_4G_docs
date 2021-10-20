@@ -2,8 +2,8 @@
 
 .. _5g_nsa_amari_appnote:
 
-5G NSA with srsRAN and 3rd Party gNB
-====================================
+5G NSA srsUE
+============
 
 Introduction
 ************

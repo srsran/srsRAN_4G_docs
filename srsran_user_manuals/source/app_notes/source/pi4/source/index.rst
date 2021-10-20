@@ -2,8 +2,8 @@
 
 .. _pi4_appnote:
 
-Running srsRAN on Raspberry Pi 4
-================================
+srsRAN on Raspberry Pi 4
+========================
 
 
 Introduction

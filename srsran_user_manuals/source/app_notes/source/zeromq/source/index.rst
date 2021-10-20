@@ -2,20 +2,16 @@
 
 .. _zeromq_appnote:
 
-Using ZMQ with srsRAN
-=====================
+srsRAN with ZMQ Virtual Radios
+===================================
 
 
 Introduction
 ************
 srsRAN is a 4G and 5g software radio suite. The 4G network consists of a core network, an eNodeB, and a UE implementation. Usually eNodeB and UE
-are used with actual RF front-ends for over-the-air transmissions. There are, however, a number
-of use-cases for which RF front-ends might not be needed or wanted. Those use-cases include (but are not limited to) the
-use of srsRAN for educational or research purposes, continuous integration and delivery (CI/CD) or development and debugging.
+are used with physical radios for over-the-air transmissions. However, the srsRAN software suite also includes a virtual radio which uses the ZeroMQ networking library to transfer radio samples between applications. This approach is very useful for development, testing, debugging, CI/CD or for teaching and demonstrating.
 
-With srsRAN this can be achieved by replacing the radio link between eNodeB and UE with a mechanism that allows to
-exchange baseband IQ samples over an alternative transport. For this purpose, we've implemented a ZeroMQ-based RF driver that
-essentially acts as a transmit and receive pipe for exchanging IQ samples over TCP or IPC.
+This application note shows how the srsRAN virtual radio approach can be used to create an end-to-end network.
 
 
 ZeroMQ Installation

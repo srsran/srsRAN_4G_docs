@@ -2,8 +2,8 @@
 
 .. _2ca_appnote:
 
-Carrier Aggregation Using ZMQ
-=============================
+Carrier Aggregation
+===================
 
 
 Introduction

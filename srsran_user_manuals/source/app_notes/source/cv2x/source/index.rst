@@ -3,8 +3,8 @@
 .. _cv2x_appnote:
 
 
-C-V2X with srsRAN & USRP
-########################
+C-V2X Signalling
+################
 
 Introduction
 ============

@@ -2,8 +2,8 @@
 
 .. _cots_ue_appnote:
 
-LTE COTS UE
-===========
+COTS UE
+=======
 
 **Please note, operating a private LTE network on cellular frequency bands may be tightly regulated in your jurisdiction. Seek the approval of your telecommunications regulator before doing so.**
 

@@ -2,8 +2,8 @@
 
 .. _nbiot_appnote:
 
-NB-IoT Signal Decoding and Generation
-=====================================
+NB-IoT Signalling
+=================
 
 
 Introduction

@@ -2,13 +2,13 @@
 
 .. _5g_nsa_zmq_appnote: 
 
-5G NSA Using ZMQ
-################
+5G NSA End-to-End
+#################
 
-The 21.10 release of srsRAN brings the first implementation of a 5G NSA gNB to the software suite. Our NSA gNB is 
-packaged as part of the srsENB application, the gNB features are enabled prior to run time via the configuration files. 
-This application note shows how the srsRAN can be used to create an end-to-end 5G NSA Network using srsUE, srsENB and srsEPC
-using ZMQ in place of physical RF hardware.
+The 21.10 release of srsRAN brings 5G NSA support to the SRS eNodeB application (srsENB). 
+5G NSA features can be enabled via the srsENB configuration files.
+This application note shows how to create an end-to-end 5G NSA Network using srsUE, srsENB and srsEPC.
+The ZMQ virtual radio is used in place of physical RF hardware.
 
 5G NSA Overview
 ***************
@@ -44,13 +44,10 @@ This set up requires the following:
 	* srsENB configured so that both an LTE eNB, and an NSA gNB cell are created at run time 
 	* srsEPC with the UE included in the list of subscribers 
 
-The UE will communicate with the eNB and NSA gNB via ZMQ. The gNB and eNB cells will communicate over the X2 interface. The eNB will communicate with the EPC as 
-per a standard LTE network. 
-
 Using RF-Hardware
 =================
 
-If you wanted to implement a physical network using RF-hardware, you would need the following:
+To create a physical end-to-end network using RF-hardware, the following is required:
 
 .. list-table:: NSA Network Hardware Requirements
    :widths: 25 20 25
@@ -71,16 +68,14 @@ If you wanted to implement a physical network using RF-hardware, you would need 
 	
 Such a set-up requires two X3xx series USRPs and 2 Linux PCS.
 
-It is recommended to use an `X3xx series USRP <https://www.ettus.com/product-categories/usrp-x-series/>`_ with a `UBX Daughterboard <https://www.ettus.com/all-products/ubx40/>`_. Any other RF-hardware used 
-must support dual channel Tx and Rx, with an RF chain for each. Otherwise, srsRAN will not be able to configure the radio correctly due to hardware limitations. 
+It is recommended to use an `X3xx series USRP <https://www.ettus.com/product-categories/usrp-x-series/>`_ with a `UBX Daughterboard <https://www.ettus.com/all-products/ubx40/>`_. Other RF hardware featuring dual channel Tx and Rx with independent RF chains may also be supported.
 
 Network Configuration
 *********************
 
-Changes need to be made to the configuration files of srsUE and srsENB. These changes will be to reflect the use of ZMQ and also to enable the NSA gNB cell. No changes are required for the srsEPC 
-configuration, this should work out-of-the-box as we are not straying from the defualt settings. 
+Changes need to be made to the configuration files of srsUE and srsENB. These changes enable the use of ZMQ and also enable the 5G NSA carrier in srsENB. No srsEPC configuration changes are required. 
 
-The config files used have been attached here for users to download. These contain only the key parts needed for this set-up. All changes made are outlined in the following sections. 
+Example config files used in this note are available for download. Only modified configs are included here, default configs can be used elsewhere. All changes are outlined in the following sections. 
 
 	* :download:`ue.conf<.configs/ue_example.conf>` 
 	* :download:`enb.conf<.configs/enb_example.conf>` 
@@ -88,7 +83,7 @@ The config files used have been attached here for users to download. These conta
 
 srsUE
 =====
-For srsUE the relevant changes need to be made to ``ue.conf`` to enable ZMQ, the NR capabilities must be set-up and the correct release chosen. Otherwise, srsUE will not connect properly to the NSA gNB. 
+For srsUE the relevant changes need to be made to ``ue.conf`` to enable ZMQ and 5G NR capabilities.
 
 ZMQ 
 ---
@@ -98,9 +93,9 @@ As per the description in the :ref:`ZMQ app-note <zeromq_appnote>`, to enable ZM
 	device_name = zmq
 	device_args = tx_port0=tcp://*:2001,rx_port0=tcp://localhost:2000,tx_port1=tcp://*:2101,rx_port1=tcp://localhost:2100,id=ue,base_srate=23.04e6
 
-Here we add two TX and two RX channels. One for the eNB and one for the gNB, as outlined in the network diagram.
+Here we add two TX and two RX channels to support both the 4G primary and 5G secondary carriers, as outlined in the network diagram.
 
-To complete the ZMQ set-up the **netns** must be set under the **[gw]** settings:: 
+To complete the ZMQ set-up, the network namespace **netns** must be set under the **[gw]** settings:: 
 
 	[gw]
 	netns = ue1
@@ -108,27 +103,26 @@ To complete the ZMQ set-up the **netns** must be set under the **[gw]** settings
 NR RAT
 ------
 
-The NR capabilities for the UE must also be set in the config, this is done under the **[rat.nr]** section:: 
+The 5G NR capabilities of the UE must also be enabled in the config under the **[rat.nr]** section:: 
 
 	bands = 3,78
 	nof_carriers = 1 
 
-Here bands 3 and 78 represend the FDD and TDD capabilities of the UE. The use of TDD or FDD will be set by the eNB. By including both here, it means that you can change between a TDD and FDD
-set-up within the eNB config, and not have to worry about changing the UE config. 
+Here we enable bands 3 and 78, which are FDD and TDD frequency bands respectively. By including both in the UE config, we can test each duplex mode simply by configuring the network.
 
 The number of NR carriers needs to be set to 1, or else the UE will not be able to connect to the gNB. If this was not set, it would result in the UE only having an LTE connection. 
 
 Release
 -------
 
-As NSA Mode is part of **release 15**, this must be reflected in the config. The default release used is 8. Add the following entry under the **[rrc]** field:: 
+As NSA Mode is part of 3GPP **release 15**, this must be reflected in the config. The default release used is 8. Add the following entry under the **[rrc]** field:: 
 
 	release = 15 
 
 srsENB
 ======
 
-Changes need to be made to both ``enb.conf`` and ``rr.conf`` to enable NSA gNB cell. 
+Changes need to be made to both ``enb.conf`` and ``rr.conf`` to enable 5G NSA. 
 
 eNB Config
 ----------
@@ -138,7 +132,7 @@ First the the changes required to enable ZMQ should be made. This involves chang
 	device_name = zmq
 	device_args = fail_on_disconnect=true,tx_port0=tcp://*:2000,rx_port0=tcp://localhost:2001,tx_port1=tcp://*:2100,rx_port1=tcp://localhost:2101,id=enb,base_srate=23.04e6	
 
-Similarly to the UE there are two TX and two RX channels. These channels are mapped to the relevent ports on the UE. 
+Similarly to the UE there are two TX and two RX channels. These channels are mapped to the relevent ports configured on the UE. 
 
 No other changes are needed in the enb.conf. 
 
@@ -172,7 +166,7 @@ by stopping srsENB, making the necessary changes to this file, and restarting sr
 Network Set-up
 **************
 
-The network should now be configured to run in 5G NSA mode, connecting the UE to the eNB and gNB, and then to the core. To do this, srsRAN is run as normal. 
+With the above configurations, the network can now be started. Run the EPC first, followed by the eNodeB and the UE.
 
 EPC
 ===
@@ -218,7 +212,7 @@ The following output, or similar, will be seen if srsENB as started correctly::
 	Setting frequency: DL=2680.0 Mhz, UL=2560.0 MHz for cc_idx=0 nof_prb=50
 	Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=1 nof_prb=52
 
-Note how two cells have been created, with ids 0 and 1. 0 is the LTE cell, and 1 is the NR cell. 
+Note how two cells have been created, with IDs 0 and 1. 0 is the LTE cell, and 1 is the NR cell. 
 
 If the eNB successfully attaches to the core, the console trace for the EPC should update. 
 
@@ -272,28 +266,25 @@ be found in the :ref:`ZMQ app-note <zeromq_appnote>`, so for this example ``iper
 iPerf 
 -----
 
-In this set-up the UE will be the client and the eNB/ gNB will the server. UDP traffic will be run at a bandwidth of 10 MHz, every second, for 60 seconds. For the UE iperf must be run from the UEs
-network namespace, and the IP of srsENB passed to it. It is important to start the server first, and then the client.
+In this setup the client will run on the UE side with the server on the network side. UDP traffic will be generated at 10Mbps for 60 seconds. When running the iperf client, we use the UE network namespace and specify the network-side IP address. It is important to start the server first, and then the client.
 
-eNB/ gNB 
-^^^^^^^^
+Network-side 
+^^^^^^^^^^^^
 
-Set up the iperf server using:: 
+Start the iPerf server:: 
 
 	iperf3 -s -i 1 
 
 This will then listen for traffic coming from the UE. 
 
-UE
-^^
+UE-side
+^^^^^^^
 
-With the network and the iPerf server up and running, the client can be run from the UEs network namespace with following command:: 
+With the network and the iPerf server up and running, the client can be run from the UE's network namespace with following command:: 
 
 	sudo ip netns exec ue1 iperf3 -c 172.16.0.1 -b 10M -i 1 -t 60 
 
-Traffic will now be set from the UE to the eNB/ gNB. This will be shown in both the server and client consoles, and also in the trace for both the UE and the eNB/ gNB. 
-
-For reference, if the traffic is being sent successfully the iPerf console for the **client** should look like this:: 
+Traffic will now be sent from the UE to the eNB. This will be shown in both the server and client consoles, and also in the trace for both the UE and the eNB. Example **client** iPerf output:
 
 	Connecting to host 172.16.0.1, port 5201                                                              
 	[  5] local 172.16.0.2 port 52484 connected to 172.16.0.1 port 5201              
@@ -305,7 +296,7 @@ For reference, if the traffic is being sent successfully the iPerf console for t
 	[  5]   4.00-5.00   sec   512 KBytes  4.19 Mbits/sec    2   39.6 KBytes                                                                                                                                      
 	[  5]   5.00-6.00   sec   512 KBytes  4.19 Mbits/sec    2   33.9 KBytes   
 
-While the **server** should have the following displayed in the console:: 
+Example **server** iPerf output:: 
 
 	-----------------------------------------------------------                                                                                                                                                  
 	Server listening on 5201                                                                                                                                                                                     
@@ -323,7 +314,7 @@ While the **server** should have the following displayed in the console::
 UE Trace 
 ---------
 
-The UE console trace can be enabled by enter ``t`` in the UE console, it is updated every second. 
+The UE console trace can be enabled by entering ``t`` on the UE console. The trace is updated every second. 
 
 .. note::
    The time interval between metrics reports can be changed in the UE config file under the ``[general]`` field, by changing the value of ``metrics_period_secs``. 
@@ -348,7 +339,7 @@ The ``rat`` field reports if a metric is associated with the NSA 5G link (nr), o
 eNB/ gNB Trace
 --------------
 
-The eNB/ gNB trace can also be enable by entering ``t`` in the console. The metrics are reported every second. 
+The eNB/ gNB trace can also be enabled by entering ``t`` on the console. The metrics are reported every second. 
 
 .. note::
 	This can also be changed in the eNB config file, under the ``[expert]`` heading, by changing the value of ``metrics_period_secs``.
@@ -383,13 +374,3 @@ To enable srsGUI, see `here <https://github.com/srslte/srsgui>`_.
 .. Note:: 
 
 	If you have already built srsRAN without srsGUI support, you must re-do so after srsGUI has been built. 
-
-Limitations
-***********
-
-<HARDWARE AND SOFTWARE>
-
-Troubleshooting
-***************
-
-<MAYBE GIVE EXAMPLE OF LOGS/ PCAPS HERE? GENERAL IDEA OF HOW TO DEBUG>
