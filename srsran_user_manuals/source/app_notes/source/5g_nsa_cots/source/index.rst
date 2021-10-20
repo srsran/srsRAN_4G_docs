@@ -357,8 +357,6 @@ Open this menu and proceed to the sub-menu associated with the USIM being used. 
 Under the Network Operators find the network which you have just instantiated using srsRAN
 
 Select the network that is a combination of your MMC & MNC values. The UE should then automatically connect to the network. 
-	
-To check for a successful connection use the logs output to the console. 
 
 Confirming connection
 *********************
@@ -367,12 +365,7 @@ Once the UE has connected to the network, the console outputs of the srsENB and 
 
 srsENB
 ======
-If a successful connection is made, a ``RACH`` message should be seen followed by a ``USER <ID> connected`` message. Where "<ID>" is a hex ID representing the UE. 
-
-You may see some other RACHs and ``Disconnecting rtni=<ID>`` messages. This may be from interference, if you have seen a clear connection between the UE and network 
-these can be ignored. 
-
-If the UE connects properly you should see something similar to the following in the srsENB console:: 
+If a successful connection is made, a ``RACH`` message should be seen followed by a ``USER <ID> connected`` message where "<ID>" is the RNTI assigned to the UE::
 
 	==== eNodeB started ===
 	Type <t> to view trace
@@ -388,16 +381,14 @@ If the UE connects properly you should see something similar to the following in
 	 nr 4601  n/a   0    0      0    0    0   0% |   n/a    n/a    0    0      0    0    0   0%    0.0
 	lte   46   13   0    0      0    0    0   0% |   n/a    6.2    0    0      0    0    0   0%    0.0
 
-The UE is now connected to the network. and should now automatically connect to this network each time it is powered on. You should keep the UE in aeroplane mode until you want to connect 
-it to the network. The UE should now also have access to the internet - as if connected to a commercial 5G network.
+The UE is now connected to the network and should now automatically connect to this network each time it is powered on. The UE should now also have access to the internet - as if connected to a commercial 5G network.
 
 Troubleshooting
 ***************
 
-- Some UEs have issues detecting networks operating on a test PLMN such as 00101. Using the MCC of your local country can increase the chance to find the network. Even better results 
-  are achieved by using an existing PLMN from another commercial network. 
+- Some UEs have issues detecting networks operating on a test PLMN such as 00101. Using the MCC of your local country can increase the chance to find the network. When using a shielded environment, better results may be seen when using the PLMN of a local commercial network. 
 
 .. warning::
-   These should be done with the UE in a shielded environment, so not to interfere with commercial networks. 
+   To avoid causing interference to local commercial networks, carry out tests using a shielded environment. 
 
 
