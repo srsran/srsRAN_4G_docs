@@ -33,6 +33,7 @@ All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
    :maxdepth: 2
    
    getting_started.rst
+   feature_list.rst
    general/source/index.rst
    usermanuals/source/index.rst 
    app_notes/source/index.rst
