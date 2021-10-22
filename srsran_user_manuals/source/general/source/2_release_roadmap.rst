@@ -18,13 +18,12 @@ be bringing full 5G SA support to the srsRAN software suite, including 5G SA UE 
 21.10
 ******
 21.10 will see the release of our 5G NSA gNodeB for the srsENB application which builds on our existing 4G 
-eNB application. We will also be releasing CoreScope, a special-purpose test and performance analysis tool 
-for 5G core networks. 
+eNB application. We will also release CoreScope, a special-purpose test and performance analysis tool for 
+5G core networks built upon the srsRAN suite.
 
 21.10 will include: 
 
 	* 5G eNodeB/ gNodeB
-	* CoreScope Application
   	* Overall stability and performance updates
 
 22.04
