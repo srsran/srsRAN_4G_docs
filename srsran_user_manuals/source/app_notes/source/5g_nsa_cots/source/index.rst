@@ -33,7 +33,7 @@ Setting up a 5G NSA network and connecting a 5G COTS UE requires the following:
 
 For this implementation the following equipment is used: 
 	
-	- Dell XPS-13 (10th Gen i7)
+	- Desktop computer (minimum 6th Gen i7 or similar) with 10GigE NIC
 	- X300 USRP
 	- OnePlus Nord 5G with a Sysmocom USIM 
 
@@ -50,12 +50,7 @@ Dependencies
 RF Driver
 =========
 
-You should make sure that your RF-frontend driver is correct for your device and up to date. Some of the most common drivers
-can be found here: 
-
-  * `UHD <https://github.com/EttusResearch/uhd>`_ [for UHD we recommend using v3.15]
-  * `SoapySDR <https://github.com/pothosware/SoapySDR>`_
-  * `BladeRF <https://github.com/Nuand/bladeRF>`_
+We've only tested NSA mode with Ettus Research devices using `UHD <https://github.com/EttusResearch/uhd>`_. For this appnote we use the USRP X310 with UHD version v3.15.
 
 srsRAN
 ======
@@ -386,9 +381,26 @@ The UE is now connected to the network and should now automatically connect to t
 Troubleshooting
 ***************
 
+UE not attaching to network
+===========================
+
 - Some UEs have issues detecting networks operating on a test PLMN such as 00101. Using the MCC of your local country can increase the chance to find the network. When using a shielded environment, better results may be seen when using the PLMN of a local commercial network. 
 
 .. warning::
    To avoid causing interference to local commercial networks, carry out tests using a shielded environment. 
 
 
+Ettus Research USRP N310
+========================
+
+The N310 is another device that can be used for NSA. However, a few changes need to be made to the configuration files.
+
+In the enb.conf we need to change the device arguments to pick the right RF subdevice and also use sample rates supported by the N310.
+
+  [rf]
+  device_args = type=n3xx,tx_subdev_spec=A:0 B:0,rx_subdev_spec=A:0 B:0
+
+	[expert]
+	lte_sample_rates = true
+
+The tests have been made with the N310 using UHD 4.1.
