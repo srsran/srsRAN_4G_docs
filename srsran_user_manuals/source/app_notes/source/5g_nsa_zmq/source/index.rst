@@ -30,7 +30,7 @@ of 5G NSA services, but existing 4G devices are not disrupted.
 Network & Hardware Overview
 ***************************
 
-For this application note we wil be using `ZeroMQ <https://zeromq.org/>`_ in place of physical RF hardware. A detailed outline of how to 
+For this application note we will be using `ZeroMQ <https://zeromq.org/>`_ in place of physical RF hardware. A detailed outline of how to 
 install and use ZMQ with srsRAN can be found :ref:`here <zeromq_appnote>`. This app note will assume prior knowledge of use of ZMQ with srsRAN. 
 
 .. figure:: .imgs/nsa_zmq.png
@@ -105,8 +105,10 @@ NR RAT
 
 The 5G NR capabilities of the UE must also be enabled in the config under the **[rat.nr]** section:: 
 
-	bands = 3,78
-	nof_carriers = 1 
+
+  [rat.nr]
+  bands = 3,78
+  nof_carriers = 1 
 
 Here we enable bands 3 and 78, which are FDD and TDD frequency bands respectively. By including both in the UE config, we can test each duplex mode simply by configuring the network.
 
@@ -117,7 +119,9 @@ Release
 
 As NSA Mode is part of 3GPP **release 15**, this must be reflected in the config. The default release used is 8. Add the following entry under the **[rrc]** field:: 
 
-	release = 15 
+
+  [rrc]
+  release = 15 
 
 srsENB
 ======
@@ -284,7 +288,7 @@ With the network and the iPerf server up and running, the client can be run from
 
 	sudo ip netns exec ue1 iperf3 -c 172.16.0.1 -b 10M -i 1 -t 60 
 
-Traffic will now be sent from the UE to the eNB. This will be shown in both the server and client consoles, and also in the trace for both the UE and the eNB. Example **client** iPerf output:
+Traffic will now be sent from the UE to the eNB. This will be shown in both the server and client consoles, and also in the trace for both the UE and the eNB. Example **client** iPerf output::
 
 	Connecting to host 172.16.0.1, port 5201                                                              
 	[  5] local 172.16.0.2 port 52484 connected to 172.16.0.1 port 5201              
