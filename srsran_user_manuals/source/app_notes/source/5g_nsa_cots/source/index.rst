@@ -143,7 +143,7 @@ The ``MCC`` & ``MNC`` codes must be updated in the enb.conf to reflect the value
 For the X310 we've seen acceptable results with the following device arguments::
 
   [rf]
-  device_args=type=x300,clock=external,lo_freq_offset_hz=11.52e6
+  device_args=type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6
 
 
 The rest of the options can be left at the default values. They may be changed as needed, but further modification 
@@ -409,18 +409,30 @@ UE not attaching to network
    To avoid causing interference to local commercial networks, carry out tests using a shielded environment. 
 
 
+NR carrier has high error rate
+==============================
+
+One of the current limitation of the NR scheduler is missing dynamic MCS adaptation. Therefore, a fixed MCS is used for both downlink (PDSCH) and uplink (PUSCH) transmissions.
+By default we use the maximum value of MCS 28 for maximum rate. Depending on the RF condiditions this, however, may be too high. In this case, try to use a lower MCS, e.g.::
+
+
+	[scheduler]
+	nr_pdsch_mcs = 10
+	nr_pusch_mcs = 10
+
+
 Ettus Research USRP N310
 ========================
 
 The N310 is another device that can be used for NSA. However, a few changes need to be made to the configuration files.
 
-In the enb.conf we need to change the device arguments to pick the right RF subdevice and also use sample rates supported by the N310.
+In the enb.conf we need to change the device arguments to pick the right RF subdevice (band 20 for LTE and band n3 for NR are too far apart to use the default) and also use sample rates supported by the N310::
 
-
-  [rf]
-  device_args = type=n3xx,tx_subdev_spec=A:0 B:0,rx_subdev_spec=A:0 B:0
+	[rf]
+	device_args = type=n3xx,tx_subdev_spec=A:0 B:0,rx_subdev_spec=A:0 B:0
 
 	[expert]
 	lte_sample_rates = true
+
 
 The tests have been made with the N310 using UHD 4.1.
