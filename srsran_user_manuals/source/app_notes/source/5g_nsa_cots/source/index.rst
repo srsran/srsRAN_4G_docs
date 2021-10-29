@@ -27,8 +27,8 @@ Network & Hardware Overview
 Setting up a 5G NSA network and connecting a 5G COTS UE requires the following: 
 
  - PC with a Linux based OS, with srsRAN installed and built
- - An dual channel RF-frontend with independent RF chains
- - A 5G UE 
+ - A dual channel RF-frontend with independent RF chains
+ - A 5G NSA-capable UE 
  - USIM/ SIM card (This must be a test card or a programmable card, with known keys)
 
 For this implementation the following equipment is used: 
@@ -40,7 +40,19 @@ For this implementation the following equipment is used:
 UE Considerations
 =================
 
-- Many 5G handsets may contain a carrier policy file that limits the permitted 5G NSA frequency band combinations, based on the PLMN of the USIM (first 6 digits of IMSI). Carrier policy files typically don't include test network PLMNs, so setting a test PLMN may result in 5G being disabled. If possible, using a shielded box and configuring the network with a commercial carrier PLMN may avoid policy file issues. Check the supported band combinations for your handset using `<https://cacombos.com/>`_.
+One of the current limitations of srsRAN is that both LTE and NR carrier have to use the same subcarrier spacing (SCS) of 15 kHz. 
+Unfortunately, this limits the band combinations that can be used with COTS phones, as not all combinations
+are possible with every baseband chip.
+
+For example, NR band n78 that is used in most European deployments to date (using 30 kHz SCS), in theory, also supports 15 kHz SCS.
+However, all phones we've tried with cannot support 15 kHz on this band. Check the supported band combinations for your handset using this webpage`<https://cacombos.com/>`.
+
+As a consequence, we suggest using FDD bands for both LTE and NR carrier, such as band 20 for LTE and band n3 for NR.
+Both bands are supported by the OnePlus 5G Nord used in this appnote.
+
+Besides the restrictions originating from the baseband hardware there are a few other pitfalls that may or may not allow a phone to connect to a 5G network.
+
+- Many 5G handsets may contain a carrier policy file that may limit 5G capabilities of the phone based on the PLMN of the USIM (first 6 digits of IMSI). Carrier policy files typically don't include test network PLMNs, so setting a test PLMN may result in 5G being disabled. If possible, using a shielded box and configuring the network with a commercial carrier PLMN may avoid policy file issues. 
 - On some handsets, when using a test USIM, you may need to activate 5G NR using ``*#*#4636#*#*``.
 - If your handset supports "Smart 5G", disable this option as it may force the handset to 4G and activate roaming.
 
@@ -50,7 +62,7 @@ Dependencies
 RF Driver
 =========
 
-We've only tested NSA mode with Ettus Research devices using `UHD <https://github.com/EttusResearch/uhd>`_. For this appnote we use the USRP X310 with UHD version v3.15.
+We've only tested NSA mode with Ettus Research devices using `UHD <https://github.com/EttusResearch/uhd>`. For this appnote we use the USRP X310 with UHD version v3.15.
 
 srsRAN
 ======
@@ -126,6 +138,13 @@ The ``MCC`` & ``MNC`` codes must be updated in the enb.conf to reflect the value
 	#nof_ports = 2
 	
 	#####################################################################
+
+
+For the X310 we've seen acceptable results with the following device arguments::
+
+  [rf]
+  device_args=type=x300,clock=external,sampling_rate=11.52e6,lo_freq_offset_hz=11.52e6
+
 
 The rest of the options can be left at the default values. They may be changed as needed, but further modification 
 is not necessary to enable the successful connection of a COTS UE. 
@@ -390,17 +409,30 @@ UE not attaching to network
    To avoid causing interference to local commercial networks, carry out tests using a shielded environment. 
 
 
+NR carrier has high error rate
+==============================
+
+One of the current limitation of the NR scheduler is missing dynamic MCS adaptation. Therefore, a fixed MCS is used for both downlink (PDSCH) and uplink (PUSCH) transmissions.
+By default we use the maximum value of MCS 28 for maximum rate. Depending on the RF condiditions this, however, may be too high. In this case, try to use a lower MCS, e.g.::
+
+
+	[scheduler]
+	nr_pdsch_mcs = 10
+	nr_pusch_mcs = 10
+
+
 Ettus Research USRP N310
 ========================
 
 The N310 is another device that can be used for NSA. However, a few changes need to be made to the configuration files.
 
-In the enb.conf we need to change the device arguments to pick the right RF subdevice and also use sample rates supported by the N310.
+In the enb.conf we need to change the device arguments to pick the right RF subdevice (band 20 for LTE and band n3 for NR are too far apart to use the default) and also use sample rates supported by the N310::
 
-  [rf]
-  device_args = type=n3xx,tx_subdev_spec=A:0 B:0,rx_subdev_spec=A:0 B:0
+	[rf]
+	device_args = type=n3xx,tx_subdev_spec=A:0 B:0,rx_subdev_spec=A:0 B:0
 
 	[expert]
 	lte_sample_rates = true
+
 
 The tests have been made with the N310 using UHD 4.1.
