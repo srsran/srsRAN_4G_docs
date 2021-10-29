@@ -2,8 +2,8 @@
 
 .. _nbiot_appnote:
 
-NB-IoT Application note
-===========================
+NB-IoT Signalling
+=================
 
 
 Introduction

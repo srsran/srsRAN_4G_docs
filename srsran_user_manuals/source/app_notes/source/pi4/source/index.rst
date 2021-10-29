@@ -2,8 +2,8 @@
 
 .. _pi4_appnote:
 
-Raspberry Pi 4 Application note
-===============================
+srsRAN on Raspberry Pi 4
+========================
 
 
 Introduction

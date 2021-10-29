@@ -2,9 +2,9 @@
 
 .. _cv2x_appnote:
 
-######################
-C-V2X Application Note
-######################
+
+C-V2X Signalling
+################
 
 Introduction
 ============

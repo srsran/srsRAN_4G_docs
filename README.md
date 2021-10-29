@@ -35,7 +35,7 @@ This can be installed from the requirements file.
 pip install -r requirements.txt
 ```
 
-To build the docs first run
+To build the docs first run from /srs_user_manuals/source
 ```
 sphinx-build -b html . _build
 ```

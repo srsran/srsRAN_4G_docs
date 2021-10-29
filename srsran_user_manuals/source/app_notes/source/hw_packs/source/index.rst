@@ -2,8 +2,8 @@
 
 .. _suggestedHW_appnote:
 
-Suggested Hardware
-======================
+Hardware Options
+================
 This information is correct as of March 15th 2021
 
 Introduction

@@ -1,14 +1,14 @@
 .. srsRAN 5G NSA Application Note
 
-.. _5gnsa_appnote:
+.. _5g_nsa_amari_appnote:
 
-5G NSA UE Application Note
-==============================================
+5G NSA srsUE
+============
 
 Introduction
 ************
 
-The 21.04 release of srsRAN brings 5G NSA (Non-Standalone) support to srsUE.
+The 21.04 release of srsRAN brought 5G NSA (Non-Standalone) support to srsUE.
 This application note shows how the UE can be used with a third-party 5G NSA network. In this example,
 we use the Amari Callbox Classic from Amarisoft to provide the network.
 

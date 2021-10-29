@@ -2,8 +2,8 @@
 
 .. _handover_appnote:
 
-Handover Application Note
-====================================
+Intra-eNB & S1 Handover
+=======================
 
 **srsRAN Release 20.10 or later is required to run the following applications**
 

@@ -3,6 +3,16 @@
 Release Notes
 =============
 
+* 21.10
+
+  * Created initial version of srsGNB supporting NSA mode with srsENB
+  * srsGNB tested with OnePlus Nord 5G
+  * Improved interoperability of srsUE in NSA mode
+  * Added enhanced instrumentation to file using JSON format
+  * Fixed stability issues with Ettus N310
+  * Added BLER-adaptive MCS scheduling to srsENB
+  * Other bug-fixes and improved stability and performance in all parts
+
 - 21.04
 
   * Rename project from srsLTE to srsRAN
