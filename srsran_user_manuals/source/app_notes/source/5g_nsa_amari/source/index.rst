@@ -40,6 +40,7 @@ settings at both the gNB and the core network. The key feature limitations are a
   * 4G and NR carrier need to use the same subcarrier-spacing (i.e. 15 kHz) and bandwidth (we've tested 10 and 20 MHz)
   * Only DCI format 0_0 (for Uplink) and 1_0 (for Downlink) supported
   * NR carrier needs to use RLC UM (NR RLC AM not yet supported)
+  * Support for sub-6Ghz (FR1) spectrum
 
 
 Hardware Requirements
