@@ -92,7 +92,7 @@ Next, **srsRAN** can be compiled:
 
   sudo apt install libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev
   git clone https://github.com/srsRAN/srsRAN.git
-  cd srsran
+  cd srsRAN
   git checkout tags/release_19_12
   mkdir build && cd build
   cmake ../
@@ -101,7 +101,7 @@ Next, **srsRAN** can be compiled:
   sudo ldconfig
 
   ## copy configs to /root
-  sudo ./srsran_install_configs.sh user
+  sudo ./srslte_install_configs.sh user
 
 
 And finally, modify the **Pi CPU scaling_governor** to ensure it is running in performance mode:
