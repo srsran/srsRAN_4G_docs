@@ -45,7 +45,7 @@ Unfortunately, this limits the band combinations that can be used with COTS phon
 are possible with every baseband chip.
 
 For example, NR band n78 that is used in most European deployments to date (using 30 kHz SCS), in theory, also supports 15 kHz SCS.
-However, all phones we've tried with cannot support 15 kHz on this band. Check the supported band combinations for your handset using this webpage`<https://cacombos.com/>`.
+However, all phones we've tried with cannot support 15 kHz on this band. Check the supported band combinations for your handset using `this webpage <https://cacombos.com/>`_.
 
 As a consequence, we suggest using FDD bands for both LTE and NR carrier, such as band 20 for LTE and band n3 for NR.
 Both bands are supported by the OnePlus 5G Nord used in this appnote.
