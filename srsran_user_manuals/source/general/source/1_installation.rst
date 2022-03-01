@@ -41,25 +41,25 @@ Installation from Source
 
   * Common:
 
-    * cmake              https://cmake.org/
-    * libfftw            http://www.fftw.org/
-    * PolarSSL/mbedTLS   https://tls.mbed.org
+    * `cmake <https://cmake.org/>`_
+    * `libfftw <http://www.fftw.org/>`_
+    * `PolarSSL/mbedTLS <https://tls.mbed.org>`_
 
   * srsUE:
 
-    * Boost:             http://www.boost.org
+    * `Boost <http://www.boost.org>`_
 
   * srsENB:
 
-    * Boost:             http://www.boost.org
-    * lksctp:            http://lksctp.sourceforge.net/
-    * config:            http://www.hyperrealm.com/libconfig/
+    * `Boost <http://www.boost.org>`_
+    * `lksctp <http://lksctp.sourceforge.net/>`_
+    * `config <http://www.hyperrealm.com/libconfig/>`_
 
   * srsEPC:
 
-    * Boost:             http://www.boost.org
-    * lksctp:            http://lksctp.sourceforge.net/
-    * config:            http://www.hyperrealm.com/libconfig/
+    * `Boost <http://www.boost.org>`_
+    * `lksctp <http://lksctp.sourceforge.net/>`_
+    * `config <http://www.hyperrealm.com/libconfig/>`_
 
 For example, on Ubuntu, one can install the required libraries with::
 
@@ -75,21 +75,25 @@ Note that depending on your flavor and version of Linux, the actual package name
 
 * Optional requirements: 
 
-  * srsgui:              https://github.com/srsran/srsgui - for real-time plotting.
-  * libpcsclite-dev:     https://pcsclite.apdu.fr/ - for accessing smart card readers
-  * libdw-dev            libdw - for truly informative backtraces using backward-cpp
+  * `srsGUI <https://github.com/srsran/srsgui>`_ - for real-time plotting.
+  * `libpcsclite-dev <https://pcsclite.apdu.fr/>`_ - for accessing smart card readers
+  * libdw-dev libdw - for truly informative backtraces using backward-cpp
 
 .. _Drivers:
 
 * RF front-end driver:
 
-  * UHD:                 https://github.com/EttusResearch/uhd
-  * SoapySDR:            https://github.com/pothosware/SoapySDR
-  * BladeRF:             https://github.com/Nuand/bladeRF
-  * ZeroMQ:              https://github.com/zeromq
+  * `UHD <https://github.com/EttusResearch/uhd>`_ 
+  * `SoapySDR <https://github.com/pothosware/SoapySDR>`_
+  * `BladeRF <https://github.com/Nuand/bladeRF>`_
+  * `ZeroMQ <https://github.com/zeromq>`_
 
 .. note::
 	If using UHD we recommended the LTS version of UHD, i.e. either 3.9.7 or 3.15.
+
+.. warning::
+  All mandatory requirements, optional requirements, and RF front-end drivers must be installed **prior** to building srsRAN. Failing to do this will result in
+  errors at run-time or prevent srsRAN from building correctly.  
 
 Download and build srsRAN::
 
@@ -104,10 +108,9 @@ Download and build srsRAN::
 Install srsRAN::
 
   sudo make install
-  sudo srsran_install_configs.sh user
+  srsran_install_configs.sh user
 
-This installs srsRAN and also copies the default srsRAN config files to
-the user's home directory (~/.srs).
+This installs srsRAN and also copies the default srsRAN config files to *~/.config/srsran*.
 
 Getting Support
 ***************
