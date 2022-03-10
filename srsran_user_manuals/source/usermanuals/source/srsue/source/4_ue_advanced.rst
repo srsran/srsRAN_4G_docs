@@ -144,7 +144,7 @@ The delay simulator generates the delay according to the next formula:
 
 .. math::
 
-   d(t) = \text{delay.min_us} + (\text{delay.max_us} - \text{delay.min_us}) \cdot \frac{1 + \sin\left(\frac{2\pi t}{\text{delay.period}}\right)}{2}
+   d(t) = \text{delay.min}\_\text{us} + (\text{delay.max}\_\text{us} - \text{delay.min}\_\text{us}) \cdot \frac{1 + \sin\left(\frac{2\pi t}{\text{delay.period}}\right)}{2}
 
 Where *delay.min_us* and *delay.max_us* are specified in microseconds while *delay.period* must be in seconds.
 
@@ -152,7 +152,7 @@ Hence, the maximum simulated speed is given by:
 
 .. math::
 
-   v_\text{max} = (\text{delay.max_us} - \text{delay.min_us}) \cdot \frac{300 \pi}{\text{delay.period}}
+   v_\text{max} = (\text{delay.max}\_\text{us} - \text{delay.min}\_\text{us}) \cdot \frac{300 \pi}{\text{delay.period}}
 
 The following example enables the delay simulator for having a period of 1h with a minimum delay of 10 microseconds and a maximum delay of 100 microseconds:
 
