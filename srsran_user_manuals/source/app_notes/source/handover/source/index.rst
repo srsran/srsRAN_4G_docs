@@ -290,7 +290,12 @@ The EPC console should then display a confirmation that the eNB cas connected::
 
 The UE now needs to be run, this can be done with the following command:: 
 	
-	sudo srsue --gw.netns=ue1
+	sudo srsue --rat.eutra.dl_earfcn=2850 --gw.netns=ue1
+
+.. note::
+	
+	The default DL EARFCN was changed in a recent update to the UE configuration file. This is why we overwrite that 
+	value in the above command. 
 	
 The UE console should then display this:: 
 
@@ -766,7 +771,7 @@ The script for the UE will be used to set the ZMQ device and ports, while also b
 	  fi
 	fi
 	
-	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} "$@"
+	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} --rat.eutra.dl_earfcn=2850 "$@"
 	
 The UE does not require any other parameters to be passed when it is instantiated. 
 
