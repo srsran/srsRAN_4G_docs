@@ -290,7 +290,12 @@ The EPC console should then display a confirmation that the eNB cas connected::
 
 The UE now needs to be run, this can be done with the following command:: 
 	
-	sudo srsue --gw.netns=ue1
+	sudo srsue --rat.eutra.dl_earfcn=2850 --gw.netns=ue1
+
+.. note::
+	
+	The default DL EARFCN was changed in a recent update to the UE configuration file. This is why we overwrite that 
+	value in the above command. 
 	
 The UE console should then display this:: 
 
@@ -558,44 +563,68 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 	cell_list =
 	(
 	  {
-	    // rf_port = 0;
-	    cell_id = 0x01;
-	    tac = 0x0007;
-	    pci = 1;
-	    root_seq_idx = 204;
-	    dl_earfcn = 2850;
-	    // ul_earfcn = 474;
-	    ho_active = true;
-	    
-	    // CA cells
-	    scell_list = (
-	      // {cell_id = 0x02; cross_carrier_scheduling = false; scheduling_cell_id = 0x02; ul_allowed = true}
-	    )
-	    
-	    // Cells available for handover
-	    meas_cell_list =
-	    (
-	      {
-	      	eci = 0x19B01;
-	      	dl_earfcn = 2850;
-	      	pci = 1;
-	      }, 
-	      {
-	      	eci = 0x19C01;
-	      	dl_earfcn = 2850;
-	      	pci = 6;
-	      }
-	    );
-	    
-	    // ReportCfg (only A3 supported)
-	    meas_report_desc = {
-	      a3_report_type = "RSRP";
-	      a3_offset = 6;
-	      a3_hysteresis = 0;
-	      a3_time_to_trigger = 480;
-	      rsrq_config = 4;
-	    };
+		// rf_port = 0;
+		cell_id = 0x01;
+		tac = 0x0007;
+		pci = 1;
+		root_seq_idx = 204;
+		dl_earfcn = 2850;
+		//ul_earfcn = 21400;
+		ho_active = true;
+		//meas_gap_period = 0; // 0 (inactive), 40 or 80
+		//meas_gap_offset_subframe = [6, 12, 18, 24, 30];
+		// target_pusch_sinr = -1;
+		// target_pucch_sinr = -1;
+		// enable_phr_handling = false;
+		// min_phr_thres = 0;
+		// allowed_meas_bw = 6;
+		// t304 = 2000; // in msec. possible values: 50, 100, 150, 200, 500, 1000, 2000
+
+		// CA cells
+		scell_list = (
+		// {cell_id = 0x02; cross_carrier_scheduling = false; scheduling_cell_id = 0x02; ul_allowed = true}
+		)
+
+		// Cells available for handover
+		meas_cell_list =
+		(
+		  {
+		    eci = 0x19B01;
+		    dl_earfcn = 2850;
+		    pci = 1;
+		    //direct_forward_path_available = false;
+		    //allowed_meas_bw = 6;
+		    //cell_individual_offset = 0;
+		  },
+		  {
+		    eci = 0x19C01;
+		    dl_earfcn = 2850;
+		    pci = 6;
+		  }
+		);
+
+		// Select measurement report configuration (all reports are combined with all measurement objects)
+		meas_report_desc =
+		(
+		  {
+		    eventA = 3
+		    a3_offset = 6;
+		    hysteresis = 0;
+		    time_to_trigger = 480;
+		    trigger_quant = "RSRP";
+		    max_report_cells = 1;
+		    report_interv = 120;
+		    report_amount = 1;
+		  }
+		);
+
+		meas_quant_desc = {
+		  // averaging filter coefficient
+		  rsrq_config = 4;
+		  rsrp_config = 4;
+		};
 	  }
+	  // Add here more cells
 	);
 	
 Here the TAC is set to 7, and the DL EARFCN is set to 2850. To ensure S1 Handover is successful the cell(s) 
@@ -609,44 +638,68 @@ Similarly to rr1.conf, a file rr2.conf must be created where the other configura
 	cell_list =
 	(
 	  {
-	    // rf_port = 0;
-	    cell_id = 0x01;
-	    tac = 0x0007;
-	    pci = 6;
-	    root_seq_idx = 268;
-	    dl_earfcn = 2850;
-	    // ul_earfcn = 474;
-	    ho_active = true;
-	    
-	    // CA cells
-	    scell_list = (
-	      // {cell_id = 0x02; cross_carrier_scheduling = false; scheduling_cell_id = 0x02; ul_allowed = true}
-	    )
-	    
-	    // Cells available for handover
-	    meas_cell_list =
-	    (
-	      {
-	      	eci = 0x19B01;
-	      	dl_earfcn = 2850;
-	      	pci = 1;
-	      }, 
-	      {
-	      	eci = 0x19C01;
-	      	dl_earfcn = 2850;
-	      	pci = 6;
-	      }
-	    );
-	    
-	    // ReportCfg (only A3 supported)
-	    meas_report_desc = {
-	      a3_report_type = "RSRP";
-	      a3_offset = 6;
-	      a3_hysteresis = 0;
-	      a3_time_to_trigger = 480;
-	      rsrq_config = 4;
-	    };
+		// rf_port = 0;
+		cell_id = 0x01;
+		tac = 0x0007;
+		pci = 6;
+		root_seq_idx = 264;
+		dl_earfcn = 2850;
+		//ul_earfcn = 21400;
+		ho_active = true;
+		//meas_gap_period = 0; // 0 (inactive), 40 or 80
+		//meas_gap_offset_subframe = [6, 12, 18, 24, 30];
+		// target_pusch_sinr = -1;
+		// target_pucch_sinr = -1;
+		// enable_phr_handling = false;
+		// min_phr_thres = 0;
+		// allowed_meas_bw = 6;
+		// t304 = 2000; // in msec. possible values: 50, 100, 150, 200, 500, 1000, 2000
+
+		// CA cells
+		scell_list = (
+		// {cell_id = 0x02; cross_carrier_scheduling = false; scheduling_cell_id = 0x02; ul_allowed = true}
+		)
+
+		// Cells available for handover
+		meas_cell_list =
+		(
+		  {
+		    eci = 0x19B01;
+		    dl_earfcn = 2850;
+		    pci = 1;
+		    //direct_forward_path_available = false;
+		    //allowed_meas_bw = 6;
+		    //cell_individual_offset = 0;
+		  },
+		  {
+		    eci = 0x19C01;
+		    dl_earfcn = 2850;
+		    pci = 6;
+		  }
+		);
+
+		// Select measurement report configuration (all reports are combined with all measurement objects)
+		meas_report_desc =
+		(
+		  {
+		    eventA = 3
+		    a3_offset = 6;
+		    hysteresis = 0;
+		    time_to_trigger = 480;
+		    trigger_quant = "RSRP";
+		    max_report_cells = 1;
+		    report_interv = 120;
+		    report_amount = 1;
+		  }
+		);
+
+		meas_quant_desc = {
+		  // averaging filter coefficient
+		  rsrq_config = 4;
+		  rsrp_config = 4;
+		};
 	  }
+	  // Add here more cells
 	);
 	
 It is possible to enable both intra-eNB and S1 handover at the same time by combining the rr configuration used 
@@ -718,7 +771,7 @@ The script for the UE will be used to set the ZMQ device and ports, while also b
 	  fi
 	fi
 	
-	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} "$@"
+	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} --rat.eutra.dl_earfcn=2850 "$@"
 	
 The UE does not require any other parameters to be passed when it is instantiated. 
 
