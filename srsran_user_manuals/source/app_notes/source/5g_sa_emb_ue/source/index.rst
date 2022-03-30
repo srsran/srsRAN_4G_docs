@@ -29,7 +29,7 @@ Hardware Requirements
 The figure above shows the utilized laboratory setup, which comprises the following components:
 
   - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded
-    5G SA SRS UE. The latter includes a partially FPGA-accelerated PHY (see the details below).
+    5G SA SRS UE. The latter includes a partially FPGA-accelerated PHY.
   - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and
     provides external access to the ADCs/DACs in the RFSoC.
   - **Amari Callbox**: NR SDR-based UE test solution from Amarisoft. It contains both the SA mode
@@ -58,6 +58,7 @@ The connection between the different components comprising the laboratory setup 
 Embedded 5G SA UE Features and Limitations
 ******************************************
 
+.. _Features
 Features
 --------
 
@@ -96,7 +97,7 @@ below for the sake of thoroughness:
 
   * Only the 15 kHz subcarrier-spacing (SCS) is supported (including the SSB).
   * Signal bandwidth limited to 10 MHz.
-  * Only DCI formats 0_0, 0_1, 1_0 and 1_1 are supported.
+  * Only DCI formats 0_0, 1_0, 0_1 and 1_1 are supported.
   * No cell search and reference signal measurements (PCI for NR carrier needs to be known).
 
 Building the embedded SA UE
@@ -411,29 +412,3 @@ will be periodically displayed as part of the console outputs::
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
   rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
    nr  500     0    0   0.0 |  10    0   0.0    304    0%    0.0 |   0    0.0    0.0    0%
-
-Troubleshooting
-***************
-
-The described 5G SA network and UE system is built on top of a fixed hardware setup with the
-limitations described above. Hence, it is essential to the correct behaviour of the system, that
-the utilized laboratory setup is as described in this App Note.
-
-Even though the embedded 5G SA UE application has the means to recover itself in case that upon
-a relaunch it starts from an unknown state (e.g., wrongful termination of the aplication), it is
-known that in some rare cases the application won't be able to properly initialize either the
-ADC-DMA channel shared with the FPGA or the RFdc block (e.g., after multiple relaunches with
-different DL bandwidth configurations, some IP cores might not be properly reset). In that case,
-a similar error message to the one below will appear::
-
-  Error writing to buffer in rx thread, ret is 0 but should be 30720
-  /SRS_RAN_PATH/lib/src/phy/utils/ringbuffer.c.133: Buffer overrun: lost 24 bytes
-  /SRS_RAN_PATH/lib/src/phy/utils/ringbuffer.c.133: Buffer overrun: lost 30720 bytes
-
-In such rare occurrences where the UE cannot resume normal operation on its own,
-(re)synchronization to the 5G cell won't be possible. To overcome this situation, a
-system-reset can be forced with the command below (while rebooting the board remains as the last
-resort)::
-
-  devmem 0xa004039c w 1 && devmem 0xa0040010 w [FFT_size]
-    [FFT_size] size of the FFT that was used when the UE crashed {512, 1024, 2048}
