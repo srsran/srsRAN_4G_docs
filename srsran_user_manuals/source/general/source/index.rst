@@ -12,10 +12,9 @@ General
    :maxdepth: 2
 
    1_installation.rst
-   2_release_roadmap.rst
-   3_release_notes.rst
-   4_contributions.rst
-   5_troubleshooting.rst
+   2_release_notes.rst
+   3_contributions.rst
+   4_troubleshooting.rst
 
 
 
