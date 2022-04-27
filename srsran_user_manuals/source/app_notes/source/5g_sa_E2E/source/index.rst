@@ -47,8 +47,6 @@ Example configs are attached here:
 
   * :download:`ue.conf<.configs/ue.conf>` 
   * :download:`rr.conf <.configs/rr.conf>`
-  * :download:`sib.conf<.configs/sib.conf>`
-  * :download:`rb.conf<.configs/rb.conf>`
   * :download:`enb.conf<.configs/enb.conf>`
   * :download:`amf.yaml<.configs/amf.yaml>`
   * :download:`upf.yaml<.configs/upf.yaml>`
@@ -175,7 +173,7 @@ Setting the PLMN (MCC & MNC) and MME address is done in the following way::
     s1c_bind_port = 0
     n_prb = 50
 
-The MMC and MNC are set to match the UE and Core. The MME address is configured to allow the eNB to communicate correctly with the Core. If this is not changed srsENB and the Core will not connect.  
+The MMC and MNC are set to match the UE and Core. The MME address is configured to allow the eNB to communicate correctly with the AMF and UPF. If this is not changed srsENB and the Core will not connect.  
 
 ZMQ
 ^^^^^
@@ -226,7 +224,7 @@ The main modifications needed are:
 The final step is to register the UE to the list of subscribers through the Open5GS WebUI. The values for each field should match what is in the UE config file, under the [USIM] section. 
 
 .. note::
-   Make sure to correctly configure the APN, if this is not done correctly the UE will not connect.
+   Make sure to correctly configure the APN, if this is not done correctly the UE will not connect to the internet.
 
  
 
@@ -268,7 +266,7 @@ If srsENB connects to the core successfully the following (or similar) will be d
     Current sample rate is 11.52 MHz with a base rate of 11.52 MHz (x1 decimation)
     Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=0 nof_prb=52
 
-The important message here is ``NG connection successful``, once this is displayed the connection has made successfully. 
+The ``NG connection successful`` message confirms that srsENB has connected to the core. 
 
 
 UE
@@ -428,7 +426,7 @@ The following example trace was taken from the srsENB console at the same time p
 Troubleshooting
 ***************
 
-.... warning::
+.. warning::
    still to do
 
 
