@@ -62,7 +62,7 @@ Dependencies
 RF Driver
 =========
 
-We've only tested NSA mode with Ettus Research devices using `UHD <https://github.com/EttusResearch/uhd>`. For this appnote we use the USRP X310 with UHD version v3.15.
+We've only tested NSA mode with Ettus Research devices using `UHD <https://github.com/EttusResearch/uhd>`_. For this appnote we use the USRP X310 with UHD version v3.15.
 
 srsRAN
 ======
@@ -79,7 +79,7 @@ To check that your RF driver has been picked up when running ``cmake ..`` during
 
 ``grep <driver> srsRAN/build/CMakeCache.txt``
 
-If you are using UHD as your driver, you should see the following output if srsRAN has successfully deteced it when ``cmake ..`` was run:: 
+If you are using UHD as your driver, you should see the following output if srsRAN has successfully detected it when ``cmake ..`` was run:: 
 
    $ grep UHD -m 4 CMakeCache.txt 
 
