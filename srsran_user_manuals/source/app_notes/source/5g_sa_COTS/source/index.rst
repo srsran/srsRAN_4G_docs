@@ -19,6 +19,9 @@ using srsRAN and a 3rd-party core (Open5GS in this example).
 Network & Hardware Overview
 ***************************
 
+.. figure:: .imgs/5G_SA.png
+  :align: center
+
 Setting up a 5G SA network and connecting a 5G COTS UE requires the following: 
 
  - PC with a Linux based OS, with srsRAN 22.04 (or later) installed and built
@@ -323,8 +326,10 @@ The following example console output shows the srsENB trace of a COTS UE sending
     nr    0 4601   11   0   25    25M  811    0   0% |  15.5   16.2    0    8   202k   25    0   0%    0.0
 
 Troubleshooting
-***************
+*************** 
 
-UE not attaching to network
-===========================
+.. warning::
+   TO DO
+
+
 
