@@ -8,15 +8,11 @@ srsRAN 22.04 brings 5G SA support to both srsUE and srsENB. 5G SA features can b
 configuration files of both srsUE and srsENB. This application note demonstrates how to configure a 5G SA network 
 using srsRAN, a 3rd-party core (Open5GS) and ZeroMQ (ZMQ). Using ZMQ means there is no need for physical RF-hardware. 
 
-5G SA Overview
-***************
-
-.. warning::
-   TO DO
-
-
 Network & Hardware Overview
 ***************************
+
+.. figure:: .imgs/srsRAN_SA_ZMQ.png
+  :align: center
 
 For this application note, the following hardware and software will be used: 
 
@@ -26,8 +22,6 @@ For this application note, the following hardware and software will be used:
     - Open5GS 5G Core
 
 For information on installing ZMQ and using it with srsRAN, see our :ref:`ZMQ App Note <zeromq_appnote>`. 
-
-
 
 Open5GS
 =======
@@ -427,6 +421,6 @@ Troubleshooting
 ***************
 
 .. warning::
-   still to do
+   TO DO
 
 
