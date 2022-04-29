@@ -44,21 +44,16 @@ Example console output for a successful network attach::
     Random Access Complete.     c-rnti=0x46, ta=0
     Network attach successful. IP: 192.168.3.2
 
-With the UE attached to the network, type ``t`` in the console to enable the metrics trace. Example metrics trace::
+With the UE attached to the network, type ``t`` in the console to enable the metrics trace. Example metrics trace:: 
 
-    ----Signal--------------DL-------------------------------------UL----------------------
-    cc  rsrp    pl    cfo   mcs   snr turbo  brate   bler   ta_us  mcs   buff  brate   bler
-     0   -77    77   1.2k    24    33  0.84   5.8M     0%   0.0    18   193k   624k     0%
-     0   -77    77   1.2k    24    31  0.80   5.7M     0%   0.0    18   193k   631k     0%
-     0   -77    77   1.2k    24    32  0.80   5.8M     0%   0.0    18   192k   633k     0%
-     0   -77    77   1.2k    25    34  0.93   6.0M     0%   0.0    18   194k   636k     0%
-     0   -77    77   1.2k    24    33  0.83   5.8M     0%   0.0    19   193k   632k     0%
-     0   -77    77   1.2k    24    31  0.82   5.8M     0%   0.0    18   194k   632k     0%
-     0   -77    77   1.2k    24    32  0.82   5.8M     0%   0.0    18   193k   635k     0%
-     0   -77    77   1.2k    25    34  0.91   6.0M     0%   0.0    18   194k   629k     0%
-     0   -77    77   1.2k    24    33  0.85   5.8M     0%   0.0    19   193k   634k     0%
-     0   -77    77   1.2k    24    31  0.82   5.7M     0%   0.0    19   194k   647k     0%
-     0   -77    77   1.2k    24    32  0.84   5.8M     0%   0.0    18   192k   629k     0%
+  ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
+  rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
+  lte    1   -11   11 -1.4u |   0  142   0.0    0.0    0%    0.0 |   0    0.0    0.0    0%
+   nr  500     1    0   23u |  27   70   1.0   8.5M    0%    0.0 |  28    36k   8.3M    0%
+  lte    1   -11   11 -1.4u |   0  142   0.0    0.0    0%    0.0 |   0    0.0    0.0    0%
+   nr  500     1    0   23u |  27   70   1.0   9.2M    0%    0.0 |  28    24k   8.1M    0%
+  lte    1   -11   11 -1.4u |   0  142   0.0    0.0    0%    0.0 |   0    0.0    0.0    0%
+   nr  500     2    0   23u |  27   69   1.0   4.6M    0%    0.0 |  28    19k   4.2M    0%
 
 
 .. _ueConfig:
@@ -85,7 +80,9 @@ Hardware Setup
 
 To use srsUE to connect over-the-air to a local network, you will need an RF front-end and suitable antennas. The default EARFCN is 3400 (2565MHz uplink, 2685MHz downlink). To reduce TX-RX crosstalk, we recommend orienting TX and RX antennas at a 90 degree angle to each other.
 
-The srsUE can also be used over a cabled connection. The cable configuration and required RF components will depend upon your RF front-end. For RF front-ends such as the USRP, connect TX to RX and ensure at least 30dB of attenuation to avoid damage to your devices. For more detailed information about cabled connections, see :doc:`Advanced Usage <4_ue_advanced>`.
+The srsUE can also be used over a cabled connection. The cable configuration and required RF components will depend upon your RF front-end. For RF front-ends such as the USRP, connect TX to RX and ensure at least 30dB of attenuation to avoid damage to your devices. 
+
+For more detailed information about cabled connections, see :doc:`Advanced Usage <4_ue_advanced>`.
 
 
 Operating System Setup
@@ -93,9 +90,7 @@ Operating System Setup
 
 The srsUE runs in user-space with standard linux kernels. For best performance, we recommend disabling CPU frequency scaling. To disable frequency scaling use::
 
-  for f in /sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_governor ; do
-    echo performance > $f
-  done
+  echo "performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
 
 Observing results
@@ -130,4 +125,4 @@ e.g.::
 
 The srsUE application supports packet capture at two levels - MAC layer and NAS layer. MAC layer captures include both control and data traffic and will be encrypted if configured by the network. NAS layer captures include control traffic only and will not be encrypted. Packet capture (pcap) files can be viewed using Wireshark (www.wireshark.org).
 
-See the explanation :ref:`here <wireshark>` on setting up wireshark to decdode pcaps.  
+See the explanation :ref:`here <wireshark>` on setting up wireshark to decode pcaps.  

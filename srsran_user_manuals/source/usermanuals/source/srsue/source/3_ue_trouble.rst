@@ -1,7 +1,7 @@
 .. _ue_trouble:
 
 Troubleshooting
-===============
+###############
 
 .. _rfConfig: 
 
@@ -97,7 +97,7 @@ Computational Power
 ---------------------------------
 In order to achieve peak throughput, we recommend using a PC with an 8th Gen i7 processor or above, running Ubuntu 16.04 OS or higher. Machines with lower specs can also run srsRAN sucessfully but with lower maximum throughput. 
 
-The CPU governor of the PC should be set to performance mode to allow for maximum compute power and throughput. This can be configured for e.g. Ubuntu using::
+The CPU governor of the PC should be set to performance mode to allow for maximum compute power and throughput. This can be configured for e.g. Ubuntu using:: 
 	
 	echo "performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 	
@@ -111,22 +111,28 @@ RF Hardware
 ---------------------------------
 The RF-signal itself can also affect the peak throughput a network can achieve. Ensure the radio being used is correctly calibrated and that the appropriate gain settings are used. The health of an RF-signal can be quickly checked using the console trace output by srsUE.
 
-The following is an example of a "healthy" console trace from srsUE. This trace is for a 50-PRB network configuration.
-Note the relatively low CFO of 3.1kHz, the high SNR value, the high MCS values and the 0% BLER on both DL and UL::
+The following is an example of a console trace from srsUE running in 5G NSA mode over the air:: 
 
-	--------Signal--------------DL-------------------------------------UL----------------------
-	cc pci  rsrp    pl    cfo   mcs   snr turbo  brate   bler   ta_us  mcs   buff  brate   bler
-	0   1   -62    62  -3.1k   3.7    39  0.42   3.5k     0%   0.0    14    0.0    33k     0%
-	0   1   -62    62  -3.1k   3.5    39  0.50    0.0     0%  0.52    22    0.0    0.0     0%
-	0   1   -62    62  -3.1k   3.5    39  0.50    0.0     0%  0.52    22    0.0    0.0     0%
-	0   1   -62    62  -3.1k    16    37  0.73    33M     0%  0.52    22    0.0    57k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    2.0    65k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    2.0    65k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
-	0   1   -62    62  -3.1k    28    34   1.0    72M     0%  0.52    22    0.0    69k     0%
+  ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
+  rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
+  lte    1   -33   33 -101m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  431m |  28   20   2.0    15M    0%    0.0 |  28    91k    10M    0%
+  lte    1   -33   33  -25m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  -8.6 |  28   20   1.9    16M    0%    0.0 |  28   216k    14M    0%
+  lte    1   -33   33 -191m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  -5.7 |  28   21   1.7    16M    0%    0.0 |  28   256k    15M    0%
+  lte    1   -33   33  -21m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0   8.8 |  28   20   1.8    16M    0%    0.0 |  28   226k    15M    0%
+  lte    1   -33   33   50m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0   -13 |  28   20   1.8    16M    0%    0.0 |  28   165k    15M    0%
+  lte    1   -33   33  -71m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  724m |  28   21   1.9    17M    0%    0.0 |  28   191k    15M    0%
+  lte    1   -33   33  -54m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0    13 |  28   20   1.9    17M    0%    0.0 |  28   120k    15M    0%
+  lte    1   -33   33 -115m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  -3.6 |  28   21   1.9    17M    0%    0.0 |  28   194k    15M    0%
+  lte    1   -33   33  -43m |   0   34   0.0    0.0    0%    1.6 |   0    0.0    0.0    0%
+   nr  500     0    0  -2.5 |  28   21   1.9    17M    0%    0.0 |  28   205k    15M    0%
 	
 The SNR, CFO and BLER can be used to debug the health of a signal connection. See the section on UE :ref:`command line reference <ue_commandref>` for information regarding the console trace. 
 
