@@ -32,7 +32,7 @@ Setting up a 5G SA network and connecting a 5G COTS UE requires the following:
 
 For this implementation the following equipment is used: 
 	
-	- DEll XPS13 with Ubuntu 20.04 LTS
+	- Dell XPS13 with Ubuntu 20.04 LTS
 	- srsRAN 22.04 & Open5GS
 	- B200-mini USRP running over USB3
 	- OnePlus Nord 5G with a Sysmocom USIM 
@@ -40,20 +40,10 @@ For this implementation the following equipment is used:
 UE Considerations
 =================
 
-One of the current limitations of srsRAN is that both LTE and NR carrier have to use the same subcarrier spacing (SCS) of 15 kHz. 
-Unfortunately, this limits the band combinations that can be used with COTS phones, as not all combinations
-are possible with every baseband chip.
-
-For example, NR band n78 that is used in most European deployments to date (using 30 kHz SCS), in theory, also supports 15 kHz SCS.
-However, all phones we've tried with cannot support 15 kHz on this band. 
-
-Check the supported band combinations for your handset using `this webpage <https://cacombos.com/>`_.
-
-As a consequence, we suggest using FDD bands for both LTE and NR carrier, such as band 20 for LTE and band n3 for NR.
-Both bands are supported by the OnePlus 5G Nord used in this appnote.
+One of the current limitations of srsRAN is that only 15 kHz sub-carrier spacing is supported. As a result, only devices that are capable of operating in bands that support FDD (e.g. band 3) can be used. 
+Many commercial COTS UEs require 30 kHz SCS for TDD bands, which we do not currently support. 
 
 Besides the restrictions originating from the baseband hardware there are a few other pitfalls that may or may not allow a phone to connect to a 5G network: 
-
 
   - On some handsets, when using a test USIM, you may need to activate 5G NR using ``*#*#4636#*#*``.
   - If your handset supports "Smart 5G", disable this option as it may force the handset to 4G and activate roaming.
@@ -328,8 +318,13 @@ The following example console output shows the srsENB trace of a COTS UE sending
 Troubleshooting
 *************** 
 
-.. warning::
-   TO DO
+One of the current limitations of the NR scheduler is missing dynamic MCS adaptation. Therefore, a fixed MCS is used for both downlink (PDSCH) and uplink (PUSCH) transmissions.
+By default we use the maximum value of MCS 28 for maximum rate. Depending on the RF conditions this, however, may be too high. In this case, try to use a lower MCS, e.g.:: 
+
+
+	[scheduler]
+	nr_pdsch_mcs = 10
+	nr_pusch_mcs = 10
 
 
 
