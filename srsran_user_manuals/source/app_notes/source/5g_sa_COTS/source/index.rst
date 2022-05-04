@@ -334,8 +334,9 @@ Limitations
 FDD Bands
 =========
 
-Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due srsRAN only supporting 15 kHz SCS. As a result, the 
-following bands and ARFCN combinations are supported:
+Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due srsRAN only supporting 15 kHz SCS. In addition, there is a static relationship between 
+some configuration values affecting the CoreSet positioning. Therefore not all possible ARFCNs in a given band can be used. Below is a list of some example ARFCNs for 
+three popular FDD bands that match the configuration: 
 
 
 +-------+----------------------------------------+
