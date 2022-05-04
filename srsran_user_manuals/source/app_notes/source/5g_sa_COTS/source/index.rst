@@ -326,5 +326,25 @@ By default we use the maximum value of MCS 28 for maximum rate. Depending on the
 	nr_pdsch_mcs = 10
 	nr_pusch_mcs = 10
 
+Limitations
+***********
 
+   - Currently srsENB only supports a bandwidth of 10 MHz when operating in 5G SA mode. 
+
+FDD Bands
+=========
+
+Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due srsRAN only supporting 15 kHz SCS. As a result, the 
+following bands and ARFCN combinations are supported:
+
+
++-------+----------------------------------------+
+| Band  | ARFCN                                  |
++=======+========================================+
+| n3    | 363500, 368500, 369500, 374500, 375000 |
++-------+----------------------------------------+
+| n7    | 525000, 526200, 531000                 |
++-------+----------------------------------------+
+| n20   | 159000, 160200                         |
++-------+----------------------------------------+
 
