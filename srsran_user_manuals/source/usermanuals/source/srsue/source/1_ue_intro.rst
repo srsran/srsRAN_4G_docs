@@ -8,9 +8,11 @@ Introduction
 Overview
 ********
 
-SrsUE is a 4G LTE and 5G NR NSA UE modem implemented entirely in software. Running as an application on a standard Linux-based operating system, srsUE connects to any LTE network and provides a standard network interface with high-speed mobile connectivity. To transmit and receive radio signals over the air, srsUE requires SDR hardware such as the Ettus Research USRP.
+SrsUE is a 4G LTE and 5G NR UE modem implemented entirely in software. Running as an application on a standard Linux-based operating system, srsUE connects to any LTE network and provides a standard network interface with high-speed mobile connectivity. To transmit and receive radio signals over the air, srsUE requires SDR hardware such as the Ettus Research USRP.
 
-To provide a complete end-to-end LTE network, use srsUE with srsENB and srsEPC.
+To provide a complete end-to-end LTE network or 5G NSA, use srsUE with srsENB and srsEPC. 
+
+To provide a complete end-to-end 5G SA network, use srsUE with srsENB and a third party 5G core. 
 
 This User Guide provides all the information needed to get up and running with the srsUE application, to become familiar with all of the key features and to achieve optimal performance. For information on extending or modifying the srsUE source code, please see the srsUE Developers Guide.
 
@@ -20,7 +22,7 @@ Features
 The SRS UE includes the following features:
 
 - LTE Release 10 aligned with features up to release 15
-- 5G NSA support
+- 5G NSA and SA support
 - TDD and FDD configurations
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
 - Transmission modes 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)

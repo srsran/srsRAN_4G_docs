@@ -60,14 +60,14 @@ Once you know these parameters you can replace then in the user_db.csv which has
 So, if you have a SIM card with the following parameters:
 
   * MILENAGE algorithm
-  * IMSI = 901700000000001
+  * IMSI = 999700000000001
   * K = 00112233445566778899aabbccddeeff
   * Using OPc
   * OPc = 63bfa50ee6523365ff14c1f45f88737d
 
 You can configure the ``user_db.csv`` like this::
 
-  ue1,mil,901700000000001,00112233445566778899aabbccddeeff,opc,63bfa50ee6523365ff14c1f45f88737d,9000,000000000000,9,dynamic
+  ue1,mil,999700000000001,00112233445566778899aabbccddeeff,opc,63bfa50ee6523365ff14c1f45f88737d,9000,000000000000,9,dynamic
 
 eNBs and srsEPC on separate machines
 ++++++++++++++++++++++++++++++++++++

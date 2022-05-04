@@ -14,7 +14,7 @@ The most likely reasons for a UE not seeing the network are the eNB/EPC configur
 The first thing to check is that the LTE frequency band and EARFCN which you have configured are supported by the UE which you are using. Most UE devices support a subset of the bands allocated for LTE. Ensure also that the full bandwidth of the configured LTE carrier is within the frequency band which you are using.
 
 Some UE devices fail to see networks configured with test PLMN MCC/MNC values. For example, 
-commonly used MCC/MNC values of 901/70 or 001/01 may not work, particularly with iPhone devices using Intel baseband chipsets. Instead, try setting the MCC of your network to your country specific value
+commonly used MCC/MNC values of 999/70, 901/70 or 001/01 may not work, particularly with iPhone devices using Intel baseband chipsets. Instead, try setting the MCC of your network to your country specific value
 (e.g. 272 for Ireland). A full list of MCC codes can be found `here <https://en.wikipedia.org/wiki/Mobile_country_code>`_. The MNC 
 value can then be set to any value that is not currently in use by a Mobile Network Operator in your country.
 

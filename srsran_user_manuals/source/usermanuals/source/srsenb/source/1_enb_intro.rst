@@ -8,9 +8,14 @@ Introduction
 Overview
 ********
 
-SrsENB is an LTE eNodeB basestation implemented entirely in software. Running as an application on a standard Linux-based operating system, srsENB connects to any LTE core network (EPC) and creates a local LTE cell. To transmit and receive radio signals over the air, srsENB requires SDR hardware such as the Ettus Research USRP.
+srsENB is an LTE eNodeB basestation implemented entirely in software. Running as an application on a standard Linux-based operating system, srsENB connects to any LTE core network (EPC) and creates a local LTE cell. To transmit and receive radio signals over the air, srsENB requires SDR hardware such as the Ettus Research USRP.
 
-To provide an end-to-end LTE network, use srsENB with srsEPC and srsUE.
+    - To provide an end-to-end LTE network, use srsENB with srsEPC and srsUE.
+
+srsENB also has 5G NR capabilities.
+
+    - To provide an end-to-end 5G NSA network use srsUE, srsENB and srsEPC.   
+    - To provide an end-to-end 5G SA network use srsUE, srsENB and a third party 5G core. 
 
 This User Guide provides all the information needed to get up and running with the srsENB application, to become familiar with all of the key features and to achieve optimal performance. For information on extending or modifying the srsENB source code, please see the srsENB Developers Guide.
 
@@ -19,7 +24,8 @@ Features
 
 The srsENB LTE eNodeB includes the following features:
 
-- LTE Release 10 aligned
+- LTE Release 10 aligned with features up to release 15
+- 5G NR support for both 5G NSA and SA 
 - FDD configuration
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
 - Transmission mode 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
