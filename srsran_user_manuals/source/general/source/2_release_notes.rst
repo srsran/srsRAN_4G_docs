@@ -3,6 +3,16 @@
 Release Notes
 =============
 
+- 22.04
+
+  * Add baseline 5G-SA support to srsUE and srsENB
+  * Added dynamic loading of RF libraries
+  * Added RRC Redirect to srsUE
+  * Added support for A5 measurement events to srsENB
+  * Added Crest Factor Reduction (CFR) for srsENB downlink and srsUE uplink on LTE carriers
+  * Raise C++ standard to C++14
+  * Other bug-fixes and improved stability and performance in all parts
+
 * 21.10
 
   * Created initial version of srsGNB supporting NSA mode with srsENB

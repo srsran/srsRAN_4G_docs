@@ -6,14 +6,14 @@ srsRAN Features
 srsUE
 *****
 
-srsUE is a 4G LTE and 5G NR NSA UE modem implemented entirely in software. Running as 
-an application on a standard Linux-based operating system, srsUE connects to any LTE 
+srsUE is a 4G LTE and 5G NR UE modem implemented entirely in software. Running as 
+an application on a standard Linux-based operating system, srsUE connects to any LTE or 5G NR 
 network and provides a standard network interface with high-speed mobile connectivity.
 
 The SRS UE includes the following features:
 
 - LTE Release 10 aligned with features up to release 15
-- 5G NSA support
+- 5G NSA and SA support
 - TDD and FDD configurations
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
 - Transmission modes 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
@@ -43,7 +43,8 @@ srsENB
 
 The srsENB LTE eNodeB includes the following features:
 
-- LTE Release 10 aligned
+- LTE Release 10 aligned with features up to release 15
+- 5G NR support for both 5G NSA and SA 
 - FDD configuration
 - Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
 - Transmission mode 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
@@ -68,7 +69,7 @@ The srsENB LTE eNodeB includes the following features:
 
 Read the :ref:`ENB User Manual <enb_intro>`. for further info on the eNB.
 
-srsENB also has support for 5G NSA, you can read more about this in the :ref:`advanced usage <enb_advanced>` section of the srsENB documenation. 
+srsENB also has support for 5G NSA and SA features, you can read more about this in the :ref:`advanced usage <enb_advanced>` section of the srsENB documentation. 
 
 srsEPC
 ******

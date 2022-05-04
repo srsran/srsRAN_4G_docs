@@ -22,10 +22,9 @@ Featuring both UE and eNodeB/gNodeB applications, srsRAN can be used with third-
 
 The srsRAN suite currently includes:
 
-- srsUE: a full-stack 4G and 5G NSA UE application **(5G SA coming 2022)**
-- srsENB: a full-stack 4G eNodeB and 5G NSA gNodeB application
-- srsGNB: a full-stack 5G SA gNodeB application **(coming 2022)**
-- srsEPC: a light-weight 4G EPC implementation with MME, HSS and S/P-GW
+- **srsUE:** a full-stack 4G and 5G NSA / SA UE application
+- **srsENB:** a full-stack 4G eNodeB with 5G NSA / SA gNodeB capabilities 
+- **srsEPC:** a light-weight 4G EPC implementation with MME, HSS and S/P-GW
 
 All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
 

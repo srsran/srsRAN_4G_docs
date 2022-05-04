@@ -1,7 +1,7 @@
 .. _gen_4g:
 
-Setup Guide
-===========
+LTE Setup Guide
+===============
 
 Baseline Hardware Requirements
 *********************************
@@ -34,8 +34,8 @@ This can be broken down as follows:
      - 
      - X
 
-The UE will be instatiated on machine 1 with an RF-frontend attached. The eNB will run on machine 2 with an RF-frontend attached 
-to communicate over the air with the UE. The EPC will be insantiated on the same machine as the eNB. See the following figure which outlines 
+The UE will be instantiated on machine 1 with an RF-frontend attached. The eNB will run on machine 2 with an RF-frontend attached 
+to communicate over the air with the UE. The EPC will be instantiated on the same machine as the eNB. See the following figure which outlines 
 the overall system architecture. 
 
 A list of supported RF front-end drivers is outlined :ref:`here<Drivers>`.  We also have some suggested hardware packages, which can be found :ref:`here<suggestedHW_appnote>`. 
@@ -102,7 +102,7 @@ the default SGi IP address::
 
 Examples
 **********************
-If srsRAN is build from source, then preconfigured example use-cases can be found in the following folder: ```./srsRAN/build/lib/examples``` 
+If srsRAN is build from source, then pre-configured example use-cases can be found in the following folder: ```./srsRAN/build/lib/examples``` 
 
 The following list outlines some of the use-cases covered: 
 

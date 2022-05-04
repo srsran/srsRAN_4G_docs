@@ -1,7 +1,7 @@
 .. _ue_advanced:
 
 Advanced Usage
-==============
+##############
 
 External USIM
 *************
@@ -185,16 +185,40 @@ The following example enables the RLF simulator for having 2 seconds of blackout
 MIMO
 ****
 
-The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user can select the number of select antennas in the ``ue.conf``:
-
-.. code::
-
+The srsUE supports MIMO operation for transmission modes 1, 2, 3 and 4. The user can select the number of select antennas in the ``ue.conf`` :: 
+  
   ...
   [rf]
   ...
   nof_rx_ant = 2
   ...
 
-Do you want to attach to a 2 port eNb and you have only one receive channel? No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage of spatial multiplexing and it will not achieve the maximum throughput.
+Do you want to attach to a 2 port eNb and you have only one receive channel? 
 
+No problem. The UE can attach to 2 port cell and be in TM3 or TM4 without having a second receive antenna. Nevertheless, it will not take advantage 
+of spatial multiplexing and it will not achieve the maximum throughput.
+
+5G NR 
+*****
+
+srsRAN 21.10 and 22.04 brought 5G NSA and 5G SA capabilities to srsUE respectively. These capabilities can be enabled via the srsUE configuration file. See the links in the following sections for information on 
+5G NSA/ SA and how to enable these features on srsUE.  
+
+5G NSA
+======
+
+For information on what 5G NSA is, and how a 5G NSA network can be configured with srsRAN take a look at the following sections of our documentation: 
+
+  - :ref:`5G NSA overview <5G_NSA>`
+  - :ref:`Creating an E2E 5G NSA Network with srsRAN <5g_nsa_zmq_appnote>`
+
+srsUE is also compatible with 3rd party eNB and gNB applications and equipment. An example of this can be seen in our guide outlining how to :ref:`connect srsUE to an Amarisoft Callbox <5g_nsa_amari_appnote>`. 
+
+5G SA 
+======
+
+For information on what 5G SA is, and how a 5G SA network can be configured with srsRAN take a look at the following sections of our documentation: 
+
+  - :ref:`5G SA overview <5G_SA>`
+  - :ref:`Creating an E2E 5G NA Network with srsRAN <5g_sa_e2e_appnote>`
 
