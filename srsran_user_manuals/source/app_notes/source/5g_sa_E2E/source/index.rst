@@ -417,10 +417,3 @@ The following example trace was taken from the srsENB console at the same time p
      nr    0 4601   15   0   27   9.8M  274    0   0% |  65.8   99.9    0   28    10M  267    0   0%    0.0
 
 
-Troubleshooting
-***************
-
-.. warning::
-   TO DO
-
-
