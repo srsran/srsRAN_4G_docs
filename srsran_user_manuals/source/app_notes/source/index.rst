@@ -22,6 +22,9 @@ These application notes provide guides for specific srsRAN use-cases, using exte
 | Connect a 5G SA COTS UE to the srsRAN eNodeB and a third party 5G Core: 
 |   - :ref:`srsRAN 5G SA COTS UE Application Note<5g_sa_cots_appnote>`
 
+| Connect the srsRAN UE to a 5G SA network:
+|   - :ref:`srsUE & 3rd Party gNB for 5G SA Application Note<5g_sa_amari_appnote>`
+
 | Set-up and test an end-to-end 5G NSA network: 
 |   - :ref:`srsRAN 5G NSA Application Note<5g_nsa_zmq_appnote>`
 
@@ -64,6 +67,8 @@ These application notes provide guides for specific srsRAN use-cases, using exte
    5g_sa_E2E/source/index.rst
 
    5g_sa_COTS/source/index.rst
+
+   5g_sa_amari/source/index.rst
 
    5g_nsa_zmq/source/index.rst
 
