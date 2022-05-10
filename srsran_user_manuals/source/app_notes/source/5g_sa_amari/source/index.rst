@@ -19,7 +19,7 @@ Limitations
 The current 5G SA UE application has a few feature limitations that require certain configuration
 settings at both the gNB and the core network. The key feature limitations are as follows:
 
-  - Limited to 15 kHz Sub-Carrier Spacing (SCS), which means only TDD bands can be used. 
+  - Limited to 15 kHz Sub-Carrier Spacing (SCS), which means only FDD bands can be used. 
   - Limited to 10 MHz Bandwidth (BW) 
 
 
