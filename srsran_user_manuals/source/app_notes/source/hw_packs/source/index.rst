@@ -9,7 +9,7 @@ Hardware Options
 
 Introduction
 *************
-This document aims to provide users with an overview of the suggested PC and SDR hardware combinations that can be used to best explore the functionality of srsRAN. There are 100’s of possible combinations of PC, notebook, single board computer and SDR hardware that can demonstrate the uses of srsRAN. This list aims to provide three possible hardware packages that can help to guide users when choosing what to buy. These packages are grouped by price, with full set-ups cotsing ~$400, ~$3,300 and finally ~$19,200. The three packages proposed here should provide any user with enough information to create their ideal set-up, which easily meets their needs.  
+This document aims to provide users with an overview of the suggested PC and SDR hardware combinations that can be used to best explore the functionality of srsRAN. There are 100’s of possible combinations of PC, notebook, single board computer and SDR hardware that can demonstrate the uses of srsRAN. This list aims to provide three possible hardware packages that can help to guide users when choosing what to buy. These packages are grouped by price, with full set-ups costing ~$400, ~$3,300 and finally ~$19,200. The three packages proposed here should provide any user with enough information to create their ideal set-up, which easily meets their needs.  
 
 Choosing Hardware
 ***********************
