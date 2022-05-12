@@ -107,7 +107,7 @@ The following USIM Credentials are used::
     algo = milenage
     opc  = 63BFA50EE6523365FF14C1F45F88737D
     k    = 00112233445566778899aabbccddeeff
-    imsi = 901700123456789
+    imsi = 901700123456780
     imei = 353490069873319
 
 The main change here is adjusting the IMSI, so that the correct PLMN is used. 
