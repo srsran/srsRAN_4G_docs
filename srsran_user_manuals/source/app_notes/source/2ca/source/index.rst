@@ -44,7 +44,7 @@ The second step is to configure srsENB with two cells. For this, one needs to mo
     {
       rf_port = 0;
       cell_id = 0x01;
-      tac = 0x0001;
+      tac = 0x0007;
       pci = 1;
       root_seq_idx = 204;
       dl_earfcn = 2850;
@@ -57,7 +57,7 @@ The second step is to configure srsENB with two cells. For this, one needs to mo
     {
       rf_port = 1;
       cell_id = 0x02;
-      tac = 0x0001;
+      tac = 0x0007;
       pci = 4;
       root_seq_idx = 205;
       dl_earfcn = 3050;
