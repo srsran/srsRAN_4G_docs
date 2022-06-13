@@ -13,16 +13,6 @@ This application note shows how srsUE can be used with a third-party 5G SA netwo
 we use the Amari Callbox Classic from Amarisoft to provide the network.
 
 
-Limitations
-***********
-
-The current 5G SA UE application has a few feature limitations that require certain configuration
-settings at both the gNB and the core network. The key feature limitations are as follows:
-
-  - Limited to 15 kHz Sub-Carrier Spacing (SCS), which means only FDD bands can be used. 
-  - Limited to 10 MHz Bandwidth (BW) 
-
-
 Hardware Requirements
 *********************
 
@@ -49,6 +39,15 @@ on the Callbox). These connections run through 30dB attenuators as shown in the 
 PPS inputs for the accurate clocking of both the UE and Callbox are also shown.
 Both UE and Callbox require accurate clocks - in our testing we provide PPS inputs to both.
 
+
+Limitations
+***********
+
+The current 5G SA UE application has a few feature limitations that require certain configuration
+settings at both the gNB and the core network. The key feature limitations are as follows:
+
+  - Limited to 15 kHz Sub-Carrier Spacing (SCS), which means only FDD bands can be used. 
+  - Limited to 10 MHz Bandwidth (BW) 
 
 
 Configuration
