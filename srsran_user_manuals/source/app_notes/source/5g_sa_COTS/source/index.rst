@@ -110,7 +110,14 @@ srsENB will connect to the AMF and UPF via the *mme_addr* config option in the s
 Preparing COTS UE
 *****************
 
-Before your COTS device can successfully connect to srsRAN it is important to take the following steps to prepare the device. This includes ensuring the correct configuration of the USIM, rooting the UE and using Network Signal Guru to force the device to see the 5G cell. 
+Most COTS UEs will have no issues connecting to srsRAN, and should work out of the box. In the case where you are having difficulties seeing, or connecting to the network, the following steps may 
+need to be followed: 
+
+   - Correct configuration of the 5G USIM
+   - Rooting the UE
+   - Using Network Signal Guru to force the device to see the 5G cell
+
+The following steps are not a requirement to run 5G SA, but may be necessary if you are having trouble connecting to the network. 
 
 5G SIM
 =======
@@ -124,7 +131,7 @@ You can find more information on this in `this guide <https://gist.github.com/mr
 Rooting COTS UE 
 ===============
 
-Rooting will allow you to run the Network Signal Guru (NSG) application. Rooting is also lets you configure system settings and grants access to additional features not allowed with standard use. 
+Rooting will allow you to run the Network Signal Guru (NSG) application. It also lets you configure system settings and grants access to additional features not allowed with standard use. 
 
 How this is done is dependent on the make and manufacturer of your device. XDA-Developers have a useful article which outlines how to root various COTS UE devices, you can find it `here <https://www.xda-developers.com/root/>`_. 
 
