@@ -107,6 +107,70 @@ with the information needed to download and set-up Open5GS so that it is ready t
 
 srsENB will connect to the AMF and UPF via the *mme_addr* config option in the srsENB config file. 
 
+Preparing COTS UE
+*****************
+
+Most COTS UEs will have no issues connecting to srsRAN, and should work out of the box. In the case where you are having difficulties seeing, or connecting to the network, the following steps may 
+need to be followed: 
+
+   - Correct configuration of the 5G USIM
+   - Rooting the UE
+   - Using Network Signal Guru to force the device to see the 5G cell
+
+The following steps are not a requirement to run 5G SA, but may be necessary if you are having trouble connecting to the network. 
+
+5G SIM
+=======
+
+If you are using a 5G-enabled sysmcom-ISIM then you will need to modify the 5G-related fields of the sim card. In particular you need to enable SUCI concealment. This can be done via a sim card reader using the following command:: 
+
+    ./pySim-shell.py -p0 --script ./scripts/deactivate-5g.script
+
+You can find more information on this in `this guide <https://gist.github.com/mrlnc/01d6300f1904f154d969ff205136b753>`_, written by Merlin Chlosta. 
+
+Rooting COTS UE 
+===============
+
+Rooting will allow you to run the Network Signal Guru (NSG) application. It also lets you configure system settings and grants access to additional features not allowed with standard use. 
+
+How this is done is dependent on the make and manufacturer of your device. XDA-Developers have a useful article which outlines how to root various COTS UE devices, you can find it `here <https://www.xda-developers.com/root/>`_. 
+
+.. warning::
+   Rooting a device may cause you to lose any information stored on the device. It is not recommended to root your personal device. You should be careful to fully understand what you are doing before undertaking the process. 
+
+
+Network Signal Guru
+===================
+
+.. note::
+   For NSG to work and force the connection to the 5G SA cell, your device must have a Qualcomm baseband processor and also be rooted. 
+
+You can download NSG from the Play Store at this `link <https://play.google.com/store/apps/details?id=com.qtrun.QuickTest&hl=en&gl=US>`_. 
+
+NSG will be used to force the COTS UE to use a specific RAT, in this case 5G SA. To do this take the following steps: 
+
+   - In the top right corner of the app, open the drop down menu by pressing the 3 dots. 
+   - Now select ``Forcing Control``.
+   - Under *"Preferred Network Type"* select **only** ``5GNR``.
+   - Under "NR5G" Mode select ``SA``.
+
+To activate LTE and NSA, take the following steps: 
+
+  - Under "Preferred network type" select ``5GNR`` and ``LTE``
+  - Under "NR5G" Mode select ``NSA/SA``
+
+The rest of the settings should stay as they are, either not set or left in the default state. This is shown in the following screenshots.
+
+|NSG1| |NSG2|
+
+   .. |NSG1| image:: .imgs/NSG_1.png
+      :width: 30%
+
+   .. |NSG2| image:: .imgs/NSG_2.png
+      :width: 30%
+
+Once the network is up and running you should be able to select it from the application at select to. This will then force the UE to attach to it. 
+
 Configuration
 **************
 
@@ -329,7 +393,10 @@ By default we use the maximum value of MCS 28 for maximum rate. Depending on the
 Limitations
 ***********
 
-   - Currently srsENB only supports a bandwidth of 10 MHz when operating in 5G SA mode. 
+Bandwidth
+=========
+
+Currently srsENB only supports a bandwidth of 10 MHz when operating in 5G SA mode. 
 
 FDD Bands
 =========
@@ -337,7 +404,6 @@ FDD Bands
 Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due to srsRAN only supporting 15 kHz SCS. In addition, there is a static relationship between 
 some configuration values affecting the CoreSet positioning. Therefore not all possible ARFCNs in a given band can be used. Below is a list of some example ARFCNs for 
 three popular FDD bands that match the configuration: 
-
 
 +-------+----------------------------------------+
 | Band  | ARFCN                                  |
@@ -349,3 +415,13 @@ three popular FDD bands that match the configuration:
 | n20   | 159000, 160200                         |
 +-------+----------------------------------------+
 
+Tested Devices
+**************
+
+The following devices have been tested by users, and are known to connected srsENB when running a 5G SA network: 
+
+   - OnePlus 10 Pro 5G
+   - OnePlus Nord 5G 
+   - Samsung A22
+   - Hisense F50+ 
+   - Huawai P40 lite 5G

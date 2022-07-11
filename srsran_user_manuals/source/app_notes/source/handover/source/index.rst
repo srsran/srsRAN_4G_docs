@@ -96,55 +96,75 @@ becomes easier to debug. The second most significant unit is used to indicate wh
 The rr.conf is where the cells (sectors) are added to the eNB, this is also where the handover flags are enabled. The following shows how this is done:: 
 
 	cell_list =
-	( 
-	 {
-	 	rf_port = 0;
-	 	cell_id = 0x01;
-	 	tac = 0x0007;
-	 	pci = 1;
-	 	root_seq_idx = 204;
-	 	dl_earfcn = 2850;
-	 	ho_active = true;
-	 	
-	 	// Cells available for handover
-	 	meas_cell_list =
-	 	(
-	 	);
-	 	
-	 	// ReportCfg (only A3 supported)
-	 	meas_report_desc = {
-	 	a3_report_type = "RSRP";
-	 	a3_offset = 6;
-	 	a3_hysteresis = 0;
-	 	a3_time_to_trigger = 480;
-	 	rsrq_config = 4;
-	 	rsrp_config = 4;
-	 	};
-	 },
-	 {
-	 	rf_port = 1;
-	 	cell_id = 0x02;
-	 	tac = 0x0007;
-	 	pci = 6;
-	 	root_seq_idx = 268;
-	 	dl_earfcn = 2850;
-	 	ho_active = true;
-	 	
-	 	// Cells available for handover
-	 	meas_cell_list =
-	 	(
-	 	);
-	 	
-	 	// ReportCfg (only A3 supported)
-	 	meas_report_desc = {
-	 	a3_report_type = "RSRP";
-	 	a3_offset = 6;
-	 	a3_hysteresis = 0;
-	 	a3_time_to_trigger = 480;
-	 	rsrq_config = 4;
-	 	rsrp_config = 4;
-			};
-	 }
+	(
+	  {
+	    rf_port = 0;
+	    cell_id = 0x01;
+	    tac = 0x0007;
+	    pci = 1;
+	    root_seq_idx = 204;
+	    dl_earfcn = 2850;
+	    ho_active = true;
+
+	    // Cells available for handover
+	    meas_cell_list =
+	    (
+	    );
+
+	    // Select measurement report configuration (all reports are combined with all measurement objects)
+	    meas_report_desc =
+	    (
+		{
+		  eventA = 3
+		  a3_offset = 6;
+		  hysteresis = 0;
+		  time_to_trigger = 480;
+		  trigger_quant = "RSRP";
+		  max_report_cells = 1;
+		  report_interv = 120;
+		  report_amount = 1;
+		}
+	    );
+	    meas_quant_desc = {
+		// averaging filter coefficient
+		rsrq_config = 4;
+		rsrp_config = 4;
+	     };
+	  },
+	  {
+	    rf_port = 1;
+	    cell_id = 0x02;
+	    tac = 0x0007;
+	    pci = 6;
+	    root_seq_idx = 268;
+	    dl_earfcn = 2850;
+	    ho_active = true;
+
+	    // Cells available for handover
+	    meas_cell_list =
+	    (
+	    );
+
+	    // Select measurement report configuration (all reports are combined with all measurement objects)
+	    meas_report_desc =
+	    (
+		{
+		  eventA = 3
+		  a3_offset = 6;
+		  hysteresis = 0;
+		  time_to_trigger = 480;
+		  trigger_quant = "RSRP";
+		  max_report_cells = 1;
+		  report_interv = 120;
+		  report_amount = 1;
+		}
+	    );
+	    meas_quant_desc = {
+		// averaging filter coefficient
+		rsrq_config = 4;
+		rsrp_config = 4;
+	    };
+	  }
 	);
 
 Note, the TAC of the cells must match that of the MME, and the EARFCN must be the same across both cells and the UE. The PCI of each cell with the same EARFCN must be different, such that *PCI%3* for the cells is not equal. 
