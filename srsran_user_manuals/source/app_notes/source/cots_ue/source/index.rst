@@ -5,7 +5,8 @@
 COTS UE
 =======
 
-**Please note, operating a private LTE network on cellular frequency bands may be tightly regulated in your jurisdiction. Seek the approval of your telecommunications regulator before doing so.**
+.. warning::
+	 Please note, operating a private LTE network on cellular frequency bands may be tightly regulated in your jurisdiction. Seek the approval of your telecommunications regulator before doing so.
 
 Introduction
 ************
@@ -463,6 +464,9 @@ The UE is now connected to the network. and should now automatically connect to 
 
 Troubleshooting
 ****************
+- If the phone has troubles finding the network or can't stay connected it might be due to frequency shifts and drifting of the eNB signal, caused by inaccurate clocks.
+  We therefore always recommend to use an external 10 MHz reference clock or a GPSDO-disciplined clock for the eNB.
+
 - Some users may experience trouble connecting to the internet, even after running the masquerading script. Ensure that IP forwarding is enabled, and check your network configuration as this may be stopping the UE from connecting successfully. 
 
 - Users may also have trouble connecting to the network. Firstly check all information in the configuration and user DB files are correct. You may also need to adjust the gain parameters in the eNB config. file - without high enough power (pmax threshold), the UE won't PRACH. 
