@@ -102,8 +102,11 @@ Download and build srsRAN::
   mkdir build
   cd build
   cmake ../
-  make
+  make -j 8
   make test
+
+.. note::
+	Instead of `make -j 8` use an appropriate number of threads matching the number your CPU cores / threads.
 
 Install srsRAN::
 
