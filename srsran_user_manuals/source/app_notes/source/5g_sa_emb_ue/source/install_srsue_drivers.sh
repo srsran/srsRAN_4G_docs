@@ -1,7 +1,7 @@
 #!/bin/bash
 
-insmod srs_dma_driver.ko
-insmod ue_nr_datamover_driver.ko
+/sbin/insmod srs_dma_driver.ko
+/sbin/insmod ue_nr_datamover_driver.ko
 
 drivers_not_found=false
 

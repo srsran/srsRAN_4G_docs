@@ -29,7 +29,7 @@ Hardware Requirements
 The figure above shows the utilized laboratory setup, which comprises the following components:
 
   - **ZCU111 prototyping platform**: hosts the RFSoC device, which will implement the embedded
-    5G SA SRS UE. The latter includes a partially FPGA-accelerated PHY.
+    5G SA SRS UE. Most PHY-layer functions of the embedded SA UE are FPGA-accelerated.
   - **XM500 daughterboard**: this FMC balun converter board is plugged onto the ZCU111 and
     provides external access to the ADCs/DACs in the RFSoC.
   - **Amari Callbox**: NR SDR-based UE test solution from Amarisoft. It contains both the SA mode
@@ -62,24 +62,19 @@ Embedded 5G SA UE Features and Limitations
 Features
 --------
 
-The current implementation provides a functional NR SA UE (that is, able to establish a
-bidirectional communication link with a NR SA gNB). Hence, the embedded implementation includes
-the following features:
+The current NR SA UE implementation includes the following features:
 
   * DL bandwidth up to 10 MHz.
-  * Partially FPGA-accelerated L1:
+  * FPGA-accelerated L1 DSP:
 
      - Bulk of L1 DL DSP (PSS detection, FFT, channel estimation and PBCH/PDCCH/PDSCH).
-     - OFDM stage of L1 UL (iFFT).
+     - L1 UL shared channel and OFDM stage (PUSCH, iFFT).
   * Run-time performance metrics provided through the console.
 
 Limitations
 -----------
 
-The limited embedded CPU performance is constraining the maximum attainable performance of the
-current UE implementation (e.g., the bulk of the UL processing is currently implemented in software).
-
-The lack of a complete RF front-end also introduces the following limitations:
+The lack of a complete RF front-end introduces the following limitations:
 
   * A cabled setup is required, as no gain and/or RF filtering components are included in the
     XM500 daughter-board (beyond those baseline features provided by the HF/LF baluns).
@@ -90,7 +85,7 @@ The lack of a complete RF front-end also introduces the following limitations:
   * Regarding the Tx gains, they need to be carefully fixed, for which we do recommend using the
     settings described in the configuration files provided below.
 
-The embedded 5G SA UE implementation inherits those feature limitations of its x86 counterpart.
+The embedded 5G SA UE implementation shares a few feature limitations with its x86 counterpart.
 That is, while interoperability with a third party gNB is supported, only certain bands (i.e.,
 NR configuration parameters) can actually be used. A list of key feature limitations is provided
 below for the sake of thoroughness:
@@ -98,7 +93,8 @@ below for the sake of thoroughness:
   * Only the 15 kHz subcarrier-spacing (SCS) is supported (including the SSB).
   * Signal bandwidth limited to 10 MHz.
   * Only DCI formats 0_0, 1_0, 0_1 and 1_1 are supported.
-  * No cell search and reference signal measurements (PCI for NR carrier needs to be known).
+  * No cell search and reference signal measurements (PCI and SSB ARFCN for NR carrier need to be
+    known).
 
 Building the embedded SA UE
 ***************************
@@ -206,14 +202,14 @@ ZCU111 board, the following actions are required:
   :align: center
 |
 
-Note, that some modifications are also required in the software end. Nevertheless, the embedded
+Note that some modifications are also required in the software end. Nevertheless, the embedded
 SRS UE application is already including them. The full details are provided in the code repository
 (see the *RFdc timestamping IP section in /lib/src/phy/ue/fpga_ue/RFdc_timestamping*).
 
 *XM500 port usage*
 
-As per FPGA design (i.e., fixed in the demonstration bistream), a specific set of connectors
-needs to be used in the XM500 daughter-board, as indicated below:
+As per FPGA design (i.e., fixed in the NR SA UE bistream), a specific set of connectors needs to
+be used in the XM500 daughter-board, as indicated below:
 
   - The NR DL signal shall be received from ADC Tile 224, channel 1 (labelled as
     **ADC224_T0_CH1** in the board).
@@ -288,10 +284,29 @@ Usage
 Following configuration, we can run the UE, gNB and 5GC. The following order should be used when
 reproducing the described laboratory setup:
 
-1. MME
-2. gNB
-3. UE
-4. ping
+1. Callbox initialization
+2. MME
+3. gNB
+4. UE
+5. ping
+6. iperf
+
+Callbox initialization
+----------------------
+
+This can
+be conveniently done through a script that handles the required *insmod* calls, which has been
+included attached to this App Note
+
+Properly initializing the Amari Callbox can be conveniently done through a series of scripts
+that will make sure that all relevant configuration parameters are set as needed (e.g., CPU
+governor). These scripts have been included attached to this App note.
+
+  - :download:`set of configuration scripts <callbox_init_scripts.tar.xz>`
+
+All scripts can be executed by a single command::
+
+  sudo ./run_all.sh
 
 MME
 ---
@@ -361,10 +376,10 @@ Later the embedded srsUE will be executed using the following command::
 
 Once the UE has been initialised you should see an output similar to the following::
 
-  Reading configuration file ue_debug.conf...
+  Reading configuration file ue.conf...
   WARNING: cpu0 scaling governor is not set to performance mode. Realtime processing could be compromised. Consider setting it to performance mode before running the application.
 
-  Built in Release mode using commit 2a0d3b1ff on branch experimental_sa_amari_attach.
+  Built in Release mode using commit 827b5c300 on branch merge_dev_june22.
 
   Opening 1 channels in RF device=default with args=clock=external
   Supported RF device list: RFdc file
@@ -374,54 +389,86 @@ Once the UE has been initialised you should see an output similar to the followi
   metal: info:      Registered shmem provider ion.ion_system_contig_heap.
   metal: info:      Registered shmem provider ion.ion_system_heap.
   Configuring LMK04208 to use external clock source
-  LMX configured
+  tLMX configured
   RF device 'RFdc' successfully opened
 
   FPGA bitstream built on 0000/00/00 00:00:00:00 using commit 00000000
-  Setting manual TX/RX offset to 60 samples
+  Setting manual TX/RX offset to 65 samples
   Waiting PHY to initialize ... done!
 
 Once the FPGA has correctly synchronized to the selected cell you should see a similar console
 output during the attach procedure::
 
   Attaching UE...
-  Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0xf, tti=651
-  Random Access Complete.     c-rnti=0x0, ta=2
+  Random Access Transmission: prach_occasion=0, preamble_index=0, ra-rnti=0xf, tti=8811
+  Random Access Complete.     c-rnti=0x4601, ta=1
   RRC Connected
   RRC NR reconfiguration successful.
-  PDU Session Establishment successful. IP: 192.168.3.2
+  PDU Session Establishment successful. IP: 192.168.4.2
   RRC NR reconfiguration successful.
 
 Note that an IP address is provided once the PDU session establishment is succesfully completed.
-From another session simply run the ping command::
+You can either start a ping from the UE (SSH session to ZCU111) or ping the UE from another
+session::
 
-  ping 192.168.3.1
+  ping 192.168.4.2
 
 Similar console outputs should then be produced::
 
-  PING 192.168.3.1 (192.168.3.1): 56 data bytes
-  64 bytes from 192.168.3.1: seq=0 ttl=64 time=33.942 ms
-  64 bytes from 192.168.3.1: seq=1 ttl=64 time=113.814 ms
-  64 bytes from 192.168.3.1: seq=2 ttl=64 time=33.654 ms
-  64 bytes from 192.168.3.1: seq=3 ttl=64 time=33.607 ms
+  PING 192.168.4.2 (192.168.4.2): 56 data bytes
+  64 bytes from 192.168.4.2: seq=0 ttl=64 time=33.942 ms
+  64 bytes from 192.168.4.2: seq=1 ttl=64 time=113.814 ms
+  64 bytes from 192.168.4.2: seq=2 ttl=64 time=33.654 ms
+  64 bytes from 192.168.4.2: seq=3 ttl=64 time=33.607 ms
 
-Finally, it is worth mentioning that follwing the RRC NR reconfiguration messages a set of metrics
-will be periodically displayed as part of the console outputs::
+iperf
+-----
+
+To run an UL UDP iperf test, the first step will be starting a server in the Amari Callbox (note
+that 192.168.4.1 it's the MME IP address)::
+
+  iperf3 -s -B 192.168.4.1 -p 5003
+
+Then we will run a client in the embedded ARM of the RFSoC (SSH to ZCU111)::
+
+  iperf3 -c 192.168.4.1 -p 5003 -t 60 -b 40M -u
+
+Similarly, to run a DL UDP iperf test, first a server will be started in the UE (RFSoC - note
+that 192.168.4.2 is the IP address assigned to the UE by the network)::
+
+  iperf3 -s -B 192.168.4.2 -p 5004
+
+Then, a client will be executed in the Amari Callbox::
+
+  iperf3 -c 192.168.4.1 -p 5003 -t 60 -b 40M -u
+
+Finally, it is worth mentioning that relevant traffic metrics will be periodically displayed as
+part of the console outputs (below some UL iperf metrics are shown as an example)::
 
   Enter t to stop trace.
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
   rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |  10    0.0   3.3k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |   8    0.0   3.2k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |   8    0.0   3.0k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |   8    0.0   3.0k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |  10    0.0   3.1k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |  10    0.0   3.2k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |   8    0.0   3.0k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   33%    0.0 |  10    0.0   3.1k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |   9    0.0   3.2k    0%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |  10    0.0   3.5k   20%
-   nr  500     0    0   0.0 |  10    0   0.0   1.3k   20%    0.0 |  10    0.0   3.1k    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |   0    0.0    0.0    0%
+  nr  500     0    0   0.0 |  27    0   0.0    36k    0%    0.0 |  27   380k    27M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   379k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   379k    37M    0%
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
   rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-   nr  500     0    0   0.0 |  10    0   0.0   4.5k   11%    0.0 |  11    0.0   3.9k   20%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    29k    0%    0.0 |  27   381k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   379k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
+  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   378k    37M    0%
