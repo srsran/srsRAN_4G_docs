@@ -442,8 +442,10 @@ Then, a client will be executed in the Amari Callbox::
 
   iperf3 -c 192.168.4.1 -p 5003 -t 60 -b 40M -u
 
-Finally, it is worth mentioning that relevant traffic metrics will be periodically displayed as
-part of the console outputs (below some UL iperf metrics are shown as an example)::
+Finally, it is worth mentioning that by typing **t** in the console of the embedded SRS NR SA UE,
+after the attach procedure is succesfully completed, the periodical display of relevant traffic
+metrics as part of the displayed outputs will be enabled (below some UL iperf metrics are shown as
+an example)::
 
   Enter t to stop trace.
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
