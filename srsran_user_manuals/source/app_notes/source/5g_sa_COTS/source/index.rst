@@ -5,7 +5,7 @@
 5G SA COTS UE
 ##############
 
-.. tip::
+.. warning::
    Operating a private 5G SA network on cellular frequency bands may be tightly regulated in your jurisdiction. Seek the approval 
    of your telecommunications regulator before doing so.
 
@@ -26,7 +26,7 @@ Setting up a 5G SA network and connecting a 5G COTS UE requires the following:
 
  - PC with a Linux based OS, with srsRAN 22.04 (or later) installed and built
  - Third Party 5G Core
- - A compatible SDR (USRP, LimeSDR, BladeRF, etc.)
+ - A compatible SDR (USRP, LimeSDR, BladeRF, etc.), ideally connected to a 10 MHz reference clock or GPSDO
  - A 5G SA-capable UE 
  - USIM/ SIM card (This must be a test card or a programmable card, with known keys)
 
@@ -240,6 +240,7 @@ commented out, or removed completely from the list. The NR Cell is configured in
        tac = 7;
        pci = 500;
        dl_arfcn = 368500;
+       coreset0_idx = 6;
        band = 3;	
      }
    );
@@ -323,7 +324,7 @@ If srsENB connects to the core successfully the following (or similar) will be d
 
    ==== eNodeB started ===
    Type <t> to view trace
-   Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=0 nof_prb=52
+   Setting frequency: DL=1842.5 Mhz, DL_SSB=1843.25 Mhz (SSB-ARFCN=368650), UL=1747.5 MHz for cc_idx=0 nof_prb=52
 
 
 The ``NG connection successful`` message confirms that srsENB has connected to the core. 
@@ -347,7 +348,7 @@ If the UE successfully connects to the network, you should see an update to the 
 
    ==== eNodeB started ===
    Type <t> to view trace
-   Setting frequency: DL=1842.5 Mhz, UL=1747.5 MHz for cc_idx=0 nof_prb=52
+   Setting frequency: DL=1842.5 Mhz, DL_SSB=1843.25 Mhz (SSB-ARFCN=368650), UL=1747.5 MHz for cc_idx=0 nof_prb=52
 
    RACH:  slot=3051, cc=0, preamble=6, offset=10, temp_crnti=0x4601
    User 0x46 connected
@@ -382,6 +383,9 @@ The following example console output shows the srsENB trace of a COTS UE sending
 Troubleshooting
 *************** 
 
+MCS
+===
+
 One of the current limitations of the NR scheduler is missing dynamic MCS adaptation. Therefore, a fixed MCS is used for both downlink (PDSCH) and uplink (PUSCH) transmissions.
 By default we use the maximum value of MCS 28 for maximum rate. Depending on the RF conditions this, however, may be too high. In this case, try to use a lower MCS, e.g.:: 
 
@@ -389,6 +393,13 @@ By default we use the maximum value of MCS 28 for maximum rate. Depending on the
 	[scheduler]
 	nr_pdsch_mcs = 10
 	nr_pusch_mcs = 10
+
+Reference clock
+===============
+
+If you encounter issues with the phone not finding the cell and/or not being able to stay connected it might be due
+to inaccurate clocks at the gNBs RF frontend. Try to use an external 10 MHz reference or use a GPSDO-disciplined oscillator.
+
 
 Limitations
 ***********
@@ -401,19 +412,10 @@ Currently srsENB only supports a bandwidth of 10 MHz when operating in 5G SA mod
 FDD Bands
 =========
 
-Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due to srsRAN only supporting 15 kHz SCS. In addition, there is a static relationship between 
-some configuration values affecting the CoreSet positioning. Therefore not all possible ARFCNs in a given band can be used. Below is a list of some example ARFCNs for 
-three popular FDD bands that match the configuration: 
-
-+-------+----------------------------------------+
-| Band  | ARFCN                                  |
-+=======+========================================+
-| n3    | 363500, 368500, 369500, 374500, 375000 |
-+-------+----------------------------------------+
-| n7    | 525000, 526200, 531000                 |
-+-------+----------------------------------------+
-| n20   | 159000, 160200                         |
-+-------+----------------------------------------+
+Currently, srsRAN only supports the use of FDD bands for 5G SA. This is due to srsRAN only supporting 15 kHz SCS. 
+As of srsRAN 22.04.1 the fixed CoreSet0 index has been removed and can now be freely configured. However, not all combinations
+of ARFCNs and CoreSet0 index are valid configurations. An config value checker will inform the use if an invalid combination
+has been provided. If this happens, either change the ARFCN or the `coreset0_idx` value in the `rr.conf`.
 
 Tested Devices
 **************
