@@ -431,7 +431,7 @@ that 192.168.4.1 it's the MME IP address)::
 
 Then we will run a client in the embedded ARM of the RFSoC (SSH to ZCU111)::
 
-  iperf3 -c 192.168.4.1 -p 5003 -t 60 -b 40M -u
+  iperf3 -c 192.168.4.1 -p 5003 -t 30 -b 40M -u
 
 Similarly, to run a DL UDP iperf test, first a server will be started in the UE (RFSoC - note
 that 192.168.4.2 is the IP address assigned to the UE by the network)::
@@ -440,7 +440,7 @@ that 192.168.4.2 is the IP address assigned to the UE by the network)::
 
 Then, a client will be executed in the Amari Callbox::
 
-  iperf3 -c 192.168.4.1 -p 5003 -t 60 -b 40M -u
+  iperf3 -c 192.168.4.1 -p 5003 -t 30 -b 40M -u
 
 Finally, it is worth mentioning that by typing **t** in the console of the embedded SRS NR SA UE,
 after the attach procedure is succesfully completed, the periodical display of relevant traffic
