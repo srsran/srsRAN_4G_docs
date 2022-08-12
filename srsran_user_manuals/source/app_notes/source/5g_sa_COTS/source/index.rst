@@ -181,6 +181,10 @@ The following config files were modified for this app note:
   * :download:`amf.yaml<.configs/amf.yaml>`
   * :download:`upf.yaml<.configs/upf.yaml>`
 
+.. note::
+   22.04.1 brings changes to the rr.conf, ``coreset0_idx`` is now a required field under *nr_nell_list*. If you are using an old config file with the latest update, you will need to add this to your config file. 
+
+
 Details of the modifications made will be outlined in following sections. 
 
 srsENB
