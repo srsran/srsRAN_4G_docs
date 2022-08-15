@@ -28,11 +28,54 @@ The srsRAN suite currently includes:
 
 All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
 
+-----
+
+
 .. toctree::
    :maxdepth: 2
+   :caption: General
    
    getting_started.rst
    feature_list.rst
-   general/source/index.rst
-   usermanuals/source/index.rst 
-   app_notes/source/index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: First Steps
+
+   general/source/1_installation.rst
+   general/source/2_release_notes.rst
+   general/source/3_contributions.rst
+   general/source/4_troubleshooting.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Manuals
+
+   usermanuals/source/srsue/source/index.rst
+   usermanuals/source/srsenb/source/index.rst
+   usermanuals/source/srsepc/source/index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Application Notes
+
+   app_notes/source/5g_sa_E2E/source/index.rst
+   app_notes/source/5g_sa_COTS/source/index.rst
+   app_notes/source/5g_sa_amari/source/index.rst
+   app_notes/source/5g_nsa_zmq/source/index.rst
+   app_notes/source/5g_nsa_cots/source/index.rst
+   app_notes/source/5g_nsa_amari/source/index.rst
+   app_notes/source/zeromq/source/index.rst
+   app_notes/source/cots_ue/source/index.rst
+   app_notes/source/handover/source/index.rst
+   app_notes/source/2ca/source/index.rst
+   app_notes/source/cv2x/source/index.rst
+   app_notes/source/embms/source/index.rst
+   app_notes/source/nbiot/source/index.
+   app_notes/source/pi4/source/index.rst
+   app_notes/source/hw_packs/source/index.rst
+
+
+
+
+

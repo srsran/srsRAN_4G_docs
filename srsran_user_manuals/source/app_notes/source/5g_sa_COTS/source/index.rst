@@ -164,10 +164,10 @@ The rest of the settings should stay as they are, either not set or left in the 
 |NSG1| |NSG2|
 
    .. |NSG1| image:: .imgs/NSG_1.png
-      :width: 30%
+      :width: 20%
 
    .. |NSG2| image:: .imgs/NSG_2.png
-      :width: 30%
+      :width: 20%
 
 Once the network is up and running you should be able to select it from the application at select to. This will then force the UE to attach to it. 
 
@@ -180,6 +180,10 @@ The following config files were modified for this app note:
   * :download:`rr.conf <.configs/rr.conf>`
   * :download:`amf.yaml<.configs/amf.yaml>`
   * :download:`upf.yaml<.configs/upf.yaml>`
+
+.. note::
+   22.04.1 brings changes to the rr.conf, ``coreset0_idx`` is now a required field under *nr_nell_list*. If you are using an old config file with the latest update, you will need to add this to your config file. 
+
 
 Details of the modifications made will be outlined in following sections. 
 

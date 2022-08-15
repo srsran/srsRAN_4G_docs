@@ -3,6 +3,13 @@
 Release Notes
 =============
 
+* 22.04.1
+
+  * Bug-fixes in RLC AM and PDCP in NR
+  * Fix for UE crashing when attempting to re-establish connection in SA mode
+  * Removed fixed coreset0 index for SSB
+  * Added support for SIB5 and SIB6 transmission in LTE
+
 - 22.04
 
   * Add baseline 5G-SA support to srsUE and srsENB

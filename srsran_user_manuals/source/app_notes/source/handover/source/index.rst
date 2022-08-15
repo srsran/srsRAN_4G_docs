@@ -77,6 +77,7 @@ The following table should make clear how the TCP ports are allocated across the
    :widths: 25 25 25
    :header-rows: 1
    :stub-columns: 1
+   :align: center
 
    * - Port Direction
      - cell1 Port #
@@ -192,6 +193,7 @@ and reflected in the user_db.csv to ensure the UE is authenticated correctly.
    :widths: 25 25
    :header-rows: 1
    :stub-columns: 1
+   :align: center
 
    * - Port Direction
      - Port #
@@ -223,6 +225,7 @@ The following table again shows the clear breakdown of how the ports are assigne
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
+	:align: center
 
     * - Port Direction
       - cell1 Port #
@@ -400,7 +403,7 @@ If the attach is successful the EPC should give the following readout::
 
 **eNB Attach:**
 
-You will see the RACH and connection message on the eNB::
+You will see the RACH and connection message on the eNB:: 
 
 	RACH:  tti=341, cc=0, preamble=14, offset=0, temp_crnti=0x46
 	User 0x46 connected
@@ -441,7 +444,7 @@ The Following steps outline how handover can be forced with GRC. Aagain, this is
 	
 **UE Console:**
 
-If handover is successful you should see the following read out in the UE console::
+If handover is successful you should see the following read out in the UE console:: 
 
 	Received HO command to target PCell=6, NCC=0
 	Random Access Transmission: seq=3, ra-rnti=0x2
@@ -453,9 +456,10 @@ Handover can now be repeated as many times as needed by repeating the above step
 S1 Handover
 ***************
  
-**Note, srsEPC does not support handover via the S1 interface, as it is designed to be a lightweight core 
-for network-in-a-box type deployments. To support S1 handover, a third party EPC must be used. We will use 
-Open5GS for the purposes of this note, however any third-party EPC supporting S1 handover can be used.**
+.. note::
+	srsEPC does not support handover via the S1 interface, as it is designed to be a lightweight core 
+	for network-in-a-box type deployments. To support S1 handover, a third party EPC must be used. We will use 
+	Open5GS for the purposes of this note, however any third-party EPC supporting S1 handover can be used.
 
 S1 handover takes place over the S1-interface as a UE transitions from the coverage of one eNB to the next. 
 This differs from intra-enb handover as the UE is leaving the coverage of all sectors in an eNBs coverage, 
@@ -811,6 +815,7 @@ The following outlines which ports belong to which network element:
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
+	:align: center
 
     * - Port Direction
       - eNB 1 Port #
