@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacesafe__duration__cast" kind="namespace" language="C++">
+    <compoundname>safe_duration_cast</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="chrono_8h_1ac9b448822712d899ac8814dd4e0b6cc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename To</type>
+          </param>
+          <param>
+            <type>typename From</type>
+          </param>
+          <param>
+            <type>FMT_ENABLE_IF(!std::is_same&lt; From, To &gt;::value &amp;&amp; std::numeric_limits&lt; From &gt;::is_signed== std::numeric_limits&lt; To &gt;::is_signed)</type>
+          </param>
+        </templateparamlist>
+        <type>FMT_CONSTEXPR To</type>
+        <definition>FMT_CONSTEXPR To safe_duration_cast::lossless_integral_conversion</definition>
+        <argsstring>(const From from, int &amp;ec)</argsstring>
+        <name>lossless_integral_conversion</name>
+        <param>
+          <type>const From</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts From to To, without loss. If the dynamic value of from can&apos;t be converted to To without loss, ec is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/chrono.h" line="39" column="18" bodyfile="include/srsgnb/srslog/bundled/fmt/chrono.h" bodystart="39" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="chrono_8h_1a4068ce3522b9a60611b5cb6466977e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename To</type>
+          </param>
+          <param>
+            <type>typename From</type>
+          </param>
+          <param>
+            <type>FMT_ENABLE_IF(!std::is_same&lt; From, To &gt;::value)</type>
+          </param>
+        </templateparamlist>
+        <type>FMT_CONSTEXPR To</type>
+        <definition>FMT_CONSTEXPR To safe_duration_cast::safe_float_conversion</definition>
+        <argsstring>(const From from, int &amp;ec)</argsstring>
+        <name>safe_float_conversion</name>
+        <param>
+          <type>const From</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts From to To if possible, otherwise ec is set.</para>
+<para><table rows="7" cols="2"><row>
+<entry thead="yes"><para>input </para>
+</entry><entry thead="yes"><para>output  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>NaN </para>
+</entry><entry thead="no"><para>NaN  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Inf </para>
+</entry><entry thead="no"><para>Inf  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>normal, fits in output </para>
+</entry><entry thead="no"><para>converted (possibly lossy)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>normal, does not fit in output </para>
+</entry><entry thead="no"><para>ec is set  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>subnormal </para>
+</entry><entry thead="no"><para>best effort  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>-Inf </para>
+</entry><entry thead="no"><para>-Inf  </para>
+</entry></row>
+</table>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/chrono.h" line="136" column="18" bodyfile="include/srsgnb/srslog/bundled/fmt/chrono.h" bodystart="136" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="chrono_8h_1a1b2f780f349d616fa841550dc49f59d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename To</type>
+          </param>
+          <param>
+            <type>typename FromRep</type>
+          </param>
+          <param>
+            <type>typename FromPeriod</type>
+          </param>
+          <param>
+            <type>FMT_ENABLE_IF(std::is_integral&lt; FromRep &gt;::value)</type>
+          </param>
+          <param>
+            <type>FMT_ENABLE_IF(std::is_integral&lt; typename To::rep &gt;::value)</type>
+          </param>
+        </templateparamlist>
+        <type>To</type>
+        <definition>To safe_duration_cast::safe_duration_cast</definition>
+        <argsstring>(std::chrono::duration&lt; FromRep, FromPeriod &gt; from, int &amp;ec)</argsstring>
+        <name>safe_duration_cast</name>
+        <param>
+          <type>std::chrono::duration&lt; FromRep, FromPeriod &gt;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>safe duration cast between integral durations</para>
+<para>safe duration_cast between floating point durations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/chrono.h" line="170" column="4" bodyfile="include/srsgnb/srslog/bundled/fmt/chrono.h" bodystart="170" bodyend="223"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/srsgnb/srslog/bundled/fmt/chrono.h" line="33" column="28"/>
+  </compounddef>
+</doxygen>

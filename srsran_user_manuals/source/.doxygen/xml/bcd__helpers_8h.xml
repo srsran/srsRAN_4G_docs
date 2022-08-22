@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="bcd__helpers_8h" kind="file" language="C++">
+    <compoundname>bcd_helpers.h</compoundname>
+    <includes local="no">ctype.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">string</includes>
+    <includedby refid="asn1__helpers_8h" local="yes">lib/f1_interface/common/asn1_helpers.h</includedby>
+    <includedby refid="f1c__asn1__helpers_8h" local="yes">lib/cu_cp/f1c_asn1_helpers.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>lib/ran/bcd_helpers.h</label>
+        <link refid="bcd__helpers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ctype.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>lib/cu_cp/du_processor.h</label>
+        <link refid="lib_2cu__cp_2du__processor_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/ran/bcd_helpers.h</label>
+        <link refid="bcd__helpers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lib/f1_interface/common/asn1_helpers.h</label>
+        <link refid="asn1__helpers_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>lib/cu_cp/f1c_asn1_helpers.h</label>
+        <link refid="f1c__asn1__helpers_8h_source"/>
+      </node>
+      <node id="3">
+        <label>lib/cu_cp/adapters/f1ap_adapters.h</label>
+        <link refid="f1ap__adapters_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>lib/cu_cp/du_processor_config.h</label>
+        <link refid="du__processor__config_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>lib/cu_cp/cu_cp.h</label>
+        <link refid="lib_2cu__cp_2cu__cp_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="namespacesrsgnb_1a5c5317e395f78893278614836128c850" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a5c5317e395f78893278614836128c850" kindref="member">string_to_mcc</ref>(std::string<sp/>str,<sp/>uint16_t*<sp/>mcc)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>uint32_t<sp/>len<sp/>=<sp/>(uint32_t)str.size();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>!=<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isdigit(str[0])<sp/>||<sp/>!isdigit(str[1])<sp/>||<sp/>!isdigit(str[2]))<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>*mcc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>((uint8_t)(str[0]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>8);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>((uint8_t)(str[1]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>4);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>((uint8_t)(str[2]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mcc_to_string(uint16_t<sp/>mcc,<sp/>std::string*<sp/>str)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mcc<sp/>&amp;<sp/>0xf000)<sp/>!=<sp/>0xf000)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>*str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>*str<sp/>+=<sp/>((mcc<sp/>&amp;<sp/>0x0f00)<sp/>&gt;&gt;<sp/>8)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>*str<sp/>+=<sp/>((mcc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>*str<sp/>+=<sp/>(mcc<sp/>&amp;<sp/>0x000f)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="namespacesrsgnb_1a933749902da1155a4588ef351efff096" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a933749902da1155a4588ef351efff096" kindref="member">bytes_to_mcc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="classbytes" kindref="compound">bytes</ref>,<sp/>uint16_t*<sp/>mcc)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>*mcc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>(((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[0])<sp/>&lt;&lt;<sp/>8u);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>(((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[1])<sp/>&lt;&lt;<sp/>4u);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>(uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[2];</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mcc_to_bytes(uint16_t<sp/>mcc,<sp/>uint8_t*<sp/><ref refid="classbytes" kindref="compound">bytes</ref>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mcc<sp/>&amp;<sp/>0xf000)<sp/>!=<sp/>0xf000)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[0]<sp/>=<sp/>(uint8_t)((mcc<sp/>&amp;<sp/>0xf00)<sp/>&gt;&gt;<sp/>8);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[1]<sp/>=<sp/>(uint8_t)((mcc<sp/>&amp;<sp/>0x0f0)<sp/>&gt;&gt;<sp/>4);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[2]<sp/>=<sp/>(uint8_t)(mcc<sp/>&amp;<sp/>0x00f);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/>mcc_bytes_to_string(uint8_t*<sp/>mcc_bytes)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>std::string<sp/>mcc_str;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/>mcc;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a933749902da1155a4588ef351efff096" kindref="member">bytes_to_mcc</ref>(&amp;mcc_bytes[0],<sp/>&amp;mcc);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mcc_to_string(mcc,<sp/>&amp;mcc_str))<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>mcc_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;000&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mcc_str;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="namespacesrsgnb_1a94e3fe72482cbc9435f89ba340e56817" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a94e3fe72482cbc9435f89ba340e56817" kindref="member">string_to_mnc</ref>(std::string<sp/>str,<sp/>uint16_t*<sp/>mnc)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>uint32_t<sp/>len<sp/>=<sp/>str.size();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>!=<sp/>3<sp/>&amp;&amp;<sp/>len<sp/>!=<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isdigit(str[0])<sp/>||<sp/>!isdigit(str[1])<sp/>||<sp/>!isdigit(str[2]))<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint8_t)(str[0]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>8);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint8_t)(str[1]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>4);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint8_t)(str[2]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isdigit(str[0])<sp/>||<sp/>!isdigit(str[1]))<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>=<sp/>0xff00;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint8_t)(str[0]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>4);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint8_t)(str[1]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mnc_to_string(uint16_t<sp/>mnc,<sp/>std::string*<sp/>str)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mnc<sp/>&amp;<sp/>0xf000)<sp/>!=<sp/>0xf000)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>*str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mnc<sp/>&amp;<sp/>0xff00)<sp/>!=<sp/>0xff00)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>*str<sp/>+=<sp/>((mnc<sp/>&amp;<sp/>0x0f00)<sp/>&gt;&gt;<sp/>8)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>*str<sp/>+=<sp/>((mnc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>*str<sp/>+=<sp/>(mnc<sp/>&amp;<sp/>0x000f)<sp/>+<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="namespacesrsgnb_1a0eaaf818d38e38f10780c165ea3256a1" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a0eaaf818d38e38f10780c165ea3256a1" kindref="member">bytes_to_mnc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="classbytes" kindref="compound">bytes</ref>,<sp/>uint16_t*<sp/>mnc,<sp/>uint8_t<sp/>len)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>!=<sp/>3<sp/>&amp;&amp;<sp/>len<sp/>!=<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[0])<sp/>&lt;&lt;<sp/>8u;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[1])<sp/>&lt;&lt;<sp/>4u;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[2])<sp/>&lt;&lt;<sp/>0u;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>=<sp/>0xff00;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[0])<sp/>&lt;&lt;<sp/>4u;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>((uint16_t)<ref refid="classbytes" kindref="compound">bytes</ref>[1])<sp/>&lt;&lt;<sp/>0u;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mnc_to_bytes(uint16_t<sp/>mnc,<sp/>uint8_t*<sp/><ref refid="classbytes" kindref="compound">bytes</ref>,<sp/>uint8_t*<sp/>len)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mnc<sp/>&amp;<sp/>0xf000)<sp/>!=<sp/>0xf000)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>*len<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>uint8_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mnc<sp/>&amp;<sp/>0xff00)<sp/>!=<sp/>0xff00)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[count++]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0xf00)<sp/>&gt;&gt;<sp/>8u;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[count++]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4u;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><ref refid="classbytes" kindref="compound">bytes</ref>[count++]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x000f);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>*len<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>count;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Vec&gt;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mnc_to_bytes(uint16_t<sp/>mnc,<sp/>Vec&amp;<sp/>vec)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>uint8_t<sp/>len;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>uint8_t<sp/>v[3];</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>mnc_to_bytes(mnc,<sp/>&amp;v[0],<sp/>&amp;len);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>vec.resize(len);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>memcpy(&amp;vec[0],<sp/>&amp;v[0],<sp/>len);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/>mnc_bytes_to_string(uint8_t*<sp/>mnc_bytes,<sp/>uint32_t<sp/>nof_bytes)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>std::string<sp/>mnc_str;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/>mnc;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a0eaaf818d38e38f10780c165ea3256a1" kindref="member">bytes_to_mnc</ref>(&amp;mnc_bytes[0],<sp/>&amp;mnc,<sp/>nof_bytes);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mnc_to_string(mnc,<sp/>&amp;mnc_str))<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>mnc_str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;000&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mnc_str;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Vec&gt;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">std::string<sp/>mnc_bytes_to_string(Vec<sp/>mnc_bytes)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mnc_bytes_to_string(&amp;mnc_bytes[0],<sp/>mnc_bytes.size());</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="namespacesrsgnb_1a3cccd5692d5e3c29639f9d127bf1ec67" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a3cccd5692d5e3c29639f9d127bf1ec67" kindref="member">ngap_plmn_to_mccmnc</ref>(uint32_t<sp/>plmn,<sp/>uint16_t*<sp/>mcc,<sp/>uint16_t*<sp/>mnc)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>uint8_t<sp/>nibbles[6];</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>nibbles[0]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0xf00000)<sp/>&gt;&gt;<sp/>20;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>nibbles[1]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0x0f0000)<sp/>&gt;&gt;<sp/>16;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>nibbles[2]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0x00f000)<sp/>&gt;&gt;<sp/>12;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>nibbles[3]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0x000f00)<sp/>&gt;&gt;<sp/>8;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>nibbles[4]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0x0000f0)<sp/>&gt;&gt;<sp/>4;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>nibbles[5]<sp/>=<sp/>(plmn<sp/>&amp;<sp/>0x00000f);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>*mcc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>*mnc<sp/>=<sp/>0xf000;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>nibbles[1]<sp/>&lt;&lt;<sp/>8;<sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>nibbles[0]<sp/>&lt;&lt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>*mcc<sp/>|=<sp/>nibbles[3];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nibbles[2]<sp/>==<sp/>0xf)<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2-digit<sp/>MNC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>0x0f00;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>nibbles[5]<sp/>&lt;&lt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>nibbles[4];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3-digit<sp/>MNC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>nibbles[2]<sp/>&lt;&lt;<sp/>8;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>nibbles[5]<sp/>&lt;&lt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>*mnc<sp/>|=<sp/>nibbles[4];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="namespacesrsgnb_1ae48d88323135b13f064722d33b8dfeb5" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1ae48d88323135b13f064722d33b8dfeb5" kindref="member">ngap_mccmnc_to_plmn</ref>(uint16_t<sp/>mcc,<sp/>uint16_t<sp/>mnc,<sp/>uint32_t*<sp/>plmn)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>uint8_t<sp/>nibbles[6];</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>nibbles[1]<sp/>=<sp/>(mcc<sp/>&amp;<sp/>0x0f00)<sp/>&gt;&gt;<sp/>8;<sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>nibbles[0]<sp/>=<sp/>(mcc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>nibbles[3]<sp/>=<sp/>(mcc<sp/>&amp;<sp/>0x000f);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MCC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mnc<sp/>&amp;<sp/>0xff00)<sp/>==<sp/>0xff00)<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2-digit<sp/>MNC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[2]<sp/>=<sp/>0x0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[5]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[4]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x000f);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3-digit<sp/>MNC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[2]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x0f00)<sp/>&gt;&gt;<sp/>8;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[5]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x00f0)<sp/>&gt;&gt;<sp/>4;<sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>nibbles[4]<sp/>=<sp/>(mnc<sp/>&amp;<sp/>0x000f);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MNC<sp/>digit<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>*plmn<sp/>=<sp/>0x000000;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[0]<sp/>&lt;&lt;<sp/>20;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[1]<sp/>&lt;&lt;<sp/>16;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[2]<sp/>&lt;&lt;<sp/>12;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[3]<sp/>&lt;&lt;<sp/>8;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[4]<sp/>&lt;&lt;<sp/>4;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>*plmn<sp/>|=<sp/>nibbles[5];</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/ran/bcd_helpers.h"/>
+  </compounddef>
+</doxygen>

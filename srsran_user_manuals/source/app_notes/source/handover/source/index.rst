@@ -225,7 +225,6 @@ The following table again shows the clear breakdown of how the ports are assigne
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
-	:align: center
 
     * - Port Direction
       - cell1 Port #
@@ -815,7 +814,6 @@ The following outlines which ports belong to which network element:
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
-	:align: center
 
     * - Port Direction
       - eNB 1 Port #

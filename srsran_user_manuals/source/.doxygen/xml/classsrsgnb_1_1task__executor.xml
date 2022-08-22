@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1task__executor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::task_executor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1blocking__task__worker" prot="public" virt="non-virtual">srsgnb::blocking_task_worker</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1manual__task__worker" prot="public" virt="non-virtual">srsgnb::manual_task_worker</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1task__worker__executor" prot="public" virt="non-virtual">srsgnb::task_worker_executor</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1task__executor_1a63fc9cba063ea0763800f710c6c44926" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::task_executor::~task_executor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~task_executor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_executor.h" line="20" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::task_executor::execute</definition>
+        <argsstring>(unique_task task)=0</argsstring>
+        <name>execute</name>
+        <reimplementedby refid="classsrsgnb_1_1blocking__task__worker_1a63ef06b19c2c4368c66fd6b049e7c741">execute</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1manual__task__worker_1aba2f13de4b6013fc2c8a44ce1e8ca520">execute</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1task__worker__executor_1aaebf8b5adb0d86a849bdbe0e063b3554">execute</reimplementedby>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatches a task to be executed. According to this policy, executor may invoke task inplace if it deemed safe to do so. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_executor.h" line="24" column="16"/>
+        <referencedby refid="classsrsgnb_1_1mac__cell__processor_1a8d3d3976aee75f20521c008287437ab2" compoundref="mac__cell__processor_8cpp" startline="47" endline="51">srsgnb::mac_cell_processor::handle_slot_indication</referencedby>
+        <referencedby refid="classsrsgnb_1_1mac__ul__processor_1a2a9b00fb3e31acb17cd5f745b27169a6" compoundref="mac__ul__processor_8h" startline="70" endline="82">srsgnb::mac_ul_processor::handle_rx_data_indication</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdu__rx__handler_1a4ebe8d65a7561ece46436fc28a215558" compoundref="pdu__rx__handler_8cpp" startline="193" endline="219">srsgnb::pdu_rx_handler::handle_crnti_ce</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">srsgnb::prach_processor_worker::accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a53227edd4ce38455ad9a43b6e5f9a292" compoundref="downlink__processor__single__executor__impl_8cpp" startline="40" endline="53">srsgnb::downlink_processor_single_executor_impl::process_pdcch</referencedby>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a684de28891246b05ed6b3ff4e8109226" compoundref="downlink__processor__single__executor__impl_8cpp" startline="55" endline="70">srsgnb::downlink_processor_single_executor_impl::process_pdsch</referencedby>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a213c7fbda264c76ceb2da92cf666242b" compoundref="downlink__processor__single__executor__impl_8cpp" startline="72" endline="85">srsgnb::downlink_processor_single_executor_impl::process_ssb</referencedby>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a885c55911e271b2ec7d3a6565d84be57" compoundref="downlink__processor__single__executor__impl_8cpp" startline="87" endline="100">srsgnb::downlink_processor_single_executor_impl::process_nzp_csi_rs</referencedby>
+        <referencedby refid="classsrsgnb_1_1uplink__processor__single__executor__impl_1acf2041c12bebdf54cf03a4ea8b27ff09" compoundref="uplink__processor__single__executor__impl_8cpp" startline="42" endline="56">srsgnb::uplink_processor_single_executor_impl::process_prach</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::task_executor::defer</definition>
+        <argsstring>(unique_task task)=0</argsstring>
+        <name>defer</name>
+        <reimplementedby refid="classsrsgnb_1_1blocking__task__worker_1af97cf84d1fac64ec28d7b67212f70ce5">defer</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1manual__task__worker_1a616c700a34285faed8e11a97c46ac275">defer</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1task__worker__executor_1a882896af2751b147d13d3778690c32da">defer</reimplementedby>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches a task to be later executed. The task always gets enqueued for later invocation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_executor.h" line="27" column="16"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">srsgnb::lower_phy_impl::realtime_process_loop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a4958192cfe12c97cc9f60ab546d95b48" compoundref="lower__phy__impl_8cpp" startline="326" endline="330">srsgnb::lower_phy_impl::start</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" compoundref="radio__uhd__tx__stream_8cpp" startline="64" endline="76">srsgnb::radio_uhd_tx_stream::run_recv_async_msg</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::blocking_task_worker</label>
+        <link refid="classsrsgnb_1_1blocking__task__worker"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::task_worker_executor</label>
+        <link refid="classsrsgnb_1_1task__worker__executor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::manual_task_worker</label>
+        <link refid="classsrsgnb_1_1manual__task__worker"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/executors/task_executor.h" line="18" column="1" bodyfile="include/srsgnb/support/executors/task_executor.h" bodystart="17" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c" prot="public" virt="pure-virtual"><scope>srsgnb::task_executor</scope><name>defer</name></member>
+      <member refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313" prot="public" virt="pure-virtual"><scope>srsgnb::task_executor</scope><name>execute</name></member>
+      <member refid="classsrsgnb_1_1task__executor_1a63fc9cba063ea0763800f710c6c44926" prot="public" virt="virtual"><scope>srsgnb::task_executor</scope><name>~task_executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

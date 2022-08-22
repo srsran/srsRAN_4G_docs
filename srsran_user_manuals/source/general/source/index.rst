@@ -15,6 +15,7 @@ General
    2_release_notes.rst
    3_contributions.rst
    4_troubleshooting.rst
+   5_devguide_test.rst
 
 
 

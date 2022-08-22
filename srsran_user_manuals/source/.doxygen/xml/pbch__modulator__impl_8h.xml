@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pbch__modulator__impl_8h" kind="file" language="C++">
+    <compoundname>pbch_modulator_impl.h</compoundname>
+    <includes refid="modulation__mapper_8h" local="yes">srsgnb/phy/upper/channel_modulation/modulation_mapper.h</includes>
+    <includes refid="pbch__modulator_8h" local="yes">srsgnb/phy/upper/channel_processors/pbch_modulator.h</includes>
+    <includes refid="pseudo__random__generator_8h" local="yes">srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h</includes>
+    <includedby refid="channel__processor__factories_8cpp" local="yes">lib/phy/upper/channel_processors/channel_processor_factories.cpp</includedby>
+    <includedby refid="pbch__modulator__impl_8cpp" local="yes">lib/phy/upper/channel_processors/pbch_modulator_impl.cpp</includedby>
+    <incdepgraph>
+      <node id="49">
+        <label>atomic</label>
+      </node>
+      <node id="16">
+        <label>functional</label>
+      </node>
+      <node id="9">
+        <label>limits</label>
+      </node>
+      <node id="17">
+        <label>iterator</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="54">
+        <label>srsgnb/adt/byte_buffer.h</label>
+        <link refid="byte__buffer_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>cassert</label>
+      </node>
+      <node id="27">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdexcept</label>
+      </node>
+      <node id="57">
+        <label>numeric</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>string</label>
+      </node>
+      <node id="30">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb/phy/upper/channel_modulation/modulation_mapper.h</label>
+        <link refid="modulation__mapper_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h</label>
+        <link refid="pseudo__random__generator_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>pthread.h</label>
+      </node>
+      <node id="3">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>tuple</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pbch_modulator_impl.h</label>
+        <link refid="pbch__modulator__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+      <node id="25">
+        <label>srsgnb/phy/upper/channel_processors/pbch_modulator.h</label>
+        <link refid="pbch__modulator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>utility</label>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="47">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cerrno</label>
+      </node>
+      <node id="22">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>cstddef</label>
+      </node>
+      <node id="39">
+        <label>chrono</label>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>type_traits</label>
+      </node>
+      <node id="21">
+        <label>complex</label>
+      </node>
+      <node id="5">
+        <label>algorithm</label>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/phy/upper/log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstring</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/ran/pci.h</label>
+        <link refid="pci_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classsrsgnb_1_1pbch__modulator__impl" prot="public">srsgnb::pbch_modulator_impl</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_modulation/modulation_mapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_processors/pbch_modulator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pseudo__random__generator_8h" kindref="compound">srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsrsgnb_1_1pbch__modulator__impl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1pbch__modulator__impl" kindref="compound">pbch_modulator_impl</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pbch__modulator" kindref="compound">pbch_modulator</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;modulation_mapper&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>modulator;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;pseudo_random_generator&gt;<sp/>scrambler;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pbch__modulator__impl_1abef2c6cdf78e737ee48cfcb7ad2543f8" kindref="member">scramble</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>b_hat,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/>config);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pbch__modulator__impl_1a829f492d36b2f8607415873cc4859e43" kindref="member">modulate</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b_hat,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/>d_pbch);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pbch__modulator__impl_1a760c76d42c43c13b744ef088b79f2cde" kindref="member">map</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>d_pbch,<sp/><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/>grid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/>config);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pbch__modulator__impl" kindref="compound">pbch_modulator_impl</ref>(std::unique_ptr&lt;modulation_mapper&gt;<sp/>modulator_,<sp/>std::unique_ptr&lt;pseudo_random_generator&gt;<sp/>prg_)<sp/>:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator(std::move(modulator_)),<sp/>scrambler(std::move(prg_))</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(modulator,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>modulator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(scrambler,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>scrambler.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" kindref="member">put</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>bits,<sp/><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/>grid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/>config)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h"/>
+  </compounddef>
+</doxygen>

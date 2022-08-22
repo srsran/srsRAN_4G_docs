@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pseudo__random__generator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pseudo_random_generator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pseudo__random__generator__impl" prot="public" virt="non-virtual">srsgnb::pseudo_random_generator_impl</derivedcompoundref>
+    <includes refid="pseudo__random__generator_8h" local="no">pseudo_random_generator.h</includes>
+    <innerclass refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s" prot="public">srsgnb::pseudo_random_generator::state_s</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1a41d077e82c92da8c7931a75d816217bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pseudo_random_generator::~pseudo_random_generator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pseudo_random_generator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="28" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1a662fdf3f32930a82bd68345a1744ee36" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::init</definition>
+        <argsstring>(unsigned c_init)=0</argsstring>
+        <name>init</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38">init</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>c_init</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the pseudo-random generator with the given seed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">c_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization seed (parameter <formula id="76">$c_{\mathrm{init}}$</formula> in TS38.211 Section 5.2.1). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="41" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1aca5ef7554f5068bc7e33105c07243a26" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::init</definition>
+        <argsstring>(const state_s &amp;state)=0</argsstring>
+        <name>init</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8930064bb345d3d62ad215cbe67345be">init</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s" kindref="compound">state_s</ref> &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the pseudo-random generator at the given state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Generator internal state description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="46" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1a2e84e10e471391640a2759d5adbe8f3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s" kindref="compound">state_s</ref></type>
+        <definition>virtual state_s srsgnb::pseudo_random_generator::get_state</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_state</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86c0f58194ea40a1da9a89b1fb09c420">get_state</reimplementedby>
+        <briefdescription>
+<para>Returns the current state of the pseudo-random generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="49" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1a0c01e57d497085eb57cb1c99fed9d8a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::advance</definition>
+        <argsstring>(unsigned count)=0</argsstring>
+        <name>advance</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb">advance</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Advances the pseudo-random generator state without generating sequence bits or applying any mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of state advance steps (corresponds to the number of sequence bits that would be generated by the same state advance). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="55" column="16"/>
+        <referencedby refid="namespacesrsgnb_1ac256a6ea6adc1dfe53431799cab8eb68" compoundref="dmrs__helper_8h" startline="32" endline="82">srsgnb::dmrs_sequence_generate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1ab928995ab31e27fe3198e3544c2e33d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::apply_xor_byte</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in)=0</argsstring>
+        <name>apply_xor_byte</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429">apply_xor_byte</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a byte buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence. Both input and output sequence are represented in packed format (each entry corresponds to 8 bits).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="66" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1acaec03e84cc9cf65fe857629690220e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::apply_xor_bit</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in)=0</argsstring>
+        <name>apply_xor_bit</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9">apply_xor_bit</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a bit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence. Both input and output sequence are represented in unpacked format (each entry corresponds to 1 bit).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1adb832c6f2ecfdba67cc50210352fe1fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::apply_xor</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; out, span&lt; const log_likelihood_ratio &gt; in)=0</argsstring>
+        <name>apply_xor</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751">apply_xor</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a buffer of log-likelihood ratios. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence of soft bits. <simplesect kind="note"><para>Here, the XOR operation between a log-likelihood ratio <formula id="77">$\ell$</formula> and a (pseudo-random) bit <formula id="65">$b$</formula> returns <formula id="77">$\ell$</formula> if <formula id="78">$b = 0$</formula> and <formula id="79">$-\ell$</formula> if <formula id="80">$b = 1$</formula>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="89" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1abeffc99fcef15e1de5896ebe056d9850" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::generate</definition>
+        <argsstring>(span&lt; float &gt; buffer, float value)=0</argsstring>
+        <name>generate</name>
+        <reimplementedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818">generate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; float &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Generates a floating-point pseudo-random sequence with the given amplitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The elements of the generated sequence will have the form <formula id="81">$\pm a$</formula>, where <formula id="64">$a$</formula> denotes the amplitude.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence amplitude. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sequence length is inferred from the size of the output container. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="99" column="16"/>
+        <referencedby refid="namespacesrsgnb_1ac256a6ea6adc1dfe53431799cab8eb68" compoundref="dmrs__helper_8h" startline="32" endline="82">srsgnb::dmrs_sequence_generate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator_1adc8fa5c4507d0990d393b551b266d8fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pseudo_random_generator::generate</definition>
+        <argsstring>(span&lt; cf_t &gt; buffer, float value)</argsstring>
+        <name>generate</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Generates a complex floating-point pseudo-random sequence with the given amplitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The amplitude refers to both parts, real and imaginary, of the sequence. In other words, the elements will have the form <formula id="82">$\pm a \pm \mj a$</formula>, where <formula id="64">$a$</formula> denotes the amplitude.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence amplitude. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sequence length is inferred from the size of the output container. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="110" column="16" bodyfile="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" bodystart="110" bodyend="110"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator_1adc8fa5c4507d0990d393b551b266d8fd" compoundref="pseudo__random__generator_8h" startline="110" endline="110">generate</references>
+        <references refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" compoundref="span_8h" startline="176" endline="176">srsgnb::span&lt; T &gt;::data</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator_1adc8fa5c4507d0990d393b551b266d8fd" compoundref="pseudo__random__generator_8h" startline="110" endline="110">generate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Pseudo-random sequence generator interface compliant to TS38.211 Section 5.2.1. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pseudo_random_generator_impl</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pseudo_random_generator</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pseudo_random_generator</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" line="25" column="1" bodyfile="include/srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h" bodystart="24" bodyend="111"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1a0c01e57d497085eb57cb1c99fed9d8a1" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>advance</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1adb832c6f2ecfdba67cc50210352fe1fa" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>apply_xor</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1acaec03e84cc9cf65fe857629690220e0" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>apply_xor_bit</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1ab928995ab31e27fe3198e3544c2e33d1" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>apply_xor_byte</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1abeffc99fcef15e1de5896ebe056d9850" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>generate</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1adc8fa5c4507d0990d393b551b266d8fd" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator</scope><name>generate</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1a2e84e10e471391640a2759d5adbe8f3c" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>get_state</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1a662fdf3f32930a82bd68345a1744ee36" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1aca5ef7554f5068bc7e33105c07243a26" prot="public" virt="pure-virtual"><scope>srsgnb::pseudo_random_generator</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1a41d077e82c92da8c7931a75d816217bf" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator</scope><name>~pseudo_random_generator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

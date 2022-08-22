@@ -1,0 +1,845 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1mac__cell__processor" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::mac_cell_processor</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__cell__slot__handler" prot="public" virt="non-virtual">srsgnb::mac_cell_slot_handler</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1mac__cell__controller" prot="public" virt="non-virtual">srsgnb::mac_cell_controller</basecompoundref>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1mac__cell__processor_1ae8b3535bd87ccfc3da6af89c15602402" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>cell_state</name>
+        <enumvalue id="classsrsgnb_1_1mac__cell__processor_1ae8b3535bd87ccfc3da6af89c15602402a19d3894f53ce79c3f836f26cf8a3be3b" prot="private">
+          <name>inactive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1mac__cell__processor_1ae8b3535bd87ccfc3da6af89c15602402ac76a5e84e4bdee527e274ea30c680d79" prot="private">
+          <name>active</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Represents activation cell state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="84" column="24" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a6b50e9c0b0a90490df6428ef63f5cc89" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1mac__common__config__t" kindref="compound">mac_common_config_t</ref> &amp;</type>
+        <definition>mac_common_config_t&amp; srsgnb::mac_cell_processor::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="65" column="34" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1aeb5aa37518554086fe5b329cf42c15e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::mac_cell_processor::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="66" column="34" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a8cefdeb8e6542b78a7e40292f03c22a7" prot="private" static="no" mutable="no">
+        <type>const <ref refid="structsrsgnb_1_1mac__cell__creation__request" kindref="compound">mac_cell_creation_request</ref></type>
+        <definition>const mac_cell_creation_request srsgnb::mac_cell_processor::cell_cfg</definition>
+        <argsstring></argsstring>
+        <name>cell_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="67" column="35" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a3c21dad96e6cd452409dc0b8426c6558" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>task_executor&amp; srsgnb::mac_cell_processor::cell_exec</definition>
+        <argsstring></argsstring>
+        <name>cell_exec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="68" column="34" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a8e28b593fa9c840783d2577e4d72ff02" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__cell__result__notifier" kindref="compound">mac_cell_result_notifier</ref> &amp;</type>
+        <definition>mac_cell_result_notifier&amp; srsgnb::mac_cell_processor::phy_cell</definition>
+        <argsstring></argsstring>
+        <name>phy_cell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="69" column="34" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1aeb100186f62885a4b4db8f3ec5811f2e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ssb__assembler" kindref="compound">ssb_assembler</ref></type>
+        <definition>ssb_assembler srsgnb::mac_cell_processor::ssb_helper</definition>
+        <argsstring></argsstring>
+        <name>ssb_helper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ssb_helper: contains the SSB-specific parameters that are derived from those passed by the DU interface. These parameters are passed to the scheduler and also also to the PHY to generate the SSB PDU and PBCH payload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="73" column="17" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1mac__cell__processor_1a7c1e6f5402cb8b3eaf5153004b984bfc" compoundref="mac__cell__processor_8cpp" startline="107" endline="126">assemble_dl_sched_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a054ea9514778c51e00a256f17e34df78" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1sib__pdu__assembler" kindref="compound">sib_pdu_assembler</ref></type>
+        <definition>sib_pdu_assembler srsgnb::mac_cell_processor::sib_assembler</definition>
+        <argsstring></argsstring>
+        <name>sib_assembler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="75" column="21" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1ae078784db2c9fdc823f0a6f7c9751528" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rar__pdu__assembler" kindref="compound">rar_pdu_assembler</ref></type>
+        <definition>rar_pdu_assembler srsgnb::mac_cell_processor::rar_assembler</definition>
+        <argsstring></argsstring>
+        <name>rar_assembler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="76" column="21" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a6c2498304001aaef2196a34f22f0b80d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1scheduler__slot__handler" kindref="compound">scheduler_slot_handler</ref> &amp;</type>
+        <definition>scheduler_slot_handler&amp; srsgnb::mac_cell_processor::sched_obj</definition>
+        <argsstring></argsstring>
+        <name>sched_obj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="78" column="39" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1a315bfe17f9ca3ddb36221ca2bbf0f723" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator" kindref="compound">scheduler_dl_buffer_state_indicator</ref> &amp;</type>
+        <definition>scheduler_dl_buffer_state_indicator&amp; srsgnb::mac_cell_processor::sched_bsr_updater</definition>
+        <argsstring></argsstring>
+        <name>sched_bsr_updater</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="79" column="39" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1addb7c80dd45e3d073d15c171e8c90cbc" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__dl__ue__manager" kindref="compound">mac_dl_ue_manager</ref> &amp;</type>
+        <definition>mac_dl_ue_manager&amp; srsgnb::mac_cell_processor::ue_mng</definition>
+        <argsstring></argsstring>
+        <name>ue_mng</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="80" column="39" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__cell__processor_1acb9e65dd8415151b5d769eb6c618a6c5" prot="private" static="no" mutable="no">
+        <type>enum <ref refid="classsrsgnb_1_1mac__cell__processor_1ae8b3535bd87ccfc3da6af89c15602402" kindref="member">srsgnb::mac_cell_processor::cell_state</ref></type>
+        <definition>enum srsgnb::mac_cell_processor::cell_state srsgnb::mac_cell_processor::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= cell_state::active</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="84" column="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a121204fce89af07b7458c80037bdfddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mac_cell_processor::mac_cell_processor</definition>
+        <argsstring>(mac_common_config_t &amp;cfg_, const mac_cell_creation_request &amp;cell_cfg_req_, scheduler_slot_handler &amp;sched_, scheduler_dl_buffer_state_indicator &amp;sched_bsr_updater_, mac_dl_ue_manager &amp;ue_mng)</argsstring>
+        <name>mac_cell_processor</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1mac__common__config__t" kindref="compound">mac_common_config_t</ref> &amp;</type>
+          <declname>cfg_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__cell__creation__request" kindref="compound">mac_cell_creation_request</ref> &amp;</type>
+          <declname>cell_cfg_req_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1scheduler__slot__handler" kindref="compound">scheduler_slot_handler</ref> &amp;</type>
+          <declname>sched_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator" kindref="compound">scheduler_dl_buffer_state_indicator</ref> &amp;</type>
+          <declname>sched_bsr_updater_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1mac__dl__ue__manager" kindref="compound">mac_dl_ue_manager</ref> &amp;</type>
+          <declname>ue_mng</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="27" column="3" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="18" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a7be137b2bec8a087a10b821cc1d6b899" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; void &gt;</type>
+        <definition>async_task&lt; void &gt; mac_cell_processor::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__controller_1aa55d9e25038f36e2e6a7c27063f8d9b2">start</reimplements>
+        <briefdescription>
+<para>Starts configured cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="34" column="14" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a932de6bc92cded74d4a97a2478b8d631" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; void &gt;</type>
+        <definition>async_task&lt; void &gt; mac_cell_processor::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__controller_1a9d5ff5dc5f305c0fbd88e33ff9cf5f60">stop</reimplements>
+        <briefdescription>
+<para>Stops configured cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="37" column="14" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a8d3d3976aee75f20521c008287437ab2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mac_cell_processor::handle_slot_indication</definition>
+        <argsstring>(slot_point sl_tx) override</argsstring>
+        <name>handle_slot_indication</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__slot__handler_1aead1162d3b457a8f2555644c8684fddc">handle_slot_indication</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+<para>Processing of a new Slot Indication. This operation involves the following sub-tasks: </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>The scheduler generates the scheduling grants for the provided slot and cell.</para>
+</listitem><listitem><para>The scheduling grants are passed to the PHY.</para>
+</listitem><listitem><para>The MAC DL PDUs are generated and passed to the PHY as well. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="43" column="8" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="47" bodyend="51"/>
+        <references refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313">srsgnb::task_executor::execute</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a5d713941171fc8fd9278820aafaf73fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mac_cell_processor::handle_slot_indication_impl</definition>
+        <argsstring>(slot_point sl_tx)</argsstring>
+        <name>handle_slot_indication_impl</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="46" column="8" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="53" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a7c1e6f5402cb8b3eaf5153004b984bfc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mac_cell_processor::assemble_dl_sched_request</definition>
+        <argsstring>(mac_dl_sched_result &amp;mac_res, slot_point sl_tx, du_cell_index_t cell_index, const dl_sched_result &amp;dl_res)</argsstring>
+        <name>assemble_dl_sched_request</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref> &amp;</type>
+          <declname>mac_res</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dl__sched__result" kindref="compound">dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble struct that is going to be passed down to PHY with the DL scheduling result. <simplesect kind="remark"><para>FAPI will use this struct to generate a DL_TTI.Request. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="50" column="8" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="107" bodyend="126"/>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a9aed1362f53b91b4132a5ffdeafe1a71" compoundref="scheduler__slot__handler_8h" startline="228">srsgnb::dl_sched_result::bc</references>
+        <references refid="classsrsgnb_1_1mac__cell__processor_1aeb100186f62885a4b4db8f3ec5811f2e" compoundref="mac__cell__processor_8h" startline="73">ssb_helper</references>
+        <references refid="classsrsgnb_1_1ssb__assembler_1a57c75af542cb2f66e74796a014bc3479" compoundref="ssb__assembler_8cpp" startline="30" endline="47">srsgnb::ssb_assembler::assemble_ssb</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a3b8afa3e317da218903a0ce0013aecf9" compoundref="scheduler__slot__handler_8h" startline="222">srsgnb::dl_sched_result::dl_pdcchs</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a3e0589dce0194967984a55e70aec03cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mac_cell_processor::assemble_dl_data_request</definition>
+        <argsstring>(mac_dl_data_result &amp;mac_data, slot_point sl_tx, du_cell_index_t cell_index, const dl_sched_result &amp;dl_res)</argsstring>
+        <name>assemble_dl_data_request</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1mac__dl__data__result" kindref="compound">mac_dl_data_result</ref> &amp;</type>
+          <declname>mac_data</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dl__sched__result" kindref="compound">dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble struct with the MAC PDUs of a given slot and cell that is going be passed to the PHY. <simplesect kind="remark"><para>FAPI will use this struct to generate a Tx_Data.Request. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="57" column="8" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="128" bodyend="170"/>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a9aed1362f53b91b4132a5ffdeafe1a71" compoundref="scheduler__slot__handler_8h" startline="228">srsgnb::dl_sched_result::bc</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a4fbc52d52b7913aeb1c98bde41727557" compoundref="scheduler__slot__handler_8h" startline="231">srsgnb::dl_sched_result::rar_grants</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1aac3cfaca9c89c17dfe40959e3234bd2b" compoundref="scheduler__slot__handler_8h" startline="234">srsgnb::dl_sched_result::ue_grants</references>
+        <references refid="structsrsgnb_1_1dl__msg__tb__info_1a207d8c8bfbd23b40c671ccee8d9600c7" compoundref="scheduler__slot__handler_8h" startline="156">srsgnb::dl_msg_tb_info::lc_lst</references>
+        <references refid="structsrsgnb_1_1dl__msg__lc__info_1a120324010283e50c0d22e86290a65dce" compoundref="scheduler__slot__handler_8h" startline="149">srsgnb::dl_msg_lc_info::lcid</references>
+        <references refid="structsrsgnb_1_1dl__msg__lc__info_1a870bc724fac1b917d0bac96c24c12383" compoundref="scheduler__slot__handler_8h" startline="151">srsgnb::dl_msg_lc_info::sched_bytes</references>
+        <references refid="classsrsgnb_1_1mac__sdu__tx__builder_1a3a16214c27595746d1935250400c2d14">srsgnb::mac_sdu_tx_builder::on_new_tx_sdu</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__cell__processor_1a0d7b5f93e0c4de52964a54a0aa40133c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mac_cell_processor::update_logical_channel_dl_buffer_states</definition>
+        <argsstring>(const dl_sched_result &amp;dl_res)</argsstring>
+        <name>update_logical_channel_dl_buffer_states</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dl__sched__result" kindref="compound">dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+<para>Update DL buffer states of the allocated DL bearers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_cell_processor.h" line="63" column="8" bodyfile="lib/mac/mac_dl/mac_cell_processor.cpp" bodystart="172" bodyend="191"/>
+        <references refid="structsrsgnb_1_1dl__sched__result_1aac3cfaca9c89c17dfe40959e3234bd2b" compoundref="scheduler__slot__handler_8h" startline="234">srsgnb::dl_sched_result::ue_grants</references>
+        <references refid="structsrsgnb_1_1dl__msg__tb__info_1a207d8c8bfbd23b40c671ccee8d9600c7" compoundref="scheduler__slot__handler_8h" startline="156">srsgnb::dl_msg_tb_info::lc_lst</references>
+        <references refid="structsrsgnb_1_1dl__msg__lc__info_1a120324010283e50c0d22e86290a65dce" compoundref="scheduler__slot__handler_8h" startline="149">srsgnb::dl_msg_lc_info::lcid</references>
+        <references refid="classsrsgnb_1_1mac__sdu__tx__builder_1a5f3f82e1c2ca28604f0afd887f24fd74">srsgnb::mac_sdu_tx_builder::on_buffer_state_update</references>
+        <references refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator_1a1bdc4bd16fb017932e3446019d815c58">srsgnb::scheduler_dl_buffer_state_indicator::handle_dl_bsr_indication</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::mac_cell_slot_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__slot__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_cell_processor</label>
+        <link refid="classsrsgnb_1_1mac__cell__processor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::mac_cell_controller</label>
+        <link refid="classsrsgnb_1_1mac__cell__controller"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>srsgnb::mac_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__result__notifier"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::bounded_integer&lt; uint8_t, 0, 23 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="40">
+        <label>srsgnb::optional&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="41" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb::mac_ul_ccch_notifier</label>
+        <link refid="classsrsgnb_1_1mac__ul__ccch__notifier"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="39">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="14">
+        <label>srsgnb::scheduler_dl_buffer_state_indicator</label>
+        <link refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator"/>
+      </node>
+      <node id="10">
+        <label>T</label>
+      </node>
+      <node id="16">
+        <label>srsgnb::ssb_configuration</label>
+        <link refid="structsrsgnb_1_1ssb__configuration"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>+k_ssb</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+offset_to_point_A</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::mac_dl_ue_manager</label>
+        <link refid="classsrsgnb_1_1mac__dl__ue__manager"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb::crb_interval</label>
+        <link refid="structsrsgnb_1_1crb__interval"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb::frequency_info_ul</label>
+        <link refid="structsrsgnb_1_1frequency__info__ul"/>
+      </node>
+      <node id="48">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="49">
+        <label>srsgnb::mac_prach_configuration</label>
+        <link refid="structsrsgnb_1_1mac__prach__configuration"/>
+      </node>
+      <node id="47">
+        <label>srsgnb::optional&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="48" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb::optional&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb::bwp_downlink_common</label>
+        <link refid="structsrsgnb_1_1bwp__downlink__common"/>
+        <childnode refid="45" relation="usage">
+          <edgelabel>+pdsch_common</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>+pdcch_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>srsgnb::pdcch_config_common</label>
+        <link refid="structsrsgnb_1_1pdcch__config__common"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>+coreset0</edgelabel>
+          <edgelabel>+common_coreset</edgelabel>
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb::bwp_uplink_common</label>
+        <link refid="structsrsgnb_1_1bwp__uplink__common"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>+pusch_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>+rach_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::ssb_offset_to_pointA</label>
+        <link refid="classsrsgnb_1_1ssb__offset__to__pointA"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb::interval&lt; unsigned &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::mac_cell_creation_request</label>
+        <link refid="structsrsgnb_1_1mac__cell__creation__request"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>+bcch_dl_sch_payload</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>+sched_req</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>+dl_carrier</edgelabel>
+          <edgelabel>+ul_carrier</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>+prach_cfg</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+ssb_cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::slot_array&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="6" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>srsgnb::frequency_info_dl</label>
+        <link refid="structsrsgnb_1_1frequency__info__dl"/>
+      </node>
+      <node id="30">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_cell_slot_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__slot__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_cell_processor</label>
+        <link refid="classsrsgnb_1_1mac__cell__processor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-ue_mng</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-sched_obj</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-sib_assembler</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>-sched_bsr_updater</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-ssb_helper</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>-phy_cell</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-cell_exec</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>-rar_assembler</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>-cell_cfg</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb::carrier_configuration</label>
+        <link refid="structsrsgnb_1_1carrier__configuration"/>
+      </node>
+      <node id="23">
+        <label>srsgnb::rar_pdu_assembler</label>
+        <link refid="classsrsgnb_1_1rar__pdu__assembler"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>-cell_cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::scheduler_slot_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__slot__handler"/>
+      </node>
+      <node id="26">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="27" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb::dl_config_common</label>
+        <link refid="structsrsgnb_1_1dl__config__common"/>
+        <childnode refid="43" relation="usage">
+          <edgelabel>+freq_info_dl</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>+init_dl_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb::byte_buffer</label>
+        <link refid="classsrsgnb_1_1byte__buffer"/>
+        <childnode refid="26" relation="usage">
+          <edgelabel>-tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb::ul_config_common</label>
+        <link refid="structsrsgnb_1_1ul__config__common"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>+freq_info_ul</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>+init_ul_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::mac_cell_controller</label>
+        <link refid="classsrsgnb_1_1mac__cell__controller"/>
+      </node>
+      <node id="50">
+        <label>srsgnb::mac_common_config_t</label>
+        <link refid="structsrsgnb_1_1mac__common__config__t"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>+ul_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>+phy_notifier</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>+dl_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>+event_notifier</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+ctrl_exec</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>srsgnb::mac_cell_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__cell__result__notifier"/>
+      </node>
+      <node id="45">
+        <label>srsgnb::pdsch_config_common</label>
+        <link refid="structsrsgnb_1_1pdsch__config__common"/>
+      </node>
+      <node id="53">
+        <label>srsgnb::du_l2_dl_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__dl__executor__mapper"/>
+      </node>
+      <node id="41">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="35">
+        <label>srsgnb::bwp_configuration</label>
+        <link refid="structsrsgnb_1_1bwp__configuration"/>
+        <childnode refid="36" relation="usage">
+          <edgelabel>+crbs</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="51">
+        <label>srsgnb::du_l2_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__ul__executor__mapper"/>
+      </node>
+      <node id="28">
+        <label>srsgnb::sched_cell_configuration_request_message</label>
+        <link refid="structsrsgnb_1_1sched__cell__configuration__request__message"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>+tdd_ul_dl_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>+dl_carrier</edgelabel>
+          <edgelabel>+ul_carrier</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+ssb_config</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>+ul_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>+dl_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::ssb_subcarrier_offset</label>
+        <link refid="classsrsgnb_1_1ssb__subcarrier__offset"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>srsgnb::bounded_integer&lt; uint16_t, 0, 2199 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::du_rnti_table</label>
+        <link refid="classsrsgnb_1_1du__rnti__table"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::ssb_assembler</label>
+        <link refid="classsrsgnb_1_1ssb__assembler"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-ssb_cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb::optional&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="39" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::sib_pdu_assembler</label>
+        <link refid="classsrsgnb_1_1sib__pdu__assembler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/mac_dl/mac_cell_processor.h" line="25" column="1" bodyfile="lib/mac/mac_dl/mac_cell_processor.h" bodystart="24" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a3e0589dce0194967984a55e70aec03cd" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>assemble_dl_data_request</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a7c1e6f5402cb8b3eaf5153004b984bfc" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>assemble_dl_sched_request</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a8cefdeb8e6542b78a7e40292f03c22a7" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>cell_cfg</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a3c21dad96e6cd452409dc0b8426c6558" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>cell_exec</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1ae8b3535bd87ccfc3da6af89c15602402" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>cell_state</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a6b50e9c0b0a90490df6428ef63f5cc89" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a8d3d3976aee75f20521c008287437ab2" prot="public" virt="virtual"><scope>srsgnb::mac_cell_processor</scope><name>handle_slot_indication</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a5d713941171fc8fd9278820aafaf73fe" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>handle_slot_indication_impl</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1aeb5aa37518554086fe5b329cf42c15e4" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a121204fce89af07b7458c80037bdfddd" prot="public" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>mac_cell_processor</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a8e28b593fa9c840783d2577e4d72ff02" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>phy_cell</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1ae078784db2c9fdc823f0a6f7c9751528" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>rar_assembler</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a315bfe17f9ca3ddb36221ca2bbf0f723" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>sched_bsr_updater</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a6c2498304001aaef2196a34f22f0b80d" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>sched_obj</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a054ea9514778c51e00a256f17e34df78" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>sib_assembler</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1aeb100186f62885a4b4db8f3ec5811f2e" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>ssb_helper</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a7be137b2bec8a087a10b821cc1d6b899" prot="public" virt="virtual"><scope>srsgnb::mac_cell_processor</scope><name>start</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1acb9e65dd8415151b5d769eb6c618a6c5" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>state</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a932de6bc92cded74d4a97a2478b8d631" prot="public" virt="virtual"><scope>srsgnb::mac_cell_processor</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1addb7c80dd45e3d073d15c171e8c90cbc" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>ue_mng</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__processor_1a0d7b5f93e0c4de52964a54a0aa40133c" prot="private" virt="non-virtual"><scope>srsgnb::mac_cell_processor</scope><name>update_logical_channel_dl_buffer_states</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__controller_1a4ab22d398157da8ab162e2aa1b56a9d9" prot="public" virt="virtual"><scope>srsgnb::mac_cell_processor</scope><name>~mac_cell_controller</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__slot__handler_1a99373ea65a6b7aa3c86ae48cdf86c1ae" prot="public" virt="virtual"><scope>srsgnb::mac_cell_processor</scope><name>~mac_cell_slot_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

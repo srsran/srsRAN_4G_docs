@@ -1,0 +1,1167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="mac__to__fapi__translator_8cpp" kind="file" language="C++">
+    <compoundname>mac_to_fapi_translator.cpp</compoundname>
+    <includes refid="mac__to__fapi__translator_8h" local="yes">mac_to_fapi_translator.h</includes>
+    <includes refid="message__validators_8h" local="yes">srsgnb/fapi/message_validators.h</includes>
+    <includes refid="slot__message__gateway_8h" local="yes">srsgnb/fapi/slot_message_gateway.h</includes>
+    <includes refid="mac_2messages_2pdcch_8h" local="yes">srsgnb/fapi_adaptor/mac/messages/pdcch.h</includes>
+    <includes refid="mac_2messages_2pdsch_8h" local="yes">srsgnb/fapi_adaptor/mac/messages/pdsch.h</includes>
+    <includes refid="mac_2messages_2prach_8h" local="yes">srsgnb/fapi_adaptor/mac/messages/prach.h</includes>
+    <includes refid="mac_2messages_2ssb_8h" local="yes">srsgnb/fapi_adaptor/mac/messages/ssb.h</includes>
+    <includes refid="logger_8h" local="yes">srsgnb/srslog/logger.h</includes>
+    <incdepgraph>
+      <node id="44">
+        <label>atomic</label>
+      </node>
+      <node id="84">
+        <label>srsgnb/ran/lcid.h</label>
+        <link refid="lcid_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>srsgnb/ran/resource_allocation/rb_interval.h</label>
+        <link refid="rb__interval_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>system_error</label>
+      </node>
+      <node id="18">
+        <label>functional</label>
+      </node>
+      <node id="74">
+        <label>srsgnb/ran/frame_types.h</label>
+        <link refid="frame__types_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>limits</label>
+      </node>
+      <node id="19">
+        <label>iterator</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/adt/byte_buffer_slice_chain.h</label>
+        <link refid="byte__buffer__slice__chain_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cstdint</label>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>srsgnb/ran/prach/restricted_set_config.h</label>
+        <link refid="restricted__set__config_8h_source"/>
+      </node>
+      <node id="64">
+        <label>srsgnb/scheduler/scheduler_slot_handler.h</label>
+        <link refid="scheduler__slot__handler_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/byte_buffer.h</label>
+        <link refid="byte__buffer_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>srsgnb/fapi_adaptor/mac/messages/pdsch.h</label>
+        <link refid="mac_2messages_2pdsch_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>cassert</label>
+      </node>
+      <node id="91">
+        <label>srsgnb/fapi/message_validators.h</label>
+        <link refid="message__validators_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>stdexcept</label>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>dmrs.h</label>
+        <link refid="dmrs_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>string</label>
+      </node>
+      <node id="24">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/mac/mac_cell_result.h</label>
+        <link refid="mac__cell__result_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/ran/ssb_properties.h</label>
+        <link refid="ssb__properties_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>srsgnb/fapi/message_builders.h</label>
+        <link refid="message__builders_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>srsgnb/ran/rnti.h</label>
+        <link refid="rnti_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>srsgnb/ran/prach/prach_preamble_format.h</label>
+        <link refid="prach__preamble__format_8h_source"/>
+      </node>
+      <node id="6">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="68">
+        <label>prb_grant.h</label>
+        <link refid="prb__grant_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/slot_point.h</label>
+        <link refid="slot__point_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>srsgnb/ran/pdcch/coreset.h</label>
+        <link refid="coreset_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>srsgnb/ran/pdsch/pdsch_mcs.h</label>
+        <link refid="pdsch__mcs_8h_source"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mac_to_fapi_translator.h</label>
+        <link refid="mac__to__fapi__translator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>srsgnb/adt/bitmap_utils.h</label>
+        <link refid="bitmap__utils_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>srsgnb/fapi_adaptor/mac/messages/pdcch.h</label>
+        <link refid="mac_2messages_2pdcch_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/ran/pdcch/dci_packing.h</label>
+        <link refid="dci__packing_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>pthread.h</label>
+      </node>
+      <node id="53">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>srsgnb/fapi/validator_report.h</label>
+        <link refid="validator__report_8h_source"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>srsgnb/fapi/slot_message_gateway.h</label>
+        <link refid="slot__message__gateway_8h_source"/>
+      </node>
+      <node id="16">
+        <label>cstdio</label>
+      </node>
+      <node id="92">
+        <label>srsgnb/adt/expected.h</label>
+        <link refid="expected_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>bitset</label>
+      </node>
+      <node id="43">
+        <label>tuple</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>vector</label>
+      </node>
+      <node id="49">
+        <label>utility</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>array</label>
+      </node>
+      <node id="103">
+        <label>srsgnb/fapi_adaptor/mac/messages/ssb.h</label>
+        <link refid="mac_2messages_2ssb_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>sched_consts.h</label>
+        <link refid="sched__consts_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/adt/interval.h</label>
+        <link refid="interval_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>resource_block_group.h</label>
+        <link refid="resource__block__group_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="8">
+        <label>cerrno</label>
+      </node>
+      <node id="5">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>srsgnb/fapi/messages.h</label>
+        <link refid="messages_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>srsgnb/ran/pdcch/aggregation_level.h</label>
+        <link refid="aggregation__level_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>cstddef</label>
+      </node>
+      <node id="65">
+        <label>bwp_configuration.h</label>
+        <link refid="bwp__configuration_8h_source"/>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>deque</label>
+      </node>
+      <node id="90">
+        <label>mutex</label>
+      </node>
+      <node id="61">
+        <label>srsgnb/adt/bounded_integer.h</label>
+        <link refid="bounded__integer_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>chrono</label>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp</label>
+        <link refid="mac__to__fapi__translator_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>srsgnb/ran/sliv.h</label>
+        <link refid="sliv_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>srsgnb/fapi_adaptor/mac/messages/prach.h</label>
+        <link refid="mac_2messages_2prach_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>srsgnb/ran/ofdm_symbol_range.h</label>
+        <link refid="ofdm__symbol__range_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>srsgnb/ran/pdcch/pdcch_constants.h</label>
+        <link refid="pdcch__constants_8h_source"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>srsgnb/ran/resource_block.h</label>
+        <link refid="resource__block_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>type_traits</label>
+      </node>
+      <node id="83">
+        <label>srsgnb/ran/du_types.h</label>
+        <link refid="du__types_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>complex</label>
+      </node>
+      <node id="7">
+        <label>algorithm</label>
+      </node>
+      <node id="26">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>srsgnb/ran/sch_mcs.h</label>
+        <link refid="sch__mcs_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>cstring</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>srsgnb/ran/pci.h</label>
+        <link refid="pci_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>scheduler_dci.h</label>
+        <link refid="scheduler__dci_8h_source"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>memory</label>
+      </node>
+      <node id="55">
+        <label>inttypes.h</label>
+      </node>
+      <node id="73">
+        <label>srsgnb/adt/slot_array.h</label>
+        <link refid="slot__array_8h_source"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="mac__to__fapi__translator_8cpp_1af049707bee4038b889a64431166fb3fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; unsigned, MAX_DL_PDUS_PER_SLOT &gt;</type>
+        <definition>static static_vector&lt;unsigned, MAX_DL_PDUS_PER_SLOT&gt; find_same_bwp_and_coreset_for_first_element</definition>
+        <argsstring>(const static_vector&lt; pdcch_group, MAX_DL_PDUS_PER_SLOT &gt; &amp;candidates)</argsstring>
+        <name>find_same_bwp_and_coreset_for_first_element</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; pdcch_group, MAX_DL_PDUS_PER_SLOT &gt; &amp;</type>
+          <declname>candidates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" line="41" column="1" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="41" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="mac__to__fapi__translator_8cpp_1a5c634cb0d2ac6ea558fe7da9ce1a9c10" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void add_pdcch_pdus_to_request</definition>
+        <argsstring>(dl_tti_request_message_builder &amp;builder, const mac_dl_sched_result &amp;dl_res)</argsstring>
+        <name>add_pdcch_pdus_to_request</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref> &amp;</type>
+          <declname>builder</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" line="55" column="13" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="55" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="mac__to__fapi__translator_8cpp_1a8b91a3ff67d64437e8638cb3fa398692" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void add_ssb_pdus_to_request</definition>
+        <argsstring>(dl_tti_request_message_builder &amp;builder, const mac_dl_sched_result &amp;dl_res)</argsstring>
+        <name>add_ssb_pdus_to_request</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref> &amp;</type>
+          <declname>builder</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" line="101" column="13" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="101" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="mac__to__fapi__translator_8cpp_1a4fa2e4b830fd88337f03c8cc4336ea30" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void add_pdsch_pdus_to_request</definition>
+        <argsstring>(dl_tti_request_message_builder &amp;builder, pdsch_pdu_registry &amp;pdsch_registry, const mac_dl_sched_result &amp;dl_res)</argsstring>
+        <name>add_pdsch_pdus_to_request</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref> &amp;</type>
+          <declname>builder</declname>
+        </param>
+        <param>
+          <type>pdsch_pdu_registry &amp;</type>
+          <declname>pdsch_registry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" line="109" column="13" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="109" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mac_to_fapi_translator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi/message_validators.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi/slot_message_gateway.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi_adaptor/mac/messages/pdcch.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi_adaptor/mac/messages/pdsch.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi_adaptor/mac/messages/prach.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/fapi_adaptor/mac/messages/ssb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srslog/logger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">fapi;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">fapi_adaptor;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="keyword">struct<sp/></highlight><highlight class="normal">pdcch_group<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref>*<sp/>info;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">dci_payload</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pdcch_group&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="32"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>:TODO:<sp/>comparing<sp/>the<sp/>2<sp/>pointers,<sp/>change<sp/>this<sp/>to<sp/>compare<sp/>the<sp/>BWP.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>info-&gt;ctx.bwp_cfg<sp/>==<sp/>other.info-&gt;ctx.bwp_cfg<sp/>&amp;&amp;<sp/>info-&gt;ctx.coreset_cfg<sp/>==<sp/>other.info-&gt;ctx.coreset_cfg;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;unsigned, MAX_DL_PDUS_PER_SLOT&gt;</ref></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">find_same_bwp_and_coreset_for_first_element(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;pdcch_group, MAX_DL_PDUS_PER_SLOT&gt;</ref>&amp;<sp/>candidates)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;unsigned, MAX_DL_PDUS_PER_SLOT&gt;</ref><sp/>result;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pdcch_group&amp;<sp/>lhs<sp/>=<sp/>candidates.front();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>I<sp/>=<sp/>std::find(candidates.begin()<sp/>+<sp/>1,<sp/>candidates.end(),<sp/>lhs),<sp/>E<sp/>=<sp/>candidates.end();<sp/>I<sp/>!=<sp/>E;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>I<sp/>=<sp/>std::find(I<sp/>+<sp/>1,<sp/>candidates.end(),<sp/>lhs))<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>result.push_back(std::distance(candidates.begin(),<sp/>I));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_pdcch_pdus_to_request(<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref>&amp;<sp/>builder,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref>&amp;<sp/>dl_res)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Group<sp/>the<sp/>PDU&apos;s.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;mac_pdcch_pdu, MAX_DL_PDUS_PER_SLOT&gt;</ref><sp/>pdus;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;pdcch_group, MAX_DL_PDUS_PER_SLOT&gt;</ref><sp/>candidates;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>the<sp/>candidates.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>e<sp/>=<sp/>dl_res.pdcch_pdus.size();<sp/>i<sp/>!=<sp/>e;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>candidates.push_back({&amp;dl_res.dl_res-&gt;<ref refid="structsrsgnb_1_1dl__sched__result_1a3b8afa3e317da218903a0ce0013aecf9" kindref="member">dl_pdcchs</ref>[i],<sp/>&amp;dl_res.pdcch_pdus[i]});</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>the<sp/>PDUs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!candidates.empty())<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>pdus.emplace_back();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>mac_pdcch_pdu&amp;<sp/>pdu<sp/>=<sp/>pdus.back();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pdcch_group&amp;<sp/>candidate<sp/>=<sp/>candidates.front();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Fill<sp/>the<sp/>PDU<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>pdu.bwp_cfg<sp/><sp/><sp/><sp/><sp/>=<sp/>candidate.info-&gt;ctx.bwp_cfg;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>pdu.coreset_cfg<sp/>=<sp/>candidate.info-&gt;ctx.coreset_cfg;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>pdu.dcis.push_back({candidate.info,<sp/>candidate.payload});</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Find<sp/>the<sp/>same<sp/>BWP<sp/>and<sp/>Coreset<sp/>PDUs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;unsigned, MAX_DL_PDUS_PER_SLOT&gt;</ref>&amp;<sp/>pdu_indexes<sp/>=</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>find_same_bwp_and_coreset_for_first_element(candidates);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Append<sp/>the<sp/>DCIs<sp/>and<sp/>remove<sp/>them<sp/>from<sp/>the<sp/>candidates.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>pdu_indexes.size();<sp/>i;<sp/>--i)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>i<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pdu.dcis.push_back({candidates[index].info,<sp/>candidates[index].payload});</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>candidates.erase((candidates.begin()<sp/>+<sp/>index));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>first<sp/>element.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>candidates.erase(candidates.begin());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Convert<sp/>the<sp/>MAC<sp/>PDUs<sp/>into<sp/>FAPI<sp/>PDUs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>pdu<sp/>:<sp/>pdus)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1dl__pdcch__pdu__builder" kindref="compound">dl_pdcch_pdu_builder</ref><sp/>pdcch_builder<sp/>=<sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a739cb2cc67ce959b99a2006f621d1032" kindref="member">add_pdcch_pdu</ref>(pdu.dcis.size());</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>convert_pdcch_mac_to_fapi(pdcch_builder,<sp/>pdu);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_ssb_pdus_to_request(<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref>&amp;<sp/>builder,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref>&amp;<sp/>dl_res)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>pdu<sp/>:<sp/>dl_res.ssb_pdu)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1dl__ssb__pdu__builder" kindref="compound">dl_ssb_pdu_builder</ref><sp/>ssb_builder<sp/>=<sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a83464ca3c8cde9c27222788391a2a361" kindref="member">add_ssb_pdu</ref>();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>convert_ssb_mac_to_fapi(ssb_builder,<sp/>pdu);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_pdsch_pdus_to_request(<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref>&amp;<sp/>builder,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_pdu_registry&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_registry,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/>dl_res)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>pdu<sp/>:<sp/>dl_res.dl_res-&gt;<ref refid="structsrsgnb_1_1dl__sched__result_1a9aed1362f53b91b4132a5ffdeafe1a71" kindref="member">bc</ref>.sibs)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1dl__pdsch__pdu__builder" kindref="compound">dl_pdsch_pdu_builder</ref><sp/>pdsch_builder<sp/>=<sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1ac768b4856924b3a87b41761b03bd3523" kindref="member">add_pdsch_pdu</ref>();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>convert_pdsch_mac_to_fapi(pdsch_builder,<sp/>pdu);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>pdsch_registry.register_pdu(pdsch_builder.<ref refid="classsrsgnb_1_1fapi_1_1dl__pdsch__pdu__builder_1a54035e59c1cd4d84e1328e2bb0a01487" kindref="member">get_pdu_id</ref>(),<sp/>pdsch_pdu_registry::sib);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a80ba7a09b76c852ce89a1689107ef7c1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mac_to_fapi_translator::on_new_downlink_scheduler_results(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref>&amp;<sp/>dl_res)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>:TODO:<sp/>should<sp/>we<sp/>manage<sp/>here<sp/>2<sp/>different<sp/>numerologies<sp/>in<sp/>the<sp/>same<sp/>dl_res?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1fapi_1_1dl__tti__request__message" kindref="compound">dl_tti_request_message</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref><sp/>builder(msg);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FAPI<sp/>implementation<sp/>doesn&apos;t<sp/>support<sp/>groups<sp/>at<sp/>the<sp/>moment.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>num_groups<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1acb7e99998b6cbea874c5c5c291ee3697" kindref="member">set_basic_parameters</ref>(dl_res.slot.<ref refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" kindref="member">sfn</ref>(),<sp/>dl_res.slot.<ref refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" kindref="member">slot_index</ref>(),<sp/>num_groups);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>PDCCH<sp/>PDUs<sp/>to<sp/>the<sp/>DL_TTI.request.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>add_pdcch_pdus_to_request(builder,<sp/>dl_res);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>SSB<sp/>PDUs<sp/>to<sp/>the<sp/>DL_TTI.request.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>add_ssb_pdus_to_request(builder,<sp/>dl_res);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>std::lock_guard&lt;std::mutex&gt;<sp/>lock(mutex);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>PDSCH<sp/>PDUs<sp/>to<sp/>the<sp/>DL_TTI.request.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>add_pdsch_pdus_to_request(builder,<sp/>pdsch_registry,<sp/>dl_res);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Validate<sp/>that<sp/>the<sp/>DL_TTI.request<sp/>message<sp/>is<sp/>correct.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1expected" kindref="compound">error_type&lt;validator_report&gt;</ref><sp/>result<sp/>=<sp/>validate_dl_tti_request(msg);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!result)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>log_validator_report(result.error());</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>msg_gw.dl_tti_request(msg);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a3c528fd905a14735515d278d292c7058" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mac_to_fapi_translator::on_new_downlink_data(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__dl__data__result" kindref="compound">mac_dl_data_result</ref>&amp;<sp/>dl_data)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>std::lock_guard&lt;std::mutex&gt;<sp/>lock(mutex);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sanity<sp/>checks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>srsgnb_assert(dl_data.sib1_pdus.size()<sp/>==<sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::sib),</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>PDUs<sp/>({})<sp/>and<sp/>Payloads<sp/>({})<sp/>for<sp/>SIB<sp/>PDUs<sp/>doesn&apos;t<sp/>match&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::sib),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dl_data.sib1_pdus.size());</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>srsgnb_assert(dl_data.rar_pdus.size()<sp/>==<sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::rar),</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>PDUs<sp/>({})<sp/>and<sp/>Payloads<sp/>({})<sp/>for<sp/>RAR<sp/>PDUs<sp/>doesn&apos;t<sp/>match&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::rar),</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dl_data.rar_pdus.size());</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>srsgnb_assert(dl_data.ue_pdus.size()<sp/>==<sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::ue),</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>PDUs<sp/>({})<sp/>and<sp/>Payloads<sp/>({})<sp/>for<sp/>SIB<sp/>PDUs<sp/>doesn&apos;t<sp/>match&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_registry.get_nof_pdus(pdsch_pdu_registry::ue),</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dl_data.ue_pdus.size());</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1fapi_1_1tx__data__request__message" kindref="compound">tx_data_request_message</ref><sp/>msg;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1tx__data__request__builder" kindref="compound">tx_data_request_builder</ref><sp/>builder(msg);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1tx__data__request__builder_1a97aafaa9d71eacd472e7a57396bf7f7a" kindref="member">set_basic_parameters</ref>(dl_data.slot.<ref refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" kindref="member">sfn</ref>(),<sp/>dl_data.slot.<ref refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" kindref="member">slot_index</ref>());</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>SIB1<sp/>PDUs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;span&lt;const uint8_t&gt;</ref>,<sp/><ref refid="namespacesrsgnb_1af111f3cca9ac08c65829f90b610bcd4c" kindref="member">MAX_SIB1_PDUS_PER_SLOT</ref>&gt;&amp;<sp/>sib1_pdus<sp/>=<sp/>dl_data.sib1_pdus;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>e<sp/>=<sp/>sib1_pdus.size();<sp/>i<sp/>!=<sp/>e;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1tx__data__request__builder_1a895de754da32fcfb9dbecfcf1fe5e9bb" kindref="member">add_pdu_custom_payload</ref>(</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdsch_registry.get_fapi_pdu_index(i,<sp/>pdsch_pdu_registry::sib),<sp/>1,<sp/>{sib1_pdus[i].data(),<sp/>sib1_pdus[i].size()});</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>the<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>msg_gw.tx_data_request(msg);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a402867ce9af3ed782271f03652767b0d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mac_to_fapi_translator::on_new_uplink_scheduler_results(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1mac__ul__sched__result" kindref="compound">mac_ul_sched_result</ref>&amp;<sp/>ul_res)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1fapi_1_1ul__tti__request__message" kindref="compound">ul_tti_request_message</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1ul__tti__request__message__builder" kindref="compound">ul_tti_request_message_builder</ref><sp/>builder(msg);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>:TODO:<sp/>Should<sp/>we<sp/>check<sp/>here<sp/>the<sp/>numerology<sp/>matches<sp/>incoming<sp/>slot<sp/>and<sp/>configured<sp/>numerology<sp/>for<sp/>cell?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1ul__tti__request__message__builder_1ad1265a84630a02d06ed6961581949d22" kindref="member">set_basic_parameters</ref>(ul_res.slot.<ref refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" kindref="member">sfn</ref>(),<sp/>ul_res.slot.<ref refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" kindref="member">slot_index</ref>());</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>pdu<sp/>:<sp/>ul_res.ul_res-&gt;<ref refid="structsrsgnb_1_1ul__sched__result_1ad7e54f2770b205a95f54da11ce092f4c" kindref="member">prachs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1fapi_1_1ul__prach__pdu__builder" kindref="compound">ul_prach_pdu_builder</ref><sp/>pdu_builder<sp/>=<sp/>builder.<ref refid="classsrsgnb_1_1fapi_1_1ul__tti__request__message__builder_1a4f2c5a5e1b89aacc7da4a948c683e666" kindref="member">add_prach_pdu</ref>();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>convert_prach_mac_to_fapi(pdu_builder,<sp/>pdu);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Validate<sp/>that<sp/>the<sp/>UL_TTI.request<sp/>message<sp/>is<sp/>correct.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1expected" kindref="compound">error_type&lt;validator_report&gt;</ref><sp/>result<sp/>=<sp/>validate_ul_tti_request(msg);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!result)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>log_validator_report(result.error());</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>msg_gw.ul_tti_request(msg);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp"/>
+  </compounddef>
+</doxygen>

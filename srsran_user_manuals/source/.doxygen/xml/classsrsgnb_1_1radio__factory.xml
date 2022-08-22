@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__factory" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::radio_factory</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1radio__base" prot="public" virt="non-virtual">srsgnb::radio_base</basecompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__factory__uhd__impl" prot="public" virt="non-virtual">srsgnb::radio_factory_uhd_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__factory__zmq__impl" prot="public" virt="non-virtual">srsgnb::radio_factory_zmq_impl</derivedcompoundref>
+    <includes refid="radio__factory_8h" local="no">radio_factory.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__factory_1abc021eca94d2c0203bdda1cd94bcbf00" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1radio__session" kindref="compound">radio_session</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;radio_session&gt; srsgnb::radio_factory::create</definition>
+        <argsstring>(const radio_configuration::radio &amp;config, task_executor &amp;async_task_executor, radio_notification_handler &amp;notifier)=0</argsstring>
+        <name>create</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__factory__zmq__impl_1a9f6b596283796aed14db8f596b681171">create</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__factory__uhd__impl_1aabfdc3be708ec31ffbe3fffd86d6192a">create</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1radio__configuration_1_1radio" kindref="compound">radio_configuration::radio</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_task_executor</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+          <declname>notifier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new radio session with the given configuration parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in"><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a task executor for executing asynchronous tasks. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">notifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides radio event notifier interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The ownership to a radio session if the session was successfully created. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_factory.h" line="29" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a radio session factory for a determined radio driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_factory</label>
+        <link refid="classsrsgnb_1_1radio__factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_factory_zmq_impl</label>
+        <link refid="classsrsgnb_1_1radio__factory__zmq__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_factory_uhd_impl</label>
+        <link refid="classsrsgnb_1_1radio__factory__uhd__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_factory</label>
+        <link refid="classsrsgnb_1_1radio__factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/radio/radio_factory.h" line="21" column="1" bodyfile="include/srsgnb/radio/radio_factory.h" bodystart="20" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__factory_1abc021eca94d2c0203bdda1cd94bcbf00" prot="public" virt="pure-virtual"><scope>srsgnb::radio_factory</scope><name>create</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a6047b6af462d6d66e17f14a8866baa2f" prot="public" virt="non-virtual"><scope>srsgnb::radio_factory</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a613d0276dd7140594f971ebcd34bdf7e" prot="public" virt="non-virtual"><scope>srsgnb::radio_factory</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1af9f80899d387af47e827bfecd21fa7b0" prot="protected" virt="non-virtual"><scope>srsgnb::radio_factory</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1aeea2df1e0ec39aa2a831f24553ce546f" prot="public" virt="non-virtual"><scope>srsgnb::radio_factory</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a0c96363513155999b85983f2f22b56cb" prot="public" virt="non-virtual"><scope>srsgnb::radio_factory</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a84b9fc81012bc2e40c2a9c04843ed8ab" prot="public" virt="virtual"><scope>srsgnb::radio_factory</scope><name>~radio_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

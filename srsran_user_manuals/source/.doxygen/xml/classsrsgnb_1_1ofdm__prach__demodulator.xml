@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__prach__demodulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ofdm_prach_demodulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ofdm__prach__demodulator__impl" prot="public" virt="non-virtual">srsgnb::ofdm_prach_demodulator_impl</derivedcompoundref>
+    <includes refid="ofdm__prach__demodulator_8h" local="no">ofdm_prach_demodulator.h</includes>
+    <innerclass refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration" prot="public">srsgnb::ofdm_prach_demodulator::configuration</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__prach__demodulator_1a3b02cce143ff09aefd7b967b47766e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ofdm_prach_demodulator::~ofdm_prach_demodulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ofdm_prach_demodulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_prach_demodulator.h" line="40" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__prach__demodulator_1a5c330b66f8b88bff3a4ecc4a51df78c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ofdm_prach_demodulator::demodulate</definition>
+        <argsstring>(prach_buffer &amp;buffer, span&lt; const cf_t &gt; input, const configuration &amp;config)=0</argsstring>
+        <name>demodulate</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482">demodulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates a PRACH occasion as described in TS38.211 Section 5.3.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if the input size is less than the PRACH window size. The PRACH window includes a cyclic prefix of length <formula id="3">$N_{CP,l}^{RA}$</formula>) and a time-domain sequence of length <formula id="4">$N_u$</formula>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency-domain signal corresponding to one PRACH receive occasion. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH receive window baseband samples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot index within the subframe to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_prach_demodulator.h" line="50" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>OFDM PRACH demodulator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Performs OFDM demodulation for all the symbols contained in a PRACH frequency- and time-domain occasion as per TS38.211 Section 5.3.2. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ofdm_prach_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ofdm_prach_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ofdm_prach_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/modulation/ofdm_prach_demodulator.h" line="25" column="1" bodyfile="include/srsgnb/phy/lower/modulation/ofdm_prach_demodulator.h" bodystart="24" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator_1a5c330b66f8b88bff3a4ecc4a51df78c3" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_prach_demodulator</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator_1a3b02cce143ff09aefd7b967b47766e1d" prot="public" virt="virtual"><scope>srsgnb::ofdm_prach_demodulator</scope><name>~ofdm_prach_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

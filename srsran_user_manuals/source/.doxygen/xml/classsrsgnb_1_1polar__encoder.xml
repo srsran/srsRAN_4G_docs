@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__encoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::polar_encoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1polar__encoder__impl" prot="public" virt="non-virtual">srsgnb::polar_encoder_impl</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__encoder_1a049c93ff050f15d076576e740655ac70" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::polar_encoder::~polar_encoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~polar_encoder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/polar/polar_encoder.h" line="21" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__encoder_1a43b8d6b4bf540202818d47bc3ec5a126" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::polar_encoder::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, unsigned code_size_log)=0</argsstring>
+        <name>encode</name>
+        <reimplementedby refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b">encode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>code_size_log</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encodes the input vector into a codeword with the specified polar encoder. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoder input vector. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">code_size_log</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <formula id="14">$ log_2$</formula> of the number of bits of the encoder input/output vector. It cannot be larger than the maximum code_size_log specified in q.code_size_log of the srsran_polar_encoder_t structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoder output vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/polar/polar_encoder.h" line="31" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::polar_encoder</label>
+        <link refid="classsrsgnb_1_1polar__encoder"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::polar_encoder_impl</label>
+        <link refid="classsrsgnb_1_1polar__encoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::polar_encoder</label>
+        <link refid="classsrsgnb_1_1polar__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/polar/polar_encoder.h" line="19" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/polar/polar_encoder.h" bodystart="18" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__encoder_1a43b8d6b4bf540202818d47bc3ec5a126" prot="public" virt="pure-virtual"><scope>srsgnb::polar_encoder</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder_1a049c93ff050f15d076576e740655ac70" prot="public" virt="virtual"><scope>srsgnb::polar_encoder</scope><name>~polar_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

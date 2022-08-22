@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ldpc__decoder__impl_8cpp" kind="file" language="C++">
+    <compoundname>ldpc_decoder_impl.cpp</compoundname>
+    <includes refid="ldpc__decoder__impl_8h" local="yes">ldpc_decoder_impl.h</includes>
+    <includes refid="ldpc__luts__impl_8h" local="yes">ldpc_luts_impl.h</includes>
+    <includes refid="srsgnb__assert_8h" local="yes">srsgnb/support/srsgnb_assert.h</includes>
+    <includes local="no">cmath</includes>
+    <incdepgraph>
+      <node id="47">
+        <label>atomic</label>
+      </node>
+      <node id="20">
+        <label>functional</label>
+      </node>
+      <node id="13">
+        <label>limits</label>
+      </node>
+      <node id="21">
+        <label>iterator</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>srsgnb/phy/upper/channel_coding/crc_calculator.h</label>
+        <link refid="crc__calculator_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/support/error_handling.h</label>
+        <link refid="error__handling_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="46">
+        <label>cassert</label>
+      </node>
+      <node id="50">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stdexcept</label>
+      </node>
+      <node id="57">
+        <label>numeric</label>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>string</label>
+      </node>
+      <node id="26">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ldpc_graph_impl.h</label>
+        <link refid="ldpc__graph__impl_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>pthread.h</label>
+      </node>
+      <node id="8">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp</label>
+        <link refid="ldpc__decoder__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="45">
+        <label>tuple</label>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>vector</label>
+      </node>
+      <node id="51">
+        <label>utility</label>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>array</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/phy/upper/codeblock_metadata.h</label>
+        <link refid="codeblock__metadata_8h"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cerrno</label>
+      </node>
+      <node id="52">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>cstddef</label>
+      </node>
+      <node id="48">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h</label>
+        <link refid="ldpc__decoder_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>chrono</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>type_traits</label>
+      </node>
+      <node id="2">
+        <label>ldpc_decoder_impl.h</label>
+        <link refid="ldpc__decoder__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>complex</label>
+      </node>
+      <node id="61">
+        <label>ldpc_luts_impl.h</label>
+        <link refid="ldpc__luts__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>algorithm</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>cstring</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ldpc__decoder__impl_8cpp_1aaac2293ca3fb124ee03ad9905cc164c4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref></type>
+        <definition>static log_likelihood_ratio scale_llr</definition>
+        <argsstring>(log_likelihood_ratio llr, float scaling_factor)</argsstring>
+        <name>scale_llr</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref></type>
+          <declname>llr</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scaling_factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp" line="161" column="29" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp" bodystart="161" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__decoder__impl_8h" kindref="compound">ldpc_decoder_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__luts__impl_8h" kindref="compound">ldpc_luts_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/support/srsgnb_assert.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb_1_1ldpc" kindref="compound">srsgnb::ldpc</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsrsgnb_1_1ldpc__decoder__impl_1a5720f300e42f160026b7f6dd4e15a9a2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__impl_1a5720f300e42f160026b7f6dd4e15a9a2" kindref="member">ldpc_decoder_impl::init</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" kindref="compound">configuration</ref>&amp;<sp/>cfg)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>pos<sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a82c307d48e5817771bd4dc4a5f6c990a" kindref="member">get_lifting_size_position</ref>(cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" kindref="member">block_conf</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a20ffa0ce3e6b27b6aa3ac51ee6bbc4ed" kindref="member">lifting_size</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>skip<sp/><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" kindref="member">block_conf</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a2ca5177a80e975fb733a6fee5af5550a" kindref="member">base_graph</ref>)<sp/>*<sp/><ref refid="namespacesrsgnb_1_1ldpc_1ab5cd7213af3d1e82a40997d6d3acca03" kindref="member">NOF_LIFTING_SIZES</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>current_graph<sp/><sp/>=<sp/>&amp;<ref refid="namespacesrsgnb_1_1ldpc_1a3edd55d7b04c252fa99398df0d9ee6ff" kindref="member">graph_array</ref>[skip<sp/>+<sp/>pos];</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>bg_N_full<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_nof_BG_var_nodes_full();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>bg_N_short<sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_nof_BG_var_nodes_short();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>bg_M<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_nof_BG_check_nodes();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>bg_K<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_nof_BG_info_nodes();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>bg_N_high_rate<sp/>=<sp/>bg_K<sp/>+<sp/>4;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>assert(bg_K<sp/>==<sp/>bg_N_full<sp/>-<sp/>bg_M);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>lifting_size<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" kindref="member">block_conf</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a20ffa0ce3e6b27b6aa3ac51ee6bbc4ed" kindref="member">lifting_size</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>max_iterations<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a50c7fafdfec86b48f5843729f8558c43" kindref="member">algorithm_conf</ref>.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details_1a5e538a7b4316afe43b9d6640fe2b566d" kindref="member">max_iterations</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>assert(max_iterations<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>scaling_factor<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a50c7fafdfec86b48f5843729f8558c43" kindref="member">algorithm_conf</ref>.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details_1a514c2c9fee5204d8348aeaa5060ac722" kindref="member">scaling_factor</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>assert((scaling_factor<sp/>&gt;<sp/>0)<sp/>&amp;&amp;<sp/>(scaling_factor<sp/>&lt;<sp/>1));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_crc_bits<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" kindref="member">block_conf</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a93aea6bdc206b70253f66e216324fcb9" kindref="member">nof_crc_bits</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>srsgnb_assert((nof_crc_bits<sp/>==<sp/>16)<sp/>||<sp/>(nof_crc_bits<sp/>==<sp/>24),<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>number<sp/>of<sp/>CRC<sp/>bits.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>nof_significant_bits<sp/>=<sp/>bg_K<sp/>*<sp/>lifting_size<sp/>-<sp/>cfg.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" kindref="member">block_conf</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>select_strategy();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" refkind="member"><highlight class="normal"><ref refid="classsrsgnb_1_1optional" kindref="compound">optional&lt;unsigned&gt;</ref><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" kindref="member">ldpc_decoder_impl::decode</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>input,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crc,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" kindref="compound">configuration</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>init(cfg);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>uint16_t<sp/>message_length<sp/><sp/><sp/>=<sp/>bg_K<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>uint16_t<sp/>max_input_length<sp/>=<sp/>bg_N_short<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>assert(output.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>message_length);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>assert(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>&lt;=<sp/>max_input_length);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>minimum<sp/>input<sp/>length<sp/>is<sp/>message_length<sp/>+<sp/>two<sp/>times<sp/>the<sp/>lifting<sp/>size.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>uint16_t<sp/>min_input_length<sp/>=<sp/>message_length<sp/>+<sp/>2<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>srsgnb_assert(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>&gt;=<sp/>min_input_length,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>input<sp/>length<sp/>(%d)<sp/>does<sp/>not<sp/>reach<sp/>miminum<sp/>(%d)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_input_length);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>load_soft_bits(input);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>minimum<sp/>codeblock<sp/>length<sp/>is<sp/>message_length<sp/>+<sp/>four<sp/>times<sp/>the<sp/>lifting<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(that<sp/>is,<sp/>the<sp/>length<sp/>of<sp/>the<sp/>high-rate<sp/>region).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>uint16_t<sp/>min_codeblock_length<sp/>=<sp/>message_length<sp/>+<sp/>4<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>decoder<sp/>works<sp/>with<sp/>at<sp/>least<sp/>min_codeblock_length<sp/>bits.<sp/>Recall<sp/>that<sp/>the<sp/>encoder<sp/>also<sp/>shortens</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>codeblock<sp/>by<sp/>2<sp/>*<sp/>lifting<sp/>size<sp/>before<sp/>returning<sp/>it<sp/>as<sp/>output.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>codeblock_length<sp/>=<sp/>std::max(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>+<sp/>2UL<sp/>*<sp/>lifting_size,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">size_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(min_codeblock_length));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>decoder<sp/>works<sp/>with<sp/>a<sp/>codeblock<sp/>length<sp/>that<sp/>is<sp/>a<sp/>multiple<sp/>of<sp/>the<sp/>lifting<sp/>size.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(codeblock_length<sp/>%<sp/>lifting_size<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>codeblock_length<sp/>=<sp/>(codeblock_length<sp/>/<sp/>lifting_size<sp/>+<sp/>1)<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers<sp/>=<sp/>codeblock_length<sp/>/<sp/>lifting_size<sp/>-<sp/>bg_K;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i_iteration<sp/>=<sp/>0;<sp/>i_iteration<sp/>!=<sp/>max_iterations;<sp/>++i_iteration)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i_layer<sp/>=<sp/>0;<sp/>i_layer<sp/>!=<sp/>nof_layers;<sp/>++i_layer)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>update_variable_to_check_messages(i_layer);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>update_check_to_variable_messages(i_layer);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>update_soft_bits(i_layer);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>a<sp/>CRC<sp/>calculator<sp/>was<sp/>passed<sp/>with<sp/>the<sp/>configuration<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(crc<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>get_hard_bits(output);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Early<sp/>stop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(crc-&gt;<ref refid="classsrsgnb_1_1crc__calculator_1a730d0a1d0d7188041b6047c945512da8" kindref="member">calculate_bit</ref>(output.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(nof_significant_bits))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i_iteration<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>a<sp/>CRC<sp/>calculator<sp/>was<sp/>passed<sp/>with<sp/>the<sp/>configuration<sp/>parameters<sp/>and<sp/>we<sp/>hit<sp/>this<sp/>point,<sp/>the<sp/>codeblock<sp/>wasn&apos;t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>decoded<sp/>correctly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(crc<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>reach<sp/>this<sp/>point<sp/>only<sp/>if<sp/>we<sp/>don&apos;t<sp/>have<sp/>a<sp/>CRC<sp/>calculator<sp/>for<sp/>early<sp/>stopping:<sp/>we<sp/>return<sp/>whatever<sp/>message<sp/>we<sp/>could</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reconstruct<sp/>after<sp/>max_iterations<sp/>(note<sp/>that<sp/>we<sp/>don&apos;t<sp/>know<sp/>whether<sp/>the<sp/>message<sp/>is<sp/>correct<sp/>or<sp/>not).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>get_hard_bits(output);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="classsrsgnb_1_1ldpc__decoder__generic_1a109c53d3e128f880125c799378d2e396" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1a109c53d3e128f880125c799378d2e396" kindref="member">ldpc_decoder_generic::load_soft_bits</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>llrs)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Erase<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>std::fill(soft_bits.begin(),<sp/>soft_bits.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>std::fill(var_to_check.begin(),<sp/>var_to_check.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>tmp<sp/>:<sp/>check_to_var)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(tmp.begin(),<sp/>tmp.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Recall<sp/>that<sp/>the<sp/>first<sp/>2<sp/>*<sp/>lifting_size<sp/>bits<sp/>are<sp/>not<sp/>transmitted.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_shortened_bits<sp/>=<sp/>2<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>std::copy(llrs.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>llrs.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>soft_bits.begin()<sp/>+<sp/>nof_shortened_bits);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classsrsgnb_1_1ldpc__decoder__generic_1af6e86738011dabd1e6d8ad4234a727a5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1af6e86738011dabd1e6d8ad4234a727a5" kindref="member">ldpc_decoder_generic::update_variable_to_check_messages</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>check_node)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>First,<sp/>update<sp/>the<sp/>messages<sp/>corresponding<sp/>to<sp/>the<sp/>high-rate<sp/>region.<sp/>All<sp/>layers<sp/>contribute.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>this_soft_bits(soft_bits);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>this_check_to_var(check_to_var[check_node]);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_var_to_check(var_to_check);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>compute_var_to_check_msgs(this_soft_bits.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(nof_hrr_nodes),</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_check_to_var.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(nof_hrr_nodes),</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_var_to_check.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(nof_hrr_nodes));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Next,<sp/>update<sp/>the<sp/>messages<sp/>corresponding<sp/>to<sp/>the<sp/>extension<sp/>region,<sp/>if<sp/>applicable.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>From<sp/>layer<sp/>4<sp/>onwards,<sp/>each<sp/>layer<sp/>is<sp/>connected<sp/>to<sp/>only<sp/>one<sp/>consecutive<sp/>block<sp/>of<sp/>lifting_size<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(check_node<sp/>&gt;=<sp/>4)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>skip_soft_bits<sp/>=<sp/>nof_hrr_nodes<sp/>+<sp/>(check_node<sp/>-<sp/>4)<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>compute_var_to_check_msgs(this_soft_bits.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(skip_soft_bits,<sp/>lifting_size),</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_check_to_var.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(nof_hrr_nodes,<sp/>lifting_size),</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_var_to_check.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(nof_hrr_nodes,<sp/>lifting_size));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classsrsgnb_1_1ldpc__decoder__generic_1aa464c8d4d35e87ee9986d130c814e0fc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1aa464c8d4d35e87ee9986d130c814e0fc" kindref="member">ldpc_decoder_generic::compute_var_to_check_msgs</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>soft,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>c2v,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v2c)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>assert((soft.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>v2c.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>())<sp/>&amp;&amp;<sp/>(c2v.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>v2c.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()));</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>By<sp/>definition,<sp/>the<sp/>difference<sp/>between<sp/>two<sp/>LLRs<sp/>saturates<sp/>at<sp/>+/-<sp/>LLR_MAX.<sp/>Moreover,<sp/>if<sp/>either<sp/>term<sp/>is<sp/>infinite,<sp/>so</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>the<sp/>result,<sp/>with<sp/>proper<sp/>sign.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>std::transform(</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>soft.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>soft.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>c2v.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>v2c.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>[](<ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>a,<sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a<sp/>-<sp/>b;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>scale_llr(<ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>llr,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scaling_factor)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>srsgnb_assert((scaling_factor<sp/>&gt;<sp/>0)<sp/>&amp;&amp;<sp/>(scaling_factor<sp/>&lt;<sp/>1),<sp/></highlight><highlight class="stringliteral">&quot;Scaling<sp/>factor<sp/>should<sp/>be<sp/>in<sp/>the<sp/>interval<sp/>(0,<sp/>1).&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1log__likelihood__ratio_1a744d1c32fcc957eecbc9381e7337131b" kindref="member">log_likelihood_ratio::isinf</ref>(llr))<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>llr;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Since<sp/>scaling_factor<sp/>belongs<sp/>to<sp/>(0,<sp/>1),<sp/>there<sp/>is<sp/>no<sp/>risk<sp/>of<sp/>overflow.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classsrsgnb_1_1log__likelihood__ratio_1a550d9e9f9e0a01a70406bfe2edb0310b" kindref="member">log_likelihood_ratio::value_type</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::round(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(llr.<ref refid="classsrsgnb_1_1log__likelihood__ratio_1a44f2dc826a11f71fff4fa7810a9b6c10" kindref="member">to_value_type</ref>())<sp/>*<sp/>scaling_factor));</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="classsrsgnb_1_1ldpc__decoder__generic_1a500cb077147fb9be4d751bfc4b2235b6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1a500cb077147fb9be4d751bfc4b2235b6" kindref="member">ldpc_decoder_generic::update_check_to_variable_messages</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>check_node)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prepare<sp/>helper<sp/>registers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>std::fill(sign_prod_var_to_check.begin(),<sp/>sign_prod_var_to_check.end(),<sp/>1);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>std::fill(min_var_to_check.begin(),<sp/>min_var_to_check.end(),<sp/><ref refid="namespacesrsgnb_1aad7f4edf0b10fb8adef634046ef6ded6" kindref="member">LLR_MAX</ref>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>std::fill(second_min_var_to_check.begin(),<sp/>second_min_var_to_check.end(),<sp/><ref refid="namespacesrsgnb_1aad7f4edf0b10fb8adef634046ef6ded6" kindref="member">LLR_MAX</ref>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1_1ldpc_1adda62dd3abd97604bd7acd6dc9a3f2d4" kindref="member">BG_adjacency_row_t</ref>&amp;<sp/>current_var_indices<sp/>=<sp/>current_graph-&gt;get_adjacency_row(check_node);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_var_index<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_var_indices.cbegin();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_var_index<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_var_indices.cend();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>(this_var_index<sp/>!=<sp/>last_var_index)<sp/>&amp;&amp;<sp/>(*this_var_index<sp/>!=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a1967af9f6b3ce8356a0ee2cc72abfeb9" kindref="member">NO_EDGE</ref>);<sp/>++this_var_index)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>shift<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_lifted_node(check_node,<sp/>*this_var_index);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>v2c_base_index<sp/>=<sp/>*this_var_index<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>v2c_base_index<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(v2c_base_index<sp/>&lt;=<sp/>nof_hrr_nodes)<sp/>?<sp/>v2c_base_index<sp/>:<sp/>nof_hrr_nodes;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Look<sp/>for<sp/>the<sp/>two<sp/>var_to_check<sp/>messages<sp/>with<sp/>minimum<sp/>absolute<sp/>value<sp/>and<sp/>compute<sp/>the<sp/>sign<sp/>product<sp/>of<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>var_to_check<sp/>messages.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>lifting_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v2c_index<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>v2c_base_index<sp/>+<sp/>j;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>this_var_to_check<sp/>=<sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio_1afc45466c58db042607ea5182a14f3b29" kindref="member">log_likelihood_ratio::abs</ref>(var_to_check[v2c_index]);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp_index<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(j<sp/>+<sp/>lifting_size<sp/>-<sp/>shift)<sp/>%<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_min<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(this_var_to_check<sp/>&lt;<sp/>min_var_to_check[tmp_index]);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>new_second_min<sp/><sp/><sp/><sp/>=<sp/>is_min<sp/>?<sp/>min_var_to_check[tmp_index]<sp/>:<sp/>this_var_to_check;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_best_two<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(this_var_to_check<sp/>&lt;<sp/>second_min_var_to_check[tmp_index]);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>second_min_var_to_check[tmp_index]<sp/><sp/><sp/><sp/><sp/>=<sp/>is_best_two<sp/>?<sp/>new_second_min<sp/>:<sp/>second_min_var_to_check[tmp_index];</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min_var_to_check[tmp_index]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>is_min<sp/>?<sp/>this_var_to_check<sp/>:<sp/>min_var_to_check[tmp_index];</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min_var_to_check_index[tmp_index]<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>is_min<sp/>?<sp/>v2c_index<sp/>:<sp/>min_var_to_check_index[tmp_index];</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sign_prod_var_to_check[tmp_index]<sp/>*=<sp/>(var_to_check[v2c_index]<sp/>&gt;=<sp/>0)<sp/>?<sp/>1<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Recall:<sp/>check_to_var<sp/>is<sp/>an<sp/>array<sp/>of<sp/>arrays<sp/>of<sp/>log_likelihood_ratio.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>this_check_to_var<sp/>=<sp/>check_to_var[check_node];</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(this_var_index<sp/>=<sp/>current_var_indices.cbegin();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(this_var_index<sp/>!=<sp/>last_var_index)<sp/>&amp;&amp;<sp/>(*this_var_index<sp/>!=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a1967af9f6b3ce8356a0ee2cc72abfeb9" kindref="member">NO_EDGE</ref>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++this_var_index)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>shift<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_graph-&gt;get_lifted_node(check_node,<sp/>*this_var_index);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>c2v_base_index<sp/>=<sp/>*this_var_index<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>c2v_base_index<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(c2v_base_index<sp/>&lt;=<sp/>nof_hrr_nodes)<sp/>?<sp/>c2v_base_index<sp/>:<sp/>nof_hrr_nodes;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>lifting_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>c2v_index<sp/>=<sp/>c2v_base_index<sp/>+<sp/>j;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tmp_index<sp/>=<sp/>(j<sp/>+<sp/>lifting_size<sp/>-<sp/>shift)<sp/>%<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this_check_to_var[c2v_index]<sp/>=<sp/>(c2v_index<sp/>!=<sp/>min_var_to_check_index[tmp_index])</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>min_var_to_check[tmp_index]</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>second_min_var_to_check[tmp_index];</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this_check_to_var[c2v_index]<sp/>=<sp/>scale_llr(this_check_to_var[c2v_index],<sp/>scaling_factor);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>final_sign<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>sign_prod_var_to_check[tmp_index]<sp/>*<sp/>((var_to_check[c2v_index]<sp/>&gt;=<sp/>0)<sp/>?<sp/>1<sp/>:<sp/>-1);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this_check_to_var[c2v_index]<sp/>=<sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio_1a3841eba3ffd2536d995566472aede3fa" kindref="member">log_likelihood_ratio::copysign</ref>(this_check_to_var[c2v_index],<sp/>final_sign);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="classsrsgnb_1_1ldpc__decoder__generic_1a93107a25f420a286904a62e746280cac" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1a93107a25f420a286904a62e746280cac" kindref="member">ldpc_decoder_generic::update_soft_bits</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>check_node)</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Recall:<sp/>check_to_var<sp/>is<sp/>an<sp/>array<sp/>of<sp/>arrays<sp/>of<sp/>log_likelihood_ratio.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>this_check_to_var<sp/>=<sp/>check_to_var[check_node];</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1_1ldpc_1adda62dd3abd97604bd7acd6dc9a3f2d4" kindref="member">BG_adjacency_row_t</ref>&amp;<sp/>current_var_indices<sp/>=<sp/>current_graph-&gt;get_adjacency_row(check_node);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_var_index<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_var_indices.cbegin();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_var_index<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>current_var_indices.cend();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>(this_var_index<sp/>!=<sp/>last_var_index)<sp/>&amp;&amp;<sp/>(*this_var_index<sp/>!=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a1967af9f6b3ce8356a0ee2cc72abfeb9" kindref="member">NO_EDGE</ref>);<sp/>++this_var_index)<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>var_index_lifted<sp/>=<sp/>*this_var_index<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>lifting_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>bit_index<sp/><sp/><sp/><sp/><sp/>=<sp/>var_index_lifted<sp/>+<sp/>j;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>bit_index_tmp<sp/>=<sp/>(var_index_lifted<sp/>&lt;=<sp/>nof_hrr_nodes)<sp/>?<sp/>bit_index<sp/>:<sp/>nof_hrr_nodes<sp/>+<sp/>j;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Soft<sp/>bits<sp/>absolutely<sp/>larger<sp/>than<sp/>LOCAL_MAX_RANGE<sp/>are<sp/>set<sp/>to<sp/>infinity<sp/>(LOCAL_INF).<sp/>As<sp/>a<sp/>result,<sp/>they<sp/>become</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>fixed<sp/>bits,<sp/>that<sp/>is<sp/>they<sp/>won&apos;t<sp/>change<sp/>their<sp/>value<sp/>from<sp/>now<sp/>on.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>soft_bits[bit_index]<sp/>=</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio_1af760df94f84b7a959fba914870db30a8" kindref="member">log_likelihood_ratio::promotion_sum</ref>(this_check_to_var[bit_index_tmp],<sp/>var_to_check[bit_index_tmp]);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251" refid="classsrsgnb_1_1ldpc__decoder__generic_1a0d39947ea370fb3395306c7124ced052" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__decoder__generic_1a0d39947ea370fb3395306c7124ced052" kindref="member">ldpc_decoder_generic::get_hard_bits</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>out)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>out_length<sp/>=<sp/>out.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>std::transform(soft_bits.cbegin(),<sp/>soft_bits.cbegin()<sp/>+<sp/>out_length,<sp/>out.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>[](<ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>sb)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>sb.to_hard_bit();</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__encoder__generic" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_encoder_generic</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__encoder__impl" prot="public" virt="non-virtual">srsgnb::ldpc_encoder_impl</basecompoundref>
+    <includes refid="ldpc__encoder__impl_8h" local="no">ldpc_encoder_impl.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1ldpc__encoder__generic_1aea7580c38511ad575d13d98749d74038" prot="private" static="no">
+        <type>void(ldpc_encoder_generic::*)()</type>
+        <definition>using srsgnb::ldpc_encoder_generic::high_rate_strategy =  void (ldpc_encoder_generic::*)()</definition>
+        <argsstring></argsstring>
+        <name>high_rate_strategy</name>
+        <briefdescription>
+<para>Pointer type shortcut. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="96" column="3" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__encoder__generic_1ac0b272b83d14689834ad57322b0dfe2a" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ldpc__encoder__generic_1aea7580c38511ad575d13d98749d74038" kindref="member">high_rate_strategy</ref></type>
+        <definition>high_rate_strategy srsgnb::ldpc_encoder_generic::high_rate</definition>
+        <argsstring></argsstring>
+        <name>high_rate</name>
+        <briefdescription>
+<para>Pointer to a high-rate strategy member. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="98" column="22" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__encoder__generic_1a0c992335855af9b542c5747a964f508f" compoundref="ldpc__encoder__impl_8h" startline="91" endline="91">encode_high_rate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__encoder__generic_1a251bf1aae1d23b72ff59bb8c6e63b2d8" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+        <definition>span&lt;const uint8_t&gt; srsgnb::ldpc_encoder_generic::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Local copy of the message to encode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="110" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__encoder__generic_1a223d0fb49d7ac948fba045632d989904" compoundref="ldpc__encoder__impl_8h" startline="89" endline="89">load_input</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__encoder__generic_1a32a137756342225eb335bae980752bfb" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::array&lt; uint8_t, <ref refid="namespacesrsgnb_1_1ldpc_1a5715ceccdc23e2f7cc70a99cbfeb2be3" kindref="member">ldpc::MAX_LIFTING_SIZE</ref> &gt;, <ref refid="namespacesrsgnb_1_1ldpc_1ae1c3c163121c4a5af7d238593af8c589" kindref="member">ldpc::MAX_BG_M</ref> &gt;</type>
+        <definition>std::array&lt;std::array&lt;uint8_t, ldpc::MAX_LIFTING_SIZE&gt;, ldpc::MAX_BG_M&gt; srsgnb::ldpc_encoder_generic::auxiliary</definition>
+        <argsstring></argsstring>
+        <name>auxiliary</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Register to store auxiliary computation results. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="113" column="14" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__encoder__generic_1ae19ee464811b29a6087701211a17942b" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, static_cast&lt; size_t &gt;<ref refid="namespacesrsgnb_1_1ldpc_1a4c9799d4a66531db14028cab24df0bd1" kindref="member">ldpc::MAX_BG_N_FULL</ref> *<ref refid="namespacesrsgnb_1_1ldpc_1a5715ceccdc23e2f7cc70a99cbfeb2be3" kindref="member">ldpc::MAX_LIFTING_SIZE</ref>)&gt;</type>
+        <definition>std::array&lt;uint8_t, static_cast&lt;size_t&gt;ldpc::MAX_BG_N_FULL* ldpc::MAX_LIFTING_SIZE)&gt; srsgnb::ldpc_encoder_generic::codeblock</definition>
+        <argsstring></argsstring>
+        <name>codeblock</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Register to store computed encoded bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="115" column="16" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1af135f0b2888080dfcb1803c4526028c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::select_strategy</definition>
+        <argsstring>() override</argsstring>
+        <name>select_strategy</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a221abf52de47d01ed63aeb7f8a636e45">select_strategy</reimplements>
+        <briefdescription>
+<para>Selects the appropriate encoding strategy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="88" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="74" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a223d0fb49d7ac948fba045632d989904" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_generic::load_input</definition>
+        <argsstring>(span&lt; const uint8_t &gt; in) override</argsstring>
+        <name>load_input</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1ae9873388b9ba573c76889711d376cd17">load_input</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Loads the input bits into the inner register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="89" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="89" bodyend="89"/>
+        <references refid="classsrsgnb_1_1ldpc__encoder__generic_1a251bf1aae1d23b72ff59bb8c6e63b2d8" compoundref="ldpc__encoder__impl_8h" startline="110">message</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a69821bbfcf84e437d33135ad38e28865" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::preprocess_systematic_bits</definition>
+        <argsstring>() override</argsstring>
+        <name>preprocess_systematic_bits</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a721667d507fbddc9949d38c02158bf5d">preprocess_systematic_bits</reimplements>
+        <briefdescription>
+<para>Computes some intermediate variables required by the actual encoding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="90" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="100" bodyend="132"/>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a1967af9f6b3ce8356a0ee2cc72abfeb9" compoundref="ldpc__graph__impl_8h" startline="24">srsgnb::ldpc::NO_EDGE</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" compoundref="span_8h" startline="200" endline="204">srsgnb::span&lt; T &gt;::last</references>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+        <references refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" compoundref="span_8h" startline="182" endline="182">srsgnb::span&lt; T &gt;::end</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a0c992335855af9b542c5747a964f508f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_generic::encode_high_rate</definition>
+        <argsstring>() override</argsstring>
+        <name>encode_high_rate</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a5e27fbb5a2532296a2c493ae02c48d5a">encode_high_rate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the shortest possible codeword (systematic part plus high-rate region, that is the first 4 x lifting size redundancy bits). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="91" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="91" bodyend="91"/>
+        <references refid="classsrsgnb_1_1ldpc__encoder__generic_1ac0b272b83d14689834ad57322b0dfe2a" compoundref="ldpc__encoder__impl_8h" startline="98">high_rate</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a5aca7d99d73494a0d18dd7ab84f651f0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::encode_ext_region</definition>
+        <argsstring>() override</argsstring>
+        <name>encode_ext_region</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a573bbc4dfc2031ef30eaa7b8e88bc991">encode_ext_region</reimplements>
+        <briefdescription>
+<para>Computes the rest of the redundancy bits (extension region). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="92" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="134" bodyend="155"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1a1967af9f6b3ce8356a0ee2cc72abfeb9" compoundref="ldpc__graph__impl_8h" startline="24">srsgnb::ldpc::NO_EDGE</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a9dce03bda20070de9818fa8fc6538664" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::write_codeblock</definition>
+        <argsstring>(span&lt; uint8_t &gt; out) override</argsstring>
+        <name>write_codeblock</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1ac10549b2a43001922c8b2585770708ad">write_codeblock</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Moves relevant encoded bits from the internal register to the output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="93" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="157" bodyend="163"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1ad44cd99c2d8e67a7c594ebe9bc839ab5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::high_rate_bg1_i6</definition>
+        <argsstring>()</argsstring>
+        <name>high_rate_bg1_i6</name>
+        <briefdescription>
+<para>Carries out the high-rate region encoding for BG1 and lifting size index 6. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="101" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="165" bodyend="189"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1ae1c3c163121c4a5af7d238593af8c589" compoundref="ldpc__graph__impl_8h" startline="41">srsgnb::ldpc::MAX_BG_M</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a6d488788f9126bc0a40be7c439e6bf0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::high_rate_bg1_other</definition>
+        <argsstring>()</argsstring>
+        <name>high_rate_bg1_other</name>
+        <briefdescription>
+<para>Carries out the high-rate region encoding for BG1 and lifting size index in {0, 1, 2, 3, 4, 5, 7}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="103" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="191" bodyend="214"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1ae1c3c163121c4a5af7d238593af8c589" compoundref="ldpc__graph__impl_8h" startline="41">srsgnb::ldpc::MAX_BG_M</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a1cc132f0a07fdace72b511c088274d80" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::high_rate_bg2_i3_7</definition>
+        <argsstring>()</argsstring>
+        <name>high_rate_bg2_i3_7</name>
+        <briefdescription>
+<para>Carries out the high-rate region encoding for BG2 and lifting size index in {3, 7}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="105" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="216" bodyend="239"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1ae1c3c163121c4a5af7d238593af8c589" compoundref="ldpc__graph__impl_8h" startline="41">srsgnb::ldpc::MAX_BG_M</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__generic_1a48a2a858e0bd24aee94c491483e1796b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_encoder_generic::high_rate_bg2_other</definition>
+        <argsstring>()</argsstring>
+        <name>high_rate_bg2_other</name>
+        <briefdescription>
+<para>Carries out the high-rate region encoding for BG2 and lifting size index in {0, 1, 2, 4, 5, 6}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="107" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.cpp" bodystart="241" bodyend="267"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1ae1c3c163121c4a5af7d238593af8c589" compoundref="ldpc__graph__impl_8h" startline="41">srsgnb::ldpc::MAX_BG_M</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic LDPC encoder implementation without any optimization. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder_generic</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__generic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_encoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder_generic</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__generic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-message</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::ldpc_graph_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__graph__impl"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::span&lt; const uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_encoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#current_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="87" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="86" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a32a137756342225eb335bae980752bfb" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>auxiliary</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a87946f1ed6c1a05fcbb52549b5914b5b" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>bg_K</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a46096e7e2f130751ae67547ba22d7547" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>bg_M</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ae35e9cff490f2294e85260e69596ef44" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>bg_N_full</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a4f497e5b1e433451e709e431585f3a7b" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>bg_N_short</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1ae19ee464811b29a6087701211a17942b" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>codeblock</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a386b1cd857b3f2edc028b1a16c3b1465" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>codeblock_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ac780f38b1fcc6ef1eff2e14854d15a85" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>current_graph</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a7b07f2de9d496971220825ce198c0789" prot="public" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a5aca7d99d73494a0d18dd7ab84f651f0" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>encode_ext_region</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a0c992335855af9b542c5747a964f508f" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>encode_high_rate</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1ac0b272b83d14689834ad57322b0dfe2a" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1ad44cd99c2d8e67a7c594ebe9bc839ab5" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate_bg1_i6</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a6d488788f9126bc0a40be7c439e6bf0b" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate_bg1_other</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a1cc132f0a07fdace72b511c088274d80" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate_bg2_i3_7</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a48a2a858e0bd24aee94c491483e1796b" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate_bg2_other</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1aea7580c38511ad575d13d98749d74038" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>high_rate_strategy</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a39f37cd89f5ccc5ec564154adb12745c" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1accc6b3e0c093f08589f2c314b439f5c8" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a0cf816ff5db187415d86d93b86cffcfb" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1acc46ac6107f1502e16906ed102f665a7" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ad435bb44c37d716af620efce4bb315da" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a223d0fb49d7ac948fba045632d989904" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>load_input</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a251bf1aae1d23b72ff59bb8c6e63b2d8" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>message</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a0200bd67c015b8c91e9bb580e89bece2" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a83bbcd7c1e0f4afe37ff2a42b3716284" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a69821bbfcf84e437d33135ad38e28865" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>preprocess_systematic_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1af135f0b2888080dfcb1803c4526028c1" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>select_strategy</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__generic_1a9dce03bda20070de9818fa8fc6538664" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>write_codeblock</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder_1aa8ba035bdec794b74614dbeb381a5674" prot="public" virt="virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>~ldpc_encoder</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1aaf9c0d8f92dcd10b18bdeb999e77402a" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_generic</scope><name>~ldpc_encoder_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

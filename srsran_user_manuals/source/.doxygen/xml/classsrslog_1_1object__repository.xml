@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1object__repository" kind="class" language="C++" prot="public">
+    <compoundname>srslog::object_repository</compoundname>
+    <includes refid="object__repository_8h" local="no">object_repository.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1object__repository_1a27f98d2970df477df57e5c8e94222398" prot="private" static="no" mutable="yes">
+        <type><ref refid="classsrslog_1_1detail_1_1mutex" kindref="compound">detail::mutex</ref></type>
+        <definition>detail::mutex srslog::object_repository&lt; K, V &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="26" column="28" bodyfile="lib/srslog/object_repository.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1object__repository_1ac56e3c8d62298e601bdc8f17eb4d6ae5" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; K, V &gt;</type>
+        <definition>std::unordered_map&lt;K, V&gt; srslog::object_repository&lt; K, V &gt;::repo</definition>
+        <argsstring></argsstring>
+        <name>repo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="27" column="22" bodyfile="lib/srslog/object_repository.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1a65e7be5aa86e997d28777005e329acfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V *</type>
+        <definition>V* srslog::object_repository&lt; K, V &gt;::insert</definition>
+        <argsstring>(const K &amp;key, V &amp;&amp;value)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>V &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new entry into the repository. A pointer to the new entry is returned or nullptr when the key already exists. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="32" column="5" bodyfile="lib/srslog/object_repository.h" bodystart="32" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1aea81f476da7ed577413889e28792c2b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>V &amp;</type>
+        <definition>V&amp; srslog::object_repository&lt; K, V &gt;::emplace</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new entry in-place into the repository if there is no element with the specified key. Returns a reference to the inserted element or to the already existing element if no insertion happened. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="45" column="5" bodyfile="lib/srslog/object_repository.h" bodystart="45" bodyend="50"/>
+        <referencedby refid="namespacesrslog_1_1detail_1a43a9fb2fb67b1769690f11c4f82c7b4e" compoundref="srslog_8cpp" startline="259" endline="263">srslog::detail::fetch_logger</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1aefba74e68ddc74ebe79e089d04312ef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V *</type>
+        <definition>V* srslog::object_repository&lt; K, V &gt;::find</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>find</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds a value with the specified key in the repository. Returns a pointer to the value, otherwise nullptr if not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="54" column="5" bodyfile="lib/srslog/object_repository.h" bodystart="54" bodyend="59"/>
+        <referencedby refid="namespacesrslog_1_1detail_1aeec69f2c96c9de1d95b7b7e372c2f887" compoundref="srslog_8cpp" startline="254" endline="257">srslog::detail::find_logger</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1aa43237d47ebd7358483b6a95b0f99d68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const V *</type>
+        <definition>const V* srslog::object_repository&lt; K, V &gt;::find</definition>
+        <argsstring>(const K &amp;key) const</argsstring>
+        <name>find</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="60" column="11" bodyfile="lib/srslog/object_repository.h" bodystart="60" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1a374d8a18a8ef397258b31f920d62634b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; V * &gt;</type>
+        <definition>std::vector&lt;V*&gt; srslog::object_repository&lt; K, V &gt;::contents</definition>
+        <argsstring>()</argsstring>
+        <name>contents</name>
+        <briefdescription>
+<para>Returns a copy of the contents of the repository. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="68" column="15" bodyfile="lib/srslog/object_repository.h" bodystart="68" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1object__repository_1aa26a8af8ce03cd4e3da3fede1ae6d994" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; const V * &gt;</type>
+        <definition>std::vector&lt;const V*&gt; srslog::object_repository&lt; K, V &gt;::contents</definition>
+        <argsstring>() const</argsstring>
+        <name>contents</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/object_repository.h" line="80" column="15" bodyfile="lib/srslog/object_repository.h" bodystart="80" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This template class implements a very basic object repository with arbitrary key and value types. It allows registering new objects of type V indexed by key K, no element removal supported. NOTE: Thread safe class. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::object_repository&lt; K, V &gt;</label>
+        <link refid="classsrslog_1_1object__repository"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/srslog/object_repository.h" line="25" column="1" bodyfile="lib/srslog/object_repository.h" bodystart="24" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1object__repository_1a374d8a18a8ef397258b31f920d62634b" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>contents</name></member>
+      <member refid="classsrslog_1_1object__repository_1aa26a8af8ce03cd4e3da3fede1ae6d994" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>contents</name></member>
+      <member refid="classsrslog_1_1object__repository_1aea81f476da7ed577413889e28792c2b4" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>emplace</name></member>
+      <member refid="classsrslog_1_1object__repository_1aefba74e68ddc74ebe79e089d04312ef0" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>find</name></member>
+      <member refid="classsrslog_1_1object__repository_1aa43237d47ebd7358483b6a95b0f99d68" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>find</name></member>
+      <member refid="classsrslog_1_1object__repository_1a65e7be5aa86e997d28777005e329acfa" prot="public" virt="non-virtual"><scope>srslog::object_repository</scope><name>insert</name></member>
+      <member refid="classsrslog_1_1object__repository_1a27f98d2970df477df57e5c8e94222398" prot="private" virt="non-virtual"><scope>srslog::object_repository</scope><name>m</name></member>
+      <member refid="classsrslog_1_1object__repository_1ac56e3c8d62298e601bdc8f17eb4d6ae5" prot="private" virt="non-virtual"><scope>srslog::object_repository</scope><name>repo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

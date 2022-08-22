@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1port__channel__estimator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::port_channel_estimator</compoundname>
+    <includes refid="port__channel__estimator_8h" local="no">port_channel_estimator.h</includes>
+    <innerclass refid="structsrsgnb_1_1port__channel__estimator_1_1configuration" prot="public">srsgnb::port_channel_estimator::configuration</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1port__channel__estimator_1ab73242704e9cc23572c968a9e4830a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::port_channel_estimator::~port_channel_estimator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~port_channel_estimator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/port_channel_estimator.h" line="48" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1port__channel__estimator_1a343efc2879d1401bcf1cf254f4a3dc85" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::port_channel_estimator::compute</definition>
+        <argsstring>(channel_estimate &amp;estimate, const resource_grid_reader &amp;grid, unsigned port, span&lt; const dmrs_symbol_list &gt; symbols, span&lt; const dmrs_mask &gt; mask, const configuration &amp;cfg)=0</argsstring>
+        <name>compute</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimate</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1ad0dae40a23573409ca7d16a25349dc49" kindref="member">dmrs_symbol_list</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1dmrs__mask" kindref="compound">dmrs_mask</ref> &gt;</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1port__channel__estimator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Computes the channel estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Estimates the channel to the current receive antenna port for all transmit layers. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">estimate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The estimated channel coefficients for all resource elements, all OFDM symbols, all receive ports and all transmit layers. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frequency<ndash/>time resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Receive antenna port the estimation refers to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DM-RS symbols (a.k.a. pilots). For each layer, symbols are listed by RE first and then by OFDM symbol. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean mask with the positions of the DM-RS symbols. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estimator configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/port_channel_estimator.h" line="61" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>DM-RS-based channel estimator for one receive antenna port. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::port_channel_estimator</label>
+        <link refid="classsrsgnb_1_1port__channel__estimator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/port_channel_estimator.h" line="27" column="1" bodyfile="include/srsgnb/phy/upper/port_channel_estimator.h" bodystart="26" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1port__channel__estimator_1a343efc2879d1401bcf1cf254f4a3dc85" prot="public" virt="pure-virtual"><scope>srsgnb::port_channel_estimator</scope><name>compute</name></member>
+      <member refid="classsrsgnb_1_1port__channel__estimator_1ab73242704e9cc23572c968a9e4830a82" prot="public" virt="virtual"><scope>srsgnb::port_channel_estimator</scope><name>~port_channel_estimator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

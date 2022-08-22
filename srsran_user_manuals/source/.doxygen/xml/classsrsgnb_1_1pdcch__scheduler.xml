@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__scheduler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pdcch_scheduler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pdcch__scheduler__impl" prot="public" virt="non-virtual">srsgnb::pdcch_scheduler_impl</derivedcompoundref>
+    <includes refid="pdcch__scheduler_8h" local="no">pdcch_scheduler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler_1a1362cad195a4be8fc043f536f43e5440" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pdcch_scheduler::~pdcch_scheduler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pdcch_scheduler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" line="14" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler_1aa6370fabd4108388b1107c9481339c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref> *</type>
+        <definition>virtual pdcch_dl_information* srsgnb::pdcch_scheduler::alloc_pdcch_common</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, search_space_id ss_id, aggregation_level aggr_lvl)=0</argsstring>
+        <name>alloc_pdcch_common</name>
+        <reimplementedby refid="classsrsgnb_1_1pdcch__scheduler__impl_1a98fdfe8c15c531a5381a6ea545db549c">alloc_pdcch_common</reimplementedby>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for common PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of allocation. Values: SI-RNTI, P-RNTI, RA-RNTIs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" line="21" column="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler_1ad774c5b11f6281956ab8174ed821267b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref> *</type>
+        <definition>virtual pdcch_dl_information* srsgnb::pdcch_scheduler::alloc_dl_pdcch_ue</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, const ue_cell_configuration &amp;user, bwp_id_t bwpid, search_space_id ss_id, aggregation_level aggr_lvl, dci_dl_format dci_fmt)=0</argsstring>
+        <name>alloc_dl_pdcch_ue</name>
+        <reimplementedby refid="classsrsgnb_1_1pdcch__scheduler__impl_1a2398f5722311a4e5fa03d7a4bb885bbf">alloc_dl_pdcch_ue</reimplementedby>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue__cell__configuration" kindref="compound">ue_cell_configuration</ref> &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ad4a1f149c8fe7de5f0d38f8cc58928d4" kindref="member">bwp_id_t</ref></type>
+          <declname>bwpid</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <param>
+          <type>dci_dl_format</type>
+          <declname>dci_fmt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for UE-dedicated DL PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of UE being allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UE configuration for the provided cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bwp_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BWP Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dci_fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DCI format to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" line="34" column="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler_1a60a6ada2d5b48f879606f4d83c36f6c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__ul__information" kindref="compound">pdcch_ul_information</ref> *</type>
+        <definition>virtual pdcch_ul_information* srsgnb::pdcch_scheduler::alloc_ul_pdcch_ue</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, const ue_cell_configuration &amp;user, bwp_id_t bwpid, search_space_id ss_id, aggregation_level aggr_lvl, dci_ul_format dci_fmt)=0</argsstring>
+        <name>alloc_ul_pdcch_ue</name>
+        <reimplementedby refid="classsrsgnb_1_1pdcch__scheduler__impl_1a8e2ba284a703332328d2741083bd9674">alloc_ul_pdcch_ue</reimplementedby>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue__cell__configuration" kindref="compound">ue_cell_configuration</ref> &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ad4a1f149c8fe7de5f0d38f8cc58928d4" kindref="member">bwp_id_t</ref></type>
+          <declname>bwpid</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <param>
+          <type>dci_ul_format</type>
+          <declname>dci_fmt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for UE-dedicated DL PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of UE being allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UE configuration for the provided cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bwp_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BWP Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dci_fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DCI format to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" line="50" column="32"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PDCCH scheduling algorithm for a single cell and for both common and UE-dedicated CORESETs. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pdcch_scheduler_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pdcch_scheduler</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcch_scheduler</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" line="12" column="1" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler.h" bodystart="11" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__scheduler_1ad774c5b11f6281956ab8174ed821267b" prot="public" virt="pure-virtual"><scope>srsgnb::pdcch_scheduler</scope><name>alloc_dl_pdcch_ue</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler_1aa6370fabd4108388b1107c9481339c5a" prot="public" virt="pure-virtual"><scope>srsgnb::pdcch_scheduler</scope><name>alloc_pdcch_common</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler_1a60a6ada2d5b48f879606f4d83c36f6c7" prot="public" virt="pure-virtual"><scope>srsgnb::pdcch_scheduler</scope><name>alloc_ul_pdcch_ue</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler_1a1362cad195a4be8fc043f536f43e5440" prot="public" virt="virtual"><scope>srsgnb::pdcch_scheduler</scope><name>~pdcch_scheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__zmq__tx__stream" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::radio_zmq_tx_stream</compoundname>
+    <innerclass refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description" prot="public">srsgnb::radio_zmq_tx_stream::stream_description</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__tx__stream_1a9fdf0dac160c1624dd2109b776d9ea3f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_tx_stream::successful</definition>
+        <argsstring></argsstring>
+        <name>successful</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Indicates whether the class was initialized successfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="22" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__tx__stream_1acc544597aa7771143bf7e81cb8f368c8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1radio__zmq__tx__channel" kindref="compound">radio_zmq_tx_channel</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;radio_zmq_tx_channel&gt; &gt; srsgnb::radio_zmq_tx_stream::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <briefdescription>
+<para>Stores independent channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="24" column="15" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1a2ae4b2d509edad1f92092ef7cee7c152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_zmq_tx_stream::radio_zmq_tx_stream</definition>
+        <argsstring>(void *zmq_context, const stream_description &amp;config, task_executor &amp;async_executor_, radio_notification_handler &amp;notification_handler)</argsstring>
+        <name>radio_zmq_tx_stream</name>
+        <param>
+          <type>void *</type>
+          <declname>zmq_context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description" kindref="compound">stream_description</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_executor_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+          <declname>notification_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="47" column="3" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.cpp" bodystart="15" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1ae365dab3d9c100bf56a72d984809cd01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_tx_stream::is_successful</definition>
+        <argsstring>() const</argsstring>
+        <name>is_successful</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="52" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1ac88fec769c5e57e86a9a234487a897c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_tx_stream::align</definition>
+        <argsstring>(uint64_t timestamp)</argsstring>
+        <name>align</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="54" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.cpp" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1aece95aea376611bf65c315879c836786" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_tx_stream::transmit</definition>
+        <argsstring>(baseband_gateway_buffer &amp;data)</argsstring>
+        <name>transmit</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1baseband__gateway__buffer" kindref="compound">baseband_gateway_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="56" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.cpp" bodystart="68" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1a41ca337efe612bbba7a47ce947916e52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_tx_stream::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="58" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.cpp" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__stream_1acd1f89aa1c6a163c16752f7824792351" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_tx_stream::wait_stop</definition>
+        <argsstring>()</argsstring>
+        <name>wait_stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="60" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.cpp" bodystart="54" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::radio_zmq_tx_stream</label>
+        <link refid="classsrsgnb_1_1radio__zmq__tx__stream"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/radio/zmq/radio_zmq_tx_stream.h" line="19" column="1" bodyfile="lib/radio/zmq/radio_zmq_tx_stream.h" bodystart="18" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1ac88fec769c5e57e86a9a234487a897c5" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>align</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1acc544597aa7771143bf7e81cb8f368c8" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>channels</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1ae365dab3d9c100bf56a72d984809cd01" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>is_successful</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1a2ae4b2d509edad1f92092ef7cee7c152" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>radio_zmq_tx_stream</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1a41ca337efe612bbba7a47ce947916e52" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1a9fdf0dac160c1624dd2109b776d9ea3f" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>successful</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1aece95aea376611bf65c315879c836786" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>transmit</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__stream_1acd1f89aa1c6a163c16752f7824792351" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_stream</scope><name>wait_stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

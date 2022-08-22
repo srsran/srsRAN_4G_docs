@@ -1,0 +1,614 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacesrsgnb_1_1band__helper" kind="namespace" language="C++">
+    <compoundname>srsgnb::band_helper</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="band__helper_8h_1a4b5cdf2a985060023758c9205d654c14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a83f6ffefc7d0a575c536ffac0750f2f1" kindref="member">duplex_mode</ref></type>
+        <definition>duplex_mode srsgnb::band_helper::get_duplex_mode</definition>
+        <argsstring>(nr_band band)</argsstring>
+        <name>get_duplex_mode</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+          <declname>band</declname>
+        </param>
+        <briefdescription>
+<para>Gets the NR band duplex mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given band. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A valid duplex_mode if the band is valid, duplex_mode::INVALID otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="81" column="13" bodyfile="lib/ran/band_helper.cpp" bodystart="368" bodyend="385" declfile="include/srsgnb/ran/band_helper.h" declline="81" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a2220e1e6ae83ac4b78afb30eeb823ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+        <definition>nr_band srsgnb::band_helper::get_band_from_dl_arfcn</definition>
+        <argsstring>(uint32_t arfcn)</argsstring>
+        <name>get_band_from_dl_arfcn</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>arfcn</declname>
+        </param>
+        <briefdescription>
+<para>Gets the lowest band that includes a given Downlink ARFCN. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Some bands can be subset of others, e.g., band 2 is a subset of band 25. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">arfcn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given Downlink ARFCN. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The band number if the ARFCN is bounded in a band, UINT16_MAX otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="87" column="9" bodyfile="lib/ran/band_helper.cpp" bodystart="281" bodyend="290" declfile="include/srsgnb/ran/band_helper.h" declline="87" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a7e314eaf5609bf9b78a14cacb5a208fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::band_helper::get_ul_arfcn_from_dl_arfcn</definition>
+        <argsstring>(uint32_t dl_arfcn)</argsstring>
+        <name>get_ul_arfcn_from_dl_arfcn</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>dl_arfcn</declname>
+        </param>
+        <briefdescription>
+<para>Get the respective UL ARFCN of a DL ARFCN. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For paired spectrum (FDD) the function returns the respective ARFCN in the same band. For unparied spectrum (TDD) the function returns the same ARFCN.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dl_arfcn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The DL ARFCN. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint32_t the UL ARFCN. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="96" column="10" bodyfile="lib/ran/band_helper.cpp" bodystart="292" bodyend="310" declfile="include/srsgnb/ran/band_helper.h" declline="96" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1ae7e5dfb34852e6d55b7de0c6c240b4d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double srsgnb::band_helper::nr_arfcn_to_freq</definition>
+        <argsstring>(uint32_t nr_arfcn)</argsstring>
+        <name>nr_arfcn_to_freq</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nr_arfcn</declname>
+        </param>
+        <briefdescription>
+<para>Return frequency of given NR-ARFCN in Hz as per TS38.104 5.4.2.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nr_arfcn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given NR-ARFCN. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The frequency in Hz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="101" column="8" bodyfile="lib/ran/band_helper.cpp" bodystart="312" bodyend="319" declfile="include/srsgnb/ran/band_helper.h" declline="101" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1ae9ce1a9e0fa804f3ceaecb9c0c11b2bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::band_helper::freq_to_nr_arfcn</definition>
+        <argsstring>(double freq)</argsstring>
+        <name>freq_to_nr_arfcn</name>
+        <param>
+          <type>double</type>
+          <declname>freq</declname>
+        </param>
+        <briefdescription>
+<para>Calculates NR-ARFCN of a given frequency as per TS38.104 5.4.2.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">freq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given Frequency in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The NR-AFCN. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="106" column="10" bodyfile="lib/ran/band_helper.cpp" bodystart="321" bodyend="329" declfile="include/srsgnb/ran/band_helper.h" declline="106" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a5e2601316132c11346badafaf91a57e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ff" kindref="member">ssb_pattern_case</ref></type>
+        <definition>ssb_pattern_case srsgnb::band_helper::get_ssb_pattern</definition>
+        <argsstring>(nr_band band, subcarrier_spacing scs)</argsstring>
+        <name>get_ssb_pattern</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+          <declname>band</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Selects the SSB pattern case according to the band number and subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Described by TS 38.101-1 Table 5.4.3.3-1: Applicable SS raster entries per operating band. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NR Band number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SSB Subcarrier spacing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The SSB pattern case if band and subcarrier spacing match, invalid otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="113" column="18" bodyfile="lib/ran/band_helper.cpp" bodystart="331" bodyend="347" declfile="include/srsgnb/ran/band_helper.h" declline="113" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1ae4e5188e832c7774805b5da4e50ff1d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+        <definition>subcarrier_spacing srsgnb::band_helper::get_lowest_ssb_scs</definition>
+        <argsstring>(nr_band band)</argsstring>
+        <name>get_lowest_ssb_scs</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+          <declname>band</declname>
+        </param>
+        <briefdescription>
+<para>Selects the lowest SSB subcarrier spacing valid for this band. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NR band number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The SSB subcarrier spacing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="118" column="20" bodyfile="lib/ran/band_helper.cpp" bodystart="349" bodyend="366" declfile="include/srsgnb/ran/band_helper.h" declline="118" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1aba902afe24c21bf47f8066fe495fc50f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::band_helper::is_paired_spectrum</definition>
+        <argsstring>(nr_band band)</argsstring>
+        <name>is_paired_spectrum</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+          <declname>band</declname>
+        </param>
+        <briefdescription>
+<para>Returns boolean indicating whether the band is in paired spectrum. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Paired spectrum is FDD, unpaired spectrum is TDD, SUL, SDL. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given band. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true for paired specrum, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="124" column="6" bodyfile="lib/ran/band_helper.cpp" bodystart="387" bodyend="392" declfile="include/srsgnb/ran/band_helper.h" declline="124" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1af534d7978edc44fb10be589535cb9e08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double srsgnb::band_helper::get_abs_freq_point_a_from_center_freq</definition>
+        <argsstring>(uint32_t nof_prb, double center_freq)</argsstring>
+        <name>get_abs_freq_point_a_from_center_freq</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_prb</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_freq</declname>
+        </param>
+        <briefdescription>
+<para>Compute the absolute pointA for a NR carrier from its bandwidth and the center frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The concept of <emphasis>Center frequency&lt;<emphasis></emphasis> &gt; is defined for LTE, while there is explicit mention to it for NR</emphasis></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nof_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>Carrier bandwidth in number of RB. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_freq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>double Frequency in Hz. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><emphasis> Absolute Point A frequency in Hz. </emphasis></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="133" column="8" bodyfile="lib/ran/band_helper.cpp" bodystart="394" bodyend="401" declfile="include/srsgnb/ran/band_helper.h" declline="133" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a78d1102570427bf3b9407d516e8b4995" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::band_helper::get_abs_freq_point_a_arfcn</definition>
+        <argsstring>(uint32_t nof_prb, uint32_t arfcn)</argsstring>
+        <name>get_abs_freq_point_a_arfcn</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_prb</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>arfcn</declname>
+        </param>
+        <briefdescription>
+<para>Compute the absolute frequency point A for a arfcn. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nr frequency band. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of PRBs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">arfcn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Given ARFCN. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>frequency point A in arfcn notation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="141" column="10" bodyfile="lib/ran/band_helper.cpp" bodystart="403" bodyend="406" declfile="include/srsgnb/ran/band_helper.h" declline="141" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a5971fc27434736111f986b15095b7091" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double srsgnb::band_helper::get_center_freq_from_abs_freq_point_a</definition>
+        <argsstring>(uint32_t nof_prb, uint32_t freq_point_a_arfcn)</argsstring>
+        <name>get_center_freq_from_abs_freq_point_a</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_prb</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>freq_point_a_arfcn</declname>
+        </param>
+        <briefdescription>
+<para>Compute the center frequency for a NR carrier from its bandwidth and the absolute pointA. The center frequency should point to the RB with index = ceil(Nrb / 2), where Nrb is the number of RBs of the cell. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nof_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Carrier bandwidth in number of RB. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>freq_point_a_arfcn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute Point A frequency ARFCN. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double Frequency in Hz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="149" column="8" bodyfile="lib/ran/band_helper.cpp" bodystart="408" bodyend="415" declfile="include/srsgnb/ran/band_helper.h" declline="149" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1aa415612961699fe2f7333cbfe4076650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double srsgnb::band_helper::get_abs_freq_point_a_from_f_ref</definition>
+        <argsstring>(double f_ref, uint32_t nof_rbs, subcarrier_spacing scs)</argsstring>
+        <name>get_abs_freq_point_a_from_f_ref</name>
+        <param>
+          <type>double</type>
+          <declname>f_ref</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_rbs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Compute the Absolute frequency pointA for a NR carrier from the nof RBs, SCS and the RF reference frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The RF reference frequency is defined in TS 38.104, Section 5.4.2.1. <emphasis>Point A&lt;<emphasis></emphasis> &gt; is defined in TS 38.211, Section 4.4.4.2.</emphasis></para>
+<para><emphasis><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">f_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RF reference frequency, in Hz, as per TS 38.104, Section 5.4.2.1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>corresponds to Transmission bandwidth configuration <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. Only values in Table 5.3.2-1 should be provided. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the subcarrier spacing of reference for <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><emphasis>absoluteFrequencyPointA</emphasis> as per TS38.211 Section 4.4.4.2, expressed in Hz. </para>
+</simplesect>
+</emphasis></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="161" column="8" bodyfile="lib/ran/band_helper.cpp" bodystart="417" bodyend="432" declfile="include/srsgnb/ran/band_helper.h" declline="161" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a42a2b0fcee1dfcc675e5be5c9cb3a77d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double srsgnb::band_helper::get_f_ref_from_abs_freq_point_a</definition>
+        <argsstring>(double abs_freq_point_a, uint32_t nof_rbs, subcarrier_spacing scs)</argsstring>
+        <name>get_f_ref_from_abs_freq_point_a</name>
+        <param>
+          <type>double</type>
+          <declname>abs_freq_point_a</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_rbs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Compute the RF reference frequency for a NR carrier from the nof RBs, SCS and the Absolute frequency pointA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><emphasis>Absolute frequency pointA&lt;<emphasis></emphasis> &gt; is defined in TS 38.211, Section 4.4.4.2. The RF reference frequency is defined in TS 38.104, Section 5.4.2.1.</emphasis></para>
+<para><emphasis><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">abs_freq_point_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>absoluteFrequencyPointA</emphasis> as per TS38.211 Section 4.4.4.2, expressed in Hz. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>corresponds to Transmission bandwidth configuration <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. Only values in Table 5.3.2-1 should be provided. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the subcarrier spacing of reference for <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RF reference frequency, in Hz, as per TS 38.104, Section 5.4.2.1. </para>
+</simplesect>
+</emphasis></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="173" column="8" bodyfile="lib/ran/band_helper.cpp" bodystart="435" bodyend="444" declfile="include/srsgnb/ran/band_helper.h" declline="173" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1ac15f3df6ed7fe1bb4cdedc4f493bd568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::band_helper::get_n_rbs_from_bw</definition>
+        <argsstring>(bs_channel_bandwidth_fr1 bw, subcarrier_spacing scs, frequency_range fr)</argsstring>
+        <name>get_n_rbs_from_bw</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a3a938fe6642f4c4aa1e079d2f3f24a15" kindref="member">bs_channel_bandwidth_fr1</ref></type>
+          <declname>bw</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ae51e11d1cd0a0d99d339b43e798a3f11" kindref="member">frequency_range</ref></type>
+          <declname>fr</declname>
+        </param>
+        <briefdescription>
+<para>Returns the values <formula id="104">$N_{RB}$</formula> from Table 5.3.2-1, TS 38.104. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the <emphasis>BS channel bandwidth&lt;<emphasis></emphasis> &gt;, defined in TS 38.104, Section 5.3. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>is the subcarrier spacing of reference for <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>is frequency range FR1 or FR2. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><emphasis> <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. </emphasis></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="181" column="10" bodyfile="lib/ran/band_helper.cpp" bodystart="446" bodyend="466" declfile="include/srsgnb/ran/band_helper.h" declline="181" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="band__helper_8h_1a529d892d5bc5f1c6fdce1a6009b0651f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a928643ce67658447b5b7ab02831d080a" kindref="member">min_channel_bandwidth</ref></type>
+        <definition>min_channel_bandwidth srsgnb::band_helper::get_min_channel_bw</definition>
+        <argsstring>(nr_band nr_band, subcarrier_spacing scs)</argsstring>
+        <name>get_min_channel_bw</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+          <declname>nr_band</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Returns the minimum BS Channel Bandwidth for a given band and SCS from Table 5.3.5-1, TS 38.104, for FR1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the <emphasis>BS channel bandwidth&lt;<emphasis></emphasis> &gt;, defined in TS 38.104, Section 5.3. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>is the subcarrier spacing of reference for <formula id="104">$N_{RB}$</formula>, as per TS 38.104, Table 5.3.2-1. </emphasis></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><emphasis> The minimum BS channel BW for the given band and SCS, as per TS 38.104, Table 5.3.5-1. </emphasis></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/band_helper.h" line="188" column="23" bodyfile="lib/ran/band_helper.cpp" bodystart="468" bodyend="541" declfile="include/srsgnb/ran/band_helper.h" declline="188" declcolumn="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/srsgnb/ran/band_helper.h" line="76" column="21"/>
+  </compounddef>
+</doxygen>

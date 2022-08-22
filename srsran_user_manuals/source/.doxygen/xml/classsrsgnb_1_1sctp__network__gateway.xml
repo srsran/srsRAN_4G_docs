@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sctp__network__gateway" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::sctp_network_gateway</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1network__gateway__data__handler" prot="public" virt="non-virtual">srsgnb::network_gateway_data_handler</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1sctp__network__gateway_1a38a759a5ac90c4c68363ef394113158f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::sctp_network_gateway::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/gateways/sctp_network_gateway.h" line="26" column="24" bodyfile="lib/gateways/sctp_network_gateway.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sctp__network__gateway_1a48e22ffa1b861708737521ff2213dd2e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::sctp_network_gateway::sctp_network_gateway</definition>
+        <argsstring>()</argsstring>
+        <name>sctp_network_gateway</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/gateways/sctp_network_gateway.h" line="21" column="12" bodyfile="lib/gateways/sctp_network_gateway.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sctp__network__gateway_1ab155e90392baed11ea6979cbad8f6d4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sctp_network_gateway::handle_pdu</definition>
+        <argsstring>(const byte_buffer &amp;pdu) override</argsstring>
+        <name>handle_pdu</name>
+        <reimplements refid="classsrsgnb_1_1network__gateway__data__handler_1a53fa7fb259f93f03cc5e3e34a664b741">handle_pdu</reimplements>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">put</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte-buffer with new PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/gateways/sctp_network_gateway.h" line="23" column="8" bodyfile="lib/gateways/sctp_network_gateway.cpp" bodystart="16" bodyend="21"/>
+        <references refid="classsrsgnb_1_1byte__buffer_1a69d1b655e9e1cd9997eac6dce6afc23b" compoundref="byte__buffer_8h" startline="512" endline="512">srsgnb::byte_buffer::length</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::network_gateway_data_handler</label>
+        <link refid="classsrsgnb_1_1network__gateway__data__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::sctp_network_gateway</label>
+        <link refid="classsrsgnb_1_1sctp__network__gateway"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::network_gateway_data_handler</label>
+        <link refid="classsrsgnb_1_1network__gateway__data__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::sctp_network_gateway</label>
+        <link refid="classsrsgnb_1_1sctp__network__gateway"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/gateways/sctp_network_gateway.h" line="19" column="1" bodyfile="lib/gateways/sctp_network_gateway.h" bodystart="18" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sctp__network__gateway_1ab155e90392baed11ea6979cbad8f6d4b" prot="public" virt="virtual"><scope>srsgnb::sctp_network_gateway</scope><name>handle_pdu</name></member>
+      <member refid="classsrsgnb_1_1sctp__network__gateway_1a38a759a5ac90c4c68363ef394113158f" prot="private" virt="non-virtual"><scope>srsgnb::sctp_network_gateway</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1sctp__network__gateway_1a48e22ffa1b861708737521ff2213dd2e" prot="public" virt="non-virtual"><scope>srsgnb::sctp_network_gateway</scope><name>sctp_network_gateway</name></member>
+      <member refid="classsrsgnb_1_1network__gateway__data__handler_1a7e40b630cbdd071bd185f9ac9fd23bf5" prot="public" virt="virtual"><scope>srsgnb::sctp_network_gateway</scope><name>~network_gateway_data_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

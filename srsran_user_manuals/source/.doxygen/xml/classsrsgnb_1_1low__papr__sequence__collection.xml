@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1low__papr__sequence__collection" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::low_papr_sequence_collection</compoundname>
+    <includes refid="low__papr__sequence__collection_8h" local="no">low_papr_sequence_collection.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1low__papr__sequence__collection_1a26aef13f6940d51f535f0c0c2f598762" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::tuple&lt; unsigned, unsigned, unsigned &gt;, std::vector&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt; &gt;</type>
+        <definition>std::map&lt;std::tuple&lt;unsigned, unsigned, unsigned&gt;, std::vector&lt;cf_t&gt; &gt; srsgnb::low_papr_sequence_collection::pregen_signals</definition>
+        <argsstring></argsstring>
+        <name>pregen_signals</name>
+        <briefdescription>
+<para>Stores generated signals indexed by <computeroutput>u</computeroutput>, <computeroutput>v</computeroutput> and <formula id="54">$\alpha$</formula> index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="31" column="12" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1low__papr__sequence__collection_1adf68bec8ccfd6f0ba80639e2cb06d3c5" compoundref="low__papr__sequence__collection_8h" startline="50" endline="76">low_papr_sequence_collection</referencedby>
+        <referencedby refid="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" compoundref="low__papr__sequence__collection_8h" startline="85" endline="98">get</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1low__papr__sequence__collection_1a07112ccc5edf3349816758ca495c95d0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::low_papr_sequence_collection::NOF_GROUPS</definition>
+        <argsstring></argsstring>
+        <name>NOF_GROUPS</name>
+        <initializer>= 30</initializer>
+        <briefdescription>
+<para>Defines the number of sequence groups (u). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="35" column="29" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1low__papr__sequence__collection_1adf68bec8ccfd6f0ba80639e2cb06d3c5" compoundref="low__papr__sequence__collection_8h" startline="50" endline="76">low_papr_sequence_collection</referencedby>
+        <referencedby refid="classsrsgnb_1_1pucch__helper_1a10ec3066a018433ac8af101cac64b4e1" compoundref="pucch__helper_8h" startline="36" endline="55">srsgnb::pucch_helper::compute_group_sequence</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1low__papr__sequence__collection_1a9ef1bd9ef21638705174caefac5fe04a" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::low_papr_sequence_collection::MAX_NOF_BASES</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_BASES</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>Defines the number of sequence bases (v). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="38" column="29" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1low__papr__sequence__collection_1adf68bec8ccfd6f0ba80639e2cb06d3c5" compoundref="low__papr__sequence__collection_8h" startline="50" endline="76">low_papr_sequence_collection</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1low__papr__sequence__collection_1adf68bec8ccfd6f0ba80639e2cb06d3c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::low_papr_sequence_collection::low_papr_sequence_collection</definition>
+        <argsstring>(const low_papr_sequence_generator &amp;generator, unsigned m, unsigned delta, span&lt; const float &gt; alphas)</argsstring>
+        <name>low_papr_sequence_collection</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1low__papr__sequence__generator" kindref="compound">low_papr_sequence_generator</ref> &amp;</type>
+          <declname>generator</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const float &gt;</type>
+          <declname>alphas</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the sequence generator with the length and an alpha list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method generates a collection of low PAPR sequences <formula id="73">$r^{(\alpha, \beta)}_{u,v}$</formula> as per TS 38.211 section 5.2.2 that can be later accessed by the method <ref refid="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" kindref="member">get()</ref>. The sequence length is <formula id="74">$M_{ZC}=mN^{RB}_{sc}/2^\delta$</formula>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">generator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the low PAPR sequence generator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the parameter <formula id="30">$m$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the parameter <formula id="75">$\delta$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alphas</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a list with the possible <formula id="54">$\alpha$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="50" column="3" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="50" bodyend="76"/>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" compoundref="math__utils_8h" startline="44" endline="47">srsgnb::pow2</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a9ef1bd9ef21638705174caefac5fe04a" compoundref="low__papr__sequence__collection_8h" startline="38">MAX_NOF_BASES</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a07112ccc5edf3349816758ca495c95d0" compoundref="low__papr__sequence__collection_8h" startline="35">NOF_GROUPS</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a26aef13f6940d51f535f0c0c2f598762" compoundref="low__papr__sequence__collection_8h" startline="31">pregen_signals</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__generator_1ae3a08811941e10468083b26f8d5ae626">srsgnb::low_papr_sequence_generator::generate</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>span&lt;const cf_t&gt; srsgnb::low_papr_sequence_collection::get</definition>
+        <argsstring>(unsigned u, unsigned v, unsigned alpha_idx) const</argsstring>
+        <name>get</name>
+        <param>
+          <type>unsigned</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>alpha_idx</declname>
+        </param>
+        <briefdescription>
+<para>Get the sequence <formula id="73">$r^{(\alpha, \beta)}_{u,v}$</formula> corresponding to the given indices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the sequence group {0...29}. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the sequence base {0,1}. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alpha_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates an <formula id="54">$\alpha$</formula> index from the ones provided in the constructor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A view of the generated signal. </para>
+</simplesect>
+<simplesect kind="attention"><para>Requesting an invalid <computeroutput>u</computeroutput>, <computeroutput>v</computeroutput> and <computeroutput>alpha_idx</computeroutput> terminates the execution. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="85" column="8" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="85" bodyend="98"/>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a26aef13f6940d51f535f0c0c2f598762" compoundref="low__papr__sequence__collection_8h" startline="31">pregen_signals</references>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="90" endline="108">srsgnb::dmrs_pucch_processor_format1_impl::sequence_generation</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a low PAPR sequence collection as per TS 38.211 section 5.2.2. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class describes a collection of <formula id="73">$r^{(\alpha, \beta)}_{u,v}$</formula> sequences. The collection of sequences is generated at construction time. The constructor is not suitable for real-time operation while the sequence retrieval through method <ref refid="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" kindref="member">get()</ref> is suitable for real-time execution. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::low_papr_sequence_collection</label>
+        <link refid="classsrsgnb_1_1low__papr__sequence__collection"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" line="28" column="1" bodyfile="include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h" bodystart="27" bodyend="99"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" prot="public" virt="non-virtual"><scope>srsgnb::low_papr_sequence_collection</scope><name>get</name></member>
+      <member refid="classsrsgnb_1_1low__papr__sequence__collection_1adf68bec8ccfd6f0ba80639e2cb06d3c5" prot="public" virt="non-virtual"><scope>srsgnb::low_papr_sequence_collection</scope><name>low_papr_sequence_collection</name></member>
+      <member refid="classsrsgnb_1_1low__papr__sequence__collection_1a9ef1bd9ef21638705174caefac5fe04a" prot="public" virt="non-virtual"><scope>srsgnb::low_papr_sequence_collection</scope><name>MAX_NOF_BASES</name></member>
+      <member refid="classsrsgnb_1_1low__papr__sequence__collection_1a07112ccc5edf3349816758ca495c95d0" prot="public" virt="non-virtual"><scope>srsgnb::low_papr_sequence_collection</scope><name>NOF_GROUPS</name></member>
+      <member refid="classsrsgnb_1_1low__papr__sequence__collection_1a26aef13f6940d51f535f0c0c2f598762" prot="private" virt="non-virtual"><scope>srsgnb::low_papr_sequence_collection</scope><name>pregen_signals</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

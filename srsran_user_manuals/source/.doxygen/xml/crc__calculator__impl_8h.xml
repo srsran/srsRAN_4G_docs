@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="crc__calculator__impl_8h" kind="file" language="C++">
+    <compoundname>crc_calculator_impl.h</compoundname>
+    <includes refid="crc__calculator_8h" local="yes">srsgnb/phy/upper/channel_coding/crc_calculator.h</includes>
+    <includes local="no">array</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">map</includes>
+    <includedby refid="channel__coding__factories_8cpp" local="yes">lib/phy/upper/channel_coding/channel_coding_factories.cpp</includedby>
+    <includedby refid="crc__calculator__impl_8cpp" local="yes">lib/phy/upper/channel_coding/crc_calculator_impl.cpp</includedby>
+    <includedby refid="ldpc__segmenter__impl_8cpp" local="yes">lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>functional</label>
+      </node>
+      <node id="9">
+        <label>limits</label>
+      </node>
+      <node id="17">
+        <label>iterator</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="2">
+        <label>srsgnb/phy/upper/channel_coding/crc_calculator.h</label>
+        <link refid="crc__calculator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="21">
+        <label>cassert</label>
+      </node>
+      <node id="11">
+        <label>stdexcept</label>
+      </node>
+      <node id="18">
+        <label>string</label>
+      </node>
+      <node id="22">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdio</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="6">
+        <label>cerrno</label>
+      </node>
+      <node id="3">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/crc_calculator_impl.h</label>
+        <link refid="crc__calculator__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>type_traits</label>
+      </node>
+      <node id="5">
+        <label>algorithm</label>
+      </node>
+      <node id="15">
+        <label>cstring</label>
+      </node>
+      <node id="12">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classsrsgnb_1_1crc__calculator__impl" prot="public">srsgnb::crc_calculator_impl</innerclass>
+    <innerclass refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" prot="private">srsgnb::crc_calculator_impl::crc_table_s</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_coding/crc_calculator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsrsgnb_1_1crc__calculator__impl" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1crc__calculator__impl" kindref="compound">crc_calculator_impl</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25" refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_table_s</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::array&lt;uint64_t,<sp/>256&gt;<sp/>{</highlight></codeline>
+<codeline lineno="27" refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" kindref="member">order</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a07db8f4c9c7f11aef684732f1b51205f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a07db8f4c9c7f11aef684732f1b51205f" kindref="member">crcmask</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1afaeb367055be83e11339422607795fb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1afaeb367055be83e11339422607795fb9" kindref="member">polynom</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a325b4e61c3cdab65453f0e8bc8a7e081" kindref="member">crc_table_s</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>order_);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classsrsgnb_1_1crc__calculator__impl_1adfcb2f6c6ec0d22bdb683e6368e36f0c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;crc_generator_poly,<sp/>crc_table_s&gt;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1adfcb2f6c6ec0d22bdb683e6368e36f0c" kindref="member">crc_tables</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_table_s</ref>&amp;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>;</highlight></codeline>
+<codeline lineno="47" refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref>;</highlight></codeline>
+<codeline lineno="49" refid="classsrsgnb_1_1crc__calculator__impl_1ad99446bec7a3d73119cbd07d5f05a0e7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad99446bec7a3d73119cbd07d5f05a0e7" kindref="member">crcmask</ref>;</highlight></codeline>
+<codeline lineno="51" refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref>;</highlight></codeline>
+<codeline lineno="53" refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1ac9b644248e8f38499883fd5d1efb6b6f" kindref="member">crc_generator_poly</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Methods</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a04870b958fb29beccb3c9e545ace680d" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a304405f3a3938659bd4d405826e8b99c" kindref="member">put_byte</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ae3d09165abd75651f92938e497e2f20a" kindref="member">get_checksum</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a677642cd9c9e5f8813b995c322347d2e" kindref="member">reversecrcbit</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nbits);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1addc1c88e1a0584219acf67a0fc353f1a" kindref="member">crc_calculator_impl</ref>(<ref refid="namespacesrsgnb_1ac9b644248e8f38499883fd5d1efb6b6f" kindref="member">crc_generator_poly</ref><sp/>poly_);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>interface<sp/>for<sp/>the<sp/>documentation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a916a41d12c0b39d94bdd497d98cf7988" kindref="member">calculate_byte</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>input)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>interface<sp/>for<sp/>the<sp/>documentation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ab8940795248617961d7b0662f6e54504" kindref="member">calculate_bit</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>input)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>interface<sp/>for<sp/>the<sp/>documentation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classsrsgnb_1_1crc__calculator__impl_1adbb44628bf3e511e23ce75c4c6407433" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1ac9b644248e8f38499883fd5d1efb6b6f" kindref="member">crc_generator_poly</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1adbb44628bf3e511e23ce75c4c6407433" kindref="member">get_generator_poly</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/crc_calculator_impl.h"/>
+  </compounddef>
+</doxygen>

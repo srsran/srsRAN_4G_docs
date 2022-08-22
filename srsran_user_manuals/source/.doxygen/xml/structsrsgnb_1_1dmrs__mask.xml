@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1dmrs__mask" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::dmrs_mask</compoundname>
+    <includes refid="channel__estimation_8h" local="no">channel_estimation.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1dmrs__mask_1a9093b9a8e03df7140b46a83943e39826" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; bool, <ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref> &gt;</type>
+        <definition>static_vector&lt;bool, MAX_NSYMB_PER_SLOT&gt; srsgnb::dmrs_mask::symbols</definition>
+        <argsstring></argsstring>
+        <name>symbols</name>
+        <briefdescription>
+<para>Boolean mask to specify the OFDM symbols carrying DM-RS symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_estimation.h" line="278" column="17" bodyfile="include/srsgnb/phy/upper/channel_estimation.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1dmrs__mask_1accb4efc01c80be1a54a300f0a4288ead" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> *<ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>/2 &gt;</type>
+        <definition>bounded_bitset&lt;MAX_RB * NRE / 2&gt; srsgnb::dmrs_mask::res_elements</definition>
+        <argsstring></argsstring>
+        <name>res_elements</name>
+        <briefdescription>
+<para>Boolean mask to specify the subcarriers carrying DM-RS symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_estimation.h" line="280" column="18" bodyfile="include/srsgnb/phy/upper/channel_estimation.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Boolean mask to specify the position of DM-RS symbols in the resource grid. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>DM-RS symbols are transmitted with a specific subcarrier pattern that repeats at specific OFDM symbols within the slot. Therefore, the position of the DM-RS symbols can be univocally characterized by a time mask and a frequency mask: Resource element <formula id="26">$(k, l)$</formula> contains a DM-RS symbol only if element <formula id="27">$k$</formula> of the frequency mask and element <formula id="28">$l$</formula> of the time mask are set to true. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::bounded_bitset&lt; MAX_RB *NRE/2 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::static_vector&lt; bool, MAX_NSYMB_PER_SLOT &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_mask</label>
+        <link refid="structsrsgnb_1_1dmrs__mask"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+res_elements</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+symbols</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_estimation.h" line="276" column="16" bodyfile="include/srsgnb/phy/upper/channel_estimation.h" bodystart="276" bodyend="281"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1dmrs__mask_1accb4efc01c80be1a54a300f0a4288ead" prot="public" virt="non-virtual"><scope>srsgnb::dmrs_mask</scope><name>res_elements</name></member>
+      <member refid="structsrsgnb_1_1dmrs__mask_1a9093b9a8e03df7140b46a83943e39826" prot="public" virt="non-virtual"><scope>srsgnb::dmrs_mask</scope><name>symbols</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

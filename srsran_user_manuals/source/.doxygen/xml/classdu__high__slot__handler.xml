@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classdu__high__slot__handler" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>du_high_slot_handler</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__cell__slot__handler" prot="public" virt="non-virtual">srsgnb::mac_cell_slot_handler</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdu__high__slot__handler_1abe0457c0934d269987fef7e466a04f6a" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+        <definition>timer_manager&amp; du_high_slot_handler::timers</definition>
+        <argsstring></argsstring>
+        <name>timers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_high/du_high.cpp" line="45" column="17" bodyfile="lib/du_high/du_high.cpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdu__high__slot__handler_1aa235ce7bf2947d9e2f4d4b5d5089c970" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__interface" kindref="compound">mac_interface</ref> &amp;</type>
+        <definition>mac_interface&amp; du_high_slot_handler::mac</definition>
+        <argsstring></argsstring>
+        <name>mac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_high/du_high.cpp" line="46" column="17" bodyfile="lib/du_high/du_high.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdu__high__slot__handler_1ae547ca1d730d8d43277e32e999d51791" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>du_high_slot_handler::du_high_slot_handler</definition>
+        <argsstring>(timer_manager &amp;timers_, mac_interface &amp;mac_)</argsstring>
+        <name>du_high_slot_handler</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+          <declname>timers_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1mac__interface" kindref="compound">mac_interface</ref> &amp;</type>
+          <declname>mac_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_high/du_high.cpp" line="32" column="3" bodyfile="lib/du_high/du_high.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classdu__high__slot__handler_1a7aa62c2db0300b65803acf6d6f28ccc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void du_high_slot_handler::handle_slot_indication</definition>
+        <argsstring>(slot_point sl_tx) override</argsstring>
+        <name>handle_slot_indication</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__slot__handler_1aead1162d3b457a8f2555644c8684fddc">handle_slot_indication</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_high/du_high.cpp" line="33" column="8" bodyfile="lib/du_high/du_high.cpp" bodystart="33" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Cell slot handler that additionally increments the DU high timers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>du_high_slot_handler</label>
+        <link refid="classdu__high__slot__handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_cell_slot_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__slot__handler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::mac_interface</label>
+        <link refid="classsrsgnb_1_1mac__interface"/>
+      </node>
+      <node id="1">
+        <label>du_high_slot_handler</label>
+        <link refid="classdu__high__slot__handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-timers</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-mac</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_cell_slot_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__slot__handler"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/du_high/du_high.cpp" line="30" column="1" bodyfile="lib/du_high/du_high.cpp" bodystart="29" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classdu__high__slot__handler_1ae547ca1d730d8d43277e32e999d51791" prot="public" virt="non-virtual"><scope>du_high_slot_handler</scope><name>du_high_slot_handler</name></member>
+      <member refid="classdu__high__slot__handler_1a7aa62c2db0300b65803acf6d6f28ccc4" prot="public" virt="virtual"><scope>du_high_slot_handler</scope><name>handle_slot_indication</name></member>
+      <member refid="classdu__high__slot__handler_1aa235ce7bf2947d9e2f4d4b5d5089c970" prot="private" virt="non-virtual"><scope>du_high_slot_handler</scope><name>mac</name></member>
+      <member refid="classdu__high__slot__handler_1abe0457c0934d269987fef7e466a04f6a" prot="private" virt="non-virtual"><scope>du_high_slot_handler</scope><name>timers</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__slot__handler_1a99373ea65a6b7aa3c86ae48cdf86c1ae" prot="public" virt="virtual"><scope>du_high_slot_handler</scope><name>~mac_cell_slot_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

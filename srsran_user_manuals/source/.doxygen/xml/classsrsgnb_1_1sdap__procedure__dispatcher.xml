@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sdap__procedure__dispatcher" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::sdap_procedure_dispatcher</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1sdap__pdu__handler" prot="public" virt="non-virtual">srsgnb::sdap_pdu_handler</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1sdap__procedure__dispatcher_1a00cb25f61ae2db1d03bfa9e728263689" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1sdap__packet__procedures" kindref="compound">sdap_packet_procedures</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;sdap_packet_procedures&gt; srsgnb::sdap_procedure_dispatcher::procedure</definition>
+        <argsstring></argsstring>
+        <name>procedure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>In reality, as the interfaces grow, this would become a reference or ptr and ownership would be managed from a different class. For simplicity, we keep it this way for now. This is important as the dependency with f1u_packet_procedures interface would eventually disappear, although it is an interface and not a concrete class the less dependencies the better. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_impl.h" line="25" column="19" bodyfile="lib/sdap/sdap_impl.h" bodystart="25" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sdap__procedure__dispatcher_1a77a670909ea9b4d61e065f7e820479c5" compoundref="sdap__impl_8h" startline="32" endline="39">handle_pdu</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__procedure__dispatcher_1a80055e0e8b3ae4c851f3cd6097d288ec" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::sdap_procedure_dispatcher::sdap_procedure_dispatcher</definition>
+        <argsstring>(std::unique_ptr&lt; sdap_packet_procedures &gt; procedure)</argsstring>
+        <name>sdap_procedure_dispatcher</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1sdap__packet__procedures" kindref="compound">sdap_packet_procedures</ref> &gt;</type>
+          <declname>procedure</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_impl.h" line="28" column="12" bodyfile="lib/sdap/sdap_impl.h" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__procedure__dispatcher_1a77a670909ea9b4d61e065f7e820479c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::sdap_procedure_dispatcher::handle_pdu</definition>
+        <argsstring>(byte_buffer data) override</argsstring>
+        <name>handle_pdu</name>
+        <reimplements refid="classsrsgnb_1_1sdap__pdu__handler_1a0672a109756eafe0116a23fa92b30ed4">handle_pdu</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref></type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_impl.h" line="32" column="8" bodyfile="lib/sdap/sdap_impl.h" bodystart="32" bodyend="39"/>
+        <references refid="classsrsgnb_1_1sdap__procedure__dispatcher_1a00cb25f61ae2db1d03bfa9e728263689" compoundref="sdap__impl_8h" startline="25">procedure</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::sdap_procedure_dispatcher</label>
+        <link refid="classsrsgnb_1_1sdap__procedure__dispatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::sdap_pdu_handler</label>
+        <link refid="classsrsgnb_1_1sdap__pdu__handler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::sdap_procedure_dispatcher</label>
+        <link refid="classsrsgnb_1_1sdap__procedure__dispatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::sdap_pdu_handler</label>
+        <link refid="classsrsgnb_1_1sdap__pdu__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/sdap/sdap_impl.h" line="20" column="1" bodyfile="lib/sdap/sdap_impl.h" bodystart="19" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sdap__procedure__dispatcher_1a77a670909ea9b4d61e065f7e820479c5" prot="public" virt="virtual"><scope>srsgnb::sdap_procedure_dispatcher</scope><name>handle_pdu</name></member>
+      <member refid="classsrsgnb_1_1sdap__procedure__dispatcher_1a00cb25f61ae2db1d03bfa9e728263689" prot="private" virt="non-virtual"><scope>srsgnb::sdap_procedure_dispatcher</scope><name>procedure</name></member>
+      <member refid="classsrsgnb_1_1sdap__procedure__dispatcher_1a80055e0e8b3ae4c851f3cd6097d288ec" prot="public" virt="non-virtual"><scope>srsgnb::sdap_procedure_dispatcher</scope><name>sdap_procedure_dispatcher</name></member>
+      <member refid="classsrsgnb_1_1sdap__pdu__handler_1a015449d92ecbebcd67e3af6410a3b47e" prot="public" virt="virtual"><scope>srsgnb::sdap_procedure_dispatcher</scope><name>~sdap_pdu_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

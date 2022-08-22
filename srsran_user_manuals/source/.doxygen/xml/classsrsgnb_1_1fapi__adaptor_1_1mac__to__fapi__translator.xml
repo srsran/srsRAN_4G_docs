@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::fapi_adaptor::mac_to_fapi_translator</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__cell__result__notifier" prot="public" virt="non-virtual">srsgnb::mac_cell_result_notifier</basecompoundref>
+    <includes refid="mac__to__fapi__translator_8h" local="no">mac_to_fapi_translator.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a91dbbfc2322186916f3cbe52bd573836" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1slot__message__gateway" kindref="compound">fapi::slot_message_gateway</ref> &amp;</type>
+        <definition>fapi::slot_message_gateway&amp; srsgnb::fapi_adaptor::mac_to_fapi_translator::msg_gw</definition>
+        <argsstring></argsstring>
+        <name>msg_gw</name>
+        <briefdescription>
+<para>FAPI message gateway to the outside world. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="107" column="30" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1ab44ec58868b3eef48024f9e81bf12667" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry" kindref="compound">pdsch_pdu_registry</ref></type>
+        <definition>pdsch_pdu_registry srsgnb::fapi_adaptor::mac_to_fapi_translator::pdsch_registry</definition>
+        <argsstring></argsstring>
+        <name>pdsch_registry</name>
+        <briefdescription>
+<para>PDSCH PDU registry helper object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="109" column="22" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="109" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a62207674eb2b94fb467b2accc6ee507f" compoundref="mac__to__fapi__translator_8h" startline="99" endline="103">handle_new_slot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1aa502425d53b65124894c79257903cbb7" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::fapi_adaptor::mac_to_fapi_translator::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="112" column="14" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a741ee2b7e8dd8f7932fcd20fa0dd9c5f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::fapi_adaptor::mac_to_fapi_translator::mac_to_fapi_translator</definition>
+        <argsstring>(fapi::slot_message_gateway &amp;msg_gw)</argsstring>
+        <name>mac_to_fapi_translator</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi_1_1slot__message__gateway" kindref="compound">fapi::slot_message_gateway</ref> &amp;</type>
+          <declname>msg_gw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="81" column="12" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a80ba7a09b76c852ce89a1689107ef7c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mac_to_fapi_translator::on_new_downlink_scheduler_results</definition>
+        <argsstring>(const mac_dl_sched_result &amp;dl_res) override</argsstring>
+        <name>on_new_downlink_scheduler_results</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__result__notifier_1ad3f537d33eb48d7487f3258c6a6727b5">on_new_downlink_scheduler_results</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__sched__result" kindref="compound">mac_dl_sched_result</ref> &amp;</type>
+          <declname>dl_res</declname>
+        </param>
+        <briefdescription>
+<para>Notifies scheduled SSB/PDCCH/PDSCH grants. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="84" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="120" bodyend="152"/>
+        <references refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1acb7e99998b6cbea874c5c5c291ee3697" compoundref="message__builders_8h" startline="860" endline="867">srsgnb::fapi::dl_tti_request_message_builder::set_basic_parameters</references>
+        <references refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" compoundref="slot__point_8h" startline="93" endline="93">srsgnb::slot_point::sfn</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a3c528fd905a14735515d278d292c7058" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mac_to_fapi_translator::on_new_downlink_data</definition>
+        <argsstring>(const mac_dl_data_result &amp;dl_data) override</argsstring>
+        <name>on_new_downlink_data</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__result__notifier_1a21e519de46605ce174cb2dbfb1531e73">on_new_downlink_data</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__data__result" kindref="compound">mac_dl_data_result</ref> &amp;</type>
+          <declname>dl_data</declname>
+        </param>
+        <briefdescription>
+<para>Notifies scheduled PDSCH PDUs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="87" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="154" bodyend="188"/>
+        <references refid="classsrsgnb_1_1fapi_1_1tx__data__request__builder_1a97aafaa9d71eacd472e7a57396bf7f7a" compoundref="message__builders_8h" startline="1054" endline="1063">srsgnb::fapi::tx_data_request_builder::set_basic_parameters</references>
+        <references refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" compoundref="slot__point_8h" startline="93" endline="93">srsgnb::slot_point::sfn</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+        <references refid="namespacesrsgnb_1af111f3cca9ac08c65829f90b610bcd4c" compoundref="scheduler__slot__handler_8h" startline="41">srsgnb::MAX_SIB1_PDUS_PER_SLOT</references>
+        <references refid="classsrsgnb_1_1fapi_1_1tx__data__request__builder_1a895de754da32fcfb9dbecfcf1fe5e9bb" compoundref="message__builders_8h" startline="1067" endline="1080">srsgnb::fapi::tx_data_request_builder::add_pdu_custom_payload</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a402867ce9af3ed782271f03652767b0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mac_to_fapi_translator::on_new_uplink_scheduler_results</definition>
+        <argsstring>(const mac_ul_sched_result &amp;ul_res) override</argsstring>
+        <name>on_new_uplink_scheduler_results</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__result__notifier_1ac347b071ea4c8332b8d4098f83d55a99">on_new_uplink_scheduler_results</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__ul__sched__result" kindref="compound">mac_ul_sched_result</ref> &amp;</type>
+          <declname>ul_res</declname>
+        </param>
+        <briefdescription>
+<para>Notifies slot scheduled PUCCH/PUSCH grants. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="90" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.cpp" bodystart="190" bodyend="213"/>
+        <references refid="classsrsgnb_1_1fapi_1_1ul__tti__request__message__builder_1ad1265a84630a02d06ed6961581949d22" compoundref="message__builders_8h" startline="2413" endline="2422">srsgnb::fapi::ul_tti_request_message_builder::set_basic_parameters</references>
+        <references refid="classsrsgnb_1_1slot__point_1a5c6f761ef9a78dbfdb9b057463ddca01" compoundref="slot__point_8h" startline="93" endline="93">srsgnb::slot_point::sfn</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+        <references refid="structsrsgnb_1_1ul__sched__result_1ad7e54f2770b205a95f54da11ce092f4c" compoundref="scheduler__slot__handler_8h" startline="269">srsgnb::ul_sched_result::prachs</references>
+        <references refid="classsrsgnb_1_1fapi_1_1ul__tti__request__message__builder_1a4f2c5a5e1b89aacc7da4a948c683e666" compoundref="message__builders_8h" startline="2426" endline="2437">srsgnb::fapi::ul_tti_request_message_builder::add_prach_pdu</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a62207674eb2b94fb467b2accc6ee507f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::fapi_adaptor::mac_to_fapi_translator::handle_new_slot</definition>
+        <argsstring>()</argsstring>
+        <name>handle_new_slot</name>
+        <briefdescription>
+<para>Handles a new slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When a new slot is notified, the PDSCH PDUs from the previous slot should be discarded and, in turn, the PDSCH PDU registry has to be reset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifies the new slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This method is thread safe and may be called from different threads. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="99" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="99" bodyend="103"/>
+        <references refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1ab44ec58868b3eef48024f9e81bf12667" compoundref="mac__to__fapi__translator_8h" startline="109">pdsch_registry</references>
+        <references refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a4221d5e9e42dae9b0a7c028f344cec0e" compoundref="mac__to__fapi__translator_8h" startline="67" endline="67">srsgnb::fapi_adaptor::pdsch_pdu_registry::reset</references>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1fapi__to__mac__time__msg__translator_1a6e5eeea2729ecf08e324e4e4a3eed790" compoundref="fapi__to__mac__time__msg__translator_8cpp" startline="40" endline="46">srsgnb::fapi_adaptor::fapi_to_mac_time_msg_translator::on_slot_indication</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>MAC-to-FAPI translator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class listens to cell-specific MAC events carrying scheduling results and translates them into FAPI messages that are sent through the FAPI message gateway. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::fapi_adaptor::mac_to_fapi_translator</label>
+        <link refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_cell_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__cell__result__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::fapi_adaptor::mac_to_fapi_translator</label>
+        <link refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-pdsch_registry</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-msg_gw</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::fapi::slot_message_gateway</label>
+        <link refid="classsrsgnb_1_1fapi_1_1slot__message__gateway"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_cell_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__cell__result__notifier"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::fapi_adaptor::pdsch_pdu_registry</label>
+        <link refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="79" column="1" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="78" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a62207674eb2b94fb467b2accc6ee507f" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>handle_new_slot</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a741ee2b7e8dd8f7932fcd20fa0dd9c5f" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>mac_to_fapi_translator</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a91dbbfc2322186916f3cbe52bd573836" prot="private" virt="non-virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>msg_gw</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1aa502425d53b65124894c79257903cbb7" prot="private" virt="non-virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a3c528fd905a14735515d278d292c7058" prot="public" virt="virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>on_new_downlink_data</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a80ba7a09b76c852ce89a1689107ef7c1" prot="public" virt="virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>on_new_downlink_scheduler_results</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a402867ce9af3ed782271f03652767b0d" prot="public" virt="virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>on_new_uplink_scheduler_results</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1ab44ec58868b3eef48024f9e81bf12667" prot="private" virt="non-virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>pdsch_registry</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__result__notifier_1a48626611a76902c3bed1c5ec6891a020" prot="public" virt="virtual"><scope>srsgnb::fapi_adaptor::mac_to_fapi_translator</scope><name>~mac_cell_result_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

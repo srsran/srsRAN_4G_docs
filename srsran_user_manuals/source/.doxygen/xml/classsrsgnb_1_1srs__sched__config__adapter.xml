@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__sched__config__adapter" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::srs_sched_config_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__scheduler__configurator" prot="public" virt="non-virtual">srsgnb::mac_scheduler_configurator</basecompoundref>
+    <includes refid="srs__sched__config__adapter_8h" local="no">srs_sched_config_adapter.h</includes>
+    <innerclass refid="classsrsgnb_1_1srs__sched__config__adapter_1_1sched__config__notif__adapter" prot="private">srsgnb::srs_sched_config_adapter::sched_config_notif_adapter</innerclass>
+    <innerclass refid="structsrsgnb_1_1srs__sched__config__adapter_1_1ue__notification__context" prot="private">srsgnb::srs_sched_config_adapter::ue_notification_context</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__sched__config__adapter_1a6467d54a298f1b77b516c88d8cc329b9" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1mac__common__config__t" kindref="compound">mac_common_config_t</ref> &amp;</type>
+        <definition>mac_common_config_t&amp; srsgnb::srs_sched_config_adapter::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="117" column="23" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__sched__config__adapter_1a127e16cddbb8a67162cec21130440561" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__scheduler" kindref="compound">mac_scheduler</ref> *</type>
+        <definition>mac_scheduler* srsgnb::srs_sched_config_adapter::srs_sched</definition>
+        <argsstring></argsstring>
+        <name>srs_sched</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>srsGNB scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="120" column="17" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="120" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1srs__sched__config__adapter_1a5cc9355adf89c50a520efffd293fe485" compoundref="srs__sched__config__adapter_8h" startline="74" endline="87">handle_ue_deletion_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__sched__config__adapter_1a3f3d4d3158d0e1b921ea6f6ec4fe5021" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__sched__config__adapter_1_1sched__config__notif__adapter" kindref="compound">sched_config_notif_adapter</ref></type>
+        <definition>sched_config_notif_adapter srsgnb::srs_sched_config_adapter::notifier</definition>
+        <argsstring></argsstring>
+        <name>notifier</name>
+        <briefdescription>
+<para>Notifier that is used by MAC to start and await configurations of the scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="123" column="30" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__sched__config__adapter_1a2b7e5e4e18622bcbb97cdc27c01250f4" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="structsrsgnb_1_1srs__sched__config__adapter_1_1ue__notification__context" kindref="compound">ue_notification_context</ref>, MAX_NOF_DU_UES &gt;</type>
+        <definition>std::array&lt;ue_notification_context, MAX_NOF_DU_UES&gt; srsgnb::srs_sched_config_adapter::sched_cfg_notif_map</definition>
+        <argsstring></argsstring>
+        <name>sched_cfg_notif_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="129" column="14" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1aa849d72c5e96f3b995610ea5bbc063e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_sched_config_adapter::srs_sched_config_adapter</definition>
+        <argsstring>(mac_common_config_t &amp;cfg_)</argsstring>
+        <name>srs_sched_config_adapter</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1mac__common__config__t" kindref="compound">mac_common_config_t</ref> &amp;</type>
+          <declname>cfg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="28" column="3" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1a45e0873299b348480f9d51f178a334bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_sched_config_adapter::set_sched</definition>
+        <argsstring>(mac_scheduler &amp;sched_)</argsstring>
+        <name>set_sched</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1mac__scheduler" kindref="compound">mac_scheduler</ref> &amp;</type>
+          <declname>sched_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="30" column="8" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1af9c15c45761d6156a797df5315fdf592" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_sched_config_adapter::add_cell</definition>
+        <argsstring>(const mac_cell_creation_request &amp;msg) override</argsstring>
+        <name>add_cell</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1a2620563b3e392aa794241399d2183af3">add_cell</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__cell__creation__request" kindref="compound">mac_cell_creation_request</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="32" column="8" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1ac7cb403fb7cdf1f77ad9065f8acdad99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_sched_config_adapter::remove_cell</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>remove_cell</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1a6719e881b4fdcd9aa05c3c54f5b6649d">remove_cell</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="37" column="8" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1a9d56287765d1169bf4c2419af687e7eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; bool &gt;</type>
+        <definition>async_task&lt;bool&gt; srsgnb::srs_sched_config_adapter::handle_ue_creation_request</definition>
+        <argsstring>(const mac_ue_create_request_message &amp;msg) override</argsstring>
+        <name>handle_ue_creation_request</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1aa9bd36855927adf0eed4b2320152901e">handle_ue_creation_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__ue__create__request__message" kindref="compound">mac_ue_create_request_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="42" column="14" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="42" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1afe75373f9986c42a22d07bf0acd74452" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; bool &gt;</type>
+        <definition>async_task&lt;bool&gt; srsgnb::srs_sched_config_adapter::handle_ue_reconfiguration_request</definition>
+        <argsstring>(const mac_ue_reconfiguration_request_message &amp;msg) override</argsstring>
+        <name>handle_ue_reconfiguration_request</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1acecff46a7ff7946595591997603290ce">handle_ue_reconfiguration_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__ue__reconfiguration__request__message" kindref="compound">mac_ue_reconfiguration_request_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="58" column="14" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="58" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1a5cc9355adf89c50a520efffd293fe485" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; bool &gt;</type>
+        <definition>async_task&lt;bool&gt; srsgnb::srs_sched_config_adapter::handle_ue_deletion_request</definition>
+        <argsstring>(const mac_ue_delete_request_message &amp;msg) override</argsstring>
+        <name>handle_ue_deletion_request</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1ad6a2c28561fe106b92e4e97c2b58f179">handle_ue_deletion_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__ue__delete__request__message" kindref="compound">mac_ue_delete_request_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Removes UE from MAC scheduler in an asynchronous manner. The scheduler shouldn&apos;t allocate more grants directed at the UE being removed after this procedure is complete. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="74" column="14" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="74" bodyend="87"/>
+        <references refid="namespacesrsgnb_1a9cd4c0eea90a43b866d5e318a46ad8a9" compoundref="coroutine_8h" startline="316" endline="320">srsgnb::launch_async</references>
+        <references refid="classsrsgnb_1_1srs__sched__config__adapter_1a127e16cddbb8a67162cec21130440561" compoundref="srs__sched__config__adapter_8h" startline="120">srs_sched</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__sched__config__adapter_1a333970fb92e2bdc86bb18eb09850ff71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1sched__configuration__notifier" kindref="compound">sched_configuration_notifier</ref> &amp;</type>
+        <definition>sched_configuration_notifier&amp; srsgnb::srs_sched_config_adapter::get_sched_notifier</definition>
+        <argsstring>() override</argsstring>
+        <name>get_sched_notifier</name>
+        <reimplements refid="classsrsgnb_1_1mac__scheduler__configurator_1a8e39a780708c4660d9c0cca4219c660a">get_sched_notifier</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="89" column="32" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class adapts SRS scheduler interface to operate with srs MAC. The configuration completion notification handling (e.g. ue creation complete) is deferred for later processing rather than being processed inline. We defer the processing because we do not want it to take place while the scheduler is still processing the slot_indication, given that latter has higher priority. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::srs_sched_config_adapter</label>
+        <link refid="classsrsgnb_1_1srs__sched__config__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1mac__scheduler__configurator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="16">
+        <label>srsgnb::mac_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__result__notifier"/>
+      </node>
+      <node id="19">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::mac_ul_ccch_notifier</label>
+        <link refid="classsrsgnb_1_1mac__ul__ccch__notifier"/>
+      </node>
+      <node id="10">
+        <label>srsgnb::scheduler_dl_buffer_state_indicator</label>
+        <link refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator"/>
+      </node>
+      <node id="13">
+        <label>T</label>
+      </node>
+      <node id="12">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_sched_config_adapter</label>
+        <link refid="classsrsgnb_1_1srs__sched__config__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-srs_sched</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::scheduler_ue_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__ue__configurator"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::mac_scheduler</label>
+        <link refid="classsrsgnb_1_1mac__scheduler"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::sched_configuration_notifier</label>
+        <link refid="classsrsgnb_1_1sched__configuration__notifier"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::scheduler_slot_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__slot__handler"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_sched_config_adapter::sched_config_notif_adapter</label>
+        <link refid="classsrsgnb_1_1srs__sched__config__adapter_1_1sched__config__notif__adapter"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>-parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::mac_common_config_t</label>
+        <link refid="structsrsgnb_1_1mac__common__config__t"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>+ul_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+phy_notifier</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>+dl_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>+event_notifier</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+ctrl_exec</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__configurator"/>
+      </node>
+      <node id="17">
+        <label>srsgnb::du_l2_dl_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__dl__executor__mapper"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1mac__scheduler__configurator"/>
+      </node>
+      <node id="14">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::du_l2_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__ul__executor__mapper"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::scheduler_feedback_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__feedback__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/mac_ctrl/srs_sched_config_adapter.h" line="26" column="1" bodyfile="lib/mac/mac_ctrl/srs_sched_config_adapter.h" bodystart="25" bodyend="130"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1af9c15c45761d6156a797df5315fdf592" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>add_cell</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a6467d54a298f1b77b516c88d8cc329b9" prot="private" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a333970fb92e2bdc86bb18eb09850ff71" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>get_sched_notifier</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a9d56287765d1169bf4c2419af687e7eb" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>handle_ue_creation_request</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a5cc9355adf89c50a520efffd293fe485" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>handle_ue_deletion_request</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1afe75373f9986c42a22d07bf0acd74452" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>handle_ue_reconfiguration_request</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a3f3d4d3158d0e1b921ea6f6ec4fe5021" prot="private" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>notifier</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1ac7cb403fb7cdf1f77ad9065f8acdad99" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>remove_cell</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a2b7e5e4e18622bcbb97cdc27c01250f4" prot="private" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>sched_cfg_notif_map</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a45e0873299b348480f9d51f178a334bc" prot="public" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>set_sched</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1a127e16cddbb8a67162cec21130440561" prot="private" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>srs_sched</name></member>
+      <member refid="classsrsgnb_1_1srs__sched__config__adapter_1aa849d72c5e96f3b995610ea5bbc063e3" prot="public" virt="non-virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>srs_sched_config_adapter</name></member>
+      <member refid="classsrsgnb_1_1mac__scheduler__configurator_1a40cb0996291e15600cf6fe474c0a9973" prot="public" virt="virtual"><scope>srsgnb::srs_sched_config_adapter</scope><name>~mac_scheduler_configurator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

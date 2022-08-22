@@ -1,0 +1,568 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pdcch__modulator__impl_8cpp" kind="file" language="C++">
+    <compoundname>pdcch_modulator_impl.cpp</compoundname>
+    <includes refid="pdcch__modulator__impl_8h" local="yes">pdcch_modulator_impl.h</includes>
+    <includes refid="resource__grid__helpers_8h" local="yes">../resource_grid_helpers.h</includes>
+    <includes refid="sc__prod_8h" local="yes">srsgnb/srsvec/sc_prod.h</includes>
+    <incdepgraph>
+      <node id="49">
+        <label>atomic</label>
+      </node>
+      <node id="27">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="61">
+        <label>../resource_grid_helpers.h</label>
+        <link refid="resource__grid__helpers_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pdcch_modulator_impl.h</label>
+        <link refid="pdcch__modulator__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="57">
+        <label>srsgnb/adt/byte_buffer.h</label>
+        <link refid="byte__buffer_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>cassert</label>
+      </node>
+      <node id="52">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="60">
+        <label>numeric</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="29">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_modulation/modulation_mapper.h</label>
+        <link refid="modulation__mapper_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h</label>
+        <link refid="pseudo__random__generator_8h"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp</label>
+        <link refid="pdcch__modulator__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>pthread.h</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>tuple</label>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="53">
+        <label>utility</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="23">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>cstddef</label>
+      </node>
+      <node id="38">
+        <label>chrono</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_modulator.h</label>
+        <link refid="pdcch__modulator_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/srsvec/sc_prod.h</label>
+        <link refid="sc__prod_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>srsgnb/srsvec/types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="22">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/phy/upper/log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="50">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pdcch_modulator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../resource_grid_helpers.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/sc_prod.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" kindref="member">pdcch_modulator_impl::scramble</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>b_hat,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">pdcch_modulator::config_t</ref>&amp;<sp/>config)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>initial<sp/>sequence<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>c_init<sp/>=<sp/>((config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1ade7c8d6902fd58bb17cbf7de5b81ac80" kindref="member">n_rnti</ref><sp/>&lt;&lt;<sp/>16U)<sp/>+<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a4b986f6f386336a40ae42d52ecfca1ec" kindref="member">n_id</ref>)<sp/>%<sp/>(1<sp/>&lt;&lt;<sp/>31);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>the<sp/>scrambler<sp/>with<sp/>the<sp/>initial<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" kindref="member">scrambler</ref>-&gt;init(c_init);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>sequence<sp/>as<sp/>unpacked<sp/>XOR.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" kindref="member">scrambler</ref>-&gt;apply_xor_bit(b_hat,<sp/>b);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" kindref="member">pdcch_modulator_impl::modulate</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/>d_pdcch,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b_hat,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scaling)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Modulate<sp/>as<sp/>QPSK.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a8294bc8c0a9ff5ec109e207ed44b44cc" kindref="member">modulator</ref>-&gt;modulate(b_hat,<sp/>d_pdcch,<sp/><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a" kindref="member">modulation_scheme::QPSK</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>scaling<sp/>to<sp/>conform<sp/>power.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::isnormal(scaling))<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>srsvec::sc_prod(d_pdcch,<sp/>scaling,<sp/>d_pdcch);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" kindref="member">pdcch_modulator_impl::map</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/>grid,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>d_pdcch,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/>config)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Resource<sp/>element<sp/>allocation<sp/>within<sp/>a<sp/>resource<sp/>block<sp/>for<sp/>PDCCH.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;bool,<sp/>NRE&gt;<sp/>re_mask<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initial<sp/>subcarrier<sp/>index.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>rg_subc_mask_ref<sp/>=<sp/><ref refid="namespacesrsgnb_1adf0de14f34490ba84d770e68336cd6cf" kindref="member">get_rg_subc_mask_reference</ref>(config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1aafbd4c1ef9ba10c44c4d318f9bd01ab3" kindref="member">rb_mask</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>RG<sp/>OFDM<sp/>symbol<sp/>mask.<sp/>Identical<sp/>for<sp/>all<sp/>OFDM<sp/>symbols.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;bool, MAX_RB* NRE&gt;</ref><sp/>rg_subc_mask<sp/>=<sp/><ref refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" kindref="member">get_rg_subc_mask</ref>(config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1aafbd4c1ef9ba10c44c4d318f9bd01ab3" kindref="member">rb_mask</ref>,<sp/>re_mask);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Repeat<sp/>the<sp/>same<sp/>process<sp/>for<sp/>all<sp/>ports.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>port_idx<sp/>:<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a84e2ac67920ec230556def0e8d8d09a1" kindref="member">ports</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>As<sp/>the<sp/>resource<sp/>element<sp/>buffer<sp/>advances<sp/>for<sp/>every<sp/>symbol,<sp/>it<sp/>needs<sp/>to<sp/>be<sp/>renewed<sp/>for<sp/>every<sp/>port.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>d_buffer<sp/>=<sp/>d_pdcch;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>each<sp/>symbol<sp/>in<sp/>the<sp/>CORESET<sp/>map<sp/>the<sp/>resource<sp/>elements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol_idx<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1af374f036ef2ebcfba3710e54632dbe3b" kindref="member">start_symbol_index</ref>,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end_symbol_index<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1af374f036ef2ebcfba3710e54632dbe3b" kindref="member">start_symbol_index</ref><sp/>+<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a1545fec789ecd221ffe944cb27e11005" kindref="member">duration</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>symbol_idx<sp/>!=<sp/>end_symbol_index;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++symbol_idx)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>d_buffer<sp/>=<sp/>grid.<ref refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32" kindref="member">put</ref>(port_idx,<sp/>symbol_idx,<sp/>rg_subc_mask_ref,<sp/>rg_subc_mask,<sp/>d_buffer);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" kindref="member">pdcch_modulator_impl::modulate</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">srsgnb::resource_grid_writer</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grid,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">srsgnb::pdcch_modulator::config_t</ref>&amp;<sp/>config)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>scrambling.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_BITS&gt;</ref><sp/>b_hat(data.size());</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" kindref="member">scramble</ref>(b_hat,<sp/>data,<sp/>config);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>modulation<sp/>mapping.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;cf_t, MAX_RE&gt;</ref><sp/>d_pdcch(data.size()<sp/>/<sp/>2);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" kindref="member">modulate</ref>(d_pdcch,<sp/>b_hat,<sp/>config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a98e5c09442843ec5f5210f9d5976cb4b" kindref="member">scaling</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Map<sp/>to<sp/>resource<sp/>elements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" kindref="member">map</ref>(grid,<sp/>d_pdcch,<sp/>config);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,546 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1log__formatter" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srslog::log_formatter</compoundname>
+    <derivedcompoundref refid="classsrslog_1_1json__formatter" prot="public" virt="non-virtual">srslog::json_formatter</derivedcompoundref>
+    <derivedcompoundref refid="classsrslog_1_1text__formatter" prot="public" virt="non-virtual">srslog::text_formatter</derivedcompoundref>
+    <includes refid="formatter_8h" local="no">formatter.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a129200d002c2631f31d82973ce713b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srslog::log_formatter::~log_formatter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~log_formatter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="53" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1adadc5f9d8687d2c4907ae94b90a4263d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;log_formatter&gt; srslog::log_formatter::clone</definition>
+        <argsstring>() const =0</argsstring>
+        <name>clone</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a72f98f7fa16fe5d3dc407a8d12c64b93">clone</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1a447f1e537fb58ad8c8bf011718925556">clone</reimplementedby>
+        <briefdescription>
+<para>Returns a copy of the formatter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="56" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a6f291cfae7f93a705ac70d6a3a4ed22b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format</definition>
+        <argsstring>(detail::log_entry_metadata &amp;&amp;metadata, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1ad157f1191ccee4276f7cc11243a40fcb">format</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1aae3b1fb09cd00a6dbd0d76c390f19675">format</reimplementedby>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;&amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Formats the log entry into the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srslog::log_formatter::format_ctx</definition>
+        <argsstring>(const srslog::context&lt; Ts... &gt; &amp;ctx, detail::log_entry_metadata &amp;&amp;metadata, fmt::memory_buffer &amp;buffer)</argsstring>
+        <name>format_ctx</name>
+        <param>
+          <type>const <ref refid="structsrslog_1_1context" kindref="compound">srslog::context</ref>&lt; Ts... &gt; &amp;</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;&amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Formats the context and log entry into the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="63" column="8" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="63" bodyend="68"/>
+        <references refid="classsrslog_1_1log__formatter_1a797b93e2e8f4c0393843b1e296b7ee62">format_context_begin</references>
+        <references refid="structsrslog_1_1context_1a214de139ed68833b637a1ac78b265f00" compoundref="context_8h" startline="151" endline="151">srslog::context&lt; Ts &gt;::name</references>
+        <references refid="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" compoundref="formatter_8h" startline="74" endline="77">iterate_tuple</references>
+        <references refid="structsrslog_1_1detail_1_1metrics__container_1a52555cf19f1e2c6a78b781e06c53013d" compoundref="context_8h" startline="86" endline="86">srslog::detail::metrics_container&lt; Ts... &gt;::contents</references>
+        <references refid="classsrslog_1_1log__formatter_1a528314c1e0e86b45684b656b3f41b45f">format_context_end</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srslog::log_formatter::iterate_tuple</definition>
+        <argsstring>(const std::tuple&lt; Ts... &gt; &amp;t, unsigned level, fmt::memory_buffer &amp;buffer, detail::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>iterate_tuple</name>
+        <param>
+          <type>const std::tuple&lt; Ts... &gt; &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1index__sequence" kindref="compound">detail::index_sequence</ref>&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+<para>Processes all elements in a tuple. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="74" column="3" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="74" bodyend="77"/>
+        <references refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" compoundref="formatter_8h" startline="81" endline="86">process_element</references>
+        <referencedby refid="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" compoundref="formatter_8h" startline="63" endline="68">format_ctx</referencedby>
+        <referencedby refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" compoundref="formatter_8h" startline="81" endline="86">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Name</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srslog::log_formatter::process_element</definition>
+        <argsstring>(const metric_set&lt; Name, Ts... &gt; &amp;ms, unsigned level, fmt::memory_buffer &amp;buffer)</argsstring>
+        <name>process_element</name>
+        <param>
+          <type>const <ref refid="structsrslog_1_1metric__set" kindref="compound">metric_set</ref>&lt; Name, Ts... &gt; &amp;</type>
+          <declname>ms</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Processes the input metric set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="81" column="8" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="81" bodyend="86"/>
+        <references refid="classsrslog_1_1log__formatter_1a3e06b51c3c8697ed56863802d421cb26">format_metric_set_begin</references>
+        <references refid="structsrslog_1_1metric__set_1a6d6824afbd9886ff6ab4140335a24557" compoundref="context_8h" startline="140" endline="140">srslog::metric_set&lt; Name, Ts &gt;::name</references>
+        <references refid="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" compoundref="formatter_8h" startline="74" endline="77">iterate_tuple</references>
+        <references refid="structsrslog_1_1detail_1_1metrics__container_1a52555cf19f1e2c6a78b781e06c53013d" compoundref="context_8h" startline="86" endline="86">srslog::detail::metrics_container&lt; Ts... &gt;::contents</references>
+        <references refid="classsrslog_1_1log__formatter_1ab6d16cd54a9e800913413026ccaaa27c">format_metric_set_end</references>
+        <referencedby refid="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" compoundref="formatter_8h" startline="74" endline="77">iterate_tuple</referencedby>
+        <referencedby refid="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" compoundref="formatter_8h" startline="90" endline="97">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Name</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srslog::log_formatter::process_element</definition>
+        <argsstring>(const metric_list&lt; Name, T &gt; &amp;list, unsigned level, fmt::memory_buffer &amp;buffer)</argsstring>
+        <name>process_element</name>
+        <param>
+          <type>const <ref refid="structsrslog_1_1metric__list" kindref="compound">metric_list</ref>&lt; Name, T &gt; &amp;</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Processes the input metric list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="90" column="8" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="90" bodyend="97"/>
+        <references refid="classsrslog_1_1log__formatter_1a42508277147d638ee6292977416955de">format_list_begin</references>
+        <references refid="structsrslog_1_1metric__list_1a33e4c8f8f23982fffa217c6added19d2" compoundref="context_8h" startline="98" endline="98">srslog::metric_list&lt; Name, T &gt;::name</references>
+        <references refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" compoundref="formatter_8h" startline="81" endline="86">process_element</references>
+        <references refid="classsrslog_1_1log__formatter_1ab3d4ee84ca514370b6869f79dd0ef292">format_list_end</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a1aba9ea86f241bf3534f658efb87c9da" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ty</type>
+          </param>
+          <param>
+            <type>typename Name</type>
+          </param>
+          <param>
+            <type>typename Units</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srslog::log_formatter::process_element</definition>
+        <argsstring>(const metric&lt; Ty, Name, Units &gt; &amp;t, unsigned level, fmt::memory_buffer &amp;buffer)</argsstring>
+        <name>process_element</name>
+        <param>
+          <type>const <ref refid="structsrslog_1_1metric" kindref="compound">metric</ref>&lt; Ty, Name, Units &gt; &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Processes the input metric. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="101" column="8" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="101" bodyend="108"/>
+        <references refid="structsrslog_1_1metric_1a552b4b3eea62cb3c12a99b1a6ae84ffe" compoundref="context_8h" startline="115">srslog::metric&lt; Ty, Name, Units &gt;::value</references>
+        <references refid="classsrslog_1_1log__formatter_1a8d3d8fa5eb01f13723e1120ae6aa3366">format_metric</references>
+        <references refid="structsrslog_1_1metric_1a4150a17a5301c20bad7817c6dc711d64" compoundref="context_8h" startline="118" endline="118">srslog::metric&lt; Ty, Name, Units &gt;::name</references>
+        <references refid="structsrslog_1_1metric_1ad6316370c4f6b368de1f5a9a180cf788" compoundref="context_8h" startline="121" endline="121">srslog::metric&lt; Ty, Name, Units &gt;::units</references>
+        <references refid="structsrslog_1_1metric_1a8410915c3dd57ada36db15441180ae95" compoundref="context_8h" startline="124" endline="124">srslog::metric&lt; Ty, Name, Units &gt;::kind</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a797b93e2e8f4c0393843b1e296b7ee62" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_context_begin</definition>
+        <argsstring>(const detail::log_entry_metadata &amp;md, fmt::string_view ctx_name, unsigned size, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_context_begin</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1abea7c9d0a36fff58fc36a037920cca19">format_context_begin</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1a4147ef012504f27c14252d9f6373bae5">format_context_begin</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;</type>
+          <declname>md</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>ctx_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes should implement the following callbacks to format metric objects. Each callback is invoked at a different place of the formatting algorithm. This callback gets called at the beginning of the context formatting algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="117" column="16"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" compoundref="formatter_8h" startline="63" endline="68">format_ctx</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a528314c1e0e86b45684b656b3f41b45f" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_context_end</definition>
+        <argsstring>(const detail::log_entry_metadata &amp;md, fmt::string_view ctx_name, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_context_end</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a13b978a2cb3ff4ae90e48a13aeeda027">format_context_end</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1a3e193e1dd3e11c880b627d9b0bbbf648">format_context_end</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;</type>
+          <declname>md</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>ctx_name</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called at the end of the context formatting algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="124" column="3"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" compoundref="formatter_8h" startline="63" endline="68">format_ctx</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a3e06b51c3c8697ed56863802d421cb26" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_metric_set_begin</definition>
+        <argsstring>(fmt::string_view set_name, unsigned size, unsigned level, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_metric_set_begin</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a6a8d0e85512d9cd3492c48fc1a0e37aa">format_metric_set_begin</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f">format_metric_set_begin</reimplementedby>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>set_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the beginning of a metric set formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="129" column="3"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" compoundref="formatter_8h" startline="81" endline="86">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1ab6d16cd54a9e800913413026ccaaa27c" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_metric_set_end</definition>
+        <argsstring>(fmt::string_view set_name, unsigned level, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_metric_set_end</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a2c0f64f5632d2c3e9553cfc711b92e09">format_metric_set_end</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83">format_metric_set_end</reimplementedby>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>set_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called at the beginning of a metric set formatting end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="132" column="16"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" compoundref="formatter_8h" startline="81" endline="86">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a42508277147d638ee6292977416955de" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_list_begin</definition>
+        <argsstring>(fmt::string_view list_name, unsigned size, unsigned level, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_list_begin</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a8c3b17c219f4cc06662fa0fa5406972e">format_list_begin</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f">format_list_begin</reimplementedby>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>list_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the beginning of a metric list formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="137" column="3"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" compoundref="formatter_8h" startline="90" endline="97">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1ab3d4ee84ca514370b6869f79dd0ef292" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_list_end</definition>
+        <argsstring>(fmt::string_view list_name, unsigned level, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_list_end</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1a6165b7f72d31fb5ad168b54a5cc43263">format_list_end</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081">format_list_end</reimplementedby>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>list_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the end of a metric list formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="141" column="16"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" compoundref="formatter_8h" startline="90" endline="97">process_element</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1log__formatter_1a8d3d8fa5eb01f13723e1120ae6aa3366" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::log_formatter::format_metric</definition>
+        <argsstring>(fmt::string_view metric_name, fmt::string_view metric_value, fmt::string_view metric_units, metric_kind kind, unsigned level, fmt::memory_buffer &amp;buffer)=0</argsstring>
+        <name>format_metric</name>
+        <reimplementedby refid="classsrslog_1_1text__formatter_1aad4bea25dc5c4b582bf984e3940f9a0e">format_metric</reimplementedby>
+        <reimplementedby refid="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4">format_metric</reimplementedby>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_name</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_value</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_units</declname>
+        </param>
+        <param>
+          <type>metric_kind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called for each metric. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/formatter.h" line="144" column="16"/>
+        <referencedby refid="classsrslog_1_1log__formatter_1a1aba9ea86f241bf3534f658efb87c9da" compoundref="formatter_8h" startline="101" endline="108">process_element</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the base class that provides a common framework to format log entries to different kinds of formats. User should implement two different kinds of formats: a) Basic log entry formatting. b) Generic context formatting.</para>
+<para>For context formatting, callbacks are provided so that derived classes handle specific formatting rules. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srslog::json_formatter</label>
+        <link refid="classsrslog_1_1json__formatter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srslog::log_formatter</label>
+        <link refid="classsrslog_1_1log__formatter"/>
+      </node>
+      <node id="3">
+        <label>srslog::text_formatter</label>
+        <link refid="classsrslog_1_1text__formatter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::log_formatter</label>
+        <link refid="classsrslog_1_1log__formatter"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/formatter.h" line="51" column="1" bodyfile="include/srsgnb/srslog/formatter.h" bodystart="50" bodyend="150"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1log__formatter_1adadc5f9d8687d2c4907ae94b90a4263d" prot="public" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>clone</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a6f291cfae7f93a705ac70d6a3a4ed22b" prot="public" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a797b93e2e8f4c0393843b1e296b7ee62" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_context_begin</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a528314c1e0e86b45684b656b3f41b45f" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_context_end</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" prot="public" virt="non-virtual"><scope>srslog::log_formatter</scope><name>format_ctx</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a42508277147d638ee6292977416955de" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_list_begin</name></member>
+      <member refid="classsrslog_1_1log__formatter_1ab3d4ee84ca514370b6869f79dd0ef292" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_list_end</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a8d3d8fa5eb01f13723e1120ae6aa3366" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_metric</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a3e06b51c3c8697ed56863802d421cb26" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_metric_set_begin</name></member>
+      <member refid="classsrslog_1_1log__formatter_1ab6d16cd54a9e800913413026ccaaa27c" prot="private" virt="pure-virtual"><scope>srslog::log_formatter</scope><name>format_metric_set_end</name></member>
+      <member refid="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" prot="private" virt="non-virtual"><scope>srslog::log_formatter</scope><name>iterate_tuple</name></member>
+      <member refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" prot="private" virt="non-virtual"><scope>srslog::log_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" prot="private" virt="non-virtual"><scope>srslog::log_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a1aba9ea86f241bf3534f658efb87c9da" prot="private" virt="non-virtual"><scope>srslog::log_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a129200d002c2631f31d82973ce713b06" prot="public" virt="virtual"><scope>srslog::log_formatter</scope><name>~log_formatter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__buffer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::prach_buffer</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1prach__buffer__static" prot="public" virt="non-virtual">srsgnb::prach_buffer_static&lt; SEQ_LEN, MAX_NOF_SYMB &gt;</derivedcompoundref>
+    <includes refid="prach__buffer_8h" local="no">prach_buffer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__buffer_1ae77bd91ca745cb277c9e7efd7bc3d3b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::prach_buffer::~prach_buffer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~prach_buffer</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/prach_buffer.h" line="32" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__buffer_1a38d91ce65126d3deb15f1c0a775c3de5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::prach_buffer::get_sequence_length</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_sequence_length</name>
+        <reimplementedby refid="classsrsgnb_1_1prach__buffer__static_1aace364c3407e1e2d078a5bc98b56575e">get_sequence_length</reimplementedby>
+        <briefdescription>
+<para>Gets the sequence length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/prach_buffer.h" line="35" column="20"/>
+        <referencedby refid="classsrsgnb_1_1prach__detector__simple__impl_1af439ed4a39c98d672be9afd14d863f3a" compoundref="prach__detector__simple__impl_8cpp" startline="22" endline="117">srsgnb::prach_detector_simple_impl::detect</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__buffer_1a5bedcc5bea6574c84fbed493782b35a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::prach_buffer::get_max_nof_symbols</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_max_nof_symbols</name>
+        <reimplementedby refid="classsrsgnb_1_1prach__buffer__static_1a662102f9b72456001175aa957e66cf1b">get_max_nof_symbols</reimplementedby>
+        <briefdescription>
+<para>Gets the maximum number of symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/prach_buffer.h" line="38" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__buffer_1a750234bb9365a62b88e2bd1ba09ad354" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>virtual span&lt;cf_t&gt; srsgnb::prach_buffer::get_symbol</definition>
+        <argsstring>(unsigned symbol_index)=0</argsstring>
+        <name>get_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1prach__buffer__static_1a32149a36df6db6c574865a0e23cd13f5">get_symbol</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a read-write view of a PRACH OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/prach_buffer.h" line="41" column="16"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">srsgnb::ofdm_prach_demodulator_impl::demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__detector__simple__impl_1af439ed4a39c98d672be9afd14d863f3a" compoundref="prach__detector__simple__impl_8cpp" startline="22" endline="117">srsgnb::prach_detector_simple_impl::detect</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__buffer_1ad5554c78be36562e805bca32f0f4438a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>virtual span&lt;const cf_t&gt; srsgnb::prach_buffer::get_symbol</definition>
+        <argsstring>(unsigned symbol_index) const =0</argsstring>
+        <name>get_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1prach__buffer__static_1a08f245db61278898a853f6576a03a4a6">get_symbol</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a read-only view of a PRACH OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/prach_buffer.h" line="44" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PRACH buffer interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides access to frequency-domain PRACH sequences.</para>
+<para>A buffer for storing long PRACH sequences ( <formula id="6">$L_{RA}=839$</formula>), for a maximum of 4 OFDM symbols, can be created with the factory function <ref refid="namespacesrsgnb_1a52d60a05fef81c81f572711bd6dc61e9" kindref="member">create_prach_buffer_long()</ref>. A buffer for storing short PRACH sequences ( <formula id="7">$L_{RA}=129$</formula>), for a maximum of 12 OFDM symbols, can be created with the factory function <ref refid="namespacesrsgnb_1ab7013f5a16777c8fbb48e65408c589b3" kindref="member">create_prach_buffer_short()</ref>.</para>
+<para><simplesect kind="note"><para>In future versions of the software, this interface might be upgraded to support multiple PRACH occasions, both in time and frequency domains. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::prach_buffer</label>
+        <link refid="classsrsgnb_1_1prach__buffer"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::prach_buffer_static&lt; SEQ_LEN, MAX_NOF_SYMB &gt;</label>
+        <link refid="classsrsgnb_1_1prach__buffer__static"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::prach_buffer</label>
+        <link refid="classsrsgnb_1_1prach__buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/support/prach_buffer.h" line="29" column="1" bodyfile="include/srsgnb/phy/support/prach_buffer.h" bodystart="28" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__buffer_1a5bedcc5bea6574c84fbed493782b35a3" prot="public" virt="pure-virtual"><scope>srsgnb::prach_buffer</scope><name>get_max_nof_symbols</name></member>
+      <member refid="classsrsgnb_1_1prach__buffer_1a38d91ce65126d3deb15f1c0a775c3de5" prot="public" virt="pure-virtual"><scope>srsgnb::prach_buffer</scope><name>get_sequence_length</name></member>
+      <member refid="classsrsgnb_1_1prach__buffer_1a750234bb9365a62b88e2bd1ba09ad354" prot="public" virt="pure-virtual"><scope>srsgnb::prach_buffer</scope><name>get_symbol</name></member>
+      <member refid="classsrsgnb_1_1prach__buffer_1ad5554c78be36562e805bca32f0f4438a" prot="public" virt="pure-virtual"><scope>srsgnb::prach_buffer</scope><name>get_symbol</name></member>
+      <member refid="classsrsgnb_1_1prach__buffer_1ae77bd91ca745cb277c9e7efd7bc3d3b7" prot="public" virt="virtual"><scope>srsgnb::prach_buffer</scope><name>~prach_buffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1benchmarker" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::benchmarker</compoundname>
+    <includes refid="benchmark__utils_8h" local="no">benchmark_utils.h</includes>
+    <innerclass refid="structsrsgnb_1_1benchmarker_1_1benchmark__result" prot="private">srsgnb::benchmarker::benchmark_result</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1benchmarker_1a6a78ef61a851e2d11144fa8f18598cd1" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string srsgnb::benchmarker::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <briefdescription>
+<para>Benchmark main title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="48" column="15" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" compoundref="benchmark__utils_8h" startline="113" endline="134">print_percentile_header</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::benchmarker::nof_repetitions</definition>
+        <argsstring></argsstring>
+        <name>nof_repetitions</name>
+        <briefdescription>
+<para>Number of repetitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="50" column="12" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" compoundref="benchmark__utils_8h" startline="113" endline="134">print_percentile_header</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" compoundref="benchmark__utils_8h" startline="159" endline="182">print_percentiles_time</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a82aac4a92f574f6896ffc9193c7e1e1a" compoundref="benchmark__utils_8h" startline="217" endline="234">new_measure</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structsrsgnb_1_1benchmarker_1_1benchmark__result" kindref="compound">benchmark_result</ref> &gt;</type>
+        <definition>std::vector&lt;benchmark_result&gt; srsgnb::benchmarker::benchmark_results</definition>
+        <argsstring></argsstring>
+        <name>benchmark_results</name>
+        <briefdescription>
+<para>Collects different measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="62" column="15" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1afb116dddcae0254fb3800a779ab9d6a7" compoundref="benchmark__utils_8h" startline="66" endline="73">get_max_meas_time_ns</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a1a6e6a3a751d1e39e8e4710c84a0b77b" compoundref="benchmark__utils_8h" startline="97" endline="107">get_description_width</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" compoundref="benchmark__utils_8h" startline="159" endline="182">print_percentiles_time</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a82aac4a92f574f6896ffc9193c7e1e1a" compoundref="benchmark__utils_8h" startline="217" endline="234">new_measure</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1afb116dddcae0254fb3800a779ab9d6a7" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::pair&lt; unsigned, unsigned &gt;</type>
+        <definition>std::pair&lt;unsigned, unsigned&gt; srsgnb::benchmarker::get_max_meas_time_ns</definition>
+        <argsstring>() const</argsstring>
+        <name>get_max_meas_time_ns</name>
+        <briefdescription>
+<para>Get the maximum measured execution time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pair of values containing the maximum execution time and the number of elements in order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="66" column="13" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="66" bodyend="73"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" compoundref="benchmark__utils_8h" startline="62">benchmark_results</references>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a5598ced3b4e09921260931aed7aeb500" compoundref="benchmark__utils_8h" startline="76" endline="82">get_percentile_width_time</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a291f4e8ebc60fddfcb520c5501b4faf0" compoundref="benchmark__utils_8h" startline="85" endline="94">get_percentile_width_throughput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a5598ced3b4e09921260931aed7aeb500" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::benchmarker::get_percentile_width_time</definition>
+        <argsstring>() const</argsstring>
+        <name>get_percentile_width_time</name>
+        <briefdescription>
+<para>Get percentile column width for execution time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="76" column="12" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="76" bodyend="82"/>
+        <references refid="classsrsgnb_1_1benchmarker_1afb116dddcae0254fb3800a779ab9d6a7" compoundref="benchmark__utils_8h" startline="66" endline="73">get_max_meas_time_ns</references>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" compoundref="benchmark__utils_8h" startline="159" endline="182">print_percentiles_time</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a291f4e8ebc60fddfcb520c5501b4faf0" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::benchmarker::get_percentile_width_throughput</definition>
+        <argsstring>() const</argsstring>
+        <name>get_percentile_width_throughput</name>
+        <briefdescription>
+<para>Get percentile column width for execution throughput. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="85" column="12" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="85" bodyend="94"/>
+        <references refid="classsrsgnb_1_1benchmarker_1afb116dddcae0254fb3800a779ab9d6a7" compoundref="benchmark__utils_8h" startline="66" endline="73">get_max_meas_time_ns</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a6cdde20313743e9942d1cce5d33e1479" compoundref="benchmark__utils_8h" startline="140" endline="144">convert_to_throughput</references>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a1a6e6a3a751d1e39e8e4710c84a0b77b" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::benchmarker::get_description_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description_width</name>
+        <briefdescription>
+<para>Get description column width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="97" column="12" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="97" bodyend="107"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" compoundref="benchmark__utils_8h" startline="62">benchmark_results</references>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" compoundref="benchmark__utils_8h" startline="159" endline="182">print_percentiles_time</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::benchmarker::print_percentile_header</definition>
+        <argsstring>(unsigned descr_width, unsigned percentile_width, const std::string &amp;units) const</argsstring>
+        <name>print_percentile_header</name>
+        <param>
+          <type>unsigned</type>
+          <declname>descr_width</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>percentile_width</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <briefdescription>
+<para>Prints the percentile header. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">descr_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description column width. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">percentile_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Percentiles column width. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">units</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Units displayed in the header. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="113" column="8" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="113" bodyend="134"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a6a78ef61a851e2d11144fa8f18598cd1" compoundref="benchmark__utils_8h" startline="48">title</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" compoundref="benchmark__utils_8h" startline="50">nof_repetitions</references>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" compoundref="benchmark__utils_8h" startline="159" endline="182">print_percentiles_time</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a6cdde20313743e9942d1cce5d33e1479" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double srsgnb::benchmarker::convert_to_throughput</definition>
+        <argsstring>(unsigned time_ns, unsigned size)</argsstring>
+        <name>convert_to_throughput</name>
+        <param>
+          <type>unsigned</type>
+          <declname>time_ns</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Converts a measurement into throughput in millions of elements per second. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">time_ns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Execution time in nanoseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of elements processed during the measurement. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The calculated throughput. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="140" column="24" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="140" bodyend="144"/>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1a291f4e8ebc60fddfcb520c5501b4faf0" compoundref="benchmark__utils_8h" startline="85" endline="94">get_percentile_width_throughput</referencedby>
+        <referencedby refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" compoundref="benchmark__utils_8h" startline="186" endline="209">print_percentiles_throughput</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1aa40ca621979f8f7e9ef0b9d60d2b08b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::benchmarker::benchmarker</definition>
+        <argsstring>(const std::string &amp;title_, unsigned nof_repetitions_)</argsstring>
+        <name>benchmarker</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title_</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_repetitions_</declname>
+        </param>
+        <briefdescription>
+<para>Creates a bench marker. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">title_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the benchmark title for the percentile report. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_repetitions_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the number of repetitions of the function to measure the performance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="151" column="3" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="151" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::benchmarker::print_percentiles_time</definition>
+        <argsstring>() const</argsstring>
+        <name>print_percentiles_time</name>
+        <briefdescription>
+<para>Prints the time execution measurements in nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="159" column="8" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="159" bodyend="182"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a5598ced3b4e09921260931aed7aeb500" compoundref="benchmark__utils_8h" startline="76" endline="82">get_percentile_width_time</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a1a6e6a3a751d1e39e8e4710c84a0b77b" compoundref="benchmark__utils_8h" startline="97" endline="107">get_description_width</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" compoundref="benchmark__utils_8h" startline="113" endline="134">print_percentile_header</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" compoundref="benchmark__utils_8h" startline="62">benchmark_results</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" compoundref="benchmark__utils_8h" startline="50">nof_repetitions</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::benchmarker::print_percentiles_throughput</definition>
+        <argsstring>(const std::string &amp;units) const</argsstring>
+        <name>print_percentiles_throughput</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <briefdescription>
+<para>Prints the throughput measurements in millions of elements per seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">units</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Units counted in the throughput (ie. bits, symbols, etc.). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="186" column="8" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="186" bodyend="209"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a291f4e8ebc60fddfcb520c5501b4faf0" compoundref="benchmark__utils_8h" startline="85" endline="94">get_percentile_width_throughput</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a1a6e6a3a751d1e39e8e4710c84a0b77b" compoundref="benchmark__utils_8h" startline="97" endline="107">get_description_width</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" compoundref="benchmark__utils_8h" startline="113" endline="134">print_percentile_header</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" compoundref="benchmark__utils_8h" startline="62">benchmark_results</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a6cdde20313743e9942d1cce5d33e1479" compoundref="benchmark__utils_8h" startline="140" endline="144">convert_to_throughput</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" compoundref="benchmark__utils_8h" startline="50">nof_repetitions</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1benchmarker_1a82aac4a92f574f6896ffc9193c7e1e1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::benchmarker::new_measure</definition>
+        <argsstring>(const std::string &amp;description, unsigned size, Func &amp;&amp;function)</argsstring>
+        <name>new_measure</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>Func &amp;&amp;</type>
+          <declname>function</declname>
+        </param>
+        <briefdescription>
+<para>Performs a new performance measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lambda type to perform the benchmark. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement description for later reporting. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of elements processed in the measurement. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lambda function to call repeatedly. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/benchmark_utils.h" line="217" column="8" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="217" bodyend="234"/>
+        <references refid="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" compoundref="benchmark__utils_8h" startline="50">nof_repetitions</references>
+        <references refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" compoundref="benchmark__utils_8h" startline="62">benchmark_results</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a class for performing benchmarks. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::benchmarker</label>
+        <link refid="classsrsgnb_1_1benchmarker"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/benchmark_utils.h" line="45" column="1" bodyfile="include/srsgnb/support/benchmark_utils.h" bodystart="44" bodyend="235"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1benchmarker_1a54896137ac30bcc0d2e07aea28eb6d71" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>benchmark_results</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1aa40ca621979f8f7e9ef0b9d60d2b08b2" prot="public" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>benchmarker</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a6cdde20313743e9942d1cce5d33e1479" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>convert_to_throughput</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a1a6e6a3a751d1e39e8e4710c84a0b77b" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>get_description_width</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1afb116dddcae0254fb3800a779ab9d6a7" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>get_max_meas_time_ns</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a291f4e8ebc60fddfcb520c5501b4faf0" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>get_percentile_width_throughput</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a5598ced3b4e09921260931aed7aeb500" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>get_percentile_width_time</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a82aac4a92f574f6896ffc9193c7e1e1a" prot="public" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>new_measure</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a2b0de6d598dad951cc5a57fe4bde4518" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>nof_repetitions</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a66d8024d43f94892611996c316809ee8" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>print_percentile_header</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1ab96ae5a4973a8e260ce414bee57985f9" prot="public" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>print_percentiles_throughput</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a842b9eb0416d0acb06480417a6d93aff" prot="public" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>print_percentiles_time</name></member>
+      <member refid="classsrsgnb_1_1benchmarker_1a6a78ef61a851e2d11144fa8f18598cd1" prot="private" virt="non-virtual"><scope>srsgnb::benchmarker</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

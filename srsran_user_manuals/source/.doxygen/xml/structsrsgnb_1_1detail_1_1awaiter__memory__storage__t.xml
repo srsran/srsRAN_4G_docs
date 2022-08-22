@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::detail::awaiter_memory_storage_t</compoundname>
+    <includes refid="awaiter__memory__storage_8h" local="no">awaiter_memory_storage.h</includes>
+    <innerclass refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1_1stored__awaiter" prot="public">srsgnb::detail::awaiter_memory_storage_t::stored_awaiter</innerclass>
+    <templateparamlist>
+      <param>
+        <type>std::size_t</type>
+        <declname>InlineBuffer</declname>
+        <defname>InlineBuffer</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a2aa20092fe21b93279b81967addd4904" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1detail_1_1small__memory__buffer__t" kindref="compound">small_memory_buffer_t</ref>&lt; InlineBuffer, alignof(std::max_align_t)&gt;</type>
+        <definition>small_memory_buffer_t&lt;InlineBuffer, alignof(std::max_align_t)&gt; srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="127" column="25" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a10fb8a6fed147f0acea820c31c3deebd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::~awaiter_memory_storage_t</definition>
+        <argsstring>()</argsstring>
+        <name>~awaiter_memory_storage_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="86" column="3" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a0c7b1da2b98e6fe5dcb6b19be43e657c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1_1stored__awaiter" kindref="compound">stored_awaiter</ref>&lt; Awaitable &gt; *</type>
+        <definition>stored_awaiter&lt;Awaitable&gt;* srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::get_storage</definition>
+        <argsstring>()</argsstring>
+        <name>get_storage</name>
+        <briefdescription>
+<para>Get stored awaiter object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="90" column="18" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a732179bb2232e38dd0a34450a96f20f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::emplace</definition>
+        <argsstring>(Awaitable &amp;&amp;a)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Awaitable &amp;&amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Storage Awaitable and respective awaiter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="97" column="8" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="97" bodyend="100"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1base__coro__frame_1aa3134bd060c0b560ad8d97f3d7bba562" compoundref="coroutine_8h" startline="130" endline="149">srsgnb::detail::base_coro_frame&lt; detail::promise_of&lt; FunT &gt; &gt;::on_await_call</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a6c8c32f7f327dd1c40bb941182bfab81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clear memory buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="104" column="8" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="104" bodyend="107"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1base__coro__frame_3_01void_01_4_1aa047b7fb33e73b5df9486f749289ddca" compoundref="coroutine_8h" startline="82" endline="91">srsgnb::detail::base_coro_frame&lt; void &gt;::on_await_resume</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a71c9d44b6560f940a6d62fd85e35bdae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1_1stored__awaiter" kindref="compound">stored_awaiter</ref>&lt; Awaitable &gt;::awaiter_type &amp;</type>
+        <definition>stored_awaiter&lt;Awaitable&gt;::awaiter_type&amp; srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::get_awaiter</definition>
+        <argsstring>()</argsstring>
+        <name>get_awaiter</name>
+        <briefdescription>
+<para>Get stored awaiter reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="111" column="42" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="111" bodyend="114"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1base__coro__frame_3_01void_01_4_1aa047b7fb33e73b5df9486f749289ddca" compoundref="coroutine_8h" startline="82" endline="91">srsgnb::detail::base_coro_frame&lt; void &gt;::on_await_resume</referencedby>
+        <referencedby refid="structsrsgnb_1_1detail_1_1base__coro__frame_1aa3134bd060c0b560ad8d97f3d7bba562" compoundref="coroutine_8h" startline="130" endline="149">srsgnb::detail::base_coro_frame&lt; detail::promise_of&lt; FunT &gt; &gt;::on_await_call</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a62fbab7afed09b2a280bb53a15c11c60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1_1stored__awaiter" kindref="compound">stored_awaiter</ref>&lt; Awaitable &gt;::awaitable_type &amp;</type>
+        <definition>stored_awaiter&lt;Awaitable&gt;::awaitable_type&amp; srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::get_awaitable</definition>
+        <argsstring>()</argsstring>
+        <name>get_awaitable</name>
+        <briefdescription>
+<para>Get stored awaitable reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="118" column="44" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1acf6dae9cf3acc636857b5e167c015677" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Checks whether awaiter is stored in memory buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="124" column="8" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="124" bodyend="124"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1base__coro__frame_3_01void_01_4_1a9a86afc12ecb8341115a0a0ebc19370f" compoundref="coroutine_8h" startline="78" endline="78">srsgnb::detail::base_coro_frame&lt; void &gt;::is_suspended</referencedby>
+        <referencedby refid="structsrsgnb_1_1detail_1_1coro__frame_1a9e306098dbcfc3083018d58f9871e08c" compoundref="coroutine_8h" startline="185" endline="195">srsgnb::detail::coro_frame&lt; FunT &gt;::destroy</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Memory chunk to store Awaitable (value or reference) + Awaiter. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::detail::small_memory_buffer_t&lt; InlineBuffer, alignof(std::max_align_t)&gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1small__memory__buffer__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/awaiter_memory_storage.h" line="70" column="31" bodyfile="include/srsgnb/support/async/awaiter_memory_storage.h" bodystart="70" bodyend="128"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a6c8c32f7f327dd1c40bb941182bfab81" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>clear</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a732179bb2232e38dd0a34450a96f20f4" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>emplace</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1acf6dae9cf3acc636857b5e167c015677" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>empty</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a62fbab7afed09b2a280bb53a15c11c60" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>get_awaitable</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a71c9d44b6560f940a6d62fd85e35bdae" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>get_awaiter</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a0c7b1da2b98e6fe5dcb6b19be43e657c" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>get_storage</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a2aa20092fe21b93279b81967addd4904" prot="private" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>storage</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1a10fb8a6fed147f0acea820c31c3deebd" prot="public" virt="non-virtual"><scope>srsgnb::detail::awaiter_memory_storage_t</scope><name>~awaiter_memory_storage_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

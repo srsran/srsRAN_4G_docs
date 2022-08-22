@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__session" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::radio_session</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1radio__base" prot="private" virt="non-virtual">srsgnb::radio_base</basecompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__session__uhd__impl" prot="public" virt="non-virtual">srsgnb::radio_session_uhd_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__session__zmq__impl" prot="public" virt="non-virtual">srsgnb::radio_session_zmq_impl</derivedcompoundref>
+    <includes refid="radio__session_8h" local="no">radio_session.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session_1a305b30fe5b539ba55505724b676dc818" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1radio__management__plane" kindref="compound">radio_management_plane</ref> &amp;</type>
+        <definition>virtual radio_management_plane&amp; srsgnb::radio_session::get_management_plane</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_management_plane</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a766a934a813d5c4472ea86a045ed01c4">get_management_plane</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__uhd__impl_1a4603e2fb1ac87ed61abf05d532b51964">get_management_plane</reimplementedby>
+        <briefdescription>
+<para>Gets the management plane. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The reference to the management plane for this radio session. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_session.h" line="26" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session_1a8bc38fc466aa146d15d1c40d272618d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway" kindref="compound">baseband_gateway</ref> &amp;</type>
+        <definition>virtual baseband_gateway&amp; srsgnb::radio_session::get_baseband_gateway</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_baseband_gateway</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a0ee34c6667619d2af6d6ac342e20ae74">get_baseband_gateway</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__uhd__impl_1aa9996b2ce221fb3c27351898f50dddf9">get_baseband_gateway</reimplementedby>
+        <briefdescription>
+<para>Gets the data plane. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The reference to the data plane for this radio session. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_session.h" line="30" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session_1ae1e03a71412fc7f4df0991aef4ba74da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::radio_session::stop</definition>
+        <argsstring>()=0</argsstring>
+        <name>stop</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930">stop</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__uhd__impl_1a29ac3fe3d2fda51cc90d56d7bde80448">stop</reimplementedby>
+        <briefdescription>
+<para>Stops the radio session operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Any call to transmit or receive after calling <ref refid="classsrsgnb_1_1radio__session_1ae1e03a71412fc7f4df0991aef4ba74da" kindref="member">stop()</ref> will return instantly without interacting with the physical radio. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_session.h" line="35" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a radio baseband unit session interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_session_uhd_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__uhd__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_session</label>
+        <link refid="classsrsgnb_1_1radio__session"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_session_zmq_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__zmq__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_session</label>
+        <link refid="classsrsgnb_1_1radio__session"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/radio/radio_session.h" line="22" column="1" bodyfile="include/srsgnb/radio/radio_session.h" bodystart="21" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__session_1a8bc38fc466aa146d15d1c40d272618d0" prot="public" virt="pure-virtual"><scope>srsgnb::radio_session</scope><name>get_baseband_gateway</name></member>
+      <member refid="classsrsgnb_1_1radio__session_1a305b30fe5b539ba55505724b676dc818" prot="public" virt="pure-virtual"><scope>srsgnb::radio_session</scope><name>get_management_plane</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a6047b6af462d6d66e17f14a8866baa2f" prot="private" virt="non-virtual"><scope>srsgnb::radio_session</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a613d0276dd7140594f971ebcd34bdf7e" prot="private" virt="non-virtual"><scope>srsgnb::radio_session</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1af9f80899d387af47e827bfecd21fa7b0" prot="private" virt="non-virtual"><scope>srsgnb::radio_session</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1aeea2df1e0ec39aa2a831f24553ce546f" prot="private" virt="non-virtual"><scope>srsgnb::radio_session</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a0c96363513155999b85983f2f22b56cb" prot="private" virt="non-virtual"><scope>srsgnb::radio_session</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__session_1ae1e03a71412fc7f4df0991aef4ba74da" prot="public" virt="pure-virtual"><scope>srsgnb::radio_session</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a84b9fc81012bc2e40c2a9c04843ed8ab" prot="private" virt="virtual"><scope>srsgnb::radio_session</scope><name>~radio_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

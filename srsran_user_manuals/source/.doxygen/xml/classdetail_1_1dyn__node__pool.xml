@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classdetail_1_1dyn__node__pool" kind="class" language="C++" prot="public">
+    <compoundname>detail::dyn_node_pool</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classdetail_1_1dyn__node__pool_1afd8923aef6369e08b11e5f1e8969387b" prot="private" static="no">
+        <type>std::array&lt; uint8_t, dynamic_arg_list::max_pool_node_size+1 &gt;</type>
+        <definition>using detail::dyn_node_pool::type =  std::array&lt;uint8_t, dynamic_arg_list::max_pool_node_size + 1&gt;</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>The extra byte is used to store the memory tag at position 0 in the array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="71" column="3" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdetail_1_1dyn__node__pool_1adcc9eb020a15a82701cfb4b23eca30d6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classdetail_1_1dyn__node__pool_1afd8923aef6369e08b11e5f1e8969387b" kindref="member">type</ref> &gt;</type>
+        <definition>std::vector&lt;type&gt; detail::dyn_node_pool::pool</definition>
+        <argsstring></argsstring>
+        <name>pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="123" column="15" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdetail_1_1dyn__node__pool_1a287aa7dfaddea604509745df825f1211" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t * &gt;</type>
+        <definition>std::vector&lt;uint8_t *&gt; detail::dyn_node_pool::free_list</definition>
+        <argsstring></argsstring>
+        <name>free_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="124" column="15" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdetail_1_1dyn__node__pool_1a8cbac2edeb62ac1b240663379be15abc" prot="private" static="no" mutable="yes">
+        <type>pi_mutex</type>
+        <definition>pi_mutex detail::dyn_node_pool::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="125" column="20" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1a77ca0130bebc3197946da4ee2922cd85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>detail::dyn_node_pool::dyn_node_pool</definition>
+        <argsstring>()</argsstring>
+        <name>dyn_node_pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="74" column="3" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1a7b84c98f7bc543cf555bc5a20182d427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>detail::dyn_node_pool::dyn_node_pool</definition>
+        <argsstring>(const dyn_node_pool &amp;)=delete</argsstring>
+        <name>dyn_node_pool</name>
+        <param>
+          <type>const <ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="82" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1aa31f228baf6de1a577fb4991f07f846f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>detail::dyn_node_pool::dyn_node_pool</definition>
+        <argsstring>(dyn_node_pool &amp;&amp;)=delete</argsstring>
+        <name>dyn_node_pool</name>
+        <param>
+          <type><ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="83" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1ab6a25b01c2c04f9c5e618aa08c5ad10b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;</type>
+        <definition>dyn_node_pool&amp; detail::dyn_node_pool::operator=</definition>
+        <argsstring>(dyn_node_pool &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="84" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1a275b67afa3968b221d3daa6b1b77959d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;</type>
+        <definition>dyn_node_pool&amp; detail::dyn_node_pool::operator=</definition>
+        <argsstring>(const dyn_node_pool &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classdetail_1_1dyn__node__pool" kindref="compound">dyn_node_pool</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="85" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1ad7d83a3e19af299a289b5f803e718cf3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* detail::dyn_node_pool::alloc</definition>
+        <argsstring>(std::size_t sz)</argsstring>
+        <name>alloc</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="87" column="8" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="87" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dyn__node__pool_1a2cc52fa26ebc09547c8726f1757724dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void detail::dyn_node_pool::dealloc</definition>
+        <argsstring>(void *p)</argsstring>
+        <name>dealloc</name>
+        <param>
+          <type>void *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/bundled/fmt/format.cc" line="106" column="8" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="106" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>detail::dyn_node_pool</label>
+        <link refid="classdetail_1_1dyn__node__pool"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>anonymous:-m</label>
+      </node>
+    </collaborationgraph>
+    <location file="lib/srslog/bundled/fmt/format.cc" line="69" column="1" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="68" bodyend="126"/>
+    <listofallmembers>
+      <member refid="classdetail_1_1dyn__node__pool_1ad7d83a3e19af299a289b5f803e718cf3" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>alloc</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a2cc52fa26ebc09547c8726f1757724dc" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>dealloc</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a77ca0130bebc3197946da4ee2922cd85" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>dyn_node_pool</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a7b84c98f7bc543cf555bc5a20182d427" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>dyn_node_pool</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1aa31f228baf6de1a577fb4991f07f846f" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>dyn_node_pool</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a287aa7dfaddea604509745df825f1211" prot="private" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>free_list</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a8cbac2edeb62ac1b240663379be15abc" prot="private" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>m</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1ab6a25b01c2c04f9c5e618aa08c5ad10b" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>operator=</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1a275b67afa3968b221d3daa6b1b77959d" prot="public" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>operator=</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1adcc9eb020a15a82701cfb4b23eca30d6" prot="private" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>pool</name></member>
+      <member refid="classdetail_1_1dyn__node__pool_1afd8923aef6369e08b11e5f1e8969387b" prot="private" virt="non-virtual"><scope>detail::dyn_node_pool</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

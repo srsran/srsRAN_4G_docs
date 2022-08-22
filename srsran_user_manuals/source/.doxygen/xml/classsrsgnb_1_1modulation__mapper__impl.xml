@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1modulation__mapper__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::modulation_mapper_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1modulation__mapper" prot="public" virt="non-virtual">srsgnb::modulation_mapper</basecompoundref>
+    <includes refid="modulation__mapper__impl_8h" local="no">modulation_mapper_impl.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1modulation__mapper__impl_1a6b15ec922595693c948d3c5eae8f0497" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void modulation_mapper_impl::modulate</definition>
+        <argsstring>(span&lt; const uint8_t &gt; input, span&lt; cf_t &gt; symbols, modulation_scheme scheme) override</argsstring>
+        <name>modulate</name>
+        <reimplements refid="classsrsgnb_1_1modulation__mapper_1aa83553173cfa76f991360c8f86e65f39">modulate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref></type>
+          <declname>scheme</declname>
+        </param>
+        <briefdescription>
+<para>Maps a sequence of bits to a sequence of complex symbols according to the given modulation scheme. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sequence of bits. Each entry corresponds to a single bit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resulting sequence of complex-valued symbols. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scheme</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The modulation scheme determining the mapping. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The length of <computeroutput>input</computeroutput> should be equal to the length of <computeroutput>symbols</computeroutput> times the modulation order (that is, the number of bits per modulated symbol). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_modulation/modulation_mapper_impl.h" line="23" column="8" bodyfile="lib/phy/upper/channel_modulation/modulation_mapper_impl.cpp" bodystart="141" bodyend="171"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a68b5dd822c6ef8ad44f98f56dfbe016e">srsgnb::PI_2_BPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4acfd8f331d281b0da79e7c6ed6988243c">srsgnb::BPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a">srsgnb::QPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a03029a441fe46ebecd2135ba5d8b330f">srsgnb::QAM16</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a5e0dd7cb58cf81fd6bed561c7e4b351b">srsgnb::QAM64</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a69a2bdd96ac2c6035d0c8ca23563aec9">srsgnb::QAM256</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Modulation mapper based on look-up tables. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::modulation_mapper</label>
+        <link refid="classsrsgnb_1_1modulation__mapper"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::modulation_mapper_impl</label>
+        <link refid="classsrsgnb_1_1modulation__mapper__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::modulation_mapper</label>
+        <link refid="classsrsgnb_1_1modulation__mapper"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::modulation_mapper_impl</label>
+        <link refid="classsrsgnb_1_1modulation__mapper__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_modulation/modulation_mapper_impl.h" line="20" column="1" bodyfile="lib/phy/upper/channel_modulation/modulation_mapper_impl.h" bodystart="19" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1modulation__mapper__impl_1a6b15ec922595693c948d3c5eae8f0497" prot="public" virt="virtual"><scope>srsgnb::modulation_mapper_impl</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1modulation__mapper_1a7dcc0f4d03194233d89588cb2a216115" prot="public" virt="virtual"><scope>srsgnb::modulation_mapper_impl</scope><name>~modulation_mapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

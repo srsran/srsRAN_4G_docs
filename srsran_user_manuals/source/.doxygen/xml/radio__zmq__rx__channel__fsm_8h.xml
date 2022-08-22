@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="radio__zmq__rx__channel__fsm_8h" kind="file" language="C++">
+    <compoundname>radio_zmq_rx_channel_fsm.h</compoundname>
+    <includes local="no">condition_variable</includes>
+    <includes local="no">mutex</includes>
+    <includedby refid="radio__zmq__rx__channel_8h" local="yes">lib/radio/zmq/radio_zmq_rx_channel.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>condition_variable</label>
+      </node>
+      <node id="3">
+        <label>mutex</label>
+      </node>
+      <node id="1">
+        <label>lib/radio/zmq/radio_zmq_rx_channel_fsm.h</label>
+        <link refid="radio__zmq__rx__channel__fsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>lib/radio/zmq/radio_zmq_rx_stream.h</label>
+        <link refid="radio__zmq__rx__stream_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>lib/radio/zmq/radio_session_zmq_impl.h</label>
+        <link refid="radio__session__zmq__impl_8h_source"/>
+      </node>
+      <node id="1">
+        <label>lib/radio/zmq/radio_zmq_rx_channel_fsm.h</label>
+        <link refid="radio__zmq__rx__channel__fsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>lib/radio/zmq/radio_zmq_rx_channel.h</label>
+        <link refid="radio__zmq__rx__channel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm" prot="public">srsgnb::radio_zmq_rx_channel_fsm</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;condition_variable&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="17" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm" kindref="compound">radio_zmq_rx_channel_fsm</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0" kindref="member">states</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0add652546039b18970b8dcf2cff824268" kindref="member">UNINITIALIZED</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a74f159ffc5c93172f7843f67ff165d16" kindref="member">SEND_REQUEST</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0aec3833f64f2ed48dc8999f88fa2a12ae" kindref="member">RECEIVE_DATA</ref>,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a0f7d8d046ef87d6e314593b390cd6400" kindref="member">WAIT_STOP</ref>,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a09d4d696b4e935115b9313e3c412509a" kindref="member">STOPPED</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0" kindref="member">states</ref><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0add652546039b18970b8dcf2cff824268" kindref="member">states::UNINITIALIZED</ref>;</highlight></codeline>
+<codeline lineno="37" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::mutex<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>;</highlight></codeline>
+<codeline lineno="39" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aebed3bf6e9fce4f1781d511485919731" refkind="member"><highlight class="normal"><sp/><sp/>std::condition_variable<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aebed3bf6e9fce4f1781d511485919731" kindref="member">cvar</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3c2d5c874ff0a545be7a7100cab69f4a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3c2d5c874ff0a545be7a7100cab69f4a" kindref="member">is_running_unprotected</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>==<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a74f159ffc5c93172f7843f67ff165d16" kindref="member">states::SEND_REQUEST</ref><sp/>||<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>==<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0aec3833f64f2ed48dc8999f88fa2a12ae" kindref="member">states::RECEIVE_DATA</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1af71c96aef85fe987e7425189ebd53135" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1af71c96aef85fe987e7425189ebd53135" kindref="member">init_successful</ref>()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a74f159ffc5c93172f7843f67ff165d16" kindref="member">states::SEND_REQUEST</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aa543856f9dcece814c0bf4a9f45af3ab" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aa543856f9dcece814c0bf4a9f45af3ab" kindref="member">on_error</ref>()</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a09d4d696b4e935115b9313e3c412509a" kindref="member">states::STOPPED</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aebed3bf6e9fce4f1781d511485919731" kindref="member">cvar</ref>.notify_all();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1afbad0597c4ab56deb6b1b45d97b051d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1afbad0597c4ab56deb6b1b45d97b051d9" kindref="member">request_sent</ref>()</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>==<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a74f159ffc5c93172f7843f67ff165d16" kindref="member">states::SEND_REQUEST</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0aec3833f64f2ed48dc8999f88fa2a12ae" kindref="member">states::RECEIVE_DATA</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a965abc0db65f118eeedc2c773e9a47b1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a965abc0db65f118eeedc2c773e9a47b1" kindref="member">data_received</ref>()</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>==<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0aec3833f64f2ed48dc8999f88fa2a12ae" kindref="member">states::RECEIVE_DATA</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a74f159ffc5c93172f7843f67ff165d16" kindref="member">states::SEND_REQUEST</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a039bc33e0704677483e2069d50d2a931" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a039bc33e0704677483e2069d50d2a931" kindref="member">stop</ref>()</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3c2d5c874ff0a545be7a7100cab69f4a" kindref="member">is_running_unprotected</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a0f7d8d046ef87d6e314593b390cd6400" kindref="member">states::WAIT_STOP</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a41bf94f6ac607a0ae59999993af4f44d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a41bf94f6ac607a0ae59999993af4f44d" kindref="member">wait_stop</ref>()</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>!=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a09d4d696b4e935115b9313e3c412509a" kindref="member">states::STOPPED</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aebed3bf6e9fce4f1781d511485919731" kindref="member">cvar</ref>.wait(lock);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a6d3f5e7124837b80d635f2ef97cdee0f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a6d3f5e7124837b80d635f2ef97cdee0f" kindref="member">async_task_stopped</ref>()</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0a09d4d696b4e935115b9313e3c412509a" kindref="member">states::STOPPED</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1aebed3bf6e9fce4f1781d511485919731" kindref="member">cvar</ref>.notify_all();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3be9d6e89b1e54b6ac2a5c518389f62c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3be9d6e89b1e54b6ac2a5c518389f62c" kindref="member">is_running</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="106"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a3c2d5c874ff0a545be7a7100cab69f4a" kindref="member">is_running_unprotected</ref>();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1af2fda4c81a0e9a400a432af567ea6622" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1af2fda4c81a0e9a400a432af567ea6622" kindref="member">has_pending_response</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="113"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_lock&lt;std::mutex&gt;<sp/>lock(<ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a7b811342757869bf6ef46707d6a3610d" kindref="member">mutex</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a1a4f64bb133fbec31ba8171b91af58d2" kindref="member">state</ref><sp/>==<sp/><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm_1a90cca9855b224f326c3c8610da913ea0aec3833f64f2ed48dc8999f88fa2a12ae" kindref="member">states::RECEIVE_DATA</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/radio/zmq/radio_zmq_rx_channel_fsm.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pucch__helper" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pucch_helper</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pucch__helper_1a8ae50b29ad0f4fb03c2a33bd621ed304" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::pucch_helper::prg</definition>
+        <argsstring></argsstring>
+        <name>prg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/pucch_helper.h" line="27" column="19" bodyfile="lib/phy/upper/signal_processors/pucch/pucch_helper.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pucch__helper_1ac4db21174ce70c39d2207de768552523" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pucch_helper::pucch_helper</definition>
+        <argsstring>(std::unique_ptr&lt; pseudo_random_generator &gt; prg_)</argsstring>
+        <name>pucch_helper</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>prg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/pucch_helper.h" line="30" column="3" bodyfile="lib/phy/upper/signal_processors/pucch/pucch_helper.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pucch__helper_1a10ec3066a018433ac8af101cac64b4e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pucch_helper::compute_group_sequence</definition>
+        <argsstring>(pucch_group_hopping group_hopping, unsigned n_id, unsigned &amp;u, unsigned &amp;v)</argsstring>
+        <name>compute_group_sequence</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14b" kindref="member">pucch_group_hopping</ref></type>
+          <declname>group_hopping</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>n_id</declname>
+        </param>
+        <param>
+          <type>unsigned &amp;</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>unsigned &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Computes the NR-PUCCH group sequence (TS 38.211 clause 6.3.2.2.1 Group and sequence hopping). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/pucch_helper.h" line="36" column="8" bodyfile="lib/phy/upper/signal_processors/pucch/pucch_helper.h" bodystart="36" bodyend="55"/>
+        <references refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14ba9fc49374420f4310fb89e88ea2689da5">srsgnb::NEITHER</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a07112ccc5edf3349816758ca495c95d0" compoundref="low__papr__sequence__collection_8h" startline="35">srsgnb::low_papr_sequence_collection::NOF_GROUPS</references>
+        <references refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14bab332708e4304e13c9b424e7465254954">srsgnb::ENABLE</references>
+        <references refid="namespacesrsgnb_1a613a5281e40da0c57e8de772f36d558f" compoundref="error__handling_8h" startline="21" endline="26">srsgnb::srsgnb_terminate</references>
+        <references refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14bafc93ea58f6d27ffed2b6518ffecf3e4e">srsgnb::DISABLE</references>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="118" endline="217">srsgnb::dmrs_pucch_processor_format1_impl::estimate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pucch__helper_1a5e2150ab9042afa57d513e3c31c54b71" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::pucch_helper::get_alpha_index</definition>
+        <argsstring>(const slot_point &amp;slot, const cyclic_prefix &amp;cp, unsigned n_id, unsigned symbol, unsigned m0, unsigned m_cs) const</argsstring>
+        <name>get_alpha_index</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref> &amp;</type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1cyclic__prefix" kindref="compound">cyclic_prefix</ref> &amp;</type>
+          <declname>cp</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>n_id</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>m0</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>m_cs</declname>
+        </param>
+        <briefdescription>
+<para>Computes the NR alpha index (1-NRE) (TS 38.211 clause 6.3.2.2.2 Cyclic shift hopping) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>slot[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current slot </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cp[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic prefix type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n_id[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Higher layer parameter hopingID if configured, physical cell id otherwise </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>symbol[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM symbol index in the slot </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m0[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial cyclic shift </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m_cs[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic shift </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>NR alpha index </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/pucch_helper.h" line="66" column="12" bodyfile="lib/phy/upper/signal_processors/pucch/pucch_helper.h" bodystart="66" bodyend="100"/>
+        <references refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" compoundref="cyclic__prefix_8h" startline="108">srsgnb::MAX_NSYMB_PER_SLOT</references>
+        <references refid="namespacesrsgnb_1a5c4ba94fed0cbf9f0928dd5af3ce0b88" compoundref="slot__point_8h" startline="19">srsgnb::NOF_SUBFRAMES_PER_FRAME</references>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a774cfcee0b441d570bced7d62d526b46" compoundref="slot__point_8h" startline="102" endline="102">srsgnb::slot_point::nof_slots_per_frame</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="90" endline="108">srsgnb::dmrs_pucch_processor_format1_impl::sequence_generation</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pucch_helper</label>
+        <link refid="classsrsgnb_1_1pucch__helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/signal_processors/pucch/pucch_helper.h" line="24" column="1" bodyfile="lib/phy/upper/signal_processors/pucch/pucch_helper.h" bodystart="23" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pucch__helper_1a10ec3066a018433ac8af101cac64b4e1" prot="public" virt="non-virtual"><scope>srsgnb::pucch_helper</scope><name>compute_group_sequence</name></member>
+      <member refid="classsrsgnb_1_1pucch__helper_1a5e2150ab9042afa57d513e3c31c54b71" prot="public" virt="non-virtual"><scope>srsgnb::pucch_helper</scope><name>get_alpha_index</name></member>
+      <member refid="classsrsgnb_1_1pucch__helper_1a8ae50b29ad0f4fb03c2a33bd621ed304" prot="private" virt="non-virtual"><scope>srsgnb::pucch_helper</scope><name>prg</name></member>
+      <member refid="classsrsgnb_1_1pucch__helper_1ac4db21174ce70c39d2207de768552523" prot="public" virt="non-virtual"><scope>srsgnb::pucch_helper</scope><name>pucch_helper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

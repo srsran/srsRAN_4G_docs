@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="low__papr__sequence__generator__impl_8cpp" kind="file" language="C++">
+    <compoundname>low_papr_sequence_generator_impl.cpp</compoundname>
+    <includes refid="low__papr__sequence__generator__impl_8h" local="yes">low_papr_sequence_generator_impl.h</includes>
+    <includes refid="static__vector_8h" local="yes">srsgnb/adt/static_vector.h</includes>
+    <includes refid="constants_8h" local="yes">srsgnb/phy/constants.h</includes>
+    <includes refid="sc__prod_8h" local="yes">srsgnb/srsvec/sc_prod.h</includes>
+    <includes refid="error__handling_8h" local="yes">srsgnb/support/error_handling.h</includes>
+    <includes refid="math__utils_8h" local="yes">srsgnb/support/math_utils.h</includes>
+    <incdepgraph>
+      <node id="48">
+        <label>atomic</label>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/sequence_generators/low_papr_sequence_generator_impl.cpp</label>
+        <link refid="low__papr__sequence__generator__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/support/error_handling.h</label>
+        <link refid="error__handling_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="24">
+        <label>cassert</label>
+      </node>
+      <node id="26">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="29">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>pthread.h</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="47">
+        <label>tuple</label>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="28">
+        <label>utility</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="23">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>cstddef</label>
+      </node>
+      <node id="38">
+        <label>chrono</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/sequence_generators/low_papr_sequence_generator.h</label>
+        <link refid="low__papr__sequence__generator_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/srsvec/sc_prod.h</label>
+        <link refid="sc__prod_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/srsvec/types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="22">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="2">
+        <label>low_papr_sequence_generator_impl.h</label>
+        <link refid="low__papr__sequence__generator__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="low__papr__sequence__generator__impl_8cpp_1a5ff12634083467593392fa5cfbc40c1c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t zc_sequence_q</definition>
+        <argsstring>(uint32_t u, uint32_t v, uint32_t N_sz)</argsstring>
+        <name>zc_sequence_q</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>N_sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/low_papr_sequence_generator_impl.cpp" line="135" column="17" bodyfile="lib/phy/upper/sequence_generators/low_papr_sequence_generator_impl.cpp" bodystart="135" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;low_papr_sequence_generator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/adt/static_vector.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/constants.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/sc_prod.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/support/error_handling.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="math__utils_8h" kindref="compound">srsgnb/support/math_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;std::array&lt;float,<sp/>6&gt;,<sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a9fa5b071ab3029b88bbf52b3a0ac8521" kindref="member">low_papr_sequence_generator_impl::NOF_ZC_SEQ</ref>&gt;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a5bbe38b15e461b68dd2a25574e2d7bb5" kindref="member">low_papr_sequence_generator_impl::phi_M_sc_6</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{{-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3},<sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3},<sp/><sp/>{-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3},<sp/><sp/>{1,<sp/>1,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3},<sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3},<sp/>{-3,<sp/>1,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-3},<sp/><sp/>{-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>1,<sp/>-1},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3},<sp/>{-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-3},<sp/><sp/>{-3,<sp/>1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3},<sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3},<sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>3,<sp/>3,<sp/>-1,<sp/>3},<sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1},<sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-1},<sp/>{-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-3},<sp/>{-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-1},<sp/>{-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3},<sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1},<sp/>{1,<sp/>1,<sp/>-3,<sp/>3,<sp/>1,<sp/>3},<sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>3,<sp/>-1,<sp/>3,<sp/>3},<sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>3},<sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-1},<sp/><sp/><sp/>{1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-1},</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1},<sp/><sp/><sp/>{1,<sp/>1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-1}}};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;std::array&lt;float,<sp/>12&gt;,<sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a9fa5b071ab3029b88bbf52b3a0ac8521" kindref="member">low_papr_sequence_generator_impl::NOF_ZC_SEQ</ref>&gt;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac46535de3e568b6a39fbca91e70550fa" kindref="member">low_papr_sequence_generator_impl::phi_M_sc_12</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{{-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>1,<sp/>-3},<sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>3,<sp/>3,<sp/>3},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3},<sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>3,<sp/>1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>1},<sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>1,<sp/>3},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>1,<sp/>-3},<sp/><sp/>{-1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>3,<sp/>3,<sp/>1},<sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>1,<sp/>-3},<sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3},<sp/>{-3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>3,<sp/>-3,<sp/>1,<sp/>3,<sp/>3,<sp/>3,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3},<sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1},<sp/>{-1,<sp/>1,<sp/>1,<sp/>-1,<sp/>1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3},<sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>1,<sp/>3,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3},<sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>3,<sp/>-3,<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>3,<sp/>-3,<sp/>3},</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3},<sp/><sp/>{3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3},<sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>1},</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-1},<sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3},</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>1},<sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3}}};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;std::array&lt;float,<sp/>18&gt;,<sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a9fa5b071ab3029b88bbf52b3a0ac8521" kindref="member">low_papr_sequence_generator_impl::NOF_ZC_SEQ</ref>&gt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac5039ab835e12c8caa599458aae09e06" kindref="member">low_papr_sequence_generator_impl::phi_M_sc_18</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{{-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1},</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3},</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1},</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1},</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>1},</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>3,<sp/>-1},</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-3,<sp/>3,<sp/>3,<sp/>1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3},</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>3},</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-3,<sp/>3},</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1},</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>3},</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3,<sp/>3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1},</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>1,<sp/>3,<sp/>1,<sp/>1},</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3},</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>1},</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>1,<sp/>1,<sp/>-1,<sp/>-1},</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3},</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>3,<sp/>3},</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>3,<sp/>1},</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>3,<sp/>3},</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>3},</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1},</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1},</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3},</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>3,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>1},</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-1,<sp/>3,<sp/>-1}}};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;std::array&lt;float,<sp/>24&gt;,<sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a9fa5b071ab3029b88bbf52b3a0ac8521" kindref="member">low_papr_sequence_generator_impl::NOF_ZC_SEQ</ref>&gt;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac791470142db0b992b0d8c48df499ff1" kindref="member">low_papr_sequence_generator_impl::phi_M_sc_24</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{{-1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>3,<sp/>3,<sp/>-3,<sp/>1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>1,<sp/>-1,<sp/>1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>3,<sp/>1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>1,<sp/>1,<sp/>1,<sp/>3,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>3,<sp/>3,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>1,<sp/>3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>1,<sp/>3,<sp/>-1,<sp/>1,<sp/>3,<sp/>3,<sp/>3,<sp/>-3},</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>1,<sp/>1,<sp/>1,<sp/>3,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>1,<sp/>-1,<sp/>1,<sp/>1,<sp/>3,<sp/>3,<sp/>3,<sp/>-1,<sp/>1,<sp/>-1,<sp/>1,<sp/>-1,<sp/>-3},</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>3,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>1,<sp/>3,<sp/>1,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>1,<sp/>3,<sp/>-1,<sp/>3,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>-3,<sp/>1,<sp/>1,<sp/>3,<sp/>1,<sp/>-3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>1,<sp/>-1,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3,<sp/>-3},</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>-3,<sp/>-1,<sp/>1,<sp/>3,<sp/>-1,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>3,<sp/>-1,<sp/>-3,<sp/>-1,<sp/>-3,<sp/>3,<sp/>-1,<sp/>3,<sp/>1,<sp/>1,<sp/>-3,<sp/>3,<sp/>-3,<sp/>-3,<sp/>-3}}};</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a708bd8ade9dc35bcd5d9eedc7be0990d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a708bd8ade9dc35bcd5d9eedc7be0990d" kindref="member">low_papr_sequence_generator_impl::r_uv_arg_0dot5prb</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>srsvec::sc_prod(<ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a5bbe38b15e461b68dd2a25574e2d7bb5" kindref="member">phi_M_sc_6</ref>[u],<sp/>M_PI_4,<sp/>tmp_arg);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2a461531251ea3be481ff3b2b4ebdf0e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2a461531251ea3be481ff3b2b4ebdf0e" kindref="member">low_papr_sequence_generator_impl::r_uv_arg_1prb</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>srsvec::sc_prod(<ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac46535de3e568b6a39fbca91e70550fa" kindref="member">phi_M_sc_12</ref>[u],<sp/>M_PI_4,<sp/>tmp_arg);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1af046c69bd18e66eed197df96d6b4b80b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1af046c69bd18e66eed197df96d6b4b80b" kindref="member">low_papr_sequence_generator_impl::r_uv_arg_1dot5prb</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>srsvec::sc_prod(<ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac5039ab835e12c8caa599458aae09e06" kindref="member">phi_M_sc_18</ref>[u],<sp/>M_PI_4,<sp/>tmp_arg);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aa02c2f5573641bc608f1813d9c72337e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aa02c2f5573641bc608f1813d9c72337e" kindref="member">low_papr_sequence_generator_impl::r_uv_arg_2prb</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>srsvec::sc_prod(<ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1ac791470142db0b992b0d8c48df499ff1" kindref="member">phi_M_sc_24</ref>[u],<sp/>M_PI_4,<sp/>tmp_arg);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32_t<sp/>zc_sequence_q(uint32_t<sp/>u,<sp/>uint32_t<sp/>v,<sp/>uint32_t<sp/>N_sz)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>q;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>q_hat;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>n_sz<sp/>=<sp/>(float)N_sz;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>q_hat<sp/>=<sp/>n_sz<sp/>*<sp/>(u<sp/>+<sp/>1)<sp/>/<sp/>31;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((((uint32_t)(2<sp/>*<sp/>q_hat))<sp/>%<sp/>2)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>q<sp/>=<sp/>q_hat<sp/>+<sp/>0.5<sp/>+<sp/>v;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>q<sp/>=<sp/>q_hat<sp/>+<sp/>0.5<sp/>-<sp/>v;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(uint32_t)q;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a97f5ef825cf8904c5e5ab2604ad67602" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a97f5ef825cf8904c5e5ab2604ad67602" kindref="member">low_papr_sequence_generator_impl::r_uv_arg_mprb</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u,<sp/>uint32_t<sp/>v)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>M_zc<sp/>=<sp/>tmp_arg.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>N_sz<sp/>=<sp/><ref refid="namespacesrsgnb_1a1bc17982f837ddc6616e0428f3a08e07" kindref="member">prime_lower_than</ref>(M_zc);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>n_sz<sp/>=<sp/>(float)N_sz;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>assert(std::isnormal(n_sz));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>q<sp/>=<sp/>zc_sequence_q(u,<sp/>v,<sp/>N_sz);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>!=<sp/>M_zc;<sp/>++n)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m<sp/><sp/><sp/><sp/>=<sp/>(float)(n<sp/>%<sp/>N_sz);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>tmp_arg[n]<sp/>=<sp/>-M_PI<sp/>*<sp/>q<sp/>*<sp/>m<sp/>*<sp/>(m<sp/>+<sp/>1)<sp/>/<sp/>n_sz;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2da15f34893ca8831dd0b321abc708ff" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2da15f34893ca8831dd0b321abc708ff" kindref="member">low_papr_sequence_generator_impl::r_uv_arg</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;float&gt;</ref><sp/>tmp_arg,<sp/>uint32_t<sp/>u,<sp/>uint32_t<sp/>v)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>M_zc<sp/>=<sp/>tmp_arg.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(M_zc<sp/>==<sp/>6)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a708bd8ade9dc35bcd5d9eedc7be0990d" kindref="member">r_uv_arg_0dot5prb</ref>(tmp_arg,<sp/>u);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(M_zc<sp/>==<sp/>12)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2a461531251ea3be481ff3b2b4ebdf0e" kindref="member">r_uv_arg_1prb</ref>(tmp_arg,<sp/>u);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(M_zc<sp/>==<sp/>18)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1af046c69bd18e66eed197df96d6b4b80b" kindref="member">r_uv_arg_1dot5prb</ref>(tmp_arg,<sp/>u);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(M_zc<sp/>==<sp/>24)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aa02c2f5573641bc608f1813d9c72337e" kindref="member">r_uv_arg_2prb</ref>(tmp_arg,<sp/>u);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(M_zc<sp/>&gt;=<sp/>36)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a97f5ef825cf8904c5e5ab2604ad67602" kindref="member">r_uv_arg_mprb</ref>(tmp_arg,<sp/>u,<sp/>v);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a613a5281e40da0c57e8de772f36d558f" kindref="member">srsgnb_terminate</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>sequence<sp/>length<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>M_zc);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aea28f49f1ff7e19f27bf4e0751c6d33d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aea28f49f1ff7e19f27bf4e0751c6d33d" kindref="member">low_papr_sequence_generator_impl::cexp</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/>sequence,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>alpha,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const float&gt;</ref><sp/>tmp_arg)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>!=<sp/>sequence.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();<sp/>n++)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>sequence[n]<sp/>=<sp/>std::exp(<ref refid="namespacesrsgnb_1ad41106b422cf71ee616885573ae5d72f" kindref="member">COMPLEX_J</ref><sp/>*<sp/>(tmp_arg[n]<sp/>+<sp/>alpha<sp/>*<sp/>n));</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2615847dc1d1cc85c8f61cb414dba87c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2615847dc1d1cc85c8f61cb414dba87c" kindref="member">low_papr_sequence_generator_impl::generate</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/>sequence,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>u,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>v,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>alpha)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="192"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>temporal<sp/>argument<sp/>storage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;float, MAX_RB * NRE&gt;</ref><sp/>arg(sequence.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>());</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>argument.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1a2da15f34893ca8831dd0b321abc708ff" kindref="member">r_uv_arg</ref>(arg,<sp/>u,<sp/>v);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Do<sp/>complex<sp/>exponential<sp/>and<sp/>adjust<sp/>amplitude.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1low__papr__sequence__generator__impl_1aea28f49f1ff7e19f27bf4e0751c6d33d" kindref="member">cexp</ref>(sequence,<sp/>alpha,<sp/>arg);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="namespacesrsgnb_1ae2d30c4388048bade793f07399b085cb" refkind="member"><highlight class="normal">std::unique_ptr&lt;low_papr_sequence_generator&gt;<sp/><ref refid="namespacesrsgnb_1ae2d30c4388048bade793f07399b085cb" kindref="member">srsgnb::create_low_papr_sequence_generator</ref>()</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_unique&lt;low_papr_sequence_generator_impl&gt;();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/sequence_generators/low_papr_sequence_generator_impl.cpp"/>
+  </compounddef>
+</doxygen>

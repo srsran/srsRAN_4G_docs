@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sampling__rate" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::sampling_rate</compoundname>
+    <includes refid="sampling__rate_8h" local="no">sampling_rate.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>using srsgnb::sampling_rate::value_type =  uint64_t</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+<para>Value storage type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="28" column="3" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref></type>
+        <definition>value_type srsgnb::sampling_rate::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Actual value in hertz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="150" column="14" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="150" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" compoundref="sampling__rate_8h" startline="39" endline="46">is_valid</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1a1ad27c3aa62938dfc3f427d778d076c9" compoundref="sampling__rate_8h" startline="62" endline="66">get_dft_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1a379f90b26114f0dd517716f698afa749" compoundref="sampling__rate_8h" startline="80" endline="84">to_Hz</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1ab475a751b1de2dd64a1ed48a621bda8d" compoundref="sampling__rate_8h" startline="90" endline="94">to_kHz</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1a46e20beea4d692d9e0fa74995af32748" compoundref="sampling__rate_8h" startline="97" endline="97">to_MHz</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1abbcc071bb9157bd5a3075c7132397edc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::sampling_rate::sampling_rate</definition>
+        <argsstring>()=default</argsstring>
+        <name>sampling_rate</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="31" column="3"/>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1aaf0438dee2d045e89d10a51b5bb5a12e" compoundref="sampling__rate_8h" startline="108" endline="112">from_Hz</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool srsgnb::sampling_rate::is_valid</definition>
+        <argsstring>(T scs_Hz) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type>T</type>
+          <declname>scs_Hz</declname>
+        </param>
+        <briefdescription>
+<para>Determines if the sampling rate is valid for a certain subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type convertible to <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs_Hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing in hertz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the sampling rate value is not zero and is divisible by the subcarrier spacing, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="39" column="18" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="39" bodyend="46"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" compoundref="sampling__rate_8h" startline="150">value</references>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1a1ad27c3aa62938dfc3f427d778d076c9" compoundref="sampling__rate_8h" startline="62" endline="66">get_dft_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1acdd1326f5f2f99ec555fae6f6a0c2eea" compoundref="sampling__rate_8h" startline="144" endline="147">sampling_rate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1aaaf5a287cf943a68feee6392e425370c" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool srsgnb::sampling_rate::is_valid</definition>
+        <argsstring>(subcarrier_spacing scs) const</argsstring>
+        <name>is_valid</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Determines if the sampling rate is valid for a certain subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing enumerator. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the sampling rate value is not zero and is divisible by the subcarrier spacing, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="52" column="18" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="52" bodyend="52"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1aaaf5a287cf943a68feee6392e425370c" compoundref="sampling__rate_8h" startline="52" endline="52">is_valid</references>
+        <references refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" compoundref="subcarrier__spacing_8h" startline="44" endline="48">srsgnb::scs_to_khz</references>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1aaaf5a287cf943a68feee6392e425370c" compoundref="sampling__rate_8h" startline="52" endline="52">is_valid</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1a1ad27c3aa62938dfc3f427d778d076c9" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::sampling_rate::get_dft_size</definition>
+        <argsstring>(T scs_Hz) const</argsstring>
+        <name>get_dft_size</name>
+        <param>
+          <type>T</type>
+          <declname>scs_Hz</declname>
+        </param>
+        <briefdescription>
+<para>Gets the DFT size corresponding to the sampling rate, for a given subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if the combination of sampling rate and subcarrier spacing is invalid (see <ref refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" kindref="member">is_valid()</ref>).</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type convertible to <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs_Hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The given subcarrier spacing in hertz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The sampling rate represented as the size of a DFT with the given subcarrier spacing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="62" column="22" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="62" bodyend="66"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" compoundref="sampling__rate_8h" startline="39" endline="46">is_valid</references>
+        <references refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" compoundref="sampling__rate_8h" startline="150">value</references>
+        <referencedby refid="classlower__phy__factory__generic_1aa1153a3215d75d07a13d3b22fe074956" compoundref="lower__phy__factory_8cpp" startline="35" endline="81">lower_phy_factory_generic::create</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1abde3f93b5960c97499480079a941c3d1" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::sampling_rate::get_dft_size</definition>
+        <argsstring>(subcarrier_spacing scs) const</argsstring>
+        <name>get_dft_size</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Gets the DFT size corresponding to the sampling rate, for a given subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if the combination of sampling rate and subcarrier spacing is invalid (see <ref refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" kindref="member">is_valid()</ref>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing enumerator. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The sampling rate represented as the size of a DFT with the given subcarrier spacing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="74" column="22" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="74" bodyend="74"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1abde3f93b5960c97499480079a941c3d1" compoundref="sampling__rate_8h" startline="74" endline="74">get_dft_size</references>
+        <references refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" compoundref="subcarrier__spacing_8h" startline="44" endline="48">srsgnb::scs_to_khz</references>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1abde3f93b5960c97499480079a941c3d1" compoundref="sampling__rate_8h" startline="74" endline="74">get_dft_size</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1a379f90b26114f0dd517716f698afa749" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>unsigned</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T srsgnb::sampling_rate::to_Hz</definition>
+        <argsstring>() const</argsstring>
+        <name>to_Hz</name>
+        <briefdescription>
+<para>Gets the sampling rate in hertz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type that can be converted from <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value in hertz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="80" column="15" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="80" bodyend="84"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" compoundref="sampling__rate_8h" startline="150">value</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" compoundref="lower__phy__impl_8h" startline="185" endline="201">srsgnb::lower_phy_impl::get_rx_to_tx_delay</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1ab475a751b1de2dd64a1ed48a621bda8d" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>unsigned</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T srsgnb::sampling_rate::to_kHz</definition>
+        <argsstring>() const</argsstring>
+        <name>to_kHz</name>
+        <briefdescription>
+<para>Gets the sampling rate in kHz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type that can be converted from <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value in hertz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="90" column="15" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="90" bodyend="94"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" compoundref="sampling__rate_8h" startline="150">value</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1a46e20beea4d692d9e0fa74995af32748" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr double</type>
+        <definition>constexpr double srsgnb::sampling_rate::to_MHz</definition>
+        <argsstring>() const</argsstring>
+        <name>to_MHz</name>
+        <briefdescription>
+<para>Gets the sampling rate in MHz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="97" column="20" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="97" bodyend="97"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" compoundref="sampling__rate_8h" startline="150">value</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1aaf0438dee2d045e89d10a51b5bb5a12e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></type>
+        <definition>static sampling_rate srsgnb::sampling_rate::from_Hz</definition>
+        <argsstring>(T value_Hz)</argsstring>
+        <name>from_Hz</name>
+        <param>
+          <type>T</type>
+          <declname>value_Hz</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <computeroutput><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></computeroutput> object from its value in hertz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if:<itemizedlist>
+<listitem><para>the sampling rate is zero, or</para>
+</listitem><listitem><para>it is not a multiple of 15kHz.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type convertible to <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">value_Hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling rate in hertz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="108" column="24" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="108" bodyend="112"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1abbcc071bb9157bd5a3075c7132397edc">sampling_rate</references>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1a63e5fac6de23b660aaa374dfe353a92d" compoundref="sampling__rate_8h" startline="123" endline="126">from_kHz</referencedby>
+        <referencedby refid="classsrsgnb_1_1sampling__rate_1aaab415e53408be0a2ff25678f15c7f21" compoundref="sampling__rate_8h" startline="137" endline="140">from_MHz</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1a63e5fac6de23b660aaa374dfe353a92d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></type>
+        <definition>static sampling_rate srsgnb::sampling_rate::from_kHz</definition>
+        <argsstring>(T value_kHz)</argsstring>
+        <name>from_kHz</name>
+        <param>
+          <type>T</type>
+          <declname>value_kHz</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <computeroutput><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></computeroutput> object from its value in kHz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if:<itemizedlist>
+<listitem><para>the sampling rate is zero, or</para>
+</listitem><listitem><para>it is not multiple of 15kHz.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type convertible to <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">value_kHz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling rate in kHz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="123" column="24" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="123" bodyend="126"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1aaf0438dee2d045e89d10a51b5bb5a12e" compoundref="sampling__rate_8h" startline="108" endline="112">from_Hz</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1aaab415e53408be0a2ff25678f15c7f21" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></type>
+        <definition>static sampling_rate srsgnb::sampling_rate::from_MHz</definition>
+        <argsstring>(T value_MHz)</argsstring>
+        <name>from_MHz</name>
+        <param>
+          <type>T</type>
+          <declname>value_MHz</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <computeroutput><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></computeroutput> object from its value in MHz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if:<itemizedlist>
+<listitem><para>the sampling rate is zero, or</para>
+</listitem><listitem><para>it is not multiple of 15kHz.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any type convertible to <ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">value_MHz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling rate in Mhz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="137" column="24" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="137" bodyend="140"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1aaf0438dee2d045e89d10a51b5bb5a12e" compoundref="sampling__rate_8h" startline="108" endline="112">from_Hz</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sampling__rate_1acdd1326f5f2f99ec555fae6f6a0c2eea" prot="private" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::sampling_rate::sampling_rate</definition>
+        <argsstring>(value_type value_)</argsstring>
+        <name>sampling_rate</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" kindref="member">value_type</ref></type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+<para>Private constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/sampling_rate.h" line="144" column="22" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="144" bodyend="147"/>
+        <references refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" compoundref="sampling__rate_8h" startline="39" endline="46">is_valid</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sampling rate. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class abstracts the concept of sampling rate from its units of measure. Specifically, the sampling rate is stored, privately, in a convenient representation and it can be accessed by getter and setter methods that automatically convert the sampling rate to and from, respectively, the desired representation/unit of measure. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::sampling_rate</label>
+        <link refid="classsrsgnb_1_1sampling__rate"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/sampling_rate.h" line="25" column="1" bodyfile="include/srsgnb/phy/lower/sampling_rate.h" bodystart="24" bodyend="151"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sampling__rate_1aaf0438dee2d045e89d10a51b5bb5a12e" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>from_Hz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a63e5fac6de23b660aaa374dfe353a92d" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>from_kHz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1aaab415e53408be0a2ff25678f15c7f21" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>from_MHz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a1ad27c3aa62938dfc3f427d778d076c9" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>get_dft_size</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1abde3f93b5960c97499480079a941c3d1" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>get_dft_size</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1aa47f3e4d894936ffaab99d4faed5c2af" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>is_valid</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1aaaf5a287cf943a68feee6392e425370c" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>is_valid</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1abbcc071bb9157bd5a3075c7132397edc" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>sampling_rate</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1acdd1326f5f2f99ec555fae6f6a0c2eea" prot="private" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>sampling_rate</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a379f90b26114f0dd517716f698afa749" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>to_Hz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1ab475a751b1de2dd64a1ed48a621bda8d" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>to_kHz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a46e20beea4d692d9e0fa74995af32748" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>to_MHz</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a9b5ba21f2e6f5b82ebc91ce68f01beb1" prot="private" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>value</name></member>
+      <member refid="classsrsgnb_1_1sampling__rate_1a48b22079b01098f9e77dfddb62cd6efb" prot="public" virt="non-virtual"><scope>srsgnb::sampling_rate</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

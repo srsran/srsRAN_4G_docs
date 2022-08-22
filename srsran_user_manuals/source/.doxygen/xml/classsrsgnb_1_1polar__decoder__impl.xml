@@ -1,0 +1,626 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__decoder__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::polar_decoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1polar__decoder" prot="public" virt="non-virtual">srsgnb::polar_decoder</basecompoundref>
+    <includes refid="polar__decoder__impl_8h" local="no">polar_decoder_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s" prot="private">srsgnb::polar_decoder_impl::params_s</innerclass>
+    <innerclass refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s" prot="private">srsgnb::polar_decoder_impl::state_s</innerclass>
+    <innerclass refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s" prot="private">srsgnb::polar_decoder_impl::tmp_node_s</innerclass>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96" prot="private" static="no" strong="no">
+        <type>uint8_t</type>
+        <name>node_rate</name>
+        <enumvalue id="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96afc55273e974b456b5ae94a56bb910b2c" prot="private">
+          <name>RATE_0</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>See function <ref refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" kindref="member">rate_0_node()</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96a8de7d280746b003e2d86cfaef541415c" prot="private">
+          <name>RATE_R</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>See function <ref refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" kindref="member">rate_r_node()</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96ab0d4b8031a43337bf349e61dec1e13b5" prot="private">
+          <name>RATE_1</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>See function <ref refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" kindref="member">rate_1_node()</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of node in an SSC decoder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="29" column="17" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="29" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1ad8d45ebff14608c56c30d4927a83a87e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+        <definition>srsvec::aligned_vec&lt;log_likelihood_ratio&gt; srsgnb::polar_decoder_impl::llr_alloc</definition>
+        <argsstring></argsstring>
+        <name>llr_alloc</name>
+        <briefdescription>
+<para>LLR values for stage 0 (i.e., received LLRs). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="85" column="23" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="85" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> * &gt;</type>
+        <definition>std::vector&lt;log_likelihood_ratio*&gt; srsgnb::polar_decoder_impl::llr0</definition>
+        <argsstring></argsstring>
+        <name>llr0</name>
+        <briefdescription>
+<para>Pointers to the upper half of the LLR values for all stages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="87" column="15" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="87" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> * &gt;</type>
+        <definition>std::vector&lt;log_likelihood_ratio*&gt; srsgnb::polar_decoder_impl::llr1</definition>
+        <argsstring></argsstring>
+        <name>llr1</name>
+        <briefdescription>
+<para>Pointers to the lower half of LLR values for all stages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="89" column="15" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; uint8_t &gt;</type>
+        <definition>srsvec::aligned_vec&lt;uint8_t&gt; srsgnb::polar_decoder_impl::est_bit</definition>
+        <argsstring></argsstring>
+        <name>est_bit</name>
+        <briefdescription>
+<para>Temporary estimated bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="91" column="23" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="91" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s" kindref="compound">params_s</ref></type>
+        <definition>params_s srsgnb::polar_decoder_impl::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <briefdescription>
+<para>Decoder inner parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="93" column="12" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="93" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" compoundref="polar__decoder__impl_8cpp" startline="193" endline="209">rate_0_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s" kindref="compound">state_s</ref></type>
+        <definition>state_s srsgnb::polar_decoder_impl::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+<para>Decoder state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="95" column="11" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="95" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" compoundref="polar__decoder__impl_8cpp" startline="116" endline="161">polar_decoder_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" compoundref="polar__decoder__impl_8cpp" startline="193" endline="209">rate_0_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a039bff0e7ecb9eba499a9c66502251a8" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s" kindref="compound">tmp_node_s</ref></type>
+        <definition>tmp_node_s srsgnb::polar_decoder_impl::tmp_node_type</definition>
+        <argsstring></argsstring>
+        <name>tmp_node_type</name>
+        <briefdescription>
+<para>Node type manager. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="97" column="14" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="97" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__decoder__impl_1a763eecd770cae60aa980822ed7265868" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__encoder" kindref="compound">polar_encoder</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_encoder&gt; srsgnb::polar_decoder_impl::enc</definition>
+        <argsstring></argsstring>
+        <name>enc</name>
+        <briefdescription>
+<para>A polar encoder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="99" column="19" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::init</definition>
+        <argsstring>(span&lt; uint8_t &gt; data_decoded, span&lt; const log_likelihood_ratio &gt; input_llr, uint8_t code_size_log, span&lt; const uint16_t &gt; frozen_set)</argsstring>
+        <name>init</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data_decoded</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input_llr</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>code_size_log</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint16_t &gt;</type>
+          <declname>frozen_set</declname>
+        </param>
+        <briefdescription>
+<para>Polar decoder initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes internal parameters and registers. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data_decoded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register for writing the decoded data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input_llr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input codeblock as a sequence of log-likelihood ratios. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">code_size_log</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Codeblock size (binary logarithm thereof). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">frozen_set</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indices of the frozen bits. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="108" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="163" bodyend="191"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" compoundref="polar__decoder__impl_8h" startline="41">srsgnb::polar_decoder_impl::params_s::code_size_log</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" compoundref="polar__decoder__impl_8h" startline="43">srsgnb::polar_decoder_impl::params_s::code_stage_size</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" compoundref="polar__decoder__impl_8h" startline="91">est_bit</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" compoundref="polar__decoder__impl_8h" startline="87">llr0</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" compoundref="polar__decoder__impl_8h" startline="89">llr1</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" compoundref="polar__decoder__impl_8h" startline="53">srsgnb::polar_decoder_impl::state_s::stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" compoundref="polar__decoder__impl_8h" startline="55">srsgnb::polar_decoder_impl::state_s::flag_finished</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a039bff0e7ecb9eba499a9c66502251a8" compoundref="polar__decoder__impl_8h" startline="97">tmp_node_type</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a5b030ae5e928a39180d1825884b17c6b" compoundref="polar__decoder__impl_8cpp" startline="73" endline="114">srsgnb::polar_decoder_impl::tmp_node_s::compute</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" compoundref="polar__decoder__impl_8h" startline="47">srsgnb::polar_decoder_impl::params_s::node_type</references>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" compoundref="polar__decoder__impl_8cpp" startline="318" endline="327">decode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::rate_0_node</definition>
+        <argsstring>()</argsstring>
+        <name>rate_0_node</name>
+        <briefdescription>
+<para>Updates a RATE_0 node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>All decoded bits below a <ulink url="#polar_decoder_impl::node_rate">RATE_0</ulink> node are 0. The function updates the <emphasis>p-&gt;state-&gt;active_node_per_stage</emphasis> pointer to point to the next active node. It is assumed that message bits are initialized to 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="118" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="193" bodyend="209"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" compoundref="polar__decoder__impl_8h" startline="41">srsgnb::polar_decoder_impl::params_s::code_size_log</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" compoundref="polar__decoder__impl_8h" startline="43">srsgnb::polar_decoder_impl::params_s::code_stage_size</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" compoundref="polar__decoder__impl_8h" startline="53">srsgnb::polar_decoder_impl::state_s::stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" compoundref="polar__decoder__impl_8h" startline="55">srsgnb::polar_decoder_impl::state_s::flag_finished</references>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::rate_1_node</definition>
+        <argsstring>(span&lt; uint8_t &gt; data_decoded)</argsstring>
+        <name>rate_1_node</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data_decoded</declname>
+        </param>
+        <briefdescription>
+<para>Updates a RATE_1 node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ulink url="#polar_decoder_impl::node_rate">RATE_1</ulink> nodes at stage <formula id="216">$ s $</formula> return the associated <formula id="217">$2^s$</formula> estimated bits by making a hard decision on them. RATE_1 nodes also update message bits vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="124" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="211" bodyend="241"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" compoundref="polar__decoder__impl_8h" startline="53">srsgnb::polar_decoder_impl::state_s::stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" compoundref="polar__decoder__impl_8h" startline="43">srsgnb::polar_decoder_impl::params_s::code_stage_size</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" compoundref="polar__decoder__impl_8h" startline="41">srsgnb::polar_decoder_impl::params_s::code_size_log</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" compoundref="polar__decoder__impl_8h" startline="91">est_bit</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" compoundref="polar__decoder__impl_8h" startline="87">llr0</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a763eecd770cae60aa980822ed7265868" compoundref="polar__decoder__impl_8h" startline="99">enc</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" compoundref="polar__decoder__impl_8h" startline="55">srsgnb::polar_decoder_impl::state_s::flag_finished</references>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::rate_r_node</definition>
+        <argsstring>(span&lt; uint8_t &gt; data_decoded)</argsstring>
+        <name>rate_r_node</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data_decoded</declname>
+        </param>
+        <briefdescription>
+<para>Updates a RATE_R node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>RATE_R nodes at stage <formula id="216">$ s $</formula> return the associated <formula id="217">$2^s$</formula> decoded bit by calling the child nodes to the right and left of the decoding tree and then polar encoding (xor) their output. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="130" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="243" bodyend="291"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" compoundref="polar__decoder__impl_8h" startline="53">srsgnb::polar_decoder_impl::state_s::stage</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" compoundref="polar__decoder__impl_8h" startline="43">srsgnb::polar_decoder_impl::params_s::code_stage_size</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" compoundref="polar__decoder__impl_8h" startline="87">llr0</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" compoundref="polar__decoder__impl_8h" startline="89">llr1</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" compoundref="polar__decoder__impl_8h" startline="55">srsgnb::polar_decoder_impl::state_s::flag_finished</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" compoundref="polar__decoder__impl_8h" startline="91">est_bit</references>
+        <references refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" compoundref="span_8h" startline="176" endline="176">srsgnb::span&lt; T &gt;::data</references>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::simplified_node</definition>
+        <argsstring>(span&lt; uint8_t &gt; data_decoded)</argsstring>
+        <name>simplified_node</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data_decoded</declname>
+        </param>
+        <briefdescription>
+<para>Node processing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Switches between the different <ulink url="#polar_decoder_impl::node_rate">types of node</ulink> for the SSC algorithm. Nodes in the decoding tree at stage <formula id="218">$ s$</formula> get the <formula id="217">$2^s$</formula> LLRs from the parent node and return the associated <formula id="217">$2^s$</formula> estimated bits. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="137" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="293" bodyend="316"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" compoundref="polar__decoder__impl_8h" startline="53">srsgnb::polar_decoder_impl::state_s::stage</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" compoundref="polar__decoder__impl_8h" startline="47">srsgnb::polar_decoder_impl::params_s::node_type</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96ab0d4b8031a43337bf349e61dec1e13b5" compoundref="polar__decoder__impl_8h" startline="35">RATE_1</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" compoundref="polar__decoder__impl_8cpp" startline="211" endline="241">rate_1_node</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96afc55273e974b456b5ae94a56bb910b2c" compoundref="polar__decoder__impl_8h" startline="31">RATE_0</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" compoundref="polar__decoder__impl_8cpp" startline="193" endline="209">rate_0_node</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96a8de7d280746b003e2d86cfaef541415c" compoundref="polar__decoder__impl_8h" startline="33">RATE_R</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</references>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" compoundref="polar__decoder__impl_8cpp" startline="243" endline="291">rate_r_node</referencedby>
+        <referencedby refid="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" compoundref="polar__decoder__impl_8cpp" startline="318" endline="327">decode</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>polar_decoder_impl::polar_decoder_impl</definition>
+        <argsstring>(std::unique_ptr&lt; polar_encoder &gt; enc_, uint8_t nMax)</argsstring>
+        <name>polar_decoder_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__encoder" kindref="compound">polar_encoder</ref> &gt;</type>
+          <declname>enc_</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>nMax</declname>
+        </param>
+        <briefdescription>
+<para>Polar decoder initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes all the polar decoder variables according to the Simplified Successive Cancellation (SSC) decoder algorithm and the maximum given code size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">enc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A polar encoder. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">code_size_log</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <formula id="14">$ log_2$</formula> of the number of bits of the decoder input/output vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A unique pointer to the initialized SSC polar decoder. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="148" column="3" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="116" bodyend="161"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" compoundref="polar__decoder__impl_8h" startline="93">param</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" compoundref="polar__decoder__impl_8h" startline="43">srsgnb::polar_decoder_impl::params_s::code_stage_size</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" compoundref="polar__decoder__impl_8h" startline="95">state</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" compoundref="polar__decoder__impl_8h" startline="57">srsgnb::polar_decoder_impl::state_s::active_node_per_stage</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" compoundref="polar__decoder__impl_8h" startline="91">est_bit</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" compoundref="polar__decoder__impl_8h" startline="87">llr0</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" compoundref="polar__decoder__impl_8h" startline="89">llr1</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1ad8d45ebff14608c56c30d4927a83a87e" compoundref="polar__decoder__impl_8h" startline="85">llr_alloc</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a99cee7a5bd9219e4e930f16aa8f80e95" compoundref="polar__decoder__impl_8h" startline="45">srsgnb::polar_decoder_impl::params_s::node_type_alloc</references>
+        <references refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" compoundref="polar__decoder__impl_8h" startline="47">srsgnb::polar_decoder_impl::params_s::node_type</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void polar_decoder_impl::decode</definition>
+        <argsstring>(span&lt; uint8_t &gt; data_decoded, span&lt; const log_likelihood_ratio &gt; input_llr, const polar_code &amp;code) override</argsstring>
+        <name>decode</name>
+        <reimplements refid="classsrsgnb_1_1polar__decoder_1ac6f92f84f945961f150ffb3fc0729c80">decode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data_decoded</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input_llr</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref> &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Decodes the input (LLR) codeword with the specified polar decoder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">data_decoded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder output vector. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input_llr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder LLR input vector. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Polar code descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="151" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="318" bodyend="327"/>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" compoundref="polar__decoder__impl_8cpp" startline="163" endline="191">init</references>
+        <references refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" compoundref="polar__decoder__impl_8cpp" startline="293" endline="316">simplified_node</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Polar decoder implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Generic polar decoder according to the specifications of TS38.212 Section 5.3.1. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::polar_decoder_impl</label>
+        <link refid="classsrsgnb_1_1polar__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::polar_decoder</label>
+        <link refid="classsrsgnb_1_1polar__decoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>srsgnb::span&lt; srsgnb::log_likelihood_ratio &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="10">
+        <label>srsgnb::span&lt; uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_decoder_impl</label>
+        <link refid="classsrsgnb_1_1polar__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-state</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-param</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-llr_alloc</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-tmp_node_type</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-est_bit</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::srsvec::aligned_vec&lt; srsgnb::log_likelihood_ratio &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::srsvec::aligned_vec&lt; uint16_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::srsvec::aligned_vec&lt; uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::polar_decoder_impl::tmp_node_s</label>
+        <link refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+is_rate_1</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+i_odd</edgelabel>
+          <edgelabel>+i_even</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>+is_not_rate_0</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::polar_decoder_impl::params_s</label>
+        <link refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+code_stage_size</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::polar_decoder_impl::state_s</label>
+        <link refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+active_node_per_stage</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::polar_decoder</label>
+        <link refid="classsrsgnb_1_1polar__decoder"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::span&lt; uint16_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" line="26" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.h" bodystart="25" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" prot="public" virt="virtual"><scope>srsgnb::polar_decoder_impl</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a763eecd770cae60aa980822ed7265868" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>enc</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>est_bit</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>llr0</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>llr1</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1ad8d45ebff14608c56c30d4927a83a87e" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>llr_alloc</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>node_rate</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>param</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" prot="public" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>polar_decoder_impl</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96afc55273e974b456b5ae94a56bb910b2c" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>RATE_0</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>rate_0_node</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96ab0d4b8031a43337bf349e61dec1e13b5" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>RATE_1</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>rate_1_node</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96a8de7d280746b003e2d86cfaef541415c" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>RATE_R</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>rate_r_node</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>simplified_node</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>state</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder__impl_1a039bff0e7ecb9eba499a9c66502251a8" prot="private" virt="non-virtual"><scope>srsgnb::polar_decoder_impl</scope><name>tmp_node_type</name></member>
+      <member refid="classsrsgnb_1_1polar__decoder_1ace2b5993d4fe3d8ed1a84a6d6b11c158" prot="public" virt="virtual"><scope>srsgnb::polar_decoder_impl</scope><name>~polar_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

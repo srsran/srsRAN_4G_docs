@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__detector__simple__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::prach_detector_simple_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1prach__detector" prot="public" virt="non-virtual">srsgnb::prach_detector</basecompoundref>
+    <includes refid="prach__detector__simple__impl_8h" local="no">prach_detector_simple_impl.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__detector__simple__impl_1a88344b790a376174d38504bf63e8a4fe" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float srsgnb::prach_detector_simple_impl::DETECTION_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DETECTION_THRESHOLD</name>
+        <initializer>= 0.1F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="28" column="26" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__detector__simple__impl_1a69f01753a63bfa0ea18e638bb3ac2460" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;dft_processor&gt; srsgnb::prach_detector_simple_impl::idft</definition>
+        <argsstring></argsstring>
+        <name>idft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="30" column="21" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__detector__simple__impl_1a8aadadd047628e8b84e3f978415d0038" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1prach__generator" kindref="compound">prach_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;prach_generator&gt; srsgnb::prach_detector_simple_impl::generator</definition>
+        <argsstring></argsstring>
+        <name>generator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="31" column="19" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__detector__simple__impl_1af1d7556ec53ca09ac40ec44e0cf4d9d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::prach_detector_simple_impl::prach_detector_simple_impl</definition>
+        <argsstring>(std::unique_ptr&lt; dft_processor &gt; idft_, std::unique_ptr&lt; prach_generator &gt; generator_)</argsstring>
+        <name>prach_detector_simple_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+          <declname>idft_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1prach__generator" kindref="compound">prach_generator</ref> &gt;</type>
+          <declname>generator_</declname>
+        </param>
+        <briefdescription>
+<para>Constructor - Acquires ownership of the internal components. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idft_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inverse DFT processor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">generator_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH frequency-domain sequence generator. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="37" column="3" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" bodystart="37" bodyend="46"/>
+        <references refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431fa1955bdc302911f376074eb9b02e56639">srsgnb::dft_processor::INVERSE</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__detector__simple__impl_1af439ed4a39c98d672be9afd14d863f3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1prach__detection__result" kindref="compound">prach_detection_result</ref></type>
+        <definition>prach_detection_result prach_detector_simple_impl::detect</definition>
+        <argsstring>(const prach_buffer &amp;input, const configuration &amp;config) override</argsstring>
+        <name>detect</name>
+        <reimplements refid="classsrsgnb_1_1prach__detector_1a2ee478093937ee13f0189f8ceb064e7f">detect</reimplements>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__detector_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Detects PRACH transmissions according to the given configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The PRACH detector assumes that <computeroutput>signal</computeroutput> is captured at the start of the PRACH reception window and it is at least as long as the PRACH preamble sequence.</para>
+<para>An assertion is triggered if the sum of start preamble index and number of preambles exceeds 64.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Baseband signal buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH configuration for the slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The detection result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="49" column="26" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.cpp" bodystart="22" bodyend="117"/>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1a3f9c3a42e80c7284876447fe4d9257dc" compoundref="prach__detector_8h" startline="38">srsgnb::prach_detector::configuration::start_preamble_index</references>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1afaa829626618631bd374b996626f2ffc" compoundref="prach__detector_8h" startline="41">srsgnb::prach_detector::configuration::nof_preamble_indices</references>
+        <references refid="namespacesrsgnb_1a7b1cf34a338e96f95b01b1569c2cb014" compoundref="prach__preamble__information_8cpp" startline="15" endline="45">srsgnb::get_prach_preamble_long_info</references>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1a052be765fcd4b68daa15619214f50dc7" compoundref="prach__detector_8h" startline="32">srsgnb::prach_detector::configuration::format</references>
+        <references refid="classsrsgnb_1_1prach__buffer_1a38d91ce65126d3deb15f1c0a775c3de5">srsgnb::prach_buffer::get_sequence_length</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" compoundref="prach__preamble__information_8h" startline="24">srsgnb::prach_preamble_information::sequence_length</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1aca9f183785e4cf0ad35575f928854b1e" compoundref="prach__preamble__information_8h" startline="26">srsgnb::prach_preamble_information::scs</references>
+        <references refid="classsrsgnb_1_1prach__subcarrier__spacing_1a04728cf26656e0cef59be695d5b0df2c" compoundref="prach__subcarrier__spacing_8h" startline="33" endline="50">srsgnb::prach_subcarrier_spacing::to_Hz</references>
+        <references refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" compoundref="math__utils_8h" startline="34" endline="38">srsgnb::divide_ceil</references>
+        <references refid="classsrsgnb_1_1prach__buffer_1a750234bb9365a62b88e2bd1ba09ad354">srsgnb::prach_buffer::get_symbol</references>
+        <references refid="namespacesrsgnb_1aab05139ce9d3b553e76c65aa02598fd6" compoundref="math__utils_8h" startline="102" endline="105">srsgnb::convert_power_to_dB</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" compoundref="phy__time__unit_8h" startline="149" endline="152">srsgnb::phy_time_unit::from_seconds</references>
+        <references refid="structsrsgnb_1_1prach__generator_1_1configuration_1af310b58bd4e1af07f9db957586f45f7d" compoundref="prach__generator_8h" startline="31">srsgnb::prach_generator::configuration::format</references>
+        <references refid="structsrsgnb_1_1prach__generator_1_1configuration_1aaafa435ef7fa9a214ee0e181381163a8" compoundref="prach__generator_8h" startline="37">srsgnb::prach_generator::configuration::root_sequence_index</references>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1aa6f7ab6043b8c1eb84de445735fd2eb2" compoundref="prach__detector_8h" startline="30">srsgnb::prach_detector::configuration::root_sequence_index</references>
+        <references refid="structsrsgnb_1_1prach__generator_1_1configuration_1afda2c67c6d41820f0867746ffc6e96e2" compoundref="prach__generator_8h" startline="39">srsgnb::prach_generator::configuration::preamble_index</references>
+        <references refid="structsrsgnb_1_1prach__generator_1_1configuration_1a1cdbb3f9ac048309edf2f35486cbddfc" compoundref="prach__generator_8h" startline="41">srsgnb::prach_generator::configuration::restricted_set</references>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1a426d6659a65b32974a1221849e9a07d1" compoundref="prach__detector_8h" startline="34">srsgnb::prach_detector::configuration::restricted_set</references>
+        <references refid="structsrsgnb_1_1prach__generator_1_1configuration_1ad75ad0ec0008fd1e8543a5b1558a0299" compoundref="prach__generator_8h" startline="43">srsgnb::prach_generator::configuration::zero_correlation_zone</references>
+        <references refid="structsrsgnb_1_1prach__detector_1_1configuration_1ad8bbd9d08f40fd5e4613edf269c457ef" compoundref="prach__detector_8h" startline="36">srsgnb::prach_detector::configuration::zero_correlation_zone</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" compoundref="span_8h" startline="200" endline="204">srsgnb::span&lt; T &gt;::last</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements a simple PRACH detector. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Detects PRACH sequences in frequency-domain buffers using a matched filter correlation. It determines the detection from the ratio of the frequency-domain correlation maximum value and the input buffer average power. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::prach_detector_simple_impl</label>
+        <link refid="classsrsgnb_1_1prach__detector__simple__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::prach_detector</label>
+        <link refid="classsrsgnb_1_1prach__detector"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::prach_detector_simple_impl</label>
+        <link refid="classsrsgnb_1_1prach__detector__simple__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::prach_detector</label>
+        <link refid="classsrsgnb_1_1prach__detector"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" line="27" column="1" bodyfile="lib/phy/upper/channel_processors/prach_detector_simple_impl.h" bodystart="26" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__detector__simple__impl_1af439ed4a39c98d672be9afd14d863f3a" prot="public" virt="virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>detect</name></member>
+      <member refid="classsrsgnb_1_1prach__detector__simple__impl_1a88344b790a376174d38504bf63e8a4fe" prot="private" virt="non-virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>DETECTION_THRESHOLD</name></member>
+      <member refid="classsrsgnb_1_1prach__detector__simple__impl_1a8aadadd047628e8b84e3f978415d0038" prot="private" virt="non-virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>generator</name></member>
+      <member refid="classsrsgnb_1_1prach__detector__simple__impl_1a69f01753a63bfa0ea18e638bb3ac2460" prot="private" virt="non-virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>idft</name></member>
+      <member refid="classsrsgnb_1_1prach__detector__simple__impl_1af1d7556ec53ca09ac40ec44e0cf4d9d2" prot="public" virt="non-virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>prach_detector_simple_impl</name></member>
+      <member refid="classsrsgnb_1_1prach__detector_1ac742aebe8704ec7af937e50a92e9d2e8" prot="public" virt="virtual"><scope>srsgnb::prach_detector_simple_impl</scope><name>~prach_detector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

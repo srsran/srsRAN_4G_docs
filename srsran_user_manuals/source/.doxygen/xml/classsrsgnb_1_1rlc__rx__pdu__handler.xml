@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rlc__rx__pdu__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::rlc_rx_pdu_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1rlc__rx__entity" prot="public" virt="non-virtual">srsgnb::rlc_rx_entity</derivedcompoundref>
+    <includes refid="rlc_8h" local="no">rlc.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__rx__pdu__handler_1add1f9790ee4d86883068a513a707f26c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::rlc_rx_pdu_handler::~rlc_rx_pdu_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~rlc_rx_pdu_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="26" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__rx__pdu__handler_1a7b32dd075bf48bbc4ebccb883f954828" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rlc_rx_pdu_handler::handle_pdu</definition>
+        <argsstring>(byte_buffer_slice pdu)=0</argsstring>
+        <name>handle_pdu</name>
+        <reimplementedby refid="classsrsgnb_1_1rlc__rx__tm__entity_1ad7a4a0be7db2ad45d7e187e410251b89">handle_pdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1rlc__rx__am__entity_1a0c1337a3905adaa6b656917f94573046">handle_pdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1rlc__rx__um__entity_1aa36a54c5e07b384f952e9c2eecc779c0">handle_pdu</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__slice" kindref="compound">byte_buffer_slice</ref></type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="29" column="16"/>
+        <referencedby refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1ab32edf66bfda7b6770b60cdd1cca37a5" compoundref="mac__adapters_8h" startline="24" endline="24">srsgnb::srs_du::mac_sdu_rx_adapter::on_new_sdu</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface represents the data entry point of the receiving side of a RLC entity. The lower-layers will use this class to pass PDUs into the RLC. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>srsgnb::rlc_rx_am_entity</label>
+        <link refid="classsrsgnb_1_1rlc__rx__am__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::rlc_rx_um_entity</label>
+        <link refid="classsrsgnb_1_1rlc__rx__um__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::rlc_rx_entity</label>
+        <link refid="classsrsgnb_1_1rlc__rx__entity"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_rx_pdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__rx__pdu__handler"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::rlc_rx_tm_entity</label>
+        <link refid="classsrsgnb_1_1rlc__rx__tm__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rlc_rx_pdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__rx__pdu__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/rlc/rlc.h" line="24" column="1" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="23" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rlc__rx__pdu__handler_1a7b32dd075bf48bbc4ebccb883f954828" prot="public" virt="pure-virtual"><scope>srsgnb::rlc_rx_pdu_handler</scope><name>handle_pdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__rx__pdu__handler_1add1f9790ee4d86883068a513a707f26c" prot="public" virt="virtual"><scope>srsgnb::rlc_rx_pdu_handler</scope><name>~rlc_rx_pdu_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

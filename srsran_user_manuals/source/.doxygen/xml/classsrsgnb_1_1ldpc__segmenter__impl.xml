@@ -1,0 +1,571 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__segmenter__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_segmenter_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__segmenter__tx" prot="public" virt="non-virtual">srsgnb::ldpc_segmenter_tx</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__segmenter__rx" prot="public" virt="non-virtual">srsgnb::ldpc_segmenter_rx</basecompoundref>
+    <includes refid="ldpc__segmenter__impl_8h" local="no">ldpc_segmenter_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc" prot="public">srsgnb::ldpc_segmenter_impl::sch_crc</innerclass>
+    <innerclass refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal" prot="private">srsgnb::ldpc_segmenter_impl::segment_internal</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Attributes relative to TS38.212 Section 5.2.2.</header>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a753702a420a9b85804db964fb813d8fc" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::segment_length</definition>
+        <argsstring></argsstring>
+        <name>segment_length</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Final length of a segment (corresponds to <formula id="152">$K$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="114" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a0329103b42dce4f2725bc605409aef93" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::nof_tb_bits_in</definition>
+        <argsstring></argsstring>
+        <name>nof_tb_bits_in</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of bits in the transport block (corresponds to <formula id="36">$B$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="116" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a963307101407721354b8f4e8b48e71fc" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::nof_tb_bits_out</definition>
+        <argsstring></argsstring>
+        <name>nof_tb_bits_out</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Augmented number of bits in the transport block, including new CRCs (corresponds to <formula id="209">$B&apos;$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="118" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a8e9a5979e41fa0577b01a182b1dae442" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::nof_segments</definition>
+        <argsstring></argsstring>
+        <name>nof_segments</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of segments resulting from the transport block (corresponds to <formula id="210">$C$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="120" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Attributes relative to TS38.212 Section 5.4.2.1.</header>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a17a1e55ab5d0247c7f2395dafc9f4b60" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::nof_symbols_per_layer</definition>
+        <argsstring></argsstring>
+        <name>nof_symbols_per_layer</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of symbols per transmission layer (corresponds to <formula id="211">$G / (N_L Q_m)$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="127" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a6d333019338f989f4371826e167ca687" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::nof_short_segments</definition>
+        <argsstring></argsstring>
+        <name>nof_short_segments</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of segments of short rate-matched length (corresponds to <formula id="212">$C - \bigr(\bigl(G / (N_L Q_m)\bigr) \bmod C\bigr)$</formula>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="130" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a58d0a93bb0e3bf032ca97ceeb4c6487b" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; uint8_t, <ref refid="namespacesrsgnb_1a552cef0a747eb50da9d0be2f6af103c8" kindref="member">MAX_TBS</ref> &gt;</type>
+        <definition>static_vector&lt;uint8_t, MAX_TBS&gt; srsgnb::ldpc_segmenter_impl::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+<para>Internal temporary buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="103" column="17" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a451ed0315201bb89cdc5b8a91f38c7a0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1aef8df2da7a55cf1ada5a749a6433330c" kindref="member">ldpc_base_graph_type</ref></type>
+        <definition>ldpc_base_graph_type srsgnb::ldpc_segmenter_impl::base_graph</definition>
+        <argsstring></argsstring>
+        <name>base_graph</name>
+        <initializer>= ldpc_base_graph_type::BG1</initializer>
+        <briefdescription>
+<para>Base graph used for encoding/decoding the current transport block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="106" column="24" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1ade9d64ae45b7fbb70290d19c66fd428a" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_segmenter_impl::lifting_size</definition>
+        <argsstring></argsstring>
+        <name>lifting_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Lifting size used for encoding/decoding the current transport block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="108" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__segmenter__impl_1a53182c7efda0bef32722d88e5ed72d28" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc" kindref="compound">sch_crc</ref></type>
+        <definition>sch_crc srsgnb::ldpc_segmenter_impl::crc_set</definition>
+        <argsstring></argsstring>
+        <name>crc_set</name>
+        <briefdescription>
+<para>CRC calculators for transport-block and segment-specific checksums. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="134" column="11" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1ac9b94cc668575c6fb122b3d8d7b5a0ca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__segmenter__tx" kindref="compound">ldpc_segmenter_tx</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; ldpc_segmenter_tx &gt; ldpc_segmenter_impl::create_ldpc_segmenter_impl_tx</definition>
+        <argsstring>(sch_crc &amp;)</argsstring>
+        <name>create_ldpc_segmenter_impl_tx</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc" kindref="compound">sch_crc</ref> &amp;</type>
+          <defname>c</defname>
+        </param>
+        <briefdescription>
+<para>Wraps the constructor of the Tx version of the LDPC segmenter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="44" column="26" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="26" bodyend="36"/>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a310a5913aa1f5481cd90c37a65fa29fa" compoundref="ldpc__segmenter__impl_8h" startline="36">srsgnb::ldpc_segmenter_impl::sch_crc::crc16</references>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a1d71899dcfd256a45d102c958984cea2" compoundref="ldpc__segmenter__impl_8h" startline="38">srsgnb::ldpc_segmenter_impl::sch_crc::crc24A</references>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1afe624b05a826755669d29095d1f0095c" compoundref="ldpc__segmenter__impl_8h" startline="40">srsgnb::ldpc_segmenter_impl::sch_crc::crc24B</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1ab902ba9d2a109cc9d7b56476e4363f8a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__segmenter__rx" kindref="compound">ldpc_segmenter_rx</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; ldpc_segmenter_rx &gt; ldpc_segmenter_impl::create_ldpc_segmenter_impl_rx</definition>
+        <argsstring>()</argsstring>
+        <name>create_ldpc_segmenter_impl_rx</name>
+        <briefdescription>
+<para>Wraps the constructor of the Rx version of the LDPC segmenter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The receive-chain version of the segmenter does not need CRC calculators. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="48" column="26" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_segmenter_impl::segment</definition>
+        <argsstring>(static_vector&lt; described_segment, MAX_NOF_SEGMENTS &gt; &amp;described_segments, span&lt; const uint8_t &gt; transport_block, const segmenter_config &amp;cfg) override</argsstring>
+        <name>segment</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__segmenter__tx_1a3d9629affea42304538aded797e2ab06">segment</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1ad41ed02f6daa58503e9ea995271fac42" kindref="member">described_segment</ref>, <ref refid="namespacesrsgnb_1a64a27ddc884f4517e79d5435a337e554" kindref="member">MAX_NOF_SEGMENTS</ref> &gt; &amp;</type>
+          <declname>described_segments</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>transport_block</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Adds the CRC to the a transport block, carries out segmentation and computes all codeblock metadata for later use (encoder and rate matching). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>First, the transport block CRC is attached, as per TS38.212 Section 7.2.1. Then, the transport block is split into a number of segments and, if needed, a CRC is attached to each segment_tx. This is done according to TS38.212 Section 5.2.2. The function also computes other segment_tx metadata (e.g., coded and rate-matched length) according to TS38.212 Section 5.4.2.1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">described_segments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Segments (unpacked, one bit per entry) and corresponding metadata. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">transport_block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transport block to segment_tx (packed, one byte per entry). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters affecting splitting and codeblock metadata. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="52" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="133" bodyend="209"/>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab487592b6cd65f8bf5f6af724b9434a4" compoundref="codeblock__metadata_8h" startline="98">srsgnb::segmenter_config::base_graph</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1crc__calculator_1a903204d4a874c9e094f516107331c24a">srsgnb::crc_calculator::calculate_byte</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1aa95f3b61800c887aad3883b3df8107c4" compoundref="ldpc_8h" startline="104" endline="115">srsgnb::ldpc::compute_nof_codeblocks</references>
+        <references refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" compoundref="math__utils_8h" startline="34" endline="38">srsgnb::divide_ceil</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" compoundref="codeblock__metadata_8h" startline="109">srsgnb::segmenter_config::nof_ch_symbols</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" compoundref="codeblock__metadata_8h" startline="107">srsgnb::segmenter_config::nof_layers</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" compoundref="codeblock__metadata_8h" startline="102">srsgnb::segmenter_config::mod</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" compoundref="codeblock__metadata_8h" startline="65">srsgnb::codeblock_metadata::cb_specific</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" compoundref="codeblock__metadata_8h" startline="53">srsgnb::codeblock_metadata::cb_specific_metadata::rm_length</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a75d65c4074bcbe5c3931bfa3544154a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_segmenter_impl::segment</definition>
+        <argsstring>(static_vector&lt; described_rx_codeblock, MAX_NOF_SEGMENTS &gt; &amp;described_codeblocks, span&lt; const log_likelihood_ratio &gt; codeword_llrs, unsigned tbs, const segmenter_config &amp;cfg) override</argsstring>
+        <name>segment</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__segmenter__rx_1ab1b2c52ad941ff20db66fbaea059ad28">segment</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1adb47dd7548f967ed12fded0a86cae891" kindref="member">described_rx_codeblock</ref>, <ref refid="namespacesrsgnb_1a64a27ddc884f4517e79d5435a337e554" kindref="member">MAX_NOF_SEGMENTS</ref> &gt; &amp;</type>
+          <declname>described_codeblocks</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>codeword_llrs</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>tbs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Splits a codeword into codeblocks and computes the metadata of all codeblocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The LLRs corresponding to the received codeword are split into codeblocks to feed the decoder. Each codeblock is described by all the metadata needed for rate-dematching and decoding, as per TS38.212 Section 5.4.2.1. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">described_codeblocks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Codeblock LLRs and corresponding metadata. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">codeword_llrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log-likelihood ratios of the received codeword. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transport block size (not including CRC), as a number of bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters affecting splitting and codeblock metadata. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The output codeblocks are just views (not copies) of the proper block of codeword log-likelihood ratios in <computeroutput>codeword_llrs</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="58" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="225" bodyend="277"/>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab487592b6cd65f8bf5f6af724b9434a4" compoundref="codeblock__metadata_8h" startline="98">srsgnb::segmenter_config::base_graph</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1aa95f3b61800c887aad3883b3df8107c4" compoundref="ldpc_8h" startline="104" endline="115">srsgnb::ldpc::compute_nof_codeblocks</references>
+        <references refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" compoundref="math__utils_8h" startline="34" endline="38">srsgnb::divide_ceil</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" compoundref="codeblock__metadata_8h" startline="109">srsgnb::segmenter_config::nof_ch_symbols</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" compoundref="codeblock__metadata_8h" startline="107">srsgnb::segmenter_config::nof_layers</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" compoundref="codeblock__metadata_8h" startline="65">srsgnb::codeblock_metadata::cb_specific</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" compoundref="codeblock__metadata_8h" startline="53">srsgnb::codeblock_metadata::cb_specific_metadata::rm_length</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a34678635b391cc4713cd44d60b216ba7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ldpc_segmenter_impl::ldpc_segmenter_impl</definition>
+        <argsstring>()</argsstring>
+        <name>ldpc_segmenter_impl</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="65" column="3" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a062cda7408fbd85854bcaf941ddf42e4" prot="private" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ldpc_segmenter_impl::ldpc_segmenter_impl</definition>
+        <argsstring>(sch_crc c)</argsstring>
+        <name>ldpc_segmenter_impl</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc" kindref="compound">sch_crc</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Creates an LDPC segmentation object that aggregates a <ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CRC calculator to aggregate. The generation polynomial must be CRC24B. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="70" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="70" bodyend="70"/>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a310a5913aa1f5481cd90c37a65fa29fa" compoundref="ldpc__segmenter__impl_8h" startline="36">srsgnb::ldpc_segmenter_impl::sch_crc::crc16</references>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a1d71899dcfd256a45d102c958984cea2" compoundref="ldpc__segmenter__impl_8h" startline="38">srsgnb::ldpc_segmenter_impl::sch_crc::crc24A</references>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1afe624b05a826755669d29095d1f0095c" compoundref="ldpc__segmenter__impl_8h" startline="40">srsgnb::ldpc_segmenter_impl::sch_crc::crc24B</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1af9dc9d24e831dfd4edb63aa3423661ea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_segmenter_impl::compute_lifting_size</definition>
+        <argsstring>()</argsstring>
+        <name>compute_lifting_size</name>
+        <briefdescription>
+<para>Computes the lifting size used to encode/decode the current transport block, as per TS38.212 Section 5.2.2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="73" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="43" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a9942e39840cd4d0efc5ba5ac25994f73" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_segmenter_impl::compute_segment_length</definition>
+        <argsstring>()</argsstring>
+        <name>compute_segment_length</name>
+        <briefdescription>
+<para>Computes the length of each segment, as per TS38.212 Section 5.2.2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="76" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="70" bodyend="77"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1a5e6b9ae8f3d0e4c6c656dc2506c9ac64" compoundref="ldpc__graph__impl_8h" startline="29">srsgnb::ldpc::BG1_N_FULL</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a35c77e72f6a7f823f2cbe85c2681c777" compoundref="ldpc__graph__impl_8h" startline="27">srsgnb::ldpc::BG1_M</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a8dcaad120e7684d4cde1bd677a331c13" compoundref="ldpc__graph__impl_8h" startline="35">srsgnb::ldpc::BG2_N_FULL</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a0210caeff09dff38472c7539979e9e99" compoundref="ldpc__graph__impl_8h" startline="33">srsgnb::ldpc::BG2_M</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a414d7063dc81499bdbc5947b2b4482e4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned ldpc_segmenter_impl::compute_rm_length</definition>
+        <argsstring>(unsigned i_seg, modulation_scheme mod, unsigned nof_layers) const</argsstring>
+        <name>compute_rm_length</name>
+        <param>
+          <type>unsigned</type>
+          <declname>i_seg</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref></type>
+          <declname>mod</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the length of the rate-matched codeblock corresponding to each segment, as per TS38.212 Section 5.4.2.1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="80" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="79" bodyend="89"/>
+        <references refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" compoundref="math__utils_8h" startline="34" endline="38">srsgnb::divide_ceil</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__impl_1a8acbd66e8edab64118013ca5450e4ecf" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref></type>
+        <definition>codeblock_metadata ldpc_segmenter_impl::generate_cb_metadata</definition>
+        <argsstring>(const segment_internal &amp;seg_extra, const segmenter_config &amp;cfg) const</argsstring>
+        <name>generate_cb_metadata</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal" kindref="compound">segment_internal</ref> &amp;</type>
+          <declname>seg_extra</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Generates a codeblock metadata structure for the current segment configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="99" column="22" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="279" bodyend="305"/>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" compoundref="codeblock__metadata_8h" startline="63">srsgnb::codeblock_metadata::tb_common</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a2ca5177a80e975fb733a6fee5af5550a" compoundref="codeblock__metadata_8h" startline="34">srsgnb::codeblock_metadata::tb_common_metadata::base_graph</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a20ffa0ce3e6b27b6aa3ac51ee6bbc4ed" compoundref="codeblock__metadata_8h" startline="36">srsgnb::codeblock_metadata::tb_common_metadata::lifting_size</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" compoundref="codeblock__metadata_8h" startline="38">srsgnb::codeblock_metadata::tb_common_metadata::rv</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" compoundref="codeblock__metadata_8h" startline="100">srsgnb::segmenter_config::rv</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a95eb67c37753b913c385dd689ce4048f" compoundref="codeblock__metadata_8h" startline="40">srsgnb::codeblock_metadata::tb_common_metadata::mod</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" compoundref="codeblock__metadata_8h" startline="102">srsgnb::segmenter_config::mod</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" compoundref="codeblock__metadata_8h" startline="43">srsgnb::codeblock_metadata::tb_common_metadata::Nref</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a4d655ca8029e15e5a557c94c893ff154" compoundref="codeblock__metadata_8h" startline="105">srsgnb::segmenter_config::Nref</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a001d3847f7fdbe7ac732d43acc07363d" compoundref="codeblock__metadata_8h" startline="45">srsgnb::codeblock_metadata::tb_common_metadata::cw_length</references>
+        <references refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1af53d60a316b43abc0c88a666a5c07ef4" compoundref="ldpc__segmenter__impl_8h" startline="87">srsgnb::ldpc_segmenter_impl::segment_internal::cw_length</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic implementation of LDPC segmentation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements both <ref refid="classsrsgnb_1_1ldpc__segmenter__tx" kindref="compound">ldpc_segmenter_tx</ref> and <ref refid="classsrsgnb_1_1ldpc__segmenter__rx" kindref="compound">ldpc_segmenter_rx</ref>. For this reason, the constructor has been hidden behind the static wrapper methods <ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac9b94cc668575c6fb122b3d8d7b5a0ca" kindref="member">create_ldpc_segmenter_impl_tx()</ref> and <ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ab902ba9d2a109cc9d7b56476e4363f8a" kindref="member">create_ldpc_segmenter_impl_rx()</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>srsgnb::ldpc_segmenter_rx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__rx"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_segmenter_tx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__tx"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>srsgnb::ldpc_segmenter_impl::sch_crc</label>
+        <link refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_segmenter_rx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__rx"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_segmenter_tx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__tx"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-buffer</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-crc_set</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::static_vector&lt; uint8_t, MAX_TBS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" line="31" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h" bodystart="30" bodyend="135"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a451ed0315201bb89cdc5b8a91f38c7a0" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>base_graph</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a58d0a93bb0e3bf032ca97ceeb4c6487b" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1af9dc9d24e831dfd4edb63aa3423661ea" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>compute_lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a414d7063dc81499bdbc5947b2b4482e4" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>compute_rm_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a9942e39840cd4d0efc5ba5ac25994f73" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>compute_segment_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a53182c7efda0bef32722d88e5ed72d28" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>crc_set</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1ab902ba9d2a109cc9d7b56476e4363f8a" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>create_ldpc_segmenter_impl_rx</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac9b94cc668575c6fb122b3d8d7b5a0ca" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>create_ldpc_segmenter_impl_tx</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a8acbd66e8edab64118013ca5450e4ecf" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>generate_cb_metadata</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a34678635b391cc4713cd44d60b216ba7" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>ldpc_segmenter_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a062cda7408fbd85854bcaf941ddf42e4" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>ldpc_segmenter_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1ade9d64ae45b7fbb70290d19c66fd428a" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a8e9a5979e41fa0577b01a182b1dae442" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>nof_segments</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a6d333019338f989f4371826e167ca687" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>nof_short_segments</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a17a1e55ab5d0247c7f2395dafc9f4b60" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>nof_symbols_per_layer</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a0329103b42dce4f2725bc605409aef93" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>nof_tb_bits_in</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a963307101407721354b8f4e8b48e71fc" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>nof_tb_bits_out</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>segment</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a75d65c4074bcbe5c3931bfa3544154a9" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>segment</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__impl_1a753702a420a9b85804db964fb813d8fc" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>segment_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__rx_1a7e8f0e4c29facba9b1cadedfd7c642c1" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>~ldpc_segmenter_rx</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__tx_1a70e0aba0ed3c3a12e56974fce954e2c4" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_impl</scope><name>~ldpc_segmenter_tx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::fapi::dl_tti_request_message_builder</compoundname>
+    <includes refid="message__builders_8h" local="no">message_builders.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a2e3478fa52c285928a6a0f0c75c386fc" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1fapi_1_1dl__tti__request__message" kindref="compound">dl_tti_request_message</ref> &amp;</type>
+        <definition>dl_tti_request_message&amp; srsgnb::fapi::dl_tti_request_message_builder::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="1001" column="26" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="1001" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a07b81259e61c9c80c55a0d7864da1351" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::fapi::dl_tti_request_message_builder::dl_tti_request_message_builder</definition>
+        <argsstring>(dl_tti_request_message &amp;msg)</argsstring>
+        <name>dl_tti_request_message_builder</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1fapi_1_1dl__tti__request__message" kindref="compound">dl_tti_request_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a builder that will help to fill the given DL TTI request message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="855" column="12" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="855" bodyend="855"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1acb7e99998b6cbea874c5c5c291ee3697" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder" kindref="compound">dl_tti_request_message_builder</ref> &amp;</type>
+        <definition>dl_tti_request_message_builder&amp; srsgnb::fapi::dl_tti_request_message_builder::set_basic_parameters</definition>
+        <argsstring>(uint16_t sfn, uint16_t slot, uint16_t n_group)</argsstring>
+        <name>set_basic_parameters</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>sfn</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>n_group</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the DL_TTI.request basic parameters and returns a reference to the builder. <simplesect kind="note"><para>nPDUs and nPDUsOfEachType properties are filled by the add_*_pdu() functions. </para>
+</simplesect>
+<simplesect kind="note"><para>These parameters are specified in SCF-222 v4.0 section 3.4.2 in table DL_TTI.request message body. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="860" column="34" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="860" bodyend="867"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a80ba7a09b76c852ce89a1689107ef7c1" compoundref="mac__to__fapi__translator_8cpp" startline="120" endline="152">srsgnb::fapi_adaptor::mac_to_fapi_translator::on_new_downlink_scheduler_results</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a739cb2cc67ce959b99a2006f621d1032" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__pdcch__pdu__builder" kindref="compound">dl_pdcch_pdu_builder</ref></type>
+        <definition>dl_pdcch_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_pdcch_pdu</definition>
+        <argsstring>(unsigned nof_dci_in_pdu)</argsstring>
+        <name>add_pdcch_pdu</name>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_dci_in_pdu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a PDCCH PDU to the message, fills its basic parameters using the given arguments and returns a PDCCH PDU builder. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_dci_in_pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of DCIs in the PDCCH PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="872" column="24" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="872" bodyend="892"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1ac768b4856924b3a87b41761b03bd3523" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__pdsch__pdu__builder" kindref="compound">dl_pdsch_pdu_builder</ref></type>
+        <definition>dl_pdsch_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_pdsch_pdu</definition>
+        <argsstring>(rnti_t rnti)</argsstring>
+        <name>add_pdsch_pdu</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a PDSCH PDU to the message, fills its basic parameters using the given arguments and returns a PDSCH PDU builder. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="896" column="24" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="896" bodyend="902"/>
+        <references refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1abf210fc95b961e267fac47f16ea1f207" compoundref="message__builders_8h" startline="906" endline="924">add_pdsch_pdu</references>
+        <references refid="classsrsgnb_1_1fapi_1_1dl__pdsch__pdu__builder_1ad8635a6043da545bf589249bb75ce8ff" compoundref="message__builders_8h" startline="422" endline="427">srsgnb::fapi::dl_pdsch_pdu_builder::set_basic_parameters</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1abf210fc95b961e267fac47f16ea1f207" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__pdsch__pdu__builder" kindref="compound">dl_pdsch_pdu_builder</ref></type>
+        <definition>dl_pdsch_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_pdsch_pdu</definition>
+        <argsstring>()</argsstring>
+        <name>add_pdsch_pdu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a PDSCH PDU to the message, fills its basic parameters using the given arguments and returns a PDSCH PDU builder. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="906" column="24" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="906" bodyend="924"/>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1ac768b4856924b3a87b41761b03bd3523" compoundref="message__builders_8h" startline="896" endline="902">add_pdsch_pdu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1af9d2be50f500ff5bc77307650eb9b174" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__csi__rs__pdu__builder" kindref="compound">dl_csi_rs_pdu_builder</ref></type>
+        <definition>dl_csi_rs_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_csi_rs_pdu</definition>
+        <argsstring>(uint16_t start_rb, uint16_t nof_rbs, csi_type type, uint8_t row, uint16_t freq_domain, uint8_t symb_l0, uint8_t symb_l1, csi_cdm_type cdm_type, csi_freq_density_type freq_density, uint16_t scrambling_id)</argsstring>
+        <name>add_csi_rs_pdu</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>start_rb</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>nof_rbs</declname>
+        </param>
+        <param>
+          <type>csi_type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>freq_domain</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>symb_l0</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>symb_l1</declname>
+        </param>
+        <param>
+          <type>csi_cdm_type</type>
+          <declname>cdm_type</declname>
+        </param>
+        <param>
+          <type>csi_freq_density_type</type>
+          <declname>freq_density</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>scrambling_id</declname>
+        </param>
+        <briefdescription>
+<para>Adds a CSI-RS PDU to the message and returns a CSI-RS PDU builder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="927" column="25" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="927" bodyend="957"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a83464ca3c8cde9c27222788391a2a361" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__ssb__pdu__builder" kindref="compound">dl_ssb_pdu_builder</ref></type>
+        <definition>dl_ssb_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_ssb_pdu</definition>
+        <argsstring>(pci_t phys_cell_id, beta_pss_profile_type beta_pss_profile_nr, uint8_t ssb_block_index, uint8_t ssb_subcarrier_offset, uint16_t ssb_offset_pointA)</argsstring>
+        <name>add_ssb_pdu</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aeade94aaea718e0825ce98aadf28d60e" kindref="member">pci_t</ref></type>
+          <declname>phys_cell_id</declname>
+        </param>
+        <param>
+          <type>beta_pss_profile_type</type>
+          <declname>beta_pss_profile_nr</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ssb_block_index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ssb_subcarrier_offset</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>ssb_offset_pointA</declname>
+        </param>
+        <briefdescription>
+<para>Adds a SSB PDU to the message, fills its basic parameters using the given arguments and returns a SSB PDU builder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="960" column="22" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="960" bodyend="973"/>
+        <references refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a77e14b005b8a933d9c3b19e93fcb1d23" compoundref="message__builders_8h" startline="976" endline="995">add_ssb_pdu</references>
+        <references refid="classsrsgnb_1_1fapi_1_1dl__ssb__pdu__builder_1abebd6f65e65eb215821feee4425f8a46" compoundref="message__builders_8h" startline="37" endline="50">srsgnb::fapi::dl_ssb_pdu_builder::set_basic_parameters</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a77e14b005b8a933d9c3b19e93fcb1d23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1fapi_1_1dl__ssb__pdu__builder" kindref="compound">dl_ssb_pdu_builder</ref></type>
+        <definition>dl_ssb_pdu_builder srsgnb::fapi::dl_tti_request_message_builder::add_ssb_pdu</definition>
+        <argsstring>()</argsstring>
+        <name>add_ssb_pdu</name>
+        <briefdescription>
+<para>Adds a SSB PDU to the message and returns a SSB PDU builder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/fapi/message_builders.h" line="976" column="22" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="976" bodyend="995"/>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a83464ca3c8cde9c27222788391a2a361" compoundref="message__builders_8h" startline="960" endline="973">add_ssb_pdu</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>DL_TTI.request message builder that helps to fill in the parameters specified in SCF-222 v4.0 section 3.4.2. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::static_vector&lt; srsgnb::fapi::dl_tti_request_pdu, MAX_NUM_PDUS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::fapi::base_message</label>
+        <link refid="structsrsgnb_1_1fapi_1_1base__message"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::fapi::dl_tti_request_message_builder</label>
+        <link refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-msg</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::fapi::dl_tti_request_message</label>
+        <link refid="structsrsgnb_1_1fapi_1_1dl__tti__request__message"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+pdus</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/fapi/message_builders.h" line="852" column="1" bodyfile="include/srsgnb/fapi/message_builders.h" bodystart="851" bodyend="1002"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1af9d2be50f500ff5bc77307650eb9b174" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_csi_rs_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a739cb2cc67ce959b99a2006f621d1032" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_pdcch_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1ac768b4856924b3a87b41761b03bd3523" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_pdsch_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1abf210fc95b961e267fac47f16ea1f207" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_pdsch_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a83464ca3c8cde9c27222788391a2a361" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_ssb_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a77e14b005b8a933d9c3b19e93fcb1d23" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>add_ssb_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a07b81259e61c9c80c55a0d7864da1351" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>dl_tti_request_message_builder</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1a2e3478fa52c285928a6a0f0c75c386fc" prot="private" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>msg</name></member>
+      <member refid="classsrsgnb_1_1fapi_1_1dl__tti__request__message__builder_1acb7e99998b6cbea874c5c5c291ee3697" prot="public" virt="non-virtual"><scope>srsgnb::fapi::dl_tti_request_message_builder</scope><name>set_basic_parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

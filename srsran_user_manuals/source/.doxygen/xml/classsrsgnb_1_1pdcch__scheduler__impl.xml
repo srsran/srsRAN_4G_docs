@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__scheduler__impl" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::pdcch_scheduler_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pdcch__scheduler" prot="public" virt="non-virtual">srsgnb::pdcch_scheduler</basecompoundref>
+    <innerclass refid="classpdcch__scheduler__impl_1_1pdcch__slot__allocator" prot="public">pdcch_scheduler_impl::pdcch_slot_allocator</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__scheduler__impl_1aa873e3117b12c00fbeb7311733ab516b" prot="private" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t srsgnb::pdcch_scheduler_impl::SLOT_ALLOCATOR_RING_SIZE</definition>
+        <argsstring></argsstring>
+        <name>SLOT_ALLOCATOR_RING_SIZE</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of the ring buffer of pdcch_slot_allocator. This size sets a limit on how far in advance a PDCCH can be allocated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="54" column="23" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__scheduler__impl_1ab97141e256bc38024744ed2a2e0441e4" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+        <definition>const cell_configuration&amp; srsgnb::pdcch_scheduler_impl::cell_cfg</definition>
+        <argsstring></argsstring>
+        <name>cell_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="65" column="28" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__scheduler__impl_1a7f0a84a09cc4e5418dbbe7345f549aeb" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+        <definition>slot_point srsgnb::pdcch_scheduler_impl::last_sl_ind</definition>
+        <argsstring></argsstring>
+        <name>last_sl_ind</name>
+        <briefdescription>
+<para>Last slot for which slot_indication has been called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="68" column="14" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__scheduler__impl_1a9c0c69c4188783f974426c6b4c95b714" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::unique_ptr&lt; <ref refid="classpdcch__scheduler__impl_1_1pdcch__slot__allocator" kindref="compound">pdcch_slot_allocator</ref> &gt;, <ref refid="classsrsgnb_1_1pdcch__scheduler__impl_1aa873e3117b12c00fbeb7311733ab516b" kindref="member">SLOT_ALLOCATOR_RING_SIZE</ref> &gt;</type>
+        <definition>std::array&lt;std::unique_ptr&lt;pdcch_slot_allocator&gt;, SLOT_ALLOCATOR_RING_SIZE&gt; srsgnb::pdcch_scheduler_impl::slot_records</definition>
+        <argsstring></argsstring>
+        <name>slot_records</name>
+        <briefdescription>
+<para>Intermediate results used by PDCCH scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="71" column="14" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1afbd8eee44d83ed37f94252006b6fc5b1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pdcch_scheduler_impl::pdcch_scheduler_impl</definition>
+        <argsstring>(const cell_configuration &amp;cell_cfg_)</argsstring>
+        <name>pdcch_scheduler_impl</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+          <declname>cell_cfg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="23" column="12" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="205" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1a6de87fdf3e320897245c0f9211273f3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pdcch_scheduler_impl::~pdcch_scheduler_impl</definition>
+        <argsstring>() override</argsstring>
+        <name>~pdcch_scheduler_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="24" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1ab4b71b0d36c64b6a21c2960b977c0084" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_scheduler_impl::slot_indication</definition>
+        <argsstring>(slot_point sl_tx)</argsstring>
+        <name>slot_indication</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="26" column="8" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="217" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1a98fdfe8c15c531a5381a6ea545db549c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref> *</type>
+        <definition>pdcch_dl_information * pdcch_scheduler_impl::alloc_pdcch_common</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, search_space_id ss_id, aggregation_level aggr_lvl) override</argsstring>
+        <name>alloc_pdcch_common</name>
+        <reimplements refid="classsrsgnb_1_1pdcch__scheduler_1aa6370fabd4108388b1107c9481339c5a">alloc_pdcch_common</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for common PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of allocation. Values: SI-RNTI, P-RNTI, RA-RNTIs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="28" column="24" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="228" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1a2398f5722311a4e5fa03d7a4bb885bbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref> *</type>
+        <definition>pdcch_dl_information * pdcch_scheduler_impl::alloc_dl_pdcch_ue</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, const ue_cell_configuration &amp;user, bwp_id_t bwpid, search_space_id ss_id, aggregation_level aggr_lvl, dci_dl_format dci_fmt) override</argsstring>
+        <name>alloc_dl_pdcch_ue</name>
+        <reimplements refid="classsrsgnb_1_1pdcch__scheduler_1ad774c5b11f6281956ab8174ed821267b">alloc_dl_pdcch_ue</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue__cell__configuration" kindref="compound">ue_cell_configuration</ref> &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ad4a1f149c8fe7de5f0d38f8cc58928d4" kindref="member">bwp_id_t</ref></type>
+          <declname>bwpid</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <param>
+          <type>dci_dl_format</type>
+          <declname>dci_fmt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for UE-dedicated DL PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of UE being allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UE configuration for the provided cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bwp_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BWP Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dci_fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DCI format to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="33" column="24" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="247" bodyend="264"/>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1ad31253ca934e523606d53caa713b0c24" compoundref="ue__configuration_8h" startline="23">srsgnb::ue_cell_configuration::dl_bwps</references>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1a0774023a46de6db678f746cf337df6f1" compoundref="ue__configuration_8h" startline="31">srsgnb::ue_cell_configuration::dl_search_spaces</references>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1a4ff203b7d8501f150ded7feaa456a917" compoundref="ue__configuration_8h" startline="27">srsgnb::ue_cell_configuration::dl_coresets</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1a8e2ba284a703332328d2741083bd9674" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__ul__information" kindref="compound">pdcch_ul_information</ref> *</type>
+        <definition>pdcch_ul_information * pdcch_scheduler_impl::alloc_ul_pdcch_ue</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, const ue_cell_configuration &amp;user, bwp_id_t bwpid, search_space_id ss_id, aggregation_level aggr_lvl, dci_ul_format dci_fmt) override</argsstring>
+        <name>alloc_ul_pdcch_ue</name>
+        <reimplements refid="classsrsgnb_1_1pdcch__scheduler_1a60a6ada2d5b48f879606f4d83c36f6c7">alloc_ul_pdcch_ue</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue__cell__configuration" kindref="compound">ue_cell_configuration</ref> &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ad4a1f149c8fe7de5f0d38f8cc58928d4" kindref="member">bwp_id_t</ref></type>
+          <declname>bwpid</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a66a5b6e7f9a3179978042eb82e981c65" kindref="member">search_space_id</ref></type>
+          <declname>ss_id</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>aggr_lvl</declname>
+        </param>
+        <param>
+          <type>dci_ul_format</type>
+          <declname>dci_fmt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates RE space for UE-dedicated DL PDCCH, avoiding in the process collisions with other PDCCH allocations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI of UE being allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UE configuration for the provided cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bwp_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BWP Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Search Space Id to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aggr_lvl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregation Level of PDCCH allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dci_fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DCI format to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Allocated PDCCH if successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="41" column="24" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="266" bodyend="296"/>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1ad31253ca934e523606d53caa713b0c24" compoundref="ue__configuration_8h" startline="23">srsgnb::ue_cell_configuration::dl_bwps</references>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1a0774023a46de6db678f746cf337df6f1" compoundref="ue__configuration_8h" startline="31">srsgnb::ue_cell_configuration::dl_search_spaces</references>
+        <references refid="classsrsgnb_1_1ue__cell__configuration_1a4ff203b7d8501f150ded7feaa456a917" compoundref="ue__configuration_8h" startline="27">srsgnb::ue_cell_configuration::dl_coresets</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a8724d6f3f22a6c17ae31694f3b528153" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="181">srsgnb::cell_slot_resource_allocator::result</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a782360ad457055757abc23441f554460" compoundref="scheduler__slot__handler_8h" startline="225">srsgnb::dl_sched_result::ul_pdcchs</references>
+        <references refid="structsrsgnb_1_1pdcch__ul__information_1a32d47cc5208c2f5157993d3842b1d8c5" compoundref="scheduler__slot__handler_8h" startline="111">srsgnb::pdcch_ul_information::ctx</references>
+        <references refid="structsrsgnb_1_1dci__dl__context__information_1a106400b42c3d9db75aafe6791fa8acfd" compoundref="scheduler__slot__handler_8h" startline="83">srsgnb::dci_dl_context_information::rnti</references>
+        <references refid="structsrsgnb_1_1dci__dl__context__information_1afb36d9e7818b1eecd64a33c68537fa1a" compoundref="scheduler__slot__handler_8h" startline="93">srsgnb::dci_dl_context_information::cces</references>
+        <references refid="structsrsgnb_1_1cce__position_1a21c05e8d45aabefc69393d85e0b90aa9" compoundref="scheduler__dci_8h" startline="24">srsgnb::cce_position::ncce</references>
+        <references refid="structsrsgnb_1_1cce__position_1a1f9e438ffc8249fc09587b2093a415bb" compoundref="scheduler__dci_8h" startline="26">srsgnb::cce_position::aggr_lvl</references>
+        <references refid="structsrsgnb_1_1pdcch__ul__information_1ae94c9d45c0c93fe956bac13ed2c74643" compoundref="scheduler__slot__handler_8h" startline="113">srsgnb::pdcch_ul_information::dci</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a05be11a3c949d1b681c5221c7254c79d" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="178">srsgnb::cell_slot_resource_allocator::slot</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1ad2e4081e3983f6e03c78ac105bf80b70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpdcch__scheduler__impl_1_1pdcch__slot__allocator" kindref="compound">pdcch_slot_allocator</ref> &amp;</type>
+        <definition>pdcch_scheduler_impl::pdcch_slot_allocator &amp; pdcch_scheduler_impl::get_pdcch_slot_alloc</definition>
+        <argsstring>(slot_point sl)</argsstring>
+        <name>get_pdcch_slot_alloc</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="56" column="24" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="338" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__scheduler__impl_1aa477bc75a68d46eb0b3e1345fbecae4d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1pdcch__dl__information" kindref="compound">pdcch_dl_information</ref> *</type>
+        <definition>pdcch_dl_information * pdcch_scheduler_impl::alloc_dl_pdcch_helper</definition>
+        <argsstring>(cell_slot_resource_allocator &amp;slot_alloc, rnti_t rnti, const bwp_configuration &amp;bwp_cfg, const coreset_configuration &amp;cs_cfg, const search_space_configuration &amp;ss_cfg, aggregation_level L, dci_dl_format dci_fmt)</argsstring>
+        <name>alloc_dl_pdcch_helper</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__slot__resource__allocator" kindref="compound">cell_slot_resource_allocator</ref> &amp;</type>
+          <declname>slot_alloc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1bwp__configuration" kindref="compound">bwp_configuration</ref> &amp;</type>
+          <declname>bwp_cfg</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1coreset__configuration" kindref="compound">coreset_configuration</ref> &amp;</type>
+          <declname>cs_cfg</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1search__space__configuration" kindref="compound">search_space_configuration</ref> &amp;</type>
+          <declname>ss_cfg</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref></type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>dci_dl_format</type>
+          <declname>dci_fmt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="57" column="24" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.cpp" bodystart="298" bodyend="336"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcch_scheduler_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_scheduler</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>srsgnb::bounded_integer&lt; uint8_t, 0, 23 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="20">
+        <label>srsgnb::optional&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::ssb_configuration</label>
+        <link refid="structsrsgnb_1_1ssb__configuration"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>+k_ssb</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+offset_to_point_A</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srsgnb::crb_interval</label>
+        <link refid="structsrsgnb_1_1crb__interval"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pdcch_scheduler_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-cell_cfg</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>-last_sl_ind</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::frequency_info_ul</label>
+        <link refid="structsrsgnb_1_1frequency__info__ul"/>
+      </node>
+      <node id="28">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="29">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="27">
+        <label>srsgnb::optional&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::optional&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb::bwp_downlink_common</label>
+        <link refid="structsrsgnb_1_1bwp__downlink__common"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>+pdsch_common</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>+pdcch_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb::pdcch_config_common</label>
+        <link refid="structsrsgnb_1_1pdcch__config__common"/>
+        <childnode refid="27" relation="usage">
+          <edgelabel>+coreset0</edgelabel>
+          <edgelabel>+common_coreset</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::bwp_uplink_common</label>
+        <link refid="structsrsgnb_1_1bwp__uplink__common"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>+pusch_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>+rach_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::ssb_offset_to_pointA</label>
+        <link refid="classsrsgnb_1_1ssb__offset__to__pointA"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::interval&lt; unsigned &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+      </node>
+      <node id="23">
+        <label>srsgnb::frequency_info_dl</label>
+        <link refid="structsrsgnb_1_1frequency__info__dl"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::cell_configuration</label>
+        <link refid="classsrsgnb_1_1cell__configuration"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+tdd_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+dl_carrier</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+ssb_cfg</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>+ul_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+dl_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_scheduler</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::carrier_configuration</label>
+        <link refid="structsrsgnb_1_1carrier__configuration"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::dl_config_common</label>
+        <link refid="structsrsgnb_1_1dl__config__common"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>+freq_info_dl</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>+init_dl_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::ul_config_common</label>
+        <link refid="structsrsgnb_1_1ul__config__common"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>+freq_info_ul</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>+init_ul_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb::pdsch_config_common</label>
+        <link refid="structsrsgnb_1_1pdsch__config__common"/>
+      </node>
+      <node id="21">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::bwp_configuration</label>
+        <link refid="structsrsgnb_1_1bwp__configuration"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+crbs</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::ssb_subcarrier_offset</label>
+        <link refid="classsrsgnb_1_1ssb__subcarrier__offset"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::bounded_integer&lt; uint16_t, 0, 2199 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::optional&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" line="21" column="1" bodyfile="lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h" bodystart="20" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1aa477bc75a68d46eb0b3e1345fbecae4d" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>alloc_dl_pdcch_helper</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a2398f5722311a4e5fa03d7a4bb885bbf" prot="public" virt="virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>alloc_dl_pdcch_ue</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a98fdfe8c15c531a5381a6ea545db549c" prot="public" virt="virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>alloc_pdcch_common</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a8e2ba284a703332328d2741083bd9674" prot="public" virt="virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>alloc_ul_pdcch_ue</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1ab97141e256bc38024744ed2a2e0441e4" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>cell_cfg</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1ad2e4081e3983f6e03c78ac105bf80b70" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>get_pdcch_slot_alloc</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a7f0a84a09cc4e5418dbbe7345f549aeb" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>last_sl_ind</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1afbd8eee44d83ed37f94252006b6fc5b1" prot="public" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>pdcch_scheduler_impl</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1aa873e3117b12c00fbeb7311733ab516b" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>SLOT_ALLOCATOR_RING_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1ab4b71b0d36c64b6a21c2960b977c0084" prot="public" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>slot_indication</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a9c0c69c4188783f974426c6b4c95b714" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>slot_records</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler_1a1362cad195a4be8fc043f536f43e5440" prot="public" virt="virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>~pdcch_scheduler</name></member>
+      <member refid="classsrsgnb_1_1pdcch__scheduler__impl_1a6de87fdf3e320897245c0f9211273f3d" prot="public" virt="non-virtual"><scope>srsgnb::pdcch_scheduler_impl</scope><name>~pdcch_scheduler_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1phase__compensation__lut" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::phase_compensation_lut</compoundname>
+    <includes refid="phase__compensation__lut_8h" local="no">phase_compensation_lut.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1phase__compensation__lut_1a8b8f85f85c3319d2639fbacf08a7c72d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref>, <ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref> *<ref refid="namespacesrsgnb_1a853ffff2923ec0ef765ff70bace76422" kindref="member">get_nof_slots_per_subframe</ref>(subcarrier_spacing::kHz240)&gt;</type>
+        <definition>static_vector&lt;cf_t, MAX_NSYMB_PER_SLOT * get_nof_slots_per_subframe(subcarrier_spacing::kHz240)&gt; srsgnb::phase_compensation_lut::coefficients</definition>
+        <argsstring></argsstring>
+        <name>coefficients</name>
+        <briefdescription>
+<para>Stores the coefficients for every symbol in a subframe. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/phase_compensation_lut.h" line="28" column="17" bodyfile="lib/phy/lower/modulation/phase_compensation_lut.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phase__compensation__lut_1ae37a449b492ec3f4d1280844c108faae" compoundref="phase__compensation__lut_8h" startline="37" endline="71">phase_compensation_lut</referencedby>
+        <referencedby refid="classsrsgnb_1_1phase__compensation__lut_1aedadd094ab620409e0ed5dad6fb3c704" compoundref="phase__compensation__lut_8h" startline="77" endline="84">get_coefficient</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phase__compensation__lut_1ae37a449b492ec3f4d1280844c108faae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::phase_compensation_lut::phase_compensation_lut</definition>
+        <argsstring>(subcarrier_spacing scs, cyclic_prefix cp, unsigned dft_size, double center_frequency_Hz, bool is_tx)</argsstring>
+        <name>phase_compensation_lut</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1cyclic__prefix" kindref="compound">cyclic_prefix</ref></type>
+          <declname>cp</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>dft_size</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_frequency_Hz</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_tx</declname>
+        </param>
+        <briefdescription>
+<para>Constructs the phase compensation look-up table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic Prefix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dft_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DFT size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">center_frequency_Hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Center frequency in Hz. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">is_tx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set to true if the phase correction table is for transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/phase_compensation_lut.h" line="37" column="3" bodyfile="lib/phy/lower/modulation/phase_compensation_lut.h" bodystart="37" bodyend="71"/>
+        <references refid="namespacesrsgnb_1a5d89e9478de57d421e8cead9b15e4e8a" compoundref="phy__time__unit_8h" startline="161" endline="165">srsgnb::to_sampling_rate_Hz</references>
+        <references refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" compoundref="subcarrier__spacing_8h" startline="44" endline="48">srsgnb::scs_to_khz</references>
+        <references refid="namespacesrsgnb_1a853ffff2923ec0ef765ff70bace76422" compoundref="subcarrier__spacing_8h" startline="57" endline="60">srsgnb::get_nof_slots_per_subframe</references>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="classsrsgnb_1_1cyclic__prefix_1a912612f8fa115e0924099fd22a718ac6" compoundref="cyclic__prefix_8h" startline="84" endline="95">srsgnb::cyclic_prefix::get_length</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="classsrsgnb_1_1phase__compensation__lut_1a8b8f85f85c3319d2639fbacf08a7c72d" compoundref="phase__compensation__lut_8h" startline="28">coefficients</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phase__compensation__lut_1aedadd094ab620409e0ed5dad6fb3c704" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref></type>
+        <definition>cf_t srsgnb::phase_compensation_lut::get_coefficient</definition>
+        <argsstring>(unsigned symbol_index) const</argsstring>
+        <name>get_coefficient</name>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Get the phase compensation for a symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within a subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The phase compensation coefficient for a given symbol within a subframe. </para>
+</simplesect>
+<simplesect kind="remark"><para>An assertion is triggered if the symbol index exceeds the number of symbols in a subframe. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/phase_compensation_lut.h" line="77" column="8" bodyfile="lib/phy/lower/modulation/phase_compensation_lut.h" bodystart="77" bodyend="84"/>
+        <references refid="classsrsgnb_1_1phase__compensation__lut_1a8b8f85f85c3319d2639fbacf08a7c72d" compoundref="phase__compensation__lut_8h" startline="28">coefficients</references>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">srsgnb::ofdm_symbol_demodulator_impl::demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__modulator__impl_1a1cff8fbd637007a914121b91a99affc9" compoundref="ofdm__modulator__impl_8cpp" startline="43" endline="87">srsgnb::ofdm_symbol_modulator_impl::modulate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Phase compensation as per TS38.211 Section 5.4. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements the phase compensation for OFDM modulation and demodulation as described in TS38.211 Section 5.4. The phase compensation is implemented as a look-up table populated at construction time. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::static_vector&lt; cf_t, MAX_NSYMB_PER_SLOT *get_nof_slots_per_subframe(subcarrier_spacing::kHz240)&gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::phase_compensation_lut</label>
+        <link refid="classsrsgnb_1_1phase__compensation__lut"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-coefficients</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/modulation/phase_compensation_lut.h" line="25" column="1" bodyfile="lib/phy/lower/modulation/phase_compensation_lut.h" bodystart="24" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1phase__compensation__lut_1a8b8f85f85c3319d2639fbacf08a7c72d" prot="private" virt="non-virtual"><scope>srsgnb::phase_compensation_lut</scope><name>coefficients</name></member>
+      <member refid="classsrsgnb_1_1phase__compensation__lut_1aedadd094ab620409e0ed5dad6fb3c704" prot="public" virt="non-virtual"><scope>srsgnb::phase_compensation_lut</scope><name>get_coefficient</name></member>
+      <member refid="classsrsgnb_1_1phase__compensation__lut_1ae37a449b492ec3f4d1280844c108faae" prot="public" virt="non-virtual"><scope>srsgnb::phase_compensation_lut</scope><name>phase_compensation_lut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

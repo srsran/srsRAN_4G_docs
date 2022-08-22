@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rlc__tx__sdu__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::rlc_tx_sdu_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1rlc__tx__entity" prot="public" virt="non-virtual">srsgnb::rlc_tx_entity</derivedcompoundref>
+    <includes refid="rlc_8h" local="no">rlc.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__sdu__handler_1a6ac90b3ec025fdaf78dc89064052678b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::rlc_tx_sdu_handler::~rlc_tx_sdu_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~rlc_tx_sdu_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="61" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__sdu__handler_1a8f0140b6c5710145a56405ec42fc1d4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rlc_tx_sdu_handler::handle_sdu</definition>
+        <argsstring>(rlc_sdu sdu)=0</argsstring>
+        <name>handle_sdu</name>
+        <reimplementedby refid="classsrsgnb_1_1rlc__tx__tm__entity_1ab450a7d51ce0aef03369a53157610789">handle_sdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1rlc__tx__um__entity_1a2cd5e9b56c067ab08b0c77321f45a7b9">handle_sdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1rlc__tx__am__entity_1aefd48f6a90b1f4de6f701feea72d50b9">handle_sdu</reimplementedby>
+        <param>
+          <type><ref refid="structsrsgnb_1_1rlc__sdu" kindref="compound">rlc_sdu</ref></type>
+          <declname>sdu</declname>
+        </param>
+        <briefdescription>
+<para>Interface for higher layers to pass SDUs into RLC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDU to be handled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="65" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface represents the data entry point of the transmitting side of a RLC entity. The upper-layers will use this call to pass RLC SDUs into the TX entity. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::rlc_tx_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__entity"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::rlc_tx_tm_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__tm__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_tx_sdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__tx__sdu__handler"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::rlc_tx_am_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__am__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::rlc_tx_um_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__um__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rlc_tx_sdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__tx__sdu__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/rlc/rlc.h" line="59" column="1" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="58" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rlc__tx__sdu__handler_1a8f0140b6c5710145a56405ec42fc1d4c" prot="public" virt="pure-virtual"><scope>srsgnb::rlc_tx_sdu_handler</scope><name>handle_sdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__sdu__handler_1a6ac90b3ec025fdaf78dc89064052678b" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_sdu_handler</scope><name>~rlc_tx_sdu_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

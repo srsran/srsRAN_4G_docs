@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pucch__mapping_8h" kind="file" language="C++">
+    <compoundname>pucch_mapping.h</compoundname>
+    <includedby refid="dmrs__pucch__processor_8h" local="yes">include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h</includedby>
+    <includedby refid="pucch__helper_8h" local="yes">lib/phy/upper/signal_processors/pucch/pucch_helper.h</includedby>
+    <includedby refid="pucch__orthogonal__sequence_8h" local="yes">lib/phy/upper/signal_processors/pucch/pucch_orthogonal_sequence.h</includedby>
+    <includedby refid="dmrs__pucch__processor__format2__impl_8h" local="yes">lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format2_impl.h</includedby>
+    <invincdepgraph>
+      <node id="6">
+        <label>lib/phy/upper/signal_processors/pucch/pucch_orthogonal_sequence.h</label>
+        <link refid="pucch__orthogonal__sequence_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>lib/phy/upper/signal_processors/pucch/pucch_helper.h</label>
+        <link refid="pucch__helper_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h</label>
+        <link refid="dmrs__pucch__processor_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h</label>
+        <link refid="dmrs__pucch__processor__format1__impl_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/srsgnb/ran/pucch_mapping.h</label>
+        <link refid="pucch__mapping_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format2_impl.h</label>
+        <link refid="dmrs__pucch__processor__format2__impl_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14b" refkind="member"><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14b" kindref="member">pucch_group_hopping</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14ba9fc49374420f4310fb89e88ea2689da5" kindref="member">NEITHER</ref>,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14bab332708e4304e13c9b424e7465254954" kindref="member">ENABLE</ref>,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a9c795f60d401d5c5a789b190c460c14bafc93ea58f6d27ffed2b6518ffecf3e4e" kindref="member">DISABLE</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="namespacesrsgnb_1aa983416f35b055b813c6bdf3ef9d5835" refkind="member"><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1aa983416f35b055b813c6bdf3ef9d5835" kindref="member">pucch_format</ref><sp/>{<sp/>FORMAT_0,<sp/>FORMAT_1,<sp/>FORMAT_2,<sp/>FORMAT_3,<sp/>FORMAT_4,<sp/>NOF_FORMATS<sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="namespacesrsgnb_1af73c3ba10b49771055180c70a571cf02" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1af73c3ba10b49771055180c70a571cf02" kindref="member">PUCCH_FORMAT1_N_MAX</ref><sp/>=<sp/>7;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="namespacesrsgnb_1aac882ba2c2595d3f38153e4331fa6427" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1aac882ba2c2595d3f38153e4331fa6427" kindref="member">PUCCH_FORMAT2_MIN_NSYMB</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="namespacesrsgnb_1a5aa8ca63c84d7b1981d2cf1d4a44e722" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a5aa8ca63c84d7b1981d2cf1d4a44e722" kindref="member">PUCCH_FORMAT2_MAX_NSYMB</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="namespacesrsgnb_1aa6f98e44536bde4e22454a0abb5fc686" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1aa6f98e44536bde4e22454a0abb5fc686" kindref="member">PUCCH_FORMAT2_MAX_NPRB</ref><sp/>=<sp/>16;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/srsgnb/ran/pucch_mapping.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_du::mac_sdu_rx_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__sdu__rx__notifier" prot="public" virt="non-virtual">srsgnb::mac_sdu_rx_notifier</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1aa3221c45cc9a3852cd07552d4c4e10e7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rlc__rx__pdu__handler" kindref="compound">rlc_rx_pdu_handler</ref> &amp;</type>
+        <definition>rlc_rx_pdu_handler&amp; srsgnb::srs_du::mac_sdu_rx_adapter::rlc_handler</definition>
+        <argsstring></argsstring>
+        <name>rlc_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="27" column="22" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1a6b9c5b57fbc7f93d2c91f0549ee3146b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_du::mac_sdu_rx_adapter::mac_sdu_rx_adapter</definition>
+        <argsstring>(rlc_rx_pdu_handler &amp;rlc_rx)</argsstring>
+        <name>mac_sdu_rx_adapter</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rlc__rx__pdu__handler" kindref="compound">rlc_rx_pdu_handler</ref> &amp;</type>
+          <declname>rlc_rx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="22" column="12" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1ab32edf66bfda7b6770b60cdd1cca37a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::mac_sdu_rx_adapter::on_new_sdu</definition>
+        <argsstring>(byte_buffer_slice sdu) override</argsstring>
+        <name>on_new_sdu</name>
+        <reimplements refid="classsrsgnb_1_1mac__sdu__rx__notifier_1a11f88876f018905e7a4a4aed8cdd6331">on_new_sdu</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__slice" kindref="compound">byte_buffer_slice</ref></type>
+          <declname>sdu</declname>
+        </param>
+        <briefdescription>
+<para>This callback is invoked on each received SDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="24" column="8" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="24" bodyend="24"/>
+        <references refid="classsrsgnb_1_1rlc__rx__pdu__handler_1a7b32dd075bf48bbc4ebccb883f954828">srsgnb::rlc_rx_pdu_handler::handle_pdu</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::mac_sdu_rx_notifier</label>
+        <link refid="classsrsgnb_1_1mac__sdu__rx__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::mac_sdu_rx_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::mac_sdu_rx_notifier</label>
+        <link refid="classsrsgnb_1_1mac__sdu__rx__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::mac_sdu_rx_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-rlc_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::rlc_rx_pdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__rx__pdu__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/du_manager/adapters/mac_adapters.h" line="20" column="1" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="19" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1a6b9c5b57fbc7f93d2c91f0549ee3146b" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::mac_sdu_rx_adapter</scope><name>mac_sdu_rx_adapter</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1ab32edf66bfda7b6770b60cdd1cca37a5" prot="public" virt="virtual"><scope>srsgnb::srs_du::mac_sdu_rx_adapter</scope><name>on_new_sdu</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__rx__adapter_1aa3221c45cc9a3852cd07552d4c4e10e7" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::mac_sdu_rx_adapter</scope><name>rlc_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__sdu__rx__notifier_1acee71608fbdf388447f919526444a292" prot="public" virt="virtual"><scope>srsgnb::srs_du::mac_sdu_rx_adapter</scope><name>~mac_sdu_rx_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

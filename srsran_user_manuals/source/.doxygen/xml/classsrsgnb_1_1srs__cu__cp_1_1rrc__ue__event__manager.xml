@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_cu_cp::rrc_ue_event_manager</compoundname>
+    <includes refid="rrc__ue__event__manager_8h" local="no">rrc_ue_event_manager.h</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1ae50c28cb56455fba526279769d9697f0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::srs_cu_cp::rrc_ue_event_manager::MAX_NOF_TRANSACTIONS</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_TRANSACTIONS</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>Transaction Response Container, which gets indexed by transaction_id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rrc/ue/procedures/rrc_ue_event_manager.h" line="30" column="27" bodyfile="lib/rrc/ue/procedures/rrc_ue_event_manager.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1a250124913c04f3e82b0dcd630fb1e01e" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1protocol__transaction__manager" kindref="compound">protocol_transaction_manager</ref>&lt; <ref refid="classsrsgnb_1_1expected" kindref="compound">rrc_outcome</ref>, <ref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1ae50c28cb56455fba526279769d9697f0" kindref="member">MAX_NOF_TRANSACTIONS</ref> &gt;</type>
+        <definition>protocol_transaction_manager&lt;rrc_outcome, MAX_NOF_TRANSACTIONS&gt; srsgnb::srs_cu_cp::rrc_ue_event_manager::transactions</definition>
+        <argsstring></argsstring>
+        <name>transactions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rrc/ue/procedures/rrc_ue_event_manager.h" line="31" column="32" bodyfile="lib/rrc/ue/procedures/rrc_ue_event_manager.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1a7feb4669abe4b71baa82148e5855f8ad" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_cu_cp::rrc_ue_event_manager::rrc_ue_event_manager</definition>
+        <argsstring>(timer_manager &amp;timers)</argsstring>
+        <name>rrc_ue_event_manager</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+          <declname>timers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rrc/ue/procedures/rrc_ue_event_manager.h" line="33" column="12" bodyfile="lib/rrc/ue/procedures/rrc_ue_event_manager.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TODO: Do we need a separate class for each procedure? Note that the outcome&apos;s expected only has two choices. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::expected&lt; T, E &gt;</label>
+        <link refid="classsrsgnb_1_1expected"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+unexpected</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::rrc_ue_event_manager</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+transactions</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::protocol_transaction_manager&lt; srsgnb::expected, MAX_NOF_TRANSACTIONS &gt;</label>
+        <link refid="classsrsgnb_1_1protocol__transaction__manager"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-timer_db</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-cancel_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::default_error_t</label>
+        <link refid="structsrsgnb_1_1default__error__t"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/rrc/ue/procedures/rrc_ue_event_manager.h" line="27" column="1" bodyfile="lib/rrc/ue/procedures/rrc_ue_event_manager.h" bodystart="26" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1ae50c28cb56455fba526279769d9697f0" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_event_manager</scope><name>MAX_NOF_TRANSACTIONS</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1a7feb4669abe4b71baa82148e5855f8ad" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_event_manager</scope><name>rrc_ue_event_manager</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__event__manager_1a250124913c04f3e82b0dcd630fb1e01e" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_event_manager</scope><name>transactions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

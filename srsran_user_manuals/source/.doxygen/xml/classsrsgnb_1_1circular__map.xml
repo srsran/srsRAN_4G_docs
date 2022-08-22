@@ -1,0 +1,733 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1circular__map" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::circular_map</compoundname>
+    <includes refid="circular__map_8h" local="no">circular_map.h</includes>
+    <innerclass refid="classsrsgnb_1_1circular__map_1_1const__iterator" prot="public">srsgnb::circular_map::const_iterator</innerclass>
+    <innerclass refid="classsrsgnb_1_1circular__map_1_1iterator" prot="public">srsgnb::circular_map::iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1circular__map_1a949d64e280bd3dfef5d85beb0ddacf8b" prot="private" static="no">
+        <type>std::pair&lt; K, T &gt;</type>
+        <definition>using srsgnb::circular_map&lt; K, T, N &gt;::obj_t =  std::pair&lt;K, T&gt;</definition>
+        <argsstring></argsstring>
+        <name>obj_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="31" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1circular__map_1a73bbbef2c7a11d7ca44a11176ae8165e" prot="public" static="no">
+        <type>K</type>
+        <definition>using srsgnb::circular_map&lt; K, T, N &gt;::key_type =  K</definition>
+        <argsstring></argsstring>
+        <name>key_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="34" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1circular__map_1a0f96fd9d71b5b75d5cce4ce0c41d04c5" prot="public" static="no">
+        <type>T</type>
+        <definition>using srsgnb::circular_map&lt; K, T, N &gt;::mapped_type =  T</definition>
+        <argsstring></argsstring>
+        <name>mapped_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="35" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1circular__map_1a2d90b3ce4daaf592d10e63162ece30d8" prot="public" static="no">
+        <type>std::pair&lt; K, T &gt;</type>
+        <definition>using srsgnb::circular_map&lt; K, T, N &gt;::value_type =  std::pair&lt;K, T&gt;</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="36" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1circular__map_1ab7f4274e5c2f4a50f8addb50cc17e6fb" prot="public" static="no">
+        <type>std::ptrdiff_t</type>
+        <definition>using srsgnb::circular_map&lt; K, T, N &gt;::difference_type =  std::ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="37" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1circular__map_1af867504d1a264f22f67d951f4bf7cc0a" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="structsrsgnb_1_1detail_1_1type__storage" kindref="compound">detail::type_storage</ref>&lt; obj_t &gt;, N &gt;</type>
+        <definition>std::array&lt;detail::type_storage&lt;obj_t&gt;, N&gt; srsgnb::circular_map&lt; K, T, N &gt;::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="302" column="14" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1circular__map_1a074433c5366ce3b61185157fa9ca9c2d" prot="private" static="no" mutable="no">
+        <type>std::array&lt; bool, N &gt;</type>
+        <definition>std::array&lt;bool, N&gt; srsgnb::circular_map&lt; K, T, N &gt;::present</definition>
+        <argsstring></argsstring>
+        <name>present</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="303" column="37" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1circular__map_1a21aca2681989a2b8323c99b7bdba51e8" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::circular_map&lt; K, T, N &gt;::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="304" column="46" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a586e5da9c57dcf0c8a324f22820e7b52" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::circular_map&lt; K, T, N &gt;::circular_map</definition>
+        <argsstring>()</argsstring>
+        <name>circular_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="123" column="13" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a80dd86e7554bfac2cf7ac38fe6c0e16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::circular_map&lt; K, T, N &gt;::circular_map</definition>
+        <argsstring>(const circular_map&lt; K, T, N &gt; &amp;other)</argsstring>
+        <name>circular_map</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref>&lt; K, T, N &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="124" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1ab93cf11e38c2fbcda0a39cb069d39d31" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::circular_map&lt; K, T, N &gt;::circular_map</definition>
+        <argsstring>(circular_map&lt; K, T, N &gt; &amp;&amp;other) noexcept</argsstring>
+        <name>circular_map</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref>&lt; K, T, N &gt; &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="132" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="132" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a164e6c71034e842a4392842e025d3e8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::circular_map&lt; K, T, N &gt;::~circular_map</definition>
+        <argsstring>()</argsstring>
+        <name>~circular_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="141" column="3" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a935b2bd464a166ac76f084863e81e1ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref> &amp;</type>
+        <definition>circular_map&amp; srsgnb::circular_map&lt; K, T, N &gt;::operator=</definition>
+        <argsstring>(const circular_map&lt; K, T, N &gt; &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref>&lt; K, T, N &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="142" column="16" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="142" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a33031853b69a1608160e580e9fcf5ca5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref> &amp;</type>
+        <definition>circular_map&amp; srsgnb::circular_map&lt; K, T, N &gt;::operator=</definition>
+        <argsstring>(circular_map&lt; K, T, N &gt; &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1circular__map" kindref="compound">circular_map</ref>&lt; K, T, N &gt; &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="153" column="16" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="153" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a2a2521deb399e02c2f6fed2a87b9ebdb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::contains</definition>
+        <argsstring>(K key) const noexcept</argsstring>
+        <name>contains</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>If an object with the given key exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="165" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="165" bodyend="169"/>
+        <referencedby refid="classsrsgnb_1_1circular__map_1a60d2368a957ce6d1138d60437aa3c249" compoundref="circular__map_8h" startline="260" endline="264">srsgnb::circular_map&lt; uint32_t, T, WINDOW_SIZE &gt;::operator[]</referencedby>
+        <referencedby refid="classsrsgnb_1_1circular__map_1aac8b4e3905728597a4390ae6516d12ac" compoundref="circular__map_8h" startline="283" endline="289">srsgnb::circular_map&lt; uint32_t, T, WINDOW_SIZE &gt;::find</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a2b091ccadd5ea1c23188e6ec2c587c58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::emplace</definition>
+        <argsstring>(K key, Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs object with given key if no collision is detected. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>key of created object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if no collision was detected and object was inserted. False, otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="175" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="175" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a16a9b71f0fba0aea7015118e3b6e656b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::insert</definition>
+        <argsstring>(K key, const T &amp;obj)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="189" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="189" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1aa1f1666e89533f091516522e0b95d76f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1expected" kindref="compound">srsgnb::expected</ref>&lt; <ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref>, T &gt;</type>
+        <definition>srsgnb::expected&lt;iterator, T&gt; srsgnb::circular_map&lt; K, T, N &gt;::insert</definition>
+        <argsstring>(K key, T &amp;&amp;obj)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="200" column="20" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="200" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1aab25ff8367e9dfac0c91fb3fab42296f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::circular_map&lt; K, T, N &gt;::overwrite</definition>
+        <argsstring>(K key, U &amp;&amp;obj)</argsstring>
+        <name>overwrite</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>U &amp;&amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insert object with provided key. If an object already exists with the same index, it gets overwritten. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>key of the object to insert </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object to insert </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="216" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="216" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1ae7c4de5e2828805fd1eec316a354edc6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::erase</definition>
+        <argsstring>(K key) noexcept</argsstring>
+        <name>erase</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="225" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="225" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a3328cfe129c17662bc28789dec7fa9f6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::circular_map&lt; K, T, N &gt;::erase</definition>
+        <argsstring>(iterator it) noexcept</argsstring>
+        <name>erase</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="237" column="12" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="237" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a9160855bf9262c889c508fffa02e6ddc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::circular_map&lt; K, T, N &gt;::clear</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="248" column="8" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="248" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a60d2368a957ce6d1138d60437aa3c249" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; srsgnb::circular_map&lt; K, T, N &gt;::operator[]</definition>
+        <argsstring>(K key) noexcept</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Random Access by key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="260" column="5" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="260" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a1be90a325d5c6bbf34e348a6c533add4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; srsgnb::circular_map&lt; K, T, N &gt;::operator[]</definition>
+        <argsstring>(K key) const noexcept</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="265" column="11" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="265" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a2b00213ebadf9b8e8ade15060e8f888e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::circular_map&lt; K, T, N &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="271" column="17" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="271" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a361edb9eb428d5f0d83032080919a572" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="272" column="17" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="272" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a1ce466b3cb1583c559e22a3b4f4d5d67" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::full</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>full</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="273" column="17" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="273" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a61e5e7e047c643060b92ab6cc98f632b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::circular_map&lt; K, T, N &gt;::has_space</definition>
+        <argsstring>(K key) noexcept</argsstring>
+        <name>has_space</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="274" column="17" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="274" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1adb11eeb5ae694246413bdb9f9c70a098" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::circular_map&lt; K, T, N &gt;::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="277" column="18" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="277" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a5c429ff5152f940293ebba0854e275ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::circular_map&lt; K, T, N &gt;::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="278" column="18" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="278" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1afe871e688aecf135364d04f57b983e68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::circular_map&lt; K, T, N &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="279" column="18" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="279" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a15deda6e0b767d636479adda6f43838a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::circular_map&lt; K, T, N &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="280" column="18" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="280" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1aac8b4e3905728597a4390ae6516d12ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::circular_map&lt; K, T, N &gt;::find</definition>
+        <argsstring>(K key)</argsstring>
+        <name>find</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Find object iterator by key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="283" column="12" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="283" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a06914a74ccd16219ae25e660a50456fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1circular__map_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::circular_map&lt; K, T, N &gt;::find</definition>
+        <argsstring>(K key) const</argsstring>
+        <name>find</name>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="290" column="18" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="290" bodyend="296"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1ac2784286bdf5a52f791d90ae925e248f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t srsgnb::circular_map&lt; K, T, N &gt;::capacity</definition>
+        <argsstring>()</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="275" column="17" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="275" bodyend="275"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a4f9a42d93c04fe717f2816ff79af7cec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>obj_t &amp;</type>
+        <definition>obj_t&amp; srsgnb::circular_map&lt; K, T, N &gt;::get_obj_</definition>
+        <argsstring>(size_t idx)</argsstring>
+        <name>get_obj_</name>
+        <param>
+          <type>size_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="299" column="15" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="299" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1circular__map_1a023110cf4f5a84ba9fdfb0abae111546" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const obj_t &amp;</type>
+        <definition>const obj_t&amp; srsgnb::circular_map&lt; K, T, N &gt;::get_obj_</definition>
+        <argsstring>(size_t idx) const</argsstring>
+        <name>get_obj_</name>
+        <param>
+          <type>size_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_map.h" line="300" column="15" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="300" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Contiguous array of optional objects indexed circularly via a integer key. Random access, insertion and removal should have complexity O(1). Each container element contains 3 fields: (i) presence flag, (ii) key, (iii) stored object In case the presence flag is set to true, the stored object exists and its ctor has been called. The following steps are performed to access an element:<orderedlist>
+<listitem><para>The provided key K is converted to an array index via the operation I = K % N.</para>
+</listitem><listitem><para>The presence flag for the index I is checked. If present,</para>
+</listitem><listitem><para>Check if the provided key K corresponds to the key stored in the element. If the keys match,</para>
+</listitem><listitem><para>Retrieve the stored object. The container does not resolve collisions, i.e. it doesn&apos;t allow two objects of different keys but same index to be inserted in the container. It is up to the user to resolve such situations. There is no pointer and iterator invalidation. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of key used to retrieve an element index. K must be an unsigned integer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of each element </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of elements </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::circular_map&lt; K, T, N &gt;</label>
+        <link refid="classsrsgnb_1_1circular__map"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/circular_map.h" line="28" column="1" bodyfile="include/srsgnb/adt/circular_map.h" bodystart="27" bodyend="305"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1circular__map_1adb11eeb5ae694246413bdb9f9c70a098" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1afe871e688aecf135364d04f57b983e68" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1af867504d1a264f22f67d951f4bf7cc0a" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1ac2784286bdf5a52f791d90ae925e248f" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>capacity</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a586e5da9c57dcf0c8a324f22820e7b52" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>circular_map</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a80dd86e7554bfac2cf7ac38fe6c0e16e" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>circular_map</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1ab93cf11e38c2fbcda0a39cb069d39d31" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>circular_map</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a9160855bf9262c889c508fffa02e6ddc" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a2a2521deb399e02c2f6fed2a87b9ebdb" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>contains</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a21aca2681989a2b8323c99b7bdba51e8" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>count</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1ab7f4274e5c2f4a50f8addb50cc17e6fb" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>difference_type</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a2b091ccadd5ea1c23188e6ec2c587c58" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>emplace</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a361edb9eb428d5f0d83032080919a572" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>empty</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a5c429ff5152f940293ebba0854e275ac" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a15deda6e0b767d636479adda6f43838a" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1ae7c4de5e2828805fd1eec316a354edc6" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>erase</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a3328cfe129c17662bc28789dec7fa9f6" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>erase</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1aac8b4e3905728597a4390ae6516d12ac" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>find</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a06914a74ccd16219ae25e660a50456fb" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>find</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a1ce466b3cb1583c559e22a3b4f4d5d67" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>full</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a4f9a42d93c04fe717f2816ff79af7cec" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>get_obj_</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a023110cf4f5a84ba9fdfb0abae111546" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>get_obj_</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a61e5e7e047c643060b92ab6cc98f632b" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>has_space</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a16a9b71f0fba0aea7015118e3b6e656b" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>insert</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1aa1f1666e89533f091516522e0b95d76f" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>insert</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a73bbbef2c7a11d7ca44a11176ae8165e" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>key_type</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a0f96fd9d71b5b75d5cce4ce0c41d04c5" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>mapped_type</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a949d64e280bd3dfef5d85beb0ddacf8b" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>obj_t</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a935b2bd464a166ac76f084863e81e1ba" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a33031853b69a1608160e580e9fcf5ca5" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a60d2368a957ce6d1138d60437aa3c249" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a1be90a325d5c6bbf34e348a6c533add4" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1aab25ff8367e9dfac0c91fb3fab42296f" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>overwrite</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a074433c5366ce3b61185157fa9ca9c2d" prot="private" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>present</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a2b00213ebadf9b8e8ade15060e8f888e" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>size</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a2d90b3ce4daaf592d10e63162ece30d8" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>value_type</name></member>
+      <member refid="classsrsgnb_1_1circular__map_1a164e6c71034e842a4392842e025d3e8b" prot="public" virt="non-virtual"><scope>srsgnb::circular_map</scope><name>~circular_map</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

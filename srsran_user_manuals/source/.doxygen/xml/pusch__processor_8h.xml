@@ -1,0 +1,684 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pusch__processor_8h" kind="file" language="C++">
+    <compoundname>pusch_processor.h</compoundname>
+    <includes refid="static__vector_8h" local="yes">srsgnb/adt/static_vector.h</includes>
+    <includes refid="include_2srsgnb_2phy_2support_2resource__grid_8h" local="yes">srsgnb/phy/support/resource_grid.h</includes>
+    <includes refid="ldpc_8h" local="yes">srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</includes>
+    <includes refid="dmrs__mapping_8h" local="yes">srsgnb/phy/upper/dmrs_mapping.h</includes>
+    <includes refid="rb__allocation_8h" local="yes">srsgnb/phy/upper/rb_allocation.h</includes>
+    <includes refid="re__pattern_8h" local="yes">srsgnb/phy/upper/re_pattern.h</includes>
+    <includes refid="rx__softbuffer_8h" local="yes">srsgnb/phy/upper/rx_softbuffer.h</includes>
+    <includes refid="modulation__scheme_8h" local="yes">srsgnb/ran/modulation_scheme.h</includes>
+    <includes refid="slot__point_8h" local="yes">srsgnb/ran/slot_point.h</includes>
+    <includes refid="uci__constants_8h" local="yes">srsgnb/ran/uci/uci_constants.h</includes>
+    <includedby refid="channel__processor__factories_8h" local="yes">include/srsgnb/phy/upper/channel_processors/channel_processor_factories.h</includedby>
+    <includedby refid="pusch__processor__impl_8h" local="yes">lib/phy/upper/channel_processors/pusch_processor_impl.h</includedby>
+    <incdepgraph>
+      <node id="43">
+        <label>atomic</label>
+      </node>
+      <node id="53">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>functional</label>
+      </node>
+      <node id="30">
+        <label>limits</label>
+      </node>
+      <node id="20">
+        <label>iterator</label>
+      </node>
+      <node id="49">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>cmath</label>
+      </node>
+      <node id="42">
+        <label>cassert</label>
+      </node>
+      <node id="3">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>stdexcept</label>
+      </node>
+      <node id="66">
+        <label>numeric</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/phy/upper/rb_allocation.h</label>
+        <link refid="rb__allocation_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/srsgnb/phy/upper/channel_processors/pusch_processor.h</label>
+        <link refid="pusch__processor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="68">
+        <label>srsgnb/ran/slot_point.h</label>
+        <link refid="slot__point_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>pthread.h</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>cstdio</label>
+      </node>
+      <node id="41">
+        <label>tuple</label>
+      </node>
+      <node id="13">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>vector</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/ran/cyclic_prefix.h</label>
+        <link refid="cyclic__prefix_8h"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>srsgnb/ran/uci/uci_constants.h</label>
+        <link refid="uci__constants_8h_source"/>
+      </node>
+      <node id="51">
+        <label>srsgnb/phy/upper/dmrs_mapping.h</label>
+        <link refid="dmrs__mapping_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>utility</label>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>array</label>
+      </node>
+      <node id="52">
+        <label>srsgnb/phy/upper/re_pattern.h</label>
+        <link refid="re__pattern_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>srsgnb/adt/interval.h</label>
+        <link refid="interval_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="28">
+        <label>cerrno</label>
+      </node>
+      <node id="47">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstddef</label>
+      </node>
+      <node id="32">
+        <label>chrono</label>
+      </node>
+      <node id="14">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>type_traits</label>
+      </node>
+      <node id="57">
+        <label>srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>complex</label>
+      </node>
+      <node id="63">
+        <label>srsgnb/phy/upper/rx_softbuffer.h</label>
+        <link refid="rx__softbuffer_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/phy/upper/vrb_to_prb_mapper.h</label>
+        <link refid="vrb__to__prb__mapper_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>algorithm</label>
+      </node>
+      <node id="10">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>srsgnb/phy/upper/log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>cstring</label>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb/srslog/bundled/fmt/core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="54">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/srsgnb/phy/upper/channel_processors/channel_processor_factories.h</label>
+        <link refid="channel__processor__factories_8h_source"/>
+      </node>
+      <node id="3">
+        <label>lib/phy/upper/channel_processors/pusch_processor_impl.h</label>
+        <link refid="pusch__processor__impl_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/srsgnb/phy/upper/channel_processors/pusch_processor.h</label>
+        <link refid="pusch__processor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsrsgnb_1_1pusch__processor" prot="public">srsgnb::pusch_processor</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1codeword__description" prot="public">srsgnb::pusch_processor::codeword_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1uci__description" prot="public">srsgnb::pusch_processor::uci_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" prot="public">srsgnb::pusch_processor::pdu_t</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1csi__indication" prot="public">srsgnb::pusch_processor::csi_indication</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1data__indication" prot="public">srsgnb::pusch_processor::data_indication</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1uci__indication" prot="public">srsgnb::pusch_processor::uci_indication</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1outcome" prot="public">srsgnb::pusch_processor::outcome</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/adt/static_vector.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/support/resource_grid.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc_8h" kindref="compound">srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/dmrs_mapping.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/rb_allocation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/re_pattern.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/rx_softbuffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="modulation__scheme_8h" kindref="compound">srsgnb/ran/modulation_scheme.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/slot_point.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/uci/uci_constants.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsrsgnb_1_1pusch__processor" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1pusch__processor" kindref="compound">pusch_processor</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36" refid="classsrsgnb_1_1pusch__processor_1abc5e211db0729620794a7ecd8991c15e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pusch__processor_1abc5e211db0729620794a7ecd8991c15e" kindref="member">MAX_NRE_PER_RB</ref><sp/>=<sp/>156;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="structsrsgnb_1_1pusch__processor_1_1codeword__description" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1codeword__description" kindref="compound">codeword_description</ref><sp/>{</highlight></codeline>
+<codeline lineno="42" refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a9ed2e0f7e1eb735faf21885c2824c264" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a9ed2e0f7e1eb735faf21885c2824c264" kindref="member">modulation</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a0bf6baccde8cd678f6231caa8c54659f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a0bf6baccde8cd678f6231caa8c54659f" kindref="member">rv</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1af393fd15b6aa1b9b34d0030f1a95f0ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1aef8df2da7a55cf1ada5a749a6433330c" kindref="member">ldpc_base_graph_type</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1af393fd15b6aa1b9b34d0030f1a95f0ce" kindref="member">ldpc_base_graph</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a5585936eb4ec95fd90ea0391f59c9e15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1codeword__description_1a5585936eb4ec95fd90ea0391f59c9e15" kindref="member">new_data</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structsrsgnb_1_1pusch__processor_1_1uci__description" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description" kindref="compound">uci_description</ref><sp/>{</highlight></codeline>
+<codeline lineno="54" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a9d7a4f9a680c9524c47f0646fb266b73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;uci_constants::MAX_NOF_HARQ_ACK_BITS&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a9d7a4f9a680c9524c47f0646fb266b73" kindref="member">harq_ack</ref>;</highlight></codeline>
+<codeline lineno="56" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a0698dfc273578fdc94dc2e483c10c0fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;uci_constants::MAX_NOF_CSI_PART1_BITS&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a0698dfc273578fdc94dc2e483c10c0fd" kindref="member">csi_part1</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a0b9e503cdf7d5110b84f5c68b9cbc3d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;uci_constants::MAX_NOF_CSI_PART1_BITS&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a0b9e503cdf7d5110b84f5c68b9cbc3d4" kindref="member">csi_part2</ref>;</highlight></codeline>
+<codeline lineno="60" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a05b0f50b69f413bd4afa48e4faae5903" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a05b0f50b69f413bd4afa48e4faae5903" kindref="member">scaling</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1aa59c38ab54e8e9c99e73af988293ee4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1aa59c38ab54e8e9c99e73af988293ee4b" kindref="member">beta_offset_harq_ack</ref>;</highlight></codeline>
+<codeline lineno="66" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a5477db3137cd0ce3db239145df3df8d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1a5477db3137cd0ce3db239145df3df8d0" kindref="member">beta_offset_csi_part1</ref>;</highlight></codeline>
+<codeline lineno="69" refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1affd1e3d7b25de778f524ff342df3ddbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__description_1affd1e3d7b25de778f524ff342df3ddbc" kindref="member">beta_offset_csi_part2</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" kindref="compound">pdu_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="77" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a27bbe24b51243ec8bbdb34ab0e3cd5eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a27bbe24b51243ec8bbdb34ab0e3cd5eb" kindref="member">slot</ref>;</highlight></codeline>
+<codeline lineno="79" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a1f3fbd6fda4a61253d5a544cde0bdb8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a1f3fbd6fda4a61253d5a544cde0bdb8a" kindref="member">rnti</ref>;</highlight></codeline>
+<codeline lineno="81" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae3f1f747f8a56767b348d29ca0352ae5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae3f1f747f8a56767b348d29ca0352ae5" kindref="member">bwp_size_rb</ref>;</highlight></codeline>
+<codeline lineno="83" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a37db44f343d93794d9cc85fbcfd720bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a37db44f343d93794d9cc85fbcfd720bd" kindref="member">bwp_start_rb</ref>;</highlight></codeline>
+<codeline lineno="85" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a06eb0c09ad3bcc199a214a9ae692869e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1cyclic__prefix" kindref="compound">cyclic_prefix</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a06eb0c09ad3bcc199a214a9ae692869e" kindref="member">cp</ref>;</highlight></codeline>
+<codeline lineno="87" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a4fc9aae8146996034230f10c867adeb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1optional" kindref="compound">optional&lt;codeword_description&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a4fc9aae8146996034230f10c867adeb1" kindref="member">codeword</ref>;</highlight></codeline>
+<codeline lineno="89" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a9f917c92d3d905831873fcbdc1aafb3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1optional" kindref="compound">optional&lt;uci_description&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a9f917c92d3d905831873fcbdc1aafb3e" kindref="member">uci</ref>;</highlight></codeline>
+<codeline lineno="95" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a3f13d637cd077198c54f4aef1afe7776" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a3f13d637cd077198c54f4aef1afe7776" kindref="member">n_id</ref>;</highlight></codeline>
+<codeline lineno="97" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a34e435cc6308f32176ac239aa080f82e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_PORTS&gt;</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a34e435cc6308f32176ac239aa080f82e" kindref="member">ports</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ignores<sp/>the<sp/>transmission<sp/>scheme.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>...</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="103" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae5c6a49c478d6f228827d6f6140c3f28a0db3c9d27f9a0d5fbc6f936ebb8eab90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae5c6a49c478d6f228827d6f6140c3f28a0db3c9d27f9a0d5fbc6f936ebb8eab90" kindref="member">CRB0</ref>,</highlight></codeline>
+<codeline lineno="106" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae5c6a49c478d6f228827d6f6140c3f28af333df421e30e81728d992ceb1d8425e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae5c6a49c478d6f228827d6f6140c3f28af333df421e30e81728d992ceb1d8425e" kindref="member">PRB0</ref></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1af576b6d2cda1f77c3513adeadadf1ea8" kindref="member">ref_point</ref>;</highlight></codeline>
+<codeline lineno="109" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a321074f6431f2993392fc71e253b3c4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;bool,<sp/>MAX_NSYMB_PER_SLOT&gt;<sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a321074f6431f2993392fc71e253b3c4e" kindref="member">dmrs_symbol_mask</ref>;</highlight></codeline>
+<codeline lineno="111" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ac9b90a73fffae40d715524eb22c4bf03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1dmrs__type" kindref="compound">dmrs_type</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ac9b90a73fffae40d715524eb22c4bf03" kindref="member">dmrs</ref>;</highlight></codeline>
+<codeline lineno="117" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a706ef232d1f1d787e8864ce842f522c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a706ef232d1f1d787e8864ce842f522c9" kindref="member">scrambling_id</ref>;</highlight></codeline>
+<codeline lineno="124" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a6241f09e6e10e1c8f95b7c2192737757" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a6241f09e6e10e1c8f95b7c2192737757" kindref="member">n_scid</ref>;</highlight></codeline>
+<codeline lineno="126" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a78343fc68769cb0f8893f63241ffba15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a78343fc68769cb0f8893f63241ffba15" kindref="member">nof_cdm_groups_without_data</ref>;</highlight></codeline>
+<codeline lineno="128" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae18a03c3a489c1e87744c89f627644d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1rb__allocation" kindref="compound">rb_allocation</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ae18a03c3a489c1e87744c89f627644d2" kindref="member">freq_alloc</ref>;</highlight></codeline>
+<codeline lineno="130" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a60443d15c749749810314b684bdb5c3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a60443d15c749749810314b684bdb5c3e" kindref="member">start_symbol_index</ref>;</highlight></codeline>
+<codeline lineno="132" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a1d76679ac637243ab56b241659822667" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a1d76679ac637243ab56b241659822667" kindref="member">nof_symbols</ref>;</highlight></codeline>
+<codeline lineno="138" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1aea6f7c42dbd83901d5ebcfcf3f02f997" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1aea6f7c42dbd83901d5ebcfcf3f02f997" kindref="member">tbs_lbrm_bytes</ref>;</highlight></codeline>
+<codeline lineno="140" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ab1ac116a058052814d1ed317a1c23919" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1re__pattern__list" kindref="compound">re_pattern_list</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1ab1ac116a058052814d1ed317a1c23919" kindref="member">reserved</ref>;</highlight></codeline>
+<codeline lineno="142" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a856fac33ff53bcef01bcbfcefd8b94c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a856fac33ff53bcef01bcbfcefd8b94c7" kindref="member">ratio_pusch_dmrs_to_sss_dB</ref>;</highlight></codeline>
+<codeline lineno="144" refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a3df0c2d0f5b6a3bf1e55a9c6fd7944d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t_1a3df0c2d0f5b6a3bf1e55a9c6fd7944d2" kindref="member">ratio_pusch_data_to_sss_dB</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="structsrsgnb_1_1pusch__processor_1_1csi__indication" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication" kindref="compound">csi_indication</ref><sp/>{</highlight></codeline>
+<codeline lineno="150" refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1aae9742c4bc9a287aa399a4ac6018c03f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1aae9742c4bc9a287aa399a4ac6018c03f" kindref="member">time_aligment_us</ref>;</highlight></codeline>
+<codeline lineno="152" refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1a183b872bcb5031badbf948721ce9f807" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1a183b872bcb5031badbf948721ce9f807" kindref="member">epre_dB</ref>;</highlight></codeline>
+<codeline lineno="154" refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1a337cbe7ab4378ea88f034fb64a8fdbc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1a337cbe7ab4378ea88f034fb64a8fdbc8" kindref="member">rsrp_dB</ref>;</highlight></codeline>
+<codeline lineno="156" refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1ad9ef8e3918c093f660f15bec803860bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication_1ad9ef8e3918c093f660f15bec803860bd" kindref="member">sinr_dB</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="structsrsgnb_1_1pusch__processor_1_1data__indication" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1data__indication" kindref="compound">data_indication</ref><sp/>{</highlight></codeline>
+<codeline lineno="162" refid="structsrsgnb_1_1pusch__processor_1_1data__indication_1a672d1f1c07eeff53b70cc9ced1f538df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1data__indication_1a672d1f1c07eeff53b70cc9ced1f538df" kindref="member">crc</ref>;</highlight></codeline>
+<codeline lineno="164" refid="structsrsgnb_1_1pusch__processor_1_1data__indication_1a89b682b65c6aa6ac0aaa6d591937d64a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1data__indication_1a89b682b65c6aa6ac0aaa6d591937d64a" kindref="member">average_iterations</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="structsrsgnb_1_1pusch__processor_1_1uci__indication" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1uci__indication" kindref="compound">uci_indication</ref><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TBD.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="structsrsgnb_1_1pusch__processor_1_1outcome" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pusch__processor_1_1outcome" kindref="compound">outcome</ref><sp/>{</highlight></codeline>
+<codeline lineno="175" refid="structsrsgnb_1_1pusch__processor_1_1outcome_1a18829ba3cec48328b1554a52960c0a13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1csi__indication" kindref="compound">csi_indication</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1outcome_1a18829ba3cec48328b1554a52960c0a13" kindref="member">csi</ref>;</highlight></codeline>
+<codeline lineno="177" refid="structsrsgnb_1_1pusch__processor_1_1outcome_1a4a4ccc68d6924e84455edfb9aa2ca660" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1data__indication" kindref="compound">data_indication</ref><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1outcome_1a4a4ccc68d6924e84455edfb9aa2ca660" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pusch__processor_1a743cbe38da9a966381fe0378c7dcd7ca" kindref="member">~pusch_processor</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pusch__processor_1acc0a8bf61d39c12b178865a7ba36e388" kindref="member">process</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>data,<sp/><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref>&amp;<sp/>softbuffer,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref>&amp;<sp/>grid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" kindref="compound">pdu_t</ref>&amp;<sp/>pdu)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/srsgnb/phy/upper/channel_processors/pusch_processor.h"/>
+  </compounddef>
+</doxygen>

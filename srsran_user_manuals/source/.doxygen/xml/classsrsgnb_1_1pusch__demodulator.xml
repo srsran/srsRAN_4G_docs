@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pusch__demodulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pusch_demodulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pusch__demodulator__impl" prot="public" virt="non-virtual">srsgnb::pusch_demodulator_impl</derivedcompoundref>
+    <includes refid="pusch__demodulator_8h" local="no">pusch_demodulator.h</includes>
+    <innerclass refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" prot="public">srsgnb::pusch_demodulator::configuration</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" kindref="member">MAX_NOF_DATA_LLR</ref> &gt;</type>
+        <definition>using srsgnb::pusch_demodulator::data_llr_buffer =  static_vector&lt;log_likelihood_ratio, MAX_NOF_DATA_LLR&gt;</definition>
+        <argsstring></argsstring>
+        <name>data_llr_buffer</name>
+        <briefdescription>
+<para>Data LLR buffer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="75" column="3" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1a773a9125921f44975f3a5a40cc7f4010" kindref="member">MAX_NOF_HARQ_ACK_LLR</ref> &gt;</type>
+        <definition>using srsgnb::pusch_demodulator::harq_ack_llr_buffer =  static_vector&lt;log_likelihood_ratio, MAX_NOF_HARQ_ACK_LLR&gt;</definition>
+        <argsstring></argsstring>
+        <name>harq_ack_llr_buffer</name>
+        <briefdescription>
+<para>HARQ-ACK LLR buffer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="78" column="3" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1a2d7981804813f1c4a79758ccc3f40beb" kindref="member">MAX_NOF_CSI_PART1_LLR</ref> &gt;</type>
+        <definition>using srsgnb::pusch_demodulator::csi_part1_llr =  static_vector&lt;log_likelihood_ratio, MAX_NOF_CSI_PART1_LLR&gt;</definition>
+        <argsstring></argsstring>
+        <name>csi_part1_llr</name>
+        <briefdescription>
+<para>CSI Part1 LLR buffer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="81" column="3" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1ad41ec4d9b988af91066d64db1c70f7da" kindref="member">MAX_NOF_CSI_PART2_LLR</ref> &gt;</type>
+        <definition>using srsgnb::pusch_demodulator::csi_part2_llr =  static_vector&lt;log_likelihood_ratio, MAX_NOF_CSI_PART2_LLR&gt;</definition>
+        <argsstring></argsstring>
+        <name>csi_part2_llr</name>
+        <briefdescription>
+<para>CSI Part2 LLR buffer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="84" column="3" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1ad106cd3a1d3365d2a1a706673756e7f6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::MAX_CODEWORD_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MAX_CODEWORD_SIZE</name>
+        <initializer>=
+      <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * pusch_constants::MAX_NRE_PER_RB * pusch_constants::MAX_NOF_LAYERS</initializer>
+        <briefdescription>
+<para>Maximum number of REs per codeword in a single transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="41" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::MAX_NOF_DATA_LLR</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_DATA_LLR</name>
+        <initializer>= <ref refid="classsrsgnb_1_1pusch__demodulator_1ad106cd3a1d3365d2a1a706673756e7f6" kindref="member">MAX_CODEWORD_SIZE</ref> * pusch_constants::MAX_MODULATION_ORDER</initializer>
+        <briefdescription>
+<para>Maximum number of LLRs per codeword in a single transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="45" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::UCI_ON_PUSCH_MAX_ALPHA</definition>
+        <argsstring></argsstring>
+        <name>UCI_ON_PUSCH_MAX_ALPHA</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Maximum UCI scaling <formula id="54">$\alpha$</formula> as per TS38.331 UCI-OnPUSCH. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="48" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1a773a9125921f44975f3a5a40cc7f4010" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::MAX_NOF_HARQ_ACK_LLR</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_HARQ_ACK_LLR</name>
+        <initializer>=
+      <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * pusch_constants::MAX_NRE_PER_RB * <ref refid="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" kindref="member">UCI_ON_PUSCH_MAX_ALPHA</ref> * pusch_constants::MAX_MODULATION_ORDER</initializer>
+        <briefdescription>
+<para>Maximum number of LLRs for HARQ-ACK in a single transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As per TS38.212 Section 6.3.2.4.1.1, <formula id="55">$Q_{ACK}&apos;$</formula> formula. Ceiling the value of <formula id="56">$\sum ^{N_{symb,all}^{PUSCH}-1}_{l=l_0}M_{sc}^{UCI}(l)$</formula> to the maximum number of resource elements in a PUSCH transmission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="55" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1a2d7981804813f1c4a79758ccc3f40beb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::MAX_NOF_CSI_PART1_LLR</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_CSI_PART1_LLR</name>
+        <initializer>=
+      <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * pusch_constants::MAX_NRE_PER_RB * <ref refid="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" kindref="member">UCI_ON_PUSCH_MAX_ALPHA</ref> * pusch_constants::MAX_MODULATION_ORDER</initializer>
+        <briefdescription>
+<para>Maximum number of LLRs for CSI Part1 in a single transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As per TS38.212 Section 6.3.2.4.1.1 in <formula id="57">$Q_{CSI-1}&apos;$</formula> formula. Ceiling the value of <formula id="56">$\sum ^{N_{symb,all}^{PUSCH}-1}_{l=l_0}M_{sc}^{UCI}(l)$</formula> to the maximum number of resource elements in a PUSCH transmission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="63" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator_1ad41ec4d9b988af91066d64db1c70f7da" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_demodulator::MAX_NOF_CSI_PART2_LLR</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_CSI_PART2_LLR</name>
+        <initializer>=
+      <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * pusch_constants::MAX_NRE_PER_RB * <ref refid="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" kindref="member">UCI_ON_PUSCH_MAX_ALPHA</ref> * pusch_constants::MAX_MODULATION_ORDER</initializer>
+        <briefdescription>
+<para>Maximum number of LLRs for CSI Part2 in a single transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As per TS38.212 Section 6.3.2.4.1.1 in <formula id="58">$Q_{CSI-2}&apos;$</formula> formula. Ceiling the value of <formula id="56">$\sum ^{N_{symb,all}^{PUSCH}-1}_{l=l_0}M_{sc}^{UCI}(l)$</formula> to the maximum number of resource elements in a PUSCH transmission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="71" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator_1ade1fee756997f27945aefa5d1ab757b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pusch_demodulator::~pusch_demodulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pusch_demodulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="122" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator_1a283eb5b7b29e31834265b1f033fd8553" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pusch_demodulator::demodulate</definition>
+        <argsstring>(data_llr_buffer &amp;data, harq_ack_llr_buffer &amp;harq_ack, csi_part1_llr &amp;csi_part1, csi_part2_llr &amp;csi_part2, const resource_grid_reader &amp;grid, const channel_estimate &amp;estimates, const configuration &amp;config)=0</argsstring>
+        <name>demodulate</name>
+        <reimplementedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf">demodulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" kindref="member">data_llr_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" kindref="member">harq_ack_llr_buffer</ref> &amp;</type>
+          <declname>harq_ack</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" kindref="member">csi_part1_llr</ref> &amp;</type>
+          <declname>csi_part1</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" kindref="member">csi_part2_llr</ref> &amp;</type>
+          <declname>csi_part2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimates</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates a PUSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes log-likelihood ratios from channel samples by reversing all the operations described in TS38.211 Section 6.3.1. The method also extracts control bits that were multiplexed with PUSCH data as per TS38.212 Section 6.2.7.</para>
+<para><simplesect kind="remark"><para><itemizedlist>
+<listitem><para>The size of <computeroutput>data</computeroutput> determines the codeword size in LLR.</para>
+</listitem><listitem><para>The size of <computeroutput>harq_ack</computeroutput> determines the number of LLR for HARQ-ACK.</para>
+</listitem><listitem><para>The size of <computeroutput>csi_part1</computeroutput> determines the number of LLR for CSI Part1.</para>
+</listitem><listitem><para>The size of <computeroutput>csi_part2</computeroutput> determines the number of LLR for CSI Part2.</para>
+</listitem><listitem><para>The total number of LLR must be consistent with the number of RE allocated to the transmission.</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Codeword LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">harq_ack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HARQ-ACK LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSI Part1 LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSI Part2 LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid for the current slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estimates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel estimates for the REs allocated to the PUSCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="143" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PUSCH demodulator interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The demodulation of a PUSCH consists of:<itemizedlist>
+<listitem><para>extracting allocated REs from the resource grid,</para>
+</listitem><listitem><para>equalizing of the extracted RE,</para>
+</listitem><listitem><para>soft-demodulation of the complex data,</para>
+</listitem><listitem><para>descrambling, and</para>
+</listitem><listitem><para>demultiplexing data and control. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pusch_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pusch_demodulator</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pusch_demodulator</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" line="38" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h" bodystart="37" bodyend="150"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>csi_part1_llr</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>csi_part2_llr</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>data_llr_buffer</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a283eb5b7b29e31834265b1f033fd8553" prot="public" virt="pure-virtual"><scope>srsgnb::pusch_demodulator</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>harq_ack_llr_buffer</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ad106cd3a1d3365d2a1a706673756e7f6" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>MAX_CODEWORD_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a2d7981804813f1c4a79758ccc3f40beb" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>MAX_NOF_CSI_PART1_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ad41ec4d9b988af91066d64db1c70f7da" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>MAX_NOF_CSI_PART2_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>MAX_NOF_DATA_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a773a9125921f44975f3a5a40cc7f4010" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>MAX_NOF_HARQ_ACK_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator</scope><name>UCI_ON_PUSCH_MAX_ALPHA</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ade1fee756997f27945aefa5d1ab757b7" prot="public" virt="virtual"><scope>srsgnb::pusch_demodulator</scope><name>~pusch_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

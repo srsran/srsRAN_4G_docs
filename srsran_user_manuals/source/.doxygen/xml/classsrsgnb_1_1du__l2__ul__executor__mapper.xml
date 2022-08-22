@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1du__l2__ul__executor__mapper" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::du_l2_ul_executor_mapper</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pcell__ul__executor__mapper" prot="public" virt="non-virtual">srsgnb::pcell_ul_executor_mapper</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1ue__index__based__ul__executor__mapper" prot="public" virt="non-virtual">srsgnb::ue_index_based_ul_executor_mapper</derivedcompoundref>
+    <includes refid="du__l2__ul__executor__mapper_8h" local="no">du_l2_ul_executor_mapper.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1du__l2__ul__executor__mapper_1a16d8511684b4053b6a159c889c3f99a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::du_l2_ul_executor_mapper::~du_l2_ul_executor_mapper</definition>
+        <argsstring>()=default</argsstring>
+        <name>~du_l2_ul_executor_mapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" line="13" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1du__l2__ul__executor__mapper_1a8816cebb924953165a4adb4d6922b7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>virtual task_executor&amp; srsgnb::du_l2_ul_executor_mapper::rebind_executor</definition>
+        <argsstring>(du_ue_index_t ue_index, du_cell_index_t pcell_index)=0</argsstring>
+        <name>rebind_executor</name>
+        <reimplementedby refid="classsrsgnb_1_1ue__index__based__ul__executor__mapper_1a547c8060bf4d7843bb6c2b48c2286517">rebind_executor</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1pcell__ul__executor__mapper_1a8760bdb8b37ba75d7b7f3d9e18d9b06c">rebind_executor</reimplementedby>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>pcell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to signal the detection of a new UE and potentially change its executor based on its parameters (e.g. PCell). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ue_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the UE. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pcell_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primary Cell of the new UE. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>task executor of this UE. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" line="19" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1du__l2__ul__executor__mapper_1a8c61994cbe69a75a60d25ded166d7a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>virtual task_executor&amp; srsgnb::du_l2_ul_executor_mapper::executor</definition>
+        <argsstring>(du_ue_index_t ue_index)=0</argsstring>
+        <name>executor</name>
+        <reimplementedby refid="classsrsgnb_1_1ue__index__based__ul__executor__mapper_1ae9d9e173bb724f5e1aafbe428ddd574a">executor</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1pcell__ul__executor__mapper_1a3097294f42fefb343b6d8ff3d6c40a89">executor</reimplementedby>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to return the executor to which a UE is currently binded. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ue_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the UE. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>task executor of the UE with given UE Index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" line="24" column="25"/>
+        <referencedby refid="classsrsgnb_1_1mac__ul__processor_1a2a9b00fb3e31acb17cd5f745b27169a6" compoundref="mac__ul__processor_8h" startline="70" endline="82">srsgnb::mac_ul_processor::handle_rx_data_indication</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdu__rx__handler_1a4ebe8d65a7561ece46436fc28a215558" compoundref="pdu__rx__handler_8cpp" startline="193" endline="219">srsgnb::pdu_rx_handler::handle_crnti_ce</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1du__l2__ul__executor__mapper_1ab8f2b31fea90d2900489c85468c1dc9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>task_executor&amp; srsgnb::du_l2_ul_executor_mapper::executor</definition>
+        <argsstring>()</argsstring>
+        <name>executor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to return the default executor with no associated UE index. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ue_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the UE. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>task executor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" line="29" column="17" bodyfile="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" bodystart="29" bodyend="29"/>
+        <references refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1ab8f2b31fea90d2900489c85468c1dc9d" compoundref="du__l2__ul__executor__mapper_8h" startline="29" endline="29">executor</references>
+        <referencedby refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1ab8f2b31fea90d2900489c85468c1dc9d" compoundref="du__l2__ul__executor__mapper_8h" startline="29" endline="29">executor</referencedby>
+        <referencedby refid="classsrsgnb_1_1ue__index__based__ul__executor__mapper_1a547c8060bf4d7843bb6c2b48c2286517" compoundref="du__high__executor__strategies_8h" startline="26" endline="31">srsgnb::ue_index_based_ul_executor_mapper::rebind_executor</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This interface is used to allow the DU to choose between different UL task scheduling strategies. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>srsgnb::ue_index_based_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1ue__index__based__ul__executor__mapper"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pcell_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1pcell__ul__executor__mapper"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::du_l2_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__ul__executor__mapper"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::du_l2_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__ul__executor__mapper"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" line="11" column="1" bodyfile="include/srsgnb/du_high/du_l2_ul_executor_mapper.h" bodystart="10" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1a8c61994cbe69a75a60d25ded166d7a43" prot="public" virt="pure-virtual"><scope>srsgnb::du_l2_ul_executor_mapper</scope><name>executor</name></member>
+      <member refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1ab8f2b31fea90d2900489c85468c1dc9d" prot="public" virt="non-virtual"><scope>srsgnb::du_l2_ul_executor_mapper</scope><name>executor</name></member>
+      <member refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1a8816cebb924953165a4adb4d6922b7d3" prot="public" virt="pure-virtual"><scope>srsgnb::du_l2_ul_executor_mapper</scope><name>rebind_executor</name></member>
+      <member refid="classsrsgnb_1_1du__l2__ul__executor__mapper_1a16d8511684b4053b6a159c889c3f99a3" prot="public" virt="virtual"><scope>srsgnb::du_l2_ul_executor_mapper</scope><name>~du_l2_ul_executor_mapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

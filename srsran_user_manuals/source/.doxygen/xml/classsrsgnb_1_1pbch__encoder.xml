@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pbch__encoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pbch_encoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pbch__encoder__impl" prot="public" virt="non-virtual">srsgnb::pbch_encoder_impl</derivedcompoundref>
+    <includes refid="pbch__encoder_8h" local="no">pbch_encoder.h</includes>
+    <innerclass refid="structsrsgnb_1_1pbch__encoder_1_1pbch__msg__t" prot="public">srsgnb::pbch_encoder::pbch_msg_t</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1a9841c7797c4452b7b36ecf7be54cb2d4" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::PAYLOAD_SIZE</definition>
+        <argsstring></argsstring>
+        <name>PAYLOAD_SIZE</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>BCH payload size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="26" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1abb174eaba9d106e8799f6a358ea48845" compoundref="pbch__encoder__impl_8cpp" startline="68" endline="111">srsgnb::pbch_encoder_impl::scramble</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1adccbefd4762394bcccf94d84f9ef8b88" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::A</definition>
+        <argsstring></argsstring>
+        <name>A</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>Generated payload length. TS38.212 refers to it as <emphasis>A</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="28" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1aa502b30e5c2158bd3056be7038ddb041" compoundref="pbch__encoder__impl_8cpp" startline="29" endline="66">srsgnb::pbch_encoder_impl::payload_generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1abb174eaba9d106e8799f6a358ea48845" compoundref="pbch__encoder__impl_8cpp" startline="68" endline="111">srsgnb::pbch_encoder_impl::scramble</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a05e78e10a81b6296d1f0db7ee5847cfa" compoundref="pbch__encoder__impl_8cpp" startline="113" endline="128">srsgnb::pbch_encoder_impl::crc_attach</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1aa95f4b100dfda078a2348bb0b01cd04a" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::CRC_LEN</definition>
+        <argsstring></argsstring>
+        <name>CRC_LEN</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+<para>CRC length in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="30" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a05e78e10a81b6296d1f0db7ee5847cfa" compoundref="pbch__encoder__impl_8cpp" startline="113" endline="128">srsgnb::pbch_encoder_impl::crc_attach</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1a4712c8e1c780622e752de7846b1aba4a" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::B</definition>
+        <argsstring></argsstring>
+        <name>B</name>
+        <initializer>= (<ref refid="classsrsgnb_1_1pbch__encoder_1a9841c7797c4452b7b36ecf7be54cb2d4" kindref="member">PAYLOAD_SIZE</ref> + <ref refid="classsrsgnb_1_1pbch__encoder_1aa95f4b100dfda078a2348bb0b01cd04a" kindref="member">CRC_LEN</ref>)</initializer>
+        <briefdescription>
+<para>Payload size plus CRC length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="32" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a05e78e10a81b6296d1f0db7ee5847cfa" compoundref="pbch__encoder__impl_8cpp" startline="113" endline="128">srsgnb::pbch_encoder_impl::crc_attach</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a9087cf72c33c902d3597ca5509805055" compoundref="pbch__encoder__impl_8cpp" startline="130" endline="145">srsgnb::pbch_encoder_impl::channel_coding</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1ac7c0ab619f080e0a152eca0ca3101ebb" compoundref="pbch__encoder__impl_8h" startline="64" endline="87">srsgnb::pbch_encoder_impl::pbch_encoder_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1ade9828bd251527e5008963510c5042c8" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::E</definition>
+        <argsstring></argsstring>
+        <name>E</name>
+        <initializer>= 864</initializer>
+        <briefdescription>
+<para>Number of rate matched bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="34" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a6454408dcc79daf811485718fdbd1eb4" compoundref="pbch__encoder__impl_8cpp" startline="147" endline="153">srsgnb::pbch_encoder_impl::rate_matching</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a8ec5357153ec31bed53417524ab60a47" compoundref="pbch__encoder__impl_8cpp" startline="155" endline="178">srsgnb::pbch_encoder_impl::encode</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1ac7c0ab619f080e0a152eca0ca3101ebb" compoundref="pbch__encoder__impl_8h" startline="64" endline="87">srsgnb::pbch_encoder_impl::pbch_encoder_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1aa559a1eb1ded3a89f03ddb3fdfcf06c1" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::POLAR_N_MAX_LOG</definition>
+        <argsstring></argsstring>
+        <name>POLAR_N_MAX_LOG</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+<para>Polar encoder order, logarithmic representation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="36" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1ac7c0ab619f080e0a152eca0ca3101ebb" compoundref="pbch__encoder__impl_8h" startline="64" endline="87">srsgnb::pbch_encoder_impl::pbch_encoder_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__encoder_1a6d3ad8d6bf94cf829521d564d0e6b5af" prot="public" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::pbch_encoder::POLAR_N_MAX</definition>
+        <argsstring></argsstring>
+        <name>POLAR_N_MAX</name>
+        <initializer>= (1U &lt;&lt; <ref refid="classsrsgnb_1_1pbch__encoder_1aa559a1eb1ded3a89f03ddb3fdfcf06c1" kindref="member">POLAR_N_MAX_LOG</ref>)</initializer>
+        <briefdescription>
+<para>Number of encoded bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="38" column="25" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a9087cf72c33c902d3597ca5509805055" compoundref="pbch__encoder__impl_8cpp" startline="130" endline="145">srsgnb::pbch_encoder_impl::channel_coding</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__encoder__impl_1a6454408dcc79daf811485718fdbd1eb4" compoundref="pbch__encoder__impl_8cpp" startline="147" endline="153">srsgnb::pbch_encoder_impl::rate_matching</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__encoder_1ad941f686323e514ee1626a159e713861" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pbch_encoder::~pbch_encoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pbch_encoder</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="62" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__encoder_1af62b52631e2bb7a6914043ae807b83e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pbch_encoder::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; encoded, const pbch_msg_t &amp;pbch_msg)=0</argsstring>
+        <name>encode</name>
+        <reimplementedby refid="classsrsgnb_1_1pbch__encoder__impl_1a8ec5357153ec31bed53417524ab60a47">encode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>encoded</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pbch__encoder_1_1pbch__msg__t" kindref="compound">pbch_msg_t</ref> &amp;</type>
+          <declname>pbch_msg</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a PBCH message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">encoded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Encoded data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pbch_msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PBCH message to encode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="67" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the PBCH encoder interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pbch_encoder</label>
+        <link refid="classsrsgnb_1_1pbch__encoder"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pbch_encoder_impl</label>
+        <link refid="classsrsgnb_1_1pbch__encoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pbch_encoder</label>
+        <link refid="classsrsgnb_1_1pbch__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" line="23" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pbch_encoder.h" bodystart="22" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pbch__encoder_1adccbefd4762394bcccf94d84f9ef8b88" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>A</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1a4712c8e1c780622e752de7846b1aba4a" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>B</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1aa95f4b100dfda078a2348bb0b01cd04a" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>CRC_LEN</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1ade9828bd251527e5008963510c5042c8" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>E</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1af62b52631e2bb7a6914043ae807b83e9" prot="public" virt="pure-virtual"><scope>srsgnb::pbch_encoder</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1a9841c7797c4452b7b36ecf7be54cb2d4" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>PAYLOAD_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1a6d3ad8d6bf94cf829521d564d0e6b5af" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>POLAR_N_MAX</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1aa559a1eb1ded3a89f03ddb3fdfcf06c1" prot="public" virt="non-virtual"><scope>srsgnb::pbch_encoder</scope><name>POLAR_N_MAX_LOG</name></member>
+      <member refid="classsrsgnb_1_1pbch__encoder_1ad941f686323e514ee1626a159e713861" prot="public" virt="virtual"><scope>srsgnb::pbch_encoder</scope><name>~pbch_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1re__pattern__list" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::re_pattern_list</compoundname>
+    <includes refid="re__pattern_8h" local="no">re_pattern.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1re__pattern__list_1acea4c8d463f5f1f01124ac0d17d66355" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::re_pattern_list::MAX_RE_PATTERN</definition>
+        <argsstring></argsstring>
+        <name>MAX_RE_PATTERN</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>Defines the maximum number or RE pattern a list can carry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="93" column="29" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="93" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" compoundref="re__pattern_8cpp" startline="71" endline="115">merge</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref>, <ref refid="classsrsgnb_1_1re__pattern__list_1acea4c8d463f5f1f01124ac0d17d66355" kindref="member">MAX_RE_PATTERN</ref> &gt;</type>
+        <definition>static_vector&lt;re_pattern, MAX_RE_PATTERN&gt; srsgnb::re_pattern_list::list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <briefdescription>
+<para>Resource element pattern storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="96" column="17" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="96" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a9c68cfeb92d3ae02e44b23afb1d2b2d8" compoundref="re__pattern_8h" startline="128" endline="128">clear</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a4434106f4ccd36a6a98baff1378ac122" compoundref="re__pattern_8h" startline="131" endline="131">get_nof_entries</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" compoundref="re__pattern_8cpp" startline="71" endline="115">merge</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a4e6bf132d96a68b5c4de2fd420ba640d" compoundref="re__pattern_8cpp" startline="136" endline="142">get_inclusion_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" compoundref="re__pattern_8cpp" startline="144" endline="173">get_inclusion_count</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a3d8a7970d989ef36777022267f6dff69" compoundref="re__pattern_8cpp" startline="175" endline="181">get_exclusion_mask</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1afd5ad08016d9297fecaccad929dfdd2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_pattern_list::re_pattern_list</definition>
+        <argsstring>()=default</argsstring>
+        <name>re_pattern_list</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="100" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a2bbfb7370255a67c932d064768cc491f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_pattern_list::re_pattern_list</definition>
+        <argsstring>(std::initializer_list&lt; const re_pattern &gt; patterns)</argsstring>
+        <name>re_pattern_list</name>
+        <param>
+          <type>std::initializer_list&lt; const <ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref> &gt;</type>
+          <declname>patterns</declname>
+        </param>
+        <briefdescription>
+<para>Create a pattern list from an initializer list of patterns. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is useful for static constant pattern list creation. For example: <programlisting><codeline><highlight class="normal">re_pattern_list<sp/>list<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{0,<sp/>52,<sp/>1,<sp/>{1,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0},<sp/>{0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0}},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>{0,<sp/>52,<sp/>1,<sp/>{1,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0},<sp/>{0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>1,<sp/>0,<sp/>0,<sp/>0}}};</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">patterns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list with patterns. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="112" column="3" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="112" bodyend="117"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" compoundref="re__pattern_8cpp" startline="71" endline="115">merge</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1adc0f85f4dcae6b0f0d05dd46cd11333d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_pattern_list::re_pattern_list</definition>
+        <argsstring>(const re_pattern_list &amp;other)</argsstring>
+        <name>re_pattern_list</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__pattern__list" kindref="compound">re_pattern_list</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides other instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="122" column="3" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a9c68cfeb92d3ae02e44b23afb1d2b2d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::re_pattern_list::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clear the current pattern list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="128" column="8" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="128" bodyend="128"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a4434106f4ccd36a6a98baff1378ac122" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::re_pattern_list::get_nof_entries</definition>
+        <argsstring>() const</argsstring>
+        <name>get_nof_entries</name>
+        <briefdescription>
+<para>Get the number of internal resource element pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="131" column="12" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="131" bodyend="131"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void re_pattern_list::merge</definition>
+        <argsstring>(const re_pattern &amp;pattern)</argsstring>
+        <name>merge</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref> &amp;</type>
+          <declname>pattern</declname>
+        </param>
+        <briefdescription>
+<para>Merges a given resource element pattern into the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method tries to combine a new pattern with the existing ones in the list according to if<itemizedlist>
+<listitem><para>the resource block allocation parameters are identical, and</para>
+</listitem><listitem><para>the symbol mask or the resource element mask is identical. Otherwise, the pattern is appended in the list.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pattern</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the reference to a resource element pattern. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="141" column="8" bodyfile="lib/phy/upper/re_pattern.cpp" bodystart="71" bodyend="115"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+        <references refid="structsrsgnb_1_1re__pattern_1a340c520b7e9e07a6aef86f63e4da0c27" compoundref="re__pattern_8h" startline="24">srsgnb::re_pattern::rb_begin</references>
+        <references refid="structsrsgnb_1_1re__pattern_1ae4fb022fe958300037a10ce4a9a5747b" compoundref="re__pattern_8h" startline="26">srsgnb::re_pattern::rb_end</references>
+        <references refid="structsrsgnb_1_1re__pattern_1ac32bb2007b5da25801480bef137d6997" compoundref="re__pattern_8h" startline="28">srsgnb::re_pattern::rb_stride</references>
+        <references refid="structsrsgnb_1_1re__pattern_1aa1e788415a4c3bf1b29716f60154e52d" compoundref="re__pattern_8h" startline="32">srsgnb::re_pattern::symbols</references>
+        <references refid="structsrsgnb_1_1re__pattern_1a5047a3d6239554ecf635fd8651abba6c" compoundref="re__pattern_8h" startline="30">srsgnb::re_pattern::re_mask</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" compoundref="cyclic__prefix_8h" startline="108">srsgnb::MAX_NSYMB_PER_SLOT</references>
+        <references refid="classsrsgnb_1_1re__pattern__list_1acea4c8d463f5f1f01124ac0d17d66355" compoundref="re__pattern_8h" startline="93">MAX_RE_PATTERN</references>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a2bbfb7370255a67c932d064768cc491f" compoundref="re__pattern_8h" startline="112" endline="117">re_pattern_list</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1ad7f3fc8d1b12b86035f4802afa77c4b5" compoundref="pdsch__processor__impl_8cpp" startline="16" endline="38">srsgnb::pdsch_processor_impl::compute_nof_data_re</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1af8ba0866fd1590216a36b58c07b1cc83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool re_pattern_list::operator==</definition>
+        <argsstring>(const re_pattern_list &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__pattern__list" kindref="compound">re_pattern_list</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the pattern list is equal to another pattern list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Two pattern lists are considered equal if their generated inclusion masks are equal for the maximum number of RBs and symbols. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The other pattern list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the patterns described by the two lists are equal. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="149" column="8" bodyfile="lib/phy/upper/re_pattern.cpp" bodystart="117" bodyend="134"/>
+        <references refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" compoundref="cyclic__prefix_8h" startline="108">srsgnb::MAX_NSYMB_PER_SLOT</references>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a4e6bf132d96a68b5c4de2fd420ba640d" compoundref="re__pattern_8cpp" startline="136" endline="142">get_inclusion_mask</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a510e16c42875325dec248a050e2899ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::re_pattern_list::operator!=</definition>
+        <argsstring>(const re_pattern_list &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__pattern__list" kindref="compound">re_pattern_list</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the pattern list is the pattern list is different from another pattern list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The other pattern list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the patterns described by the two lists are different. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="155" column="8" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="155" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a4e6bf132d96a68b5c4de2fd420ba640d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void re_pattern_list::get_inclusion_mask</definition>
+        <argsstring>(span&lt; bool &gt; mask, unsigned symbol) const</argsstring>
+        <name>get_inclusion_mask</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; bool &gt;</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Includes the described resource element pattern list in a resource grid symbol mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method sets to true the elements that are described in the pattern list for a given symbol index. The mask represents resource elements allocation for a given symbol in a resource grid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a mask representing an entire symbol in a resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index for the mask to be included. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This method expects that the number of elements of <computeroutput>mask</computeroutput> is equal to or greater than <computeroutput>rb_end</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="165" column="8" bodyfile="lib/phy/upper/re_pattern.cpp" bodystart="136" bodyend="142"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1af8ba0866fd1590216a36b58c07b1cc83" compoundref="re__pattern_8cpp" startline="117" endline="134">operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned re_pattern_list::get_inclusion_count</definition>
+        <argsstring>(unsigned start_symbol, unsigned nof_symbols, const bounded_bitset&lt; MAX_RB &gt; &amp;prb_mask) const</argsstring>
+        <name>get_inclusion_count</name>
+        <param>
+          <type>unsigned</type>
+          <declname>start_symbol</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_symbols</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> &gt; &amp;</type>
+          <declname>prb_mask</declname>
+        </param>
+        <briefdescription>
+<para>Counts the number of elements included in the described pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method counts the included elements in the described pattern for a symbol range and a selection of PRB.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">start_symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the start symbol index within the slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the number of symbols within the slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prb_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Selection of PRB to count. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of included elements. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="176" column="3" bodyfile="lib/phy/upper/re_pattern.cpp" bodystart="144" bodyend="173"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a5fc3c696fe29cd4275460b7ebdfb7ce4" compoundref="bounded__bitset_8h" startline="248" endline="248">srsgnb::bounded_bitset&lt; N, reversed &gt;::size</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1aec33b2aa0ad1fe21801ba05f9fcc61d9" compoundref="bounded__bitset_8h" startline="331" endline="335">srsgnb::bounded_bitset&lt; N, reversed &gt;::test</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1ad7f3fc8d1b12b86035f4802afa77c4b5" compoundref="pdsch__processor__impl_8cpp" startline="16" endline="38">srsgnb::pdsch_processor_impl::compute_nof_data_re</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__pattern__list_1a3d8a7970d989ef36777022267f6dff69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void re_pattern_list::get_exclusion_mask</definition>
+        <argsstring>(span&lt; bool &gt; mask, unsigned symbol) const</argsstring>
+        <name>get_exclusion_mask</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; bool &gt;</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Excludes the described resource element pattern list in a resource grid symbol mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method sets to false the elements that are described in the pattern list for a given symbol index. The mask represents resource elements allocation for a given symbol in a resource grid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a mask representing an entire symbol in a resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index for the mask to be excluded. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This method expects that the number of elements of <computeroutput>mask</computeroutput> is equal to or greater than <computeroutput>rb_end</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/re_pattern.h" line="186" column="8" bodyfile="lib/phy/upper/re_pattern.cpp" bodystart="175" bodyend="181"/>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" compoundref="re__pattern_8h" startline="96">list</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__modulator__impl_1a145754bd9128828ee0e7770563b5534b" compoundref="pdsch__modulator__impl_8cpp" startline="87" endline="158">srsgnb::pdsch_modulator_impl::map_to_contiguous_prb</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdsch__modulator__impl_1adb89f3b5110d488d6a098b43a60bc53c" compoundref="pdsch__modulator__impl_8cpp" startline="160" endline="232">srsgnb::pdsch_modulator_impl::map_to_prb_other</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a resource element pattern list. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::static_vector&lt; srsgnb::re_pattern, MAX_RE_PATTERN &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::re_pattern_list</label>
+        <link refid="classsrsgnb_1_1re__pattern__list"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-list</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/re_pattern.h" line="90" column="1" bodyfile="include/srsgnb/phy/upper/re_pattern.h" bodystart="89" bodyend="187"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a9c68cfeb92d3ae02e44b23afb1d2b2d8" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a3d8a7970d989ef36777022267f6dff69" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>get_exclusion_mask</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>get_inclusion_count</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a4e6bf132d96a68b5c4de2fd420ba640d" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>get_inclusion_mask</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a4434106f4ccd36a6a98baff1378ac122" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>get_nof_entries</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a2625262bd24cf23f9d73f03abd528b62" prot="private" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>list</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1acea4c8d463f5f1f01124ac0d17d66355" prot="private" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>MAX_RE_PATTERN</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>merge</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a510e16c42875325dec248a050e2899ce" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>operator!=</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1af8ba0866fd1590216a36b58c07b1cc83" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>operator==</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1afd5ad08016d9297fecaccad929dfdd2e" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>re_pattern_list</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1a2bbfb7370255a67c932d064768cc491f" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>re_pattern_list</name></member>
+      <member refid="classsrsgnb_1_1re__pattern__list_1adc0f85f4dcae6b0f0d05dd46cd11333d" prot="public" virt="non-virtual"><scope>srsgnb::re_pattern_list</scope><name>re_pattern_list</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

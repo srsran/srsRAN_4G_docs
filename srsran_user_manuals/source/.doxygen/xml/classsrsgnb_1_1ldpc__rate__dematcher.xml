@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__rate__dematcher" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_rate_dematcher</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__rate__dematcher__impl" prot="public" virt="non-virtual">srsgnb::ldpc_rate_dematcher_impl</derivedcompoundref>
+    <includes refid="ldpc__rate__dematcher_8h" local="no">ldpc_rate_dematcher.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher_1a3b1617bef96415620b214f67cc27edff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_rate_dematcher::~ldpc_rate_dematcher</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_rate_dematcher</name>
+        <briefdescription>
+<para>Default virtual destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h" line="27" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher_1a73eb3a8438aa7340cfd4eefc77ec9277" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_rate_dematcher::rate_dematch</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; output, span&lt; const log_likelihood_ratio &gt; input, bool new_data, const codeblock_metadata &amp;cfg)=0</argsstring>
+        <name>rate_dematch</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ace370290b571f592a6a637f84ae143a3">rate_dematch</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>new_data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Recovers a full codeblock from its rate-matched version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function also takes care of combining repeated codeblocks for H-ARQ schemes (both chase combining and incremental redundancy).</para>
+<para>Log-likelihood ratios corresponding to filler bits are set to <computeroutput>INT8_MAX</computeroutput>. Log-likelihood ratios that cannot be determined from the input are set to zero. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full-length codeblock (log-likelihood ratios). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate-matched codeblock (log-likelihood ratios). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sizes of <computeroutput>input</computeroutput> and <computeroutput>output</computeroutput> determine the behavior of the rate recovering algorithm. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h" line="40" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC rate dematcher interface. It reverts the operations of <ref refid="classsrsgnb_1_1ldpc__rate__matcher" kindref="compound">ldpc_rate_matcher</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_dematcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h" line="24" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h" bodystart="23" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher_1a73eb3a8438aa7340cfd4eefc77ec9277" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_rate_dematcher</scope><name>rate_dematch</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher_1a3b1617bef96415620b214f67cc27edff" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_dematcher</scope><name>~ldpc_rate_dematcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

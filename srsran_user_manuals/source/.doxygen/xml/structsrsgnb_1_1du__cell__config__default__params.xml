@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1du__cell__config__default__params" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::du_cell_config_default_params</compoundname>
+    <includes refid="du__cell__config__helpers_8h" local="no">du_cell_config_helpers.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1ab353266f5f5ddc1e78f004d7c87558b9" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1aeade94aaea718e0825ce98aadf28d60e" kindref="member">pci_t</ref></type>
+        <definition>pci_t srsgnb::du_cell_config_default_params::pci</definition>
+        <argsstring></argsstring>
+        <name>pci</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Physical Cell Identity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="28" column="9" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1ab978cb3847e48e31acbb8c11cd0a781d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+        <definition>subcarrier_spacing srsgnb::du_cell_config_default_params::scs_common</definition>
+        <argsstring></argsstring>
+        <name>scs_common</name>
+        <initializer>= subcarrier_spacing::kHz15</initializer>
+        <briefdescription>
+<para>subCarrierSpacingCommon, as per <computeroutput>MIB</computeroutput>, TS 38.311. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="30" column="22" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1a907fd719304f2b7d022e3d1303839209" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a3a938fe6642f4c4aa1e079d2f3f24a15" kindref="member">bs_channel_bandwidth_fr1</ref></type>
+        <definition>bs_channel_bandwidth_fr1 srsgnb::du_cell_config_default_params::channel_bw_mhz</definition>
+        <argsstring></argsstring>
+        <name>channel_bw_mhz</name>
+        <initializer>= bs_channel_bandwidth_fr1::MHz10</initializer>
+        <briefdescription>
+<para>BS Channel Bandwidth, as per TS 38.104, Section 5.3.1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="32" column="28" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1a430f8a2d07532e58ead60e67e63a2df9" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::du_cell_config_default_params::nof_crbs</definition>
+        <argsstring></argsstring>
+        <name>nof_crbs</name>
+        <initializer>= band_helper::get_n_rbs_from_bw(<ref refid="structsrsgnb_1_1du__cell__config__default__params_1a907fd719304f2b7d022e3d1303839209" kindref="member">channel_bw_mhz</ref>, <ref refid="structsrsgnb_1_1du__cell__config__default__params_1ab978cb3847e48e31acbb8c11cd0a781d" kindref="member">scs_common</ref>, <ref refid="namespacesrsgnb_1ae51e11d1cd0a0d99d339b43e798a3f11a34d1cf1496d544eb35e3461a5235f7e9" kindref="member">frequency_range::FR1</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of Common Resource Blocks (nof_crbs) for the main carrier is determined according to TS 38.104, Table 5.3.2-1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="35" column="12" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1a86400f6b19818b19e753b7c8453ae527" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::du_cell_config_default_params::dl_arfcn</definition>
+        <argsstring></argsstring>
+        <name>dl_arfcn</name>
+        <initializer>= 365000</initializer>
+        <briefdescription>
+<para>This ARFCN represents &quot;f_ref&quot; for DL, as perTS 38.211, Section 5.4.2.1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="37" column="12" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1ac0972c39926ca6bf8cbd0e2fd8108330" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1aa10717dc03c6ef10955d28db0592d673" kindref="member">nr_band</ref></type>
+        <definition>nr_band srsgnb::du_cell_config_default_params::band</definition>
+        <argsstring></argsstring>
+        <name>band</name>
+        <initializer>= nr_band::n3</initializer>
+        <briefdescription>
+<para><emphasis>NR operating band&lt;<emphasis></emphasis> &gt;, as per Table 5.2-1 and 5.2-2, TS 38.104. </emphasis></para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="39" column="11" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1a2aa29b071d141d57e808ffa492feb465" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ssb__offset__to__pointA" kindref="compound">ssb_offset_to_pointA</ref></type>
+        <definition>ssb_offset_to_pointA srsgnb::du_cell_config_default_params::offset_to_point_a</definition>
+        <argsstring></argsstring>
+        <name>offset_to_point_a</name>
+        <initializer>{12}</initializer>
+        <briefdescription>
+<para>offsetToPointA, as per TS 38.211, Section 4.4.4.2; <ref refid="classsrsgnb_1_1ssb__offset__to__pointA" kindref="compound">ssb_offset_to_pointA</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="41" column="24" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1du__cell__config__default__params_1a4efdbb9b9ced8c7a9afd603175cc2c4f" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::du_cell_config_default_params::coreset0_index</definition>
+        <argsstring></argsstring>
+        <name>coreset0_index</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+<para>This is <computeroutput>controlResourceSetZero</computeroutput>, as per TS38.213, Section 13. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/du/du_cell_config_helpers.h" line="43" column="12" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Main cell parameters from which other cell parameters (e.g. coreset0, BWP RBs) will be derived. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="remark"><para>Only fields that may affect many different fields in <ref refid="structsrsgnb_1_1du__cell__config" kindref="compound">du_cell_config</ref> (e.g. number of PRBs) should be added in this struct. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::du_cell_config_default_params</label>
+        <link refid="structsrsgnb_1_1du__cell__config__default__params"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+offset_to_point_a</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ssb_offset_to_pointA</label>
+        <link refid="classsrsgnb_1_1ssb__offset__to__pointA"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::bounded_integer&lt; uint16_t, 0, 2199 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/du/du_cell_config_helpers.h" line="26" column="36" bodyfile="include/srsgnb/du/du_cell_config_helpers.h" bodystart="26" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1ac0972c39926ca6bf8cbd0e2fd8108330" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>band</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1a907fd719304f2b7d022e3d1303839209" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>channel_bw_mhz</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1a4efdbb9b9ced8c7a9afd603175cc2c4f" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>coreset0_index</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1a86400f6b19818b19e753b7c8453ae527" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>dl_arfcn</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1a430f8a2d07532e58ead60e67e63a2df9" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>nof_crbs</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1a2aa29b071d141d57e808ffa492feb465" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>offset_to_point_a</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1ab353266f5f5ddc1e78f004d7c87558b9" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>pci</name></member>
+      <member refid="structsrsgnb_1_1du__cell__config__default__params_1ab978cb3847e48e31acbb8c11cd0a781d" prot="public" virt="non-virtual"><scope>srsgnb::du_cell_config_default_params</scope><name>scs_common</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

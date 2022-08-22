@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pusch__decoder__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pusch_decoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pusch__decoder" prot="public" virt="non-virtual">srsgnb::pusch_decoder</basecompoundref>
+    <includes refid="pusch__decoder__impl_8h" local="no">pusch_decoder_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc" prot="public">srsgnb::pusch_decoder_impl::sch_crc</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__decoder__impl_1ae4c3906f78a90f1786b036a360c2ad70" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__segmenter__rx" kindref="compound">ldpc_segmenter_rx</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ldpc_segmenter_rx&gt; srsgnb::pusch_decoder_impl::segmenter</definition>
+        <argsstring></argsstring>
+        <name>segmenter</name>
+        <briefdescription>
+<para>Pointer to an LDPC segmenter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="70" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">decode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__decoder__impl_1ab0912d8ec0a1dce9428bd83dea0c3d0c" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__rate__dematcher" kindref="compound">ldpc_rate_dematcher</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ldpc_rate_dematcher&gt; srsgnb::pusch_decoder_impl::dematcher</definition>
+        <argsstring></argsstring>
+        <name>dematcher</name>
+        <briefdescription>
+<para>Pointer to an LDPC rate-dematcher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="73" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">decode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__decoder__impl_1a44d7e0d61bcb8e6fe6ee97db49769629" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__decoder" kindref="compound">ldpc_decoder</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ldpc_decoder&gt; srsgnb::pusch_decoder_impl::decoder</definition>
+        <argsstring></argsstring>
+        <name>decoder</name>
+        <briefdescription>
+<para>Pointer to an LDPC decoder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="76" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="76" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">decode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__decoder__impl_1ac55899c44c00c586244bd881441d87dd" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc" kindref="compound">sch_crc</ref></type>
+        <definition>sch_crc srsgnb::pusch_decoder_impl::crc_set</definition>
+        <argsstring></argsstring>
+        <name>crc_set</name>
+        <briefdescription>
+<para>Pointer to a CRC calculator for TB-wise checksum. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Only the CRC calculator with generator polynomial crc_generator_poly::CRC24A, used for long transport blocks, is needed. Indeed, if a transport block is short enough not to be segmented, the CRC is verified by the decoder. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="82" column="11" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="82" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">decode</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__decoder__impl_1a3761ab1e1859e9f241f7d166da66b648" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pusch_decoder_impl::pusch_decoder_impl</definition>
+        <argsstring>(std::unique_ptr&lt; ldpc_segmenter_rx &gt; seg, std::unique_ptr&lt; ldpc_rate_dematcher &gt; rdem, std::unique_ptr&lt; ldpc_decoder &gt; dec, sch_crc crcs)</argsstring>
+        <name>pusch_decoder_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__segmenter__rx" kindref="compound">ldpc_segmenter_rx</ref> &gt;</type>
+          <declname>seg</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__rate__dematcher" kindref="compound">ldpc_rate_dematcher</ref> &gt;</type>
+          <declname>rdem</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ldpc__decoder" kindref="compound">ldpc_decoder</ref> &gt;</type>
+          <declname>dec</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc" kindref="compound">sch_crc</ref></type>
+          <declname>crcs</declname>
+        </param>
+        <briefdescription>
+<para>PUSCH decoder constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up the internal components, namely LDPC segmenter, LDPC rate dematcher, LDPC decoder and all the CRC calculators.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an LDPC segmenter object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rdem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an LDPC rate dematcher object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an LDPC decoder object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">crcs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure with pointers to three CRC calculator objects, with generator polynomials of type <computeroutput>CRC16</computeroutput>, <computeroutput>CRC24A</computeroutput> and <computeroutput>CRC24B</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="44" column="3" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="44" bodyend="59"/>
+        <references refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1ae99b598cf8c1b4d3cf88f6e2bd8b2ce9" compoundref="pusch__decoder__impl_8h" startline="27">srsgnb::pusch_decoder_impl::sch_crc::crc16</references>
+        <references refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1aade2d060d8a8d35243828a0192abf1d2" compoundref="pusch__decoder__impl_8h" startline="29">srsgnb::pusch_decoder_impl::sch_crc::crc24A</references>
+        <references refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1acc56155ce8d9cc601979d8d9a99fda4d" compoundref="pusch__decoder__impl_8h" startline="31">srsgnb::pusch_decoder_impl::sch_crc::crc24B</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pusch_decoder_impl::decode</definition>
+        <argsstring>(span&lt; uint8_t &gt; transport_block, statistics &amp;stats, rx_softbuffer *soft_codeword, span&lt; const log_likelihood_ratio &gt; llrs, const configuration &amp;cfg) override</argsstring>
+        <name>decode</name>
+        <reimplements refid="classsrsgnb_1_1pusch__decoder_1a73986ae301d45eb65bc71125bf3b94ad">decode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>transport_block</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics" kindref="compound">statistics</ref> &amp;</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref> *</type>
+          <declname>soft_codeword</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>llrs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a PUSCH codeword. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Recovers a UL-SCH transport block from a PUSCH codeword. Reverting the encoding operations described in TS 38.212 Sections 6.2.1-6.2.6, the codeword is first split into rate-matched codeblocks. Then, each codeblock is restored to its base rate, combined with previous retransmissions, and decoded. Finally, if all blocks pass the CRC check, the data bits from all codeblocks are concatenated to form the UL-SCH transport block. If applicable, a last transport-block CRC is computed and verified.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">transport_block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoded transport block, with packed (8 bits per entry) representation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">stats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoding statistics. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">soft_codeword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A soft-buffer for combining log-likelihood ratios from different retransmissions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">llrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The received codeword, as a sequence of log-likelihood ratios. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">new_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags new data transmissions (as opposed to retransmissions of previously failed transport blocks). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blk_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transport block configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alg_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LDPC decoding algorithm configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="62" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="118" bodyend="210"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pusch__decoder__impl_1ae4c3906f78a90f1786b036a360c2ad70" compoundref="pusch__decoder__impl_8h" startline="70">segmenter</references>
+        <references refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a280c31b6cc4682432f8eedbdbbbcc5b5" compoundref="pusch__decoder_8h" startline="33">srsgnb::pusch_decoder::configuration::segmenter_cfg</references>
+        <references refid="classsrsgnb_1_1rx__softbuffer_1ad61cf20970f5787f4090343b32b1a6b4">srsgnb::rx_softbuffer::get_nof_codeblocks</references>
+        <references refid="classsrsgnb_1_1pusch__decoder__impl_1ac55899c44c00c586244bd881441d87dd" compoundref="pusch__decoder__impl_8h" startline="82">crc_set</references>
+        <references refid="classsrsgnb_1_1rx__softbuffer_1a971466dd0620782e612b50df2549050f">srsgnb::rx_softbuffer::get_codeblocks_crc</references>
+        <references refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1a1bc403c39b6e8888aac3334d4a1ed0d9" compoundref="pusch__decoder_8h" startline="47">srsgnb::pusch_decoder::statistics::nof_codeblocks_total</references>
+        <references refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1a6e3203a83b9acb99ffe77e1dc9a99e28" compoundref="pusch__decoder_8h" startline="53">srsgnb::pusch_decoder::statistics::ldpc_decoder_stats</references>
+        <references refid="classsrsgnb_1_1sample__statistics_1a77fd70fb5b5ac13c1837a10aa34ba1d2" compoundref="stats_8h" startline="42" endline="42">srsgnb::sample_statistics&lt; T &gt;::reset</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" compoundref="codeblock__metadata_8h" startline="65">srsgnb::codeblock_metadata::cb_specific</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" compoundref="codeblock__metadata_8h" startline="53">srsgnb::codeblock_metadata::cb_specific_metadata::rm_length</references>
+        <references refid="classsrsgnb_1_1rx__softbuffer_1a97a5a3a98d28c67724fcdfcaba8954ed">srsgnb::rx_softbuffer::get_codeblock_data_bits</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="classsrsgnb_1_1rx__softbuffer_1ac512d2d784ddbda672a0bcbbcc678164">srsgnb::rx_softbuffer::get_codeblock_soft_bits</references>
+        <references refid="classsrsgnb_1_1pusch__decoder__impl_1ab0912d8ec0a1dce9428bd83dea0c3d0c" compoundref="pusch__decoder__impl_8h" startline="73">dematcher</references>
+        <references refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a78a54494b9bf7d0aae413cbf15a72cca" compoundref="pusch__decoder_8h" startline="39">srsgnb::pusch_decoder::configuration::new_data</references>
+        <references refid="classsrsgnb_1_1pusch__decoder__impl_1a44d7e0d61bcb8e6fe6ee97db49769629" compoundref="pusch__decoder__impl_8h" startline="76">decoder</references>
+        <references refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; T &gt;::update</references>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+        <references refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1aa4f0771926406ae5e5c3e7ac36e3ceed" compoundref="pusch__decoder_8h" startline="45">srsgnb::pusch_decoder::statistics::tb_crc_ok</references>
+        <references refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" compoundref="span_8h" startline="182" endline="182">srsgnb::span&lt; T &gt;::end</references>
+        <references refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1aade2d060d8a8d35243828a0192abf1d2" compoundref="pusch__decoder__impl_8h" startline="29">srsgnb::pusch_decoder_impl::sch_crc::crc24A</references>
+        <references refid="classsrsgnb_1_1rx__softbuffer_1ad3a8df2ef07de238b96bdeccb72ebf0a">srsgnb::rx_softbuffer::reset_codeblocks_crc</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of the PUSCH decoder. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pusch_decoder_impl</label>
+        <link refid="classsrsgnb_1_1pusch__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pusch_decoder</label>
+        <link refid="classsrsgnb_1_1pusch__decoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::pusch_decoder_impl::sch_crc</label>
+        <link refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::pusch_decoder_impl</label>
+        <link refid="classsrsgnb_1_1pusch__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-crc_set</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pusch_decoder</label>
+        <link refid="classsrsgnb_1_1pusch__decoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.h" line="22" column="1" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.h" bodystart="21" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1ac55899c44c00c586244bd881441d87dd" prot="private" virt="non-virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>crc_set</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" prot="public" virt="virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1a44d7e0d61bcb8e6fe6ee97db49769629" prot="private" virt="non-virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>decoder</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1ab0912d8ec0a1dce9428bd83dea0c3d0c" prot="private" virt="non-virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>dematcher</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1a3761ab1e1859e9f241f7d166da66b648" prot="public" virt="non-virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>pusch_decoder_impl</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder__impl_1ae4c3906f78a90f1786b036a360c2ad70" prot="private" virt="non-virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>segmenter</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder_1ac24c6c462379d5da1c81310625a710db" prot="public" virt="virtual"><scope>srsgnb::pusch_decoder_impl</scope><name>~pusch_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

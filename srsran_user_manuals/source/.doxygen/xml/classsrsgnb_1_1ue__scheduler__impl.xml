@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ue__scheduler__impl" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::ue_scheduler_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ue__scheduler" prot="public" virt="non-virtual">srsgnb::ue_scheduler</basecompoundref>
+    <includes refid="ue__scheduler__impl_8h" local="no">ue_scheduler_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__scheduler__impl_1a25d7052a80e62630ca9d4baf7c7cf949" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref></type>
+        <definition>ue_list srsgnb::ue_scheduler_impl::ue_db</definition>
+        <argsstring></argsstring>
+        <name>ue_db</name>
+        <briefdescription>
+<para>Repository of created UEs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="44" column="11" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__scheduler__impl_1a589355147aa974c7ce76a49251947d64" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ue__event__manager" kindref="compound">ue_event_manager</ref></type>
+        <definition>ue_event_manager srsgnb::ue_scheduler_impl::event_mng</definition>
+        <argsstring></argsstring>
+        <name>event_mng</name>
+        <briefdescription>
+<para>Processor of UE input events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="47" column="20" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" compoundref="ue__scheduler__impl_8cpp" startline="43" endline="50">run_slot</referencedby>
+        <referencedby refid="classsrsgnb_1_1ue__scheduler__impl_1a2a0cc484e93d5da80cfd5c5fd3144d2f" compoundref="ue__scheduler__impl_8h" startline="36" endline="36">get_ue_configurator</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__scheduler__impl_1a4cab7f0d68fdc9474235120831f34d24" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ue__cell__grid__allocator" kindref="compound">ue_cell_grid_allocator</ref></type>
+        <definition>ue_cell_grid_allocator srsgnb::ue_scheduler_impl::ue_alloc</definition>
+        <argsstring></argsstring>
+        <name>ue_alloc</name>
+        <briefdescription>
+<para>Allocator of grants in the resource grid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="50" column="26" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" compoundref="ue__scheduler__impl_8cpp" startline="43" endline="50">run_slot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__scheduler__impl_1a464f6fc31212af0b1023998c0061e38d" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1scheduler__policy" kindref="compound">scheduler_policy</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;scheduler_policy&gt; srsgnb::ue_scheduler_impl::sched_strategy</definition>
+        <argsstring></argsstring>
+        <name>sched_strategy</name>
+        <briefdescription>
+<para>Scheduling Strategy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="53" column="19" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__scheduler__impl_1ae71619f37d43cb8e03f0c0cbd9b60c96" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__sync__point" kindref="compound">slot_sync_point</ref></type>
+        <definition>slot_sync_point srsgnb::ue_scheduler_impl::sync_point</definition>
+        <argsstring></argsstring>
+        <name>sync_point</name>
+        <briefdescription>
+<para>Mutex used to lock carriers for joint carrier scheduling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="56" column="19" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" compoundref="ue__scheduler__impl_8cpp" startline="43" endline="50">run_slot</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1ae3f8101161dea7d86e30584f3001f8ed" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ue_scheduler_impl::ue_scheduler_impl</definition>
+        <argsstring>(sched_configuration_notifier &amp;mac_notif)</argsstring>
+        <name>ue_scheduler_impl</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sched__configuration__notifier" kindref="compound">sched_configuration_notifier</ref> &amp;</type>
+          <declname>mac_notif</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="29" column="12" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1aa46381a9285bde2a41ed6ca1689080da" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_scheduler_impl::add_cell</definition>
+        <argsstring>(const ue_scheduler_cell_params &amp;params) override</argsstring>
+        <name>add_cell</name>
+        <reimplements refid="classsrsgnb_1_1ue__scheduler_1af15aa168942cfd8c24255114f451416a">add_cell</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ue__scheduler__cell__params" kindref="compound">ue_scheduler_cell_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="31" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.cpp" bodystart="22" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_scheduler_impl::run_slot</definition>
+        <argsstring>(slot_point slot_tx, du_cell_index_t cell_index) override</argsstring>
+        <name>run_slot</name>
+        <reimplements refid="classsrsgnb_1_1ue__scheduler_1a76b3bfacaa130ac25a27b7a8bd013ee0">run_slot</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>slot_tx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Schedule UE DL grants for a given {slot, cell}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="34" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.cpp" bodystart="43" bodyend="50"/>
+        <references refid="classsrsgnb_1_1ue__scheduler__impl_1a589355147aa974c7ce76a49251947d64" compoundref="ue__scheduler__impl_8h" startline="47">event_mng</references>
+        <references refid="classsrsgnb_1_1ue__event__manager_1a8086d93a08ad2471d45d8f6e069a8988" compoundref="ue__event__manager_8cpp" startline="195" endline="204">srsgnb::ue_event_manager::run</references>
+        <references refid="classsrsgnb_1_1ue__scheduler__impl_1ae71619f37d43cb8e03f0c0cbd9b60c96" compoundref="ue__scheduler__impl_8h" startline="56">sync_point</references>
+        <references refid="classsrsgnb_1_1slot__sync__point_1a8ffcf686e6e5ce8b184b0365935465cd" compoundref="slot__sync__point_8h" startline="39" endline="59">srsgnb::slot_sync_point::wait</references>
+        <references refid="classsrsgnb_1_1ue__scheduler__impl_1a4cab7f0d68fdc9474235120831f34d24" compoundref="ue__scheduler__impl_8h" startline="50">ue_alloc</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1a2a0cc484e93d5da80cfd5c5fd3144d2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1scheduler__ue__configurator" kindref="compound">scheduler_ue_configurator</ref> &amp;</type>
+        <definition>scheduler_ue_configurator&amp; srsgnb::ue_scheduler_impl::get_ue_configurator</definition>
+        <argsstring>() override</argsstring>
+        <name>get_ue_configurator</name>
+        <reimplements refid="classsrsgnb_1_1ue__scheduler_1a8608bf4448919064995356ea998a091d">get_ue_configurator</reimplements>
+        <briefdescription>
+<para>Return UE configurator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="36" column="29" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="36" bodyend="36"/>
+        <references refid="classsrsgnb_1_1ue__scheduler__impl_1a589355147aa974c7ce76a49251947d64" compoundref="ue__scheduler__impl_8h" startline="47">event_mng</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1a114145aa3ea9b2415632296d11ba3ae2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1scheduler__feedback__handler" kindref="compound">scheduler_feedback_handler</ref> &amp;</type>
+        <definition>scheduler_feedback_handler&amp; srsgnb::ue_scheduler_impl::get_feedback_handler</definition>
+        <argsstring>() override</argsstring>
+        <name>get_feedback_handler</name>
+        <reimplements refid="classsrsgnb_1_1ue__scheduler_1afbb6c43556aff060c14919d6345b091f">get_feedback_handler</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="38" column="30" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__scheduler__impl_1a2be4eded6b0583514265a083a2496eee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_scheduler_impl::run_sched_strategy</definition>
+        <argsstring>(slot_point sl_tx)</argsstring>
+        <name>run_sched_strategy</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="41" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.cpp" bodystart="28" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface of data scheduler that is used to allocate UE DL and UL grants in a given slot. The data_scheduler object will be common to all cells and slots. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ue_scheduler_impl</label>
+        <link refid="classsrsgnb_1_1ue__scheduler__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ue_scheduler</label>
+        <link refid="classsrsgnb_1_1ue__scheduler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>srsgnb::slot_event_list&lt; srsgnb::ue_event_manager::common_event_t &gt;</label>
+        <link refid="classsrsgnb_1_1slot__event__list"/>
+      </node>
+      <node id="7">
+        <label>T</label>
+      </node>
+      <node id="6">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::ue_pdsch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pdsch__allocator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue_scheduler_impl</label>
+        <link refid="classsrsgnb_1_1ue__scheduler__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-event_mng</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-ue_alloc</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>-sync_point</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::ue_cell_grid_allocator</label>
+        <link refid="classsrsgnb_1_1ue__cell__grid__allocator"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-ues</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-cells</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srsgnb::slot_array&lt; srsgnb::ue_cell_grid_allocator::cell_t, MAX_NOF_DU_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="17" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::scheduler_ue_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__ue__configurator"/>
+      </node>
+      <node id="17">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::ue_cell_grid_allocator::cell_t &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::ue_cell_grid_allocator::cell_t &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ue_event_manager</label>
+        <link refid="classsrsgnb_1_1ue__event__manager"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-mac_notifier</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-last_sl</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-common_events</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::stable_id_map&lt; du_ue_index_t, ue, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1stable__id__map"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::sched_configuration_notifier</label>
+        <link refid="classsrsgnb_1_1sched__configuration__notifier"/>
+      </node>
+      <node id="8">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ue_scheduler</label>
+        <link refid="classsrsgnb_1_1ue__scheduler"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::ue_pusch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pusch__allocator"/>
+      </node>
+      <node id="19">
+        <label>srsgnb::slot_sync_point</label>
+        <link refid="classsrsgnb_1_1slot__sync__point"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-last_sl</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::scheduler_feedback_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__feedback__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" line="27" column="1" bodyfile="lib/scheduler/ue_scheduling/ue_scheduler_impl.h" bodystart="26" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1aa46381a9285bde2a41ed6ca1689080da" prot="public" virt="virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>add_cell</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a589355147aa974c7ce76a49251947d64" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>event_mng</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a114145aa3ea9b2415632296d11ba3ae2" prot="public" virt="virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>get_feedback_handler</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a2a0cc484e93d5da80cfd5c5fd3144d2f" prot="public" virt="virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>get_ue_configurator</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a2be4eded6b0583514265a083a2496eee" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>run_sched_strategy</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" prot="public" virt="virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>run_slot</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a464f6fc31212af0b1023998c0061e38d" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>sched_strategy</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1ae71619f37d43cb8e03f0c0cbd9b60c96" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>sync_point</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a4cab7f0d68fdc9474235120831f34d24" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>ue_alloc</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1a25d7052a80e62630ca9d4baf7c7cf949" prot="private" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>ue_db</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler__impl_1ae3f8101161dea7d86e30584f3001f8ed" prot="public" virt="non-virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>ue_scheduler_impl</name></member>
+      <member refid="classsrsgnb_1_1ue__scheduler_1aaa45815491469e64e4432149df47808f" prot="public" virt="virtual"><scope>srsgnb::ue_scheduler_impl</scope><name>~ue_scheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

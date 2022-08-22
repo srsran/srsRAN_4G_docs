@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1short__block__encoder__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::short_block_encoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1short__block__encoder" prot="public" virt="non-virtual">srsgnb::short_block_encoder</basecompoundref>
+    <includes refid="short__block__encoder__impl_8h" local="no">short_block_encoder_impl.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1short__block__encoder__impl_1a9e874fc2f6b85564deb48c666e0023fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void short_block_encoder_impl::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, modulation_scheme mod) override</argsstring>
+        <name>encode</name>
+        <reimplements refid="classsrsgnb_1_1short__block__encoder_1afb8f6710ace5be763520ffd233491c91">encode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref></type>
+          <declname>mod</declname>
+        </param>
+        <briefdescription>
+<para>Encodes and rate-matches a small number (less than 12) bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Encodes a short sequence of bits (length 1 to 11, both included), following the specifications of TS38.212 Section 5.3.3, and rate-matches the encoded bits according to TS38.212 Section 5.4.3. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of encoded and rate-matched bits (i.e., <formula id="16">$f_0, f_1, \dots, f_{E-1}$</formula> in TS38.212). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of bits to encode (i.e., <formula id="17">$c_0, c_1, \dots, c_{K-1}$</formula> in TS38.212). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modulation scheme. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Both <computeroutput>output</computeroutput> and <computeroutput>input</computeroutput> follow an unpacked representation, that is one bit per entry. </para>
+</simplesect>
+<simplesect kind="remark"><para>The size <formula id="18">$E$</formula> of <computeroutput>output</computeroutput> should be as follows:<itemizedlist>
+<listitem><para><formula id="19">$E \ge Q_m$</formula>, where <formula id="20">$Q_m$</formula> is the modulation order, if <computeroutput>input</computeroutput> is a single bit;</para>
+</listitem><listitem><para><formula id="21">$E \ge 3Q_m$</formula> if <computeroutput>input</computeroutput> consists of 2 bits;</para>
+</listitem><listitem><para><formula id="22">$E \ge 32$</formula> otherwise (<computeroutput>input</computeroutput> size from 3 to 11 bits). </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/short/short_block_encoder_impl.h" line="25" column="8" bodyfile="lib/phy/upper/channel_coding/short/short_block_encoder_impl.cpp" bodystart="116" bodyend="137"/>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic implementation of the short-block encoder. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::short_block_encoder</label>
+        <link refid="classsrsgnb_1_1short__block__encoder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::short_block_encoder_impl</label>
+        <link refid="classsrsgnb_1_1short__block__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::short_block_encoder</label>
+        <link refid="classsrsgnb_1_1short__block__encoder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::short_block_encoder_impl</label>
+        <link refid="classsrsgnb_1_1short__block__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/short/short_block_encoder_impl.h" line="22" column="1" bodyfile="lib/phy/upper/channel_coding/short/short_block_encoder_impl.h" bodystart="21" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1short__block__encoder__impl_1a9e874fc2f6b85564deb48c666e0023fa" prot="public" virt="virtual"><scope>srsgnb::short_block_encoder_impl</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1short__block__encoder_1a1deb64a40ec955b5242ae40ff8050673" prot="public" virt="virtual"><scope>srsgnb::short_block_encoder_impl</scope><name>~short_block_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

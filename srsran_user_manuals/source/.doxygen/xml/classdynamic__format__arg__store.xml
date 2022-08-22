@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classdynamic__format__arg__store" kind="class" language="C++" prot="public">
+    <compoundname>dynamic_format_arg_store</compoundname>
+    <includes refid="core_8h" local="no">core.h</includes>
+    <innerclass refid="structdynamic__format__arg__store_1_1need__copy" prot="private">dynamic_format_arg_store::need_copy</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename Context</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classdynamic__format__arg__store_1a2997fb5c2d4ac7205672e7afe550f9c1" prot="private" static="no">
+        <type>typename Context::char_type</type>
+        <definition>using dynamic_format_arg_store&lt; Context &gt;::char_type =  typename Context::char_type</definition>
+        <argsstring></argsstring>
+        <name>char_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1500" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1500" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdynamic__format__arg__store_1a877ed467adc9ad83bf64ad60fbaf75ff" prot="private" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>conditional_t&lt; <ref refid="structdetail_1_1is__string" kindref="compound">detail::is_string</ref>&lt; T &gt;::value, std::basic_string&lt; char_type &gt;, T &gt;</type>
+        <definition>using dynamic_format_arg_store&lt; Context &gt;::stored_type =  conditional_t&lt;detail::is_string&lt;T&gt;::value, std::basic_string&lt;char_type&gt;, T&gt;</definition>
+        <argsstring></argsstring>
+        <name>stored_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1517" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1518" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic__format__arg__store_1a945374d17adbecffe69386a0c098b95a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classbasic__format__arg" kindref="compound">basic_format_arg</ref>&lt; Context &gt; &gt;</type>
+        <definition>std::vector&lt;basic_format_arg&lt;Context&gt; &gt; dynamic_format_arg_store&lt; Context &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1521" column="15" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1521" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic__format__arg__store_1afcc3f9a3361e1f7a84c6deeb0830a26c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structdetail_1_1named__arg__info" kindref="compound">detail::named_arg_info</ref>&lt; char_type &gt; &gt;</type>
+        <definition>std::vector&lt;detail::named_arg_info&lt;char_type&gt; &gt; dynamic_format_arg_store&lt; Context &gt;::named_info_</definition>
+        <argsstring></argsstring>
+        <name>named_info_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1522" column="15" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1522" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic__format__arg__store_1ad5a82849fb8ab4f8618d94f19a990457" prot="private" static="no" mutable="no">
+        <type><ref refid="classdetail_1_1dynamic__arg__list" kindref="compound">detail::dynamic_arg_list</ref></type>
+        <definition>detail::dynamic_arg_list dynamic_format_arg_store&lt; Context &gt;::dynamic_args_</definition>
+        <argsstring></argsstring>
+        <name>dynamic_args_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1526" column="28" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1526" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classdynamic__format__arg__store_1ab8e9e33cc7b78829001a86ef6110ebb6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class basic_format_args&lt; Context &gt;</definition>
+        <argsstring></argsstring>
+        <name>basic_format_args&lt; Context &gt;</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1526" column="28" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1528" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a40956aef27ef510f1a68f45f3e4e0710" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned long long</type>
+        <definition>unsigned long long dynamic_format_arg_store&lt; Context &gt;::get_types</definition>
+        <argsstring>() const</argsstring>
+        <name>get_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1530" column="22" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1530" bodyend="1535"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a00e8f5dd051bfb84ac803cb6c091a631" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classbasic__format__arg" kindref="compound">basic_format_arg</ref>&lt; Context &gt; *</type>
+        <definition>const basic_format_arg&lt;Context&gt;* dynamic_format_arg_store&lt; Context &gt;::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1537" column="26" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1537" bodyend="1539"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a3e3f7af053771a3dff451014a5024c79" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::emplace_arg</definition>
+        <argsstring>(const T &amp;arg)</argsstring>
+        <name>emplace_arg</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1541" column="20" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1541" bodyend="1543"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a013581c49dc10f6184fcc7de015957fc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::emplace_arg</definition>
+        <argsstring>(const detail::named_arg&lt; char_type, T &gt; &amp;arg)</argsstring>
+        <name>emplace_arg</name>
+        <param>
+          <type>const <ref refid="structdetail_1_1named__arg" kindref="compound">detail::named_arg</ref>&lt; char_type, T &gt; &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1546" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1546" bodyend="1560"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a807df0cbb5a37c66ca96bbb50b77cba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; <ref refid="structdetail_1_1is__string" kindref="compound">detail::is_string</ref>&lt; typename std::decay&lt; T &gt;::type &gt;::value, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::push_back</definition>
+        <argsstring>(const T &amp;arg)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>\rst Adds an argument into the dynamic store for later passing to a formatting function.</para>
+<para>Note that custom types and string types (but not string views) are copied into the store dynamically allocating memory if necessary.</para>
+<para>Example**::</para>
+<para>fmt::dynamic_format_arg_store&lt;fmt::format_context&gt; store; store.push_back(42); store.push_back(&quot;abc&quot;); store.push_back(1.5f); std::string result = fmt::vformat(&quot;{} and {} and {}&quot;, store); \endrst </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1582" column="9" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1582" bodyend="1589"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a807df0cbb5a37c66ca96bbb50b77cba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt;!<ref refid="structdetail_1_1is__string" kindref="compound">detail::is_string</ref>&lt; typename std::decay&lt; T &gt;::type &gt;::value, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::push_back</definition>
+        <argsstring>(const T &amp;arg)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1592" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1592" bodyend="1598"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1ac58637a7965cbfeab47c2f50e923dc07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::push_back</definition>
+        <argsstring>(std::reference_wrapper&lt; T &gt; arg)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>std::reference_wrapper&lt; T &gt;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>\rst
+Adds a reference to the argument into the dynamic store for later passing to
+a formatting function. Supports named arguments wrapped in
+``std::reference_wrapper`` via ``std::ref()``/``std::cref()``.
+
+  Example**::
+
+  fmt::dynamic_format_arg_store&lt;fmt::format_context&gt; store;
+  char str[] = &quot;1234567890&quot;;
+  store.push_back(std::cref(str));
+  int a1_val{42};
+  auto a1 = fmt::arg(&quot;a1_&quot;, a1_val);
+  store.push_back(std::cref(a1));
+</verbatim></para>
+<para>Changing str affects the output but only for string and custom types. str[0] = &apos;X&apos;;</para>
+<para>std::string result = fmt::vformat(&quot;{} and {a1_}&quot;); assert(result == &quot;X234567890 and 42&quot;); \endrst </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1622" column="20" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1622" bodyend="1628"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a14baaad39c59b82fdf86dc4276f7d7cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::push_back</definition>
+        <argsstring>(const detail::named_arg&lt; char_type, T &gt; &amp;arg)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const <ref refid="structdetail_1_1named__arg" kindref="compound">detail::named_arg</ref>&lt; char_type, T &gt; &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds named argument into the dynamic store for later passing to a formatting function. <computeroutput>std::reference_wrapper</computeroutput> is supported to avoid copying of the argument. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1636" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1636" bodyend="1645"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a94763fc905f02222d575f7c03161c212" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Erase all elements from the store </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1648" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1648" bodyend="1652"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic__format__arg__store_1a9c6983c46b69775b5066f6ad748be584" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamic_format_arg_store&lt; Context &gt;::reserve</definition>
+        <argsstring>(size_t new_cap, size_t new_cap_named)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_cap</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>new_cap_named</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>\rst Reserves space to store at least <emphasis>new_cap</emphasis> arguments including new_cap_named* named arguments. \endrst </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1660" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1660" bodyend="1665"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>\rst A dynamic version of <computeroutput>fmt::format_arg_store</computeroutput>. It&apos;s equipped with a storage to potentially temporary objects which lifetimes could be shorter than the format arguments object.</para>
+<para>It can be implicitly converted into <computeroutput>~fmt<ref refid="classbasic__format__args" kindref="compound">basic_format_args</ref></computeroutput> for passing into type-erased formatting functions such as <computeroutput>~fmt::vformat</computeroutput>. \endrst </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>detail::dynamic_arg_list</label>
+        <link refid="classdetail_1_1dynamic__arg__list"/>
+      </node>
+      <node id="1">
+        <label>dynamic_format_arg_store&lt; Context &gt;</label>
+        <link refid="classdynamic__format__arg__store"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-dynamic_args_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="607" column="12" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="607" bodyend="-1"/>
+    <listofallmembers>
+      <member refid="classdynamic__format__arg__store_1ab8e9e33cc7b78829001a86ef6110ebb6" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>basic_format_args&lt; Context &gt;</name></member>
+      <member refid="classdynamic__format__arg__store_1a2997fb5c2d4ac7205672e7afe550f9c1" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>char_type</name></member>
+      <member refid="classdynamic__format__arg__store_1a94763fc905f02222d575f7c03161c212" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>clear</name></member>
+      <member refid="classdynamic__format__arg__store_1a00e8f5dd051bfb84ac803cb6c091a631" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>data</name></member>
+      <member refid="classdynamic__format__arg__store_1a945374d17adbecffe69386a0c098b95a" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>data_</name></member>
+      <member refid="classdynamic__format__arg__store_1ad5a82849fb8ab4f8618d94f19a990457" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>dynamic_args_</name></member>
+      <member refid="classdynamic__format__arg__store_1a3e3f7af053771a3dff451014a5024c79" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>emplace_arg</name></member>
+      <member refid="classdynamic__format__arg__store_1a013581c49dc10f6184fcc7de015957fc" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>emplace_arg</name></member>
+      <member refid="classdynamic__format__arg__store_1a40956aef27ef510f1a68f45f3e4e0710" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>get_types</name></member>
+      <member refid="classdynamic__format__arg__store_1afcc3f9a3361e1f7a84c6deeb0830a26c" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>named_info_</name></member>
+      <member refid="classdynamic__format__arg__store_1a807df0cbb5a37c66ca96bbb50b77cba9" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>push_back</name></member>
+      <member refid="classdynamic__format__arg__store_1a807df0cbb5a37c66ca96bbb50b77cba9" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>push_back</name></member>
+      <member refid="classdynamic__format__arg__store_1ac58637a7965cbfeab47c2f50e923dc07" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>push_back</name></member>
+      <member refid="classdynamic__format__arg__store_1a14baaad39c59b82fdf86dc4276f7d7cc" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>push_back</name></member>
+      <member refid="classdynamic__format__arg__store_1a9c6983c46b69775b5066f6ad748be584" prot="public" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>reserve</name></member>
+      <member refid="classdynamic__format__arg__store_1a877ed467adc9ad83bf64ad60fbaf75ff" prot="private" virt="non-virtual"><scope>dynamic_format_arg_store</scope><name>stored_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

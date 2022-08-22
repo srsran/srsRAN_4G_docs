@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dmrs__pusch__estimator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::dmrs_pusch_estimator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1dmrs__pusch__estimator" prot="public" virt="non-virtual">srsgnb::dmrs_pusch_estimator</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a1e6f27627d3d57fdf7f848f8b9ea864d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::dmrs_pusch_estimator_impl::MAX_TX_LAYERS</definition>
+        <argsstring></argsstring>
+        <name>MAX_TX_LAYERS</name>
+        <initializer>= pusch_constants::MAX_NOF_LAYERS</initializer>
+        <briefdescription>
+<para>Maximum supported number of transmission layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="54" column="29" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1ae830e4f16717c2b221aea50f4e975373" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1port__channel__estimator" kindref="compound">port_channel_estimator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;port_channel_estimator&gt; srsgnb::dmrs_pusch_estimator_impl::ch_estimator</definition>
+        <argsstring></argsstring>
+        <name>ch_estimator</name>
+        <briefdescription>
+<para>Antenna port channel estimator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="57" column="19" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" compoundref="dmrs__pusch__estimator__impl_8cpp" startline="5" endline="30">estimate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a33b2f1c48416c099ece712d2a5072fb4" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dmrs__pusch__generator__impl" kindref="compound">dmrs_pusch_generator_impl</ref></type>
+        <definition>dmrs_pusch_generator_impl srsgnb::dmrs_pusch_estimator_impl::dmrs_gen</definition>
+        <argsstring></argsstring>
+        <name>dmrs_gen</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>DM-RS generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="59" column="29" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" compoundref="dmrs__pusch__estimator__impl_8cpp" startline="5" endline="30">estimate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1aad97263a8a976a97809a9b8661814c2b" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1ad0dae40a23573409ca7d16a25349dc49" kindref="member">dmrs_symbol_list</ref>, <ref refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a1e6f27627d3d57fdf7f848f8b9ea864d" kindref="member">MAX_TX_LAYERS</ref> &gt;</type>
+        <definition>static_vector&lt;dmrs_symbol_list, MAX_TX_LAYERS&gt; srsgnb::dmrs_pusch_estimator_impl::symbols</definition>
+        <argsstring></argsstring>
+        <name>symbols</name>
+        <briefdescription>
+<para>Buffer for DM-RS symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="61" column="17" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" compoundref="dmrs__pusch__estimator__impl_8cpp" startline="5" endline="30">estimate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a7fce4a729a36747901be1169fd115033" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="structsrsgnb_1_1dmrs__mask" kindref="compound">dmrs_mask</ref>, <ref refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a1e6f27627d3d57fdf7f848f8b9ea864d" kindref="member">MAX_TX_LAYERS</ref> &gt;</type>
+        <definition>static_vector&lt;dmrs_mask, MAX_TX_LAYERS&gt; srsgnb::dmrs_pusch_estimator_impl::coordinates</definition>
+        <argsstring></argsstring>
+        <name>coordinates</name>
+        <briefdescription>
+<para>Buffer for DM-RS symbol coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="63" column="17" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" compoundref="dmrs__pusch__estimator__impl_8cpp" startline="5" endline="30">estimate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a701c5b44801b9dd59d41bb025c4d32e7" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::dmrs_pusch_estimator_impl::dmrs_pusch_estimator_impl</definition>
+        <argsstring>(std::unique_ptr&lt; port_channel_estimator &gt; ch_est)</argsstring>
+        <name>dmrs_pusch_estimator_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1port__channel__estimator" kindref="compound">port_channel_estimator</ref> &gt;</type>
+          <declname>ch_est</declname>
+        </param>
+        <briefdescription>
+<para>Constructor - sets the channel estimator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="45" column="12" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void dmrs_pusch_estimator_impl::estimate</definition>
+        <argsstring>(channel_estimate &amp;estimate, const resource_grid_reader &amp;grid, const configuration &amp;config) override</argsstring>
+        <name>estimate</name>
+        <reimplements refid="classsrsgnb_1_1dmrs__pusch__estimator_1aa15008838be66715211df10e093e21cd">estimate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimate</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Estimates the PUSCH propagation channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">estimate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel estimate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Received resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DM-RS configuration parameters. They characterize the DM-RS symbols and their indices. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="50" column="8" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.cpp" bodystart="5" bodyend="30"/>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1a8ec8d10bb2ece3d36d7a79499e0eb9ae" compoundref="dmrs__pusch__estimator_8h" startline="55">srsgnb::dmrs_pusch_estimator::configuration::nof_tx_layers</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1a1a04e01b5de50f1f8325f38ea49ec10e" compoundref="dmrs__pusch__estimator_8h" startline="57">srsgnb::dmrs_pusch_estimator::configuration::rx_ports</references>
+        <references refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1aad97263a8a976a97809a9b8661814c2b" compoundref="dmrs__pusch__estimator__impl_8h" startline="61">symbols</references>
+        <references refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a7fce4a729a36747901be1169fd115033" compoundref="dmrs__pusch__estimator__impl_8h" startline="63">coordinates</references>
+        <references refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a33b2f1c48416c099ece712d2a5072fb4" compoundref="dmrs__pusch__estimator__impl_8h" startline="59">dmrs_gen</references>
+        <references refid="classsrsgnb_1_1dmrs__pusch__generator__impl_1ae5152d7f603c1495507e55f4fdfa18ad">srsgnb::dmrs_pusch_generator_impl::generate</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1ace672996d866ee3034de79491e3f6e00" compoundref="port__channel__estimator_8h" startline="32">srsgnb::port_channel_estimator::configuration::rb_mask</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1af602644f6bc102e4481af5634ef4239b" compoundref="dmrs__pusch__estimator_8h" startline="49">srsgnb::dmrs_pusch_estimator::configuration::rb_mask</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a3bfdc261c00269b358fe2c2fb98a64a8" compoundref="port__channel__estimator_8h" startline="34">srsgnb::port_channel_estimator::configuration::scs</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1afcf9b94546a4f07e0c4f271071f4433f" compoundref="dmrs__pusch__estimator_8h" startline="45">srsgnb::dmrs_pusch_estimator::configuration::scs</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a3ba06dbd332558b2214f6e16146934ed" compoundref="port__channel__estimator_8h" startline="36">srsgnb::port_channel_estimator::configuration::c_prefix</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1a0834404ca72960cc9c111c1b48f4ae07" compoundref="dmrs__pusch__estimator_8h" startline="47">srsgnb::dmrs_pusch_estimator::configuration::c_prefix</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a644d9b6a7af81600b148ac9d5394eb0e" compoundref="port__channel__estimator_8h" startline="42">srsgnb::port_channel_estimator::configuration::nof_tx_layers</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a9f6b9c0d5a38835f2785cfcd44d7469b" compoundref="port__channel__estimator_8h" startline="44">srsgnb::port_channel_estimator::configuration::nof_rx_ports</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a56f194e72fdb32f3b4cabbad9692e8fc" compoundref="port__channel__estimator_8h" startline="38">srsgnb::port_channel_estimator::configuration::first_symbol</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1a6521c9066ae7364065fb1e97a94ab91d" compoundref="dmrs__pusch__estimator_8h" startline="51">srsgnb::dmrs_pusch_estimator::configuration::first_symbol</references>
+        <references refid="structsrsgnb_1_1port__channel__estimator_1_1configuration_1a6bc04ae869a138ae85ae4c8f88e49e78" compoundref="port__channel__estimator_8h" startline="40">srsgnb::port_channel_estimator::configuration::nof_symbols</references>
+        <references refid="structsrsgnb_1_1dmrs__pusch__estimator_1_1configuration_1ab10268d372e086d4dfcdbadad7c33932" compoundref="dmrs__pusch__estimator_8h" startline="53">srsgnb::dmrs_pusch_estimator::configuration::nof_symbols</references>
+        <references refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1ae830e4f16717c2b221aea50f4e975373" compoundref="dmrs__pusch__estimator__impl_8h" startline="57">ch_estimator</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::dmrs_pusch_estimator</label>
+        <link refid="classsrsgnb_1_1dmrs__pusch__estimator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pusch_estimator_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pusch__estimator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::dmrs_pusch_estimator</label>
+        <link refid="classsrsgnb_1_1dmrs__pusch__estimator"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::static_vector&lt; srsgnb::dmrs_mask, MAX_TX_LAYERS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::dmrs_pusch_generator_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pusch__generator__impl"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::static_vector&lt; srsgnb::static_vector, MAX_TX_LAYERS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pusch_estimator_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pusch__estimator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-symbols</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-dmrs_gen</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-coordinates</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" line="42" column="1" bodyfile="lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h" bodystart="41" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1ae830e4f16717c2b221aea50f4e975373" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>ch_estimator</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a7fce4a729a36747901be1169fd115033" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>coordinates</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a33b2f1c48416c099ece712d2a5072fb4" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>dmrs_gen</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a701c5b44801b9dd59d41bb025c4d32e7" prot="public" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>dmrs_pusch_estimator_impl</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1abbe1a5331829072bcddf61c882167cc0" prot="public" virt="virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>estimate</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1a1e6f27627d3d57fdf7f848f8b9ea864d" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>MAX_TX_LAYERS</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator__impl_1aad97263a8a976a97809a9b8661814c2b" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>symbols</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pusch__estimator_1acdf133c857495dd4e6e25deba1f2ec6b" prot="public" virt="virtual"><scope>srsgnb::dmrs_pusch_estimator_impl</scope><name>~dmrs_pusch_estimator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

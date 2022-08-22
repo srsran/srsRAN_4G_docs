@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1demodulation__mapper__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::demodulation_mapper_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1demodulation__mapper" prot="public" virt="non-virtual">srsgnb::demodulation_mapper</basecompoundref>
+    <includes refid="demodulation__mapper__impl_8h" local="no">demodulation_mapper_impl.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1demodulation__mapper__impl_1a41fe683ab1a2139de42ddb8e776aa866" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void demodulation_mapper_impl::demodulate_soft</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; llrs, span&lt; const cf_t &gt; symbols, span&lt; const float &gt; noise_vars, modulation_scheme mod) override</argsstring>
+        <name>demodulate_soft</name>
+        <reimplements refid="classsrsgnb_1_1demodulation__mapper_1a02dcf0326aa430232c0b7b6074b3b954">demodulate_soft</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>llrs</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const float &gt;</type>
+          <declname>noise_vars</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref></type>
+          <declname>mod</declname>
+        </param>
+        <briefdescription>
+<para>Soft demodulation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Demodulates complex symbols into log-likelihood ratios (i.e., soft bits). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">llrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Demodulated log-likelihood ratios. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Complex symbols to demodulate (equalization output). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">noise_vars</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Noise variances (after equalization). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modulation scheme. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Parameters <computeroutput>symbols</computeroutput> and <computeroutput>noise_vars</computeroutput> must have the same length. Each entry of <computeroutput>noise_vars</computeroutput> contains the (estimated) noise variance after equalization corresponding to the symbol with the same index. </para>
+</simplesect>
+<simplesect kind="remark"><para>The length of <computeroutput>llrs</computeroutput> is given by the number of symbols multiplied by the modulation order of <computeroutput>mod</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_modulation/demodulation_mapper_impl.h" line="34" column="8" bodyfile="lib/phy/upper/channel_modulation/demodulation_mapper_impl.cpp" bodystart="365" bodyend="397"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+        <references refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" compoundref="span_8h" startline="182" endline="182">srsgnb::span&lt; T &gt;::end</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4acfd8f331d281b0da79e7c6ed6988243c">srsgnb::BPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a68b5dd822c6ef8ad44f98f56dfbe016e">srsgnb::PI_2_BPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a">srsgnb::QPSK</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a03029a441fe46ebecd2135ba5d8b330f">srsgnb::QAM16</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a5e0dd7cb58cf81fd6bed561c7e4b351b">srsgnb::QAM64</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a69a2bdd96ac2c6035d0c8ca23563aec9">srsgnb::QAM256</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Approximate-LLR demodulator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implementation of the interface provided by <ref refid="classsrsgnb_1_1demodulation__mapper" kindref="compound">demodulation_mapper</ref>. Instead of the defining expression, the log-likelihood ratios are computed using the widely accepted approximation <formula id="223">\[ \ell(b_{m+i}) = -\frac{1}{\sigma_m^2} \biggl( \min_{s\in \mathcal{S}_{i,0}} \abs{y_m - s}^2 - \min_{s\in \mathcal{S}_{i,1}} \abs{y_m - s}^2 \biggr) \]</formula> where <formula id="37">$y_m$</formula> denotes the noisy modulation symbol, <formula id="224">$\sigma_m^2$</formula> is the equivalent (after equalization) noise variance and <formula id="225">$\mathcal{S}_{i,B}$</formula> is the set of constellation points for which <formula id="226">$b_{m+i}=B\in\{0,1\}$</formula>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::demodulation_mapper</label>
+        <link refid="classsrsgnb_1_1demodulation__mapper"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::demodulation_mapper_impl</label>
+        <link refid="classsrsgnb_1_1demodulation__mapper__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::demodulation_mapper</label>
+        <link refid="classsrsgnb_1_1demodulation__mapper"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::demodulation_mapper_impl</label>
+        <link refid="classsrsgnb_1_1demodulation__mapper__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_modulation/demodulation_mapper_impl.h" line="31" column="1" bodyfile="lib/phy/upper/channel_modulation/demodulation_mapper_impl.h" bodystart="30" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1demodulation__mapper__impl_1a41fe683ab1a2139de42ddb8e776aa866" prot="public" virt="virtual"><scope>srsgnb::demodulation_mapper_impl</scope><name>demodulate_soft</name></member>
+      <member refid="classsrsgnb_1_1demodulation__mapper_1afa52289fd99d1c29a446e86631751fa9" prot="public" virt="virtual"><scope>srsgnb::demodulation_mapper_impl</scope><name>~demodulation_mapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1downlink__processor__pool__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::downlink_processor_pool_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1downlink__processor__pool" prot="public" virt="non-virtual">srsgnb::downlink_processor_pool</basecompoundref>
+    <includes refid="downlink__processor__pool__impl_8h" local="no">downlink_processor_pool_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1downlink__processor__pool__impl_1a941237e5df4ffd8034e68dee13b6de7a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classsrsgnb_1_1processor__pool__repository" kindref="compound">processor_pool_repository</ref>&lt; <ref refid="classsrsgnb_1_1downlink__processor" kindref="compound">downlink_processor</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;processor_pool_repository&lt;downlink_processor&gt; &gt; srsgnb::downlink_processor_pool_impl::processors</definition>
+        <argsstring></argsstring>
+        <name>processors</name>
+        <briefdescription>
+<para>Container for downlink processors. Each entry belongs to a different sector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/downlink_processor_pool_impl.h" line="50" column="15" bodyfile="lib/phy/upper/downlink_processor_pool_impl.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__pool__impl_1a79c57ceec92dfc678188547a8bc00a76" compoundref="downlink__processor__pool__impl_8cpp" startline="16" endline="23">downlink_processor_pool_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1downlink__processor__pool__impl_1af54c07f0e184835c10897ec6cab05d01" compoundref="downlink__processor__pool__impl_8cpp" startline="25" endline="31">get_processor</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor__pool__impl_1a79c57ceec92dfc678188547a8bc00a76" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>downlink_processor_pool_impl::downlink_processor_pool_impl</definition>
+        <argsstring>(downlink_processor_pool_impl_config dl_processors)</argsstring>
+        <name>downlink_processor_pool_impl</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1downlink__processor__pool__impl__config" kindref="compound">downlink_processor_pool_impl_config</ref></type>
+          <declname>dl_processors</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a downlink processor pool using the given configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dl_processors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pool configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/downlink_processor_pool_impl.h" line="43" column="12" bodyfile="lib/phy/upper/downlink_processor_pool_impl.cpp" bodystart="16" bodyend="23"/>
+        <references refid="structsrsgnb_1_1downlink__processor__pool__impl__config_1a2fd44816dac765928c451b78717bfe18" compoundref="downlink__processor__pool__impl_8h" startline="31">srsgnb::downlink_processor_pool_impl_config::procs</references>
+        <references refid="classsrsgnb_1_1downlink__processor__pool__impl_1a941237e5df4ffd8034e68dee13b6de7a" compoundref="downlink__processor__pool__impl_8h" startline="50">processors</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor__pool__impl_1af54c07f0e184835c10897ec6cab05d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1downlink__processor" kindref="compound">downlink_processor</ref> &amp;</type>
+        <definition>downlink_processor &amp; downlink_processor_pool_impl::get_processor</definition>
+        <argsstring>(slot_point slot, unsigned sector_id) override</argsstring>
+        <name>get_processor</name>
+        <reimplements refid="classsrsgnb_1_1downlink__processor__pool_1a479f4a99cf34a65006408e366b042aae">get_processor</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>sector_id</declname>
+        </param>
+        <briefdescription>
+<para>Returns a downlink processor with the given slot and sector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot point. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sector_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sector ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A downlink processor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/downlink_processor_pool_impl.h" line="46" column="22" bodyfile="lib/phy/upper/downlink_processor_pool_impl.cpp" bodystart="25" bodyend="31"/>
+        <references refid="classsrsgnb_1_1downlink__processor__pool__impl_1a941237e5df4ffd8034e68dee13b6de7a" compoundref="downlink__processor__pool__impl_8h" startline="50">processors</references>
+        <references refid="classsrsgnb_1_1slot__point_1af9f81db7f0ecf822d8e53f6216b95b34" compoundref="slot__point_8h" startline="83" endline="83">srsgnb::slot_point::valid</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of a downlink processor pool. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::downlink_processor_pool</label>
+        <link refid="classsrsgnb_1_1downlink__processor__pool"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::downlink_processor_pool_impl</label>
+        <link refid="classsrsgnb_1_1downlink__processor__pool__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::downlink_processor_pool</label>
+        <link refid="classsrsgnb_1_1downlink__processor__pool"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::downlink_processor_pool_impl</label>
+        <link refid="classsrsgnb_1_1downlink__processor__pool__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/downlink_processor_pool_impl.h" line="38" column="1" bodyfile="lib/phy/upper/downlink_processor_pool_impl.h" bodystart="37" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1downlink__processor__pool__impl_1a79c57ceec92dfc678188547a8bc00a76" prot="public" virt="non-virtual"><scope>srsgnb::downlink_processor_pool_impl</scope><name>downlink_processor_pool_impl</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor__pool__impl_1af54c07f0e184835c10897ec6cab05d01" prot="public" virt="virtual"><scope>srsgnb::downlink_processor_pool_impl</scope><name>get_processor</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor__pool__impl_1a941237e5df4ffd8034e68dee13b6de7a" prot="private" virt="non-virtual"><scope>srsgnb::downlink_processor_pool_impl</scope><name>processors</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor__pool_1ad8b12a7a0864163bc92db7532f34ab65" prot="public" virt="virtual"><scope>srsgnb::downlink_processor_pool_impl</scope><name>~downlink_processor_pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

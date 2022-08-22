@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1short__block__detector" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::short_block_detector</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1short__block__detector__impl" prot="public" virt="non-virtual">srsgnb::short_block_detector_impl</derivedcompoundref>
+    <includes refid="short__block__detector_8h" local="no">short_block_detector.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1short__block__detector_1ab0f8dbc36a13153af9e264fbfcfe7f38" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::short_block_detector::~short_block_detector</definition>
+        <argsstring>()=default</argsstring>
+        <name>~short_block_detector</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/short/short_block_detector.h" line="29" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1short__block__detector_1ab20d74592fe8574cb8c1547ea2c62e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool srsgnb::short_block_detector::detect</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const log_likelihood_ratio &gt; input, modulation_scheme mod)=0</argsstring>
+        <name>detect</name>
+        <reimplementedby refid="classsrsgnb_1_1short__block__detector__impl_1a19623e946a11e01acf68e233517b5816">detect</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref></type>
+          <declname>mod</declname>
+        </param>
+        <briefdescription>
+<para>Detection, decoding and rate-dematching of short blocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the provided signal contains a codeblock and, if so, decodes its content assuming the encoding followed TS38.212 Section 5.3.3 and the rate-matching scheme of TS38.212 Section 5.4.3. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Detected message (one bit per entry). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Received codeblock (log-likelihood ratios). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modulation scheme. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if <computeroutput>input</computeroutput> passes a detection test. </para>
+</simplesect>
+<simplesect kind="remark"><para>When the detection test fails, the function returns <computeroutput>false</computeroutput> and the content of <computeroutput>output</computeroutput> is unreliable. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/short/short_block_detector.h" line="40" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Short-block detector interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::short_block_detector</label>
+        <link refid="classsrsgnb_1_1short__block__detector"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::short_block_detector_impl</label>
+        <link refid="classsrsgnb_1_1short__block__detector__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::short_block_detector</label>
+        <link refid="classsrsgnb_1_1short__block__detector"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/short/short_block_detector.h" line="26" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/short/short_block_detector.h" bodystart="25" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1short__block__detector_1ab20d74592fe8574cb8c1547ea2c62e34" prot="public" virt="pure-virtual"><scope>srsgnb::short_block_detector</scope><name>detect</name></member>
+      <member refid="classsrsgnb_1_1short__block__detector_1ab0f8dbc36a13153af9e264fbfcfe7f38" prot="public" virt="virtual"><scope>srsgnb::short_block_detector</scope><name>~short_block_detector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1rlc__sdu" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::rlc_sdu</compoundname>
+    <includes refid="rlc_8h" local="no">rlc.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__sdu_1a2a1a6cded897c68a043dec521dae52f1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_sdu::pdcp_sn</definition>
+        <argsstring></argsstring>
+        <name>pdcp_sn</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="50" column="21" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__sdu_1a30bc4caa953b97eb8870b6b666bcc10c" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__slice" kindref="compound">byte_buffer_slice</ref></type>
+        <definition>byte_buffer_slice srsgnb::rlc_sdu::buf</definition>
+        <argsstring></argsstring>
+        <name>buf</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="51" column="21" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1rlc__sdu_1aabea3d7454a84890d1b7981b67fa504c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::rlc_sdu::rlc_sdu</definition>
+        <argsstring>()=default</argsstring>
+        <name>rlc_sdu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="52" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1rlc__sdu_1a1a8c2c9d8866e596ba9cc0e47d01f1f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::rlc_sdu::rlc_sdu</definition>
+        <argsstring>(uint32_t pdcp_sn, byte_buffer_slice buf)</argsstring>
+        <name>rlc_sdu</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>pdcp_sn</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__slice" kindref="compound">byte_buffer_slice</ref></type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="53" column="3" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Structure used to represent an RLC SDU. An RLC SDU must be accompanied with the corresponding PDCP SN so that RLC AM can notify the PDCP of ACKs </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::byte_buffer</label>
+        <link refid="classsrsgnb_1_1byte__buffer"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_sdu</label>
+        <link refid="structsrsgnb_1_1rlc__sdu"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+buf</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::byte_buffer::iterator_impl&lt; T &gt;</label>
+        <link refid="structsrsgnb_1_1byte__buffer_1_1iterator__impl"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-current_segment</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::byte_buffer_slice</label>
+        <link refid="classsrsgnb_1_1byte__buffer__slice"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-sliced_view</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-buf</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::byte_buffer_view</label>
+        <link refid="classsrsgnb_1_1byte__buffer__view"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#it_end</edgelabel>
+          <edgelabel>#it</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/rlc/rlc.h" line="49" column="14" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="49" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1rlc__sdu_1a30bc4caa953b97eb8870b6b666bcc10c" prot="public" virt="non-virtual"><scope>srsgnb::rlc_sdu</scope><name>buf</name></member>
+      <member refid="structsrsgnb_1_1rlc__sdu_1a2a1a6cded897c68a043dec521dae52f1" prot="public" virt="non-virtual"><scope>srsgnb::rlc_sdu</scope><name>pdcp_sn</name></member>
+      <member refid="structsrsgnb_1_1rlc__sdu_1aabea3d7454a84890d1b7981b67fa504c" prot="public" virt="non-virtual"><scope>srsgnb::rlc_sdu</scope><name>rlc_sdu</name></member>
+      <member refid="structsrsgnb_1_1rlc__sdu_1a1a8c2c9d8866e596ba9cc0e47d01f1f9" prot="public" virt="non-virtual"><scope>srsgnb::rlc_sdu</scope><name>rlc_sdu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

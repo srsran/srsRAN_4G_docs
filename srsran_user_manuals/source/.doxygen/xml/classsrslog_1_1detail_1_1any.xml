@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1any" kind="class" language="C++" prot="public">
+    <compoundname>srslog::detail::any</compoundname>
+    <includes refid="any_8h" local="no">any.h</includes>
+    <innerclass refid="structsrslog_1_1detail_1_1any_1_1storage__impl" prot="private">srslog::detail::any::storage_impl</innerclass>
+    <innerclass refid="structsrslog_1_1detail_1_1any_1_1type__interface" prot="private">srslog::detail::any::type_interface</innerclass>
+    <innerclass refid="structsrslog_1_1detail_1_1any_1_1type__tag" prot="private">srslog::detail::any::type_tag</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1any_1a086855cfbfd319e2f0f262e038a5c3dc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structsrslog_1_1detail_1_1any_1_1type__interface" kindref="compound">type_interface</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;type_interface&gt; srslog::detail::any::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="131" column="19" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a6bf61fd1d028a378f6edf0c42816d61f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::any::any</definition>
+        <argsstring>()</argsstring>
+        <name>any</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="41" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a8db668cfbd8534bdba7902a2b199ec04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::any::any</definition>
+        <argsstring>(const any &amp;other)=delete</argsstring>
+        <name>any</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Disallow copies for simplicity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="44" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1ab53b798f056203304447d28e954b4253" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;</type>
+        <definition>any&amp; srslog::detail::any::operator=</definition>
+        <argsstring>(const any &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="45" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a309ccce32e175a4df1fd6962ab5a9751" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt;!std::is_same&lt; typename std::decay&lt; T &gt;::type, <ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &gt;{} &amp;&amp;std::is_move_constructible&lt; typename std::decay&lt; T &gt;::type &gt;{} &amp;&amp;!<ref refid="structsrslog_1_1detail_1_1is__in__place__type__t" kindref="compound">is_in_place_type_t</ref>&lt; typename std::decay&lt; T &gt;::type &gt;{}, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>srslog::detail::any::any</definition>
+        <argsstring>(T &amp;&amp;t)</argsstring>
+        <name>any</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs an object of type decayed T with the provided argument. This constructor only participates in overload resolution when the decayed T meets all of the following conditions: a) is not of class any. b) is move constructible. c) is not an specialization of <ref refid="structsrslog_1_1detail_1_1in__place__type__t" kindref="compound">in_place_type_t</ref>. Otherwise the rest of special member functions are considered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="59" column="12" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="59" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1afb0a331167610554b2df2145d0895988" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; std::is_constructible&lt; typename std::decay&lt; T &gt;::type, Args... &gt;{}, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>srslog::detail::any::any</definition>
+        <argsstring>(in_place_type_t&lt; T &gt;, Args &amp;&amp;... args)</argsstring>
+        <name>any</name>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1in__place__type__t" kindref="compound">in_place_type_t</ref>&lt; T &gt;</type>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs an object of type decayed T directly into the internal storage forwarding the provided arguments. This constructor only participates in overload resolution when the decayed T meets all of the following conditions: a) T(args...) is constructible. Otherwise the rest of special member functions are considered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="71" column="12" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1adf7064cd529c895371ac56a6309cf08c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::any::any</definition>
+        <argsstring>(any &amp;&amp;other)</argsstring>
+        <name>any</name>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="75" column="3" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a108abd7d8d6478bdb0b63d47af94397a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;</type>
+        <definition>any&amp; srslog::detail::any::operator=</definition>
+        <argsstring>(any &amp;&amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="77" column="7" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1aa4806a8e4c6744702e2b30b7471439a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::detail::any::has_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_value</name>
+        <briefdescription>
+<para>Checks whether the object contains a value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="84" column="8" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a99542a9a7f98b7bb8b8bf523a0ab1399" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::any::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>If not empty, destroys the contained object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="87" column="8" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1any_1a69c4860abfb535aeebfa4b462710c13a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::any::swap</definition>
+        <argsstring>(any &amp;other)</argsstring>
+        <name>swap</name>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Swaps the content of two any objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="90" column="8" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="90" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsrslog_1_1detail_1_1any_1a952a418b61dcdaceb2cdf7af0b5312d4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>friend T *</type>
+        <definition>T* any_cast</definition>
+        <argsstring>(any *operand)</argsstring>
+        <name>any_cast</name>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> *</type>
+          <declname>operand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the requested T matches that of the contents of operand, a pointer to the value contained by operand is returned, otherwise returns a nullptr. Non-const overload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="98" column="12" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="149" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="friend" id="classsrslog_1_1detail_1_1any_1aff89e060405102f61577f38e8d4eed8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const friend T *</type>
+        <definition>const friend T* any_cast</definition>
+        <argsstring>(const any *operand)</argsstring>
+        <name>any_cast</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1any" kindref="compound">any</ref> *</type>
+          <declname>operand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When the requested T matches that of the contents of operand, a pointer to the value contained by operand is returned, otherwise returns a nullptr. Const overload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/any.h" line="100" column="18" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="165" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a very minimalist and non compliant implementation of std::any which is included in C++17. From the standard: &quot;The class any describes a type-safe container for single
+values of any type&quot;. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::detail::any</label>
+        <link refid="classsrslog_1_1detail_1_1any"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/detail/support/any.h" line="37" column="1" bodyfile="include/srsgnb/srslog/detail/support/any.h" bodystart="36" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1any_1a6bf61fd1d028a378f6edf0c42816d61f" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>any</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a8db668cfbd8534bdba7902a2b199ec04" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>any</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a309ccce32e175a4df1fd6962ab5a9751" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>any</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1afb0a331167610554b2df2145d0895988" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>any</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1adf7064cd529c895371ac56a6309cf08c" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>any</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a952a418b61dcdaceb2cdf7af0b5312d4" prot="private" virt="non-virtual"><scope>srslog::detail::any</scope><name>any_cast</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1aff89e060405102f61577f38e8d4eed8c" prot="private" virt="non-virtual"><scope>srslog::detail::any</scope><name>any_cast</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1aa4806a8e4c6744702e2b30b7471439a4" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>has_value</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1ab53b798f056203304447d28e954b4253" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a108abd7d8d6478bdb0b63d47af94397a" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a99542a9a7f98b7bb8b8bf523a0ab1399" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>reset</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a086855cfbfd319e2f0f262e038a5c3dc" prot="private" virt="non-virtual"><scope>srslog::detail::any</scope><name>storage</name></member>
+      <member refid="classsrslog_1_1detail_1_1any_1a69c4860abfb535aeebfa4b462710c13a" prot="public" virt="non-virtual"><scope>srslog::detail::any</scope><name>swap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

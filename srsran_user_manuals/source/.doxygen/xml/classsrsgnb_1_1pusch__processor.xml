@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pusch__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pusch_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pusch__processor__impl" prot="public" virt="non-virtual">srsgnb::pusch_processor_impl</derivedcompoundref>
+    <includes refid="pusch__processor_8h" local="no">pusch_processor.h</includes>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1codeword__description" prot="public">srsgnb::pusch_processor::codeword_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1csi__indication" prot="public">srsgnb::pusch_processor::csi_indication</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1data__indication" prot="public">srsgnb::pusch_processor::data_indication</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1outcome" prot="public">srsgnb::pusch_processor::outcome</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" prot="public">srsgnb::pusch_processor::pdu_t</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1uci__description" prot="public">srsgnb::pusch_processor::uci_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__processor_1_1uci__indication" prot="public">srsgnb::pusch_processor::uci_indication</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__processor_1abc5e211db0729620794a7ecd8991c15e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pusch_processor::MAX_NRE_PER_RB</definition>
+        <argsstring></argsstring>
+        <name>MAX_NRE_PER_RB</name>
+        <initializer>= 156</initializer>
+        <briefdescription>
+<para>Maximum number of resource elements per resource block in a shared channel transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As per TS38.214 section 6.1.4.2 Transport block size determination. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" line="36" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__processor_1a743cbe38da9a966381fe0378c7dcd7ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pusch_processor::~pusch_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pusch_processor</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" line="181" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__processor_1acc0a8bf61d39c12b178865a7ba36e388" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pusch_processor::process</definition>
+        <argsstring>(span&lt; uint8_t &gt; data, rx_softbuffer &amp;softbuffer, const resource_grid_reader &amp;grid, const pdu_t &amp;pdu)=0</argsstring>
+        <name>process</name>
+        <reimplementedby refid="classsrsgnb_1_1pusch__processor__impl_1a43521be99be3971305bc4d0b218ffc12">process</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref> &amp;</type>
+          <declname>softbuffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Processes a PUSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The size of each transport block is determined by <computeroutput> data[TB index].size() </computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the transport block to receive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">softbuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the data reception softbuffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the necessary parameters to process the PUSCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" line="192" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the PUSCH processor interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It performs the decoding of PUSCH described in TS38.211 Section 6.3.1. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pusch_processor_impl</label>
+        <link refid="classsrsgnb_1_1pusch__processor__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pusch_processor</label>
+        <link refid="classsrsgnb_1_1pusch__processor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pusch_processor</label>
+        <link refid="classsrsgnb_1_1pusch__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" line="31" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_processor.h" bodystart="30" bodyend="193"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pusch__processor_1abc5e211db0729620794a7ecd8991c15e" prot="public" virt="non-virtual"><scope>srsgnb::pusch_processor</scope><name>MAX_NRE_PER_RB</name></member>
+      <member refid="classsrsgnb_1_1pusch__processor_1acc0a8bf61d39c12b178865a7ba36e388" prot="public" virt="pure-virtual"><scope>srsgnb::pusch_processor</scope><name>process</name></member>
+      <member refid="classsrsgnb_1_1pusch__processor_1a743cbe38da9a966381fe0378c7dcd7ca" prot="public" virt="virtual"><scope>srsgnb::pusch_processor</scope><name>~pusch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1task__worker" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::task_worker</compoundname>
+    <includes refid="task__worker_8h" local="no">task_worker.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1task__worker_1a3922a7801f2da4bbc720f8b57098a903" prot="private" static="no">
+        <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+        <definition>using srsgnb::task_worker::task_t =  unique_task</definition>
+        <argsstring></argsstring>
+        <name>task_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="33" column="3" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1a7219b380f1b16d28069407a9d7444ce6" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string srsgnb::task_worker::worker_name</definition>
+        <argsstring></argsstring>
+        <name>worker_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="72" column="31" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1ac441fd2a38bd58b30b5e7d42d31460ef" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a6e493313fc102cb1b0efb1ed96f073cb" kindref="member">os_thread_realtime_priority</ref></type>
+        <definition>os_thread_realtime_priority srsgnb::task_worker::prio</definition>
+        <argsstring></argsstring>
+        <name>prio</name>
+        <initializer>= os_thread_realtime_priority::NO_REALTIME</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="73" column="31" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1a672c52956fbe5bb78d19ac99de4559cc" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1os__sched__affinity__bitmask" kindref="compound">os_sched_affinity_bitmask</ref></type>
+        <definition>os_sched_affinity_bitmask srsgnb::task_worker::mask</definition>
+        <argsstring></argsstring>
+        <name>mask</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="74" column="31" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1ad7beb746ae0eadb9ecd2d807d58647b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::task_worker::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="75" column="30" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1affb6f964a72d9410c6134054393a612f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dyn__blocking__queue" kindref="compound">srsgnb::dyn_blocking_queue</ref>&lt; <ref refid="classsrsgnb_1_1unique__function" kindref="compound">task_t</ref> &gt;</type>
+        <definition>srsgnb::dyn_blocking_queue&lt;task_t&gt; srsgnb::task_worker::pending_tasks</definition>
+        <argsstring></argsstring>
+        <name>pending_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="78" column="30" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker_1add91a08eaf80cbada1c348edd1e80e30" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1unique__thread" kindref="compound">unique_thread</ref></type>
+        <definition>unique_thread srsgnb::task_worker::t_handle</definition>
+        <argsstring></argsstring>
+        <name>t_handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="80" column="17" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1ab638a6c2f02d8551ac30e8e49b6448ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker::task_worker</definition>
+        <argsstring>(std::string thread_name_, uint32_t queue_size, bool start_postponed=false, os_thread_realtime_priority prio_=os_thread_realtime_priority::NO_REALTIME, const os_sched_affinity_bitmask &amp;mask_={})</argsstring>
+        <name>task_worker</name>
+        <param>
+          <type>std::string</type>
+          <declname>thread_name_</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>queue_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>start_postponed</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6e493313fc102cb1b0efb1ed96f073cb" kindref="member">os_thread_realtime_priority</ref></type>
+          <declname>prio_</declname>
+          <defval>os_thread_realtime_priority::NO_REALTIME</defval>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1os__sched__affinity__bitmask" kindref="compound">os_sched_affinity_bitmask</ref> &amp;</type>
+          <declname>mask_</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="36" column="3" bodyfile="lib/support/task_worker.cpp" bodystart="19" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1af1585b1f69a729a46153bf5474ef760c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker::task_worker</definition>
+        <argsstring>(const task_worker &amp;)=delete</argsstring>
+        <name>task_worker</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="41" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1abeafd8c8ad053b437424c19e14b59555" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker::task_worker</definition>
+        <argsstring>(task_worker &amp;&amp;)=delete</argsstring>
+        <name>task_worker</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="42" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1a428a3b9191db301acb4ad969b5d98824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;</type>
+        <definition>task_worker&amp; srsgnb::task_worker::operator=</definition>
+        <argsstring>(const task_worker &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="43" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1a367923da0c5a1e47505904e97b358a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;</type>
+        <definition>task_worker&amp; srsgnb::task_worker::operator=</definition>
+        <argsstring>(task_worker &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="44" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1ae9a086c2387839d557948e4d2b44f04b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker::~task_worker</definition>
+        <argsstring>()</argsstring>
+        <name>~task_worker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="45" column="3" bodyfile="lib/support/task_worker.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1ad2696101c36c6b038673339696e7a7f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::task_worker::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stop task worker, if running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="48" column="8" bodyfile="lib/support/task_worker.cpp" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1a0a99e70781ccd282fc560bad77d0f31a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::task_worker::start</definition>
+        <argsstring>(os_thread_realtime_priority prio_=os_thread_realtime_priority::NO_REALTIME, const os_sched_affinity_bitmask &amp;mask_={})</argsstring>
+        <name>start</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6e493313fc102cb1b0efb1ed96f073cb" kindref="member">os_thread_realtime_priority</ref></type>
+          <declname>prio_</declname>
+          <defval>os_thread_realtime_priority::NO_REALTIME</defval>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1os__sched__affinity__bitmask" kindref="compound">os_sched_affinity_bitmask</ref> &amp;</type>
+          <declname>mask_</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Initialize task worker, if not yet running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="51" column="8" bodyfile="lib/support/task_worker.cpp" bodystart="61" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1a930d419d3b0ed1fd28cd1a229dbfc0a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::task_worker::push_task</definition>
+        <argsstring>(task_t &amp;&amp;task)</argsstring>
+        <name>push_task</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1unique__function" kindref="compound">task_t</ref> &amp;&amp;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="54" column="8" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1ac44ec759ade492a479656aa10ac78b06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::task_worker::nof_pending_tasks</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_pending_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="64" column="12" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1a2de96c855a71eb9869e08e0859218cc5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::thread::id</type>
+        <definition>std::thread::id srsgnb::task_worker::get_id</definition>
+        <argsstring>() const</argsstring>
+        <name>get_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="66" column="19" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker_1ad3fb0c3ecbdea5ab31ca7a160d7c904f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1unique__thread" kindref="compound">unique_thread</ref></type>
+        <definition>unique_thread srsgnb::task_worker::make_thread</definition>
+        <argsstring>()</argsstring>
+        <name>make_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="69" column="17" bodyfile="lib/support/task_worker.cpp" bodystart="45" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class used to create a single worker with an input task queue with a single reader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="12">
+        <label>srsgnb::bounded_bitset&lt; 1024 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="3">
+        <label>T</label>
+      </node>
+      <node id="5">
+        <label>srsgnb::dyn_blocking_queue&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="2">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::os_sched_affinity_bitmask</label>
+        <link refid="structsrsgnb_1_1os__sched__affinity__bitmask"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-cpu_bitset</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::dyn_circular_buffer&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; srsgnb::unique_function &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::unique_thread</label>
+        <link refid="classsrsgnb_1_1unique__thread"/>
+      </node>
+      <node id="4">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srsgnb::unique_function &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::task_worker</label>
+        <link refid="classsrsgnb_1_1task__worker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-pending_tasks</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-t_handle</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-mask</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/executors/task_worker.h" line="32" column="1" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="31" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1task__worker_1a2de96c855a71eb9869e08e0859218cc5" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>get_id</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ad7beb746ae0eadb9ecd2d807d58647b4" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ad3fb0c3ecbdea5ab31ca7a160d7c904f" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>make_thread</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a672c52956fbe5bb78d19ac99de4559cc" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>mask</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ac44ec759ade492a479656aa10ac78b06" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>nof_pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a428a3b9191db301acb4ad969b5d98824" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a367923da0c5a1e47505904e97b358a4f" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1affb6f964a72d9410c6134054393a612f" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ac441fd2a38bd58b30b5e7d42d31460ef" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>prio</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a930d419d3b0ed1fd28cd1a229dbfc0a1" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>push_task</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a0a99e70781ccd282fc560bad77d0f31a" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>start</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ad2696101c36c6b038673339696e7a7f7" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1add91a08eaf80cbada1c348edd1e80e30" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>t_handle</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a3922a7801f2da4bbc720f8b57098a903" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>task_t</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ab638a6c2f02d8551ac30e8e49b6448ee" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>task_worker</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1af1585b1f69a729a46153bf5474ef760c" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>task_worker</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1abeafd8c8ad053b437424c19e14b59555" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>task_worker</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1a7219b380f1b16d28069407a9d7444ce6" prot="private" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>worker_name</name></member>
+      <member refid="classsrsgnb_1_1task__worker_1ae9a086c2387839d557948e4d2b44f04b" prot="public" virt="non-virtual"><scope>srsgnb::task_worker</scope><name>~task_worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1resource__grid__writer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::resource_grid_writer</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1resource__grid" prot="public" virt="non-virtual">srsgnb::resource_grid</derivedcompoundref>
+    <includes refid="include_2srsgnb_2phy_2support_2resource__grid_8h" local="no">resource_grid.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__writer_1a9d358d1bf43e28fb82340156e1b60faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::resource_grid_writer::~resource_grid_writer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~resource_grid_writer</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/resource_grid.h" line="55" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::resource_grid_writer::put</definition>
+        <argsstring>(unsigned port, span&lt; const resource_grid_coordinate &gt; coordinates, span&lt; const cf_t &gt; symbols)=0</argsstring>
+        <name>put</name>
+        <reimplementedby refid="classsrsgnb_1_1resource__grid__impl_1a1cb1f8bfe6c48b00727229550bb30dd5">put</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1resource__grid__coordinate" kindref="compound">resource_grid_coordinate</ref> &gt;</type>
+          <declname>coordinates</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <briefdescription>
+<para>Puts a number of elements in the grid for a given port according to a list of coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">coordinates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of grid symbol<ndash/>subcarrier coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of symbols to written at the specified coordinates. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The number of elements in <computeroutput>coordinates</computeroutput> and <computeroutput>symbols</computeroutput> shall be the same. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/resource_grid.h" line="63" column="16"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">srsgnb::ofdm_symbol_demodulator_impl::demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pbch__modulator__impl_1a760c76d42c43c13b744ef088b79f2cde" compoundref="pbch__modulator__impl_8cpp" startline="33" endline="78">srsgnb::pbch_modulator_impl::map</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" compoundref="pdcch__modulator__impl_8cpp" startline="40" endline="65">srsgnb::pdcch_modulator_impl::map</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdsch__modulator__impl_1a145754bd9128828ee0e7770563b5534b" compoundref="pdsch__modulator__impl_8cpp" startline="87" endline="158">srsgnb::pdsch_modulator_impl::map_to_contiguous_prb</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdsch__modulator__impl_1adb89f3b5110d488d6a098b43a60bc53c" compoundref="pdsch__modulator__impl_8cpp" startline="160" endline="232">srsgnb::pdsch_modulator_impl::map_to_prb_other</referencedby>
+        <referencedby refid="classsrsgnb_1_1csi__rs__processor__impl_1a30c332617ff3e1d643e6a61e5dfe86db" compoundref="csi__rs__processor__impl_8cpp" startline="652" endline="703">srsgnb::csi_rs_processor_impl::map</referencedby>
+        <referencedby refid="classsrsgnb_1_1dmrs__pbch__processor__impl_1a6815328c914ba213489abdda61a04a32" compoundref="dmrs__pbch__processor__impl_8cpp" startline="38" endline="79">srsgnb::dmrs_pbch_processor_impl::mapping</referencedby>
+        <referencedby refid="classsrsgnb_1_1dmrs__pdcch__processor__impl_1a4254c8320a584a8dda6a5d773c1f8b0e" compoundref="dmrs__pdcch__processor__impl_8cpp" startline="38" endline="49">srsgnb::dmrs_pdcch_processor_impl::mapping</referencedby>
+        <referencedby refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1aa6aed4e5ed838d9ee66e3e814aa32380" compoundref="dmrs__pdsch__processor__impl_8cpp" startline="71" endline="132">srsgnb::dmrs_pdsch_processor_impl::mapping</referencedby>
+        <referencedby refid="classsrsgnb_1_1pss__processor__impl_1a027d24cc61e0a23777048c9d0b8d5358" compoundref="pss__processor__impl_8cpp" startline="57" endline="70">srsgnb::pss_processor_impl::mapping</referencedby>
+        <referencedby refid="classsrsgnb_1_1sss__processor__impl_1ab7d319cc0e9825355e3cca2a3f177a2a" compoundref="sss__processor__impl_8cpp" startline="84" endline="98">srsgnb::sss_processor_impl::mapping</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__writer_1ad1b2db56f923cd466833fcab0f251371" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>virtual span&lt;const cf_t&gt; srsgnb::resource_grid_writer::put</definition>
+        <argsstring>(unsigned port, unsigned l, unsigned k_init, span&lt; const bool &gt; mask, span&lt; const cf_t &gt; symbols)=0</argsstring>
+        <name>put</name>
+        <reimplementedby refid="classsrsgnb_1_1resource__grid__impl_1aa72db8feab1175997eff3bbed6a7a5cc">put</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k_init</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const bool &gt;</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <briefdescription>
+<para>Puts a number of resource elements in the resource grid at the given port and symbol using a mask to indicate which subcarriers are mapped and which are not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">k_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial subcarrier index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean mask denoting the subcarriers to be written (if <computeroutput>true</computeroutput>), starting from <computeroutput>k_init</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbols to be written into the resource grid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <computeroutput><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref></computeroutput> containing the unused entries of <computeroutput>symbols</computeroutput>. </para>
+</simplesect>
+<simplesect kind="note"><para>The number of elements of <computeroutput>mask</computeroutput> shall be equal to or greater than the resource grid number of subcarriers. </para>
+</simplesect>
+<simplesect kind="note"><para>The number of elements of <computeroutput>symbols</computeroutput> shall be equal to or greater than the number of true elements in <computeroutput>mask</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/resource_grid.h" line="78" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__writer_1ad39b7feef237dd40a6dbdb46e608db74" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::resource_grid_writer::put</definition>
+        <argsstring>(unsigned port, unsigned l, unsigned k_init, span&lt; const cf_t &gt; symbols)=0</argsstring>
+        <name>put</name>
+        <reimplementedby refid="classsrsgnb_1_1resource__grid__impl_1a366a5c6f1339a043e085c35357e62748">put</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k_init</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <briefdescription>
+<para>Puts a consecutive number of resource elements for the given <computeroutput>port</computeroutput> and symbol <computeroutput>l</computeroutput>, starting at <computeroutput>k_init</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">k_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial subcarrier index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbols to be written into the resource grid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The sum of <computeroutput>k_init</computeroutput> and the number of elements in <computeroutput>symbols</computeroutput> shall not exceed the resource grid number of subcarriers. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/support/resource_grid.h" line="89" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Resource grid writer interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains the necessary functions to write resource elements in a resource grid.</para>
+<para><simplesect kind="remark"><para>All the methods contained in this interface must not result in writing outside of the resource grid region. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>srsgnb::resource_grid_impl</label>
+        <link refid="classsrsgnb_1_1resource__grid__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::resource_grid_writer</label>
+        <link refid="classsrsgnb_1_1resource__grid__writer"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::resource_grid</label>
+        <link refid="classsrsgnb_1_1resource__grid"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::resource_grid_writer</label>
+        <link refid="classsrsgnb_1_1resource__grid__writer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/support/resource_grid.h" line="52" column="1" bodyfile="include/srsgnb/phy/support/resource_grid.h" bodystart="51" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32" prot="public" virt="pure-virtual"><scope>srsgnb::resource_grid_writer</scope><name>put</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__writer_1ad1b2db56f923cd466833fcab0f251371" prot="public" virt="pure-virtual"><scope>srsgnb::resource_grid_writer</scope><name>put</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__writer_1ad39b7feef237dd40a6dbdb46e608db74" prot="public" virt="pure-virtual"><scope>srsgnb::resource_grid_writer</scope><name>put</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__writer_1a9d358d1bf43e28fb82340156e1b60faa" prot="public" virt="virtual"><scope>srsgnb::resource_grid_writer</scope><name>~resource_grid_writer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

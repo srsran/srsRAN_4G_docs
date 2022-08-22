@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1bit__encoder" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::bit_encoder</compoundname>
+    <includes refid="bit__encoding_8h" local="no">bit_encoding.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__writer" kindref="compound">srsgnb::byte_buffer_writer</ref></type>
+        <definition>srsgnb::byte_buffer_writer srsgnb::bit_encoder::writer</definition>
+        <argsstring></argsstring>
+        <name>writer</name>
+        <briefdescription>
+<para>Interface to byte buffer where bits are going to be appended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="59" column="30" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a30f89e1626c2dc004b4d65dd8b8f83e2" compoundref="bit__encoding_8h" startline="25" endline="25">data</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a19a840e1308218aaddd0822349dbf904" compoundref="bit__encoding_8h" startline="28" endline="28">nof_bytes</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1adc353bc7bf3f1fdd2aeedaed4aea29dd" compoundref="bit__encoding_8h" startline="31" endline="31">nof_bits</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" compoundref="bit__encoding_8cpp" startline="16" endline="39">pack</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a1ffc996ee85fc96e2e18b172dc490b05" compoundref="bit__encoding_8cpp" startline="41" endline="54">pack_bytes</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t srsgnb::bit_encoder::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Offset of the next bit to be set. Values: (0..7). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="61" column="11" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1adc353bc7bf3f1fdd2aeedaed4aea29dd" compoundref="bit__encoding_8h" startline="31" endline="31">nof_bits</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1ad094259be339bd8e3ce5ae16481971e8" compoundref="bit__encoding_8h" startline="35" endline="35">next_bit_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" compoundref="bit__encoding_8cpp" startline="16" endline="39">pack</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a1ffc996ee85fc96e2e18b172dc490b05" compoundref="bit__encoding_8cpp" startline="41" endline="54">pack_bytes</referencedby>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a31649128ccc1b3828a7943a7cb0140a8" compoundref="bit__encoding_8cpp" startline="71" endline="74">align_bytes_zero</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a715e1f6211e6d7a8811e95651b66ba9d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::bit_encoder::bit_encoder</definition>
+        <argsstring>(byte_buffer &amp;bytes)</argsstring>
+        <name>bit_encoder</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="22" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a30f89e1626c2dc004b4d65dd8b8f83e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__view" kindref="compound">srsgnb::byte_buffer_view</ref></type>
+        <definition>srsgnb::byte_buffer_view srsgnb::bit_encoder::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Get a view to held byte buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="25" column="28" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="25" bodyend="25"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1abfef82559acaf45bf3e3c5a82e808762" compoundref="byte__buffer_8h" startline="842" endline="842">srsgnb::byte_buffer_writer::view</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a19a840e1308218aaddd0822349dbf904" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_encoder::nof_bytes</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_bytes</name>
+        <briefdescription>
+<para>Gets number of written bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="28" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="28" bodyend="28"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a404c62982f2275bd178144e0b4727ab1" compoundref="byte__buffer_8h" startline="877" endline="877">srsgnb::byte_buffer_writer::length</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1adc353bc7bf3f1fdd2aeedaed4aea29dd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_encoder::nof_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_bits</name>
+        <briefdescription>
+<para>Gets number of written bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="31" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="31" bodyend="31"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a404c62982f2275bd178144e0b4727ab1" compoundref="byte__buffer_8h" startline="877" endline="877">srsgnb::byte_buffer_writer::length</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1ad094259be339bd8e3ce5ae16481971e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_encoder::next_bit_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>next_bit_offset</name>
+        <briefdescription>
+<para>Get offset of the next bit to be set. Offset 0 corresponds to the MSB of the current byte being packed, while offset 7 corresponds to LSB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="35" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="35" bodyend="35"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_encoder::pack</definition>
+        <argsstring>(uint64_t val, uint32_t n_bits)</argsstring>
+        <name>pack</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_bits</declname>
+        </param>
+        <briefdescription>
+<para>Append provided bitmap into <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> held by <ref refid="classsrsgnb_1_1bit__encoder" kindref="compound">bit_encoder</ref>. The bitmap to pack is left aligned (i.e. MSB of bitmap will be the last bit to be packed in underlying buffer). Example: </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>Before: [...][11______]</para>
+</listitem><listitem><para>pack(0b1011, 4): [...][111011__]</para>
+</listitem><listitem><para>pack(0b01100, 5): [...][11101101][100_____] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bitmap to be packed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n_bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bits to pack. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="45" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="16" bodyend="39"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a89bc8eeb91b9817ed9978ce8f418fc7c" compoundref="byte__buffer_8h" startline="845" endline="851">srsgnb::byte_buffer_writer::append</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a71d980400858391eeeb47e5ee6dba8fa" compoundref="byte__buffer_8h" startline="874" endline="874">srsgnb::byte_buffer_writer::back</references>
+        <referencedby refid="classsrsgnb_1_1bit__encoder_1a1ffc996ee85fc96e2e18b172dc490b05" compoundref="bit__encoding_8cpp" startline="41" endline="54">pack_bytes</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a1ffc996ee85fc96e2e18b172dc490b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_encoder::pack_bytes</definition>
+        <argsstring>(srsgnb::span&lt; const uint8_t &gt; bytes)</argsstring>
+        <name>pack_bytes</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span</ref>&lt; const uint8_t &gt;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append range of bytes into <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> held by <ref refid="classsrsgnb_1_1bit__encoder" kindref="compound">bit_encoder</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>span of bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="49" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="41" bodyend="54"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a89bc8eeb91b9817ed9978ce8f418fc7c" compoundref="byte__buffer_8h" startline="845" endline="851">srsgnb::byte_buffer_writer::append</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" compoundref="bit__encoding_8cpp" startline="16" endline="39">pack</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a09967a69bd5820025eef834e9483711b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_encoder::pack_bytes</definition>
+        <argsstring>(srsgnb::byte_buffer_view bytes)</argsstring>
+        <name>pack_bytes</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__view" kindref="compound">srsgnb::byte_buffer_view</ref></type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Append bytes of a <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> into <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> held by <ref refid="classsrsgnb_1_1bit__encoder" kindref="compound">bit_encoder</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="52" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="56" bodyend="69"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" compoundref="bit__encoding_8h" startline="59">writer</references>
+        <references refid="classsrsgnb_1_1byte__buffer__writer_1a89bc8eeb91b9817ed9978ce8f418fc7c" compoundref="byte__buffer_8h" startline="845" endline="851">srsgnb::byte_buffer_writer::append</references>
+        <references refid="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" compoundref="bit__encoding_8cpp" startline="16" endline="39">pack</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__encoder_1a31649128ccc1b3828a7943a7cb0140a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_encoder::align_bytes_zero</definition>
+        <argsstring>()</argsstring>
+        <name>align_bytes_zero</name>
+        <briefdescription>
+<para>Pads held buffer with zeros until the next byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="55" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="71" bodyend="74"/>
+        <references refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" compoundref="bit__encoding_8h" startline="61">offset</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Encoder of bits in a byte buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::bit_encoder</label>
+        <link refid="classsrsgnb_1_1bit__encoder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-writer</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::byte_buffer</label>
+        <link refid="classsrsgnb_1_1byte__buffer"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::byte_buffer_writer</label>
+        <link refid="classsrsgnb_1_1byte__buffer__writer"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-buffer</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/bit_encoding.h" line="20" column="1" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="19" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1bit__encoder_1a31649128ccc1b3828a7943a7cb0140a8" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>align_bytes_zero</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a715e1f6211e6d7a8811e95651b66ba9d" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>bit_encoder</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a30f89e1626c2dc004b4d65dd8b8f83e2" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>data</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1ad094259be339bd8e3ce5ae16481971e8" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>next_bit_offset</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1adc353bc7bf3f1fdd2aeedaed4aea29dd" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>nof_bits</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a19a840e1308218aaddd0822349dbf904" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>nof_bytes</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a16dbec0261bd4e7bfc5a13f920bd0fbf" prot="private" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>offset</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a270145bd520eb6c979f62a2613583ef8" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>pack</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a1ffc996ee85fc96e2e18b172dc490b05" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>pack_bytes</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a09967a69bd5820025eef834e9483711b" prot="public" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>pack_bytes</name></member>
+      <member refid="classsrsgnb_1_1bit__encoder_1a4164fa2e1baf08669b5784f61682fdf4" prot="private" virt="non-virtual"><scope>srsgnb::bit_encoder</scope><name>writer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

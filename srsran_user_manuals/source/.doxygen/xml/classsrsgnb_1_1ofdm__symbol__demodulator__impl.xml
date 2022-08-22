@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__symbol__demodulator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ofdm_symbol_demodulator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ofdm__symbol__demodulator" prot="public" virt="non-virtual">srsgnb::ofdm_symbol_demodulator</basecompoundref>
+    <includes refid="ofdm__demodulator__impl_8h" local="no">ofdm_demodulator_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ofdm_symbol_demodulator_impl::dft_size</definition>
+        <argsstring></argsstring>
+        <name>dft_size</name>
+        <briefdescription>
+<para>Indicates the DFT size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="31" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" compoundref="ofdm__demodulator__impl_8cpp" startline="21" endline="45">ofdm_symbol_demodulator_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" compoundref="ofdm__demodulator__impl_8cpp" startline="47" endline="59">get_cp_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" compoundref="ofdm__demodulator__impl_8h" startline="67" endline="70">get_symbol_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a2880edb9946cf4276eebcc48ca26af3e" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ofdm_symbol_demodulator_impl::rg_size</definition>
+        <argsstring></argsstring>
+        <name>rg_size</name>
+        <briefdescription>
+<para>Indicates the resource grid bandwidth in resource elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="33" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" compoundref="ofdm__demodulator__impl_8cpp" startline="21" endline="45">ofdm_symbol_demodulator_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1abbe61468b42f1a3bf3c28b624eee8672" compoundref="ofdm__demodulator__impl_8h" startline="58" endline="58">get_rg_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a652c88d89d519022ccc3bfaf1c2db4b2" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1cyclic__prefix" kindref="compound">cyclic_prefix</ref></type>
+        <definition>cyclic_prefix srsgnb::ofdm_symbol_demodulator_impl::cp</definition>
+        <argsstring></argsstring>
+        <name>cp</name>
+        <briefdescription>
+<para>Cyclic prefix type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="35" column="17" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" compoundref="ofdm__demodulator__impl_8cpp" startline="47" endline="59">get_cp_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" compoundref="ofdm__demodulator__impl_8h" startline="67" endline="70">get_symbol_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a77af913eb8bf755b08928397b181ccb3" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+        <definition>subcarrier_spacing srsgnb::ofdm_symbol_demodulator_impl::scs</definition>
+        <argsstring></argsstring>
+        <name>scs</name>
+        <briefdescription>
+<para>Numerology. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="37" column="22" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" compoundref="ofdm__demodulator__impl_8cpp" startline="47" endline="59">get_cp_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" compoundref="ofdm__demodulator__impl_8h" startline="67" endline="70">get_symbol_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ace6dd05cf17a96634dc0169ed6a3108b" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ofdm_symbol_demodulator_impl::sampling_rate_Hz</definition>
+        <argsstring></argsstring>
+        <name>sampling_rate_Hz</name>
+        <briefdescription>
+<para>Sampling rate in Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="39" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" compoundref="ofdm__demodulator__impl_8cpp" startline="47" endline="59">get_cp_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" compoundref="ofdm__demodulator__impl_8h" startline="67" endline="70">get_symbol_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a614ef4a9bc0896c84729e108de52e556" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::ofdm_symbol_demodulator_impl::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <briefdescription>
+<para>Scaling factor at the DFT output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="41" column="9" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" compoundref="ofdm__demodulator__impl_8cpp" startline="21" endline="45">ofdm_symbol_demodulator_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a5d222308affb021119d789bceb094afb" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;dft_processor&gt; srsgnb::ofdm_symbol_demodulator_impl::dft</definition>
+        <argsstring></argsstring>
+        <name>dft</name>
+        <briefdescription>
+<para>DFT processor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="43" column="19" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" compoundref="ofdm__demodulator__impl_8cpp" startline="21" endline="45">ofdm_symbol_demodulator_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ab3766cc1b0f21b4227b1d4e48c660801" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1phase__compensation__lut" kindref="compound">phase_compensation_lut</ref></type>
+        <definition>phase_compensation_lut srsgnb::ofdm_symbol_demodulator_impl::phase_compensation_table</definition>
+        <argsstring></argsstring>
+        <name>phase_compensation_table</name>
+        <briefdescription>
+<para>Phase compensation table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="45" column="26" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a63210caf893b5b134a3e0f886bdc2cc9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>std::vector&lt;cf_t&gt; srsgnb::ofdm_symbol_demodulator_impl::compensated_output</definition>
+        <argsstring></argsstring>
+        <name>compensated_output</name>
+        <briefdescription>
+<para>Internal buffer aimed at storing the phase compensated DFT outputs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="47" column="15" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" compoundref="ofdm__demodulator__impl_8cpp" startline="21" endline="45">ofdm_symbol_demodulator_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ofdm_symbol_demodulator_impl::ofdm_symbol_demodulator_impl</definition>
+        <argsstring>(ofdm_demodulator_common_configuration &amp;common_config, const ofdm_demodulator_configuration &amp;ofdm_config)</argsstring>
+        <name>ofdm_symbol_demodulator_impl</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ofdm__demodulator__common__configuration" kindref="compound">ofdm_demodulator_common_configuration</ref> &amp;</type>
+          <declname>common_config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ofdm__demodulator__configuration" kindref="compound">ofdm_demodulator_configuration</ref> &amp;</type>
+          <declname>ofdm_config</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an OFDM symbol demodulator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">common_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides specific configuration parameters from the factory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ofdm_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides generic OFDM configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="53" column="3" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.cpp" bodystart="21" bodyend="45"/>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a614ef4a9bc0896c84729e108de52e556" compoundref="ofdm__demodulator__impl_8h" startline="41">scale</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" compoundref="ofdm__demodulator__impl_8h" startline="31">dft_size</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a2880edb9946cf4276eebcc48ca26af3e" compoundref="ofdm__demodulator__impl_8h" startline="33">rg_size</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a5d222308affb021119d789bceb094afb" compoundref="ofdm__demodulator__impl_8h" startline="43">dft</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a63210caf893b5b134a3e0f886bdc2cc9" compoundref="ofdm__demodulator__impl_8h" startline="47">compensated_output</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1abbe61468b42f1a3bf3c28b624eee8672" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ofdm_symbol_demodulator_impl::get_rg_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rg_size</name>
+        <briefdescription>
+<para>Gets the resource grid bandwidth in resource elements. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of resource elements in the grid. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="58" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="58" bodyend="58"/>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a2880edb9946cf4276eebcc48ca26af3e" compoundref="ofdm__demodulator__impl_8h" startline="33">rg_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned ofdm_symbol_demodulator_impl::get_cp_offset</definition>
+        <argsstring>(unsigned symbol_index, unsigned slot_index) const</argsstring>
+        <name>get_cp_offset</name>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>slot_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets the offset in samples to the start of (the cyclic prefix of) a given symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index within the subframe. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot index within the subframe containing the symbol to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples preceding the given symbol. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="64" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.cpp" bodystart="47" bodyend="59"/>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a652c88d89d519022ccc3bfaf1c2db4b2" compoundref="ofdm__demodulator__impl_8h" startline="35">cp</references>
+        <references refid="classsrsgnb_1_1cyclic__prefix_1a912612f8fa115e0924099fd22a718ac6" compoundref="cyclic__prefix_8h" startline="84" endline="95">srsgnb::cyclic_prefix::get_length</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a77af913eb8bf755b08928397b181ccb3" compoundref="ofdm__demodulator__impl_8h" startline="37">scs</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ace6dd05cf17a96634dc0169ed6a3108b" compoundref="ofdm__demodulator__impl_8h" startline="39">sampling_rate_Hz</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" compoundref="ofdm__demodulator__impl_8h" startline="31">dft_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ofdm_symbol_demodulator_impl::get_symbol_size</definition>
+        <argsstring>(unsigned symbol_index) const override</argsstring>
+        <name>get_symbol_size</name>
+        <reimplements refid="classsrsgnb_1_1ofdm__symbol__demodulator_1a6c0a2f3f452ad27fb6d97aed1735a087">get_symbol_size</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a symbol size including cyclic prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index within the subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples for the given symbol index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="67" column="12" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="67" bodyend="70"/>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a652c88d89d519022ccc3bfaf1c2db4b2" compoundref="ofdm__demodulator__impl_8h" startline="35">cp</references>
+        <references refid="classsrsgnb_1_1cyclic__prefix_1a912612f8fa115e0924099fd22a718ac6" compoundref="cyclic__prefix_8h" startline="84" endline="95">srsgnb::cyclic_prefix::get_length</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a77af913eb8bf755b08928397b181ccb3" compoundref="ofdm__demodulator__impl_8h" startline="37">scs</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ace6dd05cf17a96634dc0169ed6a3108b" compoundref="ofdm__demodulator__impl_8h" startline="39">sampling_rate_Hz</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" compoundref="ofdm__demodulator__impl_8h" startline="31">dft_size</references>
+        <referencedby refid="classsrsgnb_1_1ofdm__slot__demodulator__impl_1aa45ccdf34b77ff04a77460b601e4e494" compoundref="ofdm__demodulator__impl_8cpp" startline="103" endline="114">srsgnb::ofdm_slot_demodulator_impl::get_slot_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__slot__demodulator__impl_1a074b6bd669a83a0d65ed79b4ff753e0f" compoundref="ofdm__demodulator__impl_8cpp" startline="116" endline="133">srsgnb::ofdm_slot_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ofdm_symbol_demodulator_impl::demodulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const cf_t &gt; input, unsigned port_index, unsigned symbol_index) override</argsstring>
+        <name>demodulate</name>
+        <reimplements refid="classsrsgnb_1_1ofdm__symbol__demodulator_1a1a49f1dca8270ee41b77321556ab11fa">demodulate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates an OFDM signal with symbol granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the output as frequency-domain signal corresponding to one slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the time domain modulated signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port index to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within the subframe to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The input size must be equal to the the symbol size including the cyclic prefix. </para>
+</simplesect>
+<simplesect kind="note"><para>The output size must be consistent with the configured bandwidth. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="74" column="3" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.cpp" bodystart="61" bodyend="101"/>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a652c88d89d519022ccc3bfaf1c2db4b2" compoundref="ofdm__demodulator__impl_8h" startline="35">cp</references>
+        <references refid="classsrsgnb_1_1cyclic__prefix_1a912612f8fa115e0924099fd22a718ac6" compoundref="cyclic__prefix_8h" startline="84" endline="95">srsgnb::cyclic_prefix::get_length</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a77af913eb8bf755b08928397b181ccb3" compoundref="ofdm__demodulator__impl_8h" startline="37">scs</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ace6dd05cf17a96634dc0169ed6a3108b" compoundref="ofdm__demodulator__impl_8h" startline="39">sampling_rate_Hz</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" compoundref="ofdm__demodulator__impl_8h" startline="31">dft_size</references>
+        <references refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" compoundref="subcarrier__spacing_8h" startline="44" endline="48">srsgnb::scs_to_khz</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a5d222308affb021119d789bceb094afb" compoundref="ofdm__demodulator__impl_8h" startline="43">dft</references>
+        <references refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" compoundref="span_8h" startline="200" endline="204">srsgnb::span&lt; T &gt;::last</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ab3766cc1b0f21b4227b1d4e48c660801" compoundref="ofdm__demodulator__impl_8h" startline="45">phase_compensation_table</references>
+        <references refid="classsrsgnb_1_1phase__compensation__lut_1aedadd094ab620409e0ed5dad6fb3c704" compoundref="phase__compensation__lut_8h" startline="77" endline="84">srsgnb::phase_compensation_lut::get_coefficient</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a614ef4a9bc0896c84729e108de52e556" compoundref="ofdm__demodulator__impl_8h" startline="41">scale</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a63210caf893b5b134a3e0f886bdc2cc9" compoundref="ofdm__demodulator__impl_8h" startline="47">compensated_output</references>
+        <references refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a2880edb9946cf4276eebcc48ca26af3e" compoundref="ofdm__demodulator__impl_8h" startline="33">rg_size</references>
+        <references refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32">srsgnb::resource_grid_writer::put</references>
+        <referencedby refid="classsrsgnb_1_1ofdm__slot__demodulator__impl_1a074b6bd669a83a0d65ed79b4ff753e0f" compoundref="ofdm__demodulator__impl_8cpp" startline="116" endline="133">srsgnb::ofdm_slot_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a generic OFDM symbol demodulator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ofdm_symbol_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::ofdm_symbol_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::static_vector&lt; cf_t, MAX_NSYMB_PER_SLOT *get_nof_slots_per_subframe(subcarrier_spacing::kHz240)&gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::phase_compensation_lut</label>
+        <link refid="classsrsgnb_1_1phase__compensation__lut"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-coefficients</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-phase_compensation_table</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-cp</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::cyclic_prefix</label>
+        <link refid="classsrsgnb_1_1cyclic__prefix"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/modulation/ofdm_demodulator_impl.h" line="28" column="1" bodyfile="lib/phy/lower/modulation/ofdm_demodulator_impl.h" bodystart="27" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a63210caf893b5b134a3e0f886bdc2cc9" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>compensated_output</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a652c88d89d519022ccc3bfaf1c2db4b2" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>cp</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" prot="public" virt="virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a5d222308affb021119d789bceb094afb" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>dft</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a91413180a61d7ff45b7a7f94f103b1ab" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>dft_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" prot="public" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>get_cp_offset</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1abbe61468b42f1a3bf3c28b624eee8672" prot="public" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>get_rg_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" prot="public" virt="virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>get_symbol_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a3620ce9f8c0ad94a74c891a2e1e7db1c" prot="public" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>ofdm_symbol_demodulator_impl</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ab3766cc1b0f21b4227b1d4e48c660801" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>phase_compensation_table</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a2880edb9946cf4276eebcc48ca26af3e" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>rg_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1ace6dd05cf17a96634dc0169ed6a3108b" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>sampling_rate_Hz</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a614ef4a9bc0896c84729e108de52e556" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>scale</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a77af913eb8bf755b08928397b181ccb3" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>scs</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator_1ad78210e2d96f65731a6856bde4954e93" prot="public" virt="virtual"><scope>srsgnb::ofdm_symbol_demodulator_impl</scope><name>~ofdm_symbol_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

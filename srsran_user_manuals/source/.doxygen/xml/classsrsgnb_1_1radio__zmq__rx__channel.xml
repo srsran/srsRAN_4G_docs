@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__zmq__rx__channel" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::radio_zmq_rx_channel</compoundname>
+    <innerclass refid="structsrsgnb_1_1radio__zmq__rx__channel_1_1channel__description" prot="public">srsgnb::radio_zmq_rx_channel::channel_description</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a7cf76cf2a4c75a2c606a894705d73392" prot="private" static="yes" mutable="no">
+        <type>const std::set&lt; int &gt;</type>
+        <definition>const std::set&lt; int &gt; radio_zmq_rx_channel::VALID_SOCKET_TYPES</definition>
+        <argsstring></argsstring>
+        <name>VALID_SOCKET_TYPES</name>
+        <initializer>= {ZMQ_REQ}</initializer>
+        <briefdescription>
+<para>Lists the supported socket types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="29" column="25" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a68bf10262a5597aa29569bf943f728ac" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::radio_zmq_rx_channel::CIRC_BUFFER_TRY_PUSH_SLEEP_FOR_MS</definition>
+        <argsstring></argsstring>
+        <name>CIRC_BUFFER_TRY_PUSH_SLEEP_FOR_MS</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Wait time after a buffer try push failed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="31" column="29" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1addc7d7a8219ff7d95300e6b69dcb5b33" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::radio_zmq_rx_channel::CIRC_BUFFER_TRY_POP_SLEEP_FOR_MS</definition>
+        <argsstring></argsstring>
+        <name>CIRC_BUFFER_TRY_POP_SLEEP_FOR_MS</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Wait time after a buffer try pop failed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="33" column="29" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a6e1b6c8f662691fb190457acb5597393" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::radio_zmq_rx_channel::stream_id</definition>
+        <argsstring></argsstring>
+        <name>stream_id</name>
+        <briefdescription>
+<para>Indicates the stream identifier. Used for notifying events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="36" column="12" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a6158cefcc48020b3aff921e124459ce1" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::radio_zmq_rx_channel::channel_id</definition>
+        <argsstring></argsstring>
+        <name>channel_id</name>
+        <briefdescription>
+<para>Channel identifier. Used for notifying events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="38" column="12" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a9c16ff8894597b99c9f84d4195255881" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm" kindref="compound">radio_zmq_rx_channel_fsm</ref></type>
+        <definition>radio_zmq_rx_channel_fsm srsgnb::radio_zmq_rx_channel::state_fsm</definition>
+        <argsstring></argsstring>
+        <name>state_fsm</name>
+        <briefdescription>
+<para>Indicates the current state of the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="40" column="28" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a76248546c79db0772ec00c20d962f21a" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* srsgnb::radio_zmq_rx_channel::sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>ZMQ socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="42" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a4dad8a8a1f36bf6cee4936b77978f217" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int srsgnb::radio_zmq_rx_channel::socket_type</definition>
+        <argsstring></argsstring>
+        <name>socket_type</name>
+        <briefdescription>
+<para>ZMQ socket type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="44" column="7" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a6af1b0f03bacbbbdeb6c28e71cb03b13" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::radio_zmq_rx_channel::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+<para>Logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="46" column="24" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a4e6fb4ec5b505fb38cdfd5d97c3c8765" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dyn__blocking__queue" kindref="compound">dyn_blocking_queue</ref>&lt; <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>dyn_blocking_queue&lt;radio_sample_type&gt; srsgnb::radio_zmq_rx_channel::circular_buffer</definition>
+        <argsstring></argsstring>
+        <name>circular_buffer</name>
+        <briefdescription>
+<para>Stores transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="48" column="22" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1add3a4673af4ea5689726fc7f8b94cfc4" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>std::vector&lt;radio_sample_type&gt; srsgnb::radio_zmq_rx_channel::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+<para>Transmission buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="50" column="15" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1a3afea12cc1ea6343be0b7fd15606c60e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+        <definition>radio_notification_handler&amp; srsgnb::radio_zmq_rx_channel::notification_handler</definition>
+        <argsstring></argsstring>
+        <name>notification_handler</name>
+        <briefdescription>
+<para>Notification handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="52" column="30" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__rx__channel_1af59ed02e9784cb83709d01bc9eae183c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>task_executor&amp; srsgnb::radio_zmq_rx_channel::async_executor</definition>
+        <argsstring></argsstring>
+        <name>async_executor</name>
+        <briefdescription>
+<para>Asynchronous task executor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="54" column="17" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a807cdb1a5a9480ebc912ad18ba060667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_zmq_rx_channel::radio_zmq_rx_channel</definition>
+        <argsstring>(void *zmq_context, const channel_description &amp;config, radio_notification_handler &amp;notification_handler, task_executor &amp;async_executor_)</argsstring>
+        <name>radio_zmq_rx_channel</name>
+        <param>
+          <type>void *</type>
+          <declname>zmq_context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1radio__zmq__rx__channel_1_1channel__description" kindref="compound">channel_description</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+          <declname>notification_handler</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_executor_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="79" column="3" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="17" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a8ad325ccf3ae657b9ad942ef4c728610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_zmq_rx_channel::~radio_zmq_rx_channel</definition>
+        <argsstring>()</argsstring>
+        <name>~radio_zmq_rx_channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="84" column="3" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="84" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a2e1ab9a46280058f9822cc0018874c47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_rx_channel::is_successful</definition>
+        <argsstring>() const</argsstring>
+        <name>is_successful</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="86" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a9aa3e90d3fa476878e7ec45d62711a8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::send_request</definition>
+        <argsstring>()</argsstring>
+        <name>send_request</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="88" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="93" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1adc00c8441e94445d8195867c0598672e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::receive_response</definition>
+        <argsstring>()</argsstring>
+        <name>receive_response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="90" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="128" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a8b3a509c04e6cac1ac65b37028795e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::run_async</definition>
+        <argsstring>()</argsstring>
+        <name>run_async</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="92" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="187" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1a09fa2de28690992bb513971ef7b57cf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::receive</definition>
+        <argsstring>(span&lt; radio_sample_type &gt; buffer)</argsstring>
+        <name>receive</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="94" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="205" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1ae53727ad695f54faa8ea7ddaff87e016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="96" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="220" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__rx__channel_1afaff166d30850a654ee8e731d19faa6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_zmq_rx_channel::wait_stop</definition>
+        <argsstring>()</argsstring>
+        <name>wait_stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="98" column="8" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.cpp" bodystart="226" bodyend="230"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="8">
+        <label>srsgnb::dyn_circular_buffer&lt; radio_sample_type &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="3">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_zmq_rx_channel</label>
+        <link refid="classsrsgnb_1_1radio__zmq__rx__channel"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-state_fsm</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-circular_buffer</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-notification_handler</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-async_executor</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::radio_notification_handler</label>
+        <link refid="classsrsgnb_1_1radio__notification__handler"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="12">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="2">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; radio_sample_type &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::dyn_blocking_queue&lt; radio_sample_type &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; radio_sample_type &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::radio_zmq_rx_channel_fsm</label>
+        <link refid="classsrsgnb_1_1radio__zmq__rx__channel__fsm"/>
+      </node>
+      <node id="4">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/radio/zmq/radio_zmq_rx_channel.h" line="26" column="1" bodyfile="lib/radio/zmq/radio_zmq_rx_channel.h" bodystart="25" bodyend="99"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1af59ed02e9784cb83709d01bc9eae183c" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>async_executor</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1add3a4673af4ea5689726fc7f8b94cfc4" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a6158cefcc48020b3aff921e124459ce1" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>channel_id</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1addc7d7a8219ff7d95300e6b69dcb5b33" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>CIRC_BUFFER_TRY_POP_SLEEP_FOR_MS</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a68bf10262a5597aa29569bf943f728ac" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>CIRC_BUFFER_TRY_PUSH_SLEEP_FOR_MS</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a4e6fb4ec5b505fb38cdfd5d97c3c8765" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>circular_buffer</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a2e1ab9a46280058f9822cc0018874c47" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>is_successful</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a6af1b0f03bacbbbdeb6c28e71cb03b13" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a3afea12cc1ea6343be0b7fd15606c60e" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>notification_handler</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a807cdb1a5a9480ebc912ad18ba060667" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>radio_zmq_rx_channel</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a09fa2de28690992bb513971ef7b57cf6" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>receive</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1adc00c8441e94445d8195867c0598672e" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>receive_response</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a8b3a509c04e6cac1ac65b37028795e39" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>run_async</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a9aa3e90d3fa476878e7ec45d62711a8c" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>send_request</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a76248546c79db0772ec00c20d962f21a" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>sock</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a4dad8a8a1f36bf6cee4936b77978f217" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>socket_type</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a9c16ff8894597b99c9f84d4195255881" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>state_fsm</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1ae53727ad695f54faa8ea7ddaff87e016" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a6e1b6c8f662691fb190457acb5597393" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>stream_id</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a7cf76cf2a4c75a2c606a894705d73392" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>VALID_SOCKET_TYPES</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1afaff166d30850a654ee8e731d19faa6a" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>wait_stop</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__rx__channel_1a8ad325ccf3ae657b9ad942ef4c728610" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_rx_channel</scope><name>~radio_zmq_rx_channel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

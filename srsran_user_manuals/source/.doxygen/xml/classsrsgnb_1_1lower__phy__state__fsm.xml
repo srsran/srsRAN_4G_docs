@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1lower__phy__state__fsm" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::lower_phy_state_fsm</compoundname>
+    <includes refid="lower__phy__state__fsm_8h" local="no">lower_phy_state_fsm.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3c" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>states</name>
+        <enumvalue id="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3cadd652546039b18970b8dcf2cff824268" prot="private">
+          <name>UNINITIALIZED</name>
+          <briefdescription>
+<para>Indicates the lower physical layer has not been initialized. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca43491564ebcfd38568918efbd6e840fd" prot="private">
+          <name>RUNNING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Indicates the lower physical layer has been successfully initialized and started the execution of asynchronous tasks. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca0f7d8d046ef87d6e314593b390cd6400" prot="private">
+          <name>WAIT_STOP</name>
+          <briefdescription>
+<para>Indicates stop has been signaled and it is waiting for the execution of asynchronous tasks to finish. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca09d4d696b4e935115b9313e3c412509a" prot="private">
+          <name>STOPPED</name>
+          <briefdescription>
+<para>Indicates the component was initialized successfully and no asynchronous task is performed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Describes the possible states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="23" column="20" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="23" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3c" kindref="member">states</ref></type>
+        <definition>states srsgnb::lower_phy_state_fsm::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= <ref refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3cadd652546039b18970b8dcf2cff824268" kindref="member">states::UNINITIALIZED</ref></initializer>
+        <briefdescription>
+<para>Indicates the current state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="36" column="10" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1a6c5d4c509eac3f2cd8e7bc8b06f3dae8" compoundref="lower__phy__state__fsm_8h" startline="43" endline="43">is_running_unprotected</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1ac0b8dd4c5604ba0a5966cc55c2cf94ef" compoundref="lower__phy__state__fsm_8h" startline="47" endline="53">on_successful_init</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" compoundref="lower__phy__state__fsm_8h" startline="56" endline="61">on_async_executor_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" compoundref="lower__phy__state__fsm_8h" startline="64" endline="74">stop_and_join</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__state__fsm_1a47e1713459bd69b7303d978eaed77d38" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::lower_phy_state_fsm::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+<para>Protects the concurrent access to the instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="38" column="22" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1ac0b8dd4c5604ba0a5966cc55c2cf94ef" compoundref="lower__phy__state__fsm_8h" startline="47" endline="53">on_successful_init</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" compoundref="lower__phy__state__fsm_8h" startline="56" endline="61">on_async_executor_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" compoundref="lower__phy__state__fsm_8h" startline="64" endline="74">stop_and_join</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__state__fsm_1a115d16468089a8ad4c8876567b69db67" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable srsgnb::lower_phy_state_fsm::cvar</definition>
+        <argsstring></argsstring>
+        <name>cvar</name>
+        <briefdescription>
+<para>Used to wait for certain state transitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="40" column="27" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" compoundref="lower__phy__state__fsm_8h" startline="56" endline="61">on_async_executor_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" compoundref="lower__phy__state__fsm_8h" startline="64" endline="74">stop_and_join</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__state__fsm_1a6c5d4c509eac3f2cd8e7bc8b06f3dae8" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::lower_phy_state_fsm::is_running_unprotected</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running_unprotected</name>
+        <briefdescription>
+<para>Same than is_running(). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="43" column="8" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="43" bodyend="43"/>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" compoundref="lower__phy__state__fsm_8h" startline="36">state</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca43491564ebcfd38568918efbd6e840fd">RUNNING</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" compoundref="lower__phy__state__fsm_8h" startline="64" endline="74">stop_and_join</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__state__fsm_1ac0b8dd4c5604ba0a5966cc55c2cf94ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::lower_phy_state_fsm::on_successful_init</definition>
+        <argsstring>()</argsstring>
+        <name>on_successful_init</name>
+        <briefdescription>
+<para>Notifies the successful component initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="47" column="8" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="47" bodyend="53"/>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a47e1713459bd69b7303d978eaed77d38" compoundref="lower__phy__state__fsm_8h" startline="38">mutex</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" compoundref="lower__phy__state__fsm_8h" startline="36">state</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3cadd652546039b18970b8dcf2cff824268">UNINITIALIZED</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca43491564ebcfd38568918efbd6e840fd">RUNNING</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::lower_phy_state_fsm::on_async_executor_stop</definition>
+        <argsstring>()</argsstring>
+        <name>on_async_executor_stop</name>
+        <briefdescription>
+<para>Notifies the asynchronous task executor stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="56" column="8" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="56" bodyend="61"/>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a47e1713459bd69b7303d978eaed77d38" compoundref="lower__phy__state__fsm_8h" startline="38">mutex</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" compoundref="lower__phy__state__fsm_8h" startline="36">state</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca09d4d696b4e935115b9313e3c412509a">STOPPED</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a115d16468089a8ad4c8876567b69db67" compoundref="lower__phy__state__fsm_8h" startline="40">cvar</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">srsgnb::lower_phy_impl::realtime_process_loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::lower_phy_state_fsm::stop_and_join</definition>
+        <argsstring>()</argsstring>
+        <name>stop_and_join</name>
+        <briefdescription>
+<para>Signals a stop and join. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="64" column="8" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="64" bodyend="74"/>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a47e1713459bd69b7303d978eaed77d38" compoundref="lower__phy__state__fsm_8h" startline="38">mutex</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a6c5d4c509eac3f2cd8e7bc8b06f3dae8" compoundref="lower__phy__state__fsm_8h" startline="43" endline="43">is_running_unprotected</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" compoundref="lower__phy__state__fsm_8h" startline="36">state</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca0f7d8d046ef87d6e314593b390cd6400">WAIT_STOP</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3cadd652546039b18970b8dcf2cff824268">UNINITIALIZED</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3ca09d4d696b4e935115b9313e3c412509a">STOPPED</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a115d16468089a8ad4c8876567b69db67" compoundref="lower__phy__state__fsm_8h" startline="40">cvar</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aadffb3ca161aa2782d41dfd7ea6de9e6" compoundref="lower__phy__impl_8cpp" startline="332" endline="337">srsgnb::lower_phy_impl::stop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__state__fsm_1a91b8c8d58e4059202848cb1d61d9c8fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::lower_phy_state_fsm::is_running</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_state_fsm.h" line="76" column="8" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="76" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes lower physical layer state FSM. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::lower_phy_state_fsm</label>
+        <link refid="classsrsgnb_1_1lower__phy__state__fsm"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/lower_phy_state_fsm.h" line="20" column="1" bodyfile="lib/phy/lower/lower_phy_state_fsm.h" bodystart="19" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a115d16468089a8ad4c8876567b69db67" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>cvar</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a91b8c8d58e4059202848cb1d61d9c8fa" prot="public" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>is_running</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a6c5d4c509eac3f2cd8e7bc8b06f3dae8" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>is_running_unprotected</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a47e1713459bd69b7303d978eaed77d38" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" prot="public" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>on_async_executor_stop</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1ac0b8dd4c5604ba0a5966cc55c2cf94ef" prot="public" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>on_successful_init</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1aa7b756e1ebda16f855035d082972775a" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>state</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1a55694f74599c52e66d3d17f89f7f3f3c" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>states</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" prot="public" virt="non-virtual"><scope>srsgnb::lower_phy_state_fsm</scope><name>stop_and_join</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

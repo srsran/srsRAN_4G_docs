@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::dmrs_pucch_processor_format1_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1dmrs__pucch__processor" prot="public" virt="non-virtual">srsgnb::dmrs_pucch_processor</basecompoundref>
+    <includes refid="dmrs__pucch__processor__format1__impl_8h" local="no">dmrs_pucch_processor_format1_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1dmrs__pucch__processor__format1__impl_1_1sequence__generation__config" prot="private">srsgnb::dmrs_pucch_processor_format1_impl::sequence_generation_config</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a7422e8dbab0e308658f04f004f6ed19b" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1pucch__helper" kindref="compound">pucch_helper</ref></type>
+        <definition>pucch_helper srsgnb::dmrs_pucch_processor_format1_impl::helper</definition>
+        <argsstring></argsstring>
+        <name>helper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="24" column="16" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a40e4d7ef312442d612de66c532668c3d" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1low__papr__sequence__collection" kindref="compound">low_papr_sequence_collection</ref> *</type>
+        <definition>const low_papr_sequence_collection* srsgnb::dmrs_pucch_processor_format1_impl::sequence_collection</definition>
+        <argsstring></argsstring>
+        <name>sequence_collection</name>
+        <briefdescription>
+<para>Format 1 implementation expects pre-generated sequence collection on instantiation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="27" column="38" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="90" endline="108">sequence_generation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1afd067073bd0959762dec29c25b0f3adc" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1pucch__orthogonal__sequence" kindref="compound">pucch_orthogonal_sequence</ref> *</type>
+        <definition>const pucch_orthogonal_sequence* srsgnb::dmrs_pucch_processor_format1_impl::occ</definition>
+        <argsstring></argsstring>
+        <name>occ</name>
+        <briefdescription>
+<para>Pre-generated orthogonal cover code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="30" column="35" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="90" endline="108">sequence_generation</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dmrs_pucch_processor_format1_impl::sequence_generation</definition>
+        <argsstring>(span&lt; srsgnb::cf_t &gt; sequence, const dmrs_pucch_processor::config_t &amp;pucch_config, const sequence_generation_config &amp;gen_config, unsigned symbol) const</argsstring>
+        <name>sequence_generation</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">srsgnb::cf_t</ref> &gt;</type>
+          <declname>sequence</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t" kindref="compound">dmrs_pucch_processor::config_t</ref> &amp;</type>
+          <declname>pucch_config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pucch__processor__format1__impl_1_1sequence__generation__config" kindref="compound">sequence_generation_config</ref> &amp;</type>
+          <declname>gen_config</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Implements TS 38.211 section 6.4.1.3.1.1 Sequence generation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the sequence destination. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pucch_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides dmrs pucch config. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gen_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Aggregates additional parameters required to calculate the sequences. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denotes the symbol index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="50" column="8" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.cpp" bodystart="90" bodyend="108"/>
+        <references refid="classsrsgnb_1_1pucch__helper_1a5e2150ab9042afa57d513e3c31c54b71" compoundref="pucch__helper_8h" startline="66" endline="100">srsgnb::pucch_helper::get_alpha_index</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1ae57d192c5e128502f0d6be8f635f487d" compoundref="dmrs__pucch__processor_8h" startline="36">srsgnb::dmrs_pucch_processor::config_t::slot</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a5b4738f088f4d5b6c2babeec205dec18" compoundref="dmrs__pucch__processor_8h" startline="38">srsgnb::dmrs_pucch_processor::config_t::cp</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1ab242fc9bc1822797d45add06ad194f01" compoundref="dmrs__pucch__processor_8h" startline="61">srsgnb::dmrs_pucch_processor::config_t::n_id</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a0f6eb55947a1dba1926a2427214f2ba2" compoundref="dmrs__pucch__processor_8h" startline="54">srsgnb::dmrs_pucch_processor::config_t::initial_cyclic_shift</references>
+        <references refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a40e4d7ef312442d612de66c532668c3d" compoundref="dmrs__pucch__processor__format1__impl_8h" startline="27">sequence_collection</references>
+        <references refid="classsrsgnb_1_1low__papr__sequence__collection_1a821845f96284c47ca3fc5dc9dbd501cb" compoundref="low__papr__sequence__collection_8h" startline="85" endline="98">srsgnb::low_papr_sequence_collection::get</references>
+        <references refid="classsrsgnb_1_1span_1a595cf1b0fe0385603307ba67012f820c" compoundref="span_8h" startline="149" endline="149">srsgnb::span&lt; T &gt;::empty</references>
+        <references refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1afd067073bd0959762dec29c25b0f3adc" compoundref="dmrs__pucch__processor__format1__impl_8h" startline="30">occ</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1aea018479f4e10bf75716a993374aa23f" compoundref="dmrs__pucch__processor_8h" startline="56">srsgnb::dmrs_pucch_processor::config_t::time_domain_occ</references>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="118" endline="217">estimate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a6a23c1f5e0738c7699f9cece454edeed" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dmrs_pucch_processor_format1_impl::mapping</definition>
+        <argsstring>(span&lt; cf_t &gt; ce, const resource_grid_reader &amp;grid, unsigned start_prb, unsigned symbol) const</argsstring>
+        <name>mapping</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>ce</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>start_prb</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <briefdescription>
+<para>Implements TS 38.211 section 6.4.1.3.1.2 Mapping to physical resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Container for storing extracted slot symbol DMRS pilots. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the source grid to read the signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start_prb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a PRB index for the given symbol. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denotes the symbol index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="61" column="8" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.cpp" bodystart="110" bodyend="116"/>
+        <references refid="classsrsgnb_1_1resource__grid__reader_1ae1d2468ab18ea5ccdecf9fbdb3345b6e">srsgnb::resource_grid_reader::get</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <referencedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="118" endline="217">estimate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a218eec351d54aa011e8c559a9d5a77e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::dmrs_pucch_processor_format1_impl::dmrs_pucch_processor_format1_impl</definition>
+        <argsstring>(std::unique_ptr&lt; pseudo_random_generator &gt; prg, const low_papr_sequence_collection *c, const pucch_orthogonal_sequence *occ)</argsstring>
+        <name>dmrs_pucch_processor_format1_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>prg</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1low__papr__sequence__collection" kindref="compound">low_papr_sequence_collection</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1pucch__orthogonal__sequence" kindref="compound">pucch_orthogonal_sequence</ref> *</type>
+          <declname>occ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="64" column="3" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void dmrs_pucch_processor_format1_impl::estimate</definition>
+        <argsstring>(channel_estimate &amp;estimate, const resource_grid_reader &amp;grid, const config_t &amp;config) override</argsstring>
+        <name>estimate</name>
+        <reimplements refid="classsrsgnb_1_1dmrs__pucch__processor_1a5bec1e0f6569f59e3a83a1af7fc898d5">estimate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimate</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates and maps DMRS for PUCCH according to TS 38.211 section 6.4.1.3. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">estimate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel estimation results. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the source resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required configuration to estimate channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="70" column="8" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.cpp" bodystart="118" bodyend="217"/>
+        <references refid="classsrsgnb_1_1pucch__helper_1a10ec3066a018433ac8af101cac64b4e1" compoundref="pucch__helper_8h" startline="36" endline="55">srsgnb::pucch_helper::compute_group_sequence</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a1a166d349f26d6d379b3306278b98d3a" compoundref="dmrs__pucch__processor_8h" startline="40">srsgnb::dmrs_pucch_processor::config_t::group_hopping</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1ab242fc9bc1822797d45add06ad194f01" compoundref="dmrs__pucch__processor_8h" startline="61">srsgnb::dmrs_pucch_processor::config_t::n_id</references>
+        <references refid="namespacesrsgnb_1af73c3ba10b49771055180c70a571cf02" compoundref="pucch__mapping_8h" startline="29">srsgnb::PUCCH_FORMAT1_N_MAX</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a9aab3f2d01a8b9b19a0cc52281cd16b3" compoundref="dmrs__pucch__processor_8h" startline="42">srsgnb::dmrs_pucch_processor::config_t::start_symbol_index</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a3fc2d5a1050148838e03f4a7ae1bea01" compoundref="dmrs__pucch__processor_8h" startline="48">srsgnb::dmrs_pucch_processor::config_t::intra_slot_hopping</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a64071e94047caf367a202a7427ecb94e" compoundref="dmrs__pucch__processor_8h" startline="46">srsgnb::dmrs_pucch_processor::config_t::starting_prb</references>
+        <references refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t_1a05787ced0e0abb60e4fe678fe8a7ef5f" compoundref="dmrs__pucch__processor_8h" startline="50">srsgnb::dmrs_pucch_processor::config_t::second_hop_prb</references>
+        <references refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="90" endline="108">sequence_generation</references>
+        <references refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a6a23c1f5e0738c7699f9cece454edeed" compoundref="dmrs__pucch__processor__format1__impl_8cpp" startline="110" endline="116">mapping</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a generic implementation of a DMRS for PUCCH processor. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::dmrs_pucch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pucch_processor_format1_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>srsgnb::pucch_orthogonal_sequence</label>
+        <link refid="classsrsgnb_1_1pucch__orthogonal__sequence"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::dmrs_pucch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pucch_processor_format1_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-helper</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-sequence_collection</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-occ</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::low_papr_sequence_collection</label>
+        <link refid="classsrsgnb_1_1low__papr__sequence__collection"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::pucch_helper</label>
+        <link refid="classsrsgnb_1_1pucch__helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" line="22" column="1" bodyfile="lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h" bodystart="21" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a218eec351d54aa011e8c559a9d5a77e9" prot="public" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>dmrs_pucch_processor_format1_impl</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0" prot="public" virt="virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>estimate</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a7422e8dbab0e308658f04f004f6ed19b" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>helper</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a6a23c1f5e0738c7699f9cece454edeed" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>mapping</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1afd067073bd0959762dec29c25b0f3adc" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>occ</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a40e4d7ef312442d612de66c532668c3d" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>sequence_collection</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1ac5313350b1757ad95063899c4b0ceb1e" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>sequence_generation</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor_1ae5bfb90f4b31b216bd3a1160a649ca48" prot="public" virt="virtual"><scope>srsgnb::dmrs_pucch_processor_format1_impl</scope><name>~dmrs_pucch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

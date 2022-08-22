@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__interleaver__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::polar_interleaver_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1polar__interleaver" prot="public" virt="non-virtual">srsgnb::polar_interleaver</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__interleaver__impl_1ab312977aeb215d9e4b09f69888651388" prot="private" static="yes" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::polar_interleaver_impl::K_MAX_IL</definition>
+        <argsstring></argsstring>
+        <name>K_MAX_IL</name>
+        <initializer>= 164</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" line="19" column="46" bodyfile="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__interleaver__impl_1a445a86ef7884908303ec569047c95f0e" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; uint8_t, K_MAX_IL &gt;</type>
+        <definition>const std::array&lt; uint8_t, polar_interleaver_impl::K_MAX_IL &gt; polar_interleaver_impl::pattern</definition>
+        <argsstring></argsstring>
+        <name>pattern</name>
+        <initializer>= {
+    0,   2,   4,   7,   9,   14,  19,  20,  24,  25,  26,  28,  31,  34,  42,  45,  49,  50,  51,  53,  54,
+    56,  58,  59,  61,  62,  65,  66,  67,  69,  70,  71,  72,  76,  77,  81,  82,  83,  87,  88,  89,  91,
+    93,  95,  98,  101, 104, 106, 108, 110, 111, 113, 115, 118, 119, 120, 122, 123, 126, 127, 129, 132, 134,
+    138, 139, 140, 1,   3,   5,   8,   10,  15,  21,  27,  29,  32,  35,  43,  46,  52,  55,  57,  60,  63,
+    68,  73,  78,  84,  90,  92,  94,  96,  99,  102, 105, 107, 109, 112, 114, 116, 121, 124, 128, 130, 133,
+    135, 141, 6,   11,  16,  22,  30,  33,  36,  44,  47,  64,  74,  79,  85,  97,  100, 103, 117, 125, 131,
+    136, 142, 12,  17,  23,  37,  48,  75,  80,  86,  137, 143, 13,  18,  38,  144, 39,  145, 40,  146, 41,
+    147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" line="20" column="27" bodyfile="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__interleaver__impl_1ad67daa4222a507c930c8adc32cbe6520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_interleaver_impl::~polar_interleaver_impl</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~polar_interleaver_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" line="23" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__interleaver__impl_1aa710efeb13534f36c35ead60df52ac95" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void polar_interleaver_impl::interleave</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in, polar_interleaver_direction direction) override</argsstring>
+        <name>interleave</name>
+        <reimplements refid="classsrsgnb_1_1polar__interleaver_1a6cb72a3d48eb5793b2fbce46fde1a74c">interleave</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>polar_interleaver_direction</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Implements Polar code interleaver as described in TS 38.212 V15.9.0 Section 5.3.1.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>The input and output data cannot be the same.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bit Input data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bit Output data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set to TX or RX for encoder or decoder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" line="24" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.cpp" bodystart="25" bodyend="44"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::polar_interleaver</label>
+        <link refid="classsrsgnb_1_1polar__interleaver"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_interleaver_impl</label>
+        <link refid="classsrsgnb_1_1polar__interleaver__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::polar_interleaver</label>
+        <link refid="classsrsgnb_1_1polar__interleaver"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_interleaver_impl</label>
+        <link refid="classsrsgnb_1_1polar__interleaver__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" line="17" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_interleaver_impl.h" bodystart="16" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__interleaver__impl_1aa710efeb13534f36c35ead60df52ac95" prot="public" virt="virtual"><scope>srsgnb::polar_interleaver_impl</scope><name>interleave</name></member>
+      <member refid="classsrsgnb_1_1polar__interleaver__impl_1ab312977aeb215d9e4b09f69888651388" prot="private" virt="non-virtual"><scope>srsgnb::polar_interleaver_impl</scope><name>K_MAX_IL</name></member>
+      <member refid="classsrsgnb_1_1polar__interleaver__impl_1a445a86ef7884908303ec569047c95f0e" prot="private" virt="non-virtual"><scope>srsgnb::polar_interleaver_impl</scope><name>pattern</name></member>
+      <member refid="classsrsgnb_1_1polar__interleaver_1ac9e54b921f2156a63c91787d2056b9aa" prot="public" virt="virtual"><scope>srsgnb::polar_interleaver_impl</scope><name>~polar_interleaver</name></member>
+      <member refid="classsrsgnb_1_1polar__interleaver__impl_1ad67daa4222a507c930c8adc32cbe6520" prot="public" virt="non-virtual"><scope>srsgnb::polar_interleaver_impl</scope><name>~polar_interleaver_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

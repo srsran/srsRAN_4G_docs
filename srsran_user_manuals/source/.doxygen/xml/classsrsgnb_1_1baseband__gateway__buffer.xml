@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1baseband__gateway__buffer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::baseband_gateway_buffer</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1baseband__gateway__base" prot="public" virt="non-virtual">srsgnb::baseband_gateway_base</basecompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic" prot="public" virt="non-virtual">srsgnb::baseband_gateway_buffer_dynamic</derivedcompoundref>
+    <includes refid="baseband__gateway__buffer_8h" local="no">baseband_gateway_buffer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a07c6a33fb40c2798a57d4c06fee735b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::baseband_gateway_buffer::get_nof_channels</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_nof_channels</name>
+        <reimplementedby refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic_1ac668fd91e4cb73b44348035341bd007e">get_nof_channels</reimplementedby>
+        <briefdescription>
+<para>Get the number of channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="31" column="20"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">srsgnb::radio_uhd_tx_stream::transmit_block</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a5cb3568b5c2ed1f18c99de2b16e7701f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::baseband_gateway_buffer::get_nof_samples</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_nof_samples</name>
+        <reimplementedby refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic_1ac581c2c5dc7845dafc962c458f4642c6">get_nof_samples</reimplementedby>
+        <briefdescription>
+<para>Get the number of samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="34" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a0e43bc63d0905de5be41f713adb7d063" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>virtual span&lt;radio_sample_type&gt; srsgnb::baseband_gateway_buffer::get_channel_buffer</definition>
+        <argsstring>(unsigned channel_idx)=0</argsstring>
+        <name>get_channel_buffer</name>
+        <reimplementedby refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic_1aa03037776bb6e9f45f1c0397a40985b8">get_channel_buffer</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+<para>Get a channel buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the channel index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A view to a baseband buffer. </para>
+</simplesect>
+<simplesect kind="note"><para>An invalid channel index causes undefined behaviour. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="40" column="22"/>
+        <referencedby refid="classsrsgnb_1_1baseband__gateway__buffer_1a7a6d334aa13e25b3a1911150368b1f5d" compoundref="baseband__gateway__buffer_8h" startline="44" endline="44">operator[]</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a5c9c7f8fc50bc23efa5fbcae5cd4293d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>virtual span&lt;const radio_sample_type&gt; srsgnb::baseband_gateway_buffer::get_channel_buffer</definition>
+        <argsstring>(unsigned channel_idx) const =0</argsstring>
+        <name>get_channel_buffer</name>
+        <reimplementedby refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic_1a7bbd8ff733c222a97ab19bb7854a4155">get_channel_buffer</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="41" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a7a6d334aa13e25b3a1911150368b1f5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>span&lt;radio_sample_type&gt; srsgnb::baseband_gateway_buffer::operator[]</definition>
+        <argsstring>(unsigned channel_index)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>unsigned</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+<para>See <ref refid="classsrsgnb_1_1baseband__gateway__buffer_1a0e43bc63d0905de5be41f713adb7d063" kindref="member">get_channel_buffer()</ref> documentation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="44" column="14" bodyfile="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" bodystart="44" bodyend="44"/>
+        <references refid="classsrsgnb_1_1baseband__gateway__buffer_1a0e43bc63d0905de5be41f713adb7d063">get_channel_buffer</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1baseband__gateway__buffer_1a82789e1a2aa893b2cf2ebc88a6f4db63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1a76ff57ca7c8111aa8936364c876c0940" kindref="member">radio_sample_type</ref> &gt;</type>
+        <definition>span&lt;const radio_sample_type&gt; srsgnb::baseband_gateway_buffer::operator[]</definition>
+        <argsstring>(unsigned channel_index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>unsigned</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="45" column="8" bodyfile="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a baseband buffer interface. It comprises <ref refid="classsrsgnb_1_1baseband__gateway__buffer_1a07c6a33fb40c2798a57d4c06fee735b0" kindref="member">get_nof_channels()</ref> channels of <ref refid="classsrsgnb_1_1baseband__gateway__buffer_1a5cb3568b5c2ed1f18c99de2b16e7701f" kindref="member">get_nof_samples()</ref> samples each. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::baseband_gateway_base</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::baseband_gateway_buffer</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__buffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::baseband_gateway_buffer_dynamic</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::baseband_gateway_base</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::baseband_gateway_buffer</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__buffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" line="28" column="1" bodyfile="include/srsgnb/gateways/baseband/baseband_gateway_buffer.h" bodystart="27" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ad7d655d5ab28c932e5b29068e27da211" prot="protected" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1accda6101fc317b1c9b358420deda12ad" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a9264aa761a7ef926f38d406a43d35bf8" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a0e43bc63d0905de5be41f713adb7d063" prot="public" virt="pure-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>get_channel_buffer</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a5c9c7f8fc50bc23efa5fbcae5cd4293d" prot="public" virt="pure-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>get_channel_buffer</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a07c6a33fb40c2798a57d4c06fee735b0" prot="public" virt="pure-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>get_nof_channels</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a5cb3568b5c2ed1f18c99de2b16e7701f" prot="public" virt="pure-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>get_nof_samples</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a18d0594d50b64b7dd76fba06e8aecb68" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ae1444318d5e6e60cada54c1b7d493975" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a7a6d334aa13e25b3a1911150368b1f5d" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__buffer_1a82789e1a2aa893b2cf2ebc88a6f4db63" prot="public" virt="non-virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a72eb5319b897038e168aecde0af9fcbf" prot="public" virt="virtual"><scope>srsgnb::baseband_gateway_buffer</scope><name>~baseband_gateway_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

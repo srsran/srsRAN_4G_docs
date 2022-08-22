@@ -1,0 +1,2180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="math__utils_8h" kind="file" language="C++">
+    <compoundname>math_utils.h</compoundname>
+    <includes refid="complex_8h" local="yes">srsgnb/adt/complex.h</includes>
+    <includes refid="srsgnb__assert_8h" local="yes">srsgnb_assert.h</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">cmath</includes>
+    <includedby refid="bounded__bitset_8h" local="yes">include/srsgnb/adt/bounded_bitset.h</includedby>
+    <includedby refid="message__builders_8h" local="yes">include/srsgnb/fapi/message_builders.h</includedby>
+    <includedby refid="ldpc_8h" local="yes">include/srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</includedby>
+    <includedby refid="low__papr__sequence__collection_8h" local="yes">include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h</includedby>
+    <includedby refid="cyclic__prefix_8h" local="yes">include/srsgnb/ran/cyclic_prefix.h</includedby>
+    <includedby refid="phy__time__unit_8h" local="yes">include/srsgnb/ran/phy_time_unit.h</includedby>
+    <includedby refid="ssb__mapping_8h" local="yes">include/srsgnb/ran/ssb_mapping.h</includedby>
+    <includedby refid="phy__to__fapi__results__event__translator_8cpp" local="yes">lib/fapi_adaptor/phy/phy_to_fapi_results_event_translator.cpp</includedby>
+    <includedby refid="dft__processor__fftx__impl_8cpp" local="yes">lib/phy/generic_functions/dft_processor_fftx_impl.cpp</includedby>
+    <includedby refid="dft__processor__generic__impl_8cpp" local="yes">lib/phy/generic_functions/dft_processor_generic_impl.cpp</includedby>
+    <includedby refid="ldpc__segmenter__impl_8cpp" local="yes">lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp</includedby>
+    <includedby refid="short__block__detector__impl_8cpp" local="yes">lib/phy/upper/channel_coding/short/short_block_detector_impl.cpp</includedby>
+    <includedby refid="modulation__mapper__impl_8h" local="yes">lib/phy/upper/channel_modulation/modulation_mapper_impl.h</includedby>
+    <includedby refid="demodulation__mapper__impl_8cpp" local="yes">lib/phy/upper/channel_modulation/demodulation_mapper_impl.cpp</includedby>
+    <includedby refid="pdcch__processor__impl_8cpp" local="yes">lib/phy/upper/channel_processors/pdcch_processor_impl.cpp</includedby>
+    <includedby refid="pdsch__modulator__impl_8cpp" local="yes">lib/phy/upper/channel_processors/pdsch_modulator_impl.cpp</includedby>
+    <includedby refid="prach__detector__simple__impl_8cpp" local="yes">lib/phy/upper/channel_processors/prach_detector_simple_impl.cpp</includedby>
+    <includedby refid="prach__generator__impl_8cpp" local="yes">lib/phy/upper/channel_processors/prach_generator_impl.cpp</includedby>
+    <includedby refid="ssb__processor__impl_8cpp" local="yes">lib/phy/upper/channel_processors/ssb_processor_impl.cpp</includedby>
+    <includedby refid="rx__softbuffer__pool__impl_8h" local="yes">lib/phy/upper/rx_softbuffer_pool_impl.h</includedby>
+    <includedby refid="low__papr__sequence__generator__impl_8cpp" local="yes">lib/phy/upper/sequence_generators/low_papr_sequence_generator_impl.cpp</includedby>
+    <includedby refid="pseudo__random__generator__impl_8cpp" local="yes">lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp</includedby>
+    <includedby refid="dmrs__pdcch__processor__impl_8cpp" local="yes">lib/phy/upper/signal_processors/dmrs_pdcch_processor_impl.cpp</includedby>
+    <includedby refid="dmrs__pdsch__processor__impl_8h" local="yes">lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h</includedby>
+    <includedby refid="pucch__orthogonal__sequence_8h" local="yes">lib/phy/upper/signal_processors/pucch/pucch_orthogonal_sequence.h</includedby>
+    <includedby refid="vrb__to__prb__mapper_8cpp" local="yes">lib/phy/upper/vrb_to_prb_mapper.cpp</includedby>
+    <includedby refid="dci__packing_8cpp" local="yes">lib/ran/pdcch/dci_packing.cpp</includedby>
+    <includedby refid="prbs__calculator_8h" local="yes">lib/scheduler/support/prbs_calculator.h</includedby>
+    <includedby refid="tbs__calculator_8cpp" local="yes">lib/scheduler/support/tbs_calculator.cpp</includedby>
+    <includedby refid="bit_8cpp" local="yes">lib/srsvec/bit.cpp</includedby>
+    <includedby refid="compare_8cpp" local="yes">lib/srsvec/compare.cpp</includedby>
+    <includedby refid="bit__encoding_8cpp" local="yes">lib/support/bit_encoding.cpp</includedby>
+    <includedby refid="math__utils_8cpp" local="yes">lib/support/math_utils.cpp</includedby>
+    <incdepgraph>
+      <node id="42">
+        <label>atomic</label>
+      </node>
+      <node id="15">
+        <label>functional</label>
+      </node>
+      <node id="8">
+        <label>limits</label>
+      </node>
+      <node id="16">
+        <label>iterator</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="41">
+        <label>cassert</label>
+      </node>
+      <node id="10">
+        <label>stdexcept</label>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>string</label>
+      </node>
+      <node id="21">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>pthread.h</label>
+      </node>
+      <node id="2">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>cstdio</label>
+      </node>
+      <node id="40">
+        <label>tuple</label>
+      </node>
+      <node id="25">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>vector</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>array</label>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cerrno</label>
+      </node>
+      <node id="39">
+        <label>cstddef</label>
+      </node>
+      <node id="30">
+        <label>chrono</label>
+      </node>
+      <node id="26">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>type_traits</label>
+      </node>
+      <node id="20">
+        <label>complex</label>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="23">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstring</label>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="174">
+        <label>include/srsgnb/phy/upper/sequence_generators/low_papr_sequence_collection.h</label>
+        <link refid="low__papr__sequence__collection_8h_source"/>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="180">
+        <label>include/srsgnb/phy/lower/modulation/ofdm_demodulator.h</label>
+        <link refid="ofdm__demodulator_8h_source"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>include/srsgnb/fapi_adaptor/phy/phy_fapi_adaptor_factory.h</label>
+        <link refid="phy__fapi__adaptor__factory_8h_source"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="210">
+        <label>lib/phy/upper/signal_processors/pucch/pucch_orthogonal_sequence.h</label>
+        <link refid="pucch__orthogonal__sequence_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>lib/mac/mac_ctrl/srs_sched_config_adapter.h</label>
+        <link refid="srs__sched__config__adapter_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h</label>
+        <link refid="dmrs__pdsch__processor__impl_8h_source"/>
+      </node>
+      <node id="2">
+        <label>include/srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>include/srsgnb/scheduler/scheduler_factory.h</label>
+        <link refid="scheduler__factory_8h_source"/>
+      </node>
+      <node id="98">
+        <label>include/srsgnb/du/du_cell_config_validation.h</label>
+        <link refid="du__cell__config__validation_8h_source"/>
+      </node>
+      <node id="170">
+        <label>lib/phy/upper/rx_softbuffer_pool_impl.h</label>
+        <link refid="rx__softbuffer__pool__impl_8h_source"/>
+      </node>
+      <node id="58">
+        <label>include/srsgnb/phy/upper/upper_phy_factories.h</label>
+        <link refid="upper__phy__factories_8h_source"/>
+      </node>
+      <node id="46">
+        <label>lib/phy/upper/signal_processors/dmrs_pusch_estimator_impl.h</label>
+        <link refid="dmrs__pusch__estimator__impl_8h"/>
+      </node>
+      <node id="12">
+        <label>lib/du_manager/procedures/ue_creation_procedure.h</label>
+        <link refid="du__manager_2procedures_2ue__creation__procedure_8h_source"/>
+      </node>
+      <node id="9">
+        <label>lib/du_high/du_high.h</label>
+        <link refid="du__high_8h_source"/>
+      </node>
+      <node id="78">
+        <label>include/srsgnb/ran/pdcch/cce_to_prb_mapping.h</label>
+        <link refid="cce__to__prb__mapping_8h_source"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="198">
+        <label>include/srsgnb/phy/upper/upper_phy_rx_results_notifier.h</label>
+        <link refid="upper__phy__rx__results__notifier_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>lib/phy/upper/signal_processors/dmrs_helper.h</label>
+        <link refid="dmrs__helper_8h_source"/>
+      </node>
+      <node id="177">
+        <label>include/srsgnb/phy/lower/lower_phy_configuration.h</label>
+        <link refid="lower__phy__configuration_8h_source"/>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+      </node>
+      <node id="192">
+        <label>include/srsgnb/phy/upper/channel_processors/prach_detector.h</label>
+        <link refid="prach__detector_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>lib/mac/mac_dl/mac_dl_processor.h</label>
+        <link refid="mac__dl__processor_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="158">
+        <label>lib/phy/upper/channel_processors/pdsch_encoder_impl.h</label>
+        <link refid="pdsch__encoder__impl_8h"/>
+      </node>
+      <node id="119">
+        <label>lib/scheduler/ue_scheduling/ue_scheduler_impl.h</label>
+        <link refid="ue__scheduler__impl_8h_source"/>
+      </node>
+      <node id="40">
+        <label>include/srsgnb/phy/upper/channel_processors/channel_processor_factories.h</label>
+        <link refid="channel__processor__factories_8h_source"/>
+      </node>
+      <node id="150">
+        <label>lib/phy/upper/resource_grid_helpers.h</label>
+        <link refid="resource__grid__helpers_8h_source"/>
+      </node>
+      <node id="183">
+        <label>lib/phy/lower/modulation/ofdm_demodulator_impl.h</label>
+        <link refid="ofdm__demodulator__impl_8h_source"/>
+      </node>
+      <node id="8">
+        <label>lib/du_high/adapters.h</label>
+        <link refid="adapters_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>include/srsgnb/du/du_cell_config_helpers.h</label>
+        <link refid="du__cell__config__helpers_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>include/srsgnb/phy/upper/signal_processors/signal_processor_factories.h</label>
+        <link refid="signal__processor__factories_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="184">
+        <label>include/srsgnb/phy/lower/modulation/ofdm_modulator.h</label>
+        <link refid="ofdm__modulator_8h_source"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>lib/du_manager/du_manager_interfaces.h</label>
+        <link refid="du__manager__interfaces_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="143">
+        <label>lib/scheduler/cell/scheduler_prb.h</label>
+        <link refid="scheduler__prb_8h_source"/>
+      </node>
+      <node id="53">
+        <label>lib/phy/upper/channel_processors/pdcch_modulator_impl.h</label>
+        <link refid="pdcch__modulator__impl_8h_source"/>
+      </node>
+      <node id="113">
+        <label>lib/scheduler/common_scheduling/sib_scheduler.h</label>
+        <link refid="sib__scheduler_8h_source"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>include/srsgnb/support/unique_thread.h</label>
+        <link refid="unique__thread_8h_source"/>
+        <childnode refid="148" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>include/srsgnb/du_high/du_high_configuration.h</label>
+        <link refid="du__high__configuration_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>include/srsgnb/du/du_cell_config.h</label>
+        <link refid="du__cell__config_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>lib/scheduler/support/rb_find_algorithm.h</label>
+        <link refid="rb__find__algorithm_8h_source"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+      <node id="204">
+        <label>lib/phy/upper/channel_processors/prach_generator_impl.h</label>
+        <link refid="prach__generator__impl_8h_source"/>
+      </node>
+      <node id="38">
+        <label>include/srsgnb/phy/upper/channel_estimation.h</label>
+        <link refid="channel__estimation_8h"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>lib/scheduler/support/pdsch/pdsch_default_time_allocation.h</label>
+        <link refid="pdsch__default__time__allocation_8h_source"/>
+      </node>
+      <node id="128">
+        <label>include/srsgnb/scheduler/scheduler_slot_handler.h</label>
+        <link refid="scheduler__slot__handler_8h_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>include/srsgnb/fapi_adaptor/mac/messages/pdsch.h</label>
+        <link refid="mac_2messages_2pdsch_8h_source"/>
+      </node>
+      <node id="88">
+        <label>include/srsgnb/fapi/message_validators.h</label>
+        <link refid="message__validators_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>lib/fapi/validators/dl_pdcch_pdu.h</label>
+        <link refid="dl__pdcch__pdu_8h_source"/>
+      </node>
+      <node id="29">
+        <label>lib/mac/mac_config_interfaces.h</label>
+        <link refid="mac__config__interfaces_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>lib/phy/lower/lower_phy_impl.h</label>
+        <link refid="lower__phy__impl_8h_source"/>
+      </node>
+      <node id="102">
+        <label>include/srsgnb/scheduler/scheduler_configurator.h</label>
+        <link refid="scheduler__configurator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>include/srsgnb/mac/mac_configuration_helpers.h</label>
+        <link refid="mac__configuration__helpers_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>lib/scheduler/cell/resource_grid.h</label>
+        <link refid="lib_2scheduler_2cell_2resource__grid_8h_source"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.h</label>
+        <link refid="ldpc__segmenter__impl_8h"/>
+      </node>
+      <node id="138">
+        <label>include/srsgnb/scheduler/dmrs.h</label>
+        <link refid="dmrs_8h_source"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h</label>
+        <link refid="ldpc__segmenter__rx_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>lib/fapi_adaptor/phy/phy_fapi_adaptor_impl.h</label>
+        <link refid="phy__fapi__adaptor__impl_8h_source"/>
+      </node>
+      <node id="77">
+        <label>lib/phy/upper/signal_processors/dmrs_pdcch_processor_impl.h</label>
+        <link refid="dmrs__pdcch__processor__impl_8h_source"/>
+      </node>
+      <node id="211">
+        <label>lib/scheduler/support/prbs_calculator.h</label>
+        <link refid="prbs__calculator_8h_source"/>
+      </node>
+      <node id="188">
+        <label>lib/phy/lower/modulation/phase_compensation_lut.h</label>
+        <link refid="phase__compensation__lut_8h_source"/>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>include/srsgnb/mac/mac_cell_result.h</label>
+        <link refid="mac__cell__result_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>lib/scheduler/pdcch_scheduling/pdcch_scheduler.h</label>
+        <link refid="pdcch__scheduler_8h_source"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>lib/du_manager/converters/ssb_coreset0_freq_pos_generator.h</label>
+        <link refid="ssb__coreset0__freq__pos__generator_8h_source"/>
+      </node>
+      <node id="68">
+        <label>lib/fapi_adaptor/phy/fapi_to_phy_translator.h</label>
+        <link refid="fapi__to__phy__translator_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="137">
+        <label>lib/scheduler/ue_scheduling/harq_process.h</label>
+        <link refid="harq__process_8h_source"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>include/srsgnb/phy/upper/equalization/channel_equalizer.h</label>
+        <link refid="channel__equalizer_8h"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>include/srsgnb/phy/upper/rb_allocation.h</label>
+        <link refid="rb__allocation_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>include/srsgnb/phy/upper/port_channel_estimator.h</label>
+        <link refid="port__channel__estimator_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>include/srsgnb/fapi/message_builders.h</label>
+        <link refid="message__builders_8h_source"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="191">
+        <label>include/srsgnb/phy/upper/channel_processors/prach_detection_result.h</label>
+        <link refid="prach__detection__result_8h_source"/>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>lib/mac/mac_ul/ul_bsr.h</label>
+        <link refid="ul__bsr_8h_source"/>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>lib/phy/upper/channel_processors/pusch_processor_impl.h</label>
+        <link refid="pusch__processor__impl_8h_source"/>
+      </node>
+      <node id="187">
+        <label>include/srsgnb/phy/upper/signal_processors/csi_rs_processor.h</label>
+        <link refid="csi__rs__processor_8h_source"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="185">
+        <label>lib/phy/lower/modulation/ofdm_modulator_impl.h</label>
+        <link refid="ofdm__modulator__impl_8h_source"/>
+        <childnode refid="186" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>lib/scheduler/cell/cell_configuration.h</label>
+        <link refid="lib_2scheduler_2cell_2cell__configuration_8h_source"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h</label>
+        <link refid="ldpc__rate__matcher_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+      </node>
+      <node id="178">
+        <label>include/srsgnb/phy/lower/lower_phy_factory.h</label>
+        <link refid="lower__phy__factory_8h_source"/>
+      </node>
+      <node id="70">
+        <label>include/srsgnb/phy/upper/channel_processors/pusch_processor.h</label>
+        <link refid="pusch__processor_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>include/srsgnb/phy/upper/signal_processors/dmrs_pusch_estimator.h</label>
+        <link refid="dmrs__pusch__estimator_8h"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>lib/mac/mac_ul/mac_ul_ue_manager.h</label>
+        <link refid="mac__ul__ue__manager_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>lib/phy/upper/channel_processors/pusch_demodulator_impl.h</label>
+        <link refid="pusch__demodulator__impl_8h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h</label>
+        <link refid="ldpc__segmenter__tx_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+      </node>
+      <node id="162">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h</label>
+        <link refid="ldpc__encoder_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>lib/fapi/validators/helpers.h</label>
+        <link refid="helpers_8h_source"/>
+      </node>
+      <node id="141">
+        <label>include/srsgnb/scheduler/prb_grant.h</label>
+        <link refid="prb__grant_8h_source"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/srsgnb/mac/mac_factory.h</label>
+        <link refid="mac__factory_8h_source"/>
+      </node>
+      <node id="64">
+        <label>lib/phy/upper/channel_processors/pdsch_modulator_impl.h</label>
+        <link refid="pdsch__modulator__impl_8h_source"/>
+      </node>
+      <node id="37">
+        <label>lib/mac/mac_dl/ssb_assembler.h</label>
+        <link refid="ssb__assembler_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="146">
+        <label>lib/mac/mac_ul/mac_ul_sch_pdu.h</label>
+        <link refid="mac__ul__sch__pdu_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>lib/phy/upper/channel_processors/pusch_decoder_impl.h</label>
+        <link refid="pusch__decoder__impl_8h_source"/>
+      </node>
+      <node id="200">
+        <label>lib/phy/upper/upper_phy_rx_results_notifier_proxy.h</label>
+        <link refid="upper__phy__rx__results__notifier__proxy_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>include/srsgnb/ran/pdcch/coreset.h</label>
+        <link refid="coreset_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>include/srsgnb/fapi_adaptor/phy/messages/pdsch.h</label>
+        <link refid="phy_2messages_2pdsch_8h_source"/>
+      </node>
+      <node id="130">
+        <label>lib/fapi_adaptor/mac/mac_to_fapi_translator.h</label>
+        <link refid="mac__to__fapi__translator_8h_source"/>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>include/srsgnb/scheduler/mac_scheduler.h</label>
+        <link refid="mac__scheduler_8h_source"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>include/srsgnb/fapi_adaptor/mac/messages/pdcch.h</label>
+        <link refid="mac_2messages_2pdcch_8h_source"/>
+      </node>
+      <node id="33">
+        <label>lib/mac/rach_handler.h</label>
+        <link refid="rach__handler_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="127">
+        <label>lib/scheduler/common_scheduling/ssb_scheduler.h</label>
+        <link refid="ssb__scheduler_8h_source"/>
+      </node>
+      <node id="43">
+        <label>lib/phy/upper/channel_processors/pusch_demodulator_impl.cpp</label>
+        <link refid="pusch__demodulator__impl_8cpp"/>
+      </node>
+      <node id="18">
+        <label>lib/mac/mac_config.h</label>
+        <link refid="mac__config_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="209">
+        <label>lib/phy/upper/channel_modulation/modulation_mapper_impl.h</label>
+        <link refid="modulation__mapper__impl_8h_source"/>
+      </node>
+      <node id="196">
+        <label>lib/phy/upper/channel_processors/prach_detector_simple_impl.h</label>
+        <link refid="prach__detector__simple__impl_8h_source"/>
+      </node>
+      <node id="104">
+        <label>lib/mac/mac_ctrl/mac_scheduler_configurator.h</label>
+        <link refid="mac__scheduler__configurator_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_graph_impl.h</label>
+        <link refid="ldpc__graph__impl_8h"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="175">
+        <label>lib/phy/upper/signal_processors/pucch/pucch_helper.h</label>
+        <link refid="pucch__helper_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>include/srsgnb/ran/pdcch/dci_packing.h</label>
+        <link refid="dci__packing_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>lib/du_manager/du_manager_impl.h</label>
+        <link refid="du__manager__impl_8h_source"/>
+      </node>
+      <node id="121">
+        <label>lib/scheduler/ue_scheduling/ue.h</label>
+        <link refid="ue_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="209" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+      </node>
+      <node id="186">
+        <label>lib/phy/lower/modulation/ofdm_modulator_factory_impl.h</label>
+        <link refid="ofdm__modulator__factory__impl_8h_source"/>
+      </node>
+      <node id="34">
+        <label>lib/mac/mac_dl/sib_pdu_assembler.h</label>
+        <link refid="sib__pdu__assembler_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>lib/phy/upper/downlink_processor_single_executor_impl.h</label>
+        <link refid="downlink__processor__single__executor__impl_8h_source"/>
+      </node>
+      <node id="206">
+        <label>include/srsgnb/ran/ssb_mapping.h</label>
+        <link refid="ssb__mapping_8h_source"/>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>lib/scheduler/ue_scheduling/ue_event_manager.h</label>
+        <link refid="ue__event__manager_8h_source"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>include/srsgnb/fapi/validator_report.h</label>
+        <link refid="validator__report_8h_source"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>include/srsgnb/phy/upper/channel_processors/pusch_demodulator.h</label>
+        <link refid="pusch__demodulator_8h"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>include/srsgnb/du_manager/du_manager_factory.h</label>
+        <link refid="du__manager__factory_8h_source"/>
+      </node>
+      <node id="13">
+        <label>lib/du_manager/du_cell_manager.h</label>
+        <link refid="du__cell__manager_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="165">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h</label>
+        <link refid="ldpc__rate__dematcher__impl_8h"/>
+      </node>
+      <node id="173">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_luts_impl.cpp</label>
+        <link refid="ldpc__luts__impl_8cpp"/>
+      </node>
+      <node id="17">
+        <label>lib/du_manager/procedures/ue_deletion_procedure.h</label>
+        <link refid="ue__deletion__procedure_8h_source"/>
+      </node>
+      <node id="24">
+        <label>lib/mac/mac_dl/mac_cell_processor.h</label>
+        <link refid="mac__cell__processor_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="197">
+        <label>lib/phy/upper/upper_phy_rx_symbol_handler_impl.h</label>
+        <link refid="upper__phy__rx__symbol__handler__impl_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="154">
+        <label>include/srsgnb/phy/upper/channel_coding/channel_coding_factories.h</label>
+        <link refid="channel__coding__factories_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>lib/mac/mac_dl/mac_dl_ue_manager.h</label>
+        <link refid="mac__dl__ue__manager_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>lib/du_manager/du_ue_manager.h</label>
+        <link refid="du__ue__manager_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>lib/fapi_adaptor/phy/phy_fapi_adaptor_factory_impl.h</label>
+        <link refid="phy__fapi__adaptor__factory__impl_8h_source"/>
+      </node>
+      <node id="195">
+        <label>lib/phy/upper/uplink_processor_single_executor_impl.h</label>
+        <link refid="uplink__processor__single__executor__impl_8h_source"/>
+      </node>
+      <node id="76">
+        <label>include/srsgnb/phy/upper/signal_processors/dmrs_pdcch_processor.h</label>
+        <link refid="dmrs__pdcch__processor_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>lib/scheduler/ue_scheduling/ue_configuration.h</label>
+        <link refid="ue__configuration_8h_source"/>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>include/srsgnb/scheduler/scheduler_feedback_handler.h</label>
+        <link refid="scheduler__feedback__handler_8h_source"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>lib/mac/mac_ul/mac_ul_processor.h</label>
+        <link refid="mac__ul__processor_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>lib/mac/mac_ctrl/sched_config_helpers.h</label>
+        <link refid="sched__config__helpers_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h</label>
+        <link refid="ldpc__encoder__impl_8h"/>
+      </node>
+      <node id="176">
+        <label>include/srsgnb/ran/cyclic_prefix.h</label>
+        <link refid="cyclic__prefix_8h"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h</label>
+        <link refid="ue__cell__grid__allocator_8h_source"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>lib/phy/upper/signal_processors/csi_rs_processor_impl.h</label>
+        <link refid="csi__rs__processor__impl_8h_source"/>
+      </node>
+      <node id="20">
+        <label>lib/mac/mac_impl.h</label>
+        <link refid="mac__impl_8h_source"/>
+      </node>
+      <node id="207">
+        <label>include/srsgnb/phy/upper/channel_processors/ssb_processor.h</label>
+        <link refid="ssb__processor_8h_source"/>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>include/srsgnb/phy/upper/dmrs_mapping.h</label>
+        <link refid="dmrs__mapping_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>include/srsgnb/fapi_adaptor/phy/messages/pdcch.h</label>
+        <link refid="phy_2messages_2pdcch_8h_source"/>
+      </node>
+      <node id="71">
+        <label>include/srsgnb/phy/upper/re_pattern.h</label>
+        <link refid="re__pattern_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>lib/mac/mac_ctrl/mac_controller.h</label>
+        <link refid="mac__controller_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>lib/phy/lower/processors/prach/prach_processor_worker.h</label>
+        <link refid="prach__processor__worker_8h_source"/>
+        <childnode refid="203" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>lib/scheduler/policy/ue_allocator.h</label>
+        <link refid="ue__allocator_8h_source"/>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>include/srsgnb/fapi_adaptor/mac/messages/ssb.h</label>
+        <link refid="mac_2messages_2ssb_8h_source"/>
+      </node>
+      <node id="91">
+        <label>include/srsgnb/fapi_adaptor/phy/messages/ssb.h</label>
+        <link refid="phy_2messages_2ssb_8h_source"/>
+      </node>
+      <node id="22">
+        <label>lib/mac/mac_ctrl/ue_delete_procedure.h</label>
+        <link refid="ue__delete__procedure_8h_source"/>
+      </node>
+      <node id="117">
+        <label>lib/scheduler/policy/scheduler_policy_factory.h</label>
+        <link refid="scheduler__policy__factory_8h_source"/>
+      </node>
+      <node id="205">
+        <label>include/srsgnb/ran/prach/prach_preamble_information.h</label>
+        <link refid="prach__preamble__information_8h_source"/>
+      </node>
+      <node id="140">
+        <label>include/srsgnb/scheduler/resource_block_group.h</label>
+        <link refid="resource__block__group_8h_source"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>lib/scheduler/common_scheduling/ra_scheduler.h</label>
+        <link refid="ra__scheduler_8h_source"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="159">
+        <label>include/srsgnb/phy/upper/codeblock_metadata.h</label>
+        <link refid="codeblock__metadata_8h"/>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>lib/du_manager/du_manager_config.h</label>
+        <link refid="du__manager__config_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>include/srsgnb/phy/upper/downlink_processor.h</label>
+        <link refid="downlink__processor_8h_source"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>lib/phy/upper/channel_processors/pdcch_processor_impl.h</label>
+        <link refid="pdcch__processor__impl_8h_source"/>
+      </node>
+      <node id="86">
+        <label>include/srsgnb/fapi/messages.h</label>
+        <link refid="messages_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>lib/scheduler/policy/scheduler_policy.h</label>
+        <link refid="scheduler__policy_8h_source"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h</label>
+        <link refid="ldpc__rate__matcher__impl_8h"/>
+      </node>
+      <node id="103">
+        <label>include/srsgnb/mac/mac_ue_configurator.h</label>
+        <link refid="mac__ue__configurator_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>lib/scheduler/support/dmrs_helpers.h</label>
+        <link refid="dmrs__helpers_8h_source"/>
+      </node>
+      <node id="122">
+        <label>lib/scheduler/ue_scheduling/ue_scheduler.h</label>
+        <link refid="ue__scheduler_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>include/srsgnb/scheduler/bwp_configuration.h</label>
+        <link refid="bwp__configuration_8h_source"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="148">
+        <label>include/srsgnb/support/executors/task_worker.h</label>
+        <link refid="task__worker_8h_source"/>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="208">
+        <label>lib/phy/upper/channel_processors/ssb_processor_impl.h</label>
+        <link refid="ssb__processor__impl_8h_source"/>
+      </node>
+      <node id="73">
+        <label>include/srsgnb/phy/upper/signal_processors/dmrs_pdsch_processor.h</label>
+        <link refid="dmrs__pdsch__processor_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="193">
+        <label>include/srsgnb/phy/upper/uplink_processor.h</label>
+        <link refid="uplink__processor_8h"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="160">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h</label>
+        <link refid="ldpc__decoder_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>lib/phy/upper/channel_processors/pdsch_processor_impl.h</label>
+        <link refid="pdsch__processor__impl_8h_source"/>
+      </node>
+      <node id="182">
+        <label>include/srsgnb/phy/lower/processors/prach/prach_processor_factories.h</label>
+        <link refid="prach__processor__factories_8h_source"/>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h</label>
+        <link refid="pdsch__modulator_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/srsgnb/mac/mac.h</label>
+        <link refid="mac_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>lib/phy/upper/downlink_processor_pool_impl.h</label>
+        <link refid="downlink__processor__pool__impl_8h_source"/>
+      </node>
+      <node id="169">
+        <label>include/srsgnb/phy/upper/channel_processors/pusch_decoder.h</label>
+        <link refid="pusch__decoder_8h"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>lib/scheduler/support/config_helpers.h</label>
+        <link refid="config__helpers_8h_source"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>lib/du_manager/converters/f1c_configuration_helpers.h</label>
+        <link refid="f1c__configuration__helpers_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h</label>
+        <link refid="dmrs__pucch__processor_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/srsgnb/mac/mac_cell_manager.h</label>
+        <link refid="mac__cell__manager_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="139">
+        <label>lib/scheduler/support/pdsch/pdsch_dmrs_symbol_mask.h</label>
+        <link refid="pdsch__dmrs__symbol__mask_8h_source"/>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>lib/du_manager/converters/mac_cell_configuration_helpers.h</label>
+        <link refid="mac__cell__configuration__helpers_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="194">
+        <label>lib/phy/upper/uplink_processor_pool_impl.h</label>
+        <link refid="uplink__processor__pool__impl_8h_source"/>
+      </node>
+      <node id="109">
+        <label>lib/scheduler/cell/scheduler_cell_manager.h</label>
+        <link refid="scheduler__cell__manager_8h_source"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h</label>
+        <link refid="ldpc__rate__dematcher_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>include/srsgnb/phy/upper/channel_processors/pdsch_processor.h</label>
+        <link refid="pdsch__processor_8h_source"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>lib/mac/mac_dl/rar_pdu_assembler.h</label>
+        <link refid="rar__pdu__assembler_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>include/srsgnb/phy/upper/channel_processors/pdcch_modulator.h</label>
+        <link refid="pdcch__modulator_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>include/srsgnb/fapi_adaptor/mac/messages/prach.h</label>
+        <link refid="mac_2messages_2prach_8h_source"/>
+      </node>
+      <node id="152">
+        <label>include/srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+      </node>
+      <node id="201">
+        <label>include/srsgnb/ran/prach/prach_constants.h</label>
+        <link refid="prach__constants_8h_source"/>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>lib/mac/mac_ul/pdu_rx_handler.h</label>
+        <link refid="pdu__rx__handler_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="190">
+        <label>include/srsgnb/mac/mac_cell_rach_handler.h</label>
+        <link refid="mac__cell__rach__handler_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>lib/mac/mac_ctrl/ue_creation_procedure.h</label>
+        <link refid="mac_2mac__ctrl_2ue__creation__procedure_8h_source"/>
+      </node>
+      <node id="79">
+        <label>lib/scheduler/pdcch_scheduling/pdcch_config_helpers.h</label>
+        <link refid="pdcch__config__helpers_8h_source"/>
+      </node>
+      <node id="189">
+        <label>include/srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>lib/phy/upper/upper_phy_impl.h</label>
+        <link refid="upper__phy__impl_8h_source"/>
+      </node>
+      <node id="199">
+        <label>lib/fapi_adaptor/phy/phy_to_fapi_results_event_translator.h</label>
+        <link refid="phy__to__fapi__results__event__translator_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>lib/cu_cp/cu_cp.h</label>
+        <link refid="lib_2cu__cp_2cu__cp_8h_source"/>
+      </node>
+      <node id="161">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h</label>
+        <link refid="ldpc__decoder__impl_8h"/>
+      </node>
+      <node id="131">
+        <label>lib/fapi_adaptor/mac/mac_fapi_adaptor_impl.h</label>
+        <link refid="mac__fapi__adaptor__impl_8h_source"/>
+      </node>
+      <node id="108">
+        <label>lib/scheduler/common_scheduling/prach_scheduler.h</label>
+        <link refid="prach__scheduler_8h_source"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>lib/scheduler/scheduler_impl.h</label>
+        <link refid="scheduler__impl_8h_source"/>
+      </node>
+      <node id="203">
+        <label>lib/phy/lower/processors/prach/prach_processor_impl.h</label>
+        <link refid="prach__processor__impl_8h_source"/>
+      </node>
+      <node id="172">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_luts_impl.h</label>
+        <link refid="ldpc__luts__impl_8h"/>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>include/srsgnb/phy/lower/modulation/modulation_factories.h</label>
+        <link refid="modulation__factories_8h_source"/>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>lib/scheduler/support/bwp_helpers.h</label>
+        <link refid="bwp__helpers_8h_source"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>lib/scheduler/policy/scheduler_time_rr.h</label>
+        <link refid="scheduler__time__rr_8h_source"/>
+      </node>
+      <node id="168">
+        <label>include/srsgnb/phy/upper/channel_processors/pdsch_encoder.h</label>
+        <link refid="pdsch__encoder_8h"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>lib/scheduler/pdcch_scheduling/pdcch_scheduler_impl.h</label>
+        <link refid="pdcch__scheduler__impl_8h_source"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format1_impl.h</label>
+        <link refid="dmrs__pucch__processor__format1__impl_8h_source"/>
+      </node>
+      <node id="23">
+        <label>lib/mac/mac_ctrl/ue_reconfiguration_procedure.h</label>
+        <link refid="ue__reconfiguration__procedure_8h_source"/>
+      </node>
+      <node id="136">
+        <label>include/srsgnb/scheduler/scheduler_dci.h</label>
+        <link refid="scheduler__dci_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>include/srsgnb/fapi_adaptor/phy/messages/prach.h</label>
+        <link refid="phy_2messages_2prach_8h_source"/>
+      </node>
+      <node id="3">
+        <label>include/srsgnb/mac/cell_configuration.h</label>
+        <link refid="include_2srsgnb_2mac_2cell__configuration_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>include/srsgnb/phy/upper/channel_processors/pdcch_processor.h</label>
+        <link refid="pdcch__processor_8h_source"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>lib/phy/upper/signal_processors/pucch/dmrs_pucch_processor_format2_impl.h</label>
+        <link refid="dmrs__pucch__processor__format2__impl_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+<para>Mathematical utility functions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/adt/complex.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb_assert.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cassert&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/><ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref><sp/><ref refid="namespacesrsgnb_1ad41106b422cf71ee616885573ae5d72f" kindref="member">COMPLEX_J</ref>(0,<sp/>1);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="namespacesrsgnb_1a32efaf05457269141b4d7cb8c20477b2" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a32efaf05457269141b4d7cb8c20477b2" kindref="member">TWOPI</ref><sp/>=<sp/>2.0F<sp/>*<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(M_PI);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" kindref="member">divide_ceil</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>num,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>den)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>srsgnb_sanity_check(den<sp/>!=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Denominator<sp/>cannot<sp/>be<sp/>zero.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(num<sp/>+<sp/>(den<sp/>-<sp/>1))<sp/>/<sp/>den;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" kindref="member">pow2</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>power)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1U<sp/>&lt;&lt;<sp/>power;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="namespacesrsgnb_1a331983e46d8e554132555e591d92ada4" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a331983e46d8e554132555e591d92ada4" kindref="member">abs_sq</ref>(<ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref><sp/>x)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equivalent<sp/>to<sp/>but<sp/>computationally<sp/>simpler<sp/>than<sp/>std::pow(std::abs(x),2).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>x.real()<sp/>*<sp/>x.real()<sp/>+<sp/>x.imag()<sp/>*<sp/>x.imag();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Integer&gt;</highlight></codeline>
+<codeline lineno="64" refid="namespacesrsgnb_1aa91e37127f185a5bc158964970704fc3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>constexpr<sp/>Integer<sp/><ref refid="namespacesrsgnb_1aa91e37127f185a5bc158964970704fc3" kindref="member">log2_ceil</ref>(Integer<sp/>value)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>static_assert(std::is_unsigned&lt;Integer&gt;::value,<sp/></highlight><highlight class="stringliteral">&quot;log2_ceil<sp/>only<sp/>works<sp/>for<sp/>unsigned<sp/>integers&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Avoid<sp/>unbounded<sp/>results.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">Integer</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::ceil(std::log2(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(value))));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" kindref="member">convert_dB_to_amplitude</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::pow(10.0F,<sp/>value<sp/>/<sp/>20.0F);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="namespacesrsgnb_1a50c45533df91c775fdc2f3ddd4d4b768" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a50c45533df91c775fdc2f3ddd4d4b768" kindref="member">convert_dB_to_power</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::pow(10.0F,<sp/>value<sp/>/<sp/>10.0F);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="namespacesrsgnb_1ad9ee2c9046a00bf5ba455f90aa2c0ef3" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1ad9ee2c9046a00bf5ba455f90aa2c0ef3" kindref="member">convert_amplitude_to_dB</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>20.0F<sp/>*<sp/>std::log10(value);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="namespacesrsgnb_1aab05139ce9d3b553e76c65aa02598fd6" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1aab05139ce9d3b553e76c65aa02598fd6" kindref="member">convert_power_to_dB</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>10.0F<sp/>*<sp/>std::log10(value);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a1ca84d77b0e7ace862675e8670d4a810" kindref="member">prime_greater_than</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a1bc17982f837ddc6616e0428f3a08e07" kindref="member">prime_lower_than</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="namespacesrsgnb_1a68609cb80f5f8f752b020809bdc050f0" refkind="member"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="namespacesrsgnb_1a68609cb80f5f8f752b020809bdc050f0" kindref="member">reverse_byte</ref>(uint8_t<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint8_t,<sp/>256&gt;<sp/>reverse_lut<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00000000,<sp/>0b10000000,<sp/>0b01000000,<sp/>0b11000000,<sp/>0b00100000,<sp/>0b10100000,<sp/>0b01100000,<sp/>0b11100000,<sp/>0b00010000,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10010000,<sp/>0b01010000,<sp/>0b11010000,<sp/>0b00110000,<sp/>0b10110000,<sp/>0b01110000,<sp/>0b11110000,<sp/>0b00001000,<sp/>0b10001000,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01001000,<sp/>0b11001000,<sp/>0b00101000,<sp/>0b10101000,<sp/>0b01101000,<sp/>0b11101000,<sp/>0b00011000,<sp/>0b10011000,<sp/>0b01011000,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11011000,<sp/>0b00111000,<sp/>0b10111000,<sp/>0b01111000,<sp/>0b11111000,<sp/>0b00000100,<sp/>0b10000100,<sp/>0b01000100,<sp/>0b11000100,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00100100,<sp/>0b10100100,<sp/>0b01100100,<sp/>0b11100100,<sp/>0b00010100,<sp/>0b10010100,<sp/>0b01010100,<sp/>0b11010100,<sp/>0b00110100,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10110100,<sp/>0b01110100,<sp/>0b11110100,<sp/>0b00001100,<sp/>0b10001100,<sp/>0b01001100,<sp/>0b11001100,<sp/>0b00101100,<sp/>0b10101100,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01101100,<sp/>0b11101100,<sp/>0b00011100,<sp/>0b10011100,<sp/>0b01011100,<sp/>0b11011100,<sp/>0b00111100,<sp/>0b10111100,<sp/>0b01111100,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11111100,<sp/>0b00000010,<sp/>0b10000010,<sp/>0b01000010,<sp/>0b11000010,<sp/>0b00100010,<sp/>0b10100010,<sp/>0b01100010,<sp/>0b11100010,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00010010,<sp/>0b10010010,<sp/>0b01010010,<sp/>0b11010010,<sp/>0b00110010,<sp/>0b10110010,<sp/>0b01110010,<sp/>0b11110010,<sp/>0b00001010,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10001010,<sp/>0b01001010,<sp/>0b11001010,<sp/>0b00101010,<sp/>0b10101010,<sp/>0b01101010,<sp/>0b11101010,<sp/>0b00011010,<sp/>0b10011010,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01011010,<sp/>0b11011010,<sp/>0b00111010,<sp/>0b10111010,<sp/>0b01111010,<sp/>0b11111010,<sp/>0b00000110,<sp/>0b10000110,<sp/>0b01000110,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11000110,<sp/>0b00100110,<sp/>0b10100110,<sp/>0b01100110,<sp/>0b11100110,<sp/>0b00010110,<sp/>0b10010110,<sp/>0b01010110,<sp/>0b11010110,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00110110,<sp/>0b10110110,<sp/>0b01110110,<sp/>0b11110110,<sp/>0b00001110,<sp/>0b10001110,<sp/>0b01001110,<sp/>0b11001110,<sp/>0b00101110,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10101110,<sp/>0b01101110,<sp/>0b11101110,<sp/>0b00011110,<sp/>0b10011110,<sp/>0b01011110,<sp/>0b11011110,<sp/>0b00111110,<sp/>0b10111110,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01111110,<sp/>0b11111110,<sp/>0b00000001,<sp/>0b10000001,<sp/>0b01000001,<sp/>0b11000001,<sp/>0b00100001,<sp/>0b10100001,<sp/>0b01100001,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11100001,<sp/>0b00010001,<sp/>0b10010001,<sp/>0b01010001,<sp/>0b11010001,<sp/>0b00110001,<sp/>0b10110001,<sp/>0b01110001,<sp/>0b11110001,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00001001,<sp/>0b10001001,<sp/>0b01001001,<sp/>0b11001001,<sp/>0b00101001,<sp/>0b10101001,<sp/>0b01101001,<sp/>0b11101001,<sp/>0b00011001,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10011001,<sp/>0b01011001,<sp/>0b11011001,<sp/>0b00111001,<sp/>0b10111001,<sp/>0b01111001,<sp/>0b11111001,<sp/>0b00000101,<sp/>0b10000101,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01000101,<sp/>0b11000101,<sp/>0b00100101,<sp/>0b10100101,<sp/>0b01100101,<sp/>0b11100101,<sp/>0b00010101,<sp/>0b10010101,<sp/>0b01010101,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11010101,<sp/>0b00110101,<sp/>0b10110101,<sp/>0b01110101,<sp/>0b11110101,<sp/>0b00001101,<sp/>0b10001101,<sp/>0b01001101,<sp/>0b11001101,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00101101,<sp/>0b10101101,<sp/>0b01101101,<sp/>0b11101101,<sp/>0b00011101,<sp/>0b10011101,<sp/>0b01011101,<sp/>0b11011101,<sp/>0b00111101,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10111101,<sp/>0b01111101,<sp/>0b11111101,<sp/>0b00000011,<sp/>0b10000011,<sp/>0b01000011,<sp/>0b11000011,<sp/>0b00100011,<sp/>0b10100011,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01100011,<sp/>0b11100011,<sp/>0b00010011,<sp/>0b10010011,<sp/>0b01010011,<sp/>0b11010011,<sp/>0b00110011,<sp/>0b10110011,<sp/>0b01110011,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11110011,<sp/>0b00001011,<sp/>0b10001011,<sp/>0b01001011,<sp/>0b11001011,<sp/>0b00101011,<sp/>0b10101011,<sp/>0b01101011,<sp/>0b11101011,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00011011,<sp/>0b10011011,<sp/>0b01011011,<sp/>0b11011011,<sp/>0b00111011,<sp/>0b10111011,<sp/>0b01111011,<sp/>0b11111011,<sp/>0b00000111,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b10000111,<sp/>0b01000111,<sp/>0b11000111,<sp/>0b00100111,<sp/>0b10100111,<sp/>0b01100111,<sp/>0b11100111,<sp/>0b00010111,<sp/>0b10010111,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b01010111,<sp/>0b11010111,<sp/>0b00110111,<sp/>0b10110111,<sp/>0b01110111,<sp/>0b11110111,<sp/>0b00001111,<sp/>0b10001111,<sp/>0b01001111,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b11001111,<sp/>0b00101111,<sp/>0b10101111,<sp/>0b01101111,<sp/>0b11101111,<sp/>0b00011111,<sp/>0b10011111,<sp/>0b01011111,<sp/>0b11011111,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0b00111111,<sp/>0b10111111,<sp/>0b01111111,<sp/>0b11111111,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reverse_lut[byte];</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>CompareLess&gt;</highlight></codeline>
+<codeline lineno="166" refid="namespacesrsgnb_1ab5e5163882716bcc42633500948378c4" refkind="member"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/><ref refid="namespacesrsgnb_1ab5e5163882716bcc42633500948378c4" kindref="member">clamp</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>lower_bound,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>upper_bound,<sp/>CompareLess<sp/>comp)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>comp(value,<sp/>lower_bound)<sp/>?<sp/>lower_bound<sp/>:<sp/>(comp(upper_bound,<sp/>value)<sp/>?<sp/>upper_bound<sp/>:<sp/>value);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="175" refid="namespacesrsgnb_1a2903689ae7a986f79b3514dc19295523" refkind="member"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/><ref refid="namespacesrsgnb_1ab5e5163882716bcc42633500948378c4" kindref="member">clamp</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>lower_bound,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>upper_bound)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1ab5e5163882716bcc42633500948378c4" kindref="member">clamp</ref>(value,<sp/>lower_bound,<sp/>upper_bound,<sp/>std::less&lt;T&gt;());</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/srsgnb/support/math_utils.h"/>
+  </compounddef>
+</doxygen>

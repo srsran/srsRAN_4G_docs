@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__prach__demodulator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ofdm_prach_demodulator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ofdm__prach__demodulator" prot="public" virt="non-virtual">srsgnb::ofdm_prach_demodulator</basecompoundref>
+    <includes refid="ofdm__prach__demodulator__impl_8h" local="no">ofdm_prach_demodulator_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a85465804a9c15dcf852dd22c7cc724d9" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;dft_processor&gt; srsgnb::ofdm_prach_demodulator_impl::dft_1_25kHz</definition>
+        <argsstring></argsstring>
+        <name>dft_1_25kHz</name>
+        <briefdescription>
+<para>DFT processor for 1.25kHz subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" line="26" column="19" bodyfile="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ofdm__prach__demodulator__impl_1af77925b6760159ee3242371c1827c91c" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;dft_processor&gt; srsgnb::ofdm_prach_demodulator_impl::dft_5kHz</definition>
+        <argsstring></argsstring>
+        <name>dft_5kHz</name>
+        <briefdescription>
+<para>DFT processor for 5kHz subcarrier spacing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" line="28" column="19" bodyfile="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a9f6fc26104a420be60397b494748237e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ofdm_prach_demodulator_impl::ofdm_prach_demodulator_impl</definition>
+        <argsstring>(std::unique_ptr&lt; dft_processor &gt; dft_1_25kHz_, std::unique_ptr&lt; dft_processor &gt; dft_5kHz_)</argsstring>
+        <name>ofdm_prach_demodulator_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+          <declname>dft_1_25kHz_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref> &gt;</type>
+          <declname>dft_5kHz_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" line="31" column="3" bodyfile="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ofdm_prach_demodulator_impl::demodulate</definition>
+        <argsstring>(prach_buffer &amp;buffer, span&lt; const cf_t &gt; input, const configuration &amp;config) override</argsstring>
+        <name>demodulate</name>
+        <reimplements refid="classsrsgnb_1_1ofdm__prach__demodulator_1a5c330b66f8b88bff3a4ecc4a51df78c3">demodulate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates a PRACH occasion as described in TS38.211 Section 5.3.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if the input size is less than the PRACH window size. The PRACH window includes a cyclic prefix of length <formula id="3">$N_{CP,l}^{RA}$</formula>) and a time-domain sequence of length <formula id="4">$N_u$</formula>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency-domain signal corresponding to one PRACH receive occasion. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH receive window baseband samples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot index within the subframe to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" line="42" column="8" bodyfile="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.cpp" bodystart="19" bodyend="105"/>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a4a92e2b395a9470801278d81c92d326d" compoundref="ofdm__prach__demodulator_8h" startline="30">srsgnb::ofdm_prach_demodulator::configuration::format</references>
+        <references refid="classsrsgnb_1_1preamble__format_1afb08b63336460076b20ceff3ebf5ec08" compoundref="prach__preamble__format_8h" startline="35" endline="35">srsgnb::preamble_format::is_long_preamble</references>
+        <references refid="namespacesrsgnb_1a7b1cf34a338e96f95b01b1569c2cb014" compoundref="prach__preamble__information_8cpp" startline="15" endline="45">srsgnb::get_prach_preamble_long_info</references>
+        <references refid="namespacesrsgnb_1a67fbfc584f45a838f893a16659889a12" compoundref="prach__frequency__mapping_8cpp" startline="15" endline="89">srsgnb::prach_frequency_mapping_get</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1aca9f183785e4cf0ad35575f928854b1e" compoundref="prach__preamble__information_8h" startline="26">srsgnb::prach_preamble_information::scs</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1ae23c117f2330e912ada0a58f6610c2b0" compoundref="ofdm__prach__demodulator_8h" startline="36">srsgnb::ofdm_prach_demodulator::configuration::pusch_scs</references>
+        <references refid="structsrsgnb_1_1prach__frequency__mapping__information_1adc552642e4e942ab2b6617760c422435" compoundref="prach__frequency__mapping_8h" startline="22">srsgnb::prach_frequency_mapping_information::nof_rb_ra</references>
+        <references refid="namespacesrsgnb_1a13d0955c3694d41b59a80b830b15adba" compoundref="prach__frequency__mapping_8h" startline="28">srsgnb::PRACH_FREQUENCY_MAPPING_INFORMATION_RESERVED</references>
+        <references refid="structsrsgnb_1_1prach__frequency__mapping__information_1a01dcc8f59a579dc3753ba99397b33c69" compoundref="prach__frequency__mapping_8h" startline="24">srsgnb::prach_frequency_mapping_information::k_bar</references>
+        <references refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a85465804a9c15dcf852dd22c7cc724d9" compoundref="ofdm__prach__demodulator__impl_8h" startline="26">dft_1_25kHz</references>
+        <references refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1af77925b6760159ee3242371c1827c91c" compoundref="ofdm__prach__demodulator__impl_8h" startline="28">dft_5kHz</references>
+        <references refid="classsrsgnb_1_1prach__subcarrier__spacing_1a04728cf26656e0cef59be695d5b0df2c" compoundref="prach__subcarrier__spacing_8h" startline="33" endline="50">srsgnb::prach_subcarrier_spacing::to_Hz</references>
+        <references refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" compoundref="subcarrier__spacing_8h" startline="44" endline="48">srsgnb::scs_to_khz</references>
+        <references refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00">srsgnb::dft_processor::get_size</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a43681ad254b496aa14a36ce3419657db" compoundref="prach__preamble__information_8h" startline="28">srsgnb::prach_preamble_information::symbol_length</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a433d320f24c22e31e614054183b08c15" compoundref="prach__preamble__information_8h" startline="30">srsgnb::prach_preamble_information::cp_length</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a1399c2c4775b476b2fb9a53d8489b281" compoundref="ofdm__prach__demodulator_8h" startline="34">srsgnb::ofdm_prach_demodulator::configuration::nof_prb_ul_grid</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a6bd5da56d28344d19dff0e81adf008d5" compoundref="ofdm__prach__demodulator_8h" startline="32">srsgnb::ofdm_prach_demodulator::configuration::rb_offset</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" compoundref="prach__preamble__information_8h" startline="24">srsgnb::prach_preamble_information::sequence_length</references>
+        <references refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" compoundref="span_8h" startline="200" endline="204">srsgnb::span&lt; T &gt;::last</references>
+        <references refid="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de">srsgnb::dft_processor::get_input</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3">srsgnb::dft_processor::run</references>
+        <references refid="classsrsgnb_1_1prach__buffer_1a750234bb9365a62b88e2bd1ba09ad354">srsgnb::prach_buffer::get_symbol</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a generic OFDM PRACH demodulator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ofdm_prach_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_prach_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::ofdm_prach_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_prach_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__prach__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" line="23" column="1" bodyfile="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.h" bodystart="22" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" prot="public" virt="virtual"><scope>srsgnb::ofdm_prach_demodulator_impl</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a85465804a9c15dcf852dd22c7cc724d9" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_prach_demodulator_impl</scope><name>dft_1_25kHz</name></member>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1af77925b6760159ee3242371c1827c91c" prot="private" virt="non-virtual"><scope>srsgnb::ofdm_prach_demodulator_impl</scope><name>dft_5kHz</name></member>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a9f6fc26104a420be60397b494748237e" prot="public" virt="non-virtual"><scope>srsgnb::ofdm_prach_demodulator_impl</scope><name>ofdm_prach_demodulator_impl</name></member>
+      <member refid="classsrsgnb_1_1ofdm__prach__demodulator_1a3b02cce143ff09aefd7b967b47766e1d" prot="public" virt="virtual"><scope>srsgnb::ofdm_prach_demodulator_impl</scope><name>~ofdm_prach_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

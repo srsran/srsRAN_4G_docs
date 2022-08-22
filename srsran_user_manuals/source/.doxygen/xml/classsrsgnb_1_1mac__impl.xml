@@ -1,0 +1,804 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1mac__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::mac_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__interface" prot="public" virt="non-virtual">srsgnb::mac_interface</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1mac__cell__control__information__handler" prot="public" virt="non-virtual">srsgnb::mac_cell_control_information_handler</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1mac__ue__control__information__handler" prot="public" virt="non-virtual">srsgnb::mac_ue_control_information_handler</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1a7e39a46829dc8cf79d33e0706cc6cd9c" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1mac__common__config__t" kindref="compound">mac_common_config_t</ref></type>
+        <definition>mac_common_config_t srsgnb::mac_impl::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="58" column="23" bodyfile="lib/mac/mac_impl.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1a0f817cfc951a0c9dd6570602df340cd8" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref></type>
+        <definition>du_rnti_table srsgnb::mac_impl::rnti_table</definition>
+        <argsstring></argsstring>
+        <name>rnti_table</name>
+        <briefdescription>
+<para>Table used to convert from RNTI to UE index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="61" column="17" bodyfile="lib/mac/mac_impl.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1a764d4c8f3a5b04139917321a1d03b65d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__sched__config__adapter" kindref="compound">srs_sched_config_adapter</ref></type>
+        <definition>srs_sched_config_adapter srsgnb::mac_impl::sched_cfg_adapter</definition>
+        <argsstring></argsstring>
+        <name>sched_cfg_adapter</name>
+        <briefdescription>
+<para>Handle used to await scheduler configurations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="64" column="28" bodyfile="lib/mac/mac_impl.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1abe583ea2816733cef2e651f5736c1cb8" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1mac__scheduler" kindref="compound">mac_scheduler</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;mac_scheduler&gt; srsgnb::mac_impl::sched_obj</definition>
+        <argsstring></argsstring>
+        <name>sched_obj</name>
+        <briefdescription>
+<para>MAC Scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="67" column="19" bodyfile="lib/mac/mac_impl.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1mac__impl_1a89d218099bbb521b042ac05d1191329b" compoundref="mac__impl_8cpp" startline="33" endline="40">handle_dl_bsr_update_required</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1aaabac40da476429418820b3e6bc8a0a7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__dl__processor" kindref="compound">mac_dl_processor</ref></type>
+        <definition>mac_dl_processor srsgnb::mac_impl::dl_unit</definition>
+        <argsstring></argsstring>
+        <name>dl_unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="69" column="20" bodyfile="lib/mac/mac_impl.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1aed451e3cdc218c29095dde5ca535e201" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__ul__processor" kindref="compound">mac_ul_processor</ref></type>
+        <definition>mac_ul_processor srsgnb::mac_impl::ul_unit</definition>
+        <argsstring></argsstring>
+        <name>ul_unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="70" column="20" bodyfile="lib/mac/mac_impl.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1ae9b8099237e879a573c0865f1c806796" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rach__handler" kindref="compound">rach_handler</ref></type>
+        <definition>rach_handler srsgnb::mac_impl::rach_hdl</definition>
+        <argsstring></argsstring>
+        <name>rach_hdl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="71" column="20" bodyfile="lib/mac/mac_impl.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__impl_1aa48a8a400b79eb87986660fc1232dc85" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1mac__controller" kindref="compound">mac_controller</ref></type>
+        <definition>mac_controller srsgnb::mac_impl::ctrl_unit</definition>
+        <argsstring></argsstring>
+        <name>ctrl_unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="72" column="20" bodyfile="lib/mac/mac_impl.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1abe21dfa118210132eec13034263ad596" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::mac_impl::mac_impl</definition>
+        <argsstring>(mac_ul_ccch_notifier &amp;event_notifier, du_l2_ul_executor_mapper &amp;ul_exec_mapper, du_l2_dl_executor_mapper &amp;dl_exec_mapper, task_executor &amp;ctrl_exec, mac_result_notifier &amp;phy_notifier_)</argsstring>
+        <name>mac_impl</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1mac__ul__ccch__notifier" kindref="compound">mac_ul_ccch_notifier</ref> &amp;</type>
+          <declname>event_notifier</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1du__l2__ul__executor__mapper" kindref="compound">du_l2_ul_executor_mapper</ref> &amp;</type>
+          <declname>ul_exec_mapper</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1du__l2__dl__executor__mapper" kindref="compound">du_l2_dl_executor_mapper</ref> &amp;</type>
+          <declname>dl_exec_mapper</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>ctrl_exec</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1mac__result__notifier" kindref="compound">mac_result_notifier</ref> &amp;</type>
+          <declname>phy_notifier_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="30" column="12" bodyfile="lib/mac/mac_impl.cpp" bodystart="17" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1ad69207dacb5f173497896f506bf238eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__cell__rach__handler" kindref="compound">mac_cell_rach_handler</ref> &amp;</type>
+        <definition>mac_cell_rach_handler&amp; srsgnb::mac_impl::get_rach_handler</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>get_rach_handler</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1a3a03ec4b26d825aefbca950a9f0cb8e5">get_rach_handler</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Returns handler of PRACHs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="36" column="25" bodyfile="lib/mac/mac_impl.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1af2283b7eb949cf6b2cb29adcb11c6e64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__ue__configurator" kindref="compound">mac_ue_configurator</ref> &amp;</type>
+        <definition>mac_ue_configurator&amp; srsgnb::mac_impl::get_ue_configurator</definition>
+        <argsstring>() override</argsstring>
+        <name>get_ue_configurator</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1a12db579dc35ecf94b5d6a88ec848eec9">get_ue_configurator</reimplements>
+        <briefdescription>
+<para>Returns MAC UE configuration handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="38" column="23" bodyfile="lib/mac/mac_impl.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1ab6a112800afca58c7df8b0d507350b53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__cell__control__information__handler" kindref="compound">mac_cell_control_information_handler</ref> &amp;</type>
+        <definition>mac_cell_control_information_handler&amp; srsgnb::mac_impl::get_control_info_handler</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>get_control_info_handler</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1a9b5b8ea90b6e7233ed912bb9a9b1e08c">get_control_info_handler</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Returns handler for UL and DL control information for a given cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="40" column="40" bodyfile="lib/mac/mac_impl.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1ae0605a94c1c57387521a36dc3170b98c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__ue__control__information__handler" kindref="compound">mac_ue_control_information_handler</ref> &amp;</type>
+        <definition>mac_ue_control_information_handler&amp; srsgnb::mac_impl::get_ue_control_info_handler</definition>
+        <argsstring>() override</argsstring>
+        <name>get_ue_control_info_handler</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1af09488649aa465e00536d9d47e9e4648">get_ue_control_info_handler</reimplements>
+        <briefdescription>
+<para>Returns handler for UE control information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="42" column="38" bodyfile="lib/mac/mac_impl.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1ad340312279a0d6cce9c1a262501d5a83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__cell__slot__handler" kindref="compound">mac_cell_slot_handler</ref> &amp;</type>
+        <definition>mac_cell_slot_handler&amp; srsgnb::mac_impl::get_slot_handler</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>get_slot_handler</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1a94bda6f76118b95e1ebbb6c3d9a7fd6c">get_slot_handler</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Returns handler of slot indications for a cell with provided cell_index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of cell currently activated in the DU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="44" column="25" bodyfile="lib/mac/mac_impl.h" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1ac4ef2f1bdb585633a816e0409697724e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__cell__manager" kindref="compound">mac_cell_manager</ref> &amp;</type>
+        <definition>mac_cell_manager&amp; srsgnb::mac_impl::get_cell_manager</definition>
+        <argsstring>() override</argsstring>
+        <name>get_cell_manager</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1aa3ebafb851c771316520c325f4a7bfa6">get_cell_manager</reimplements>
+        <briefdescription>
+<para>Returns MAC management handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="49" column="20" bodyfile="lib/mac/mac_impl.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1af5e6070fd3e925bbdf9ad9c32043794b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1mac__pdu__handler" kindref="compound">mac_pdu_handler</ref> &amp;</type>
+        <definition>mac_pdu_handler&amp; srsgnb::mac_impl::get_pdu_handler</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>get_pdu_handler</name>
+        <reimplements refid="classsrsgnb_1_1mac__interface_1aae7a0f041f52d572fef64d64080eee16">get_pdu_handler</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Returns PDU handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="51" column="19" bodyfile="lib/mac/mac_impl.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1a724de1d3b5dc74c277b0fa15217eb766" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::mac_impl::handle_crc</definition>
+        <argsstring>(const crc_indication_message &amp;msg) override</argsstring>
+        <name>handle_crc</name>
+        <reimplements refid="classsrsgnb_1_1mac__cell__control__information__handler_1a20ccc89803f152a1c926dbebff273082">handle_crc</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1crc__indication__message" kindref="compound">crc_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="53" column="8" bodyfile="lib/mac/mac_impl.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__impl_1a89d218099bbb521b042ac05d1191329b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::mac_impl::handle_dl_bsr_update_required</definition>
+        <argsstring>(const mac_dl_bsr_indication_message &amp;dl_bsr) override</argsstring>
+        <name>handle_dl_bsr_update_required</name>
+        <reimplements refid="classsrsgnb_1_1mac__ue__control__information__handler_1acf5ec333887fd678bbb9a56f5b19f8d1">handle_dl_bsr_update_required</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__dl__bsr__indication__message" kindref="compound">mac_dl_bsr_indication_message</ref> &amp;</type>
+          <declname>dl_bsr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Marks that the DL buffer state for a given UE logical channel needs to be recomputed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ue_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UE identification. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lcid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LCID of the logical channel for which the buffer state needs to be recomputed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_impl.h" line="55" column="8" bodyfile="lib/mac/mac_impl.cpp" bodystart="33" bodyend="40"/>
+        <references refid="classsrsgnb_1_1mac__impl_1abe583ea2816733cef2e651f5736c1cb8" compoundref="mac__impl_8h" startline="67">sched_obj</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>srsgnb::mac_ue_control_information_handler</label>
+        <link refid="classsrsgnb_1_1mac__ue__control__information__handler"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_interface</label>
+        <link refid="classsrsgnb_1_1mac__interface"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_impl</label>
+        <link refid="classsrsgnb_1_1mac__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::mac_cell_control_information_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__control__information__handler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="46">
+        <label>srsgnb::mac_controller</label>
+        <link refid="classsrsgnb_1_1mac__controller"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="41" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-sched_cfg</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>-rach_unit</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>-dl_unit</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>-ul_unit</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>srsgnb::mac_result_notifier</label>
+        <link refid="classsrsgnb_1_1mac__result__notifier"/>
+      </node>
+      <node id="23">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="28">
+        <label>srsgnb::mac_ul_ue_manager</label>
+        <link refid="classsrsgnb_1_1mac__ul__ue__manager"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>srsgnb::mac_ul_ccch_notifier</label>
+        <link refid="classsrsgnb_1_1mac__ul__ccch__notifier"/>
+      </node>
+      <node id="45">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="27">
+        <label>srsgnb::pdu_rx_handler</label>
+        <link refid="classsrsgnb_1_1pdu__rx__handler"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>-ue_manager</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-sched</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::scheduler_dl_buffer_state_indicator</label>
+        <link refid="classsrsgnb_1_1scheduler__dl__buffer__state__indicator"/>
+      </node>
+      <node id="17">
+        <label>T</label>
+      </node>
+      <node id="42">
+        <label>srsgnb::mac_dl_ue_manager</label>
+        <link refid="classsrsgnb_1_1mac__dl__ue__manager"/>
+        <childnode refid="43" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb::rach_handler</label>
+        <link refid="classsrsgnb_1_1rach__handler"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-sched</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>-cells</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>-rnti_alloc</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb::rnti_allocator</label>
+        <link refid="classsrsgnb_1_1rnti__allocator"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::mac_ul_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_sched_config_adapter</label>
+        <link refid="classsrsgnb_1_1srs__sched__config__adapter"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-srs_sched</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::mac_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>srsgnb::slot_array&lt; srsgnb::mac_ue_context &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="50" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::mac_ue_control_information_handler</label>
+        <link refid="classsrsgnb_1_1mac__ue__control__information__handler"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::scheduler_ue_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__ue__configurator"/>
+      </node>
+      <node id="31">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::mac_ul_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="47">
+        <label>srsgnb::mac_ctrl_configurator</label>
+        <link refid="classsrsgnb_1_1mac__ctrl__configurator"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::mac_scheduler</label>
+        <link refid="classsrsgnb_1_1mac__scheduler"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb::rach_handler_configurator</label>
+        <link refid="classsrsgnb_1_1rach__handler__configurator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::mac_interface</label>
+        <link refid="classsrsgnb_1_1mac__interface"/>
+      </node>
+      <node id="43">
+        <label>srsgnb::slot_array&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="44" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>srsgnb::mac_cell_manager</label>
+        <link refid="classsrsgnb_1_1mac__cell__manager"/>
+      </node>
+      <node id="48">
+        <label>srsgnb::mac_ue_configurator</label>
+        <link refid="classsrsgnb_1_1mac__ue__configurator"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::sched_configuration_notifier</label>
+        <link refid="classsrsgnb_1_1sched__configuration__notifier"/>
+      </node>
+      <node id="13">
+        <label>srsgnb::scheduler_slot_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__slot__handler"/>
+      </node>
+      <node id="26">
+        <label>srsgnb::mac_pdu_handler</label>
+        <link refid="classsrsgnb_1_1mac__pdu__handler"/>
+      </node>
+      <node id="40">
+        <label>srsgnb::mac_dl_configurator</label>
+        <link refid="classsrsgnb_1_1mac__dl__configurator"/>
+        <childnode refid="41" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::srs_sched_config_adapter::sched_config_notif_adapter</label>
+        <link refid="classsrsgnb_1_1srs__sched__config__adapter_1_1sched__config__notif__adapter"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb::mac_common_config_t</label>
+        <link refid="structsrsgnb_1_1mac__common__config__t"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+ul_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>+phy_notifier</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>+dl_exec_mapper</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+event_notifier</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>+ctrl_exec</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__configurator"/>
+      </node>
+      <node id="21">
+        <label>srsgnb::du_l2_dl_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__dl__executor__mapper"/>
+      </node>
+      <node id="25">
+        <label>srsgnb::mac_ul_configurator</label>
+        <link refid="classsrsgnb_1_1mac__ul__configurator"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::mac_scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1mac__scheduler__configurator"/>
+      </node>
+      <node id="39">
+        <label>srsgnb::mac_dl_processor</label>
+        <link refid="classsrsgnb_1_1mac__dl__processor"/>
+        <childnode refid="40" relation="public-inheritance">
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>-ue_mng</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-sched_obj</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>-sched_bsr_updater</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="19">
+        <label>srsgnb::du_l2_ul_executor_mapper</label>
+        <link refid="classsrsgnb_1_1du__l2__ul__executor__mapper"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::mac_ul_processor</label>
+        <link refid="classsrsgnb_1_1mac__ul__processor"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>-pdu_handler</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>-ue_manager</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb::slot_array&lt; srsgnb::mac_ul_ue_context &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="30" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_impl</label>
+        <link refid="classsrsgnb_1_1mac__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-sched_cfg_adapter</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>-ul_unit</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>-rach_hdl</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>-dl_unit</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>-ctrl_unit</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb::du_rnti_table</label>
+        <link refid="classsrsgnb_1_1du__rnti__table"/>
+      </node>
+      <node id="12">
+        <label>srsgnb::scheduler_feedback_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__feedback__handler"/>
+      </node>
+      <node id="51">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::mac_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="37">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::cell_rach_handler &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="44">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::mac_cell_control_information_handler</label>
+        <link refid="classsrsgnb_1_1mac__cell__control__information__handler"/>
+      </node>
+      <node id="35">
+        <label>srsgnb::slot_array&lt; srsgnb::cell_rach_handler, MAX_NOF_DU_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="36" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::cell_rach_handler &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/mac_impl.h" line="28" column="1" bodyfile="lib/mac/mac_impl.h" bodystart="25" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1mac__impl_1a7e39a46829dc8cf79d33e0706cc6cd9c" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1aa48a8a400b79eb87986660fc1232dc85" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>ctrl_unit</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1aaabac40da476429418820b3e6bc8a0a7" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>dl_unit</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ac4ef2f1bdb585633a816e0409697724e" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_cell_manager</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ab6a112800afca58c7df8b0d507350b53" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_control_info_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1af5e6070fd3e925bbdf9ad9c32043794b" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_pdu_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ad69207dacb5f173497896f506bf238eb" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_rach_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ad340312279a0d6cce9c1a262501d5a83" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_slot_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1af2283b7eb949cf6b2cb29adcb11c6e64" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_ue_configurator</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ae0605a94c1c57387521a36dc3170b98c" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>get_ue_control_info_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1a724de1d3b5dc74c277b0fa15217eb766" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>handle_crc</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1a89d218099bbb521b042ac05d1191329b" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>handle_dl_bsr_update_required</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1abe21dfa118210132eec13034263ad596" prot="public" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>mac_impl</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1ae9b8099237e879a573c0865f1c806796" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>rach_hdl</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1a0f817cfc951a0c9dd6570602df340cd8" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>rnti_table</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1a764d4c8f3a5b04139917321a1d03b65d" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>sched_cfg_adapter</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1abe583ea2816733cef2e651f5736c1cb8" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>sched_obj</name></member>
+      <member refid="classsrsgnb_1_1mac__impl_1aed451e3cdc218c29095dde5ca535e201" prot="private" virt="non-virtual"><scope>srsgnb::mac_impl</scope><name>ul_unit</name></member>
+      <member refid="classsrsgnb_1_1mac__cell__control__information__handler_1a53959a5279e4493b5265aefba80b8b4a" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>~mac_cell_control_information_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__interface_1a957dd236b6e2bb87cc25607030f7b1af" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>~mac_interface</name></member>
+      <member refid="classsrsgnb_1_1mac__ue__control__information__handler_1aef5e8fc5579312d8aeefb3b49396a218" prot="public" virt="virtual"><scope>srsgnb::mac_impl</scope><name>~mac_ue_control_information_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

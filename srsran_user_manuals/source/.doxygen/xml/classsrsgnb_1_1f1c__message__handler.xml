@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1f1c__message__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::f1c_message_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1colocated__f1c__pdu__handler" prot="public" virt="non-virtual">srsgnb::colocated_f1c_pdu_handler</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1f1ap__asn1__packer" prot="public" virt="non-virtual">srsgnb::f1ap_asn1_packer</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1remote__f1c__pdu__handler" prot="public" virt="non-virtual">srsgnb::remote_f1c_pdu_handler</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1f1__interface" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::f1_interface</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__du_1_1f1__interface" prot="public" virt="non-virtual">srsgnb::srs_du::f1_interface</derivedcompoundref>
+    <includes refid="f1c__common_8h" local="no">f1c_common.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1f1c__message__handler_1af0a7ffc3f69fbb88917f3d8e56ce6826" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::f1c_message_handler::~f1c_message_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~f1c_message_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/common/f1c_common.h" line="25" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1f1c__message__handler_1a6e86415df9c50b8294b819b1fc5b1e79" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::f1c_message_handler::handle_message</definition>
+        <argsstring>(const f1c_msg &amp;msg)=0</argsstring>
+        <name>handle_message</name>
+        <reimplementedby refid="classsrsgnb_1_1f1ap__asn1__packer_1a1c19ac018add5574db7b41a08e20a0eb">handle_message</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5c9e76c1502be565f405be507ab528d">handle_message</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__impl_1a5dd21a98b350f921ef80c0f35ea36ae3">handle_message</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1f1c__msg" kindref="compound">f1c_msg</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming F1AP message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/common/f1c_common.h" line="28" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This interface represents the F1-C interface used to transmit F1AP messages. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>srsgnb::remote_f1c_pdu_handler</label>
+        <link refid="classsrsgnb_1_1remote__f1c__pdu__handler"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_cu_cp::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1__interface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::srs_du::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1__interface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::colocated_f1c_pdu_handler</label>
+        <link refid="classsrsgnb_1_1colocated__f1c__pdu__handler"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::srs_cu_cp::f1ap_cu_impl</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__impl"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::f1c_message_handler</label>
+        <link refid="classsrsgnb_1_1f1c__message__handler"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::f1ap_asn1_packer</label>
+        <link refid="classsrsgnb_1_1f1ap__asn1__packer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::srs_du::f1ap_du_impl</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::f1c_message_handler</label>
+        <link refid="classsrsgnb_1_1f1c__message__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/f1_interface/common/f1c_common.h" line="23" column="1" bodyfile="include/srsgnb/f1_interface/common/f1c_common.h" bodystart="22" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1f1c__message__handler_1a6e86415df9c50b8294b819b1fc5b1e79" prot="public" virt="pure-virtual"><scope>srsgnb::f1c_message_handler</scope><name>handle_message</name></member>
+      <member refid="classsrsgnb_1_1f1c__message__handler_1af0a7ffc3f69fbb88917f3d8e56ce6826" prot="public" virt="virtual"><scope>srsgnb::f1c_message_handler</scope><name>~f1c_message_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

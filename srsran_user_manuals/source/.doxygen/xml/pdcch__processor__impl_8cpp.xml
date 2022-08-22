@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pdcch__processor__impl_8cpp" kind="file" language="C++">
+    <compoundname>pdcch_processor_impl.cpp</compoundname>
+    <includes refid="pdcch__processor__impl_8h" local="yes">pdcch_processor_impl.h</includes>
+    <includes refid="cce__to__prb__mapping_8h" local="yes">srsgnb/ran/pdcch/cce_to_prb_mapping.h</includes>
+    <includes refid="math__utils_8h" local="yes">srsgnb/support/math_utils.h</includes>
+    <incdepgraph>
+      <node id="50">
+        <label>atomic</label>
+      </node>
+      <node id="68">
+        <label>srsgnb/ran/resource_allocation/rb_interval.h</label>
+        <link refid="rb__interval_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="64">
+        <label>srsgnb/ran/pdcch/cce_to_prb_mapping.h</label>
+        <link refid="cce__to__prb__mapping_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="22">
+        <label>cassert</label>
+      </node>
+      <node id="53">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="30">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="61">
+        <label>srsgnb/ran/slot_point.h</label>
+        <link refid="slot__point_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>srsgnb/ran/pdcch/coreset.h</label>
+        <link refid="coreset_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>pthread.h</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="49">
+        <label>tuple</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>srsgnb/phy/upper/signal_processors/dmrs_pdcch_processor.h</label>
+        <link refid="dmrs__pdcch__processor_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="57">
+        <label>srsgnb/ran/cyclic_prefix.h</label>
+        <link refid="cyclic__prefix_8h"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pdcch_processor_impl.cpp</label>
+        <link refid="pdcch__processor__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>utility</label>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="62">
+        <label>srsgnb/adt/interval.h</label>
+        <link refid="interval_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="2">
+        <label>pdcch_processor_impl.h</label>
+        <link refid="pdcch__processor__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>cstddef</label>
+      </node>
+      <node id="39">
+        <label>chrono</label>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_modulator.h</label>
+        <link refid="pdcch__modulator_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/ran/pdcch/pdcch_constants.h</label>
+        <link refid="pdcch__constants_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_encoder.h</label>
+        <link refid="pdcch__encoder_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>srsgnb/ran/pci.h</label>
+        <link refid="pci_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_processor.h</label>
+        <link refid="pdcch__processor_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pdcch_processor_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/pdcch/cce_to_prb_mapping.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="math__utils_8h" kindref="compound">srsgnb/support/math_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">pdcch_constants;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classsrsgnb_1_1pdcch__processor__impl_1a5ed68866b058ea9ccc9a04539bc35681" refkind="member"><highlight class="normal"><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;MAX_RB&gt;</ref><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a5ed68866b058ea9ccc9a04539bc35681" kindref="member">pdcch_processor_impl::compute_rb_mask</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description" kindref="compound">coreset_description</ref>&amp;<sp/>coreset,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description" kindref="compound">dci_description</ref>&amp;<sp/><sp/><sp/><sp/><sp/>dci)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">prb_index_list</ref><sp/>prb_indexes;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a078edd335e92859a6fe2762ef1f1b9c4" kindref="member">cce_to_reg_mapping_type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>coreset_description::CORESET0:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prb_indexes<sp/>=<sp/><ref refid="namespacesrsgnb_1a295919f59dbc3b4c26249c0071186e5a" kindref="member">cce_to_prb_mapping_coreset0</ref>(coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a65f24143420dd59cf980007bfe07581b" kindref="member">bwp_start_rb</ref>,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a991548a6db29d19afcae299b2b5687a9" kindref="member">bwp_size_rb</ref>,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a9d0cdd3c49881294a103b69f2ba0cac2" kindref="member">shift_index</ref>,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a3fb8d0377efab90c9c2c116d4f46bb1e" kindref="member">aggregation_level</ref>,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1ac5aba0f2d987562b11cbd84da3c6514c" kindref="member">cce_index</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>coreset_description::NON_INTERLEAVED:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prb_indexes<sp/>=<sp/><ref refid="namespacesrsgnb_1abf758ba2053d50a0b628cc341fd177a3" kindref="member">cce_to_prb_mapping_non_interleaved</ref>(</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a65f24143420dd59cf980007bfe07581b" kindref="member">bwp_start_rb</ref>,<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a17a03b503b3d78f1e5896628b0df4f2c" kindref="member">frequency_resources</ref>,<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>,<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a3fb8d0377efab90c9c2c116d4f46bb1e" kindref="member">aggregation_level</ref>,<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1ac5aba0f2d987562b11cbd84da3c6514c" kindref="member">cce_index</ref>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>coreset_description::INTERLEAVED:</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prb_indexes<sp/>=<sp/><ref refid="namespacesrsgnb_1a477d949f11fc791bf27454f2e8672ebc" kindref="member">cce_to_prb_mapping_interleaved</ref>(coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a65f24143420dd59cf980007bfe07581b" kindref="member">bwp_start_rb</ref>,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a17a03b503b3d78f1e5896628b0df4f2c" kindref="member">frequency_resources</ref>,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a8f037fe9959dd38871c82a3c6aa02fea" kindref="member">reg_bundle_size</ref>,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a5b2c187c44acbb90bf22c506a3df50a8" kindref="member">interleaver_size</ref>,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a9d0cdd3c49881294a103b69f2ba0cac2" kindref="member">shift_index</ref>,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a3fb8d0377efab90c9c2c116d4f46bb1e" kindref="member">aggregation_level</ref>,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1ac5aba0f2d987562b11cbd84da3c6514c" kindref="member">cce_index</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;MAX_RB&gt;</ref><sp/>result(coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a65f24143420dd59cf980007bfe07581b" kindref="member">bwp_start_rb</ref><sp/>+<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a991548a6db29d19afcae299b2b5687a9" kindref="member">bwp_size_rb</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>prb_index<sp/>:<sp/>prb_indexes)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>result.set(prb_index,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classsrsgnb_1_1pdcch__processor__impl_1a587b4e2dd388ff5f095ca50aa1f03826" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a587b4e2dd388ff5f095ca50aa1f03826" kindref="member">pdcch_processor_impl::process</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">srsgnb::resource_grid_writer</ref>&amp;<sp/>grid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t" kindref="compound">pdcch_processor::pdu_t</ref>&amp;<sp/>pdu)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description" kindref="compound">coreset_description</ref>&amp;<sp/>coreset<sp/>=<sp/>pdu.<ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t_1ad9390beade270715a0fc17a34f46164a" kindref="member">coreset</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>CORESET.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>srsgnb_assert(coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref><sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref><sp/>&lt;=<sp/>MAX_CORESET_DURATION,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>CORESET<sp/>duration<sp/>(%d)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>each<sp/>DCI<sp/>described<sp/>in<sp/>the<sp/>PDU...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description" kindref="compound">dci_description</ref>&amp;<sp/>dci<sp/>:<sp/>pdu.<ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t_1aab8ca6afa7f7f73c9d3447ff25632783" kindref="member">dci_list</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>RB<sp/>mask.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;MAX_RB&gt;</ref><sp/>rb_mask<sp/>=<sp/>compute_rb_mask(coreset,<sp/>dci);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>payload.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_DCI_PAYLOAD_SIZE&gt;</ref>&amp;<sp/>payload<sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1aa95655b7a4744b07cc1b849fabe41cac" kindref="member">payload</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>PDCCH<sp/>encoder<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pdcch__encoder_1_1config__t" kindref="compound">pdcch_encoder::config_t</ref><sp/>encoder_config<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>encoder_config.<ref refid="structsrsgnb_1_1pdcch__encoder_1_1config__t_1a4987a665230bcd2049a88e1983658d21" kindref="member">E</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a3fb8d0377efab90c9c2c116d4f46bb1e" kindref="member">aggregation_level</ref><sp/>*<sp/>NOF_REG_PER_CCE<sp/>*<sp/>NOF_RE_PDCCH_PER_RB<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>encoder_config.<ref refid="structsrsgnb_1_1pdcch__encoder_1_1config__t_1a88e8739f3869323a72b5df05d6e42262" kindref="member">rnti</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1ab80fa6b9a3daf1cc7f4c8f57ebb769bf" kindref="member">rnti</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Encode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_NOF_BITS&gt;</ref><sp/>encoded(nof_encoded_bits(dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a3fb8d0377efab90c9c2c116d4f46bb1e" kindref="member">aggregation_level</ref>));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>encoder-&gt;encode(encoded,<sp/>payload,<sp/>encoder_config);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>PDCCH<sp/>modulator<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">pdcch_modulator::config_t</ref><sp/>modulator_config<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1aafbd4c1ef9ba10c44c4d318f9bd01ab3" kindref="member">rb_mask</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>rb_mask;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1af374f036ef2ebcfba3710e54632dbe3b" kindref="member">start_symbol_index</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a59630af74cb4ac7068ef7214d28abdd3" kindref="member">start_symbol_index</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a1545fec789ecd221ffe944cb27e11005" kindref="member">duration</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a4b986f6f386336a40ae42d52ecfca1ec" kindref="member">n_id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a4498c82ad1e40d2b1e62d72a7352b265" kindref="member">n_id_pdcch_data</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1ade7c8d6902fd58bb17cbf7de5b81ac80" kindref="member">n_rnti</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a2318e603d98e55646a1d1d6d98231fe4" kindref="member">n_rnti</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a98e5c09442843ec5f5210f9d5976cb4b" kindref="member">scaling</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" kindref="member">convert_dB_to_amplitude</ref>(dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1aeaad2095c1d16624722314c48c58d7b8" kindref="member">data_power_offset_dB</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator_config.<ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a84e2ac67920ec230556def0e8d8d09a1" kindref="member">ports</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1afa4518825ec735de4929eddf1b905760" kindref="member">ports</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modulate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>modulator-&gt;modulate(grid,<sp/>encoded,<sp/>modulator_config);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>reference_point_k_rb<sp/>=</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a078edd335e92859a6fe2762ef1f1b9c4" kindref="member">cce_to_reg_mapping_type</ref><sp/>==<sp/>coreset_description::CORESET0<sp/>?<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a65f24143420dd59cf980007bfe07581b" kindref="member">bwp_start_rb</ref><sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>DMRS<sp/>for<sp/>PDCCH<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t" kindref="compound">dmrs_pdcch_processor::config_t</ref><sp/>dmrs_pdcch_config<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1adb9d00339027e8a006f5a2dc9790c712" kindref="member">slot</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pdu.<ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t_1ad3334bb4621fab60a82b787e065186b4" kindref="member">slot</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a965677a16479f1e0a7b259d554f68d9a" kindref="member">cp</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pdu.<ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t_1a3641f7eb4582f933ee4a3f75c19ba024" kindref="member">cp</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a0b83f35bed40965c0e58ad02353acc72" kindref="member">reference_point_k_rb</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>reference_point_k_rb;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1ad56a9d0d1869af4323c43356bd0e12f4" kindref="member">rb_mask</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>rb_mask;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a8264f21287aaae2f5654d43546dfe6ed" kindref="member">start_symbol_index</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1a59630af74cb4ac7068ef7214d28abdd3" kindref="member">start_symbol_index</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a0bf0825e477b8f3d1ae9c819f94e03df" kindref="member">duration</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>coreset.<ref refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description_1ab2399dc7433dcd26914f8dea9af9ab7a" kindref="member">duration</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a45776c40136d2f8b6fe125e58919bc5b" kindref="member">n_id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a87bfc7ea3ce76cff33a5ea29ceaa9809" kindref="member">n_id_pdcch_dmrs</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1a41ffc7a71922b978d06a0e162730769c" kindref="member">amplitude</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" kindref="member">convert_dB_to_amplitude</ref>(dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1a488431f40117de9ea5fb3d3ff6f70542" kindref="member">dmrs_power_offset_dB</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pdcch_config.<ref refid="structsrsgnb_1_1dmrs__pdcch__processor_1_1config__t_1aae0c2687c5b336020da4e4dcb79d3b66" kindref="member">ports</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dci.<ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1afa4518825ec735de4929eddf1b905760" kindref="member">ports</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>DMRS.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs-&gt;map(grid,<sp/>dmrs_pdcch_config);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pdcch_processor_impl.cpp"/>
+  </compounddef>
+</doxygen>

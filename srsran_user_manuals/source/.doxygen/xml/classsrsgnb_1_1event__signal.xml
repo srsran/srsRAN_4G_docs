@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1event__signal" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::event_signal</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1detail_1_1signal__event__common" prot="public" virt="non-virtual">srsgnb::detail::signal_event_common</basecompoundref>
+    <includes refid="event__signal_8h" local="no">event_signal.h</includes>
+    <innerclass refid="structsrsgnb_1_1event__signal_1_1awaiter__type" prot="public">srsgnb::event_signal::awaiter_type</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename Data</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1event__signal_1a8a244157f52b04b29528975775d49b59" prot="public" static="no">
+        <type>Data</type>
+        <definition>using srsgnb::event_signal&lt; Data &gt;::result_type =  Data</definition>
+        <argsstring></argsstring>
+        <name>result_type</name>
+        <briefdescription>
+<para>Stored value type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/event_signal.h" line="87" column="3" bodyfile="include/srsgnb/support/async/event_signal.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1event__signal_1a22b75982d854a72e823205ae771e22c5" prot="private" static="no" mutable="no">
+        <type>Data</type>
+        <definition>Data srsgnb::event_signal&lt; Data &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/event_signal.h" line="107" column="8" bodyfile="include/srsgnb/support/async/event_signal.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1event__signal_1ae38c6da2aad5fb5e1ba85e19c5c2bc10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::event_signal&lt; Data &gt;::set</definition>
+        <argsstring>(U &amp;&amp;u)</argsstring>
+        <name>set</name>
+        <param>
+          <type>U &amp;&amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Called to set event value, and trigger all awaiting coroutines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/event_signal.h" line="97" column="8" bodyfile="include/srsgnb/support/async/event_signal.h" bodystart="97" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1event__signal_1a789879960892cda67b3589db1ace01e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1event__signal_1_1awaiter__type" kindref="compound">awaiter_type</ref></type>
+        <definition>awaiter_type srsgnb::event_signal&lt; Data &gt;::get_awaiter</definition>
+        <argsstring>()</argsstring>
+        <name>get_awaiter</name>
+        <briefdescription>
+<para>awaiter interface </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/event_signal.h" line="104" column="16" bodyfile="include/srsgnb/support/async/event_signal.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Similar to &quot;manual_event_flag&quot;, but the data passed to .<ref refid="classsrsgnb_1_1event__signal_1ae38c6da2aad5fb5e1ba85e19c5c2bc10" kindref="member">set()</ref> is propagated to awaiting coroutine. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of data passed to awaiting coroutine </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::detail::signal_event_common</label>
+        <link refid="classsrsgnb_1_1detail_1_1signal__event__common"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::event_signal&lt; Data &gt;</label>
+        <link refid="classsrsgnb_1_1event__signal"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::detail::signal_event_common</label>
+        <link refid="classsrsgnb_1_1detail_1_1signal__event__common"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::event_signal&lt; Data &gt;</label>
+        <link refid="classsrsgnb_1_1event__signal"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/event_signal.h" line="85" column="1" bodyfile="include/srsgnb/support/async/event_signal.h" bodystart="84" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1ab30c774b552d44ea4cf53de3780142ac" prot="protected" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>awaiters</name></member>
+      <member refid="classsrsgnb_1_1event__signal_1a22b75982d854a72e823205ae771e22c5" prot="private" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>data</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1a5502d4e6041360e06b2f58c4cb49468a" prot="protected" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>flush</name></member>
+      <member refid="classsrsgnb_1_1event__signal_1a789879960892cda67b3589db1ace01e8" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>get_awaiter</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1a9521b1f5b27febfa1a011a9386bf7e5e" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1event__signal_1a8a244157f52b04b29528975775d49b59" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>result_type</name></member>
+      <member refid="classsrsgnb_1_1event__signal_1ae38c6da2aad5fb5e1ba85e19c5c2bc10" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>set</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1a49a7676aa8cee4eae57ab0916882d503" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>signal_event_common</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1af9d3bbceda8cbdda73b28ae5aa96271e" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>signal_event_common</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1signal__event__common_1a0b3b2df130970e202c6ba0c41a61f640" prot="public" virt="non-virtual"><scope>srsgnb::event_signal</scope><name>~signal_event_common</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

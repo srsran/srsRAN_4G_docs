@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pdcch_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pdcch__processor__impl" prot="public" virt="non-virtual">srsgnb::pdcch_processor_impl</derivedcompoundref>
+    <includes refid="pdcch__processor_8h" local="no">pdcch_processor.h</includes>
+    <innerclass refid="structsrsgnb_1_1pdcch__processor_1_1coreset__description" prot="public">srsgnb::pdcch_processor::coreset_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pdcch__processor_1_1dci__description" prot="public">srsgnb::pdcch_processor::dci_description</innerclass>
+    <innerclass refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t" prot="public">srsgnb::pdcch_processor::pdu_t</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__processor_1acc356aadd1f7ddd167025e6d62fbebfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pdcch_processor::~pdcch_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pdcch_processor</name>
+        <briefdescription>
+<para>Default detsructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdcch_processor.h" line="128" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__processor_1a260fe27d3006a793c117398c19ab5467" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pdcch_processor::process</definition>
+        <argsstring>(resource_grid_writer &amp;grid, const pdu_t &amp;pdu)=0</argsstring>
+        <name>process</name>
+        <reimplementedby refid="classsrsgnb_1_1pdcch__processor__impl_1a587b4e2dd388ff5f095ca50aa1f03826">process</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Processes a PDCCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the necessary parameters to process the PDCCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdcch_processor.h" line="134" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the PDCCH processor interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The PDCCH processor shall:<itemizedlist>
+<listitem><para>encode DCI, as per TS38.212 Section 7.3, where the DCI payload is given in <computeroutput><ref refid="structsrsgnb_1_1pdcch__processor_1_1dci__description_1aa95655b7a4744b07cc1b849fabe41cac" kindref="member">dci_description::payload</ref></computeroutput>,</para>
+</listitem><listitem><para>modulate PDCCH, as per TS38.211 Section 7.3.2, and</para>
+</listitem><listitem><para>generate DMRS for PDCCH, as per TS38.211 Section 7.4.1.3.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="remark"><para>One Resource Element Group (REG) is equivalent to one Resource Block (RB), that is 12 Resource Elements (REs). </para>
+</simplesect>
+<simplesect kind="remark"><para>One Control-Channel Element (CCE) is equivalent to 6 REGs. </para>
+</simplesect>
+<simplesect kind="remark"><para>REGs are indexed first in time (for each symbol) and then in frequency. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcch_processor</label>
+        <link refid="classsrsgnb_1_1pdcch__processor"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_processor_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__processor__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcch_processor</label>
+        <link refid="classsrsgnb_1_1pdcch__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pdcch_processor.h" line="34" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pdcch_processor.h" bodystart="33" bodyend="135"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__processor_1a260fe27d3006a793c117398c19ab5467" prot="public" virt="pure-virtual"><scope>srsgnb::pdcch_processor</scope><name>process</name></member>
+      <member refid="classsrsgnb_1_1pdcch__processor_1acc356aadd1f7ddd167025e6d62fbebfb" prot="public" virt="virtual"><scope>srsgnb::pdcch_processor</scope><name>~pdcch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

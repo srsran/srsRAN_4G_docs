@@ -1,0 +1,1033 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pusch__decoder__impl_8cpp" kind="file" language="C++">
+    <compoundname>pusch_decoder_impl.cpp</compoundname>
+    <includes refid="pusch__decoder__impl_8h" local="yes">pusch_decoder_impl.h</includes>
+    <includes refid="channel__coding__factories_8h" local="yes">srsgnb/phy/upper/channel_coding/channel_coding_factories.h</includes>
+    <includes refid="bit_8h" local="yes">srsgnb/srsvec/bit.h</includes>
+    <incdepgraph>
+      <node id="45">
+        <label>atomic</label>
+      </node>
+      <node id="21">
+        <label>functional</label>
+      </node>
+      <node id="32">
+        <label>limits</label>
+      </node>
+      <node id="63">
+        <label>srsgnb/support/stats.h</label>
+        <link refid="stats_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>iterator</label>
+      </node>
+      <node id="54">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>srsgnb/phy/upper/channel_coding/crc_calculator.h</label>
+        <link refid="crc__calculator_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>cmath</label>
+      </node>
+      <node id="44">
+        <label>cassert</label>
+      </node>
+      <node id="5">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>stdexcept</label>
+      </node>
+      <node id="51">
+        <label>numeric</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>string</label>
+      </node>
+      <node id="10">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h</label>
+        <link refid="ldpc__segmenter__rx_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h</label>
+        <link refid="ldpc__rate__matcher_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_code.h</label>
+        <link refid="polar__code_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h</label>
+        <link refid="ldpc__segmenter__tx_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h</label>
+        <link refid="ldpc__encoder_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_decoder.h</label>
+        <link refid="polar__decoder_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pusch_decoder_impl.cpp</label>
+        <link refid="pusch__decoder__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_encoder.h</label>
+        <link refid="polar__encoder_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pusch_decoder_impl.h</label>
+        <link refid="pusch__decoder__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_interleaver.h</label>
+        <link refid="polar__interleaver_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>pthread.h</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_deallocator.h</label>
+        <link refid="polar__deallocator_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>cstdio</label>
+      </node>
+      <node id="43">
+        <label>tuple</label>
+      </node>
+      <node id="64">
+        <label>srsgnb/phy/upper/channel_coding/channel_coding_factories.h</label>
+        <link refid="channel__coding__factories_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_rate_matcher.h</label>
+        <link refid="polar__rate__matcher_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>vector</label>
+      </node>
+      <node id="68">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_allocator.h</label>
+        <link refid="polar__allocator_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>utility</label>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>array</label>
+      </node>
+      <node id="74">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_rate_dematcher.h</label>
+        <link refid="polar__rate__dematcher_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>srsgnb/phy/upper/codeblock_metadata.h</label>
+        <link refid="codeblock__metadata_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>cerrno</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstddef</label>
+      </node>
+      <node id="76">
+        <label>srsgnb/srsvec/bit.h</label>
+        <link refid="bit_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h</label>
+        <link refid="ldpc__decoder_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>srsgnb/phy/upper/channel_processors/pusch_decoder.h</label>
+        <link refid="pusch__decoder_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>chrono</label>
+      </node>
+      <node id="16">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h</label>
+        <link refid="ldpc__rate__dematcher_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>type_traits</label>
+      </node>
+      <node id="57">
+        <label>complex</label>
+      </node>
+      <node id="62">
+        <label>srsgnb/phy/upper/rx_softbuffer.h</label>
+        <link refid="rx__softbuffer_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>cstring</label>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb/srslog/bundled/fmt/core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="pusch__decoder__impl_8cpp_1a8265b85efdad49acba1c9ba9e8394730" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned BITS_PER_BYTE</definition>
+        <argsstring></argsstring>
+        <name>BITS_PER_BYTE</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="18" column="27" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="pusch__decoder__impl_8cpp_1a79a2a7aeca06d9ec47e751d6a0c02dd7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned MAX_BITS_CRC16</definition>
+        <argsstring></argsstring>
+        <name>MAX_BITS_CRC16</name>
+        <initializer>= 3824</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="21" column="20" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="pusch__decoder__impl_8cpp_1a8c6dacdc75e01c3240221c288cb39c6d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned LONG_CRC_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>LONG_CRC_LENGTH</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="25" column="20" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="pusch__decoder__impl_8cpp_1aa427d4a0c507a57b0e047f00c5795f64" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned MAX_TBS</definition>
+        <argsstring></argsstring>
+        <name>MAX_TBS</name>
+        <initializer>= 1277992</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="28" column="27" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pusch__decoder__impl_8cpp_1a6b55452f48b1a752323b1d236aec38a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> *</type>
+        <definition>crc_calculator* select_crc</definition>
+        <argsstring>(pusch_decoder_impl::sch_crc &amp;crcs, unsigned tbs, unsigned nof_blocks)</argsstring>
+        <name>select_crc</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc" kindref="compound">pusch_decoder_impl::sch_crc</ref> &amp;</type>
+          <declname>crcs</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>tbs</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_blocks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="31" column="16" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="31" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="pusch__decoder__impl_8cpp_1a595100e2f63cb6138999b5bff4754f0e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>static unsigned get_tb_and_crc_size</definition>
+        <argsstring>(unsigned tb_size, unsigned nof_cbs)</argsstring>
+        <name>get_tb_and_crc_size</name>
+        <param>
+          <type>unsigned</type>
+          <declname>tb_size</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_cbs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="47" column="17" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="47" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="pusch__decoder__impl_8cpp_1a14cc8dcb663398697a9522758308fdbd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::tuple&lt; unsigned, unsigned, unsigned &gt;</type>
+        <definition>static std::tuple&lt;unsigned, unsigned, unsigned&gt; get_cblk_bit_breakdown</definition>
+        <argsstring>(const codeblock_metadata &amp;cb_meta)</argsstring>
+        <name>get_cblk_bit_breakdown</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref> &amp;</type>
+          <declname>cb_meta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="62" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="62" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="pusch__decoder__impl_8cpp_1a07a91ee98b6d266dc2ea6f64567d4db0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1optional" kindref="compound">optional</ref>&lt; unsigned &gt;</type>
+        <definition>static optional&lt;unsigned&gt; decode_cblk</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const log_likelihood_ratio &gt; input, ldpc_decoder *dec, crc_calculator *crc, const codeblock_metadata &amp;cb_meta, const pusch_decoder::configuration &amp;cfg)</argsstring>
+        <name>decode_cblk</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1ldpc__decoder" kindref="compound">ldpc_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> *</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref> &amp;</type>
+          <declname>cb_meta</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration" kindref="compound">pusch_decoder::configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="81" column="17" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="81" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="pusch__decoder__impl_8cpp_1a75191c19e536b8e46640acc18f18199f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool is_tb_crc_ok</definition>
+        <argsstring>(span&lt; const uint8_t &gt; transport_block_bytes, span&lt; const uint8_t &gt; crc_bits, std::unique_ptr&lt; crc_calculator &gt; &amp;crc_calc)</argsstring>
+        <name>is_tb_crc_ok</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>transport_block_bytes</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>crc_bits</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> &gt; &amp;</type>
+          <declname>crc_calc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" line="109" column="13" bodyfile="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp" bodystart="109" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pusch_decoder_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_coding/channel_coding_factories.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/bit.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>one<sp/>byte.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>BITS_PER_BYTE<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Maximum<sp/>TBS<sp/>that<sp/>implies<sp/>a<sp/>16-bit<sp/>CRC.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>MAX_BITS_CRC16<sp/>=<sp/>3824;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>the<sp/>long<sp/>CRC.<sp/>A<sp/>CRC<sp/>of<sp/>this<sp/>length<sp/>is<sp/>used<sp/>either<sp/>for<sp/>TB<sp/>CRCs,<sp/>when<sp/>the<sp/>TB<sp/>is<sp/>longer<sp/>than</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MAX_BITS_CRC16,<sp/>or<sp/>as<sp/>a<sp/>codeblock<sp/>CRC,<sp/>when<sp/>the<sp/>TB<sp/>consists<sp/>of<sp/>multiple<sp/>codeblocks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>LONG_CRC_LENGTH<sp/>=<sp/>24;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Maximum<sp/>accepted<sp/>transport<sp/>block<sp/>size.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a552cef0a747eb50da9d0be2f6af103c8" kindref="member">MAX_TBS</ref><sp/>=<sp/>1277992;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Select<sp/>the<sp/>CRC<sp/>for<sp/>the<sp/>decoder<sp/>based<sp/>on<sp/>the<sp/>TBS<sp/>and<sp/>the<sp/>number<sp/>of<sp/>codeblocks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>*<sp/>select_crc(<ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc" kindref="compound">pusch_decoder_impl::sch_crc</ref>&amp;<sp/>crcs,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tbs,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_blocks)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_blocks<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>crcs.<ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1acc56155ce8d9cc601979d8d9a99fda4d" kindref="member">crc24B</ref>.get();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>From<sp/>here,<sp/>we<sp/>have<sp/>only<sp/>1<sp/>codeblock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tbs<sp/>&gt;<sp/>MAX_BITS_CRC16)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>crcs.<ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1aade2d060d8a8d35243828a0192abf1d2" kindref="member">crc24A</ref>.get();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>One<sp/>short<sp/>codeblock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>crcs.<ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1ae99b598cf8c1b4d3cf88f6e2bd8b2ce9" kindref="member">crc16</ref>.get();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Computes<sp/>the<sp/>TB<sp/>size<sp/>in<sp/>bits<sp/>including<sp/>the<sp/>CRC.<sp/>The<sp/>CRC<sp/>is<sp/>accounted<sp/>for<sp/>only<sp/>when<sp/>there<sp/>are<sp/>multiple<sp/>codeblocks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Otherwise,<sp/>one<sp/>the<sp/>TB<sp/>consists<sp/>of<sp/>a<sp/>single<sp/>codeblock,<sp/>tb_and_crc_size<sp/>=<sp/>tb_size.<sp/>The<sp/>input<sp/>is<sp/>the<sp/>TB<sp/>size<sp/>(in<sp/>bits)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>the<sp/>number<sp/>of<sp/>codeblocks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>get_tb_and_crc_size(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_size,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_cbs)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_and_crc_size<sp/>=<sp/>tb_size;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>only<sp/>one<sp/>codeblock<sp/>is<sp/>transmitted,<sp/>the<sp/>CRC<sp/>is<sp/>taken<sp/>into<sp/>account<sp/>by<sp/>the<sp/>decoder.<sp/>If<sp/>more<sp/>than<sp/>one<sp/>codeblock<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>transmitted,<sp/>there<sp/>is<sp/>an<sp/>extra<sp/>CRC<sp/>of<sp/>length<sp/>24<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_cbs<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>tb_and_crc_size<sp/>+=<sp/>LONG_CRC_LENGTH;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb_and_crc_size;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Returns,<sp/>in<sp/>order,<sp/>the<sp/>codeblock<sp/>length,<sp/>the<sp/>message<sp/>length<sp/>and<sp/>the<sp/>number<sp/>of<sp/>data<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>message<sp/>length<sp/>is<sp/>the<sp/>number<sp/>of<sp/>systematic<sp/>bits<sp/>of<sp/>the<sp/>codeblock.<sp/>This<sp/>includes<sp/>data<sp/>and,<sp/>if<sp/>applicable,<sp/>CRC,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>zero<sp/>padding<sp/>and<sp/>filler<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::tuple&lt;unsigned,<sp/>unsigned,<sp/>unsigned&gt;<sp/>get_cblk_bit_breakdown(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref>&amp;<sp/>cb_meta)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>codeblock<sp/>length,<sp/>without<sp/>rate<sp/>matching.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cb_length<sp/>=<sp/>cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a046bf4fc377dc8872c4e82952392f545" kindref="member">full_length</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>message<sp/>length.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>BG1<sp/>has<sp/>rate<sp/>1/3<sp/>and<sp/>BG2<sp/>has<sp/>rate<sp/>1/5.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>INVERSE_BG1_RATE<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>INVERSE_BG2_RATE<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inverse_rate<sp/>=</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a2ca5177a80e975fb733a6fee5af5550a" kindref="member">base_graph</ref><sp/>==<sp/>ldpc_base_graph_type::BG1)<sp/>?<sp/>INVERSE_BG1_RATE<sp/>:<sp/>INVERSE_BG2_RATE;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>msg_length<sp/>=<sp/>cb_length<sp/>/<sp/>inverse_rate;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>data<sp/>bits<sp/>(no<sp/>CRC,<sp/>no<sp/>filler<sp/>bits<sp/>-<sp/>may<sp/>contain<sp/>zero-padding).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_data_bits<sp/>=<sp/>msg_length<sp/>-<sp/>cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a93aea6bdc206b70253f66e216324fcb9" kindref="member">nof_crc_bits</ref><sp/>-<sp/>cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{cb_length,<sp/>msg_length,<sp/>nof_data_bits};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1optional" kindref="compound">optional&lt;unsigned&gt;</ref><sp/>decode_cblk(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/>input,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1ldpc__decoder" kindref="compound">ldpc_decoder</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dec,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crc,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cb_meta,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration" kindref="compound">pusch_decoder::configuration</ref>&amp;<sp/>cfg)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details" kindref="compound">ldpc_decoder::configuration::algorithm_details</ref><sp/>alg_details<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>alg_details.<ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details_1a5e538a7b4316afe43b9d6640fe2b566d" kindref="member">max_iterations</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a0754adecafe58badb74aaa2f8d642e6a" kindref="member">nof_ldpc_iterations</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>As<sp/>for<sp/>the<sp/>other<sp/>alg_details,<sp/>we<sp/>use<sp/>the<sp/>default<sp/>values.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cfg.<ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1af43d63866959a3f1adf6588dd5b826ce" kindref="member">use_early_stop</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dec-&gt;<ref refid="classsrsgnb_1_1ldpc__decoder_1a31232f12c31f8ea8bb6bf63f0da9ab24" kindref="member">decode</ref>(output,<sp/>input,<sp/>crc,<sp/>{cb_meta,<sp/>alg_details});</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Without<sp/>early<sp/>stop,<sp/>first<sp/>decode<sp/>and<sp/>then<sp/>check<sp/>the<sp/>CRC.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>dec-&gt;<ref refid="classsrsgnb_1_1ldpc__decoder_1a31232f12c31f8ea8bb6bf63f0da9ab24" kindref="member">decode</ref>(output,<sp/>input,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>{cb_meta,<sp/>alg_details});</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Discard<sp/>filler<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_significant_bits<sp/>=<sp/>output.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>-<sp/>cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(crc-&gt;<ref refid="classsrsgnb_1_1crc__calculator_1a730d0a1d0d7188041b6047c945512da8" kindref="member">calculate_bit</ref>(output.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(nof_significant_bits))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cfg.<ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a0754adecafe58badb74aaa2f8d642e6a" kindref="member">nof_ldpc_iterations</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Checks<sp/>the<sp/>TB<sp/>CRC<sp/>(multiple<sp/>codeblocks<sp/>case).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_tb_crc_ok(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transport_block_bytes,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crc_bits,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;crc_calculator&gt;&amp;<sp/>crc_calc)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/>checksum_tbs<sp/>=<sp/>crc_calc-&gt;calculate_byte(transport_block_bytes);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checksum_cmp<sp/>=<sp/>srsvec::bit_pack(crc_bits,<sp/>LONG_CRC_LENGTH);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(checksum_cmp<sp/>==<sp/>checksum_tbs);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" kindref="member">pusch_decoder_impl::decode</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transport_block,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics" kindref="compound">statistics</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stats,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>soft_codeword,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>llrs,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration" kindref="compound">configuration</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>buffer<sp/>to<sp/>store<sp/>the<sp/>rate-matched<sp/>codeblocks<sp/>(represented<sp/>by<sp/>LLRs)<sp/>and<sp/>their<sp/>metadata.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;described_rx_codeblock, MAX_NOF_SEGMENTS&gt;</ref><sp/>codeblock_llrs<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Recall<sp/>that<sp/>the<sp/>TB<sp/>is<sp/>in<sp/>packed<sp/>format.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_size<sp/>=<sp/>transport_block.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>*<sp/>BITS_PER_BYTE;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pusch__decoder__impl_1ae4c3906f78a90f1786b036a360c2ad70" kindref="member">segmenter</ref>-&gt;segment(codeblock_llrs,<sp/>llrs,<sp/>tb_size,<sp/>cfg.<ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a280c31b6cc4682432f8eedbdbbbcc5b5" kindref="member">segmenter_cfg</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_cbs<sp/>=<sp/>codeblock_llrs.size();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>srsgnb_assert(nof_cbs<sp/>==<sp/>soft_codeword-&gt;<ref refid="classsrsgnb_1_1rx__softbuffer_1ad61cf20970f5787f4090343b32b1a6b4" kindref="member">get_nof_codeblocks</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>number<sp/>of<sp/>codeblocks.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_and_crc_size<sp/>=<sp/>get_tb_and_crc_size(tb_size,<sp/>nof_cbs);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>buffer<sp/>to<sp/>store<sp/>the<sp/>unpacked<sp/>transport<sp/>block<sp/>(and,<sp/>if<sp/>applicable,<sp/>its<sp/>CRC).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_TBS + LONG_CRC_LENGTH&gt;</ref><sp/>tmp_tb_bits(tb_and_crc_size);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>CRC<sp/>calculator<sp/>for<sp/>inner<sp/>codeblock<sp/>checks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>*<sp/>block_crc<sp/>=<sp/>select_crc(<ref refid="classsrsgnb_1_1pusch__decoder__impl_1ac55899c44c00c586244bd881441d87dd" kindref="member">crc_set</ref>,<sp/>tb_size,<sp/>nof_cbs);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;bool&gt;</ref><sp/>cb_crcs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>soft_codeword-&gt;<ref refid="classsrsgnb_1_1rx__softbuffer_1a971466dd0620782e612b50df2549050f" kindref="member">get_codeblocks_crc</ref>();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/>tb_offset<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1a1bc403c39b6e8888aac3334d4a1ed0d9" kindref="member">nof_codeblocks_total</ref><sp/>=<sp/>nof_cbs;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1a6e3203a83b9acb99ffe77e1dc9a99e28" kindref="member">ldpc_decoder_stats</ref>.<ref refid="classsrsgnb_1_1sample__statistics_1a77fd70fb5b5ac13c1837a10aa34ba1d2" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cb_id<sp/>=<sp/>0;<sp/>cb_id<sp/>!=<sp/>nof_cbs;<sp/>++cb_id)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>cb_llrs<sp/>=<sp/>codeblock_llrs[cb_id].first;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>cb_meta<sp/>=<sp/>codeblock_llrs[cb_id].second;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(cb_llrs.size()<sp/>==<sp/>cb_meta.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" kindref="member">rm_length</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>rate-matched<sp/>codeblock<sp/>length.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>codeblock<sp/>length,<sp/>without<sp/>rate<sp/>matching,<sp/>the<sp/>message<sp/>length<sp/>and<sp/>the<sp/>number<sp/>of<sp/>data<sp/>bits<sp/>(no<sp/>CRC,<sp/>no<sp/>filler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bits<sp/>-<sp/>may<sp/>contain<sp/>zero-padding).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cb_length<sp/>=<sp/>0,<sp/>msg_length<sp/>=<sp/>0,<sp/>nof_data_bits<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>std::tie(cb_length,<sp/>msg_length,<sp/>nof_data_bits)<sp/>=<sp/>get_cblk_bit_breakdown(cb_meta);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>data<sp/>bits<sp/>from<sp/>previous<sp/>transmissions,<sp/>if<sp/>any.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Messages<sp/>are<sp/>written<sp/>on<sp/>a<sp/>dedicated<sp/>buffer<sp/>associated<sp/>to<sp/>the<sp/>softbuffer.<sp/>By<sp/>doing<sp/>this,<sp/>we<sp/>keep<sp/>the<sp/>decoded</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>message<sp/>in<sp/>memory<sp/>and<sp/>we<sp/>don&apos;t<sp/>need<sp/>to<sp/>compute<sp/>it<sp/>again<sp/>if<sp/>there<sp/>is<sp/>a<sp/>retransmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>message<sp/>=<sp/>soft_codeword-&gt;<ref refid="classsrsgnb_1_1rx__softbuffer_1a97a5a3a98d28c67724fcdfcaba8954ed" kindref="member">get_codeblock_data_bits</ref>(cb_id,<sp/>msg_length);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>TB<sp/>bits<sp/>still<sp/>&quot;empty&quot;.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>free_tb_bits<sp/>=<sp/>tb_and_crc_size<sp/>-<sp/>tb_offset;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Avoid<sp/>including<sp/>zero-padding<sp/>in<sp/>the<sp/>TB.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_new_bits<sp/>=<sp/>std::min(free_tb_bits,<sp/>nof_data_bits);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Pick<sp/>a<sp/>view<sp/>of<sp/>the<sp/>segment<sp/>of<sp/>the<sp/>transport<sp/>block<sp/>corresponding<sp/>to<sp/>the<sp/>current<sp/>codeblock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>this_segment<sp/>=<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(tmp_tb_bits).<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(tb_offset,<sp/>nof_new_bits);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!cb_crcs[cb_id])<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>LLRs<sp/>from<sp/>previous<sp/>transmissions,<sp/>if<sp/>any,<sp/>or<sp/>a<sp/>clean<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>codeblock<sp/>=<sp/>soft_codeword-&gt;<ref refid="classsrsgnb_1_1rx__softbuffer_1ac512d2d784ddbda672a0bcbbcc678164" kindref="member">get_codeblock_soft_bits</ref>(cb_id,<sp/>cb_length);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Dematch<sp/>the<sp/>new<sp/>LLRs<sp/>and<sp/>combine<sp/>them<sp/>with<sp/>the<sp/>ones<sp/>from<sp/>previous<sp/>transmissions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pusch__decoder__impl_1ab0912d8ec0a1dce9428bd83dea0c3d0c" kindref="member">dematcher</ref>-&gt;rate_dematch(codeblock,<sp/>cb_llrs,<sp/>cfg.<ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration_1a78a54494b9bf7d0aae413cbf15a72cca" kindref="member">new_data</ref>,<sp/>cb_meta);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Try<sp/>to<sp/>decode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1optional" kindref="compound">optional&lt;unsigned&gt;</ref><sp/>nof_iters<sp/>=<sp/>decode_cblk(message,<sp/>codeblock,<sp/><ref refid="classsrsgnb_1_1pusch__decoder__impl_1a44d7e0d61bcb8e6fe6ee97db49769629" kindref="member">decoder</ref>.get(),<sp/>block_crc,<sp/>cb_meta,<sp/>cfg);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_iters.has_value())<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>successful<sp/>decoding,<sp/>flag<sp/>the<sp/>CRC,<sp/>record<sp/>number<sp/>of<sp/>iterations<sp/>and<sp/>copy<sp/>bits<sp/>to<sp/>the<sp/>TB<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cb_crcs[cb_id]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1a6e3203a83b9acb99ffe77e1dc9a99e28" kindref="member">ldpc_decoder_stats</ref>.<ref refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" kindref="member">update</ref>(nof_iters.value());</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::copy_n(message.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>nof_new_bits,<sp/>this_segment.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>());</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::copy_n(message.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>nof_new_bits,<sp/>this_segment.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>());</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>tb_offset<sp/>+=<sp/>nof_new_bits;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>srsgnb_assert(tb_offset<sp/>==<sp/>tb_and_crc_size,<sp/></highlight><highlight class="stringliteral">&quot;All<sp/>TB<sp/>bits<sp/>should<sp/>be<sp/>filled<sp/>at<sp/>this<sp/>point.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1aa4f0771926406ae5e5c3e7ac36e3ceed" kindref="member">tb_crc_ok</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_cbs<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When<sp/>only<sp/>one<sp/>codeblock,<sp/>the<sp/>CRC<sp/>of<sp/>codeblock<sp/>and<sp/>transport<sp/>block<sp/>are<sp/>the<sp/>same.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1aa4f0771926406ae5e5c3e7ac36e3ceed" kindref="member">tb_crc_ok</ref><sp/>=<sp/>cb_crcs[0];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1aa4f0771926406ae5e5c3e7ac36e3ceed" kindref="member">tb_crc_ok</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srsvec::bit_pack(transport_block,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(tmp_tb_bits).first(tb_size));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::all_of(cb_crcs.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>cb_crcs.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>[](</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>a)<sp/>{<sp/>return<sp/>a;<sp/>}))<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When<sp/>more<sp/>than<sp/>one<sp/>codeblock,<sp/>we<sp/>need<sp/>to<sp/>check<sp/>the<sp/>global<sp/>transport<sp/>block<sp/>CRC.<sp/>Note<sp/>that<sp/>there<sp/>is<sp/>no<sp/>need<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>CRC<sp/>if<sp/>any<sp/>of<sp/>the<sp/>codeblocks<sp/>was<sp/>not<sp/>decoded<sp/>correctly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>srsvec::bit_pack(transport_block,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(tmp_tb_bits).first(tb_size));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(is_tb_crc_ok(transport_block,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref>(tmp_tb_bits).last(LONG_CRC_LENGTH),<sp/><ref refid="classsrsgnb_1_1pusch__decoder__impl_1ac55899c44c00c586244bd881441d87dd" kindref="member">crc_set</ref>.<ref refid="structsrsgnb_1_1pusch__decoder__impl_1_1sch__crc_1aade2d060d8a8d35243828a0192abf1d2" kindref="member">crc24A</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stats.<ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics_1aa4f0771926406ae5e5c3e7ac36e3ceed" kindref="member">tb_crc_ok</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>checksum<sp/>is<sp/>wrong,<sp/>then<sp/>at<sp/>least<sp/>one<sp/>of<sp/>the<sp/>codeblocks<sp/>is<sp/>a<sp/>false<sp/>negative.<sp/>Reset<sp/>all<sp/>of<sp/>them.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>soft_codeword-&gt;<ref refid="classsrsgnb_1_1rx__softbuffer_1ad3a8df2ef07de238b96bdeccb72ebf0a" kindref="member">reset_codeblocks_crc</ref>();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>case<sp/>there<sp/>are<sp/>multiple<sp/>codeblocks<sp/>and<sp/>at<sp/>least<sp/>one<sp/>has<sp/>a<sp/>corrupted<sp/>codeblock<sp/>CRC,<sp/>nothing<sp/>to<sp/>do.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pusch_decoder_impl.cpp"/>
+  </compounddef>
+</doxygen>

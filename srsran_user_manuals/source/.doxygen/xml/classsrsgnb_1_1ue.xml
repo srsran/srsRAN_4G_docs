@@ -1,0 +1,644 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ue" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ue</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1a9d7703328634487db34db0fe402e5f67" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+        <definition>const du_ue_index_t srsgnb::ue::ue_index</definition>
+        <argsstring></argsstring>
+        <name>ue_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="68" column="23" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1a9dc7c86b72fdfd6aad3bfc8acf27f7f8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+        <definition>const rnti_t srsgnb::ue::crnti</definition>
+        <argsstring></argsstring>
+        <name>crnti</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="69" column="23" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1a44f667eef74c5915e1dd09594d247b2d" prot="private" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t srsgnb::ue::MAX_CELLS</definition>
+        <argsstring></argsstring>
+        <name>MAX_CELLS</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="110" column="23" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1afbb394f60e1a80a0b397306ecd7a39f4" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+        <definition>const cell_configuration&amp; srsgnb::ue::cell_cfg_common</definition>
+        <argsstring></argsstring>
+        <name>cell_cfg_common</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="112" column="28" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1afbc2fc754cf36a553b61fd1b2a0125fa" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> &gt;, MAX_CELLS &gt;</type>
+        <definition>std::array&lt;std::unique_ptr&lt;ue_carrier&gt;, MAX_CELLS&gt; srsgnb::ue::cells</definition>
+        <argsstring></argsstring>
+        <name>cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="114" column="14" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1a35b7ca67d71c176bc275729e7457037d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> *, MAX_CELLS &gt;</type>
+        <definition>static_vector&lt;ue_carrier*, MAX_CELLS&gt; srsgnb::ue::ue_cells</definition>
+        <argsstring></argsstring>
+        <name>ue_cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="116" column="17" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1acea59fa408f7f5a35ab9b73f4a770222" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1sr__indication__message" kindref="compound">sr_indication_message</ref></type>
+        <definition>sr_indication_message srsgnb::ue::last_sr</definition>
+        <argsstring></argsstring>
+        <name>last_sr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="118" column="29" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue_1a5b24b960c5b423b0aea71c63cd314247" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1ul__bsr__indication__message" kindref="compound">ul_bsr_indication_message</ref></type>
+        <definition>ul_bsr_indication_message srsgnb::ue::last_bsr</definition>
+        <argsstring></argsstring>
+        <name>last_bsr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="119" column="29" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a3350cc60b1c58ec832b46e5cb948fa4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ue::ue</definition>
+        <argsstring>(const cell_configuration &amp;cell_cfg_common_, const sched_ue_creation_request_message &amp;req)</argsstring>
+        <name>ue</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+          <declname>cell_cfg_common_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sched__ue__creation__request__message" kindref="compound">sched_ue_creation_request_message</ref> &amp;</type>
+          <declname>req</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="57" column="3" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1ad3d6311c31fc0f39b969a060cf7887df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ue::ue</definition>
+        <argsstring>(const ue &amp;)=delete</argsstring>
+        <name>ue</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="63" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a66ded5b49a74328cc7c42bea321f9eb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ue::ue</definition>
+        <argsstring>(ue &amp;&amp;)=delete</argsstring>
+        <name>ue</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="64" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1af293a10ccf2ee09fa4b61732766d725f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;</type>
+        <definition>ue&amp; srsgnb::ue::operator=</definition>
+        <argsstring>(const ue &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="65" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a20f0519c8b732bd5ad7b0ea4a0b4cf48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;</type>
+        <definition>ue&amp; srsgnb::ue::operator=</definition>
+        <argsstring>(ue &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1ue" kindref="compound">ue</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="66" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1abc393653b905aa5888092a58c98d9f62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::ue::slot_indication</definition>
+        <argsstring>(slot_point sl_tx)</argsstring>
+        <name>slot_indication</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="71" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a18c7d455b2e24f64ca7867ae086c7a99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> *</type>
+        <definition>ue_carrier* srsgnb::ue::find_cc</definition>
+        <argsstring>(du_cell_index_t cell_index)</argsstring>
+        <name>find_cc</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="73" column="14" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1af1f99b9b00398938bdb0cc3d73b5172e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> *</type>
+        <definition>const ue_carrier* srsgnb::ue::find_cc</definition>
+        <argsstring>(du_cell_index_t cell_index) const</argsstring>
+        <name>find_cc</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="79" column="20" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1ada76032b0a431c2c7df15ab19126b158" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> * &gt;</type>
+        <definition>span&lt;ue_carrier*&gt; srsgnb::ue::ue_carriers</definition>
+        <argsstring>()</argsstring>
+        <name>ue_carriers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="85" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1ae44cedc7ce95a3a90629f875badf0d07" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1ue__carrier" kindref="compound">ue_carrier</ref> *const  &gt;</type>
+        <definition>span&lt;ue_carrier* const&gt; srsgnb::ue::ue_carriers</definition>
+        <argsstring>() const</argsstring>
+        <name>ue_carriers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="87" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1aec9b4213800718eb1ef685ade548cce9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::ue::has_pending_txs</definition>
+        <argsstring>() const</argsstring>
+        <name>has_pending_txs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="89" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a841eef5cd39373304fa606e212c48581" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::ue::is_ca_enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>is_ca_enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="94" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1afb3c28e53bcdba6615ec440571f8a7c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::ue::activate_cells</definition>
+        <argsstring>(bounded_bitset&lt; MAX_NOF_DU_CELLS &gt; activ_bitmap)</argsstring>
+        <name>activate_cells</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; MAX_NOF_DU_CELLS &gt;</type>
+          <declname>activ_bitmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="96" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a5ce62e93b6d08c8afc161a2d3269291d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue::handle_sr_indication</definition>
+        <argsstring>(const sr_indication_message &amp;msg)</argsstring>
+        <name>handle_sr_indication</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sr__indication__message" kindref="compound">sr_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="98" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1aec97797e5fbf2c4ebac3b43ee8597610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue::handle_bsr_indication</definition>
+        <argsstring>(const ul_bsr_indication_message &amp;msg)</argsstring>
+        <name>handle_bsr_indication</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ul__bsr__indication__message" kindref="compound">ul_bsr_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="99" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1a069347bb701e6e2c55fb28caa2897506" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::ue::handle_reconfiguration_request</definition>
+        <argsstring>(const sched_ue_reconfiguration_message &amp;msg)</argsstring>
+        <name>handle_reconfiguration_request</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sched__ue__reconfiguration__message" kindref="compound">sched_ue_reconfiguration_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="101" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue_1ae2d2fa3e1c5708dcc691784f0f0cfe31" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref> &gt;</type>
+        <definition>span&lt;const du_cell_index_t&gt; srsgnb::ue::ue_cell_indexes</definition>
+        <argsstring>() const</argsstring>
+        <name>ue_cell_indexes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue.h" line="103" column="8" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="103" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="13">
+        <label>srsgnb::bounded_integer&lt; uint8_t, 0, 23 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::static_vector&lt; srsgnb::ue_carrier *, MAX_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::optional&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ul_bsr_indication_message</label>
+        <link refid="structsrsgnb_1_1ul__bsr__indication__message"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+reported_lcgs</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::ssb_configuration</label>
+        <link refid="structsrsgnb_1_1ssb__configuration"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>+k_ssb</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>+offset_to_point_A</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>srsgnb::crb_interval</label>
+        <link refid="structsrsgnb_1_1crb__interval"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::frequency_info_ul</label>
+        <link refid="structsrsgnb_1_1frequency__info__ul"/>
+      </node>
+      <node id="32">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue</label>
+        <link refid="classsrsgnb_1_1ue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-last_bsr</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-last_sr</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-ue_cells</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-cell_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::bounded_bitset&lt; 8 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="31">
+        <label>srsgnb::optional&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::static_vector&lt; ul_bsr_lcg_report, MAX_LOGICAL_CHANNEL_GROUP &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::optional&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb::bwp_downlink_common</label>
+        <link refid="structsrsgnb_1_1bwp__downlink__common"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>+pdsch_common</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>+pdcch_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb::pdcch_config_common</label>
+        <link refid="structsrsgnb_1_1pdcch__config__common"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>+coreset0</edgelabel>
+          <edgelabel>+common_coreset</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>srsgnb::bwp_uplink_common</label>
+        <link refid="structsrsgnb_1_1bwp__uplink__common"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+pusch_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>+rach_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::ssb_offset_to_pointA</label>
+        <link refid="classsrsgnb_1_1ssb__offset__to__pointA"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>srsgnb::interval&lt; unsigned &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+      </node>
+      <node id="27">
+        <label>srsgnb::frequency_info_dl</label>
+        <link refid="structsrsgnb_1_1frequency__info__dl"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::cell_configuration</label>
+        <link refid="classsrsgnb_1_1cell__configuration"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>+tdd_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+dl_carrier</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>+ssb_cfg</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+ul_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>+dl_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="10">
+        <label>srsgnb::carrier_configuration</label>
+        <link refid="structsrsgnb_1_1carrier__configuration"/>
+      </node>
+      <node id="26">
+        <label>srsgnb::dl_config_common</label>
+        <link refid="structsrsgnb_1_1dl__config__common"/>
+        <childnode refid="27" relation="usage">
+          <edgelabel>+freq_info_dl</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>+init_dl_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srsgnb::ul_config_common</label>
+        <link refid="structsrsgnb_1_1ul__config__common"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>+freq_info_ul</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>+init_ul_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::sr_indication_message</label>
+        <link refid="structsrsgnb_1_1sr__indication__message"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+sr_payload</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb::pdsch_config_common</label>
+        <link refid="structsrsgnb_1_1pdsch__config__common"/>
+      </node>
+      <node id="25">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="19">
+        <label>srsgnb::bwp_configuration</label>
+        <link refid="structsrsgnb_1_1bwp__configuration"/>
+        <childnode refid="20" relation="usage">
+          <edgelabel>+crbs</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::ssb_subcarrier_offset</label>
+        <link refid="classsrsgnb_1_1ssb__subcarrier__offset"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb::bounded_integer&lt; uint16_t, 0, 2199 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::optional&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/ue_scheduling/ue.h" line="55" column="1" bodyfile="lib/scheduler/ue_scheduling/ue.h" bodystart="54" bodyend="120"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ue_1afb3c28e53bcdba6615ec440571f8a7c5" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>activate_cells</name></member>
+      <member refid="classsrsgnb_1_1ue_1afbb394f60e1a80a0b397306ecd7a39f4" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>cell_cfg_common</name></member>
+      <member refid="classsrsgnb_1_1ue_1afbc2fc754cf36a553b61fd1b2a0125fa" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>cells</name></member>
+      <member refid="classsrsgnb_1_1ue_1a9dc7c86b72fdfd6aad3bfc8acf27f7f8" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>crnti</name></member>
+      <member refid="classsrsgnb_1_1ue_1a18c7d455b2e24f64ca7867ae086c7a99" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>find_cc</name></member>
+      <member refid="classsrsgnb_1_1ue_1af1f99b9b00398938bdb0cc3d73b5172e" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>find_cc</name></member>
+      <member refid="classsrsgnb_1_1ue_1aec97797e5fbf2c4ebac3b43ee8597610" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>handle_bsr_indication</name></member>
+      <member refid="classsrsgnb_1_1ue_1a069347bb701e6e2c55fb28caa2897506" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>handle_reconfiguration_request</name></member>
+      <member refid="classsrsgnb_1_1ue_1a5ce62e93b6d08c8afc161a2d3269291d" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>handle_sr_indication</name></member>
+      <member refid="classsrsgnb_1_1ue_1aec9b4213800718eb1ef685ade548cce9" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>has_pending_txs</name></member>
+      <member refid="classsrsgnb_1_1ue_1a841eef5cd39373304fa606e212c48581" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>is_ca_enabled</name></member>
+      <member refid="classsrsgnb_1_1ue_1a5b24b960c5b423b0aea71c63cd314247" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>last_bsr</name></member>
+      <member refid="classsrsgnb_1_1ue_1acea59fa408f7f5a35ab9b73f4a770222" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>last_sr</name></member>
+      <member refid="classsrsgnb_1_1ue_1a44f667eef74c5915e1dd09594d247b2d" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>MAX_CELLS</name></member>
+      <member refid="classsrsgnb_1_1ue_1af293a10ccf2ee09fa4b61732766d725f" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ue_1a20f0519c8b732bd5ad7b0ea4a0b4cf48" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ue_1abc393653b905aa5888092a58c98d9f62" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>slot_indication</name></member>
+      <member refid="classsrsgnb_1_1ue_1a3350cc60b1c58ec832b46e5cb948fa4e" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue</name></member>
+      <member refid="classsrsgnb_1_1ue_1ad3d6311c31fc0f39b969a060cf7887df" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue</name></member>
+      <member refid="classsrsgnb_1_1ue_1a66ded5b49a74328cc7c42bea321f9eb8" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue</name></member>
+      <member refid="classsrsgnb_1_1ue_1ada76032b0a431c2c7df15ab19126b158" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue_carriers</name></member>
+      <member refid="classsrsgnb_1_1ue_1ae44cedc7ce95a3a90629f875badf0d07" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue_carriers</name></member>
+      <member refid="classsrsgnb_1_1ue_1ae2d2fa3e1c5708dcc691784f0f0cfe31" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue_cell_indexes</name></member>
+      <member refid="classsrsgnb_1_1ue_1a35b7ca67d71c176bc275729e7457037d" prot="private" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue_cells</name></member>
+      <member refid="classsrsgnb_1_1ue_1a9d7703328634487db34db0fe402e5f67" prot="public" virt="non-virtual"><scope>srsgnb::ue</scope><name>ue_index</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

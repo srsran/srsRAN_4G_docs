@@ -1,0 +1,781 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::srs_du::f1ap_du_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1srs__du_1_1f1__interface" prot="public" virt="non-virtual">srsgnb::srs_du::f1_interface</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a1af9eb8fc9afcc171fcbd47e3f7bf02e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::srs_du::f1ap_du_impl::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="69" column="24" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a84d635909e29f72c46d098607a020525" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+        <definition>timer_manager&amp; srsgnb::srs_du::f1ap_du_impl::timers</definition>
+        <argsstring></argsstring>
+        <name>timers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="70" column="24" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ab4c322307c78ee41f0504be5a7260cc9" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1f1c__message__notifier" kindref="compound">f1c_message_notifier</ref> &amp;</type>
+        <definition>f1c_message_notifier&amp; srsgnb::srs_du::f1ap_du_impl::f1c_notifier</definition>
+        <argsstring></argsstring>
+        <name>f1c_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="71" column="24" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ad08a661b4c3b22cd613af8699f0ea3a7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1unique__timer" kindref="compound">unique_timer</ref></type>
+        <definition>unique_timer srsgnb::srs_du::f1ap_du_impl::f1c_setup_timer</definition>
+        <argsstring></argsstring>
+        <name>f1c_setup_timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="73" column="16" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1afb654462eb32284b1c36dd72bd23c61b" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1f1ap__du__context" kindref="compound">f1ap_du_context</ref></type>
+        <definition>f1ap_du_context srsgnb::srs_du::f1ap_du_impl::ctxt</definition>
+        <argsstring></argsstring>
+        <name>ctxt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="75" column="19" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1adacd4468ef09a0654743005ce69c2f44" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager" kindref="compound">f1ap_event_manager</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;f1ap_event_manager&gt; srsgnb::srs_du::f1ap_du_impl::events</definition>
+        <argsstring></argsstring>
+        <name>events</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="77" column="19" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac346d435721cc864c0230bd3ff55621b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>f1ap_du_impl::f1ap_du_impl</definition>
+        <argsstring>(timer_manager &amp;timers_, f1c_message_notifier &amp;event_notifier_)</argsstring>
+        <name>f1ap_du_impl</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+          <declname>timers_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1f1c__message__notifier" kindref="compound">f1c_message_notifier</ref> &amp;</type>
+          <declname>event_notifier_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="28" column="3" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="21" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1aec39fb9b211d04a32771770324ab3bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>f1ap_du_impl::~f1ap_du_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~f1ap_du_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="29" column="3" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a4edccaa0aaa7ae607a52360acbbcd441" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__response__message" kindref="compound">f1_setup_response_message</ref> &gt;</type>
+        <definition>async_task&lt; f1_setup_response_message &gt; f1ap_du_impl::handle_f1ap_setup_request</definition>
+        <argsstring>(const f1_setup_request_message &amp;request) override</argsstring>
+        <name>handle_f1ap_setup_request</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a1553307a61f2129a6c29d2cf8da167b6">handle_f1ap_setup_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__request__message" kindref="compound">f1_setup_request_message</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Initiates the F1 Setup procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The F1SetupRequest message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__response__message" kindref="compound">f1_setup_response_message</ref> struct with the success member set to &apos;true&apos; in case of a successful outcome, &apos;false&apos; otherwise. </para>
+</simplesect>
+<simplesect kind="remark"><para>The DU transmits the F1SetupRequest as per TS 38.473 section 8.2.3 and awaits the response. If a F1SetupFailure is received the F1AP will handle the failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="32" column="14" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a19c1447b4cb38aa5a60f95ce46a5855e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_rrc_delivery_report</definition>
+        <argsstring>(const f1ap_rrc_delivery_report_msg &amp;report) override</argsstring>
+        <name>handle_rrc_delivery_report</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler_1afbcb425711628728c2da13a4f3d47292">handle_rrc_delivery_report</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__rrc__delivery__report__msg" kindref="compound">f1ap_rrc_delivery_report_msg</ref> &amp;</type>
+          <declname>report</declname>
+        </param>
+        <briefdescription>
+<para>Packs and transmits the RRC delivery report as per TS 38.473 section 8.4.4. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">report</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The RRC delivery report message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="35" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a845f8cc60fce309093982d5189de6c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_pdu</definition>
+        <argsstring>(f1_rx_pdu pdu) override</argsstring>
+        <name>handle_pdu</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler_1aa654209155eedf3c00b69efbc87490e3">handle_pdu</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1srs__du_1_1f1__rx__pdu" kindref="compound">f1_rx_pdu</ref></type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="36" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="94" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a349886d84f900426b8caa1b15f56eab6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_init_ul_rrc_message_transfer</definition>
+        <argsstring>(const f1ap_initial_ul_rrc_msg &amp;msg) override</argsstring>
+        <name>handle_init_ul_rrc_message_transfer</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler_1add9faacac47e4029dd8f0298613ba597">handle_init_ul_rrc_message_transfer</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__initial__ul__rrc__msg" kindref="compound">f1ap_initial_ul_rrc_msg</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Packs and transmits the initial UL RRC message transfer as per TS 38.473 section 8.4.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial UL RRC message transfer message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="37" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a674f7c65c2f6852f529ce8f56c7e6961" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_ul_rrc_message_transfer</definition>
+        <argsstring>(const f1ap_ul_rrc_msg &amp;msg) override</argsstring>
+        <name>handle_ul_rrc_message_transfer</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler_1af32e27f8ff7cedce8033af76e5e241f5">handle_ul_rrc_message_transfer</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ul__rrc__msg" kindref="compound">f1ap_ul_rrc_msg</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Packs and transmits the UL RRC message transfer as per TS 38.473 section 8.4.3. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UL RRC message transfer message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="38" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5c9e76c1502be565f405be507ab528d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_message</definition>
+        <argsstring>(const f1c_msg &amp;msg) override</argsstring>
+        <name>handle_message</name>
+        <reimplements refid="classsrsgnb_1_1f1c__message__handler_1a6e86415df9c50b8294b819b1fc5b1e79">handle_message</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1f1c__msg" kindref="compound">f1c_msg</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming F1AP message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="41" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="108" bodyend="134"/>
+        <references refid="namespacesrsgnb_1ab9f9d251224335b187f0729bcbe3ba80" compoundref="f1ap__asn1__utils_8h" startline="55" endline="72">srsgnb::get_transaction_id</references>
+        <references refid="namespacesrsgnb_1aead91d225a5378b4c91e62573204935b" compoundref="f1ap__asn1__utils_8h" startline="39" endline="52">srsgnb::get_message_type_str</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ab10f24a8d64201fd649b4081e6028866" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_connection_loss</definition>
+        <argsstring>() override</argsstring>
+        <name>handle_connection_loss</name>
+        <reimplements refid="classsrsgnb_1_1f1c__event__handler_1ad3842c0167c8786ac1c103b2f5962c18">handle_connection_loss</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="42" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5b989f1b44881f157309a2c6f54b056" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__create__response" kindref="compound">f1ap_ue_create_response</ref> &gt;</type>
+        <definition>async_task&lt; f1ap_ue_create_response &gt; f1ap_du_impl::handle_ue_creation_request</definition>
+        <argsstring>(const f1ap_ue_create_request &amp;msg) override</argsstring>
+        <name>handle_ue_creation_request</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a25430477cdd2dca33dbfc64b2fd12ac7">handle_ue_creation_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__create__request" kindref="compound">f1ap_ue_create_request</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiates creation of UE context in F1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="45" column="14" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="41" bodyend="59"/>
+        <references refid="namespacesrsgnb_1a9cd4c0eea90a43b866d5e318a46ad8a9" compoundref="coroutine_8h" startline="316" endline="320">srsgnb::launch_async</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a07d20e6c9c96bbba5e882dccc10fb47d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_ue_context_release_request</definition>
+        <argsstring>(const f1ap_ue_context_release_request_message &amp;request) override</argsstring>
+        <name>handle_ue_context_release_request</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aecc8872082f5c4d57628eb413e5d83bd">handle_ue_context_release_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__release__request__message" kindref="compound">f1ap_ue_context_release_request_message</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Initiates UE context release request procedure as per TS 38.473 section 8.3.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Release Request message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="46" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a0c3422bc000808f4944d3d59a37cb9f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__response__message" kindref="compound">f1ap_ue_context_modification_response_message</ref> &gt;</type>
+        <definition>async_task&lt; f1ap_ue_context_modification_response_message &gt; f1ap_du_impl::handle_ue_context_modification</definition>
+        <argsstring>(const f1ap_ue_context_modification_required_message &amp;msg) override</argsstring>
+        <name>handle_ue_context_modification</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1adacfedfd82cb7a605e887e7025568de0">handle_ue_context_modification</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__required__message" kindref="compound">f1ap_ue_context_modification_required_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiates the UE Context Modification Required procedure as per TS 38.473 section 8.3.5. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Modification Required message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__response__message" kindref="compound">f1ap_ue_context_modification_response_message</ref> struct with the success member set to &apos;true&apos; in case of a successful outcome, &apos;false&apos; otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="48" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="68" bodyend="92"/>
+        <references refid="namespacesrsgnb_1a9cd4c0eea90a43b866d5e318a46ad8a9" compoundref="coroutine_8h" startline="316" endline="320">srsgnb::launch_async</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a1eb66364a3f751b77dccab453ade0ad3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_ue_inactivity_notification</definition>
+        <argsstring>(const f1ap_ue_inactivity_notification_message &amp;msg) override</argsstring>
+        <name>handle_ue_inactivity_notification</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa9239a467500198a2f0df535f36cce23">handle_ue_inactivity_notification</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__inactivity__notification__message" kindref="compound">f1ap_ue_inactivity_notification_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Indicate an UE activity event as per TS 38.473 section 8.3.6. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Inactivity Nofication message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="49" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a3abdc5dba66665fdc83bf4d294d457af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_du::f1ap_du_impl::handle_notify</definition>
+        <argsstring>(const f1ap_notify_message &amp;msg) override</argsstring>
+        <name>handle_notify</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa547f320e77e3c3ca09b78b477caf7d5">handle_notify</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__notify__message" kindref="compound">f1ap_notify_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiate the Notify procedure as per TS 38.473 section 8.3.7. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Notify message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="50" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1adebb8e3e31040faadd0682c09dd6c093" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_initiating_message</definition>
+        <argsstring>(const asn1::f1ap::init_msg_s &amp;msg)</argsstring>
+        <name>handle_initiating_message</name>
+        <param>
+          <type>const asn1::f1ap::init_msg_s &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Notify the DU about the reception of an initiating message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The received initiating message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="55" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="136" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a66ad8164a3768955119d56daff7654d4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_successful_outcome</definition>
+        <argsstring>(const asn1::f1ap::successful_outcome_s &amp;outcome)</argsstring>
+        <name>handle_successful_outcome</name>
+        <param>
+          <type>const asn1::f1ap::successful_outcome_s &amp;</type>
+          <declname>outcome</declname>
+        </param>
+        <briefdescription>
+<para>Notify the DU about the reception of a successful outcome message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">outcome</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The successful outcome message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="59" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="147" bodyend="157"/>
+        <references refid="namespacesrsgnb_1ab9f9d251224335b187f0729bcbe3ba80" compoundref="f1ap__asn1__utils_8h" startline="55" endline="72">srsgnb::get_transaction_id</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a84c936306564e580fff5c341e4e688fb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_unsuccessful_outcome</definition>
+        <argsstring>(const asn1::f1ap::unsuccessful_outcome_s &amp;outcome)</argsstring>
+        <name>handle_unsuccessful_outcome</name>
+        <param>
+          <type>const asn1::f1ap::unsuccessful_outcome_s &amp;</type>
+          <declname>outcome</declname>
+        </param>
+        <briefdescription>
+<para>Notify the DU about the reception of an unsuccessful outcome message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">outcome</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unsuccessful outcome message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="63" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="159" bodyend="169"/>
+        <references refid="namespacesrsgnb_1ab9f9d251224335b187f0729bcbe3ba80" compoundref="f1ap__asn1__utils_8h" startline="55" endline="72">srsgnb::get_transaction_id</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a43a7c518ae0dc73500c564b17d79e65e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void f1ap_du_impl::handle_dl_rrc_message_transfer</definition>
+        <argsstring>(const asn1::f1ap::dlrrc_msg_transfer_s &amp;msg)</argsstring>
+        <name>handle_dl_rrc_message_transfer</name>
+        <param>
+          <type>const asn1::f1ap::dlrrc_msg_transfer_s &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Notify the DU about the reception of a DL RRC message transfer message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The DL RRC message transfer message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/f1ap_du_impl.h" line="67" column="8" bodyfile="lib/f1_interface/du/f1ap_du_impl.cpp" bodystart="61" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>srsgnb::srs_du::f1ap_ue_context_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_du::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::srs_du::f1ap_connection_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::f1c_event_handler</label>
+        <link refid="classsrsgnb_1_1f1c__event__handler"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::f1c_message_handler</label>
+        <link refid="classsrsgnb_1_1f1c__message__handler"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_du::f1ap_rrc_message_transfer_procedure_handler</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_du_impl</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="16">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::unique_timer</label>
+        <link refid="classsrsgnb_1_1unique__timer"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>T</label>
+      </node>
+      <node id="20">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::srs_du::f1ap_ue_context_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_du::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::unique_function&lt; void(timer_id_t)&gt;</label>
+        <link refid="classsrsgnb_1_1unique__function"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::srs_du::f1ap_connection_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager"/>
+      </node>
+      <node id="23">
+        <label>srsgnb::f1c_message_notifier</label>
+        <link refid="classsrsgnb_1_1f1c__message__notifier"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::f1c_event_handler</label>
+        <link refid="classsrsgnb_1_1f1c__event__handler"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::f1ap_du_context</label>
+        <link refid="structsrsgnb_1_1f1ap__du__context"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+ue_ctxt_manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::f1ap_du_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="14">
+        <label>srsgnb::intrusive_double_linked_list_element&lt;&gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__double__linked__list__element"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::intrusive_forward_list_element&lt;&gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::f1c_message_handler</label>
+        <link refid="classsrsgnb_1_1f1c__message__handler"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::slot_array&lt; srsgnb::f1ap_du_ue_context, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="10" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_du::f1ap_rrc_message_transfer_procedure_handler</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::f1ap_du_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="22">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_du_impl</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-ctxt</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-f1c_setup_timer</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-timers</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>-f1c_notifier</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::timer_manager::timer_handle</label>
+        <link refid="structsrsgnb_1_1timer__manager_1_1timer__handle"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+parent</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+callback</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/f1_interface/du/f1ap_du_impl.h" line="26" column="1" bodyfile="lib/f1_interface/du/f1ap_du_impl.h" bodystart="25" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1afb654462eb32284b1c36dd72bd23c61b" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>ctxt</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1adacd4468ef09a0654743005ce69c2f44" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>events</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac346d435721cc864c0230bd3ff55621b" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>f1ap_du_impl</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ab4c322307c78ee41f0504be5a7260cc9" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>f1c_notifier</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ad08a661b4c3b22cd613af8699f0ea3a7" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>f1c_setup_timer</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ab10f24a8d64201fd649b4081e6028866" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_connection_loss</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a43a7c518ae0dc73500c564b17d79e65e" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_dl_rrc_message_transfer</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a4edccaa0aaa7ae607a52360acbbcd441" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_f1ap_setup_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a349886d84f900426b8caa1b15f56eab6" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_init_ul_rrc_message_transfer</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1adebb8e3e31040faadd0682c09dd6c093" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_initiating_message</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5c9e76c1502be565f405be507ab528d" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_message</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a3abdc5dba66665fdc83bf4d294d457af" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_notify</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a845f8cc60fce309093982d5189de6c43" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_pdu</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a19c1447b4cb38aa5a60f95ce46a5855e" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_rrc_delivery_report</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a66ad8164a3768955119d56daff7654d4" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_successful_outcome</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a0c3422bc000808f4944d3d59a37cb9f4" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_ue_context_modification</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a07d20e6c9c96bbba5e882dccc10fb47d" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_ue_context_release_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5b989f1b44881f157309a2c6f54b056" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_ue_creation_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a1eb66364a3f751b77dccab453ade0ad3" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_ue_inactivity_notification</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a674f7c65c2f6852f529ce8f56c7e6961" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_ul_rrc_message_transfer</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a84c936306564e580fff5c341e4e688fb" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>handle_unsuccessful_outcome</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a1af9eb8fc9afcc171fcbd47e3f7bf02e" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a84d635909e29f72c46d098607a020525" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>timers</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1__interface_1ad5a79ae5a19055405999149370f4148b" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1_interface</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a33f2bc019ea5d9171592f53700a1df86" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1ap_connection_manager</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1aec39fb9b211d04a32771770324ab3bd9" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1ap_du_impl</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler_1aa31c717cc759e7eff550b70317b21526" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1ap_rrc_message_transfer_procedure_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a57e95b83e0fad1a775878b0cd26bac70" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1ap_ue_context_manager</name></member>
+      <member refid="classsrsgnb_1_1f1c__event__handler_1af51ba07f3fb72ab9d76d223e1dd016ee" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1c_event_handler</name></member>
+      <member refid="classsrsgnb_1_1f1c__message__handler_1af0a7ffc3f69fbb88917f3d8e56ce6826" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_du_impl</scope><name>~f1c_message_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1uplink__processor__pool" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::uplink_processor_pool</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1uplink__processor__pool__impl" prot="public" virt="non-virtual">srsgnb::uplink_processor_pool_impl</derivedcompoundref>
+    <includes refid="uplink__processor_8h" local="no">uplink_processor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__processor__pool_1af55b159a96c925db57f8c72288a69d4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::uplink_processor_pool::~uplink_processor_pool</definition>
+        <argsstring>()=default</argsstring>
+        <name>~uplink_processor_pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_processor.h" line="52" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__processor__pool_1ab880aaf88933e75b2476526586d67904" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1uplink__processor" kindref="compound">uplink_processor</ref> &amp;</type>
+        <definition>virtual uplink_processor&amp; srsgnb::uplink_processor_pool::get_processor</definition>
+        <argsstring>(slot_point slot, unsigned sector_id)=0</argsstring>
+        <name>get_processor</name>
+        <reimplementedby refid="classsrsgnb_1_1uplink__processor__pool__impl_1ad4f2855c940aaaff048d6cc66c0965f9">get_processor</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>sector_id</declname>
+        </param>
+        <briefdescription>
+<para>Returns an uplink processor for the given slot and sector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>slot[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot point. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sector_id[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sector identifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An uplink processor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_processor.h" line="59" column="28"/>
+        <referencedby refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl_1ab43b9899f037dd093195faf2b57560b4" compoundref="upper__phy__rx__symbol__handler__impl_8cpp" startline="31" endline="39">srsgnb::upper_phy_rx_symbol_handler_impl::handle_rx_prach_window</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Pool of uplink processors. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface manages the access to the available uplink processors. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::uplink_processor_pool_impl</label>
+        <link refid="classsrsgnb_1_1uplink__processor__pool__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::uplink_processor_pool</label>
+        <link refid="classsrsgnb_1_1uplink__processor__pool"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::uplink_processor_pool</label>
+        <link refid="classsrsgnb_1_1uplink__processor__pool"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/uplink_processor.h" line="50" column="1" bodyfile="include/srsgnb/phy/upper/uplink_processor.h" bodystart="49" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1uplink__processor__pool_1ab880aaf88933e75b2476526586d67904" prot="public" virt="pure-virtual"><scope>srsgnb::uplink_processor_pool</scope><name>get_processor</name></member>
+      <member refid="classsrsgnb_1_1uplink__processor__pool_1af55b159a96c925db57f8c72288a69d4e" prot="public" virt="virtual"><scope>srsgnb::uplink_processor_pool</scope><name>~uplink_processor_pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

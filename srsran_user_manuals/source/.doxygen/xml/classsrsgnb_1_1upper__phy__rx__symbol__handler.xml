@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1upper__phy__rx__symbol__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::upper_phy_rx_symbol_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl" prot="public" virt="non-virtual">srsgnb::upper_phy_rx_symbol_handler_impl</derivedcompoundref>
+    <includes refid="upper__phy__rx__symbol__handler_8h" local="no">upper_phy_rx_symbol_handler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__handler_1a5cf19e55b341a7175a44d8ee59a3bfef" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::upper_phy_rx_symbol_handler::~upper_phy_rx_symbol_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~upper_phy_rx_symbol_handler</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" line="39" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__handler_1ac922b91a7e78be74623ab7c5acb2075c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::upper_phy_rx_symbol_handler::handle_rx_symbol</definition>
+        <argsstring>(const upper_phy_rx_symbol_context &amp;context, const resource_grid_reader &amp;grid)=0</argsstring>
+        <name>handle_rx_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl_1a297f18530e863748a08490ca11617893">handle_rx_symbol</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1upper__phy__rx__symbol__context" kindref="compound">upper_phy_rx_symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Handles the reception of an OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context: specifies sector, slot and symbol. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid for the current slot (encompasses all receive antenna ports). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" line="44" column="16"/>
+        <referencedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a2a2698dbad8dbd1737d66a238010a59e" compoundref="phy__rx__symbol__adapter_8h" startline="29" endline="37">srsgnb::phy_rx_symbol_adapter::on_rx_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__handler_1a21061dd7c3bdf5f386adde274570e3db" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::upper_phy_rx_symbol_handler::handle_rx_prach_window</definition>
+        <argsstring>(const prach_buffer_context &amp;context, const prach_buffer &amp;buffer)=0</argsstring>
+        <name>handle_rx_prach_window</name>
+        <reimplementedby refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl_1ab43b9899f037dd093195faf2b57560b4">handle_rx_prach_window</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Handles the arrival of PRACH sequences. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context: specifies sector, slot and window. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read-only buffer containing the PRACH sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" line="49" column="16"/>
+        <referencedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a5e296a14707870d03d901f71ce6bc1f6" compoundref="phy__rx__symbol__adapter_8h" startline="40" endline="44">srsgnb::phy_rx_symbol_adapter::on_rx_prach_window</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__handler_1afecfcbdde799049a642be58edda0246f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::upper_phy_rx_symbol_handler::handle_rx_srs_symbol</definition>
+        <argsstring>(const upper_phy_rx_symbol_context &amp;context)=0</argsstring>
+        <name>handle_rx_srs_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl_1adf5318a0e5ccd2cbe195596e7ee42ced">handle_rx_srs_symbol</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1upper__phy__rx__symbol__context" kindref="compound">upper_phy_rx_symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Handles the arrival of SRS packets at a given symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context: specifies sector, slot and symbol. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" line="53" column="16"/>
+        <referencedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a78a53436037d334dae3926eda89730d7" compoundref="phy__rx__symbol__adapter_8h" startline="47" endline="55">srsgnb::phy_rx_symbol_adapter::on_rx_srs_symbol</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface of the upper-PHY handler in charge of processing uplink OFDM symbols. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::upper_phy_rx_symbol_handler</label>
+        <link refid="classsrsgnb_1_1upper__phy__rx__symbol__handler"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::upper_phy_rx_symbol_handler_impl</label>
+        <link refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::upper_phy_rx_symbol_handler</label>
+        <link refid="classsrsgnb_1_1upper__phy__rx__symbol__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" line="36" column="1" bodyfile="include/srsgnb/phy/upper/upper_phy_rx_symbol_handler.h" bodystart="35" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__handler_1a21061dd7c3bdf5f386adde274570e3db" prot="public" virt="pure-virtual"><scope>srsgnb::upper_phy_rx_symbol_handler</scope><name>handle_rx_prach_window</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__handler_1afecfcbdde799049a642be58edda0246f" prot="public" virt="pure-virtual"><scope>srsgnb::upper_phy_rx_symbol_handler</scope><name>handle_rx_srs_symbol</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__handler_1ac922b91a7e78be74623ab7c5acb2075c" prot="public" virt="pure-virtual"><scope>srsgnb::upper_phy_rx_symbol_handler</scope><name>handle_rx_symbol</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__handler_1a5cf19e55b341a7175a44d8ee59a3bfef" prot="public" virt="virtual"><scope>srsgnb::upper_phy_rx_symbol_handler</scope><name>~upper_phy_rx_symbol_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

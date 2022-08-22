@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pdcch__processor__impl_8h" kind="file" language="C++">
+    <compoundname>pdcch_processor_impl.h</compoundname>
+    <includes refid="pdcch__encoder_8h" local="yes">srsgnb/phy/upper/channel_processors/pdcch_encoder.h</includes>
+    <includes refid="pdcch__modulator_8h" local="yes">srsgnb/phy/upper/channel_processors/pdcch_modulator.h</includes>
+    <includes refid="pdcch__processor_8h" local="yes">srsgnb/phy/upper/channel_processors/pdcch_processor.h</includes>
+    <includes refid="dmrs__pdcch__processor_8h" local="yes">srsgnb/phy/upper/signal_processors/dmrs_pdcch_processor.h</includes>
+    <includedby refid="channel__processor__factories_8cpp" local="yes">lib/phy/upper/channel_processors/channel_processor_factories.cpp</includedby>
+    <includedby refid="pdcch__processor__impl_8cpp" local="yes">lib/phy/upper/channel_processors/pdcch_processor_impl.cpp</includedby>
+    <incdepgraph>
+      <node id="49">
+        <label>atomic</label>
+      </node>
+      <node id="25">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>functional</label>
+      </node>
+      <node id="9">
+        <label>limits</label>
+      </node>
+      <node id="17">
+        <label>iterator</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="21">
+        <label>cassert</label>
+      </node>
+      <node id="52">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdexcept</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>string</label>
+      </node>
+      <node id="29">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="60">
+        <label>srsgnb/ran/slot_point.h</label>
+        <link refid="slot__point_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>pthread.h</label>
+      </node>
+      <node id="27">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdio</label>
+      </node>
+      <node id="48">
+        <label>tuple</label>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/phy/upper/signal_processors/dmrs_pdcch_processor.h</label>
+        <link refid="dmrs__pdcch__processor_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/ran/cyclic_prefix.h</label>
+        <link refid="cyclic__prefix_8h"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>utility</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="61">
+        <label>srsgnb/adt/interval.h</label>
+        <link refid="interval_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="6">
+        <label>cerrno</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pdcch_processor_impl.h</label>
+        <link refid="pdcch__processor__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>cstddef</label>
+      </node>
+      <node id="38">
+        <label>chrono</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_modulator.h</label>
+        <link refid="pdcch__modulator_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>srsgnb/ran/pdcch/pdcch_constants.h</label>
+        <link refid="pdcch__constants_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>type_traits</label>
+      </node>
+      <node id="57">
+        <label>srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>complex</label>
+      </node>
+      <node id="5">
+        <label>algorithm</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_encoder.h</label>
+        <link refid="pdcch__encoder_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstring</label>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>memory</label>
+      </node>
+      <node id="55">
+        <label>srsgnb/phy/upper/channel_processors/pdcch_processor.h</label>
+        <link refid="pdcch__processor_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structsrsgnb_1_1pdcch__processor__config__t" prot="public">srsgnb::pdcch_processor_config_t</innerclass>
+    <innerclass refid="classsrsgnb_1_1pdcch__processor__impl" prot="public">srsgnb::pdcch_processor_impl</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_processors/pdcch_encoder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_processors/pdcch_modulator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_processors/pdcch_processor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/signal_processors/dmrs_pdcch_processor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structsrsgnb_1_1pdcch__processor__config__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1pdcch__processor__config__t" kindref="compound">pdcch_processor_config_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="23" refid="structsrsgnb_1_1pdcch__processor__config__t_1a796568a38873254eff61c63c5b5b3f45" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;pdcch_encoder&gt;<sp/><ref refid="structsrsgnb_1_1pdcch__processor__config__t_1a796568a38873254eff61c63c5b5b3f45" kindref="member">encoder</ref>;</highlight></codeline>
+<codeline lineno="25" refid="structsrsgnb_1_1pdcch__processor__config__t_1aeb2c5bf179ef9d3016e74b3355e7775c" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;pdcch_modulator&gt;<sp/><ref refid="structsrsgnb_1_1pdcch__processor__config__t_1aeb2c5bf179ef9d3016e74b3355e7775c" kindref="member">modulator</ref>;</highlight></codeline>
+<codeline lineno="27" refid="structsrsgnb_1_1pdcch__processor__config__t_1a483193f0f8397bdec5669703f91c02b2" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;dmrs_pdcch_processor&gt;<sp/><ref refid="structsrsgnb_1_1pdcch__processor__config__t_1a483193f0f8397bdec5669703f91c02b2" kindref="member">dmrs</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classsrsgnb_1_1pdcch__processor__impl" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1pdcch__processor__impl" kindref="compound">pdcch_processor_impl</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__processor" kindref="compound">pdcch_processor</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35" refid="classsrsgnb_1_1pdcch__processor__impl_1a3095cfec7eb1984ddd7d7ab584946132" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;pdcch_encoder&gt;<sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a3095cfec7eb1984ddd7d7ab584946132" kindref="member">encoder</ref>;</highlight></codeline>
+<codeline lineno="37" refid="classsrsgnb_1_1pdcch__processor__impl_1a0da0dd25bff263f4e193ed05d2ecf93b" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;pdcch_modulator&gt;<sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a0da0dd25bff263f4e193ed05d2ecf93b" kindref="member">modulator</ref>;</highlight></codeline>
+<codeline lineno="39" refid="classsrsgnb_1_1pdcch__processor__impl_1a1dd048e39aa8e5a5f741a76f9c8ef6f8" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;dmrs_pdcch_processor&gt;<sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a1dd048e39aa8e5a5f741a76f9c8ef6f8" kindref="member">dmrs</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classsrsgnb_1_1pdcch__processor__impl_1a168698367ca888f9bba6c7dd3eb07da3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a168698367ca888f9bba6c7dd3eb07da3" kindref="member">nof_encoded_bits</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a1e0dbb8f05429dc6d5ab1311059e01c1" kindref="member">aggregation_level</ref><sp/>*<sp/>pdcch_constants::NOF_REG_PER_CCE<sp/>*<sp/>pdcch_constants::NOF_RE_PDCCH_PER_RB<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset&lt;MAX_RB&gt;</ref><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a5ed68866b058ea9ccc9a04539bc35681" kindref="member">compute_rb_mask</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>coreset_description&amp;<sp/>coreset,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dci_description&amp;<sp/>dci);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57" refid="classsrsgnb_1_1pdcch__processor__impl_1af570bbeb1a183a6ca8f405ee8c5a58c3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1af570bbeb1a183a6ca8f405ee8c5a58c3" kindref="member">pdcch_processor_impl</ref>(std::unique_ptr&lt;pdcch_encoder&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>encoder_,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;pdcch_modulator&gt;<sp/><sp/><sp/><sp/><sp/><sp/>modulator_,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;dmrs_pdcch_processor&gt;<sp/>dmrs_)<sp/>:</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a3095cfec7eb1984ddd7d7ab584946132" kindref="member">encoder</ref>(std::move(encoder_)),<sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a0da0dd25bff263f4e193ed05d2ecf93b" kindref="member">modulator</ref>(std::move(modulator_)),<sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a1dd048e39aa8e5a5f741a76f9c8ef6f8" kindref="member">dmrs</ref>(std::move(dmrs_))</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(<ref refid="classsrsgnb_1_1pdcch__processor__impl_1a3095cfec7eb1984ddd7d7ab584946132" kindref="member">encoder</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>encoder.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(<ref refid="classsrsgnb_1_1pdcch__processor__impl_1a0da0dd25bff263f4e193ed05d2ecf93b" kindref="member">modulator</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>modulator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(<ref refid="classsrsgnb_1_1pdcch__processor__impl_1a1dd048e39aa8e5a5f741a76f9c8ef6f8" kindref="member">dmrs</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>DMRS<sp/>generator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>interface<sp/>for<sp/>documentation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdcch__processor__impl_1a587b4e2dd388ff5f095ca50aa1f03826" kindref="member">process</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/>grid,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pdu_t&amp;<sp/>pdu)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">std::unique_ptr&lt;pdcch_processor&gt;<sp/><ref refid="namespacesrsgnb_1a919a1d703ada8f620a439cde2a2facdc" kindref="member">create_pdcch_processor</ref>(pdcch_processor_config_t&amp;<sp/>config);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pdcch_processor_impl.h"/>
+  </compounddef>
+</doxygen>

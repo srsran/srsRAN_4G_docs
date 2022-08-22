@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1re__measurement" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::re_measurement</compoundname>
+    <includes refid="channel__equalizer_8h" local="no">channel_equalizer.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename measure_type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Slice specifications.</header>
+      <description><para>A slice consists of a set of contiguous REs that spans <computeroutput>nof_prb</computeroutput> PRBs and <computeroutput>nof_symbols</computeroutput> OFDM symbols. Typically, for a PHY channel, it represents all the REs corresponding to a single Rx antenna port (before channel equalization) or to a single Tx layer (after channel equalization).</para>
+<para>Maximum number of slices. </para>
+</description>
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1ac904162873131f4c02e86bac6cde99cd" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::re_measurement&lt; measure_type &gt;::nof_slices</definition>
+        <argsstring></argsstring>
+        <name>nof_slices</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of slices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="163" column="12" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="163" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a7f339d3ba2e1fd4fdfabd9ae211116d3" compoundref="channel__equalizer_8h" startline="62" endline="83">srsgnb::re_measurement&lt; cf_t &gt;::re_measurement</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1af695246ec4ac928b2f89ed522bce2372" compoundref="channel__equalizer_8h" startline="107" endline="114">srsgnb::re_measurement&lt; cf_t &gt;::set_slice</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1a8a4286a907fe3fe94f1128117b372c4c" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::re_measurement&lt; measure_type &gt;::slice_size</definition>
+        <argsstring></argsstring>
+        <name>slice_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Slice size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="166" column="12" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="166" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a7f339d3ba2e1fd4fdfabd9ae211116d3" compoundref="channel__equalizer_8h" startline="62" endline="83">srsgnb::re_measurement&lt; cf_t &gt;::re_measurement</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a9132b929154b30831cb17af75c1ab44c" compoundref="channel__equalizer_8h" startline="89" endline="93">srsgnb::re_measurement&lt; cf_t &gt;::get_slice</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1af695246ec4ac928b2f89ed522bce2372" compoundref="channel__equalizer_8h" startline="107" endline="114">srsgnb::re_measurement&lt; cf_t &gt;::set_slice</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1a201b8c3b2bb55fdf15742bba9daf697e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::re_measurement&lt; measure_type &gt;::MAX_NOF_SLICES</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_SLICES</name>
+        <initializer>= std::max(<ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref>, pusch_constants::MAX_NOF_LAYERS)</initializer>
+        <briefdescription>
+<para>Number of slices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="160" column="29" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="160" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a7f339d3ba2e1fd4fdfabd9ae211116d3" compoundref="channel__equalizer_8h" startline="62" endline="83">srsgnb::re_measurement&lt; cf_t &gt;::re_measurement</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1a8d6d69d877543d85e9a505411c4c5740" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::re_measurement&lt; measure_type &gt;::nof_subcarriers</definition>
+        <argsstring></argsstring>
+        <name>nof_subcarriers</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of subcarriers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="148" column="12" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="148" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1aac899b3c6df441a9156aa1013ca95515" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::re_measurement&lt; measure_type &gt;::nof_symbols</definition>
+        <argsstring></argsstring>
+        <name>nof_symbols</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of OFDM symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="151" column="12" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="151" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1aa27cd7560630dac9e0da4774db433949" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; measure_type &gt;</type>
+        <definition>std::vector&lt;measure_type&gt; srsgnb::re_measurement&lt; measure_type &gt;::re_meas</definition>
+        <argsstring></argsstring>
+        <name>re_meas</name>
+        <briefdescription>
+<para>Container for RE measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>RE measurements should be thought as three-dimensional tensor with the first two dimensions representing, in order, subcarriers and OFDM symbols. Typically, the third dimension is referred to as slice and represents either receive ports (before channel equalization) or transmit layers (after channel equalization). The underlying data structure is a single vector, indexed in the same order: i) subcarriers, ii) OFDM symbols, iii) slice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="178" column="15" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="178" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1afb419fd312683e534bebcc690af3c4c7" compoundref="channel__equalizer_8h" startline="54" endline="59">srsgnb::re_measurement&lt; cf_t &gt;::re_measurement</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a9132b929154b30831cb17af75c1ab44c" compoundref="channel__equalizer_8h" startline="89" endline="93">srsgnb::re_measurement&lt; cf_t &gt;::get_slice</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1re__measurement_1a91d952bab591cc4208b8af3727be700d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::re_measurement&lt; measure_type &gt;::MAX_BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MAX_BUFFER_SIZE</name>
+        <initializer>= <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * <ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref> * <ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref> * <ref refid="classsrsgnb_1_1re__measurement_1a201b8c3b2bb55fdf15742bba9daf697e" kindref="member">MAX_NOF_SLICES</ref></initializer>
+        <briefdescription>
+<para>Maximum internal buffer size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="170" column="27" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="170" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1afb419fd312683e534bebcc690af3c4c7" compoundref="channel__equalizer_8h" startline="54" endline="59">srsgnb::re_measurement&lt; cf_t &gt;::re_measurement</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; cf_t &gt;::resize</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1afb419fd312683e534bebcc690af3c4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_measurement&lt; measure_type &gt;::re_measurement</definition>
+        <argsstring>()</argsstring>
+        <name>re_measurement</name>
+        <briefdescription>
+<para>Constructor: checks template type and reserves internal memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="54" column="3" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1a7f339d3ba2e1fd4fdfabd9ae211116d3" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_measurement&lt; measure_type &gt;::re_measurement</definition>
+        <argsstring>(const re_measurement_dimensions &amp;dims)</argsstring>
+        <name>re_measurement</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1re__measurement__dimensions" kindref="compound">re_measurement_dimensions</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <briefdescription>
+<para>Constructor: sets the size of the internal buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="62" column="12" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="62" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1aa68f65acb40ca6ab3039c4cd44ea6aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::re_measurement&lt; measure_type &gt;::~re_measurement</definition>
+        <argsstring>()=default</argsstring>
+        <name>~re_measurement</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="86" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1a9132b929154b30831cb17af75c1ab44c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; measure_type &gt;</type>
+        <definition>span&lt;measure_type&gt; srsgnb::re_measurement&lt; measure_type &gt;::get_slice</definition>
+        <argsstring>(unsigned i_slice)</argsstring>
+        <name>get_slice</name>
+        <param>
+          <type>unsigned</type>
+          <declname>i_slice</declname>
+        </param>
+        <briefdescription>
+<para>Returns a read-write view over the RE measurements corresponding to the given <ref refid="classsrsgnb_1_1re__measurement_1slice0be287" kindref="member">slice</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="89" column="8" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="89" bodyend="93"/>
+        <referencedby refid="classsrsgnb_1_1re__measurement_1af695246ec4ac928b2f89ed522bce2372" compoundref="channel__equalizer_8h" startline="107" endline="114">srsgnb::re_measurement&lt; cf_t &gt;::set_slice</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1a044d90e25e565b5c97607a687fb25870" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const measure_type &gt;</type>
+        <definition>span&lt;const measure_type&gt; srsgnb::re_measurement&lt; measure_type &gt;::get_slice</definition>
+        <argsstring>(unsigned i_slice) const</argsstring>
+        <name>get_slice</name>
+        <param>
+          <type>unsigned</type>
+          <declname>i_slice</declname>
+        </param>
+        <briefdescription>
+<para>Returns a read-only view over the RE measurements corresponding to the given <ref refid="classsrsgnb_1_1re__measurement_1slice0be287" kindref="member">slice</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="96" column="8" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="96" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1af695246ec4ac928b2f89ed522bce2372" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::re_measurement&lt; measure_type &gt;::set_slice</definition>
+        <argsstring>(span&lt; measure_type &gt; data, unsigned i_slice)</argsstring>
+        <name>set_slice</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; measure_type &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>i_slice</declname>
+        </param>
+        <briefdescription>
+<para>Writes data on a <ref refid="classsrsgnb_1_1re__measurement_1slice0be287" kindref="member">slice</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i_slice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the destination slice. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The size of <computeroutput>data</computeroutput> should be equal to the number of REs in a slice. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="107" column="8" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="107" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::re_measurement&lt; measure_type &gt;::resize</definition>
+        <argsstring>(const re_measurement_dimensions &amp;dims)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1re__measurement__dimensions" kindref="compound">re_measurement_dimensions</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <briefdescription>
+<para>Updates the size of the internal buffer to the given dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The amount of memory reserved for a <ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref> object is fixed and set at construction time. This method only affects the amount of accessible REs and the <ref refid="classsrsgnb_1_1re__measurement_1slice0be287" kindref="member">slice</ref> size. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="119" column="8" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="119" bodyend="144"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">srsgnb::pusch_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Container for RE measurements. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="classsrsgnb_1_1re__measurement_1slice0be287"/>This class is used to store measurements/observations for all resource elements (REs) corresponding to a physical channel. More specifically, the container organizes the REs in <emphasis>slices:</emphasis> A slice includes all the REs seen by a single receive antenna port (before channel equalization) or by a single transmit layer (after channel equalization) and, hence, spans all allocated resource blocks and OFDM symbols.</para>
+<para>Examples of measurements/observations that may be stored in this container include modulated symbols and noise variances.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>measure_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the represented RE measurement (e.g., <computeroutput>float</computeroutput> or <computeroutput>cf_t</computeroutput>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>Instantiating an object of this class entails a heap memory allocation. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::re_measurement&lt; measure_type &gt;</label>
+        <link refid="classsrsgnb_1_1re__measurement"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="51" column="1" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="50" bodyend="179"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1re__measurement_1a9132b929154b30831cb17af75c1ab44c" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>get_slice</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a044d90e25e565b5c97607a687fb25870" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>get_slice</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a91d952bab591cc4208b8af3727be700d" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>MAX_BUFFER_SIZE</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a201b8c3b2bb55fdf15742bba9daf697e" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>MAX_NOF_SLICES</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1ac904162873131f4c02e86bac6cde99cd" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>nof_slices</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a8d6d69d877543d85e9a505411c4c5740" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>nof_subcarriers</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1aac899b3c6df441a9156aa1013ca95515" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>nof_symbols</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1aa27cd7560630dac9e0da4774db433949" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>re_meas</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1afb419fd312683e534bebcc690af3c4c7" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>re_measurement</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a7f339d3ba2e1fd4fdfabd9ae211116d3" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>re_measurement</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>resize</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1af695246ec4ac928b2f89ed522bce2372" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>set_slice</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1a8a4286a907fe3fe94f1128117b372c4c" prot="private" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>slice_size</name></member>
+      <member refid="classsrsgnb_1_1re__measurement_1aa68f65acb40ca6ab3039c4cd44ea6aff" prot="public" virt="non-virtual"><scope>srsgnb::re_measurement</scope><name>~re_measurement</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,899 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__cu__cp_1_1du__processor" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_cu_cp::du_processor</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::du_processor_f1c_interface</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::du_processor_rrc_ue_interface</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::du_processor_ue_task_scheduler</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a62c4a49de967b9ada215d46906782305" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::srs_cu_cp::du_processor::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <initializer>= srslog::fetch_basic_logger(&quot;CU-CP&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="84" column="24" bodyfile="lib/cu_cp/du_processor.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a7bbc577044dc03a540c4e7ba766da294" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__processor__config__t" kindref="compound">du_processor_config_t</ref></type>
+        <definition>du_processor_config_t srsgnb::srs_cu_cp::du_processor::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="85" column="25" bodyfile="lib/cu_cp/du_processor.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a9e497ade2f9aadbb4a3571f9904dfbbd" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__context" kindref="compound">du_context</ref></type>
+        <definition>du_context srsgnb::srs_cu_cp::du_processor::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="87" column="49" bodyfile="lib/cu_cp/du_processor.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a3fb266d0ffefb137eea9eebbc3d2e553" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__cell__context" kindref="compound">du_cell_context</ref>, MAX_NOF_DU_CELLS &gt;</type>
+        <definition>slot_array&lt;du_cell_context, MAX_NOF_DU_CELLS&gt; srsgnb::srs_cu_cp::du_processor::cell_db</definition>
+        <argsstring></argsstring>
+        <name>cell_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="88" column="14" bodyfile="lib/cu_cp/du_processor.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a941b18ded63c5c1ff90b213ad243b7d5" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; uint16_t &gt;</type>
+        <definition>std::atomic&lt;uint16_t&gt; srsgnb::srs_cu_cp::du_processor::next_du_cell_index</definition>
+        <argsstring></argsstring>
+        <name>next_du_cell_index</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>flattened version of served cells list provided by DU/F1AP </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="89" column="39" bodyfile="lib/cu_cp/du_processor.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ad17f345456382d8271cdfac4047b9c46" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1srs__cu__cp_1_1f1__interface" kindref="compound">f1_interface</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;f1_interface&gt; srsgnb::srs_cu_cp::du_processor::f1ap</definition>
+        <argsstring></argsstring>
+        <name>f1ap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="92" column="30" bodyfile="lib/cu_cp/du_processor.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acafddfef179e84fcc7039615453457ae" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__entity__du__interface" kindref="compound">rrc_entity_du_interface</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;rrc_entity_du_interface&gt; srsgnb::srs_cu_cp::du_processor::rrc</definition>
+        <argsstring></argsstring>
+        <name>rrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="93" column="19" bodyfile="lib/cu_cp/du_processor.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aaa39dcbe5935059761584214abcfa588" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1ue__manager" kindref="compound">ue_manager</ref></type>
+        <definition>ue_manager srsgnb::srs_cu_cp::du_processor::ue_mng</definition>
+        <argsstring></argsstring>
+        <name>ue_mng</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="95" column="14" bodyfile="lib/cu_cp/du_processor.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aeec93c84c07069e42f5ce93dcfa57ca3" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__du__processor__adapter" kindref="compound">f1ap_du_processor_adapter</ref></type>
+        <definition>f1ap_du_processor_adapter srsgnb::srs_cu_cp::du_processor::f1ap_ev_notifier</definition>
+        <argsstring></argsstring>
+        <name>f1ap_ev_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="98" column="29" bodyfile="lib/cu_cp/du_processor.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a372ce644bf1d0bfdfd8bd35484654eb1" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter" kindref="compound">rrc_ue_du_processor_adapter</ref></type>
+        <definition>rrc_ue_du_processor_adapter srsgnb::srs_cu_cp::du_processor::rrc_ue_ev_notifier</definition>
+        <argsstring></argsstring>
+        <name>rrc_ue_ev_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="101" column="31" bodyfile="lib/cu_cp/du_processor.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac45d967961c02ba22987f22c8ba1aa4e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="classsrsgnb_1_1async__task__sequencer" kindref="compound">async_task_sequencer</ref>, MAX_NOF_UES &gt;</type>
+        <definition>slot_array&lt;async_task_sequencer, MAX_NOF_UES&gt; srsgnb::srs_cu_cp::du_processor::ue_ctrl_loop</definition>
+        <argsstring></argsstring>
+        <name>ue_ctrl_loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="104" column="14" bodyfile="lib/cu_cp/du_processor.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a712d378527aea36de5d8f3c622e4c298" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref></type>
+        <definition>timer_manager srsgnb::srs_cu_cp::du_processor::timer_db</definition>
+        <argsstring></argsstring>
+        <name>timer_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="107" column="17" bodyfile="lib/cu_cp/du_processor.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a643d27c0bf9dd3700741ace9f193d6a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>du_processor::du_processor</definition>
+        <argsstring>(const du_processor_config_t &amp;cfg)</argsstring>
+        <name>du_processor</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__processor__config__t" kindref="compound">du_processor_config_t</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="35" column="3" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="22" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a01d5a66d78806eda76729bf802016082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_cu_cp::du_processor::~du_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~du_processor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="36" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acfd07da0fe09e9e8ca94e1b8e220df52" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void du_processor::handle_f1_setup_request</definition>
+        <argsstring>(const f1_setup_request_message &amp;msg) override</argsstring>
+        <name>handle_f1_setup_request</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface_1a127117a84000ebf13ff2a49530129cf6">handle_f1_setup_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1f1__setup__request__message" kindref="compound">f1_setup_request_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Handle the reception of a F1 Setup Request message and transmit the F1 Setup Response or F1 Setup Failure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The received F1 Setup Request message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="39" column="8" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="39" bodyend="84"/>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a8dbd03bb297b2ee5eb6719c14a40996f" compoundref="du__processor_8cpp" startline="115" endline="121">send_f1_setup_failure</references>
+        <references refid="structsrsgnb_1_1srs__cu__cp_1_1du__context_1a51957f9ca576e328862473981ad50572" compoundref="du__context_8h" startline="46">srsgnb::srs_cu_cp::du_context::id</references>
+        <references refid="structsrsgnb_1_1srs__cu__cp_1_1du__context_1a7e4b7f3aee877c066b3302d1460c3da3" compoundref="du__context_8h" startline="47">srsgnb::srs_cu_cp::du_context::name</references>
+        <references refid="structsrsgnb_1_1srs__cu__cp_1_1du__cell__context_1ad0f281ac795dcbfa2180d4bcf757fa65" compoundref="du__context_8h" startline="40">srsgnb::srs_cu_cp::du_cell_context::pci</references>
+        <references refid="structsrsgnb_1_1srs__cu__cp_1_1du__cell__context_1acf4584946cfa3ef2245024c625b1bb7c" compoundref="du__context_8h" startline="39">srsgnb::srs_cu_cp::du_cell_context::cgi</references>
+        <references refid="namespacesrsgnb_1acdf4ea3cddcfe5e32bb6c40d6af5dc89" compoundref="asn1__helpers_8cpp" startline="15" endline="28">srsgnb::cgi_from_asn1</references>
+        <references refid="structsrsgnb_1_1srs__cu__cp_1_1du__cell__context_1a9aa817e73025e989d6a9c9971ea3849c" compoundref="du__context_8h" startline="41">srsgnb::srs_cu_cp::du_cell_context::sys_info</references>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ab762b43631ae72a7c78aa3e1924710b5" compoundref="du__processor_8cpp" startline="107" endline="113">send_f1_setup_response</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a1807600408e8ee1092c0ccf4e6c3960f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>du_index_t</type>
+        <definition>du_index_t du_processor::get_du_index</definition>
+        <argsstring>() override</argsstring>
+        <name>get_du_index</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface_1a6a402323a7ce6660a107de81f7e23434">get_du_index</reimplements>
+        <briefdescription>
+<para>Get the DU index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The DU index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="41" column="14" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac9b5d174a397e219136beffa943dc083" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__cell__context" kindref="compound">du_cell_context</ref>, MAX_NOF_DU_CELLS &gt; &amp;</type>
+        <definition>slot_array&lt;du_cell_context, MAX_NOF_DU_CELLS&gt;&amp; srsgnb::srs_cu_cp::du_processor::get_cell_db</definition>
+        <argsstring>()</argsstring>
+        <name>get_cell_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="44" column="14" bodyfile="lib/cu_cp/du_processor.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a41fa98f48e130443b7d3e48586cf0791" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__context" kindref="compound">du_context</ref> &amp;</type>
+        <definition>du_context&amp; srsgnb::srs_cu_cp::du_processor::get_context</definition>
+        <argsstring>()</argsstring>
+        <name>get_context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="45" column="49" bodyfile="lib/cu_cp/du_processor.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac41e7560e56364d8f9298e4ac2972ef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1f1c__message__handler" kindref="compound">f1c_message_handler</ref> &amp;</type>
+        <definition>f1c_message_handler&amp; srsgnb::srs_cu_cp::du_processor::get_f1c_message_handler</definition>
+        <argsstring>()</argsstring>
+        <name>get_f1c_message_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="46" column="49" bodyfile="lib/cu_cp/du_processor.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a40118d33223f82947568f7766f203fe0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__statistics__handler" kindref="compound">f1c_statistics_handler</ref> &amp;</type>
+        <definition>f1c_statistics_handler&amp; srsgnb::srs_cu_cp::du_processor::get_f1c_statistics_handler</definition>
+        <argsstring>()</argsstring>
+        <name>get_f1c_statistics_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="47" column="49" bodyfile="lib/cu_cp/du_processor.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a286c7466c6a17747c66b39990759e0ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+        <definition>du_cell_index_t du_processor::get_next_du_cell_index</definition>
+        <argsstring>()</argsstring>
+        <name>get_next_du_cell_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="48" column="50" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="123" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1af536a4d43477e7cc4be847f2ef62d8d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::srs_cu_cp::du_processor::get_nof_ues</definition>
+        <argsstring>()</argsstring>
+        <name>get_nof_ues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="49" column="50" bodyfile="lib/cu_cp/du_processor.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5bb6e8cce1fdef37557da89ae5a10da3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1srs__cu__cp_1_1ue__creation__complete__message" kindref="compound">ue_creation_complete_message</ref></type>
+        <definition>ue_creation_complete_message du_processor::handle_ue_creation_request</definition>
+        <argsstring>(const ue_creation_message &amp;msg) override</argsstring>
+        <name>handle_ue_creation_request</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface_1aae86d91479c976afa05e735a72f57aca">handle_ue_creation_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1ue__creation__message" kindref="compound">ue_creation_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Create a new UE context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE creation message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a UE creation complete message containing the index of the created UE and its SRB notifiers. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="52" column="32" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="135" bodyend="189"/>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1ue__manager_1add7c3939d54d935c436732c40e69be8c" compoundref="ue__manager_8cpp" startline="36" endline="62">srsgnb::srs_cu_cp::ue_manager::add_ue</references>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5efa19f15e94811b8e06e8a7c13f6192" compoundref="du__processor_8cpp" startline="91" endline="99">find_cell</references>
+        <references refid="structsrsgnb_1_1nr__cell__global__identity_1ac6c4261f265fbe9657c683ee9b6e55e0" compoundref="nr__cgi_8h" startline="29">srsgnb::nr_cell_global_identity::nci</references>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a19d9b47ab4efcb9d92fb6a1b8d7a456c" compoundref="du__processor_8cpp" startline="191" endline="243">create_srb</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a0e584512ea8e4ccd1b2eef8df3ecb826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__amf__connection__handler" kindref="compound">rrc_amf_connection_handler</ref> &amp;</type>
+        <definition>rrc_amf_connection_handler &amp; du_processor::get_amf_connection_handler</definition>
+        <argsstring>()</argsstring>
+        <name>get_amf_connection_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="54" column="30" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a19d9b47ab4efcb9d92fb6a1b8d7a456c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void du_processor::create_srb</definition>
+        <argsstring>(const srb_creation_message &amp;msg) override</argsstring>
+        <name>create_srb</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface_1a067cb1dd316c1f417feb413db0ae6a05">create_srb</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1srb__creation__message" kindref="compound">srb_creation_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Pass handle to AMF connection handler within RRC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Create SRB entry in bearer list and add adapter handle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="58" column="8" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="191" bodyend="243"/>
+        <references refid="namespacesrsgnb_1aabb540caee8957567fead6a2eae9fe6e" compoundref="lcid_8h" startline="52" endline="55">srsgnb::srb_id_to_lcid</references>
+        <references refid="namespacesrsgnb_1a1c3892bdc193959d91802aec5a110cf8" compoundref="pdcp__factory_8cpp" startline="18" endline="21">srsgnb::create_pdcp_entity</references>
+        <referencedby refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5bb6e8cce1fdef37557da89ae5a10da3" compoundref="du__processor_8cpp" startline="135" endline="189">handle_ue_creation_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aaee4ea8392293845cd311e278f6d2048" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void du_processor::handle_ue_context_release_command</definition>
+        <argsstring>(const ue_context_release_command_message &amp;msg) override</argsstring>
+        <name>handle_ue_context_release_command</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface_1a092783a4047cada4dabefda04af2dcfa">handle_ue_context_release_command</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1ue__context__release__command__message" kindref="compound">ue_context_release_command_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Handle a UE Context Release Command and notify F1AP. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Release Command Message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="59" column="8" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="245" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1af8b65192b1b507780727ea397c8c0adf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::du_processor::handle_ue_async_task</definition>
+        <argsstring>(ue_index_t ue_index, async_task&lt; void &gt; &amp;&amp;task) override</argsstring>
+        <name>handle_ue_async_task</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler_1a0f698bda0d3c9b6a484a98215965ca74">handle_ue_async_task</reimplements>
+        <param>
+          <type>ue_index_t</type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; void &gt; &amp;&amp;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="61" column="8" bodyfile="lib/cu_cp/du_processor.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a3126bd36c69d453483bcb9c392f57277" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1unique__timer" kindref="compound">unique_timer</ref></type>
+        <definition>unique_timer srsgnb::srs_cu_cp::du_processor::make_unique_timer</definition>
+        <argsstring>() override</argsstring>
+        <name>make_unique_timer</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler_1af1d38baad57091057a6a83c3980008ba">make_unique_timer</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="66" column="18" bodyfile="lib/cu_cp/du_processor.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a065616a1ca58ff00595f4bc71131d905" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+        <definition>timer_manager&amp; srsgnb::srs_cu_cp::du_processor::get_timer_manager</definition>
+        <argsstring>() override</argsstring>
+        <name>get_timer_manager</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler_1aac60493a7cddf2ebdbcb775654faa578">get_timer_manager</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="67" column="17" bodyfile="lib/cu_cp/du_processor.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5efa19f15e94811b8e06e8a7c13f6192" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+        <definition>du_cell_index_t du_processor::find_cell</definition>
+        <argsstring>(uint64_t packed_nr_cell_id)</argsstring>
+        <name>find_cell</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>packed_nr_cell_id</declname>
+        </param>
+        <briefdescription>
+<para>Lookup the cell based on a given NR cell ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">packed_nr_cell_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The packed NR cell ID received over F1AP. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="72" column="19" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="91" bodyend="99"/>
+        <referencedby refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5bb6e8cce1fdef37557da89ae5a10da3" compoundref="du__processor_8cpp" startline="135" endline="189">handle_ue_creation_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ab762b43631ae72a7c78aa3e1924710b5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void du_processor::send_f1_setup_response</definition>
+        <argsstring>(const du_context &amp;du_ctxt)</argsstring>
+        <name>send_f1_setup_response</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1du__context" kindref="compound">du_context</ref> &amp;</type>
+          <declname>du_ctxt</declname>
+        </param>
+        <briefdescription>
+<para>Create and transmit the F1 Setup response message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sender for F1AP messages.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">du_ctxt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The context of the DU that should receive the message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="78" column="8" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="107" bodyend="113"/>
+        <referencedby refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acfd07da0fe09e9e8ca94e1b8e220df52" compoundref="du__processor_8cpp" startline="39" endline="84">handle_f1_setup_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a8dbd03bb297b2ee5eb6719c14a40996f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void du_processor::send_f1_setup_failure</definition>
+        <argsstring>(asn1::f1ap::cause_c::types::options cause)</argsstring>
+        <name>send_f1_setup_failure</name>
+        <param>
+          <type>asn1::f1ap::cause_c::types::options</type>
+          <declname>cause</declname>
+        </param>
+        <briefdescription>
+<para>Create and transmit the F1 Setup failure message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cause of the failure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/du_processor.h" line="82" column="8" bodyfile="lib/cu_cp/du_processor.cpp" bodystart="115" bodyend="121"/>
+        <referencedby refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acfd07da0fe09e9e8ca94e1b8e220df52" compoundref="du__processor_8cpp" startline="39" endline="84">handle_f1_setup_request</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::du_processor_f1c_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::srs_cu_cp::du_processor_rrc_ue_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_cu_cp::du_processor_ue_task_scheduler</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::du_processor</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_cu_cp::du_processor_srb_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb::srs_cu_cp::du_context</label>
+        <link refid="structsrsgnb_1_1srs__cu__cp_1_1du__context"/>
+      </node>
+      <node id="29">
+        <label>srsgnb::srs_cu_cp::f1c_du_management_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier"/>
+      </node>
+      <node id="7">
+        <label>T</label>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::du_processor_f1c_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::slot_array&lt; srsgnb::async_task_sequencer, MAX_NOF_UES &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="20" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::srs_cu_cp::rb_cfg_t &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::slot_array&lt; srsgnb::srs_cu_cp::du_cell_context, MAX_NOF_DU_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="23" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::srs_cu_cp::du_processor_rrc_ue_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::srs_cu_cp::du_cell_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::srs_cu_cp::f1ap_du_processor_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__du__processor__adapter"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-du_f1c_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srs_cu_cp::du_processor_ue_task_scheduler</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler"/>
+      </node>
+      <node id="27">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::srs_cu_cp::ue_manager_ctrl_configurer</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1ue__manager__ctrl__configurer"/>
+      </node>
+      <node id="34">
+        <label>srsgnb::srs_cu_cp::rrc_ue_nas_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__nas__notifier"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::srs_cu_cp::ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="35">
+        <label>srsgnb::f1c_message_notifier</label>
+        <link refid="classsrsgnb_1_1f1c__message__notifier"/>
+      </node>
+      <node id="21">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::async_task_sequencer &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="26">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-du_processor_rrc_ue_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::du_processor</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-timer_db</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-f1ap_ev_notifier</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>-ue_mng</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>-ue_ctrl_loop</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-cell_db</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>-context</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>-rrc_ue_ev_notifier</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srsgnb::slot_array&lt; srsgnb::srs_cu_cp::ue_context, MAX_NOF_UES &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="17" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb::srs_cu_cp::rrc_cfg_t</label>
+        <link refid="structsrsgnb_1_1srs__cu__cp_1_1rrc__cfg__t"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>+srb2_cfg</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>+ue_default_cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::srs_cu_cp::f1c_du_processor_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__processor__notifier"/>
+      </node>
+      <node id="10">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::srs_cu_cp::du_cell_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="28">
+        <label>srsgnb::srs_cu_cp::du_processor_config_t</label>
+        <link refid="structsrsgnb_1_1srs__cu__cp_1_1du__processor__config__t"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>+f1c_du_mgmt_notifier</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>+rrc_cfg</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>+rrc_ue_ngap_ev_notifier</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>+f1c_notifier</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb::srs_cu_cp::rrc_ue_cfg_t</label>
+        <link refid="structsrsgnb_1_1srs__cu__cp_1_1rrc__ue__cfg__t"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb::optional&lt; srsgnb::srs_cu_cp::rb_cfg_t &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::async_task_sequencer &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_cu_cp::du_processor_srb_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface"/>
+      </node>
+      <node id="17">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::srs_cu_cp::ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::srs_cu_cp::ue_manager</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1ue__manager"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/cu_cp/du_processor.h" line="33" column="1" bodyfile="lib/cu_cp/du_processor.h" bodystart="30" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a3fb266d0ffefb137eea9eebbc3d2e553" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>cell_db</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a7bbc577044dc03a540c4e7ba766da294" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a9e497ade2f9aadbb4a3571f9904dfbbd" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>context</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a19d9b47ab4efcb9d92fb6a1b8d7a456c" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>create_srb</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a643d27c0bf9dd3700741ace9f193d6a2" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>du_processor</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ad17f345456382d8271cdfac4047b9c46" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>f1ap</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aeec93c84c07069e42f5ce93dcfa57ca3" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>f1ap_ev_notifier</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5efa19f15e94811b8e06e8a7c13f6192" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>find_cell</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a0e584512ea8e4ccd1b2eef8df3ecb826" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_amf_connection_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac9b5d174a397e219136beffa943dc083" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_cell_db</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a41fa98f48e130443b7d3e48586cf0791" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_context</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a1807600408e8ee1092c0ccf4e6c3960f" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_du_index</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac41e7560e56364d8f9298e4ac2972ef0" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_f1c_message_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a40118d33223f82947568f7766f203fe0" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_f1c_statistics_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a286c7466c6a17747c66b39990759e0ca" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_next_du_cell_index</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1af536a4d43477e7cc4be847f2ef62d8d4" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_nof_ues</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a065616a1ca58ff00595f4bc71131d905" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>get_timer_manager</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acfd07da0fe09e9e8ca94e1b8e220df52" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>handle_f1_setup_request</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1af8b65192b1b507780727ea397c8c0adf" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>handle_ue_async_task</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aaee4ea8392293845cd311e278f6d2048" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>handle_ue_context_release_command</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a5bb6e8cce1fdef37557da89ae5a10da3" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>handle_ue_creation_request</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a62c4a49de967b9ada215d46906782305" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a3126bd36c69d453483bcb9c392f57277" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>make_unique_timer</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a941b18ded63c5c1ff90b213ad243b7d5" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>next_du_cell_index</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1acafddfef179e84fcc7039615453457ae" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>rrc</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a372ce644bf1d0bfdfd8bd35484654eb1" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>rrc_ue_ev_notifier</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a8dbd03bb297b2ee5eb6719c14a40996f" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>send_f1_setup_failure</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ab762b43631ae72a7c78aa3e1924710b5" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>send_f1_setup_response</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a712d378527aea36de5d8f3c622e4c298" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>timer_db</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1ac45d967961c02ba22987f22c8ba1aa4e" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>ue_ctrl_loop</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1aaa39dcbe5935059761584214abcfa588" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>ue_mng</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor_1a01d5a66d78806eda76729bf802016082" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>~du_processor</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__f1c__interface_1a899476053fadabcb14f7693ee9eddb9d" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>~du_processor_f1c_interface</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface_1a0ced135e0186ab442513a31fdf6da379" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>~du_processor_rrc_ue_interface</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface_1a130fae52c4b01338568b964f1abac819" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>~du_processor_srb_interface</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__ue__task__scheduler_1aa9068ad3351938de0f69a5ae3c2e6622" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::du_processor</scope><name>~du_processor_ue_task_scheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

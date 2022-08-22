@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__modulator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pdcch_modulator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pdcch__modulator" prot="public" virt="non-virtual">srsgnb::pdcch_modulator</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1ab49831b439da6530aadb43936a373233" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_modulator_impl::MAX_RB_PER_PDCCH</definition>
+        <argsstring></argsstring>
+        <name>MAX_RB_PER_PDCCH</name>
+        <initializer>= 16 * 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the maximum number of resource blocks used in a transmission. It considers the maximum aggregation level of 16 and a REG size of 6 RB. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="24" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1a1175817275d152409841f6c02849e250" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_modulator_impl::NOF_RE_PER_RB</definition>
+        <argsstring></argsstring>
+        <name>NOF_RE_PER_RB</name>
+        <initializer>= <ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref> - 3</initializer>
+        <briefdescription>
+<para>Defines the number of resource elements available for PDCCH in a resource block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="27" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1a02bcf12ca0ccf7e62317ed33143ea7ad" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_modulator_impl::MAX_RE</definition>
+        <argsstring></argsstring>
+        <name>MAX_RE</name>
+        <initializer>= <ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a1175817275d152409841f6c02849e250" kindref="member">NOF_RE_PER_RB</ref> * <ref refid="classsrsgnb_1_1pdcch__modulator__impl_1ab49831b439da6530aadb43936a373233" kindref="member">MAX_RB_PER_PDCCH</ref></initializer>
+        <briefdescription>
+<para>Defines the maximum number of resource elements that can be utilised for a PDCCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="30" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1a71f6758055e642cf9b1511380f3d33ea" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_modulator_impl::MAX_BITS</definition>
+        <argsstring></argsstring>
+        <name>MAX_BITS</name>
+        <initializer>= <ref refid="classsrsgnb_1_1pdcch__modulator__impl_1a02bcf12ca0ccf7e62317ed33143ea7ad" kindref="member">MAX_RE</ref> * <ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(<ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a" kindref="member">modulation_scheme::QPSK</ref>)</initializer>
+        <briefdescription>
+<para>Defines the maximum number of bits that can be utilised for a PDCCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="33" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1a8294bc8c0a9ff5ec109e207ed44b44cc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1modulation__mapper" kindref="compound">modulation_mapper</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;modulation_mapper&gt; srsgnb::pdcch_modulator_impl::modulator</definition>
+        <argsstring></argsstring>
+        <name>modulator</name>
+        <briefdescription>
+<para>Provides an implementation of the modulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="36" column="19" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" compoundref="pdcch__modulator__impl_8cpp" startline="29" endline="38">modulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1af2b0fffe4d96898078d51e2bc5957eb5" compoundref="pdcch__modulator__impl_8h" startline="68" endline="74">pdcch_modulator_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::pdcch_modulator_impl::scrambler</definition>
+        <argsstring></argsstring>
+        <name>scrambler</name>
+        <briefdescription>
+<para>Provides an implementation of the the pseudo-random generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="39" column="19" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" compoundref="pdcch__modulator__impl_8cpp" startline="17" endline="27">scramble</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1af2b0fffe4d96898078d51e2bc5957eb5" compoundref="pdcch__modulator__impl_8h" startline="68" endline="74">pdcch_modulator_impl</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_modulator_impl::scramble</definition>
+        <argsstring>(span&lt; uint8_t &gt; b_hat, span&lt; const uint8_t &gt; b, const config_t &amp;config)</argsstring>
+        <name>scramble</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>b_hat</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Scrambles a codeword. Implements TS 38.211 section 7.3.2.3 Scrambling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">b_hat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output bits after scrambling. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inputs bits to scramble. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the scrambler configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="46" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp" bodystart="17" bodyend="27"/>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1ade7c8d6902fd58bb17cbf7de5b81ac80" compoundref="pdcch__modulator_8h" startline="39">srsgnb::pdcch_modulator::config_t::n_rnti</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a4b986f6f386336a40ae42d52ecfca1ec" compoundref="pdcch__modulator_8h" startline="37">srsgnb::pdcch_modulator::config_t::n_id</references>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" compoundref="pdcch__modulator__impl_8h" startline="39">scrambler</references>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" compoundref="pdcch__modulator__impl_8cpp" startline="67" endline="81">modulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_modulator_impl::modulate</definition>
+        <argsstring>(span&lt; cf_t &gt; d_pdcch, span&lt; const uint8_t &gt; b_hat, float scaling)</argsstring>
+        <name>modulate</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>d_pdcch</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>b_hat</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scaling</declname>
+        </param>
+        <briefdescription>
+<para>Modulates a codeword. Implements TS 38.211 section 7.3.2.4 PDCCH modulation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">d_pdcch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output symbols. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b_hat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inputs bits to perform the modulation mapping. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scaling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the signal scaling if the value is valid (not 0, NAN nor INF). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="53" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp" bodystart="29" bodyend="38"/>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1a8294bc8c0a9ff5ec109e207ed44b44cc" compoundref="pdcch__modulator__impl_8h" startline="36">modulator</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a">srsgnb::QPSK</references>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" compoundref="pdcch__modulator__impl_8cpp" startline="67" endline="81">modulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_modulator_impl::map</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const cf_t &gt; d_pdcch, const config_t &amp;config)</argsstring>
+        <name>map</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>d_pdcch</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Maps the modulated symbols to resource elements in the grid. Implements TS 38.211 section 7.3.2.5 Mapping to physical resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">d_pdcch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the block of complex-valued symbols to map. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the mapper configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="61" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp" bodystart="40" bodyend="65"/>
+        <references refid="namespacesrsgnb_1adf0de14f34490ba84d770e68336cd6cf" compoundref="resource__grid__helpers_8h" startline="23" endline="34">srsgnb::get_rg_subc_mask_reference</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1aafbd4c1ef9ba10c44c4d318f9bd01ab3" compoundref="pdcch__modulator_8h" startline="31">srsgnb::pdcch_modulator::config_t::rb_mask</references>
+        <references refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" compoundref="resource__grid__helpers_8h" startline="48" endline="83">srsgnb::get_rg_subc_mask</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a84e2ac67920ec230556def0e8d8d09a1" compoundref="pdcch__modulator_8h" startline="43">srsgnb::pdcch_modulator::config_t::ports</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1af374f036ef2ebcfba3710e54632dbe3b" compoundref="pdcch__modulator_8h" startline="33">srsgnb::pdcch_modulator::config_t::start_symbol_index</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a1545fec789ecd221ffe944cb27e11005" compoundref="pdcch__modulator_8h" startline="35">srsgnb::pdcch_modulator::config_t::duration</references>
+        <references refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32">srsgnb::resource_grid_writer::put</references>
+        <referencedby refid="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" compoundref="pdcch__modulator__impl_8cpp" startline="67" endline="81">modulate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pdcch_modulator_impl::modulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const uint8_t &gt; data, const config_t &amp;config) override</argsstring>
+        <name>modulate</name>
+        <reimplements refid="classsrsgnb_1_1pdcch__modulator_1add3346483ff1ebd394b0d93e94a04e37">modulate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Modulates a PDCCH codeword according to TS 38.211 section 7.3.2 Physical downlink control channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the encoded and unpacked bits to modulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The codeword length shall be consistent with the resource mapping. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="65" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.cpp" bodystart="67" bodyend="81"/>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" compoundref="pdcch__modulator__impl_8cpp" startline="17" endline="27">scramble</references>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" compoundref="pdcch__modulator__impl_8cpp" startline="29" endline="38">modulate</references>
+        <references refid="structsrsgnb_1_1pdcch__modulator_1_1config__t_1a98e5c09442843ec5f5210f9d5976cb4b" compoundref="pdcch__modulator_8h" startline="41">srsgnb::pdcch_modulator::config_t::scaling</references>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" compoundref="pdcch__modulator__impl_8cpp" startline="40" endline="65">map</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__modulator__impl_1af2b0fffe4d96898078d51e2bc5957eb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pdcch_modulator_impl::pdcch_modulator_impl</definition>
+        <argsstring>(std::unique_ptr&lt; modulation_mapper &gt; modulator_, std::unique_ptr&lt; pseudo_random_generator &gt; scrambler_)</argsstring>
+        <name>pdcch_modulator_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1modulation__mapper" kindref="compound">modulation_mapper</ref> &gt;</type>
+          <declname>modulator_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>scrambler_</declname>
+        </param>
+        <briefdescription>
+<para>Generic PDCCH modulator instance constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="68" column="3" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="68" bodyend="74"/>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1a8294bc8c0a9ff5ec109e207ed44b44cc" compoundref="pdcch__modulator__impl_8h" startline="36">modulator</references>
+        <references refid="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" compoundref="pdcch__modulator__impl_8h" startline="39">scrambler</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcch_modulator_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__modulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_modulator</label>
+        <link refid="classsrsgnb_1_1pdcch__modulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcch_modulator_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__modulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_modulator</label>
+        <link refid="classsrsgnb_1_1pdcch__modulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" line="20" column="1" bodyfile="lib/phy/upper/channel_processors/pdcch_modulator_impl.h" bodystart="19" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1ab126ac2c0c48a0802e821aac34b8ea6b" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>map</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a71f6758055e642cf9b1511380f3d33ea" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>MAX_BITS</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1ab49831b439da6530aadb43936a373233" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>MAX_RB_PER_PDCCH</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a02bcf12ca0ccf7e62317ed33143ea7ad" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>MAX_RE</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a157412df244095f35a3d7e68b5cd4af5" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a5a003dc51b1174a858f5616688333336" prot="public" virt="virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a8294bc8c0a9ff5ec109e207ed44b44cc" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>modulator</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1a1175817275d152409841f6c02849e250" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>NOF_RE_PER_RB</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1af2b0fffe4d96898078d51e2bc5957eb5" prot="public" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>pdcch_modulator_impl</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1adb7140291f7d5f86623c4e1ba2356acc" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>scramble</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator__impl_1aa8c192ce3a01a564027913a944b352d4" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>scrambler</name></member>
+      <member refid="classsrsgnb_1_1pdcch__modulator_1a1e3651c628e1c5bdd52a27fd1b791149" prot="public" virt="virtual"><scope>srsgnb::pdcch_modulator_impl</scope><name>~pdcch_modulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

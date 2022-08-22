@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__rate__dematcher__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_rate_dematcher_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__rate__dematcher" prot="public" virt="non-virtual">srsgnb::ldpc_rate_dematcher</basecompoundref>
+    <includes refid="ldpc__rate__dematcher__impl_8h" local="no">ldpc_rate_dematcher_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a366d993fd96fe92b1ace1784fa41e748" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="namespacesrsgnb_1_1ldpc_1a08bf4ddfe506ff6afa86f708206f2224" kindref="member">ldpc::MAX_CODEBLOCK_LENGTH</ref> &gt;</type>
+        <definition>std::array&lt;log_likelihood_ratio, ldpc::MAX_CODEBLOCK_LENGTH&gt; srsgnb::ldpc_rate_dematcher_impl::auxiliary_buffer</definition>
+        <argsstring></argsstring>
+        <name>auxiliary_buffer</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Auxiliary buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="44" column="14" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a19100854044f23c06ab03529085a0073" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::rv</definition>
+        <argsstring></argsstring>
+        <name>rv</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Redundancy version, values in {0, 1, 2, 3}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="46" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ab559e5f5af6fe08b92034659b78ee42d" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::modulation_order</definition>
+        <argsstring></argsstring>
+        <name>modulation_order</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Modulation scheme. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="48" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a83f00f990630e9317fb7c4be317d127f" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::buffer_length</definition>
+        <argsstring></argsstring>
+        <name>buffer_length</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Buffer length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="50" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a05cbeadabb1dcaa5d79422b0ecfa6c51" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::shift_k0</definition>
+        <argsstring></argsstring>
+        <name>shift_k0</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Shift <formula id="208">$ k_0 $</formula> as defined in TS38.212 Table 5.4.2.1-2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="52" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ad2726a88eaf6be5cad5eb089e473bea9" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::nof_systematic_bits</definition>
+        <argsstring></argsstring>
+        <name>nof_systematic_bits</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of systematic bits (including filler bits) in the codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="54" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a007b4386572679730724089ee7b446f3" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_dematcher_impl::nof_filler_bits</definition>
+        <argsstring></argsstring>
+        <name>nof_filler_bits</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of filler bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="56" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1afdf388e9b56f5627b29522229262dcf7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool srsgnb::ldpc_rate_dematcher_impl::is_new_data</definition>
+        <argsstring></argsstring>
+        <name>is_new_data</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>New data flag: true if the processed codeblock is not a repeated one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="58" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ace370290b571f592a6a637f84ae143a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_dematcher_impl::rate_dematch</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; output, span&lt; const log_likelihood_ratio &gt; input, bool new_data, const codeblock_metadata &amp;cfg) override</argsstring>
+        <name>rate_dematch</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__rate__dematcher_1a73eb3a8438aa7340cfd4eefc77ec9277">rate_dematch</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>new_data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Recovers a full codeblock from its rate-matched version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function also takes care of combining repeated codeblocks for H-ARQ schemes (both chase combining and incremental redundancy).</para>
+<para>Log-likelihood ratios corresponding to filler bits are set to <computeroutput>INT8_MAX</computeroutput>. Log-likelihood ratios that cannot be determined from the input are set to zero. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full-length codeblock (log-likelihood ratios). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate-matched codeblock (log-likelihood ratios). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sizes of <computeroutput>input</computeroutput> and <computeroutput>output</computeroutput> determine the behavior of the rate recovering algorithm. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="27" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp" bodystart="29" bodyend="85"/>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" compoundref="codeblock__metadata_8h" startline="63">srsgnb::codeblock_metadata::tb_common</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" compoundref="codeblock__metadata_8h" startline="43">srsgnb::codeblock_metadata::tb_common_metadata::Nref</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a492358364ef837148bd38cb080f79212" compoundref="ldpc__graph__impl_8h" startline="31">srsgnb::ldpc::BG1_N_SHORT</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a5e6b9ae8f3d0e4c6c656dc2506c9ac64" compoundref="ldpc__graph__impl_8h" startline="29">srsgnb::ldpc::BG1_N_FULL</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a35c77e72f6a7f823f2cbe85c2681c777" compoundref="ldpc__graph__impl_8h" startline="27">srsgnb::ldpc::BG1_M</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a80b0980ff240be0d715f4fcb4b7d5ebb" compoundref="ldpc__graph__impl_8h" startline="37">srsgnb::ldpc::BG2_N_SHORT</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a8dcaad120e7684d4cde1bd677a331c13" compoundref="ldpc__graph__impl_8h" startline="35">srsgnb::ldpc::BG2_N_FULL</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a0210caeff09dff38472c7539979e9e99" compoundref="ldpc__graph__impl_8h" startline="33">srsgnb::ldpc::BG2_M</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1ad68c0a66dcd96fbd5b57d1d0152813bd" compoundref="ldpc__luts__impl_8cpp" startline="4534" endline="4537">srsgnb::ldpc::get_lifting_index</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a4e188ea601584d8e15f4f3e63824e699" compoundref="ldpc__graph__impl_8h" startline="22">srsgnb::ldpc::VOID_LIFTSIZE</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" compoundref="codeblock__metadata_8h" startline="65">srsgnb::codeblock_metadata::cb_specific</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" compoundref="codeblock__metadata_8h" startline="55">srsgnb::codeblock_metadata::cb_specific_metadata::nof_filler_bits</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a5ade53eac3a340feb5225fa1d0909683" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_dematcher_impl::init</definition>
+        <argsstring>(bool new_data, const codeblock_metadata::tb_common_metadata &amp;cfg)</argsstring>
+        <name>init</name>
+        <param>
+          <type>bool</type>
+          <declname>new_data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the rate dematcher internal state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="34" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp" bodystart="19" bodyend="27"/>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" compoundref="codeblock__metadata_8h" startline="38">srsgnb::codeblock_metadata::tb_common_metadata::rv</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a95eb67c37753b913c385dd689ce4048f" compoundref="codeblock__metadata_8h" startline="40">srsgnb::codeblock_metadata::tb_common_metadata::mod</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a6c1341a2d4c38f5481a805691e488203" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_dematcher_impl::allot_llrs</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; out, span&lt; const log_likelihood_ratio &gt; in) const</argsstring>
+        <name>allot_llrs</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Allots LLRs from the rate-matched input sequence to the full-sized output codeblock (i.e., reverts bit selection). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="37" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp" bodystart="87" bodyend="113"/>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+        <references refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" compoundref="span_8h" startline="182" endline="182">srsgnb::span&lt; T &gt;::end</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="namespacesrsgnb_1aef6e122792a07352d866cd4b8075ecd5" compoundref="log__likelihood__ratio_8h" startline="239">srsgnb::LLR_INFINITY</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a428b4cddb53d522e0580ef0c34757b02" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_dematcher_impl::deinterleave_llrs</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; out, span&lt; const log_likelihood_ratio &gt; in) const</argsstring>
+        <name>deinterleave_llrs</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Reverts the bit interleaving procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="40" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp" bodystart="115" bodyend="125"/>
+        <references refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da">srsgnb::E</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC rate dematching implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It reverts the rate matching procedure described in TS38.212 Section 5.4.2. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_dematcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_dematcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__dematcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" line="25" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.h" bodystart="24" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a6c1341a2d4c38f5481a805691e488203" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>allot_llrs</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a366d993fd96fe92b1ace1784fa41e748" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>auxiliary_buffer</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a83f00f990630e9317fb7c4be317d127f" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>buffer_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a428b4cddb53d522e0580ef0c34757b02" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>deinterleave_llrs</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a5ade53eac3a340feb5225fa1d0909683" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1afdf388e9b56f5627b29522229262dcf7" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>is_new_data</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ab559e5f5af6fe08b92034659b78ee42d" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>modulation_order</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a007b4386572679730724089ee7b446f3" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>nof_filler_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ad2726a88eaf6be5cad5eb089e473bea9" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>nof_systematic_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ace370290b571f592a6a637f84ae143a3" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>rate_dematch</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a19100854044f23c06ab03529085a0073" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>rv</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a05cbeadabb1dcaa5d79422b0ecfa6c51" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>shift_k0</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__dematcher_1a3b1617bef96415620b214f67cc27edff" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_dematcher_impl</scope><name>~ldpc_rate_dematcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

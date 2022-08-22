@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__encoder__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pdcch_encoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pdcch__encoder" prot="public" virt="non-virtual">srsgnb::pdcch_encoder</basecompoundref>
+    <includes refid="pdcch__encoder__impl_8h" local="no">pdcch_encoder_impl.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1ad593becdc8aaa31346784fd182e854b8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_encoder_impl::CRC_LEN</definition>
+        <argsstring></argsstring>
+        <name>CRC_LEN</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+<para>Defines CRC length in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="33" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1ae0e09afac8c020213be0f946ba65aa11" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_encoder_impl::RNTI_LEN</definition>
+        <argsstring></argsstring>
+        <name>RNTI_LEN</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+<para>Defines RNTI length in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="36" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1a150a83b28db515d220bcdeea296b122b" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdcch_encoder_impl::MAX_K</definition>
+        <argsstring></argsstring>
+        <name>MAX_K</name>
+        <initializer>= pdcch_constants::MAX_DCI_PAYLOAD_SIZE + <ref refid="classsrsgnb_1_1pdcch__encoder__impl_1ad593becdc8aaa31346784fd182e854b8" kindref="member">CRC_LEN</ref></initializer>
+        <briefdescription>
+<para>Defines the maximum payload size in bits, including 24 CRC bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="39" column="29" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1afa3c0b260b42f58230446e985377e7b2" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;crc_calculator&gt; srsgnb::pdcch_encoder_impl::crc24c</definition>
+        <argsstring></argsstring>
+        <name>crc24c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="41" column="23" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1abcd52b08f3ed2a19f61f9f23a532f470" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__interleaver" kindref="compound">polar_interleaver</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_interleaver&gt; srsgnb::pdcch_encoder_impl::interleaver</definition>
+        <argsstring></argsstring>
+        <name>interleaver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="42" column="20" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1a5c7cf53cefc3a870df51b087e0bcee3f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__allocator" kindref="compound">polar_allocator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_allocator&gt; srsgnb::pdcch_encoder_impl::alloc</definition>
+        <argsstring></argsstring>
+        <name>alloc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="43" column="22" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1a2639f27058a1244d90ff5955db22b1ab" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_code&gt; srsgnb::pdcch_encoder_impl::code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="44" column="27" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1aaa5d9389acf5cdb20cb05ef58215015b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__encoder" kindref="compound">polar_encoder</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_encoder&gt; srsgnb::pdcch_encoder_impl::encoder</definition>
+        <argsstring></argsstring>
+        <name>encoder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="45" column="24" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcch__encoder__impl_1a117882865a337c3810c62394b03381b3" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__rate__matcher" kindref="compound">polar_rate_matcher</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;polar_rate_matcher&gt; srsgnb::pdcch_encoder_impl::rm</definition>
+        <argsstring></argsstring>
+        <name>rm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="46" column="19" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder__impl_1a5e17395ec5c3c84d7a43a2ba257fd5d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_encoder_impl::crc_attach</definition>
+        <argsstring>(span&lt; uint8_t &gt; &amp;c, span&lt; const uint8_t &gt; a, unsigned rnti)</argsstring>
+        <name>crc_attach</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt; &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+<para>CRC attachment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload with CRC attached </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RNTI used for CRC bits scrambling</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>CRC attachment follows TS 38.312 section 7.3.2 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="55" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.cpp" bodystart="22" bodyend="48"/>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" compoundref="span_8h" startline="200" endline="204">srsgnb::span&lt; T &gt;::last</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder__impl_1ae1af6f66fb8ae9286685e25f9d63a34c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_encoder_impl::channel_coding</definition>
+        <argsstring>(span&lt; uint8_t &gt; d, span&lt; const uint8_t &gt; c)</argsstring>
+        <name>channel_coding</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Payload encoding. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data after encoding </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload after CRC attachment</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Channel codding follows TS 38.312 section 7.3.3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="63" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.cpp" bodystart="50" bodyend="62"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder__impl_1a303fac61f63a31f0b54167de8bf2eb70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdcch_encoder_impl::rate_matching</definition>
+        <argsstring>(span&lt; uint8_t &gt; f, span&lt; const uint8_t &gt; d)</argsstring>
+        <name>rate_matching</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Rate matching of the encoded data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data after rate matching </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data after encoding</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Rate matching follows TS 38.312 section 7.3.4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="71" column="8" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder__impl_1af048ba4b56ea60c1aa4f91eede7cd4d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pdcch_encoder_impl::pdcch_encoder_impl</definition>
+        <argsstring>(std::unique_ptr&lt; crc_calculator &gt; crc24c_, std::unique_ptr&lt; polar_interleaver &gt; interleaver_, std::unique_ptr&lt; polar_allocator &gt; alloc_, std::unique_ptr&lt; polar_code &gt; code_, std::unique_ptr&lt; polar_encoder &gt; encoder_, std::unique_ptr&lt; polar_rate_matcher &gt; rm_)</argsstring>
+        <name>pdcch_encoder_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> &gt;</type>
+          <declname>crc24c_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__interleaver" kindref="compound">polar_interleaver</ref> &gt;</type>
+          <declname>interleaver_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__allocator" kindref="compound">polar_allocator</ref> &gt;</type>
+          <declname>alloc_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref> &gt;</type>
+          <declname>code_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__encoder" kindref="compound">polar_encoder</ref> &gt;</type>
+          <declname>encoder_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1polar__rate__matcher" kindref="compound">polar_rate_matcher</ref> &gt;</type>
+          <declname>rm_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="74" column="3" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="74" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder__impl_1a328dbf4585eb760e2b74540640742f47" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pdcch_encoder_impl::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; encoded, span&lt; const uint8_t &gt; data, const config_t &amp;config) override</argsstring>
+        <name>encode</name>
+        <reimplements refid="classsrsgnb_1_1pdcch__encoder_1a3b827ad94ea2c7ff5d3137758745386b">encode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>encoded</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__encoder_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a PDCCH message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- unencoded message bits </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">encoded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- encoded bits </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- encoder configuration</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>size of + 24 bits of CRC gives K parameter for the Polar encoder </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="97" column="16" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.cpp" bodystart="69" bodyend="89"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1pdcch__encoder_1_1config__t_1a4987a665230bcd2049a88e1983658d21" compoundref="pdcch__encoder_8h" startline="26">srsgnb::pdcch_encoder::config_t::E</references>
+        <references refid="classsrsgnb_1_1polar__code_1adad75e4c9923ac005e39f70ccb168615" compoundref="polar__code_8h" startline="36">srsgnb::polar_code::NMAX_LOG</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PDCCH encoder, as per TS38.212 Section 7.3. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>For the PHY Downlink Control CHannel (PDCCH) it carries out CRC attachment, Polar encoding and rate matching. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcch_encoder_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_encoder</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcch_encoder_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcch_encoder</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" line="30" column="1" bodyfile="lib/phy/upper/channel_processors/pdcch_encoder_impl.h" bodystart="29" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a5c7cf53cefc3a870df51b087e0bcee3f" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>alloc</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1ae1af6f66fb8ae9286685e25f9d63a34c" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>channel_coding</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a2639f27058a1244d90ff5955db22b1ab" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>code</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1afa3c0b260b42f58230446e985377e7b2" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>crc24c</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a5e17395ec5c3c84d7a43a2ba257fd5d3" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>crc_attach</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1ad593becdc8aaa31346784fd182e854b8" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>CRC_LEN</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a328dbf4585eb760e2b74540640742f47" prot="public" virt="virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1aaa5d9389acf5cdb20cb05ef58215015b" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>encoder</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1abcd52b08f3ed2a19f61f9f23a532f470" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>interleaver</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a150a83b28db515d220bcdeea296b122b" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>MAX_K</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1af048ba4b56ea60c1aa4f91eede7cd4d7" prot="public" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>pdcch_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a303fac61f63a31f0b54167de8bf2eb70" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>rate_matching</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1a117882865a337c3810c62394b03381b3" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>rm</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder__impl_1ae0e09afac8c020213be0f946ba65aa11" prot="private" virt="non-virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>RNTI_LEN</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder_1a9d8f89a5647addb02581782d87e1c1df" prot="public" virt="virtual"><scope>srsgnb::pdcch_encoder_impl</scope><name>~pdcch_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

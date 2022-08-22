@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacesrsgnb_1_1task__details" kind="namespace" language="C++">
+    <compoundname>srsgnb::task_details</compoundname>
+    <innerclass refid="classsrsgnb_1_1task__details_1_1empty__table__t" prot="public">srsgnb::task_details::empty_table_t</innerclass>
+    <innerclass refid="classsrsgnb_1_1task__details_1_1heap__table__t" prot="public">srsgnb::task_details::heap_table_t</innerclass>
+    <innerclass refid="structsrsgnb_1_1task__details_1_1is__unique__function" prot="public">srsgnb::task_details::is_unique_function</innerclass>
+    <innerclass refid="structsrsgnb_1_1task__details_1_1is__unique__function_3_01unique__function_3_01Sig_00_01Capacity_01_4_01_4" prot="public">srsgnb::task_details::is_unique_function&lt; unique_function&lt; Sig, Capacity &gt; &gt;</innerclass>
+    <innerclass refid="classsrsgnb_1_1task__details_1_1oper__table__t" prot="public">srsgnb::task_details::oper_table_t</innerclass>
+    <innerclass refid="classsrsgnb_1_1task__details_1_1smallbuffer__table__t" prot="public">srsgnb::task_details::smallbuffer_table_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="unique__function_8h_1a89c7929ef1204adbd69adcb317fb02ab" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>Cap</declname>
+            <defname>Cap</defname>
+          </param>
+          <param>
+            <type>typename FunT</type>
+            <defval>typename std::decay&lt;T&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>typename std::enable_if&lt; sizeof(FunT)&lt;=Cap and not <ref refid="structsrsgnb_1_1task__details_1_1is__unique__function" kindref="compound">is_unique_function</ref>&lt; FunT &gt;::value, bool &gt;::type</type>
+        <definition>using srsgnb::task_details::enable_if_small_capture = typedef typename std::enable_if&lt;sizeof(FunT) &lt;= Cap and not is_unique_function&lt;FunT&gt;::value, bool&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>enable_if_small_capture</name>
+        <briefdescription>
+<para>Metafunctions to enable different ctor implementations depending on whether the callback fits the small buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/unique_function.h" line="109" column="1" bodyfile="include/srsgnb/adt/unique_function.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="unique__function_8h_1a63c44cce0cd471c647222c523823c237" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>Cap</declname>
+            <defname>Cap</defname>
+          </param>
+          <param>
+            <type>typename FunT</type>
+            <defval>typename std::decay&lt;T&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>typename std::enable_if&lt; Cap&lt; sizeof(FunT) and not <ref refid="structsrsgnb_1_1task__details_1_1is__unique__function" kindref="compound">is_unique_function</ref>&lt; FunT &gt;::value, bool &gt;::type</type>
+        <definition>using srsgnb::task_details::enable_if_big_capture = typedef typename std::enable_if &lt; Cap&lt;sizeof(FunT) and not is_unique_function&lt;FunT&gt;::value, bool&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>enable_if_big_capture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/unique_function.h" line="112" column="1" bodyfile="include/srsgnb/adt/unique_function.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/srsgnb/adt/unique_function.h" line="36" column="22"/>
+  </compounddef>
+</doxygen>

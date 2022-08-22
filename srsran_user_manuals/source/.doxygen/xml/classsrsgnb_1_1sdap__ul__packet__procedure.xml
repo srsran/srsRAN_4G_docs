@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sdap__ul__packet__procedure" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::sdap_ul_packet_procedure</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1sdap__packet__procedures" prot="public" virt="non-virtual">srsgnb::sdap_packet_procedures</basecompoundref>
+    <includes refid="sdap__packet__procedures__impl_8h" local="no">sdap_packet_procedures_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1sdap__ul__packet__procedure_1a12939826ac09ae23d7087010dc81ce97" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1sdap__entity" kindref="compound">sdap_entity</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;sdap_entity&gt; srsgnb::sdap_ul_packet_procedure::entity</definition>
+        <argsstring></argsstring>
+        <name>entity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>In reality, as the interfaces grow, this would become a reference or ptr and ownership would be managed from a different class. For simplicity, we keep it this way for now. This is important as the dependency with f1u_packet_procedures interface would eventually disappear, although it is an interface and not a concrete class the less dependencies the better. Both dependencies are interfaces and they are at the same or in a higher abstraction layer, conforming to the clean architecture paradigm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_packet_procedures_impl.h" line="35" column="19" bodyfile="lib/sdap/sdap_packet_procedures_impl.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sdap__ul__packet__procedure_1aa25f1699e5de5bbb4386dea44f53d966" compoundref="sdap__packet__procedures__impl_8h" startline="43" endline="51">handle_ul_data_packet</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sdap__ul__packet__procedure_1a1b87a2c8eee4e86fccfd3be6832abf92" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1sdap__sdu__rx__notifier" kindref="compound">sdap_sdu_rx_notifier</ref> &amp;</type>
+        <definition>sdap_sdu_rx_notifier&amp; srsgnb::sdap_ul_packet_procedure::listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_packet_procedures_impl.h" line="36" column="31" bodyfile="lib/sdap/sdap_packet_procedures_impl.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__ul__packet__procedure_1a0cd2f0b1d88a4757fe982afb9b18c611" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::sdap_ul_packet_procedure::sdap_ul_packet_procedure</definition>
+        <argsstring>(std::unique_ptr&lt; sdap_entity &gt; entity, sdap_sdu_rx_notifier &amp;listener)</argsstring>
+        <name>sdap_ul_packet_procedure</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1sdap__entity" kindref="compound">sdap_entity</ref> &gt;</type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sdap__sdu__rx__notifier" kindref="compound">sdap_sdu_rx_notifier</ref> &amp;</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_packet_procedures_impl.h" line="39" column="3" bodyfile="lib/sdap/sdap_packet_procedures_impl.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__ul__packet__procedure_1aa25f1699e5de5bbb4386dea44f53d966" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::sdap_ul_packet_procedure::handle_ul_data_packet</definition>
+        <argsstring>(byte_buffer &amp;data) override</argsstring>
+        <name>handle_ul_data_packet</name>
+        <reimplements refid="classsrsgnb_1_1sdap__packet__procedures_1a43362fa28f4aa6694769eac0fd5964b1">handle_ul_data_packet</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles the input UL data packet. We may have other packet categories which could be handled by adding new methods to this interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/sdap/sdap_packet_procedures_impl.h" line="43" column="8" bodyfile="lib/sdap/sdap_packet_procedures_impl.h" bodystart="43" bodyend="51"/>
+        <references refid="classsrsgnb_1_1sdap__ul__packet__procedure_1a12939826ac09ae23d7087010dc81ce97" compoundref="sdap__packet__procedures__impl_8h" startline="35">entity</references>
+        <references refid="classsrsgnb_1_1sdap__sdu__rx__notifier_1adbb8ebf2a15ff49616f44aef34be1eb2">srsgnb::sdap_sdu_rx_notifier::on_new_sdu</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The idea is to have an object to handle each specific procedure specified in the TS. This class would implement the Receive operation procedure of the data transfer category (TS 38.323 5.2.2). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::sdap_packet_procedures</label>
+        <link refid="classsrsgnb_1_1sdap__packet__procedures"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::sdap_ul_packet_procedure</label>
+        <link refid="classsrsgnb_1_1sdap__ul__packet__procedure"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::sdap_sdu_rx_notifier</label>
+        <link refid="classsrsgnb_1_1sdap__sdu__rx__notifier"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::sdap_packet_procedures</label>
+        <link refid="classsrsgnb_1_1sdap__packet__procedures"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::sdap_ul_packet_procedure</label>
+        <link refid="classsrsgnb_1_1sdap__ul__packet__procedure"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-listener</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/sdap/sdap_packet_procedures_impl.h" line="27" column="1" bodyfile="lib/sdap/sdap_packet_procedures_impl.h" bodystart="26" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sdap__ul__packet__procedure_1a12939826ac09ae23d7087010dc81ce97" prot="private" virt="non-virtual"><scope>srsgnb::sdap_ul_packet_procedure</scope><name>entity</name></member>
+      <member refid="classsrsgnb_1_1sdap__ul__packet__procedure_1aa25f1699e5de5bbb4386dea44f53d966" prot="public" virt="virtual"><scope>srsgnb::sdap_ul_packet_procedure</scope><name>handle_ul_data_packet</name></member>
+      <member refid="classsrsgnb_1_1sdap__ul__packet__procedure_1a1b87a2c8eee4e86fccfd3be6832abf92" prot="private" virt="non-virtual"><scope>srsgnb::sdap_ul_packet_procedure</scope><name>listener</name></member>
+      <member refid="classsrsgnb_1_1sdap__ul__packet__procedure_1a0cd2f0b1d88a4757fe982afb9b18c611" prot="public" virt="non-virtual"><scope>srsgnb::sdap_ul_packet_procedure</scope><name>sdap_ul_packet_procedure</name></member>
+      <member refid="classsrsgnb_1_1sdap__packet__procedures_1ad4aa7a8c0e854fb4ac19bbb8c206351a" prot="public" virt="virtual"><scope>srsgnb::sdap_ul_packet_procedure</scope><name>~sdap_packet_procedures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

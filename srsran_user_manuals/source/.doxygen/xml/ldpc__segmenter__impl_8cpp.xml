@@ -1,0 +1,896 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ldpc__segmenter__impl_8cpp" kind="file" language="C++">
+    <compoundname>ldpc_segmenter_impl.cpp</compoundname>
+    <includes refid="ldpc__segmenter__impl_8h" local="yes">ldpc_segmenter_impl.h</includes>
+    <includes refid="crc__calculator__impl_8h" local="yes">../crc_calculator_impl.h</includes>
+    <includes refid="codeblock__metadata_8h" local="yes">srsgnb/phy/upper/codeblock_metadata.h</includes>
+    <includes refid="bit_8h" local="yes">srsgnb/srsvec/bit.h</includes>
+    <includes refid="math__utils_8h" local="yes">srsgnb/support/math_utils.h</includes>
+    <includes refid="srsgnb__assert_8h" local="yes">srsgnb/support/srsgnb_assert.h</includes>
+    <incdepgraph>
+      <node id="47">
+        <label>atomic</label>
+      </node>
+      <node id="20">
+        <label>functional</label>
+      </node>
+      <node id="13">
+        <label>limits</label>
+      </node>
+      <node id="21">
+        <label>iterator</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>srsgnb/phy/upper/channel_coding/crc_calculator.h</label>
+        <link refid="crc__calculator_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="46">
+        <label>cassert</label>
+      </node>
+      <node id="52">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stdexcept</label>
+      </node>
+      <node id="57">
+        <label>numeric</label>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ldpc_segmenter_impl.h</label>
+        <link refid="ldpc__segmenter__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>string</label>
+      </node>
+      <node id="26">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h</label>
+        <link refid="ldpc__segmenter__rx_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp</label>
+        <link refid="ldpc__segmenter__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>map</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h</label>
+        <link refid="ldpc__segmenter__tx_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ldpc_graph_impl.h</label>
+        <link refid="ldpc__graph__impl_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>pthread.h</label>
+      </node>
+      <node id="8">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="45">
+        <label>tuple</label>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>vector</label>
+      </node>
+      <node id="53">
+        <label>utility</label>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>array</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/phy/upper/codeblock_metadata.h</label>
+        <link refid="codeblock__metadata_8h"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cerrno</label>
+      </node>
+      <node id="49">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>cstddef</label>
+      </node>
+      <node id="62">
+        <label>srsgnb/srsvec/bit.h</label>
+        <link refid="bit_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>chrono</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>../crc_calculator_impl.h</label>
+        <link refid="crc__calculator__impl_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>type_traits</label>
+      </node>
+      <node id="25">
+        <label>complex</label>
+      </node>
+      <node id="10">
+        <label>algorithm</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>cstring</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="ldpc__segmenter__impl_8cpp_1aca516b596bb958948df797bf9d4ee09a" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned SEG_CRC_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SEG_CRC_LENGTH</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" line="22" column="27" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ldpc__segmenter__impl_8cpp_1a8265b85efdad49acba1c9ba9e8394730" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned BITS_PER_BYTE</definition>
+        <argsstring></argsstring>
+        <name>BITS_PER_BYTE</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" line="24" column="27" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ldpc__segmenter__impl_8cpp_1a54ca59389ca97bb0ce5701c92b4872a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void fill_segment</definition>
+        <argsstring>(span&lt; uint8_t &gt; segment, span&lt; const uint8_t &gt; tr_block, std::unique_ptr&lt; crc_calculator &gt; &amp;crc, unsigned nof_crc_bits, unsigned nof_filler)</argsstring>
+        <name>fill_segment</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>segment</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>tr_block</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> &gt; &amp;</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_crc_bits</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_filler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" line="91" column="13" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="91" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="ldpc__segmenter__impl_8cpp_1a406d9236aba5c22f3f96a31b5e07dfe7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void check_inputs_tx</definition>
+        <argsstring>(const static_vector&lt; described_segment, MAX_NOF_SEGMENTS &gt; &amp;segments, span&lt; const uint8_t &gt; transport_block, const segmenter_config &amp;cfg)</argsstring>
+        <name>check_inputs_tx</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1ad41ed02f6daa58503e9ea995271fac42" kindref="member">described_segment</ref>, MAX_NOF_SEGMENTS &gt; &amp;</type>
+          <declname>segments</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>transport_block</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" line="114" column="13" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="114" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="ldpc__segmenter__impl_8cpp_1a1c6c658a95e757bd012f4e778d2735f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void check_inputs_rx</definition>
+        <argsstring>(span&lt; const log_likelihood_ratio &gt; codeword_llrs, const segmenter_config &amp;cfg)</argsstring>
+        <name>check_inputs_rx</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>codeword_llrs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" line="211" column="13" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp" bodystart="211" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__segmenter__impl_8h" kindref="compound">ldpc_segmenter_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../crc_calculator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="codeblock__metadata_8h" kindref="compound">srsgnb/phy/upper/codeblock_metadata.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/bit.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="math__utils_8h" kindref="compound">srsgnb/support/math_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/support/srsgnb_assert.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb_1_1ldpc" kindref="compound">srsgnb::ldpc</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Length<sp/>of<sp/>the<sp/>CRC<sp/>checksum<sp/>added<sp/>to<sp/>the<sp/>segments.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>SEG_CRC_LENGTH<sp/>=<sp/>24;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>one<sp/>byte.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>BITS_PER_BYTE<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac9b94cc668575c6fb122b3d8d7b5a0ca" refkind="member"><highlight class="normal">std::unique_ptr&lt;ldpc_segmenter_tx&gt;<sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac9b94cc668575c6fb122b3d8d7b5a0ca" kindref="member">ldpc_segmenter_impl::create_ldpc_segmenter_impl_tx</ref>(<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc" kindref="compound">ldpc_segmenter_impl::sch_crc</ref>&amp;<sp/>c)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a310a5913aa1f5481cd90c37a65fa29fa" kindref="member">crc16</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>CRC16<sp/>calculator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a1d71899dcfd256a45d102c958984cea2" kindref="member">crc24A</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>CRC24A<sp/>calculator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1afe624b05a826755669d29095d1f0095c" kindref="member">crc24B</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>CRC24B<sp/>calculator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a310a5913aa1f5481cd90c37a65fa29fa" kindref="member">crc16</ref>-&gt;get_generator_poly()<sp/>==<sp/>crc_generator_poly::CRC16,<sp/></highlight><highlight class="stringliteral">&quot;Not<sp/>a<sp/>CRC<sp/>generator<sp/>of<sp/>type<sp/>CRC16.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1a1d71899dcfd256a45d102c958984cea2" kindref="member">crc24A</ref>-&gt;get_generator_poly()<sp/>==<sp/>crc_generator_poly::CRC24A,<sp/></highlight><highlight class="stringliteral">&quot;Not<sp/>a<sp/>CRC<sp/>generator<sp/>of<sp/>type<sp/>CRC24A.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>srsgnb_assert(c.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1sch__crc_1afe624b05a826755669d29095d1f0095c" kindref="member">crc24B</ref>-&gt;get_generator_poly()<sp/>==<sp/>crc_generator_poly::CRC24B,<sp/></highlight><highlight class="stringliteral">&quot;Not<sp/>a<sp/>CRC<sp/>generator<sp/>of<sp/>type<sp/>CRC24B.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;ldpc_segmenter_impl&gt;(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl" kindref="compound">ldpc_segmenter_impl</ref>(std::move(c)));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classsrsgnb_1_1ldpc__segmenter__impl_1ab902ba9d2a109cc9d7b56476e4363f8a" refkind="member"><highlight class="normal">std::unique_ptr&lt;ldpc_segmenter_rx&gt;<sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ab902ba9d2a109cc9d7b56476e4363f8a" kindref="member">ldpc_segmenter_impl::create_ldpc_segmenter_impl_rx</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;ldpc_segmenter_impl&gt;(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl" kindref="compound">ldpc_segmenter_impl</ref>());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classsrsgnb_1_1ldpc__segmenter__impl_1af9dc9d24e831dfd4edb63aa3423661ea" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1af9dc9d24e831dfd4edb63aa3423661ea" kindref="member">ldpc_segmenter_impl::compute_lifting_size</ref>()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>ref_length<sp/>=<sp/>22;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(base_graph<sp/>==<sp/>ldpc_base_graph_type::BG2)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_tb_bits_in<sp/>&gt;<sp/>640)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref_length<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_tb_bits_in<sp/>&gt;<sp/>560)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref_length<sp/>=<sp/>9;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_tb_bits_in<sp/>&gt;<sp/>192)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref_length<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref_length<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>total_ref_length<sp/>=<sp/>nof_segments<sp/>*<sp/>ref_length;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>lifting_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ls<sp/>:<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a76ced19d0f80b4c1b7f593737fa8e2be" kindref="member">all_lifting_sizes</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ls<sp/>*<sp/>total_ref_length<sp/>&gt;=<sp/>nof_tb_bits_out)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lifting_size<sp/>=<sp/>ls;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>assert(lifting_size<sp/>!=<sp/>0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classsrsgnb_1_1ldpc__segmenter__impl_1a9942e39840cd4d0efc5ba5ac25994f73" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1a9942e39840cd4d0efc5ba5ac25994f73" kindref="member">ldpc_segmenter_impl::compute_segment_length</ref>()</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>base_length_BG1<sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a5e6b9ae8f3d0e4c6c656dc2506c9ac64" kindref="member">BG1_N_FULL</ref><sp/>-<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a35c77e72f6a7f823f2cbe85c2681c777" kindref="member">BG1_M</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>base_length_BG2<sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a8dcaad120e7684d4cde1bd677a331c13" kindref="member">BG2_N_FULL</ref><sp/>-<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a0210caeff09dff38472c7539979e9e99" kindref="member">BG2_M</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base_length<sp/><sp/><sp/><sp/><sp/>=<sp/>(base_graph<sp/>==<sp/>ldpc_base_graph_type::BG1)<sp/>?<sp/>base_length_BG1<sp/>:<sp/>base_length_BG2;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>segment_length<sp/>=<sp/>base_length<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classsrsgnb_1_1ldpc__segmenter__impl_1a414d7063dc81499bdbc5947b2b4482e4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1a414d7063dc81499bdbc5947b2b4482e4" kindref="member">ldpc_segmenter_impl::compute_rm_length</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i_seg,<sp/><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref><sp/>mod,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="80"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i_seg<sp/>&lt;<sp/>nof_short_segments)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>unsigned,<sp/>division<sp/>then<sp/>floor<sp/>is<sp/>the<sp/>same<sp/>as<sp/>integer<sp/>division.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/>nof_symbols_per_layer<sp/>/<sp/>nof_segments;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/><ref refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" kindref="member">divide_ceil</ref>(nof_symbols_per_layer,<sp/>nof_segments);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tmp<sp/>*<sp/>nof_layers<sp/>*<sp/><ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(mod);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fill_segment(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>segment,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tr_block,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;crc_calculator&gt;&amp;<sp/>crc,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_crc_bits,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_filler)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>assert(segment.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>tr_block.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>+<sp/>nof_crc_bits<sp/>+<sp/>nof_filler);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>First,<sp/>copy<sp/>information<sp/>bits<sp/>from<sp/>the<sp/>transport<sp/>block.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>std::copy(tr_block.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>tr_block.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>segment.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_used_bits<sp/>=<sp/>tr_block.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>needed,<sp/>compute<sp/>the<sp/>CRC<sp/>and<sp/>append<sp/>it<sp/>to<sp/>the<sp/>information<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_crc_bits<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tmp_crc<sp/>=<sp/>crc-&gt;calculate_bit(tr_block);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>srsvec::bit_unpack(segment.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(nof_used_bits,<sp/>nof_crc_bits),<sp/>tmp_crc,<sp/>nof_crc_bits);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>nof_used_bits<sp/>+=<sp/>nof_crc_bits;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>needed,<sp/>fill<sp/>the<sp/>segment<sp/>tail<sp/>with<sp/>filler<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>std::fill_n(segment.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>nof_used_bits,<sp/>nof_filler,<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a187fbcb4213527d02072c67c177790ae" kindref="member">FILLER_BIT</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check_inputs_tx(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;described_segment, MAX_NOF_SEGMENTS&gt;</ref>&amp;<sp/>segments,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transport_block,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>srsgnb_assert(segments.empty(),<sp/></highlight><highlight class="stringliteral">&quot;Argument<sp/>segments<sp/>should<sp/>be<sp/>empty.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>srsgnb_assert(!transport_block.<ref refid="classsrsgnb_1_1span_1a595cf1b0fe0385603307ba67012f820c" kindref="member">empty</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Argument<sp/>transport_block<sp/>should<sp/>not<sp/>be<sp/>empty.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>srsgnb_assert(transport_block.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>*<sp/>8<sp/>+<sp/>24<sp/>&lt;=<sp/><ref refid="namespacesrsgnb_1a552cef0a747eb50da9d0be2f6af103c8" kindref="member">MAX_TBS</ref>,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Transport<sp/>block<sp/>too<sp/>long.<sp/>The<sp/>admissible<sp/>size,<sp/>including<sp/>CRC,<sp/>is<sp/>%d<sp/>bytes.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a552cef0a747eb50da9d0be2f6af103c8" kindref="member">MAX_TBS</ref><sp/>/<sp/>BITS_PER_BYTE);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>srsgnb_assert((cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" kindref="member">rv</ref><sp/>&gt;=<sp/>0)<sp/>&amp;&amp;<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" kindref="member">rv</ref><sp/>&lt;=<sp/>3),<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>redundancy<sp/>version.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>srsgnb_assert((cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref><sp/>&gt;=<sp/>1)<sp/>&amp;&amp;<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref><sp/>&lt;=<sp/>4),<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>number<sp/>of<sp/>layers.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>srsgnb_assert(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>%<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref>)<sp/>==<sp/>0,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>number<sp/>of<sp/>channel<sp/>symbols<sp/>should<sp/>be<sp/>a<sp/>multiple<sp/>of<sp/>the<sp/>product<sp/>between<sp/>the<sp/>number<sp/>of<sp/>layers.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>the<sp/>Tx-chain<sp/>segmenter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" kindref="member">ldpc_segmenter_impl::segment</ref>(<ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;described_segment, MAX_NOF_SEGMENTS&gt;</ref>&amp;<sp/>described_segments,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transport_block,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>check_inputs_tx(described_segments,<sp/>transport_block,<sp/>cfg);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>base_graph<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab487592b6cd65f8bf5f6af724b9434a4" kindref="member">base_graph</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Each<sp/>transport_block<sp/>entry<sp/>is<sp/>a<sp/>byte,<sp/>and<sp/>TBS<sp/>can<sp/>always<sp/>be<sp/>expressed<sp/>as<sp/>an<sp/>integer<sp/>number<sp/>of<sp/>bytes<sp/>(see,<sp/>e.g.,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TS38.214<sp/>Section<sp/>5.1.3.2).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_tb_bits_tmp<sp/>=<sp/>transport_block.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>*<sp/>BITS_PER_BYTE;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>MAX_BITS_CRC16<sp/><sp/>=<sp/>3824;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref>&amp;<sp/><sp/><sp/><sp/>tb_crc<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(nof_tb_bits_tmp<sp/>&lt;=<sp/>MAX_BITS_CRC16)<sp/>?<sp/>*crc_set.crc16<sp/>:<sp/>*crc_set.crc24A;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_tb_crc_bits<sp/>=<sp/>(nof_tb_bits_tmp<sp/>&lt;=<sp/>MAX_BITS_CRC16)<sp/>?<sp/>16<sp/>:<sp/>24;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>nof_tb_bits_in<sp/>=<sp/>nof_tb_bits_tmp<sp/>+<sp/>nof_tb_crc_bits;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>buffer.resize(nof_tb_bits_in);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>srsvec::bit_unpack(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(buffer).first(nof_tb_bits_tmp),<sp/>transport_block);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_checksum<sp/>=<sp/>tb_crc.<ref refid="classsrsgnb_1_1crc__calculator_1a903204d4a874c9e094f516107331c24a" kindref="member">calculate_byte</ref>(transport_block);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>srsvec::bit_unpack(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(buffer).last(nof_tb_crc_bits),<sp/>tb_checksum,<sp/>nof_tb_crc_bits);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>nof_segments<sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1aa95f3b61800c887aad3883b3df8107c4" kindref="member">ldpc::compute_nof_codeblocks</ref>(nof_tb_bits_tmp,<sp/>base_graph);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>nof_tb_bits_out<sp/>=<sp/>nof_tb_bits_in;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_segments<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>nof_tb_bits_out<sp/>+=<sp/>nof_segments<sp/>*<sp/>SEG_CRC_LENGTH;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>compute_lifting_size();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>compute_segment_length();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_crc_bits<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_segments<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>nof_crc_bits<sp/>=<sp/>SEG_CRC_LENGTH;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>maximum<sp/>number<sp/>of<sp/>information<sp/>bits<sp/>that<sp/>can<sp/>be<sp/>assigned<sp/>to<sp/>a<sp/>segment.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>max_info_bits<sp/>=<sp/><ref refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" kindref="member">divide_ceil</ref>(nof_tb_bits_out,<sp/>nof_segments)<sp/>-<sp/>nof_crc_bits;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Zero-padding<sp/>if<sp/>necessary.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>zero_pad<sp/>=<sp/>(max_info_bits<sp/>+<sp/>nof_crc_bits)<sp/>*<sp/>nof_segments<sp/>-<sp/>nof_tb_bits_out;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(zero_pad<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.resize(nof_tb_bits_in<sp/>+<sp/>zero_pad,<sp/>0);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>channel<sp/>symbols<sp/>assigned<sp/>to<sp/>a<sp/>transmission<sp/>layer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>nof_symbols_per_layer<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>/<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>segments<sp/>that<sp/>will<sp/>have<sp/>a<sp/>short<sp/>rate-matched<sp/>length.<sp/>In<sp/>TS38.212<sp/>Section<sp/>5.4.2.1,<sp/>these<sp/>correspond<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>codeblocks<sp/>whose<sp/>length<sp/>E_r<sp/>is<sp/>computed<sp/>by<sp/>rounding<sp/>down<sp/>-<sp/>floor.<sp/>For<sp/>the<sp/>remaining<sp/>codewords,<sp/>the<sp/>length<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rounded<sp/>up.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>nof_short_segments<sp/>=<sp/>nof_segments<sp/>-<sp/>(nof_symbols_per_layer<sp/>%<sp/>nof_segments);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Codeword<sp/>length<sp/>(after<sp/>concatenation<sp/>of<sp/>codeblocks).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cw_length<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>*<sp/><ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" kindref="member">mod</ref>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>input_idx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cw_offset<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i_segment<sp/>=<sp/>0;<sp/>i_segment<sp/>!=<sp/>nof_segments;<sp/>++i_segment)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">segment_data</ref><sp/>tmp_data(segment_length);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>filler<sp/>bits<sp/>in<sp/>this<sp/>segment.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_filler_bits<sp/>=<sp/>segment_length<sp/>-<sp/>max_info_bits<sp/>-<sp/>nof_crc_bits;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>fill_segment(tmp_data,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(buffer).subspan(input_idx,<sp/>max_info_bits),</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crc_set.crc24B,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_crc_bits,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_filler_bits);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>input_idx<sp/>+=<sp/>max_info_bits;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref><sp/>tmp_description<sp/>=</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>generate_cb_metadata({i_segment,<sp/>cw_length,<sp/>cw_offset,<sp/>nof_filler_bits,<sp/>nof_crc_bits,<sp/>nof_tb_crc_bits},<sp/>cfg);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>cw_offset<sp/>+=<sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" kindref="member">rm_length</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>described_segments.push_back({tmp_data,<sp/>tmp_description});</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>After<sp/>accumulating<sp/>all<sp/>codeblock<sp/>rate-matched<sp/>lengths,<sp/>cw_offset<sp/>should<sp/>be<sp/>the<sp/>same<sp/>as<sp/>cw_length.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>assert(cw_length<sp/>==<sp/>cw_offset);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check_inputs_rx(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>codeword_llrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref>&amp;<sp/>cfg)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>srsgnb_assert(!codeword_llrs.<ref refid="classsrsgnb_1_1span_1a595cf1b0fe0385603307ba67012f820c" kindref="member">empty</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Argument<sp/>transport_block<sp/>should<sp/>not<sp/>be<sp/>empty.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>srsgnb_assert(codeword_llrs.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>*<sp/><ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" kindref="member">mod</ref>),<sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>number<sp/>of<sp/>LLRs.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>srsgnb_assert((cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" kindref="member">rv</ref><sp/>&gt;=<sp/>0)<sp/>&amp;&amp;<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" kindref="member">rv</ref><sp/>&lt;=<sp/>3),<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>redundancy<sp/>version.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>srsgnb_assert((cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref><sp/>&gt;=<sp/>1)<sp/>&amp;&amp;<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref><sp/>&lt;=<sp/>4),<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>number<sp/>of<sp/>layers.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>srsgnb_assert(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>%<sp/>(cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref>)<sp/>==<sp/>0,</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>number<sp/>of<sp/>channel<sp/>symbols<sp/>should<sp/>be<sp/>a<sp/>multiple<sp/>of<sp/>the<sp/>product<sp/>between<sp/>the<sp/>number<sp/>of<sp/>layers.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>the<sp/>Rx-chain<sp/>segmenter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="classsrsgnb_1_1ldpc__segmenter__impl_1a75d65c4074bcbe5c3931bfa3544154a9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" kindref="member">ldpc_segmenter_impl::segment</ref>(<ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;described_rx_codeblock, MAX_NOF_SEGMENTS&gt;</ref>&amp;<sp/>described_codeblocks,</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codeword_llrs,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tbs,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>check_inputs_rx(codeword_llrs,<sp/>cfg);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>base_graph<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab487592b6cd65f8bf5f6af724b9434a4" kindref="member">base_graph</ref>;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>MAX_BITS_CRC16<sp/><sp/>=<sp/>3824;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_tb_crc_bits<sp/>=<sp/>(tbs<sp/>&lt;=<sp/>MAX_BITS_CRC16)<sp/>?<sp/>16<sp/>:<sp/>24;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>nof_tb_bits_in<sp/>=<sp/>tbs<sp/>+<sp/>nof_tb_crc_bits;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>nof_segments<sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1aa95f3b61800c887aad3883b3df8107c4" kindref="member">ldpc::compute_nof_codeblocks</ref>(tbs,<sp/>base_graph);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>nof_tb_bits_out<sp/>=<sp/>nof_tb_bits_in;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_segments<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>nof_tb_bits_out<sp/>+=<sp/>nof_segments<sp/>*<sp/>SEG_CRC_LENGTH;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>compute_lifting_size();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>compute_segment_length();</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_crc_bits<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_segments<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>nof_crc_bits<sp/>=<sp/>SEG_CRC_LENGTH;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>maximum<sp/>number<sp/>of<sp/>information<sp/>bits<sp/>that<sp/>can<sp/>be<sp/>assigned<sp/>to<sp/>a<sp/>segment.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>max_info_bits<sp/>=<sp/><ref refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" kindref="member">divide_ceil</ref>(nof_tb_bits_out,<sp/>nof_segments)<sp/>-<sp/>nof_crc_bits;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>channel<sp/>symbols<sp/>assigned<sp/>to<sp/>a<sp/>transmission<sp/>layer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>nof_symbols_per_layer<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" kindref="member">nof_ch_symbols</ref><sp/>/<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>segments<sp/>that<sp/>will<sp/>have<sp/>a<sp/>short<sp/>rate-matched<sp/>length.<sp/>In<sp/>TS38.212<sp/>Section<sp/>5.4.2.1,<sp/>these<sp/>correspond<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>codeblocks<sp/>whose<sp/>length<sp/>E_r<sp/>is<sp/>computed<sp/>by<sp/>rounding<sp/>down<sp/>-<sp/>floor.<sp/>For<sp/>the<sp/>remaining<sp/>codewords,<sp/>the<sp/>length<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rounded<sp/>up.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>nof_short_segments<sp/>=<sp/>nof_segments<sp/>-<sp/>(nof_symbols_per_layer<sp/>%<sp/>nof_segments);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Codeword<sp/>length<sp/>(after<sp/>concatenation<sp/>of<sp/>codeblocks).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cw_length<sp/>=<sp/>codeword_llrs.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cw_offset<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i_segment<sp/>=<sp/>0;<sp/>i_segment<sp/>!=<sp/>nof_segments;<sp/>++i_segment)<sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_filler_bits<sp/>=<sp/>segment_length<sp/>-<sp/>max_info_bits<sp/>-<sp/>nof_crc_bits;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref><sp/>tmp_description<sp/>=</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>generate_cb_metadata({i_segment,<sp/>cw_length,<sp/>cw_offset,<sp/>nof_filler_bits,<sp/>nof_crc_bits,<sp/>nof_tb_crc_bits},<sp/>cfg);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>rm_length<sp/>=<sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" kindref="member">rm_length</ref>;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>described_codeblocks.push_back({codeword_llrs.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(cw_offset,<sp/>rm_length),<sp/>tmp_description});</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>cw_offset<sp/>+=<sp/>rm_length;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>After<sp/>accumulating<sp/>all<sp/>codeblock<sp/>rate-matched<sp/>lengths,<sp/>cw_offset<sp/>should<sp/>be<sp/>the<sp/>same<sp/>as<sp/>cw_length.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>assert(cw_length<sp/>==<sp/>cw_offset);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279" refid="classsrsgnb_1_1ldpc__segmenter__impl_1a8acbd66e8edab64118013ca5450e4ecf" refkind="member"><highlight class="normal"><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref><sp/><ref refid="classsrsgnb_1_1ldpc__segmenter__impl_1a8acbd66e8edab64118013ca5450e4ecf" kindref="member">ldpc_segmenter_impl::generate_cb_metadata</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal" kindref="compound">segment_internal</ref>&amp;<sp/>seg_extra,</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref>&amp;<sp/>cfg)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="281"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref><sp/>tmp_description<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a2ca5177a80e975fb733a6fee5af5550a" kindref="member">base_graph</ref><sp/><sp/><sp/>=<sp/>base_graph;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a20ffa0ce3e6b27b6aa3ac51ee6bbc4ed" kindref="member">lifting_size</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacesrsgnb_1_1ldpc_1a9cbabc9c9ab5373aede3e7fded3ea060" kindref="member">lifting_size_t</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(lifting_size);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" kindref="member">rv</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" kindref="member">rv</ref>;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a95eb67c37753b913c385dd689ce4048f" kindref="member">mod</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" kindref="member">mod</ref>;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" kindref="member">Nref</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a4d655ca8029e15e5a557c94c893ff154" kindref="member">Nref</ref>;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a001d3847f7fdbe7ac732d43acc07363d" kindref="member">cw_length</ref><sp/><sp/><sp/><sp/>=<sp/>seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1af53d60a316b43abc0c88a666a5c07ef4" kindref="member">cw_length</ref>;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>BG1<sp/>has<sp/>rate<sp/>1/3<sp/>and<sp/>BG2<sp/>has<sp/>rate<sp/>1/5.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>INVERSE_BG1_RATE<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>INVERSE_BG2_RATE<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inverse_rate<sp/><sp/><sp/><sp/><sp/>=<sp/>(base_graph<sp/>==<sp/>ldpc_base_graph_type::BG1)<sp/>?<sp/>INVERSE_BG1_RATE<sp/>:<sp/>INVERSE_BG2_RATE;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rm_length<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>compute_rm_length(seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1a097981011ddb74c674cfab82705ca296" kindref="member">i_segment</ref>,<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" kindref="member">mod</ref>,<sp/>cfg.<ref refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" kindref="member">nof_layers</ref>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a046bf4fc377dc8872c4e82952392f545" kindref="member">full_length</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>segment_length<sp/>*<sp/>inverse_rate;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref><sp/>=<sp/>seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1a1b9c70c1b9f629d9036aca521ab56cb8" kindref="member">nof_filler_bits</ref>;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a4ba8b9a2e1578d80ad484e49cb485962" kindref="member">rm_length</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>rm_length;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a443a6273f3ebbf92a27092edffba5d41" kindref="member">cw_offset</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1a294e0496a9b57bd68d735fed853b388e" kindref="member">cw_offset</ref>;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>nof_crc_bits<sp/>==<sp/>0<sp/>indicates<sp/>that<sp/>we<sp/>are<sp/>using<sp/>the<sp/>TB<sp/>CRC<sp/>with<sp/>length<sp/>16.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>tmp_description.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a93aea6bdc206b70253f66e216324fcb9" kindref="member">nof_crc_bits</ref><sp/>=<sp/>(nof_segments<sp/>==<sp/>1)<sp/>?<sp/>seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1aca04b9e34008627b5fe0abe3f30418f0" kindref="member">nof_tb_crc_bits</ref><sp/>:<sp/>seg_extra.<ref refid="structsrsgnb_1_1ldpc__segmenter__impl_1_1segment__internal_1ab8dbaca0cd008cc3730a22602faff7f3" kindref="member">nof_crc_bits</ref>;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tmp_description;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_segmenter_impl.cpp"/>
+  </compounddef>
+</doxygen>

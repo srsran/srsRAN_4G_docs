@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1detail_1_1base__coro__frame" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::detail::base_coro_frame</compoundname>
+    <includes refid="coroutine_8h" local="no">coroutine.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Promise</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structsrsgnb_1_1detail_1_1base__coro__frame_1a689fd8cb01e59f8d6632eb6303673ffc" prot="public" static="no">
+        <type>Promise</type>
+        <definition>using srsgnb::detail::base_coro_frame&lt; Promise &gt;::promise_type =  Promise</definition>
+        <argsstring></argsstring>
+        <name>promise_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="116" column="3" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structsrsgnb_1_1detail_1_1base__coro__frame_1ae18e7756d831c6de498756b75ecc4963" prot="public" static="no">
+        <type>decltype(std::declval&lt; promise_type &gt;().get_return_object())</type>
+        <definition>using srsgnb::detail::base_coro_frame&lt; Promise &gt;::future_type =  decltype(std::declval&lt;promise_type&gt;().get_return_object())</definition>
+        <argsstring></argsstring>
+        <name>future_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="117" column="3" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1ae2a97164f35eb783b14273c6dc6d1780" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Promise &amp;</type>
+        <definition>Promise&amp; srsgnb::detail::base_coro_frame&lt; Promise &gt;::promise</definition>
+        <argsstring>()</argsstring>
+        <name>promise</name>
+        <briefdescription>
+<para>Get promise object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="120" column="17" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="120" bodyend="120"/>
+        <referencedby refid="structsrsgnb_1_1base__resumable__procedure_1a43a027c03e9d64f43be9d5d58f98f091" compoundref="async__procedure_8h" startline="72" endline="76">srsgnb::base_resumable_procedure&lt; FutureType &gt;::async_return</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1ae3b7b32424dff5f6af3319ff2642a0d7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Promise &amp;</type>
+        <definition>const Promise&amp; srsgnb::detail::base_coro_frame&lt; Promise &gt;::promise</definition>
+        <argsstring>() const</argsstring>
+        <name>promise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="121" column="17" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1aa3134bd060c0b560ad8d97f3d7bba562" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaitable</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_coro_frame&lt; Promise &gt;::on_await_call</definition>
+        <argsstring>(Awaitable &amp;&amp;awaitable_obj)</argsstring>
+        <name>on_await_call</name>
+        <param>
+          <type>Awaitable &amp;&amp;</type>
+          <declname>awaitable_obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>called during await operation to save the awaitable/awaiter in mem buffer, and pass resumable as continuation <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>awaitable_obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object that coroutine awaits on </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if awaitable is ready and false if the coroutine needs to suspend </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="130" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="130" bodyend="149"/>
+        <referencedby refid="structsrsgnb_1_1base__resumable__procedure_1ab8342e0dadc34e1b73c78605411d8bcf" compoundref="async__procedure_8h" startline="44" endline="68">srsgnb::base_resumable_procedure&lt; FutureType &gt;::async_await</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1a0d2af287297516efca106c8a631c1a28" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1detail_1_1base__coro__frame" kindref="compound">base_coro_frame</ref>&lt; Promise &gt; *</type>
+        <definition>static base_coro_frame&lt;Promise&gt;* srsgnb::detail::base_coro_frame&lt; Promise &gt;::from_promise</definition>
+        <argsstring>(Promise *p)</argsstring>
+        <name>from_promise</name>
+        <param>
+          <type>Promise *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>From promise object, obtain the coroutine frame pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="124" column="26" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="124" bodyend="124"/>
+        <referencedby refid="structsrsgnb_1_1coro__handle_1a5f4058f7208679bd2e3a72492c2e29af" compoundref="coroutine_8h" startline="262" endline="265">srsgnb::coro_handle&lt; promise_type &gt;::from_promise</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1a8c18d4a4403959f5ca15424db3328331" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaiter</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::detail::base_coro_frame&lt; Promise &gt;::on_await_suspend</definition>
+        <argsstring>(Awaiter &amp;awaiter_obj, std::false_type)</argsstring>
+        <name>on_await_suspend</name>
+        <param>
+          <type>Awaiter &amp;</type>
+          <declname>awaiter_obj</declname>
+        </param>
+        <param>
+          <type>std::false_type</type>
+        </param>
+        <briefdescription>
+<para>Called on suspension of current coroutine. Two modes are possible depending on the await_suspend return type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="154" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="154" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1base__coro__frame_1afb4adcaf00ffaefeca4ab585feb29542" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Awaiter</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::detail::base_coro_frame&lt; Promise &gt;::on_await_suspend</definition>
+        <argsstring>(Awaiter &amp;awaiter_obj, std::true_type)</argsstring>
+        <name>on_await_suspend</name>
+        <param>
+          <type>Awaiter &amp;</type>
+          <declname>awaiter_obj</declname>
+        </param>
+        <param>
+          <type>std::true_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="164" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="164" bodyend="167"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class for coroutine frames. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Extension of <ref refid="structsrsgnb_1_1detail_1_1base__coro__frame_3_01void_01_4" kindref="compound">base_coro_frame&lt;void&gt;</ref> when Promise type is specified. Besides the coro state, it stores the promise. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::detail::base_coro_frame&lt; Promise &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1base__coro__frame"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/coroutine.h" line="48" column="1" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="48" bodyend="-1"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a0d2af287297516efca106c8a631c1a28" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>from_promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae18e7756d831c6de498756b75ecc4963" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>future_type</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1aa3134bd060c0b560ad8d97f3d7bba562" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>on_await_call</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a8c18d4a4403959f5ca15424db3328331" prot="private" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>on_await_suspend</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1afb4adcaf00ffaefeca4ab585feb29542" prot="private" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>on_await_suspend</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae2a97164f35eb783b14273c6dc6d1780" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae3b7b32424dff5f6af3319ff2642a0d7" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a689fd8cb01e59f8d6632eb6303673ffc" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_coro_frame</scope><name>promise_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1task__worker__executor" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::task_worker_executor</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1task__executor" prot="public" virt="non-virtual">srsgnb::task_executor</basecompoundref>
+    <includes refid="task__worker_8h" local="no">task_worker.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1task__worker__executor_1af88d91b1dfb9d7b26309ac5ec3c0cde7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> *</type>
+        <definition>task_worker* srsgnb::task_worker_executor::worker</definition>
+        <argsstring></argsstring>
+        <name>worker</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="101" column="15" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker__executor_1aa29c805d43b89fdc34a30bfbe138c4d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker_executor::task_worker_executor</definition>
+        <argsstring>()=default</argsstring>
+        <name>task_worker_executor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="87" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker__executor_1a58d7f76f2e3fe10b64b4203e25e7aee3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::task_worker_executor::task_worker_executor</definition>
+        <argsstring>(task_worker &amp;worker_)</argsstring>
+        <name>task_worker_executor</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__worker" kindref="compound">task_worker</ref> &amp;</type>
+          <declname>worker_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="88" column="3" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker__executor_1aaebf8b5adb0d86a849bdbe0e063b3554" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::task_worker_executor::execute</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>execute</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313">execute</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatches a task to be executed. According to this policy, executor may invoke task inplace if it deemed safe to do so. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="89" column="8" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="89" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1task__worker__executor_1a882896af2751b147d13d3778690c32da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::task_worker_executor::defer</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>defer</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">defer</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches a task to be later executed. The task always gets enqueued for later invocation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/task_worker.h" line="98" column="8" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Executor for single-thread task worker. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::task_worker_executor</label>
+        <link refid="classsrsgnb_1_1task__worker__executor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="14">
+        <label>srsgnb::bounded_bitset&lt; 1024 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="5">
+        <label>T</label>
+      </node>
+      <node id="7">
+        <label>srsgnb::dyn_blocking_queue&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="4">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>srsgnb::os_sched_affinity_bitmask</label>
+        <link refid="structsrsgnb_1_1os__sched__affinity__bitmask"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>-cpu_bitset</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::task_worker_executor</label>
+        <link refid="classsrsgnb_1_1task__worker__executor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-worker</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::dyn_circular_buffer&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; srsgnb::unique_function &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::unique_thread</label>
+        <link refid="classsrsgnb_1_1unique__thread"/>
+      </node>
+      <node id="6">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="10">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srsgnb::unique_function &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::task_worker</label>
+        <link refid="classsrsgnb_1_1task__worker"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-pending_tasks</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-t_handle</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-mask</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/executors/task_worker.h" line="85" column="1" bodyfile="include/srsgnb/support/executors/task_worker.h" bodystart="84" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1task__worker__executor_1a882896af2751b147d13d3778690c32da" prot="public" virt="virtual"><scope>srsgnb::task_worker_executor</scope><name>defer</name></member>
+      <member refid="classsrsgnb_1_1task__worker__executor_1aaebf8b5adb0d86a849bdbe0e063b3554" prot="public" virt="virtual"><scope>srsgnb::task_worker_executor</scope><name>execute</name></member>
+      <member refid="classsrsgnb_1_1task__worker__executor_1aa29c805d43b89fdc34a30bfbe138c4d1" prot="public" virt="non-virtual"><scope>srsgnb::task_worker_executor</scope><name>task_worker_executor</name></member>
+      <member refid="classsrsgnb_1_1task__worker__executor_1a58d7f76f2e3fe10b64b4203e25e7aee3" prot="public" virt="non-virtual"><scope>srsgnb::task_worker_executor</scope><name>task_worker_executor</name></member>
+      <member refid="classsrsgnb_1_1task__worker__executor_1af88d91b1dfb9d7b26309ac5ec3c0cde7" prot="private" virt="non-virtual"><scope>srsgnb::task_worker_executor</scope><name>worker</name></member>
+      <member refid="classsrsgnb_1_1task__executor_1a63fc9cba063ea0763800f710c6c44926" prot="public" virt="virtual"><scope>srsgnb::task_worker_executor</scope><name>~task_executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

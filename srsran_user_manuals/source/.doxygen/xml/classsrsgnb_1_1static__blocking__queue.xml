@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1static__blocking__queue" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::static_blocking_queue</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" prot="public" virt="non-virtual">srsgnb::detail::base_blocking_queue&lt; static_circular_buffer&lt; T, N &gt;, detail::noop_operator, detail::noop_operator &gt;</basecompoundref>
+    <includes refid="circular__buffer_8h" local="no">circular_buffer.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+      <param>
+        <type>typename PushingCallback</type>
+        <defval><ref refid="structsrsgnb_1_1detail_1_1noop__operator" kindref="compound">detail::noop_operator</ref></defval>
+      </param>
+      <param>
+        <type>typename PoppingCallback</type>
+        <defval><ref refid="structsrsgnb_1_1detail_1_1noop__operator" kindref="compound">detail::noop_operator</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1static__blocking__queue_1a39da8f5010377b74162cc29fef0ed317" prot="private" static="no">
+        <type><ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">detail::base_blocking_queue</ref>&lt; <ref refid="classsrsgnb_1_1static__circular__buffer" kindref="compound">static_circular_buffer</ref>&lt; T, N &gt;, PushingCallback, PoppingCallback &gt;</type>
+        <definition>using srsgnb::static_blocking_queue&lt; T, N, PushingCallback, PoppingCallback &gt;::base_t =  detail::base_blocking_queue&lt;static_circular_buffer&lt;T, N&gt;, PushingCallback, PoppingCallback&gt;</definition>
+        <argsstring></argsstring>
+        <name>base_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="632" column="3" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="632" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1static__blocking__queue_1ac87cdfa79a90c39e1cd0b5703c67715c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::static_blocking_queue&lt; T, N, PushingCallback, PoppingCallback &gt;::static_blocking_queue</definition>
+        <argsstring>(PushingCallback push_callback={}, PoppingCallback pop_callback={})</argsstring>
+        <name>static_blocking_queue</name>
+        <param>
+          <type>PushingCallback</type>
+          <declname>push_callback</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>PoppingCallback</type>
+          <declname>pop_callback</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="635" column="12" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="635" bodyend="638"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Blocking queue with fixed, embedded buffer storage via a std::array&lt;T, N&gt;.<itemizedlist>
+<listitem><para>Blocking push/pop API via push_blocking(...) and pop_blocking(...) methods</para>
+</listitem><listitem><para>Non-blocking push/pop API via try_push(...) and try_pop(...) methods</para>
+</listitem><listitem><para>Only one initial allocation for the std::array&lt;T, N&gt;</para>
+</listitem><listitem><para>thread-safe <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value type stored by buffer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of queue </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PushingCallback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function void(const T&amp;) called while pushing an element to the queue </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PoppingCallback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function void(const T&amp;) called while popping an element from the queue </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::detail::base_blocking_queue&lt; static_circular_buffer&lt; T, N &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::static_blocking_queue&lt; T, N, PushingCallback, PoppingCallback &gt;</label>
+        <link refid="classsrsgnb_1_1static__blocking__queue"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::detail::base_blocking_queue&lt; static_circular_buffer&lt; T, N &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::static_blocking_queue&lt; T, N, PushingCallback, PoppingCallback &gt;</label>
+        <link refid="classsrsgnb_1_1static__blocking__queue"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/circular_buffer.h" line="631" column="1" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="629" bodyend="639"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac4c34c568dcc4fea1fec667f2e17ac10" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>active</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1add411f50a36bcb716f9cab2349b424b7" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>apply_first</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ad06bd6d0908fe65f6501783514fec29f" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ada4646685db81ff80a2f7fc99e5b49a5" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a75cb81c3cb81e5aec6b0e07835d18059" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1static__blocking__queue_1a39da8f5010377b74162cc29fef0ed317" prot="private" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>base_t</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a6d57dc31cebce8d424e6292d06ed6c3e" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>circ_buffer</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a19b9ddf68605ad7481d16478d564b98a" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1adef96ac83b3723fcd6269c1f80baff25" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>cvar_empty</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ae5f1eb5fc1df4e8b97187ed912031d9d" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>cvar_full</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9b541aba601ca690ab8c3db4e64d4684" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>empty</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a70730598f84f992444c87ad160fa4926" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>full</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa9dff80c455b0fc5fd4f507906459ff8" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>is_stopped</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05b9e9cb7793dcb9ad2f4304f11588e4" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>max_size</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1adf301cb2956c5d2d2fae3006ba61574a" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a8740dc77fe715d1ac2be1685be511b73" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>nof_waiting</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9044e8e62109a44f5d2826c5fd5a91ed" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab6e4072c4553b1a5a98ab637e0df3252" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ace038b277e6d53e22990a420eb4224f0" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>pop_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa820c0f028c117d26d74428a9f80fd65" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>pop_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac570d14a8cbf7107a46de73f0e4cb453" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>pop_func</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1acb394f02f2d657635c5bc81b723a3fd6" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>pop_wait_until</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a4ecfb4a2557d80e26040f09b9cceb6a1" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>push_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a0d59c7d84d58721c1c0af48e4fcb4dbc" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>push_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1accfa9d76a8205cb8834a35544366f7b9" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>push_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa6684eda66a14345d18eaf70a8bc5e78" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>push_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5260fae38c6e915cb4b82f4a6aa080b1" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>push_func</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a34ecbff04817ddbf3730d76ecd66508b" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>size</name></member>
+      <member refid="classsrsgnb_1_1static__blocking__queue_1ac87cdfa79a90c39e1cd0b5703c67715c" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>static_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1abb8c59c64422e5d55c35a4c6b5f8b2b7" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e6fe2d8d03fb50bbd87136415e8ea1c" prot="private" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>T</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aeab3ce2ccf8e6d66d4880759c3294610" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>try_call_on_front</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab37ea3d47f3c2c418a15d18135fd1731" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>try_pop</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e53eddd60f80ca160243e414eacdb7c" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>try_push</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5546d3e2174ffca6383e716635580669" prot="public" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>try_push</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05abbe6390fa5162ef63b1c36a49a8ca" prot="protected" virt="non-virtual"><scope>srsgnb::static_blocking_queue</scope><name>~base_blocking_queue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,553 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1phy__time__unit" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::phy_time_unit</compoundname>
+    <includes refid="phy__time__unit_8h" local="no">phy_time_unit.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" prot="private" static="no">
+        <type>int64_t</type>
+        <definition>using srsgnb::phy_time_unit::value_type =  int64_t</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+<para>Internal value type. It uses 64-bit word to avoid intermediate multiplications to overflow. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="25" column="3" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a29f105647b7112cc35aadb579ecbf138" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type srsgnb::phy_time_unit::MAX_SCS_HZ</definition>
+        <argsstring></argsstring>
+        <name>MAX_SCS_HZ</name>
+        <initializer>= 480 * 1000</initializer>
+        <briefdescription>
+<para>Maximum subcarrier spacing in hertz, constant <formula id="123">$\Delta f_{max}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="27" column="31" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a06a8a35efef7aed44f7bf9d1f49e9681" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type srsgnb::phy_time_unit::N_F</definition>
+        <argsstring></argsstring>
+        <name>N_F</name>
+        <initializer>= 4096</initializer>
+        <briefdescription>
+<para>Constant <formula id="124">$N_f$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="29" column="31" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a0a110c2c87f73dd798c4db0bf52d0521" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double srsgnb::phy_time_unit::T_C</definition>
+        <argsstring></argsstring>
+        <name>T_C</name>
+        <initializer>= 1.0 / static_cast&lt;double&gt;(<ref refid="classsrsgnb_1_1phy__time__unit_1a29f105647b7112cc35aadb579ecbf138" kindref="member">MAX_SCS_HZ</ref> * <ref refid="classsrsgnb_1_1phy__time__unit_1a06a8a35efef7aed44f7bf9d1f49e9681" kindref="member">N_F</ref>)</initializer>
+        <briefdescription>
+<para>Reference time unit in seconds, that is <formula id="125">$T_c = 1/(\Delta f_{max} \times N_f)$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="31" column="27" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a22b74f151e06056669c17e8bdf424dc5" compoundref="phy__time__unit_8h" startline="55" endline="59">to_seconds</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" compoundref="phy__time__unit_8h" startline="149" endline="152">from_seconds</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a7a34df9e2f6830b43d1e097ebd7c897d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type srsgnb::phy_time_unit::SCS_REF_HZ</definition>
+        <argsstring></argsstring>
+        <name>SCS_REF_HZ</name>
+        <initializer>= 15 * 1000</initializer>
+        <briefdescription>
+<para>Reference subcarrier spacing, constant <formula id="126">$\Delta f_{ref}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="33" column="31" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" compoundref="phy__time__unit_8h" startline="70" endline="75">is_sample_accurate</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">to_samples</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a7b00a5967c790b5132f21ed696e0617e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type srsgnb::phy_time_unit::N_F_REF</definition>
+        <argsstring></argsstring>
+        <name>N_F_REF</name>
+        <initializer>= 2048</initializer>
+        <briefdescription>
+<para>DFT size for the reference subcarrier spacing, constant <formula id="127">$N_{f,ref}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="35" column="31" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" compoundref="phy__time__unit_8h" startline="70" endline="75">is_sample_accurate</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">to_samples</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type srsgnb::phy_time_unit::KAPPA</definition>
+        <argsstring></argsstring>
+        <name>KAPPA</name>
+        <initializer>= 64</initializer>
+        <briefdescription>
+<para>Constant <formula id="128">$\kappa=T_s/T_c=64$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="37" column="31" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" compoundref="phy__time__unit_8h" startline="70" endline="75">is_sample_accurate</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">to_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61391ed7d44d3aae421439e8aad97e39" compoundref="phy__time__unit_8h" startline="103" endline="106">to_Ta</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1ac4e440469aa865f3f67323e42b73faf5" compoundref="phy__time__unit_8h" startline="137" endline="140">from_units_of_kappa</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+        <definition>value_type srsgnb::phy_time_unit::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Actual value as a multiple of <formula id="1">$T_c$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="40" column="14" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a22b74f151e06056669c17e8bdf424dc5" compoundref="phy__time__unit_8h" startline="55" endline="59">to_seconds</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" compoundref="phy__time__unit_8h" startline="70" endline="75">is_sample_accurate</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">to_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61391ed7d44d3aae421439e8aad97e39" compoundref="phy__time__unit_8h" startline="103" endline="106">to_Ta</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a82d5fc3d559c1d2480f15948c621ac67" compoundref="phy__time__unit_8h" startline="109" endline="113">operator+</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1ad63ccc3036d84ee4834c450c9051e9b4" compoundref="phy__time__unit_8h" startline="116" endline="120">operator+=</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a44bed4a8d5a40d078e752f01503f9b83" compoundref="phy__time__unit_8h" startline="123" endline="127">operator-</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a402069c9b276de531ac06988fd2fe4a4" compoundref="phy__time__unit_8h" startline="130" endline="134">operator-=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1abd4066b7c9e7c15e8c89150bc2820769" prot="private" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::phy_time_unit::phy_time_unit</definition>
+        <argsstring>(value_type value_)</argsstring>
+        <name>phy_time_unit</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" kindref="member">value_type</ref></type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+<para>Private constructor from a value in units of <formula id="1">$T_c$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="43" column="22" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1adf6b1c37d63567218df3caa15deb533e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::phy_time_unit::phy_time_unit</definition>
+        <argsstring>()=default</argsstring>
+        <name>phy_time_unit</name>
+        <briefdescription>
+<para>Creates a default physical layer time of zero units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="50" column="3"/>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1ac4e440469aa865f3f67323e42b73faf5" compoundref="phy__time__unit_8h" startline="137" endline="140">from_units_of_kappa</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a099efbe765630178ae68ac669d1cbdf8" compoundref="phy__time__unit_8h" startline="143" endline="146">from_units_of_Tc</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" compoundref="phy__time__unit_8h" startline="149" endline="152">from_seconds</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a22b74f151e06056669c17e8bdf424dc5" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+            <defval>double</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr U</type>
+        <definition>constexpr U srsgnb::phy_time_unit::to_seconds</definition>
+        <argsstring>() const</argsstring>
+        <name>to_seconds</name>
+        <briefdescription>
+<para>Gets the time in seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Return type. Must be a floating point type (default: double). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="55" column="15" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="55" bodyend="59"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0a110c2c87f73dd798c4db0bf52d0521" compoundref="phy__time__unit_8h" startline="31">T_C</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool srsgnb::phy_time_unit::is_sample_accurate</definition>
+        <argsstring>(U sampling_rate_Hz_) const</argsstring>
+        <name>is_sample_accurate</name>
+        <param>
+          <type>U</type>
+          <declname>sampling_rate_Hz_</declname>
+        </param>
+        <briefdescription>
+<para>Determines if the time value is sample accurate given a sampling rate in hertz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The time value is sample accurate if the time is equivalent to an integer number of samples for the given sampling rate.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any data type that can be converted to <computeroutput>value_type</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sampling_rate_Hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample rate in hertz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the time is equivalent to an integer number of samples, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="70" column="18" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="70" bodyend="75"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7a34df9e2f6830b43d1e097ebd7c897d" compoundref="phy__time__unit_8h" startline="33">SCS_REF_HZ</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7b00a5967c790b5132f21ed696e0617e" compoundref="phy__time__unit_8h" startline="35">N_F_REF</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" compoundref="phy__time__unit_8h" startline="37">KAPPA</references>
+        <referencedby refid="classsrsgnb_1_1cyclic__prefix_1a29ba774a74dff3237823f4129e962e28" compoundref="cyclic__prefix_8h" startline="65" endline="78">srsgnb::cyclic_prefix::is_valid</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">to_samples</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::phy_time_unit::to_samples</definition>
+        <argsstring>(U sampling_rate_Hz_) const</argsstring>
+        <name>to_samples</name>
+        <param>
+          <type>U</type>
+          <declname>sampling_rate_Hz_</declname>
+        </param>
+        <briefdescription>
+<para>Gets the time expressed as a number of samples for the given sampling rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An assertion is triggered if the result would be a non-integer number of samples.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any data type that can be converted to <computeroutput>value_type</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing in hertz. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dft_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DFT size corresponding to the subcarrier spacing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The time value in samples. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="86" column="22" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="86" bodyend="96"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" compoundref="phy__time__unit_8h" startline="70" endline="75">is_sample_accurate</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7a34df9e2f6830b43d1e097ebd7c897d" compoundref="phy__time__unit_8h" startline="33">SCS_REF_HZ</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7b00a5967c790b5132f21ed696e0617e" compoundref="phy__time__unit_8h" startline="35">N_F_REF</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" compoundref="phy__time__unit_8h" startline="37">KAPPA</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" compoundref="lower__phy__impl_8h" startline="185" endline="201">srsgnb::lower_phy_impl::get_rx_to_tx_delay</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1a568ae22931f2fc32f8262ff9c4158f58" compoundref="ofdm__demodulator__impl_8cpp" startline="47" endline="59">srsgnb::ofdm_symbol_demodulator_impl::get_cp_offset</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46" compoundref="ofdm__demodulator__impl_8cpp" startline="61" endline="101">srsgnb::ofdm_symbol_demodulator_impl::demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8" compoundref="ofdm__demodulator__impl_8h" startline="67" endline="70">srsgnb::ofdm_symbol_demodulator_impl::get_symbol_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__modulator__impl_1a1cff8fbd637007a914121b91a99affc9" compoundref="ofdm__modulator__impl_8cpp" startline="43" endline="87">srsgnb::ofdm_symbol_modulator_impl::modulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__symbol__modulator__impl_1a7a8dc4e2f6ea7e3ca0ad65eb86e76a96" compoundref="ofdm__modulator__impl_8h" startline="57" endline="60">srsgnb::ofdm_symbol_modulator_impl::get_symbol_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">srsgnb::ofdm_prach_demodulator_impl::demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1phase__compensation__lut_1ae37a449b492ec3f4d1280844c108faae" compoundref="phase__compensation__lut_8h" startline="37" endline="71">srsgnb::phase_compensation_lut::phase_compensation_lut</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a61391ed7d44d3aae421439e8aad97e39" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::phy_time_unit::to_Ta</definition>
+        <argsstring>(subcarrier_spacing scs) const</argsstring>
+        <name>to_Ta</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <briefdescription>
+<para>Gets the time expressed in units of <formula id="129">$T_{\mathrm{A}}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Conversion is performed as per TS38.213 Section 4.2.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="103" column="22" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="103" bodyend="106"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+        <references refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" compoundref="math__utils_8h" startline="44" endline="47">srsgnb::pow2</references>
+        <references refid="namespacesrsgnb_1a1aaa9631bfc12855cc12d7ae3f6ce3a8" compoundref="subcarrier__spacing_8h" startline="38" endline="41">srsgnb::to_numerology_value</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" compoundref="phy__time__unit_8h" startline="37">KAPPA</references>
+        <referencedby refid="classsrsgnb_1_1ra__scheduler_1aa7f5ee78860e7768890012a950bb289c" compoundref="ra__scheduler_8cpp" startline="320" endline="410">srsgnb::ra_scheduler::fill_rar_grant</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a82d5fc3d559c1d2480f15948c621ac67" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>constexpr phy_time_unit srsgnb::phy_time_unit::operator+</definition>
+        <argsstring>(phy_time_unit other)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Overload addition operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="109" column="27" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="109" bodyend="113"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1ad63ccc3036d84ee4834c450c9051e9b4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>constexpr phy_time_unit srsgnb::phy_time_unit::operator+=</definition>
+        <argsstring>(phy_time_unit other)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Overload addition operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="116" column="27" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="116" bodyend="120"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a44bed4a8d5a40d078e752f01503f9b83" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>constexpr phy_time_unit srsgnb::phy_time_unit::operator-</definition>
+        <argsstring>(phy_time_unit other)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Overload subtraction operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="123" column="27" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="123" bodyend="127"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a402069c9b276de531ac06988fd2fe4a4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>constexpr phy_time_unit srsgnb::phy_time_unit::operator-=</definition>
+        <argsstring>(phy_time_unit other)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Overload subtraction operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="130" column="27" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="130" bodyend="134"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" compoundref="phy__time__unit_8h" startline="40">value</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1ac4e440469aa865f3f67323e42b73faf5" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>static constexpr phy_time_unit srsgnb::phy_time_unit::from_units_of_kappa</definition>
+        <argsstring>(unsigned units_of_kappa)</argsstring>
+        <name>from_units_of_kappa</name>
+        <param>
+          <type>unsigned</type>
+          <declname>units_of_kappa</declname>
+        </param>
+        <briefdescription>
+<para>Creates a physical layer time from units of <formula id="130">$\kappa$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="137" column="41" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="137" bodyend="140"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1adf6b1c37d63567218df3caa15deb533e">phy_time_unit</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" compoundref="phy__time__unit_8h" startline="37">KAPPA</references>
+        <referencedby refid="classsrsgnb_1_1cyclic__prefix_1a29ba774a74dff3237823f4129e962e28" compoundref="cyclic__prefix_8h" startline="65" endline="78">srsgnb::cyclic_prefix::is_valid</referencedby>
+        <referencedby refid="classsrsgnb_1_1cyclic__prefix_1a912612f8fa115e0924099fd22a718ac6" compoundref="cyclic__prefix_8h" startline="84" endline="95">srsgnb::cyclic_prefix::get_length</referencedby>
+        <referencedby refid="namespacesrsgnb_1a7b1cf34a338e96f95b01b1569c2cb014" compoundref="prach__preamble__information_8cpp" startline="15" endline="45">srsgnb::get_prach_preamble_long_info</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1a099efbe765630178ae68ac669d1cbdf8" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>static constexpr phy_time_unit srsgnb::phy_time_unit::from_units_of_Tc</definition>
+        <argsstring>(unsigned units_of_Tc)</argsstring>
+        <name>from_units_of_Tc</name>
+        <param>
+          <type>unsigned</type>
+          <declname>units_of_Tc</declname>
+        </param>
+        <briefdescription>
+<para>Creates a physical layer time from units of <formula id="1">$T_c$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="143" column="41" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="143" bodyend="146"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1adf6b1c37d63567218df3caa15deb533e">phy_time_unit</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" compoundref="lower__phy__impl_8h" startline="185" endline="201">srsgnb::lower_phy_impl::get_rx_to_tx_delay</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+        <definition>static constexpr phy_time_unit srsgnb::phy_time_unit::from_seconds</definition>
+        <argsstring>(double seconds)</argsstring>
+        <name>from_seconds</name>
+        <param>
+          <type>double</type>
+          <declname>seconds</declname>
+        </param>
+        <briefdescription>
+<para>Creates a physical layer time from seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/ran/phy_time_unit.h" line="149" column="41" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="149" bodyend="152"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1adf6b1c37d63567218df3caa15deb533e">phy_time_unit</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a0a110c2c87f73dd798c4db0bf52d0521" compoundref="phy__time__unit_8h" startline="31">T_C</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" compoundref="lower__phy__impl_8h" startline="185" endline="201">srsgnb::lower_phy_impl::get_rx_to_tx_delay</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__detector__simple__impl_1af439ed4a39c98d672be9afd14d863f3a" compoundref="prach__detector__simple__impl_8cpp" startline="22" endline="117">srsgnb::prach_detector_simple_impl::detect</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Physical layer time unit. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class abstracts the PHY reference time unit <formula id="1">$T_c$</formula> described in TS38.211 Section 4.1. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::phy_time_unit</label>
+        <link refid="classsrsgnb_1_1phy__time__unit"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/ran/phy_time_unit.h" line="22" column="1" bodyfile="include/srsgnb/ran/phy_time_unit.h" bodystart="21" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>from_seconds</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1ac4e440469aa865f3f67323e42b73faf5" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>from_units_of_kappa</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a099efbe765630178ae68ac669d1cbdf8" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>from_units_of_Tc</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a9503cc94a24c04accf7003b7ed44a5de" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>is_sample_accurate</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a0514da70d04c236fb642d149189c24b8" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>KAPPA</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a29f105647b7112cc35aadb579ecbf138" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>MAX_SCS_HZ</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a06a8a35efef7aed44f7bf9d1f49e9681" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>N_F</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a7b00a5967c790b5132f21ed696e0617e" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>N_F_REF</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a82d5fc3d559c1d2480f15948c621ac67" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>operator+</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1ad63ccc3036d84ee4834c450c9051e9b4" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>operator+=</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a44bed4a8d5a40d078e752f01503f9b83" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>operator-</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a402069c9b276de531ac06988fd2fe4a4" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>operator-=</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1abd4066b7c9e7c15e8c89150bc2820769" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>phy_time_unit</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1adf6b1c37d63567218df3caa15deb533e" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>phy_time_unit</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a7a34df9e2f6830b43d1e097ebd7c897d" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>SCS_REF_HZ</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a0a110c2c87f73dd798c4db0bf52d0521" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>T_C</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>to_samples</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a22b74f151e06056669c17e8bdf424dc5" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>to_seconds</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a61391ed7d44d3aae421439e8aad97e39" prot="public" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>to_Ta</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1a7c298a46a74c80e70af824e23dd87e93" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>value</name></member>
+      <member refid="classsrsgnb_1_1phy__time__unit_1af5811c8e45af6c42db0034258cdfab03" prot="private" virt="non-virtual"><scope>srsgnb::phy_time_unit</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1backend__worker" kind="class" language="C++" prot="public">
+    <compoundname>srslog::backend_worker</compoundname>
+    <includes refid="backend__worker_8h" local="no">backend_worker.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1a67fb8963a72caca84f6fcb9095180469" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1work__queue" kindref="compound">detail::work_queue</ref>&lt; <ref refid="structsrslog_1_1detail_1_1log__entry" kindref="compound">detail::log_entry</ref> &gt; &amp;</type>
+        <definition>detail::work_queue&lt;detail::log_entry&gt;&amp; srslog::backend_worker::queue</definition>
+        <argsstring></argsstring>
+        <name>queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="102" column="22" bodyfile="lib/srslog/backend_worker.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1a1cb37ea2991152bf9595a319223c348c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1dyn__arg__store__pool" kindref="compound">detail::dyn_arg_store_pool</ref> &amp;</type>
+        <definition>detail::dyn_arg_store_pool&amp; srslog::backend_worker::arg_pool</definition>
+        <argsstring></argsstring>
+        <name>arg_pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="103" column="41" bodyfile="lib/srslog/backend_worker.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1ae66ef3ecef17aaf58e334570fee22e02" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1shared__variable" kindref="compound">detail::shared_variable</ref>&lt; bool &gt;</type>
+        <definition>detail::shared_variable&lt;bool&gt; srslog::backend_worker::running_flag</definition>
+        <argsstring></argsstring>
+        <name>running_flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="104" column="36" bodyfile="lib/srslog/backend_worker.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1ae819eca97c4a55a711e4791faf2d05fe" prot="private" static="no" mutable="no">
+        <type>error_handler</type>
+        <definition>error_handler srslog::backend_worker::err_handler</definition>
+        <argsstring></argsstring>
+        <name>err_handler</name>
+        <initializer>= [](const std::string&amp; error) { fmt::print(stderr, &quot;srsLog error - {}\n&quot;, error); }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="105" column="22" bodyfile="lib/srslog/backend_worker.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1ae2d15d3dbdb903053730b15696e2347a" prot="private" static="no" mutable="no">
+        <type>std::once_flag</type>
+        <definition>std::once_flag srslog::backend_worker::start_once_flag</definition>
+        <argsstring></argsstring>
+        <name>start_once_flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="106" column="22" bodyfile="lib/srslog/backend_worker.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1ab32eef0f00bd833c718e6a32679646c3" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread srslog::backend_worker::worker_thread</definition>
+        <argsstring></argsstring>
+        <name>worker_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="107" column="22" bodyfile="lib/srslog/backend_worker.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1backend__worker_1ab3a7a2a7ff7a95e6ac00daa043eb9f3a" prot="private" static="no" mutable="no">
+        <type>fmt::memory_buffer</type>
+        <definition>fmt::memory_buffer srslog::backend_worker::fmt_buffer</definition>
+        <argsstring></argsstring>
+        <name>fmt_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="108" column="22" bodyfile="lib/srslog/backend_worker.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a171d5632b6ba089821038218fbc1ba12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::backend_worker::backend_worker</definition>
+        <argsstring>(detail::work_queue&lt; detail::log_entry &gt; &amp;queue, detail::dyn_arg_store_pool &amp;arg_pool)</argsstring>
+        <name>backend_worker</name>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1work__queue" kindref="compound">detail::work_queue</ref>&lt; <ref refid="structsrslog_1_1detail_1_1log__entry" kindref="compound">detail::log_entry</ref> &gt; &amp;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1dyn__arg__store__pool" kindref="compound">detail::dyn_arg_store_pool</ref> &amp;</type>
+          <declname>arg_pool</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="27" column="3" bodyfile="lib/srslog/backend_worker.h" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1af4d66a0f432aa89c52d534a51e9f9d76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srslog::backend_worker::backend_worker</definition>
+        <argsstring>(const backend_worker &amp;)=delete</argsstring>
+        <name>backend_worker</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1backend__worker" kindref="compound">backend_worker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="31" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1ace28a00bd59b9144bc8cbad0820ccae4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1backend__worker" kindref="compound">backend_worker</ref> &amp;</type>
+        <definition>backend_worker&amp; srslog::backend_worker::operator=</definition>
+        <argsstring>(const backend_worker &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1backend__worker" kindref="compound">backend_worker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="32" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a861a7bbf107730b8c5916c4ee0499828" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::backend_worker::~backend_worker</definition>
+        <argsstring>()</argsstring>
+        <name>~backend_worker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="34" column="3" bodyfile="lib/srslog/backend_worker.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1ab82ec78d95c8b3b8ea623911dd62268f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::start</definition>
+        <argsstring>(backend_priority priority)</argsstring>
+        <name>start</name>
+        <param>
+          <type>backend_priority</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the backend worker thread. After returning from this function the secondary thread is ensured to be running. Calling this function more than once has no effect. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="39" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="78" bodyend="82"/>
+        <references refid="classsrslog_1_1backend__worker_1a4b85912c3aa7e4dcfcb21aa8f5e0c0ab" compoundref="backend__worker_8cpp" startline="60" endline="76">create_worker</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a4cc4b03e0bfdd20fa137f6b5669eb9a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops the backend worker thread if it is running, otherwise the call has no effect. After returning from this function the secondary thread is ensured to have terminated. Calling this function more than once has no effect. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="45" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="16" bodyend="23"/>
+        <referencedby refid="classsrslog_1_1log__backend__impl_1af6eecba559adbc10a8f0d0c8721d532a" compoundref="log__backend__impl_8h" startline="49" endline="49">srslog::log_backend_impl::stop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a779a741d31c550aa735bf2962177700f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::backend_worker::is_running</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the worker thread is currently running, otherwise returns false. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="49" column="8" bodyfile="lib/srslog/backend_worker.h" bodystart="49" bodyend="49"/>
+        <referencedby refid="classsrslog_1_1backend__worker_1a0254ca3a08a242d6ab89546e562dbee1" compoundref="backend__worker_8h" startline="53" endline="68">set_error_handler</referencedby>
+        <referencedby refid="classsrslog_1_1log__backend__impl_1a077ade5320042bbeb42767a0ced5c92e" compoundref="log__backend__impl_8h" startline="43" endline="43">srslog::log_backend_impl::is_running</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a0254ca3a08a242d6ab89546e562dbee1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::backend_worker::set_error_handler</definition>
+        <argsstring>(error_handler new_err_handler)</argsstring>
+        <name>set_error_handler</name>
+        <param>
+          <type>error_handler</type>
+          <declname>new_err_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses the specified error handler to receive error notifications. Calls to this method when the worker is running will get ignored. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="53" column="8" bodyfile="lib/srslog/backend_worker.h" bodystart="53" bodyend="68"/>
+        <references refid="classsrslog_1_1backend__worker_1a779a741d31c550aa735bf2962177700f" compoundref="backend__worker_8h" startline="49" endline="49">is_running</references>
+        <referencedby refid="classsrslog_1_1log__backend__impl_1a058aa2eed8e099cecaf944d4e5ea8f61" compoundref="log__backend__impl_8h" startline="46" endline="46">srslog::log_backend_impl::set_error_handler</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a4b85912c3aa7e4dcfcb21aa8f5e0c0ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::create_worker</definition>
+        <argsstring>(backend_priority priority)</argsstring>
+        <name>create_worker</name>
+        <param>
+          <type>backend_priority</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the worker thread. NOTE: This function should be only called once. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="73" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="60" bodyend="76"/>
+        <references refid="classsrslog_1_1backend__worker_1ab806de67dabefd6f469d6c0d7769aad2" compoundref="backend__worker_8cpp" startline="25" endline="58">set_thread_priority</references>
+        <references refid="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" compoundref="backend__worker_8cpp" startline="84" endline="107">do_work</references>
+        <referencedby refid="classsrslog_1_1backend__worker_1ab82ec78d95c8b3b8ea623911dd62268f" compoundref="backend__worker_8cpp" startline="78" endline="82">start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::do_work</definition>
+        <argsstring>()</argsstring>
+        <name>do_work</name>
+        <briefdescription>
+<para>Entry function used by the secondary thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This period defines the time the worker will sleep while waiting for new entries. This is required to check the termination variable periodically.</para>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="76" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="84" bodyend="107"/>
+        <references refid="classsrslog_1_1backend__worker_1a2e4eaa33e2fb58377adc4942a031909d" compoundref="backend__worker_8h" startline="87" endline="96">report_queue_on_full_once</references>
+        <references refid="classsrslog_1_1backend__worker_1a68febbe4e5dd044586026be12418d7a9" compoundref="backend__worker_8cpp" startline="120" endline="141">process_log_entry</references>
+        <references refid="classsrslog_1_1backend__worker_1ac77beb990e5e6d1adbe3f7d0a93464c2" compoundref="backend__worker_8cpp" startline="143" endline="157">process_outstanding_entries</references>
+        <referencedby refid="classsrslog_1_1backend__worker_1a4b85912c3aa7e4dcfcb21aa8f5e0c0ab" compoundref="backend__worker_8cpp" startline="60" endline="76">create_worker</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a68febbe4e5dd044586026be12418d7a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::process_log_entry</definition>
+        <argsstring>(detail::log_entry &amp;&amp;entry)</argsstring>
+        <name>process_log_entry</name>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1log__entry" kindref="compound">detail::log_entry</ref> &amp;&amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Processes the log entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="79" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="120" bodyend="141"/>
+        <references refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a2e3de258ca7aa659a4d05f6237109cf2" compoundref="dyn__arg__store__pool_8h" startline="54" endline="63">srslog::detail::dyn_arg_store_pool::dealloc</references>
+        <referencedby refid="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" compoundref="backend__worker_8cpp" startline="84" endline="107">do_work</referencedby>
+        <referencedby refid="classsrslog_1_1backend__worker_1ac77beb990e5e6d1adbe3f7d0a93464c2" compoundref="backend__worker_8cpp" startline="143" endline="157">process_outstanding_entries</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1ac77beb990e5e6d1adbe3f7d0a93464c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::process_outstanding_entries</definition>
+        <argsstring>()</argsstring>
+        <name>process_outstanding_entries</name>
+        <briefdescription>
+<para>Processes outstanding entries in the queue until it gets empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="82" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="143" bodyend="157"/>
+        <references refid="classsrslog_1_1backend__worker_1a68febbe4e5dd044586026be12418d7a9" compoundref="backend__worker_8cpp" startline="120" endline="141">process_log_entry</references>
+        <referencedby refid="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" compoundref="backend__worker_8cpp" startline="84" endline="107">do_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1a2e4eaa33e2fb58377adc4942a031909d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::backend_worker::report_queue_on_full_once</definition>
+        <argsstring>()</argsstring>
+        <name>report_queue_on_full_once</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the current size of the queue reporting an error message if it is about to reach its maximum capacity. Error message is only reported once to avoid spamming. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="87" column="8" bodyfile="lib/srslog/backend_worker.h" bodystart="87" bodyend="96"/>
+        <references refid="classsrslog_1_1detail_1_1work__queue_1a6a8ee71888ffe4d3e326c49940fdf587" compoundref="work__queue_8h" startline="93" endline="98">srslog::detail::work_queue&lt; T, capacity &gt;::is_almost_full</references>
+        <references refid="classsrslog_1_1detail_1_1work__queue_1a40fabef705f59a5740cc953c385eef14" compoundref="work__queue_8h" startline="90" endline="90">srslog::detail::work_queue&lt; T, capacity &gt;::get_capacity</references>
+        <referencedby refid="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" compoundref="backend__worker_8cpp" startline="84" endline="107">do_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1backend__worker_1ab806de67dabefd6f469d6c0d7769aad2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void backend_worker::set_thread_priority</definition>
+        <argsstring>(backend_priority priority) const</argsstring>
+        <name>set_thread_priority</name>
+        <param>
+          <type>backend_priority</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>Establishes the specified thread priority for the calling thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/backend_worker.h" line="99" column="8" bodyfile="lib/srslog/backend_worker.cpp" bodystart="25" bodyend="58"/>
+        <referencedby refid="classsrslog_1_1backend__worker_1a4b85912c3aa7e4dcfcb21aa8f5e0c0ab" compoundref="backend__worker_8cpp" startline="60" endline="76">create_worker</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The backend worker runs in a secondary thread a routine that endlessly pops log entries from a work queue and dispatches them to the selected sinks. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srslog::detail::shared_variable&lt; bool &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1shared__variable"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::dyn_circular_buffer&lt; srslog::detail::log_entry &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>detail::buffer&lt; char &gt;</label>
+        <link refid="classdetail_1_1buffer"/>
+      </node>
+      <node id="1">
+        <label>srslog::backend_worker</label>
+        <link refid="classsrslog_1_1backend__worker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-running_flag</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-queue</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-fmt_buffer</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-arg_pool</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>basic_memory_buffer&lt; char &gt;</label>
+        <link refid="classbasic__memory__buffer"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srslog::detail::work_queue&lt; srslog::detail::log_entry &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1work__queue"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-queue</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="9">
+        <label>srslog::detail::dyn_arg_store_pool</label>
+        <link refid="classsrslog_1_1detail_1_1dyn__arg__store__pool"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srslog::detail::log_entry &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/srslog/backend_worker.h" line="25" column="1" bodyfile="lib/srslog/backend_worker.h" bodystart="24" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1backend__worker_1a1cb37ea2991152bf9595a319223c348c" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>arg_pool</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a171d5632b6ba089821038218fbc1ba12" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>backend_worker</name></member>
+      <member refid="classsrslog_1_1backend__worker_1af4d66a0f432aa89c52d534a51e9f9d76" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>backend_worker</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a4b85912c3aa7e4dcfcb21aa8f5e0c0ab" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>create_worker</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a663d79bc4b9cdf41a24abed403e1d24c" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>do_work</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ae819eca97c4a55a711e4791faf2d05fe" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>err_handler</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ab3a7a2a7ff7a95e6ac00daa043eb9f3a" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>fmt_buffer</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a779a741d31c550aa735bf2962177700f" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>is_running</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ace28a00bd59b9144bc8cbad0820ccae4" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a68febbe4e5dd044586026be12418d7a9" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>process_log_entry</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ac77beb990e5e6d1adbe3f7d0a93464c2" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>process_outstanding_entries</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a67fb8963a72caca84f6fcb9095180469" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>queue</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a2e4eaa33e2fb58377adc4942a031909d" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>report_queue_on_full_once</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ae66ef3ecef17aaf58e334570fee22e02" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>running_flag</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a0254ca3a08a242d6ab89546e562dbee1" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>set_error_handler</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ab806de67dabefd6f469d6c0d7769aad2" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>set_thread_priority</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ab82ec78d95c8b3b8ea623911dd62268f" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>start</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ae2d15d3dbdb903053730b15696e2347a" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>start_once_flag</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a4cc4b03e0bfdd20fa137f6b5669eb9a7" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>stop</name></member>
+      <member refid="classsrslog_1_1backend__worker_1ab32eef0f00bd833c718e6a32679646c3" prot="private" virt="non-virtual"><scope>srslog::backend_worker</scope><name>worker_thread</name></member>
+      <member refid="classsrslog_1_1backend__worker_1a861a7bbf107730b8c5916c4ee0499828" prot="public" virt="non-virtual"><scope>srslog::backend_worker</scope><name>~backend_worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1log__backend" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srslog::detail::log_backend</compoundname>
+    <derivedcompoundref refid="classsrslog_1_1log__backend__impl" prot="public" virt="non-virtual">srslog::log_backend_impl</derivedcompoundref>
+    <includes refid="log__backend_8h" local="no">log_backend.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1log__backend_1a07ddadc38493451509df66464885c134" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srslog::detail::log_backend::~log_backend</definition>
+        <argsstring>()=default</argsstring>
+        <name>~log_backend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/log_backend.h" line="28" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1log__backend_1afa55f23e43827304a172b159fd585780" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srslog::detail::log_backend::start</definition>
+        <argsstring>(backend_priority priority=backend_priority::normal)=0</argsstring>
+        <name>start</name>
+        <reimplementedby refid="classsrslog_1_1log__backend__impl_1a28f080d9e6fdc29feae90593c4289cc0">start</reimplementedby>
+        <param>
+          <type>backend_priority</type>
+          <declname>priority</declname>
+          <defval>backend_priority::normal</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the processing of incoming log entries. NOTE: Calling this function more than once has no side effects. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/log_backend.h" line="32" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1log__backend_1ae6a35c82a4c5257f946e477a2ce907b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; *</type>
+        <definition>virtual fmt::dynamic_format_arg_store&lt;fmt::format_context&gt;* srslog::detail::log_backend::alloc_arg_store</definition>
+        <argsstring>()=0</argsstring>
+        <name>alloc_arg_store</name>
+        <reimplementedby refid="classsrslog_1_1log__backend__impl_1ad021171dd5d4ee853cdf6767bc561e55">alloc_arg_store</reimplementedby>
+        <briefdescription>
+<para>Allocates a dyn_arg_store and returns a pointer to it on success, otherwise returns nullptr. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/log_backend.h" line="35" column="41"/>
+        <referencedby refid="classsrslog_1_1log__channel_1a5fe2ff176650323c24fbd01689267330" compoundref="log__channel_8h" startline="87" endline="113">srslog::log_channel::operator()</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1log__backend_1a13c29881fc1af8da38ba63655d038f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool srslog::detail::log_backend::push</definition>
+        <argsstring>(log_entry &amp;&amp;entry)=0</argsstring>
+        <name>push</name>
+        <reimplementedby refid="classsrslog_1_1log__backend__impl_1a6f0f1d0b28ba221d4bd79bcf102f5da9">push</reimplementedby>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1log__entry" kindref="compound">log_entry</ref> &amp;&amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pushes a log entry into the backend. Returns true on success, otherwise false. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/log_backend.h" line="39" column="16"/>
+        <referencedby refid="classsrslog_1_1log__channel_1a5fe2ff176650323c24fbd01689267330" compoundref="log__channel_8h" startline="87" endline="113">srslog::log_channel::operator()</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1log__backend_1a2bf906bec5e3362d2064f3bba433df3f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool srslog::detail::log_backend::is_running</definition>
+        <argsstring>() const =0</argsstring>
+        <name>is_running</name>
+        <reimplementedby refid="classsrslog_1_1log__backend__impl_1a077ade5320042bbeb42767a0ced5c92e">is_running</reimplementedby>
+        <briefdescription>
+<para>Returns true when the backend has been started, otherwise false. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/log_backend.h" line="42" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The log backend receives generated log entries from the application. Each entry gets distributed to the corresponding sinks. NOTE: Thread safe class. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srslog::detail::log_backend</label>
+        <link refid="classsrslog_1_1detail_1_1log__backend"/>
+      </node>
+      <node id="2">
+        <label>srslog::log_backend_impl</label>
+        <link refid="classsrslog_1_1log__backend__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::detail::log_backend</label>
+        <link refid="classsrslog_1_1detail_1_1log__backend"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/detail/log_backend.h" line="26" column="1" bodyfile="include/srsgnb/srslog/detail/log_backend.h" bodystart="25" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1log__backend_1ae6a35c82a4c5257f946e477a2ce907b9" prot="public" virt="pure-virtual"><scope>srslog::detail::log_backend</scope><name>alloc_arg_store</name></member>
+      <member refid="classsrslog_1_1detail_1_1log__backend_1a2bf906bec5e3362d2064f3bba433df3f" prot="public" virt="pure-virtual"><scope>srslog::detail::log_backend</scope><name>is_running</name></member>
+      <member refid="classsrslog_1_1detail_1_1log__backend_1a13c29881fc1af8da38ba63655d038f8e" prot="public" virt="pure-virtual"><scope>srslog::detail::log_backend</scope><name>push</name></member>
+      <member refid="classsrslog_1_1detail_1_1log__backend_1afa55f23e43827304a172b159fd585780" prot="public" virt="pure-virtual"><scope>srslog::detail::log_backend</scope><name>start</name></member>
+      <member refid="classsrslog_1_1detail_1_1log__backend_1a07ddadc38493451509df66464885c134" prot="public" virt="virtual"><scope>srslog::detail::log_backend</scope><name>~log_backend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

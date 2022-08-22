@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__decoder__avx2" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_decoder_avx2</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__decoder__impl" prot="public" virt="non-virtual">srsgnb::ldpc_decoder_impl</basecompoundref>
+    <includes refid="ldpc__decoder__impl_8h" local="no">ldpc_decoder_impl.h</includes>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1a49e6cfda6c75da6a5a83537387e7b0ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::select_strategy</definition>
+        <argsstring>() override</argsstring>
+        <name>select_strategy</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1a7db1bff3d0305d15159d999f1e621292">select_strategy</reimplements>
+        <briefdescription>
+<para>Selects the appropriate decoding strategy and initializes concrete implementation registers and variables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="158" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="158" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1abe039fa55dfec4c4575301badde2aec4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::load_soft_bits</definition>
+        <argsstring>(span&lt; const log_likelihood_ratio &gt;) override</argsstring>
+        <name>load_soft_bits</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1ab6782e5db22dc1bf1c80a53f878b5adf">load_soft_bits</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>llrs</declname>
+        </param>
+        <briefdescription>
+<para>Loads the input log-likelihood ratios into the soft-bit, variable-node register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="159" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1a7a0081297252064206c82d75cdb14b8f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::update_variable_to_check_messages</definition>
+        <argsstring>(unsigned) override</argsstring>
+        <name>update_variable_to_check_messages</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1af10e5d55a4f8fb64447640744e64a5c3">update_variable_to_check_messages</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the messages going from variable nodes to check nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the messages are directed to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="160" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1aa6ea5e662d3bd5aef8c747cb45faabcf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::update_check_to_variable_messages</definition>
+        <argsstring>(unsigned) override</argsstring>
+        <name>update_check_to_variable_messages</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1ad16ce5a388c4f921fdf5a7480d9cac3e">update_check_to_variable_messages</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the messages going from check nodes to variable nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the messages are coming from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="161" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="161" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1aa527a95ddef58266389905d35e3f8d67" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::update_soft_bits</definition>
+        <argsstring>(unsigned) override</argsstring>
+        <name>update_soft_bits</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1a5850b9fba087b09bf0d950da39238d37">update_soft_bits</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the soft bits corresponding to the variable nodes connected to the same base graph check node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the variables nodes are connected to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="162" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="162" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1a2fff365ae145d8921d2fae2ab3a93680" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_decoder_avx2::get_hard_bits</definition>
+        <argsstring>(span&lt; uint8_t &gt;) override</argsstring>
+        <name>get_hard_bits</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder__impl_1a1b1ec8323236a9900e00726f00ba75bd">get_hard_bits</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Converts soft bits into hard bits and returns the decoded message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="163" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="163" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__avx2_1ab6543ed0fbb735ead09d0f58dbc72171" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void srsgnb::ldpc_decoder_avx2::not_implemented</definition>
+        <argsstring>(const std::string &amp;fn)</argsstring>
+        <name>not_implemented</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="164" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="164" bodyend="167"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC decoder implementation based on AVX2 intrinsics. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_decoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::ldpc_graph_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__graph__impl"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_decoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#current_graph</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="157" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="156" bodyend="168"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1aaed7f0eee0d26bdba7b143211c5b08a1" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>bg_K</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ab65164816541a911e2226e6b1ec4aec7" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>bg_M</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a6aebc01d58316785e991717b04f00545" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>bg_N_full</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a385d627c89f533a782c0d7c42a9b0399" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>bg_N_high_rate</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1afe6b0159883603c3cbb94ed10b5111c2" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>bg_N_short</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a6205d470aa0a153591f8e887d13cdbd8" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>codeblock_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a5bb04eb605184aa38a2d787e0f2beea1" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>current_graph</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" prot="public" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1a2fff365ae145d8921d2fae2ab3a93680" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>get_hard_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a5720f300e42f160026b7f6dd4e15a9a2" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ac258aaae5fc4040a283eb8dd86b304c4" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>ldpc_decoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a9b30631abc1a8be118efc9e3119f89fc" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1abe039fa55dfec4c4575301badde2aec4" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>load_soft_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a968c8a5dcd18b5576b7b6981338e76e5" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>max_iterations</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ab5256771588daa36043ea80cfc1e4fa3" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>nof_significant_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1ab6543ed0fbb735ead09d0f58dbc72171" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>not_implemented</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a011794d915ee577bea4689400d02499f" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>scaling_factor</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1a49e6cfda6c75da6a5a83537387e7b0ec" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>select_strategy</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1aa6ea5e662d3bd5aef8c747cb45faabcf" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>update_check_to_variable_messages</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1aa527a95ddef58266389905d35e3f8d67" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>update_soft_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__avx2_1a7a0081297252064206c82d75cdb14b8f" prot="private" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>update_variable_to_check_messages</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder_1a6b4bb879131080885aed983a3ac2c918" prot="public" virt="virtual"><scope>srsgnb::ldpc_decoder_avx2</scope><name>~ldpc_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

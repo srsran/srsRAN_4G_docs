@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ldpc__rate__dematcher__impl_8cpp" kind="file" language="C++">
+    <compoundname>ldpc_rate_dematcher_impl.cpp</compoundname>
+    <includes refid="ldpc__rate__dematcher__impl_8h" local="yes">ldpc_rate_dematcher_impl.h</includes>
+    <includes refid="ldpc__graph__impl_8h" local="yes">ldpc_graph_impl.h</includes>
+    <includes refid="ldpc__luts__impl_8h" local="yes">ldpc_luts_impl.h</includes>
+    <includes refid="srsgnb__assert_8h" local="yes">srsgnb/support/srsgnb_assert.h</includes>
+    <incdepgraph>
+      <node id="47">
+        <label>atomic</label>
+      </node>
+      <node id="20">
+        <label>functional</label>
+      </node>
+      <node id="13">
+        <label>limits</label>
+      </node>
+      <node id="21">
+        <label>iterator</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>srsgnb/ran/ldpc_base_graph.h</label>
+        <link refid="ldpc__base__graph_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="46">
+        <label>cassert</label>
+      </node>
+      <node id="55">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stdexcept</label>
+      </node>
+      <node id="53">
+        <label>numeric</label>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>string</label>
+      </node>
+      <node id="26">
+        <label>srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ldpc_graph_impl.h</label>
+        <link refid="ldpc__graph__impl_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>pthread.h</label>
+      </node>
+      <node id="8">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="2">
+        <label>ldpc_rate_dematcher_impl.h</label>
+        <link refid="ldpc__rate__dematcher__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>tuple</label>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>vector</label>
+      </node>
+      <node id="56">
+        <label>utility</label>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>array</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/phy/upper/codeblock_metadata.h</label>
+        <link refid="codeblock__metadata_8h"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cerrno</label>
+      </node>
+      <node id="49">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>cstddef</label>
+      </node>
+      <node id="35">
+        <label>chrono</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher.h</label>
+        <link refid="ldpc__rate__dematcher_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp</label>
+        <link refid="ldpc__rate__dematcher__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/phy/upper/channel_coding/ldpc/ldpc.h</label>
+        <link refid="ldpc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>type_traits</label>
+      </node>
+      <node id="25">
+        <label>complex</label>
+      </node>
+      <node id="58">
+        <label>ldpc_luts_impl.h</label>
+        <link refid="ldpc__luts__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>algorithm</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>cstring</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__rate__dematcher__impl_8h" kindref="compound">ldpc_rate_dematcher_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__graph__impl_8h" kindref="compound">ldpc_graph_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ldpc__luts__impl_8h" kindref="compound">ldpc_luts_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/support/srsgnb_assert.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb_1_1ldpc" kindref="compound">srsgnb::ldpc</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a5ade53eac3a340feb5225fa1d0909683" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a5ade53eac3a340feb5225fa1d0909683" kindref="member">ldpc_rate_dematcher_impl::init</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref>&amp;<sp/>cfg)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>srsgnb_assert((cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" kindref="member">rv</ref><sp/>&gt;=<sp/>0)<sp/>&amp;&amp;<sp/>(cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" kindref="member">rv</ref><sp/>&lt;=<sp/>3),<sp/></highlight><highlight class="stringliteral">&quot;RV<sp/>should<sp/>an<sp/>integer<sp/>between<sp/>0<sp/>and<sp/>3.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>rv<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" kindref="member">rv</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>modulation_order<sp/>=<sp/><ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a95eb67c37753b913c385dd689ce4048f" kindref="member">mod</ref>);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>is_new_data<sp/>=<sp/>new_data;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ace370290b571f592a6a637f84ae143a3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1ace370290b571f592a6a637f84ae143a3" kindref="member">ldpc_rate_dematcher_impl::rate_dematch</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>input,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_data,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1codeblock__metadata" kindref="compound">codeblock_metadata</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cfg)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>init(new_data,<sp/>cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>block_length<sp/>=<sp/>output.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>srsgnb_assert(block_length<sp/>&gt;=<sp/>cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" kindref="member">Nref</ref>,<sp/></highlight><highlight class="stringliteral">&quot;N_ref<sp/>should<sp/>be<sp/>smaller<sp/>than<sp/>the<sp/>output<sp/>length.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" kindref="member">Nref</ref><sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer_length<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" kindref="member">tb_common</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" kindref="member">Nref</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer_length<sp/>=<sp/>block_length;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>input<sp/>size<sp/>must<sp/>be<sp/>a<sp/>multiple<sp/>of<sp/>the<sp/>modulation<sp/>order.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>srsgnb_assert(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>%<sp/>modulation_order<sp/>==<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>input<sp/>length<sp/>should<sp/>be<sp/>a<sp/>multiple<sp/>of<sp/>the<sp/>modulation<sp/>order.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>shift_k0<sp/>according<sp/>to<sp/>TS38.212<sp/>Table<sp/>5.4.2.1-2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>std::array&lt;double,<sp/>4&gt;<sp/>shift_factor<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BG_N_short<sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BG_K<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((block_length<sp/>%<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a492358364ef837148bd38cb080f79212" kindref="member">BG1_N_SHORT</ref>)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>input<sp/>is<sp/>a<sp/>BG1<sp/>codeblock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>shift_factor<sp/>=<sp/>{0,<sp/>17,<sp/>33,<sp/>56};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>BG_N_short<sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a492358364ef837148bd38cb080f79212" kindref="member">BG1_N_SHORT</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>BG_K<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a5e6b9ae8f3d0e4c6c656dc2506c9ac64" kindref="member">BG1_N_FULL</ref><sp/>-<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a35c77e72f6a7f823f2cbe85c2681c777" kindref="member">BG1_M</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((block_length<sp/>%<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a80b0980ff240be0d715f4fcb4b7d5ebb" kindref="member">BG2_N_SHORT</ref>)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>input<sp/>is<sp/>a<sp/>BG2<sp/>codeblock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>shift_factor<sp/>=<sp/>{0,<sp/>13,<sp/>25,<sp/>43};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>BG_N_short<sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a80b0980ff240be0d715f4fcb4b7d5ebb" kindref="member">BG2_N_SHORT</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>BG_K<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a8dcaad120e7684d4cde1bd677a331c13" kindref="member">BG2_N_FULL</ref><sp/>-<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a0210caeff09dff38472c7539979e9e99" kindref="member">BG2_M</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;LDPC<sp/>rate<sp/>dematching:<sp/>invalid<sp/>input<sp/>length.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>uint16_t<sp/>lifting_size<sp/>=<sp/>block_length<sp/>/<sp/>BG_N_short;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>srsgnb_assert(<ref refid="namespacesrsgnb_1_1ldpc_1ad68c0a66dcd96fbd5b57d1d0152813bd" kindref="member">get_lifting_index</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacesrsgnb_1_1ldpc_1a9cbabc9c9ab5373aede3e7fded3ea060" kindref="member">lifting_size_t</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(lifting_size))<sp/>!=<sp/><ref refid="namespacesrsgnb_1_1ldpc_1a4e188ea601584d8e15f4f3e63824e699" kindref="member">VOID_LIFTSIZE</ref>,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;LDPC<sp/>rate<sp/>dematching:<sp/>invalid<sp/>input<sp/>length.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Recall<sp/>that<sp/>2<sp/>*<sp/>lifting_size<sp/>systematic<sp/>bits<sp/>are<sp/>shortened<sp/>out<sp/>of<sp/>the<sp/>codeblock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>nof_systematic_bits<sp/>=<sp/>(BG_K<sp/>-<sp/>2)<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>srsgnb_assert(cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref><sp/>&lt;<sp/>nof_systematic_bits,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;LDPC<sp/>rate<sp/>dematching:<sp/>invalid<sp/>number<sp/>of<sp/>filler<sp/>bits.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>nof_filler_bits<sp/>=<sp/>cfg.<ref refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" kindref="member">cb_specific</ref>.<ref refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" kindref="member">nof_filler_bits</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>(shift_factor[rv]<sp/>*<sp/>buffer_length)<sp/>/<sp/>block_length;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>shift_k0<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(floor(tmp))<sp/>*<sp/>lifting_size;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(modulation_order<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>allot_llrs(output,<sp/>input);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>aux<sp/>=<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref>(auxiliary_buffer).<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>());</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>deinterleave_llrs(aux,<sp/>input);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>allot_llrs(output,<sp/>aux);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a6c1341a2d4c38f5481a805691e488203" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a6c1341a2d4c38f5481a805691e488203" kindref="member">ldpc_rate_dematcher_impl::allot_llrs</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>out,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>in)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="88"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>When<sp/>we<sp/>are<sp/>not<sp/>combining<sp/>the<sp/>current<sp/>codeblock<sp/>with<sp/>previous<sp/>ones,<sp/>ensure<sp/>we<sp/>start<sp/>from<sp/>clean<sp/>LLRs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(is_new_data)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(out.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>out.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>0);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>matched_length<sp/>=<sp/>in.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_info_bits<sp/><sp/>=<sp/>nof_systematic_bits<sp/>-<sp/>nof_filler_bits;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0,<sp/>k<sp/>=<sp/>0;<sp/>(j<sp/>&lt;<sp/>buffer_length)<sp/>&amp;&amp;<sp/>(k<sp/>&lt;<sp/>matched_length);<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tmp_idx<sp/>=<sp/>(shift_k0<sp/>+<sp/>j)<sp/>%<sp/>buffer_length;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((tmp_idx<sp/>&lt;<sp/>nof_info_bits)<sp/>||<sp/>(tmp_idx<sp/>&gt;=<sp/>nof_systematic_bits))<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>a<sp/>filler<sp/>bit,<sp/>combine<sp/>value<sp/>with<sp/>the<sp/>previous<sp/>LLR<sp/>value<sp/>relative<sp/>to<sp/>the<sp/>same<sp/>bit<sp/>(if<sp/>any).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reminder:<sp/>this<sp/>is<sp/>a<sp/>sum<sp/>between<sp/>LLRs,<sp/>therefore<sp/>it<sp/>is<sp/>saturated.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out[tmp_idx]<sp/>+=<sp/>in[k];</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++k;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>a<sp/>filler<sp/>bit:<sp/>the<sp/>corresponding<sp/>LLR<sp/>should<sp/>be<sp/>either<sp/>0<sp/>or<sp/>INT8_MAX.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>assert((is_new_data<sp/>&amp;&amp;<sp/>(out[tmp_idx]<sp/>==<sp/>0))<sp/>||<sp/>(!is_new_data<sp/>&amp;&amp;<sp/>(out[tmp_idx]<sp/>==<sp/>INT8_MAX)));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Filler<sp/>bits<sp/>are<sp/>counted<sp/>as<sp/>fixed,<sp/>logical<sp/>zeros<sp/>by<sp/>the<sp/>decoder.<sp/>Set<sp/>the<sp/>corresponding</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>LLR<sp/>to<sp/>+inf.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out[tmp_idx]<sp/>=<sp/><ref refid="namespacesrsgnb_1aef6e122792a07352d866cd4b8075ecd5" kindref="member">LLR_INFINITY</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a428b4cddb53d522e0580ef0c34757b02" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ldpc__rate__dematcher__impl_1a428b4cddb53d522e0580ef0c34757b02" kindref="member">ldpc_rate_dematcher_impl::deinterleave_llrs</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>in)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="117"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da" kindref="member">E</ref><sp/>=<sp/>in.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>in_index<sp/>=<sp/>0;<sp/>in_index<sp/>!=<sp/><ref refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da" kindref="member">E</ref>;<sp/>++in_index)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>help_index<sp/>=<sp/>in_index<sp/>%<sp/>modulation_order;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>out_index<sp/><sp/>=<sp/>(in_index<sp/>+<sp/>help_index<sp/>*<sp/>(<ref refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da" kindref="member">E</ref><sp/>-<sp/>1))<sp/>/<sp/>modulation_order;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>out[out_index]<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>in[in_index];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_dematcher_impl.cpp"/>
+  </compounddef>
+</doxygen>

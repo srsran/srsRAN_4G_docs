@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__rate__matcher__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_rate_matcher_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__rate__matcher" prot="public" virt="non-virtual">srsgnb::ldpc_rate_matcher</basecompoundref>
+    <includes refid="ldpc__rate__matcher__impl_8h" local="no">ldpc_rate_matcher_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1aaa9051763ca4ce5ac6954de076a54d13" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+        <definition>span&lt;const uint8_t&gt; srsgnb::ldpc_rate_matcher_impl::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Bit selection circular buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="49" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa53058344f285328198dde174b7afb77" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, <ref refid="namespacesrsgnb_1_1ldpc_1a08bf4ddfe506ff6afa86f708206f2224" kindref="member">ldpc::MAX_CODEBLOCK_LENGTH</ref> &gt;</type>
+        <definition>std::array&lt;uint8_t, ldpc::MAX_CODEBLOCK_LENGTH&gt; srsgnb::ldpc_rate_matcher_impl::auxiliary_buffer</definition>
+        <argsstring></argsstring>
+        <name>auxiliary_buffer</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Auxiliary buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="51" column="14" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1a9677602e929a10e61d23bb59f1755485" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_matcher_impl::rv</definition>
+        <argsstring></argsstring>
+        <name>rv</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Redundancy version, values in {0, 1, 2, 3}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="53" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1a61d4edeb85f448d0a779d80d72b183ac" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_matcher_impl::modulation_order</definition>
+        <argsstring></argsstring>
+        <name>modulation_order</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Modulation scheme. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="55" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1a3b162de503fbfecc012179dfc8d1ea77" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_matcher_impl::buffer_length</definition>
+        <argsstring></argsstring>
+        <name>buffer_length</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Buffer length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="57" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1abb08d019bb42125b3ccd2a7f0dd11bbd" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_rate_matcher_impl::shift_k0</definition>
+        <argsstring></argsstring>
+        <name>shift_k0</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Shift <formula id="208">$ k_0 $</formula> as defined in TS38.212 Table 5.4.2.1-2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="59" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa3bd50a08db612abd4fc6a3e8c35fa6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_matcher_impl::rate_match</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, const codeblock_metadata::tb_common_metadata &amp;cfg) override</argsstring>
+        <name>rate_match</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__rate__matcher_1a5937011ac61f2781cd6e6181eecbe5f5">rate_match</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Carries out the rate matching of a codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate matched codeblock. Each <computeroutput>uint8_t</computeroutput> entry corresponds to a single bit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Original, full codeblock (may contain filler bits). Each <computeroutput>uint8_t</computeroutput> entry corresponds to a single bit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sizes of <computeroutput>input</computeroutput> and <computeroutput>output</computeroutput> determine the behavior of the rate matching algorithm. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="26" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.cpp" bodystart="28" bodyend="74"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1ab21b6d49d902ed2e727609a65dc3e245" compoundref="codeblock__metadata_8h" startline="43">srsgnb::codeblock_metadata::tb_common_metadata::Nref</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a492358364ef837148bd38cb080f79212" compoundref="ldpc__graph__impl_8h" startline="31">srsgnb::ldpc::BG1_N_SHORT</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a80b0980ff240be0d715f4fcb4b7d5ebb" compoundref="ldpc__graph__impl_8h" startline="37">srsgnb::ldpc::BG2_N_SHORT</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1ad68c0a66dcd96fbd5b57d1d0152813bd" compoundref="ldpc__luts__impl_8cpp" startline="4534" endline="4537">srsgnb::ldpc::get_lifting_index</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a4e188ea601584d8e15f4f3e63824e699" compoundref="ldpc__graph__impl_8h" startline="22">srsgnb::ldpc::VOID_LIFTSIZE</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa21e5748fbc9d681430eac4de1d0e33a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_matcher_impl::init</definition>
+        <argsstring>(const codeblock_metadata::tb_common_metadata &amp;cfg)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the rate matcher internal state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="32" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.cpp" bodystart="20" bodyend="26"/>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a874add437ad98e5d70a5354f60c463e6" compoundref="codeblock__metadata_8h" startline="38">srsgnb::codeblock_metadata::tb_common_metadata::rv</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a95eb67c37753b913c385dd689ce4048f" compoundref="codeblock__metadata_8h" startline="40">srsgnb::codeblock_metadata::tb_common_metadata::mod</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1a03724a6fceca36b11c53caffc77de00f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_matcher_impl::select_bits</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in) const</argsstring>
+        <name>select_bits</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Carries out bit selection, as per TS38.212 Section 5.4.2.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of selected bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input codeblock. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="38" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.cpp" bodystart="76" bodyend="119"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a187fbcb4213527d02072c67c177790ae" compoundref="ldpc_8h" startline="94">srsgnb::ldpc::FILLER_BIT</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" compoundref="span_8h" startline="179" endline="179">srsgnb::span&lt; T &gt;::begin</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher__impl_1a6f36df6331990d8994218bc1d65f6517" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_rate_matcher_impl::interleave_bits</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in) const</argsstring>
+        <name>interleave_bits</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Carries out bit interleaving, as per TS38.212 Section 5.4.2.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of interleaved bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of selected bits (see <ref refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a03724a6fceca36b11c53caffc77de00f" kindref="member">ldpc_rate_matcher_impl::select_bits</ref>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="44" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.cpp" bodystart="135" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC rate matching implementation, as per TS38.212 Section 5.4.2. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_matcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_matcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::span&lt; const uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_matcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_matcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-buffer</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" line="23" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_rate_matcher_impl.h" bodystart="22" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa53058344f285328198dde174b7afb77" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>auxiliary_buffer</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1aaa9051763ca4ce5ac6954de076a54d13" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a3b162de503fbfecc012179dfc8d1ea77" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>buffer_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa21e5748fbc9d681430eac4de1d0e33a" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a6f36df6331990d8994218bc1d65f6517" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>interleave_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a61d4edeb85f448d0a779d80d72b183ac" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>modulation_order</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa3bd50a08db612abd4fc6a3e8c35fa6d" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>rate_match</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a9677602e929a10e61d23bb59f1755485" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>rv</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1a03724a6fceca36b11c53caffc77de00f" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>select_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1abb08d019bb42125b3ccd2a7f0dd11bbd" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>shift_k0</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher_1a383e533d645196a63c911e67a5aea55c" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_matcher_impl</scope><name>~ldpc_rate_matcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__processor__worker" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::prach_processor_worker</compoundname>
+    <includes refid="prach__processor__worker_8h" local="no">prach_processor_worker.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>states</name>
+        <enumvalue id="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb" prot="private">
+          <name>idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The worker has not been configured yet with any request or the previously configured request has already been processed. It transitions to <computeroutput>wait</computeroutput> when a request is set. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a49256b9819abacbb8e6e031a03abe81b" prot="private">
+          <name>wait</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>A PRACH request is configured and the worker is waiting for the start of the PRACH occasion window. The worker transitions to <computeroutput>collecting</computeroutput> if it detects the beginning of the PRACH occasion window for the configured PRACH context. When in this state, the worker also detects late requests, in which case it notifies the event and transitions back to <computeroutput>idle</computeroutput>. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90adaea1b35e5f1ba09fcd43cbba71e2d11" prot="private">
+          <name>collecting</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The PRACH occasion window started and baseband samples are collected. Once the internal buffer has been filled with the PRACH occasion window samples, the worker transitions to <computeroutput>processing</computeroutput> for the demodulation phase. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a4374990dedc873c6a9417a355a2ac4cf" prot="private">
+          <name>processing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The PRACH occasion has been captured and it is processed by the asynchronous task executor. The worker transitions to <computeroutput>idle</computeroutput> as soon as the PRACH occasion is processed and notified. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Worker internal states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="37" column="20" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="37" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1a30bc8fa34eafc4530d243f95eda9c916" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__prach__demodulator" kindref="compound">ofdm_prach_demodulator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ofdm_prach_demodulator&gt; srsgnb::prach_processor_worker::demodulator</definition>
+        <argsstring></argsstring>
+        <name>demodulator</name>
+        <briefdescription>
+<para>OFDM PRACH demodulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="55" column="19" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="55" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1a4806bafe24b2a78f8cbb94c8047ea891" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>task_executor&amp; srsgnb::prach_processor_worker::async_task_executor</definition>
+        <argsstring></argsstring>
+        <name>async_task_executor</name>
+        <briefdescription>
+<para>Asynchronous task executor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="57" column="17" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1adbb31a42d3ddb37db1e60a18ed074618" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::prach_processor_worker::sampling_rate_Hz</definition>
+        <argsstring></argsstring>
+        <name>sampling_rate_Hz</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Sampling rate in Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="59" column="12" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a04103411e934f606e261bae1005c292e" compoundref="prach__processor__worker_8h" startline="86" endline="97">prach_processor_worker</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1abafe2c02bde992a45af3bc77edd1d384" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>srsvec::aligned_vec&lt;cf_t&gt; srsgnb::prach_processor_worker::temp_baseband</definition>
+        <argsstring></argsstring>
+        <name>temp_baseband</name>
+        <briefdescription>
+<para>Temporary baseband buffer of size TEMP_BASEBAND_BUFFER_SIZE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="61" column="23" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1ac69afab99f8ab0630264c47187aca392" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> *</type>
+        <definition>prach_processor_notifier* srsgnb::prach_processor_worker::notifier</definition>
+        <argsstring></argsstring>
+        <name>notifier</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>PRACH processor notifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="63" column="28" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a22ad066730eba9d4c6690c1f519bc3aa" compoundref="prach__processor__worker_8h" startline="100" endline="100">connect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90" kindref="member">states</ref> &gt;</type>
+        <definition>std::atomic&lt;states&gt; srsgnb::prach_processor_worker::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= {<ref refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb" kindref="member">states::idle</ref>}</initializer>
+        <briefdescription>
+<para>Current worker state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="65" column="15" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" compoundref="prach__processor__worker_8cpp" startline="122" endline="140">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a9150b03daa75ea4ce6017e0db81152d9" compoundref="prach__processor__worker_8h" startline="116" endline="116">is_available</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref></type>
+        <definition>prach_buffer_context srsgnb::prach_processor_worker::prach_context</definition>
+        <argsstring></argsstring>
+        <name>prach_context</name>
+        <briefdescription>
+<para>Current context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="67" column="24" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1aa32cba15eecc554fae756d9ad1d195c1" compoundref="prach__processor__worker_8cpp" startline="53" endline="63">run_state_collecting</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1a36442a81baf4e2a385e07a1f66fce4f1" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> *</type>
+        <definition>prach_buffer* srsgnb::prach_processor_worker::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>Current PRACH buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="69" column="16" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1aa0e4391b3c6a9e8e41228663f6f23629" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::prach_processor_worker::window_length</definition>
+        <argsstring></argsstring>
+        <name>window_length</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Current PRACH occasion window length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="71" column="12" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__worker_1abcd9fd3f13f2244379d8b03d3383efd8" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::prach_processor_worker::nof_samples</definition>
+        <argsstring></argsstring>
+        <name>nof_samples</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Current number of collected samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="73" column="12" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" compoundref="prach__processor__worker_8cpp" startline="100" endline="120">handle_request</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void prach_processor_worker::run_state_wait</definition>
+        <argsstring>(span&lt; const cf_t &gt; samples, const prach_processor_baseband::symbol_context &amp;context)</argsstring>
+        <name>run_state_wait</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__processor__baseband_1_1symbol__context" kindref="compound">prach_processor_baseband::symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Runs state <computeroutput>wait</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="76" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.cpp" bodystart="17" bodyend="51"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" compoundref="prach__processor__worker_8h" startline="67">prach_context</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1ad7528d228163421d522aef01122eca7b" compoundref="prach__buffer__context_8h" startline="34">srsgnb::prach_buffer_context::slot</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1acddbdc7d025e8d35c001d9f6e49ab979" compoundref="prach__buffer__context_8h" startline="39">srsgnb::prach_buffer_context::start_symbol</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1ac69afab99f8ab0630264c47187aca392" compoundref="prach__processor__worker_8h" startline="63">notifier</references>
+        <references refid="classsrsgnb_1_1prach__processor__notifier_1a933d1f253fe597d7e8db9ef93c2a83b2">srsgnb::prach_processor_notifier::on_prach_request_late</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" compoundref="prach__processor__worker_8h" startline="65">state</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb">idle</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1aa8da22517874a9ba9a46c96b106e0d77" compoundref="prach__buffer__context_8h" startline="30">srsgnb::prach_buffer_context::sector</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1ae2762fae013f2e992afaa10d4ba87c08" compoundref="prach__buffer__context_8h" startline="32">srsgnb::prach_buffer_context::port</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1abcd9fd3f13f2244379d8b03d3383efd8" compoundref="prach__processor__worker_8h" startline="73">nof_samples</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90adaea1b35e5f1ba09fcd43cbba71e2d11">collecting</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</references>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" compoundref="prach__processor__worker_8cpp" startline="122" endline="140">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1aa32cba15eecc554fae756d9ad1d195c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void prach_processor_worker::run_state_collecting</definition>
+        <argsstring>(span&lt; const cf_t &gt; samples, const prach_processor_baseband::symbol_context &amp;context)</argsstring>
+        <name>run_state_collecting</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__processor__baseband_1_1symbol__context" kindref="compound">prach_processor_baseband::symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Runs state <computeroutput>collecting</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="79" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.cpp" bodystart="53" bodyend="63"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" compoundref="prach__processor__worker_8h" startline="67">prach_context</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1aa8da22517874a9ba9a46c96b106e0d77" compoundref="prach__buffer__context_8h" startline="30">srsgnb::prach_buffer_context::sector</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1ae2762fae013f2e992afaa10d4ba87c08" compoundref="prach__buffer__context_8h" startline="32">srsgnb::prach_buffer_context::port</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">accumulate_samples</references>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" compoundref="prach__processor__worker_8cpp" startline="122" endline="140">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void prach_processor_worker::accumulate_samples</definition>
+        <argsstring>(span&lt; const cf_t &gt; samples)</argsstring>
+        <name>accumulate_samples</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Accumulates <computeroutput>samples</computeroutput> in the internal buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="82" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.cpp" bodystart="65" bodyend="98"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1aa0e4391b3c6a9e8e41228663f6f23629" compoundref="prach__processor__worker_8h" startline="71">window_length</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1abcd9fd3f13f2244379d8b03d3383efd8" compoundref="prach__processor__worker_8h" startline="73">nof_samples</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1abafe2c02bde992a45af3bc77edd1d384" compoundref="prach__processor__worker_8h" startline="61">temp_baseband</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" compoundref="prach__processor__worker_8h" startline="65">state</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a4374990dedc873c6a9417a355a2ac4cf">processing</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a4806bafe24b2a78f8cbb94c8047ea891" compoundref="prach__processor__worker_8h" startline="57">async_task_executor</references>
+        <references refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313">srsgnb::task_executor::execute</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a4a92e2b395a9470801278d81c92d326d" compoundref="ofdm__prach__demodulator_8h" startline="30">srsgnb::ofdm_prach_demodulator::configuration::format</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" compoundref="prach__processor__worker_8h" startline="67">prach_context</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1ae81f0c2a6b2db83b7e115c5b570a4b11" compoundref="prach__buffer__context_8h" startline="41">srsgnb::prach_buffer_context::format</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a6bd5da56d28344d19dff0e81adf008d5" compoundref="ofdm__prach__demodulator_8h" startline="32">srsgnb::ofdm_prach_demodulator::configuration::rb_offset</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1a266fd41b43acf2ee04b1d41a25e669d2" compoundref="prach__buffer__context_8h" startline="47">srsgnb::prach_buffer_context::rb_offset</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a1399c2c4775b476b2fb9a53d8489b281" compoundref="ofdm__prach__demodulator_8h" startline="34">srsgnb::ofdm_prach_demodulator::configuration::nof_prb_ul_grid</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1a60cf62120491de8ade10bfd86b135c9a" compoundref="prach__buffer__context_8h" startline="52">srsgnb::prach_buffer_context::nof_prb_ul_grid</references>
+        <references refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1ae23c117f2330e912ada0a58f6610c2b0" compoundref="ofdm__prach__demodulator_8h" startline="36">srsgnb::ofdm_prach_demodulator::configuration::pusch_scs</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1a8894c453781c0e4e42a8c15318c12c13" compoundref="prach__buffer__context_8h" startline="54">srsgnb::prach_buffer_context::pusch_scs</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a30bc8fa34eafc4530d243f95eda9c916" compoundref="prach__processor__worker_8h" startline="55">demodulator</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a36442a81baf4e2a385e07a1f66fce4f1" compoundref="prach__processor__worker_8h" startline="69">buffer</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1ac69afab99f8ab0630264c47187aca392" compoundref="prach__processor__worker_8h" startline="63">notifier</references>
+        <references refid="classsrsgnb_1_1prach__processor__notifier_1adeaa262516706d8e721a86ed2b595320">srsgnb::prach_processor_notifier::on_rx_prach_window</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb">idle</references>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</referencedby>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1aa32cba15eecc554fae756d9ad1d195c1" compoundref="prach__processor__worker_8cpp" startline="53" endline="63">run_state_collecting</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1a04103411e934f606e261bae1005c292e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::prach_processor_worker::prach_processor_worker</definition>
+        <argsstring>(std::unique_ptr&lt; ofdm_prach_demodulator &gt; demodulator_, task_executor &amp;async_task_executor_, unsigned dft_size_15kHz)</argsstring>
+        <name>prach_processor_worker</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__prach__demodulator" kindref="compound">ofdm_prach_demodulator</ref> &gt;</type>
+          <declname>demodulator_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_task_executor_</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>dft_size_15kHz</declname>
+        </param>
+        <briefdescription>
+<para>Creates a PRACH processor worker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="86" column="3" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="86" bodyend="97"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1adbb31a42d3ddb37db1e60a18ed074618" compoundref="prach__processor__worker_8h" startline="59">sampling_rate_Hz</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1a22ad066730eba9d4c6690c1f519bc3aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::prach_processor_worker::connect</definition>
+        <argsstring>(prach_processor_notifier &amp;notifier_)</argsstring>
+        <name>connect</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> &amp;</type>
+          <declname>notifier_</declname>
+        </param>
+        <briefdescription>
+<para>Connects the worker with the given PRACH processor notifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="100" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="100" bodyend="100"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1ac69afab99f8ab0630264c47187aca392" compoundref="prach__processor__worker_8h" startline="63">notifier</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void prach_processor_worker::handle_request</definition>
+        <argsstring>(prach_buffer &amp;buffer, const prach_buffer_context &amp;context)</argsstring>
+        <name>handle_request</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Handles a PRACH occasion request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">PRACH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">PRACH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>occasion context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="105" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.cpp" bodystart="100" bodyend="120"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" compoundref="prach__processor__worker_8h" startline="65">state</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb">idle</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" compoundref="prach__processor__worker_8h" startline="67">prach_context</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a36442a81baf4e2a385e07a1f66fce4f1" compoundref="prach__processor__worker_8h" startline="69">buffer</references>
+        <references refid="structsrsgnb_1_1prach__buffer__context_1ae81f0c2a6b2db83b7e115c5b570a4b11" compoundref="prach__buffer__context_8h" startline="41">srsgnb::prach_buffer_context::format</references>
+        <references refid="classsrsgnb_1_1preamble__format_1afb08b63336460076b20ceff3ebf5ec08" compoundref="prach__preamble__format_8h" startline="35" endline="35">srsgnb::preamble_format::is_long_preamble</references>
+        <references refid="namespacesrsgnb_1a7b1cf34a338e96f95b01b1569c2cb014" compoundref="prach__preamble__information_8cpp" startline="15" endline="45">srsgnb::get_prach_preamble_long_info</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1aa0e4391b3c6a9e8e41228663f6f23629" compoundref="prach__processor__worker_8h" startline="71">window_length</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a433d320f24c22e31e614054183b08c15" compoundref="prach__preamble__information_8h" startline="30">srsgnb::prach_preamble_information::cp_length</references>
+        <references refid="structsrsgnb_1_1prach__preamble__information_1a43681ad254b496aa14a36ce3419657db" compoundref="prach__preamble__information_8h" startline="28">srsgnb::prach_preamble_information::symbol_length</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1adbb31a42d3ddb37db1e60a18ed074618" compoundref="prach__processor__worker_8h" startline="59">sampling_rate_Hz</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1abcd9fd3f13f2244379d8b03d3383efd8" compoundref="prach__processor__worker_8h" startline="73">nof_samples</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a49256b9819abacbb8e6e031a03abe81b">wait</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void prach_processor_worker::process_symbol</definition>
+        <argsstring>(span&lt; const cf_t &gt; samples, const prach_processor_baseband::symbol_context &amp;context)</argsstring>
+        <name>process_symbol</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__processor__baseband_1_1symbol__context" kindref="compound">prach_processor_baseband::symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Processes an OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Baseband samples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM symbol context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="110" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.cpp" bodystart="122" bodyend="140"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" compoundref="prach__processor__worker_8h" startline="65">state</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb">idle</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a49256b9819abacbb8e6e031a03abe81b">wait</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">run_state_wait</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90adaea1b35e5f1ba09fcd43cbba71e2d11">collecting</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1aa32cba15eecc554fae756d9ad1d195c1" compoundref="prach__processor__worker_8cpp" startline="53" endline="63">run_state_collecting</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90a4374990dedc873c6a9417a355a2ac4cf">processing</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__worker_1a9150b03daa75ea4ce6017e0db81152d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::prach_processor_worker::is_available</definition>
+        <argsstring>() const</argsstring>
+        <name>is_available</name>
+        <briefdescription>
+<para>Determines whether the PRACH processor worker is available. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A PRACH processor is available when it is <computeroutput>idle</computeroutput>. See <ref refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90" kindref="member">states</ref> for more information regarding the PRACH worker internal states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="116" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="116" bodyend="116"/>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" compoundref="prach__processor__worker_8h" startline="65">state</references>
+        <references refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90aec2f993aec2c27fc750119ab17b16cdb">idle</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lower PHY PRACH processor worker subcomponent. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The worker contains a finite-state machine with four possible states: idle, wait, collecting and processing. See <ref refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90" kindref="member">states</ref> for more information.</para>
+<para>The implementation assumes that:<itemizedlist>
+<listitem><para><ref refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" kindref="member">handle_request()</ref> and <ref refid="classsrsgnb_1_1prach__processor__worker_1a9150b03daa75ea4ce6017e0db81152d9" kindref="member">is_available()</ref> are called from a first thread, and</para>
+</listitem><listitem><para><ref refid="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" kindref="member">process_symbol()</ref> is called from a second, different thread. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::prach_buffer</label>
+        <link refid="classsrsgnb_1_1prach__buffer"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::prach_buffer_context</label>
+        <link refid="structsrsgnb_1_1prach__buffer__context"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+slot</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+format</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::span&lt; cf_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::srsvec::aligned_vec&lt; cf_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::prach_processor_worker</label>
+        <link refid="classsrsgnb_1_1prach__processor__worker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-buffer</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-prach_context</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-async_task_executor</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-temp_baseband</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::prach_processor_notifier</label>
+        <link refid="classsrsgnb_1_1prach__processor__notifier"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::preamble_format</label>
+        <link refid="classsrsgnb_1_1preamble__format"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/processors/prach/prach_processor_worker.h" line="34" column="1" bodyfile="lib/phy/lower/processors/prach/prach_processor_worker.h" bodystart="33" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>accumulate_samples</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a4806bafe24b2a78f8cbb94c8047ea891" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>async_task_executor</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a36442a81baf4e2a385e07a1f66fce4f1" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a22ad066730eba9d4c6690c1f519bc3aa" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>connect</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a30bc8fa34eafc4530d243f95eda9c916" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>demodulator</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1ac99ed39908cafc0087e913bc81452ff2" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>handle_request</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a9150b03daa75ea4ce6017e0db81152d9" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>is_available</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1abcd9fd3f13f2244379d8b03d3383efd8" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>nof_samples</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1ac69afab99f8ab0630264c47187aca392" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>notifier</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a45817ad85e72967ebc5af2274707a730" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>prach_context</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a04103411e934f606e261bae1005c292e" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>prach_processor_worker</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a6ba7c177bf0ef917c0f77153933a452d" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>process_symbol</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1aa32cba15eecc554fae756d9ad1d195c1" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>run_state_collecting</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>run_state_wait</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1adbb31a42d3ddb37db1e60a18ed074618" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>sampling_rate_Hz</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a62d96605b8d31602d7601dd6ae25f27c" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>state</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1a34da8cda74bdb0e7e10cd6885df78f90" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>states</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1abafe2c02bde992a45af3bc77edd1d384" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>temp_baseband</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__worker_1aa0e4391b3c6a9e8e41228663f6f23629" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_worker</scope><name>window_length</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

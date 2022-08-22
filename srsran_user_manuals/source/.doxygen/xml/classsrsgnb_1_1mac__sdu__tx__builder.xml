@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1mac__sdu__tx__builder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::mac_sdu_tx_builder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter" prot="public" virt="non-virtual">srsgnb::srs_du::mac_sdu_tx_adapter</derivedcompoundref>
+    <includes refid="mac__sdu__handler_8h" local="no">mac_sdu_handler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__sdu__tx__builder_1a50b1af18a852f1dc35d01ecae592d431" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::mac_sdu_tx_builder::~mac_sdu_tx_builder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~mac_sdu_tx_builder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/mac/mac_sdu_handler.h" line="23" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__sdu__tx__builder_1a3a16214c27595746d1935250400c2d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__slice__chain" kindref="compound">byte_buffer_slice_chain</ref></type>
+        <definition>virtual byte_buffer_slice_chain srsgnb::mac_sdu_tx_builder::on_new_tx_sdu</definition>
+        <argsstring>(unsigned nof_bytes)=0</argsstring>
+        <name>on_new_tx_sdu</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a9a74c081094614d7ad9eb97f0e53566c">on_new_tx_sdu</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called by MAC to generate an MAC Tx SDU for the respective logical channel. <simplesect kind="return"><para>Generated MAC SDU. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/mac/mac_sdu_handler.h" line="27" column="35"/>
+        <referencedby refid="classsrsgnb_1_1mac__cell__processor_1a3e0589dce0194967984a55e70aec03cd" compoundref="mac__cell__processor_8cpp" startline="128" endline="170">srsgnb::mac_cell_processor::assemble_dl_data_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__sdu__tx__builder_1a5f3f82e1c2ca28604f0afd887f24fd74" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::mac_sdu_tx_builder::on_buffer_state_update</definition>
+        <argsstring>()=0</argsstring>
+        <name>on_buffer_state_update</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1aec783b0f91d69e72db2cc25b470e29d7">on_buffer_state_update</reimplementedby>
+        <briefdescription>
+<para>Called by MAC to obtain the DL BSR for the respective logical channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/mac/mac_sdu_handler.h" line="30" column="20"/>
+        <referencedby refid="classsrsgnb_1_1mac__cell__processor_1a0d7b5f93e0c4de52964a54a0aa40133c" compoundref="mac__cell__processor_8cpp" startline="172" endline="191">srsgnb::mac_cell_processor::update_logical_channel_dl_buffer_states</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This interface represents the entry point of a logical channel in the MAC layer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::mac_sdu_tx_builder</label>
+        <link refid="classsrsgnb_1_1mac__sdu__tx__builder"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_du::mac_sdu_tx_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::mac_sdu_tx_builder</label>
+        <link refid="classsrsgnb_1_1mac__sdu__tx__builder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/mac/mac_sdu_handler.h" line="21" column="1" bodyfile="include/srsgnb/mac/mac_sdu_handler.h" bodystart="20" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1mac__sdu__tx__builder_1a5f3f82e1c2ca28604f0afd887f24fd74" prot="public" virt="pure-virtual"><scope>srsgnb::mac_sdu_tx_builder</scope><name>on_buffer_state_update</name></member>
+      <member refid="classsrsgnb_1_1mac__sdu__tx__builder_1a3a16214c27595746d1935250400c2d14" prot="public" virt="pure-virtual"><scope>srsgnb::mac_sdu_tx_builder</scope><name>on_new_tx_sdu</name></member>
+      <member refid="classsrsgnb_1_1mac__sdu__tx__builder_1a50b1af18a852f1dc35d01ecae592d431" prot="public" virt="virtual"><scope>srsgnb::mac_sdu_tx_builder</scope><name>~mac_sdu_tx_builder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

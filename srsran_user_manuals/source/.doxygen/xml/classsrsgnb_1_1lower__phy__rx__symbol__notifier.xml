@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1lower__phy__rx__symbol__notifier" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::lower_phy_rx_symbol_notifier</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1phy__rx__symbol__adapter" prot="public" virt="non-virtual">srsgnb::phy_rx_symbol_adapter</derivedcompoundref>
+    <includes refid="lower__phy__rx__symbol__notifier_8h" local="no">lower_phy_rx_symbol_notifier.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a4c1dcbb3729900bcd28f32d496e0cfe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::lower_phy_rx_symbol_notifier::~lower_phy_rx_symbol_notifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>~lower_phy_rx_symbol_notifier</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" line="38" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1abbbe47df069ba3c347cd1cef757e3a5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::lower_phy_rx_symbol_notifier::on_rx_symbol</definition>
+        <argsstring>(const lower_phy_rx_symbol_context &amp;context, const resource_grid_reader &amp;grid)=0</argsstring>
+        <name>on_rx_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a2a2698dbad8dbd1737d66a238010a59e">on_rx_symbol</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__rx__symbol__context" kindref="compound">lower_phy_rx_symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the completion of an OFDM symbol for a given context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid that belongs to the context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" line="44" column="16"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">srsgnb::lower_phy_impl::process_ul_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a6b73933824dc0cbc432d84df22581ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::lower_phy_rx_symbol_notifier::on_rx_prach_window</definition>
+        <argsstring>(const prach_buffer_context &amp;context, const prach_buffer &amp;buffer)=0</argsstring>
+        <name>on_rx_prach_window</name>
+        <reimplementedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a5e296a14707870d03d901f71ce6bc1f6">on_rx_prach_window</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the completion of PRACH window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The lower PHY uses this method to notify that a PRACH window identified by <computeroutput>context</computeroutput> has been written in <computeroutput>buffer</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read-only PRACH buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" line="53" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a7f7989a15b26ee32071b0e9b02ea0886" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::lower_phy_rx_symbol_notifier::on_rx_srs_symbol</definition>
+        <argsstring>(const lower_phy_rx_symbol_context &amp;context)=0</argsstring>
+        <name>on_rx_srs_symbol</name>
+        <reimplementedby refid="classsrsgnb_1_1phy__rx__symbol__adapter_1a78a53436037d334dae3926eda89730d7">on_rx_srs_symbol</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__rx__symbol__context" kindref="compound">lower_phy_rx_symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the completion of SRS symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" line="58" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lower physical layer notifier for events related to received symbols. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The events generated by this interface are triggered by the requests handled by the <ref refid="classsrsgnb_1_1lower__phy__request__handler" kindref="compound">lower_phy_request_handler</ref> interface. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::phy_rx_symbol_adapter</label>
+        <link refid="classsrsgnb_1_1phy__rx__symbol__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::lower_phy_rx_symbol_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::lower_phy_rx_symbol_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" line="35" column="1" bodyfile="include/srsgnb/phy/lower/lower_phy_rx_symbol_notifier.h" bodystart="34" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a6b73933824dc0cbc432d84df22581ab1" prot="public" virt="pure-virtual"><scope>srsgnb::lower_phy_rx_symbol_notifier</scope><name>on_rx_prach_window</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a7f7989a15b26ee32071b0e9b02ea0886" prot="public" virt="pure-virtual"><scope>srsgnb::lower_phy_rx_symbol_notifier</scope><name>on_rx_srs_symbol</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1abbbe47df069ba3c347cd1cef757e3a5c" prot="public" virt="pure-virtual"><scope>srsgnb::lower_phy_rx_symbol_notifier</scope><name>on_rx_symbol</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1a4c1dcbb3729900bcd28f32d496e0cfe8" prot="public" virt="virtual"><scope>srsgnb::lower_phy_rx_symbol_notifier</scope><name>~lower_phy_rx_symbol_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

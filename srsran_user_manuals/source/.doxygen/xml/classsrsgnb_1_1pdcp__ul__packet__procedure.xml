@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcp__ul__packet__procedure" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pdcp_ul_packet_procedure</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">pdcp_packet_procedures</basecompoundref>
+    <includes refid="pdcp__packet__procedures__impl_8h" local="no">pdcp_packet_procedures_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6588664fef2899755e9f62e9eea83a60" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdcp__entity" kindref="compound">pdcp_entity</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pdcp_entity&gt; srsgnb::pdcp_ul_packet_procedure::entity</definition>
+        <argsstring></argsstring>
+        <name>entity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>In reality, as the interfaces grow, this would become a reference or ptr and ownership would be managed from a different class. For simplicity, we keep it this way for now. This is important as the dependency with f1u_packet_procedures interface would eventually disappear, although it is an interface and not a concrete class the less dependencies the better. Both dependencies are interfaces and they are at the same or in a higher abstraction layer, conforming to the clean architecture paradigm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_packet_procedures_impl.h" line="35" column="19" bodyfile="lib/pdcp/pdcp_packet_procedures_impl.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6551a0b19c973982c6db1d5dfcd80776" prot="private" static="no" mutable="no">
+        <type>pdcp_sdu_rx_notifier &amp;</type>
+        <definition>pdcp_sdu_rx_notifier&amp; srsgnb::pdcp_ul_packet_procedure::listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_packet_procedures_impl.h" line="36" column="31" bodyfile="lib/pdcp/pdcp_packet_procedures_impl.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcp__ul__packet__procedure_1a03d79e3bbf5f53bf19a0fb61217c66c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pdcp_ul_packet_procedure::pdcp_ul_packet_procedure</definition>
+        <argsstring>(std::unique_ptr&lt; pdcp_entity &gt; entity, pdcp_sdu_rx_notifier &amp;listener)</argsstring>
+        <name>pdcp_ul_packet_procedure</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdcp__entity" kindref="compound">pdcp_entity</ref> &gt;</type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type>pdcp_sdu_rx_notifier &amp;</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_packet_procedures_impl.h" line="39" column="3" bodyfile="lib/pdcp/pdcp_packet_procedures_impl.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6169ee3464eadfd732252883fd5f572d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pdcp_ul_packet_procedure::handle_ul_data_packet</definition>
+        <argsstring>(byte_buffer &amp;data) override</argsstring>
+        <name>handle_ul_data_packet</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_packet_procedures_impl.h" line="43" column="8" bodyfile="lib/pdcp/pdcp_packet_procedures_impl.h" bodystart="43" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The idea is to have an object to handle each specific procedure specified in the TS. This class would implement the Receive operation procedure of the data transfer category (TS 38.323 5.2.2). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcp_ul_packet_procedure</label>
+        <link refid="classsrsgnb_1_1pdcp__ul__packet__procedure"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pdcp_packet_procedures</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcp_ul_packet_procedure</label>
+        <link refid="classsrsgnb_1_1pdcp__ul__packet__procedure"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pdcp_packet_procedures</label>
+      </node>
+    </collaborationgraph>
+    <location file="lib/pdcp/pdcp_packet_procedures_impl.h" line="27" column="1" bodyfile="lib/pdcp/pdcp_packet_procedures_impl.h" bodystart="26" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6588664fef2899755e9f62e9eea83a60" prot="private" virt="non-virtual"><scope>srsgnb::pdcp_ul_packet_procedure</scope><name>entity</name></member>
+      <member refid="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6169ee3464eadfd732252883fd5f572d" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_ul_packet_procedure</scope><name>handle_ul_data_packet</name></member>
+      <member refid="classsrsgnb_1_1pdcp__ul__packet__procedure_1a6551a0b19c973982c6db1d5dfcd80776" prot="private" virt="non-virtual"><scope>srsgnb::pdcp_ul_packet_procedure</scope><name>listener</name></member>
+      <member refid="classsrsgnb_1_1pdcp__ul__packet__procedure_1a03d79e3bbf5f53bf19a0fb61217c66c2" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_ul_packet_procedure</scope><name>pdcp_ul_packet_procedure</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

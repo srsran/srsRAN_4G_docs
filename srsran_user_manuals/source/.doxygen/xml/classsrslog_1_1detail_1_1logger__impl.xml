@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1logger__impl" kind="class" language="C++" prot="public">
+    <compoundname>srslog::detail::logger_impl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">T</basecompoundref>
+    <includes refid="logger_8h" local="no">logger.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Enum</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrslog_1_1detail_1_1logger__impl_1ad9e1249fcb8b36ddd9f23c20630df91a" prot="private" static="no">
+        <type>typename std::underlying_type&lt; Enum &gt;::type</type>
+        <definition>using srslog::detail::logger_impl&lt; T, Enum &gt;::enum_base_type =  typename std::underlying_type&lt;Enum&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>enum_base_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="28" column="3" bodyfile="include/srsgnb/srslog/logger.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1logger__impl_1aca2ed5e8f0992a83f0fb2bccddd1cede" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srslog::detail::logger_impl&lt; T, Enum &gt;::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <initializer>= static_cast&lt;enum_base_type&gt;(Enum::LAST) - 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="29" column="29" bodyfile="include/srsgnb/srslog/logger.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1logger__impl_1ad6bcc7bdc785ca5e2f26dddede5ba9e0" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string srslog::detail::logger_impl&lt; T, Enum &gt;::logger_id</definition>
+        <argsstring></argsstring>
+        <name>logger_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="91" column="40" bodyfile="include/srsgnb/srslog/logger.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1logger__impl_1a6ae5046f42f64a8abc3423f5487333f4" prot="private" static="no" mutable="no">
+        <type>const std::array&lt; <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> *, size &gt;</type>
+        <definition>const std::array&lt;log_channel*, size&gt; srslog::detail::logger_impl&lt; T, Enum &gt;::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="92" column="20" bodyfile="include/srsgnb/srslog/logger.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1logger__impl_1a3332d2976c676af3e7a037dc3143d900" prot="private" static="no" mutable="yes">
+        <type><ref refid="classsrslog_1_1detail_1_1mutex" kindref="compound">detail::mutex</ref></type>
+        <definition>detail::mutex srslog::detail::logger_impl&lt; T, Enum &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="93" column="40" bodyfile="include/srsgnb/srslog/logger.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a2343e3d3abfabce9213f019790a968c2" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>srslog::detail::logger_impl&lt; T, Enum &gt;::logger_impl</definition>
+        <argsstring>(std::string id, Args &amp;&amp;... args)</argsstring>
+        <name>logger_impl</name>
+        <param>
+          <type>std::string</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="33" column="12" bodyfile="include/srsgnb/srslog/logger.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a50370f4234349341653ac70b95bcedcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::logger_impl&lt; T, Enum &gt;::logger_impl</definition>
+        <argsstring>(const logger_impl &amp;other)=delete</argsstring>
+        <name>logger_impl</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">logger_impl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="39" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a3925fd050ffcdeaa9edc06650c8080d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">logger_impl</ref> &amp;</type>
+        <definition>logger_impl&amp; srslog::detail::logger_impl&lt; T, Enum &gt;::operator=</definition>
+        <argsstring>(const logger_impl &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">logger_impl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="40" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a1d046355726ccd1a2d9a84605204cf4d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; srslog::detail::logger_impl&lt; T, Enum &gt;::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>Returns the id string of the logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="43" column="21" bodyfile="include/srsgnb/srslog/logger.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a70bfaf5c4255d339daae19d8d7194b23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::logger_impl&lt; T, Enum &gt;::set_level</definition>
+        <argsstring>(Enum lvl)</argsstring>
+        <name>set_level</name>
+        <param>
+          <type>Enum</type>
+          <declname>lvl</declname>
+        </param>
+        <briefdescription>
+<para>Change the logging level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="46" column="8" bodyfile="include/srsgnb/srslog/logger.h" bodystart="46" bodyend="62"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">srsgnb::lower_phy_impl::lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1a4b0da29e8e48116c01ed859f50169b56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::logger_impl&lt; T, Enum &gt;::set_context</definition>
+        <argsstring>(uint32_t x)</argsstring>
+        <name>set_context</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Set the specified context value to all the channels of the logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="65" column="8" bodyfile="include/srsgnb/srslog/logger.h" bodystart="65" bodyend="71"/>
+        <referencedby refid="classsrsgnb_1_1phy__error__adapter_1acb2a6c32707cf5ee9507f15286a4ff72" compoundref="phy__error__adapter_8h" startline="31" endline="38">srsgnb::phy_error_adapter::on_late_resource_grid</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__error__adapter_1a64d44458b112eae5c0f874b2ea994755" compoundref="phy__error__adapter_8h" startline="41" endline="48">srsgnb::phy_error_adapter::on_prach_request_late</referencedby>
+        <referencedby refid="classsrsgnb_1_1phy__error__adapter_1a75f7b4411e4103150d6c1ca237cceb69" compoundref="phy__error__adapter_8h" startline="51" endline="58">srsgnb::phy_error_adapter::on_prach_request_overflow</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">srsgnb::lower_phy_impl::process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1logger__impl_1abd66c985d09bb6d321627fe302298101" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::logger_impl&lt; T, Enum &gt;::set_hex_dump_max_size</definition>
+        <argsstring>(int x)</argsstring>
+        <name>set_hex_dump_max_size</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the maximum number of bytes to can be printed in a hex dump to all the channels of the logger. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="75" column="8" bodyfile="include/srsgnb/srslog/logger.h" bodystart="75" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsrslog_1_1detail_1_1logger__impl_1a98a28e40b4d39cf849e7c2d61b91f072" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator&lt;=</definition>
+        <argsstring>(Enum lhs, Enum rhs)</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>Enum</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Comparison operator for enum types, used by the set_level method. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="85" column="10" bodyfile="include/srsgnb/srslog/logger.h" bodystart="85" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">logger_impl</ref> template class contains the common functionality to loggers. Its main responsibility is to control the logging level by individually enabling or disabling the logging channels that form the logger. NOTE: Thread safe class. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/logger.h" line="25" column="1" bodyfile="include/srsgnb/srslog/logger.h" bodystart="24" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a6ae5046f42f64a8abc3423f5487333f4" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>channels</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1ad9e1249fcb8b36ddd9f23c20630df91a" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>enum_base_type</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a1d046355726ccd1a2d9a84605204cf4d" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>id</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1ad6bcc7bdc785ca5e2f26dddede5ba9e0" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>logger_id</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a2343e3d3abfabce9213f019790a968c2" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>logger_impl</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a50370f4234349341653ac70b95bcedcd" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>logger_impl</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a3332d2976c676af3e7a037dc3143d900" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>m</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a98a28e40b4d39cf849e7c2d61b91f072" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>operator&lt;=</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a3925fd050ffcdeaa9edc06650c8080d7" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a4b0da29e8e48116c01ed859f50169b56" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>set_context</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1abd66c985d09bb6d321627fe302298101" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>set_hex_dump_max_size</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1a70bfaf5c4255d339daae19d8d7194b23" prot="public" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>set_level</name></member>
+      <member refid="classsrslog_1_1detail_1_1logger__impl_1aca2ed5e8f0992a83f0fb2bccddd1cede" prot="private" virt="non-virtual"><scope>srslog::detail::logger_impl</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

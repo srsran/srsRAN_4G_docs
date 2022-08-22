@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1mac__dl__ue__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::mac_dl_ue_manager</compoundname>
+    <innerclass refid="structsrsgnb_1_1mac__dl__ue__manager_1_1ue__item" prot="private">srsgnb::mac_dl_ue_manager::ue_item</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__dl__ue__manager_1ac92f5ea96a423d52650233007853e813" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref> &amp;</type>
+        <definition>du_rnti_table&amp; srsgnb::mac_dl_ue_manager::rnti_table</definition>
+        <argsstring></argsstring>
+        <name>rnti_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="155" column="17" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__dl__ue__manager_1a5bbe7833017eab32dc57e69ee8da4c06" prot="private" static="no" mutable="yes">
+        <type>std::array&lt; std::mutex, MAX_NOF_DU_UES &gt;</type>
+        <definition>std::array&lt;std::mutex, MAX_NOF_DU_UES&gt; srsgnb::mac_dl_ue_manager::ue_mutex</definition>
+        <argsstring></argsstring>
+        <name>ue_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="157" column="22" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__dl__ue__manager_1a24fed88fd8f67107d2e4ef7f1905d047" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1ad21702ac78e2e7fe791781335bd32840" kindref="member">du_ue_list</ref>&lt; <ref refid="structsrsgnb_1_1mac__dl__ue__manager_1_1ue__item" kindref="compound">ue_item</ref> &gt;</type>
+        <definition>du_ue_list&lt;ue_item&gt; srsgnb::mac_dl_ue_manager::ue_db</definition>
+        <argsstring></argsstring>
+        <name>ue_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="159" column="14" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a1d27c9da9981782924d0c67af5e21d04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::mac_dl_ue_manager::mac_dl_ue_manager</definition>
+        <argsstring>(du_rnti_table &amp;rnti_table_)</argsstring>
+        <name>mac_dl_ue_manager</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref> &amp;</type>
+          <declname>rnti_table_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="24" column="3" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1aefc6eb08d6b6f877574c243583022dc5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::contains_rnti</definition>
+        <argsstring>(rnti_t rnti) const</argsstring>
+        <name>contains_rnti</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if UE with provided C-RNTI exists. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rnti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>C-RNTI of the UE. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if UE exists. False, otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="29" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="29" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a46f36931e5ce62ab91a51b376c1a13cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::contains_lcid</definition>
+        <argsstring>(rnti_t rnti, lcid_t lcid) const</argsstring>
+        <name>contains_lcid</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a27826553cbb7866e22f1ed49d585339e" kindref="member">lcid_t</ref></type>
+          <declname>lcid</declname>
+        </param>
+        <briefdescription>
+<para>Checks if bearer with provided C-RNTI and LCID exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="40" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="40" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1ad007a7f6f25d2ae797c029ec7a5681e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+        <definition>du_ue_index_t srsgnb::mac_dl_ue_manager::get_ue_index</definition>
+        <argsstring>(rnti_t rnti) const</argsstring>
+        <name>get_ue_index</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="50" column="17" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="50" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1ad95ea12c30d0131842180cace386c0c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1mac__sdu__tx__builder" kindref="compound">mac_sdu_tx_builder</ref> *</type>
+        <definition>mac_sdu_tx_builder* srsgnb::mac_dl_ue_manager::get_bearer</definition>
+        <argsstring>(rnti_t rnti, lcid_t lcid)</argsstring>
+        <name>get_bearer</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a27826553cbb7866e22f1ed49d585339e" kindref="member">lcid_t</ref></type>
+          <declname>lcid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="59" column="22" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="59" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a1ecf6978c4834e38080c0f48c4ab9a31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::add_ue</definition>
+        <argsstring>(const mac_ue_create_request_message &amp;request)</argsstring>
+        <name>add_ue</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1mac__ue__create__request__message" kindref="compound">mac_ue_create_request_message</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="73" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="73" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a155c2e9b23f75c9828080b3aec3bac4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::remove_ue</definition>
+        <argsstring>(du_ue_index_t ue_index)</argsstring>
+        <name>remove_ue</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="80" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="80" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a26335ad84c51553e1b47195065bd02ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::addmod_bearers</definition>
+        <argsstring>(du_ue_index_t ue_index, span&lt; const mac_logical_channel_addmod &gt; dl_logical_channels)</argsstring>
+        <name>addmod_bearers</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1mac__logical__channel__addmod" kindref="compound">mac_logical_channel_addmod</ref> &gt;</type>
+          <declname>dl_logical_channels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="90" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="90" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a66fc7d85093b086b042faff9321717e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::remove_bearers</definition>
+        <argsstring>(du_ue_index_t ue_index, span&lt; const lcid_t &gt; lcids)</argsstring>
+        <name>remove_bearers</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1a27826553cbb7866e22f1ed49d585339e" kindref="member">lcid_t</ref> &gt;</type>
+          <declname>lcids</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="96" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="96" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a6ac53d8f7df5af51375a5cf141f256f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref></type>
+        <definition>byte_buffer srsgnb::mac_dl_ue_manager::pop_msg3</definition>
+        <argsstring>(rnti_t rnti)</argsstring>
+        <name>pop_msg3</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+<para>Returns received Msg3 bytes. In case of ConRes CE, the packed Msg3 is used for disambiguation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="110" column="15" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="110" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a37a6574fc3577399247d1adbe5141b6e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::add_ue_nolock</definition>
+        <argsstring>(du_ue_index_t ue_index, rnti_t crnti, const byte_buffer *ul_ccch_msg)</argsstring>
+        <name>add_ue_nolock</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>crnti</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> *</type>
+          <declname>ul_ccch_msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="127" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="127" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1mac__dl__ue__manager_1a85faae67ec3da7f85bd9135eb55f920b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::mac_dl_ue_manager::addmod_bearers_nolock</definition>
+        <argsstring>(du_ue_index_t ue_index, span&lt; const mac_logical_channel_addmod &gt; dl_logical_channels)</argsstring>
+        <name>addmod_bearers_nolock</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1mac__logical__channel__addmod" kindref="compound">mac_logical_channel_addmod</ref> &gt;</type>
+          <declname>dl_logical_channels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="143" column="8" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="143" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_dl_ue_manager</label>
+        <link refid="classsrsgnb_1_1mac__dl__ue__manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::slot_array&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::du_rnti_table</label>
+        <link refid="classsrsgnb_1_1du__rnti__table"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::mac_dl_ue_manager::ue_item &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/mac_dl/mac_dl_ue_manager.h" line="22" column="1" bodyfile="lib/mac/mac_dl/mac_dl_ue_manager.h" bodystart="21" bodyend="160"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a1ecf6978c4834e38080c0f48c4ab9a31" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>add_ue</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a37a6574fc3577399247d1adbe5141b6e" prot="private" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>add_ue_nolock</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a26335ad84c51553e1b47195065bd02ba" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>addmod_bearers</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a85faae67ec3da7f85bd9135eb55f920b" prot="private" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>addmod_bearers_nolock</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a46f36931e5ce62ab91a51b376c1a13cc" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>contains_lcid</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1aefc6eb08d6b6f877574c243583022dc5" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>contains_rnti</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1ad95ea12c30d0131842180cace386c0c8" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>get_bearer</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1ad007a7f6f25d2ae797c029ec7a5681e7" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>get_ue_index</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a1d27c9da9981782924d0c67af5e21d04" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>mac_dl_ue_manager</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a6ac53d8f7df5af51375a5cf141f256f7" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>pop_msg3</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a66fc7d85093b086b042faff9321717e0" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>remove_bearers</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a155c2e9b23f75c9828080b3aec3bac4e" prot="public" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>remove_ue</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1ac92f5ea96a423d52650233007853e813" prot="private" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>rnti_table</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a24fed88fd8f67107d2e4ef7f1905d047" prot="private" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>ue_db</name></member>
+      <member refid="classsrsgnb_1_1mac__dl__ue__manager_1a5bbe7833017eab32dc57e69ee8da4c06" prot="private" virt="non-virtual"><scope>srsgnb::mac_dl_ue_manager</scope><name>ue_mutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

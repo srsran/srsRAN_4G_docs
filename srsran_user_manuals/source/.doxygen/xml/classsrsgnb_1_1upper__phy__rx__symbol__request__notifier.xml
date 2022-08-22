@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::upper_phy_rx_symbol_request_notifier</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1phy__rx__symbol__request__adapter" prot="public" virt="non-virtual">srsgnb::phy_rx_symbol_request_adapter</derivedcompoundref>
+    <includes refid="upper__phy__rx__symbol__request__notifier_8h" local="no">upper_phy_rx_symbol_request_notifier.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1a707f57c6f17a3ec88aa32fba09eb4ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::upper_phy_rx_symbol_request_notifier::~upper_phy_rx_symbol_request_notifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>~upper_phy_rx_symbol_request_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h" line="27" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1a53a2c8dd43730fdf501d174e6a60bd6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::upper_phy_rx_symbol_request_notifier::on_prach_capture_request</definition>
+        <argsstring>(const prach_buffer_context &amp;context, prach_buffer &amp;buffer)=0</argsstring>
+        <name>on_prach_capture_request</name>
+        <reimplementedby refid="classsrsgnb_1_1phy__rx__symbol__request__adapter_1aee033b08d3114c5f4dd1874316497814">on_prach_capture_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the event of a PRACH capture request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH window context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to be used by the request handler to write the PRACH window. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h" line="33" column="16"/>
+        <referencedby refid="classsrsgnb_1_1uplink__request__processor__impl_1af1cd84a583bad0fb93386d2429cd8d59" compoundref="uplink__request__processor__impl_8cpp" startline="24" endline="31">srsgnb::uplink_request_processor_impl::process_prach_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1ae2a1e62a9aca5a9c4d3894fd35f38da2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::upper_phy_rx_symbol_request_notifier::on_uplink_slot_request</definition>
+        <argsstring>(const upper_phy_rx_symbol_context &amp;context, resource_grid &amp;grid)=0</argsstring>
+        <name>on_uplink_slot_request</name>
+        <reimplementedby refid="classsrsgnb_1_1phy__rx__symbol__request__adapter_1a53404eeb89c2141da8f094b8a4291410">on_uplink_slot_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1upper__phy__rx__symbol__context" kindref="compound">upper_phy_rx_symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the event of an uplink slot request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context of the capture request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Grid in which to store the captured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h" line="39" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface of the upper-PHY notifier in charge of requesting symbol captures. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::phy_rx_symbol_request_adapter</label>
+        <link refid="classsrsgnb_1_1phy__rx__symbol__request__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::upper_phy_rx_symbol_request_notifier</label>
+        <link refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::upper_phy_rx_symbol_request_notifier</label>
+        <link refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h" line="25" column="1" bodyfile="include/srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h" bodystart="24" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1a53a2c8dd43730fdf501d174e6a60bd6a" prot="public" virt="pure-virtual"><scope>srsgnb::upper_phy_rx_symbol_request_notifier</scope><name>on_prach_capture_request</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1ae2a1e62a9aca5a9c4d3894fd35f38da2" prot="public" virt="pure-virtual"><scope>srsgnb::upper_phy_rx_symbol_request_notifier</scope><name>on_uplink_slot_request</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1a707f57c6f17a3ec88aa32fba09eb4ae6" prot="public" virt="virtual"><scope>srsgnb::upper_phy_rx_symbol_request_notifier</scope><name>~upper_phy_rx_symbol_request_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

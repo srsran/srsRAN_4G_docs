@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dmrs__pdsch__processor__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::dmrs_pdsch_processor_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1dmrs__pdsch__processor" prot="public" virt="non-virtual">srsgnb::dmrs_pdsch_processor</basecompoundref>
+    <includes refid="dmrs__pdsch__processor__impl_8h" local="no">dmrs_pdsch_processor_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1dmrs__pdsch__processor__impl_1_1params__t" prot="private">srsgnb::dmrs_pdsch_processor_impl::params_t</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a9f0d09414dc44a79a1e2737ca5f4416e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::dmrs_pdsch_processor_impl::MAX_DRMS_PER_RB</definition>
+        <argsstring></argsstring>
+        <name>MAX_DRMS_PER_RB</name>
+        <initializer>=
+      std::max(<ref refid="classsrsgnb_1_1dmrs__type" kindref="compound">dmrs_type</ref>(dmrs_type::TYPE1).nof_dmrs_per_rb(), <ref refid="classsrsgnb_1_1dmrs__type" kindref="compound">dmrs_type</ref>(dmrs_type::TYPE2).nof_dmrs_per_rb())</initializer>
+        <briefdescription>
+<para>Defines the maximum number of DMRS per RB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="26" column="29" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1ac498164d9c1ee3e5813520d58d4551f8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::dmrs_pdsch_processor_impl::MAX_DMRS_PER_SYMBOL</definition>
+        <argsstring></argsstring>
+        <name>MAX_DMRS_PER_SYMBOL</name>
+        <initializer>= <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * <ref refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a9f0d09414dc44a79a1e2737ca5f4416e" kindref="member">MAX_DRMS_PER_RB</ref></initializer>
+        <briefdescription>
+<para>Define the maximum number of DMRS per symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="30" column="29" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a9f36c4d5226ded146cd0a73c5ca2e42c" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; <ref refid="structsrsgnb_1_1dmrs__pdsch__processor__impl_1_1params__t" kindref="compound">params_t</ref>, 8 &gt;</type>
+        <definition>const std::array&lt; dmrs_pdsch_processor_impl::params_t, dmrs_type::DMRS_MAX_PORTS_TYPE1 &gt; dmrs_pdsch_processor_impl::params_type1</definition>
+        <argsstring></argsstring>
+        <name>params_type1</name>
+        <initializer>= {{
+         {0, {+1.0f, +1.0f}, {+1.0f, +1.0f}},
+         {0, {+1.0f, -1.0f}, {+1.0f, +1.0f}},
+         {1, {+1.0f, +1.0f}, {+1.0f, +1.0f}},
+         {1, {+1.0f, -1.0f}, {+1.0f, +1.0f}},
+         {0, {+1.0f, +1.0f}, {+1.0f, -1.0f}},
+         {0, {+1.0f, -1.0f}, {+1.0f, -1.0f}},
+         {1, {+1.0f, +1.0f}, {+1.0f, -1.0f}},
+         {1, {+1.0f, -1.0f}, {+1.0f, -1.0f}},
+    }}</initializer>
+        <briefdescription>
+<para>Provides TS 38.211 Table 7.4.1.1.2-1: Parameters for PDSCH DM-RS configuration type 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="40" column="27" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a89c042e0df88b0dcdb595c5f72362140" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; <ref refid="structsrsgnb_1_1dmrs__pdsch__processor__impl_1_1params__t" kindref="compound">params_t</ref>, 12 &gt;</type>
+        <definition>const std::array&lt; dmrs_pdsch_processor_impl::params_t, dmrs_type::DMRS_MAX_PORTS_TYPE2 &gt; dmrs_pdsch_processor_impl::params_type2</definition>
+        <argsstring></argsstring>
+        <name>params_type2</name>
+        <initializer>= {{
+         {0, {+1.0f, +1.0f}, {+1.0f, +1.0f}},
+         {0, {+1.0f, -1.0f}, {+1.0f, +1.0f}},
+         {2, {+1.0f, +1.0f}, {+1.0f, +1.0f}},
+         {2, {+1.0f, -1.0f}, {+1.0f, +1.0f}},
+         {4, {+1.0f, +1.0f}, {+1.0f, +1.0f}},
+         {4, {+1.0f, -1.0f}, {+1.0f, +1.0f}},
+         {0, {+1.0f, +1.0f}, {+1.0f, -1.0f}},
+         {0, {+1.0f, -1.0f}, {+1.0f, -1.0f}},
+         {2, {+1.0f, +1.0f}, {+1.0f, -1.0f}},
+         {2, {+1.0f, -1.0f}, {+1.0f, -1.0f}},
+         {4, {+1.0f, +1.0f}, {+1.0f, -1.0f}},
+         {4, {+1.0f, -1.0f}, {+1.0f, -1.0f}},
+    }}</initializer>
+        <briefdescription>
+<para>Provides TS 38.211 Table 7.4.1.1.2-2: Parameters for PDSCH DM-RS configuration type 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="43" column="27" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a44fc42e2ca53d4afc26aec023848b15f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::dmrs_pdsch_processor_impl::prg</definition>
+        <argsstring></argsstring>
+        <name>prg</name>
+        <briefdescription>
+<para>Pseudo-random sequence generator instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="46" column="19" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a784462239f045fa9ae23b3bb22531c47" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref>, <ref refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1ac498164d9c1ee3e5813520d58d4551f8" kindref="member">MAX_DMRS_PER_SYMBOL</ref> &gt;, <ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref> &gt;</type>
+        <definition>static_vector&lt;static_vector&lt;cf_t, MAX_DMRS_PER_SYMBOL&gt;, MAX_PORTS&gt; srsgnb::dmrs_pdsch_processor_impl::temp_re</definition>
+        <argsstring></argsstring>
+        <name>temp_re</name>
+        <briefdescription>
+<para>Temporal resource element storage, just in case weights or precoding is applied for each port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="78" column="17" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a1cc105e7a4d0123d7dc91a3b2d8997d7" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::dmrs_pdsch_processor_impl::sequence_generation</definition>
+        <argsstring>(span&lt; cf_t &gt; sequence, unsigned symbol, const config_t &amp;config) const</argsstring>
+        <name>sequence_generation</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>sequence</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Implements TS 38.211 section 7.4.1.1.1 Sequence generation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method generates the sequence described in TS 38.211 section 7.4.1.1.1, considering the only values required in TS 38.211 section 7.4.1.1.2.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the sequence destination. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denotes the symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required parameters to calculate the sequences. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="56" column="8" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.cpp" bodystart="47" bodyend="69"/>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2d5bc8f912609768bb75b667d3df3136" compoundref="dmrs__pdsch__processor_8h" startline="38">srsgnb::dmrs_pdsch_processor::config_t::amplitude</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1aff8adde88729734c4decf54aaf07cf37" compoundref="dmrs__pdsch__processor_8h" startline="28">srsgnb::dmrs_pdsch_processor::config_t::slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2a5a78ceb9195746e575e326c982081e" compoundref="dmrs__pdsch__processor_8h" startline="34">srsgnb::dmrs_pdsch_processor::config_t::scrambling_id</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1aed0ff9547bba6a2efdb71a898770bd83" compoundref="dmrs__pdsch__processor_8h" startline="36">srsgnb::dmrs_pdsch_processor::config_t::n_scid</references>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="classsrsgnb_1_1cyclic__prefix_1a05cdec23029c21ec1e47b1d90dbd0b24ae49c4ab8646a82adaaf309ba3c2eb467" compoundref="cyclic__prefix_8h" startline="29">srsgnb::cyclic_prefix::NORMAL</references>
+        <references refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" compoundref="math__utils_8h" startline="44" endline="47">srsgnb::pow2</references>
+        <references refid="namespacesrsgnb_1ac256a6ea6adc1dfe53431799cab8eb68" compoundref="dmrs__helper_8h" startline="32" endline="82">srsgnb::dmrs_sequence_generate</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a016c2f2cb86ac9cec76748f15f7a164a" compoundref="dmrs__pdsch__processor_8h" startline="30">srsgnb::dmrs_pdsch_processor::config_t::reference_point_k_rb</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a8caf17c2bb3b73d1b254b1f62a03682c" compoundref="dmrs__pdsch__processor_8h" startline="32">srsgnb::dmrs_pdsch_processor::config_t::type</references>
+        <references refid="classsrsgnb_1_1dmrs__type_1a05ccbf665713cfc6444d3ad74a36f642" compoundref="dmrs__mapping_8h" startline="44" endline="44">srsgnb::dmrs_type::nof_dmrs_per_rb</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a433a601174a9345c5af8d39fe6b63415" compoundref="dmrs__pdsch__processor_8h" startline="42">srsgnb::dmrs_pdsch_processor::config_t::rb_mask</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1aa6aed4e5ed838d9ee66e3e814aa32380" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::dmrs_pdsch_processor_impl::mapping</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const cf_t &gt; sequence, unsigned rg_subc_mask_ref, span&lt; const bool &gt; rg_subc_mask, unsigned symbol, const config_t &amp;config)</argsstring>
+        <name>mapping</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>sequence</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>rg_subc_mask_ref</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const bool &gt;</type>
+          <declname>rg_subc_mask</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Implements TS 38.211 section 7.4.1.1.2 Mapping to physical resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method implements the signal mapping as described in TS 38.211 section 7.4.1.1.2. In addition, it applies precoding if configured.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the grid destination to map the signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the generated sequence for the given symbol. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rg_subc_mask_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier index in the resource grid of the mask first element. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rg_subc_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the subcarriers where <computeroutput>sequence</computeroutput> is mapped onto. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denotes the symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required fields to map the signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The method expects <computeroutput>base_mask</computeroutput> to have <computeroutput>NRE</computeroutput> entries padding as <computeroutput>false</computeroutput> at the beginning. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="70" column="8" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.cpp" bodystart="71" bodyend="132"/>
+        <references refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" compoundref="constants_8h" startline="31">srsgnb::MAX_PORTS</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2cc0e2321a915b9c9d3d72c71c80b228" compoundref="dmrs__pdsch__processor_8h" startline="44">srsgnb::dmrs_pdsch_processor::config_t::ports</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1ae86a5550fc2d74a37157e0faf6b12cc8" compoundref="dmrs__pdsch__processor_8h" startline="40">srsgnb::dmrs_pdsch_processor::config_t::symbols_mask</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a8caf17c2bb3b73d1b254b1f62a03682c" compoundref="dmrs__pdsch__processor_8h" startline="32">srsgnb::dmrs_pdsch_processor::config_t::type</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32">srsgnb::resource_grid_writer::put</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a4b0124181c3cc2941234af5593767c96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::dmrs_pdsch_processor_impl::dmrs_pdsch_processor_impl</definition>
+        <argsstring>(std::unique_ptr&lt; pseudo_random_generator &gt; pseudo_random_generator)</argsstring>
+        <name>dmrs_pdsch_processor_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>pseudo_random_generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="81" column="3" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="81" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pdsch__processor__impl_1abd59f0a94a5a45c82d5e767bc5ba25a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::dmrs_pdsch_processor_impl::map</definition>
+        <argsstring>(resource_grid_writer &amp;grid, const config_t &amp;config) override</argsstring>
+        <name>map</name>
+        <reimplements refid="classsrsgnb_1_1dmrs__pdsch__processor_1ad2278069d6f29e6ffb053388c36ccc34">map</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates and maps DMRS for PDSCH. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required configuration to generate and map the signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="88" column="8" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.cpp" bodystart="134" bodyend="169"/>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a8caf17c2bb3b73d1b254b1f62a03682c" compoundref="dmrs__pdsch__processor_8h" startline="32">srsgnb::dmrs_pdsch_processor::config_t::type</references>
+        <references refid="classsrsgnb_1_1dmrs__type_1a05ccbf665713cfc6444d3ad74a36f642" compoundref="dmrs__mapping_8h" startline="44" endline="44">srsgnb::dmrs_type::nof_dmrs_per_rb</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a433a601174a9345c5af8d39fe6b63415" compoundref="dmrs__pdsch__processor_8h" startline="42">srsgnb::dmrs_pdsch_processor::config_t::rb_mask</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1ac144398b8b6c75c17e986b6027a7fea4" compoundref="bounded__bitset_8h" startline="591" endline="598">srsgnb::bounded_bitset&lt; N, reversed &gt;::count</references>
+        <references refid="namespacesrsgnb_1adf0de14f34490ba84d770e68336cd6cf" compoundref="resource__grid__helpers_8h" startline="23" endline="34">srsgnb::get_rg_subc_mask_reference</references>
+        <references refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" compoundref="resource__grid__helpers_8h" startline="48" endline="83">srsgnb::get_rg_subc_mask</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2cc0e2321a915b9c9d3d72c71c80b228" compoundref="dmrs__pdsch__processor_8h" startline="44">srsgnb::dmrs_pdsch_processor::config_t::ports</references>
+        <references refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" compoundref="cyclic__prefix_8h" startline="108">srsgnb::MAX_NSYMB_PER_SLOT</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1ae86a5550fc2d74a37157e0faf6b12cc8" compoundref="dmrs__pdsch__processor_8h" startline="40">srsgnb::dmrs_pdsch_processor::config_t::symbols_mask</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Defines a DMRS for PDSCH generic implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::dmrs_pdsch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pdsch__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pdsch_processor_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pdsch__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::static_vector&lt; srsgnb::static_vector&lt; cf_t, MAX_DMRS_PER_SYMBOL &gt;, MAX_PORTS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::dmrs_pdsch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pdsch__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::dmrs_pdsch_processor_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pdsch__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-temp_re</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" line="23" column="1" bodyfile="lib/phy/upper/signal_processors/dmrs_pdsch_processor_impl.h" bodystart="22" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a4b0124181c3cc2941234af5593767c96" prot="public" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>dmrs_pdsch_processor_impl</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1abd59f0a94a5a45c82d5e767bc5ba25a9" prot="public" virt="virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>map</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1aa6aed4e5ed838d9ee66e3e814aa32380" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>mapping</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1ac498164d9c1ee3e5813520d58d4551f8" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>MAX_DMRS_PER_SYMBOL</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a9f0d09414dc44a79a1e2737ca5f4416e" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>MAX_DRMS_PER_RB</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a9f36c4d5226ded146cd0a73c5ca2e42c" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>params_type1</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a89c042e0df88b0dcdb595c5f72362140" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>params_type2</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a44fc42e2ca53d4afc26aec023848b15f" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>prg</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a1cc105e7a4d0123d7dc91a3b2d8997d7" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>sequence_generation</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1a784462239f045fa9ae23b3bb22531c47" prot="private" virt="non-virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>temp_re</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pdsch__processor_1af1e486a82f14432de6713b34ded46045" prot="public" virt="virtual"><scope>srsgnb::dmrs_pdsch_processor_impl</scope><name>~dmrs_pdsch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

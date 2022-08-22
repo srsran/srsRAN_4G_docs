@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdsch__modulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pdsch_modulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pdsch__modulator__impl" prot="public" virt="non-virtual">srsgnb::pdsch_modulator_impl</derivedcompoundref>
+    <includes refid="pdsch__modulator_8h" local="no">pdsch_modulator.h</includes>
+    <innerclass refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" prot="public">srsgnb::pdsch_modulator::config_t</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__modulator_1ad655d16ba8a8a7b8956efe95e8b6695f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdsch_modulator::MAX_NOF_CODEWORDS</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_CODEWORDS</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>Defines the maximum number of codewords per PDSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" line="34" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pdsch__modulator__impl_1a99d144ad4330e7b1851df0de1b8ca6f0" compoundref="pdsch__modulator__impl_8cpp" startline="234" endline="286">srsgnb::pdsch_modulator_impl::modulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" compoundref="pdsch__processor__impl_8cpp" startline="120" endline="174">srsgnb::pdsch_processor_impl::process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__modulator_1a739fc42999de554e34a7746a337388e9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pdsch_modulator::MAX_CODEWORD_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MAX_CODEWORD_SIZE</name>
+        <initializer>= <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref> * <ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref> * <ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref> * <ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref> / 2</initializer>
+        <briefdescription>
+<para>Defines the maximum number of RE per codeword in a PDSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" line="37" column="29" bodyfile="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__modulator_1aca82bcb42ff86b0218b9d462a1c0c361" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pdsch_modulator::~pdsch_modulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pdsch_modulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" line="76" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__modulator_1a77b76f927bca7f646baba6e7cc4f8d7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pdsch_modulator::modulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const span&lt; const uint8_t &gt;&gt; codewords, const config_t &amp;config)=0</argsstring>
+        <name>modulate</name>
+        <reimplementedby refid="classsrsgnb_1_1pdsch__modulator__impl_1a99d144ad4330e7b1851df0de1b8ca6f0">modulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;&gt;</type>
+          <declname>codewords</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Modulates a PDSCH codeword according to TS38.211 section 7.3.1 Physical downlink shared channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">codewords</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the encoded codewords to modulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the configuration reference. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The number of codewords shall be consistent with the number of layers. </para>
+</simplesect>
+<simplesect kind="note"><para>The codeword length shall be consistent with the resource mapping, considering the reserved resource elements. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" line="87" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a PDSCH modulator interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The PDSCH modulator shall modulate PDSCH according to TS38.211 section 7.3.1 Physical downlink shared channel. It provides two possible modulation granularities:<itemizedlist>
+<listitem><para>Codeword: it modulates a codeword and maps it.</para>
+</listitem><listitem><para>Codeblock: it modulates a single codeblock from a codeword. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pdsch_modulator_impl</label>
+        <link refid="classsrsgnb_1_1pdsch__modulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pdsch_modulator</label>
+        <link refid="classsrsgnb_1_1pdsch__modulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdsch_modulator</label>
+        <link refid="classsrsgnb_1_1pdsch__modulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" line="31" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pdsch_modulator.h" bodystart="30" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdsch__modulator_1a739fc42999de554e34a7746a337388e9" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_modulator</scope><name>MAX_CODEWORD_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pdsch__modulator_1ad655d16ba8a8a7b8956efe95e8b6695f" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_modulator</scope><name>MAX_NOF_CODEWORDS</name></member>
+      <member refid="classsrsgnb_1_1pdsch__modulator_1a77b76f927bca7f646baba6e7cc4f8d7e" prot="public" virt="pure-virtual"><scope>srsgnb::pdsch_modulator</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1pdsch__modulator_1aca82bcb42ff86b0218b9d462a1c0c361" prot="public" virt="virtual"><scope>srsgnb::pdsch_modulator</scope><name>~pdsch_modulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

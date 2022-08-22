@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="polar__code__impl_8h" kind="file" language="C++">
+    <compoundname>polar_code_impl.h</compoundname>
+    <includes refid="polar__code_8h" local="yes">srsgnb/phy/upper/channel_coding/polar/polar_code.h</includes>
+    <includes refid="aligned__vec_8h" local="yes">srsgnb/srsvec/aligned_vec.h</includes>
+    <includedby refid="channel__coding__factories_8cpp" local="yes">lib/phy/upper/channel_coding/channel_coding_factories.cpp</includedby>
+    <includedby refid="polar__code__impl_8cpp" local="yes">lib/phy/upper/channel_coding/polar/polar_code_impl.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>functional</label>
+      </node>
+      <node id="9">
+        <label>limits</label>
+      </node>
+      <node id="17">
+        <label>iterator</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="21">
+        <label>cassert</label>
+      </node>
+      <node id="11">
+        <label>stdexcept</label>
+      </node>
+      <node id="18">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_code.h</label>
+        <link refid="polar__code_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cstdio</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="6">
+        <label>cerrno</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/polar/polar_code_impl.h</label>
+        <link refid="polar__code__impl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>type_traits</label>
+      </node>
+      <node id="5">
+        <label>algorithm</label>
+      </node>
+      <node id="15">
+        <label>cstring</label>
+      </node>
+      <node id="22">
+        <label>srsgnb/srsvec/aligned_vec.h</label>
+        <link refid="aligned__vec_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classsrsgnb_1_1polar__code__impl" prot="public">srsgnb::polar_code_impl</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/upper/channel_coding/polar/polar_code.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/aligned_vec.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classsrsgnb_1_1polar__code__impl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1polar__code__impl" kindref="compound">polar_code_impl</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24" refid="classsrsgnb_1_1polar__code__impl_1a45112f7b5709648148c050638a01addf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>32&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a45112f7b5709648148c050638a01addf" kindref="member">mother_code_5</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsrsgnb_1_1polar__code__impl_1a7b5a76860f88eaaa44c43f68488c6885" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>64&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a7b5a76860f88eaaa44c43f68488c6885" kindref="member">mother_code_6</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classsrsgnb_1_1polar__code__impl_1ac5916128ddbb8e7b45b1c8e700a68327" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>128&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1ac5916128ddbb8e7b45b1c8e700a68327" kindref="member">mother_code_7</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classsrsgnb_1_1polar__code__impl_1a57158c2040abceed057152811e5dc80a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>256&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a57158c2040abceed057152811e5dc80a" kindref="member">mother_code_8</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classsrsgnb_1_1polar__code__impl_1a8c3373facf3fd36f1d0ca22835532dcc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>512&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a8c3373facf3fd36f1d0ca22835532dcc" kindref="member">mother_code_9</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classsrsgnb_1_1polar__code__impl_1aec8a40aa6b4e26cc549fba0c02dfa3f4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>1024&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1aec8a40aa6b4e26cc549fba0c02dfa3f4" kindref="member">mother_code_10</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classsrsgnb_1_1polar__code__impl_1a153935b7b4d787ce780e20d6b31ab381" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>32&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a153935b7b4d787ce780e20d6b31ab381" kindref="member">blk_interleaver_5</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classsrsgnb_1_1polar__code__impl_1ac1063448bfe12503baf9e391bc25824c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>64&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1ac1063448bfe12503baf9e391bc25824c" kindref="member">blk_interleaver_6</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classsrsgnb_1_1polar__code__impl_1acd19fe76638150fdd6aaa9f840cf7d13" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>128&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1acd19fe76638150fdd6aaa9f840cf7d13" kindref="member">blk_interleaver_7</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classsrsgnb_1_1polar__code__impl_1afe5623611eb6cb5ca5b8e0afa443f71e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>256&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1afe5623611eb6cb5ca5b8e0afa443f71e" kindref="member">blk_interleaver_8</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classsrsgnb_1_1polar__code__impl_1a56167c0d5a6b150bea615b9e6c171a4e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>512&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a56167c0d5a6b150bea615b9e6c171a4e" kindref="member">blk_interleaver_9</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classsrsgnb_1_1polar__code__impl_1af59733f2c2df143395224188e9288b56" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;uint16_t,<sp/>1024&gt;<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1af59733f2c2df143395224188e9288b56" kindref="member">blk_interleaver_10</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a85ab97868c2a540541c0feb3617e7765" kindref="member">get_mother_code</ref>(uint8_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a1bb40e638312e76895a17ca57818eadf" kindref="member">n</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1adec80811226f1f04361b38ff8d2afe35" kindref="member">get_blk_interleaver</ref>(uint8_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a1bb40e638312e76895a17ca57818eadf" kindref="member">n</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1aabeb177586e66b4e47283e8c8845c2c7" kindref="member">setdiff_stable</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t*<sp/>x,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t*<sp/>y,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>z,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/>len1,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/>len2);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a1db236bbe48d5e5750395ea4f6b356af" kindref="member">set_code_params</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a7e599de4956817f98af89e615f0c7154" kindref="member">K</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a54b515d75d727d89efd3e22fb33aaacd" kindref="member">E</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>nMax);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="classsrsgnb_1_1polar__code__impl_1ac42d205e232ec2dbdb2295dd118a3bd5" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1ac42d205e232ec2dbdb2295dd118a3bd5" kindref="member">N</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109" refid="classsrsgnb_1_1polar__code__impl_1a1bb40e638312e76895a17ca57818eadf" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a1bb40e638312e76895a17ca57818eadf" kindref="member">n</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="classsrsgnb_1_1polar__code__impl_1a7e599de4956817f98af89e615f0c7154" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a7e599de4956817f98af89e615f0c7154" kindref="member">K</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="classsrsgnb_1_1polar__code__impl_1a54b515d75d727d89efd3e22fb33aaacd" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a54b515d75d727d89efd3e22fb33aaacd" kindref="member">E</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="classsrsgnb_1_1polar__code__impl_1a76bfbcd0351a8c6ca56df96359df05d3" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a76bfbcd0351a8c6ca56df96359df05d3" kindref="member">nPC</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="classsrsgnb_1_1polar__code__impl_1a3317facd32778fa1eac86d457040f316" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a3317facd32778fa1eac86d457040f316" kindref="member">nWmPC</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="classsrsgnb_1_1polar__code__impl_1aee3ff4645f4730cff700463dfb54f5f2" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1aee3ff4645f4730cff700463dfb54f5f2" kindref="member">F_set_size</ref>;<sp/></highlight></codeline>
+<codeline lineno="115" refid="classsrsgnb_1_1polar__code__impl_1a38ef4d7b066b5e3a692e9d2bf0fe4f41" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a38ef4d7b066b5e3a692e9d2bf0fe4f41" kindref="member">K_set</ref>;<sp/></highlight></codeline>
+<codeline lineno="116" refid="classsrsgnb_1_1polar__code__impl_1a1cda890e06d802c6fa0e63f2b375b7f3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec&lt;uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a1cda890e06d802c6fa0e63f2b375b7f3" kindref="member">tmp_K_set</ref>;<sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>std::array&lt;uint16_t,<sp/>4&gt;</highlight></codeline>
+<codeline lineno="118" refid="classsrsgnb_1_1polar__code__impl_1ac3210f8c66cf13127e409a544c6d5727" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1ac3210f8c66cf13127e409a544c6d5727" kindref="member">PC_set</ref>;<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec&lt;uint16_t&gt;</ref></highlight></codeline>
+<codeline lineno="120" refid="classsrsgnb_1_1polar__code__impl_1ae80a40d9ce29790f22fcbb0fc4cd02cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1ae80a40d9ce29790f22fcbb0fc4cd02cd" kindref="member">F_set</ref>;<sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>polar_code_ibil<sp/>ibil;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__code__impl" kindref="compound">polar_code_impl</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>~<ref refid="classsrsgnb_1_1polar__code__impl" kindref="compound">polar_code_impl</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_n()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_N()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_K()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_E()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_nPC()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/>get_K_set()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/>get_PC_set()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/>get_F_set()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a85ab97868c2a540541c0feb3617e7765" kindref="member">get_mother_code</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1adec80811226f1f04361b38ff8d2afe35" kindref="member">get_blk_interleaver</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>polar_code_ibil<sp/><sp/><sp/><sp/><sp/><sp/>get_ibil()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__code__impl_1af7d151b66d58049d326f9c01a186f8a6" kindref="member">set</ref>(uint16_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a7e599de4956817f98af89e615f0c7154" kindref="member">K</ref>,<sp/>uint16_t<sp/><ref refid="classsrsgnb_1_1polar__code__impl_1a54b515d75d727d89efd3e22fb33aaacd" kindref="member">E</ref>,<sp/>uint8_t<sp/>nMax,<sp/>polar_code_ibil<sp/>ibil)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/polar/polar_code_impl.h"/>
+  </compounddef>
+</doxygen>

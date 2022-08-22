@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1bit__decoder" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::bit_decoder</compoundname>
+    <includes refid="bit__encoding_8h" local="no">bit_encoding.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1bit__decoder_1a58073e48d90b909006e9d81656c216e3" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__view" kindref="compound">srsgnb::byte_buffer_view</ref></type>
+        <definition>srsgnb::byte_buffer_view srsgnb::bit_decoder::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="103" column="39" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1bit__decoder_1a274df2870075cc0fca5b7f3022081611" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1byte__buffer_1_1iterator__impl" kindref="compound">srsgnb::byte_buffer::const_iterator</ref></type>
+        <definition>srsgnb::byte_buffer::const_iterator srsgnb::bit_decoder::it</definition>
+        <argsstring></argsstring>
+        <name>it</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="104" column="39" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1bit__decoder_1ab5148e77f13bad9b692de6935a5db563" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t srsgnb::bit_decoder::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="105" column="39" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1a91f1628ecccd1ebfaa60b6d4aac3813b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::bit_decoder::bit_decoder</definition>
+        <argsstring>(srsgnb::byte_buffer_view buffer_)</argsstring>
+        <name>bit_decoder</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__view" kindref="compound">srsgnb::byte_buffer_view</ref></type>
+          <declname>buffer_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="68" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1a4e5bc56c9b20cfdc25a3ad5e51abf1b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__view" kindref="compound">srsgnb::byte_buffer_view</ref></type>
+        <definition>srsgnb::byte_buffer_view srsgnb::bit_decoder::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Get a view to held byte buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="71" column="28" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1af3c53d7f20dee84ebef076ad62e47c78" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_decoder::nof_bytes</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_bytes</name>
+        <briefdescription>
+<para>Gets number of read bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="74" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1aea12581ac2fd050166b6199a79fde2b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_decoder::nof_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_bits</name>
+        <briefdescription>
+<para>Gets number of read bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="77" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1acc8738bf068f7a1c88da7985f113a41c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::bit_decoder::next_bit_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>next_bit_offset</name>
+        <briefdescription>
+<para>Get offset of the next bit to be set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="80" column="12" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1ab73f3df8bc31f0c892fac7f0d06f4904" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool bit_decoder::advance_bits</definition>
+        <argsstring>(uint32_t n_bits)</argsstring>
+        <name>advance_bits</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Advance reader by n_bits bits. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n_bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bits to advance the reader. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if bit jump did not exceed the end of the byte buffer. False, otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="85" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="78" bodyend="90"/>
+        <references refid="namespacesrsgnb_1a6026a6056e7f39c043a2bba26daab476" compoundref="math__utils_8h" startline="34" endline="38">srsgnb::divide_ceil</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1a861191dac89bf701464e5a253fc006aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>template bool bit_decoder::unpack&lt; uint64_t &gt;</definition>
+        <argsstring>(T &amp;val, uint32_t n_bits)</argsstring>
+        <name>unpack</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read bits from underlying <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> pointed by <ref refid="classsrsgnb_1_1bit__decoder" kindref="compound">bit_decoder</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bitmap of bits read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n_bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bits to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if read is successful. False, if the number of bits read exceeded the <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> size. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="92" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="93" bodyend="115"/>
+        <referencedby refid="classsrsgnb_1_1bit__decoder_1aecbe1df2b95b00261b83e2b2caf96edf" compoundref="bit__encoding_8cpp" startline="126" endline="147">unpack_bytes</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1aecbe1df2b95b00261b83e2b2caf96edf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool bit_decoder::unpack_bytes</definition>
+        <argsstring>(srsgnb::span&lt; uint8_t &gt; bytes)</argsstring>
+        <name>unpack_bytes</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span</ref>&lt; uint8_t &gt;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read bytes from underlying <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>span of bytes where the result is stored. The span size defines the number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if successful. False if the number of bytes to be read exceeds size of the <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="97" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="126" bodyend="147"/>
+        <references refid="classsrsgnb_1_1bit__decoder_1a861191dac89bf701464e5a253fc006aa" compoundref="bit__encoding_8cpp" startline="93" endline="115">unpack</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bit__decoder_1aedc01e0c8d8d7c12037d3edf6c734719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bit_decoder::align_bytes</definition>
+        <argsstring>()</argsstring>
+        <name>align_bytes</name>
+        <briefdescription>
+<para>Skip bits until the beginning of the next byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/bit_encoding.h" line="100" column="8" bodyfile="lib/support/bit_encoding.cpp" bodystart="149" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Decoder of bits stored in a <ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::bit_decoder</label>
+        <link refid="classsrsgnb_1_1bit__decoder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-buffer</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::byte_buffer::iterator_impl&lt; T &gt;</label>
+        <link refid="structsrsgnb_1_1byte__buffer_1_1iterator__impl"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-current_segment</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::byte_buffer_view</label>
+        <link refid="classsrsgnb_1_1byte__buffer__view"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>#it_end</edgelabel>
+          <edgelabel>#it</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/bit_encoding.h" line="66" column="1" bodyfile="include/srsgnb/support/bit_encoding.h" bodystart="65" bodyend="106"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1bit__decoder_1ab73f3df8bc31f0c892fac7f0d06f4904" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>advance_bits</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1aedc01e0c8d8d7c12037d3edf6c734719" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>align_bytes</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1a91f1628ecccd1ebfaa60b6d4aac3813b" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>bit_decoder</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1a58073e48d90b909006e9d81656c216e3" prot="private" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1a4e5bc56c9b20cfdc25a3ad5e51abf1b3" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>data</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1a274df2870075cc0fca5b7f3022081611" prot="private" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>it</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1acc8738bf068f7a1c88da7985f113a41c" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>next_bit_offset</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1aea12581ac2fd050166b6199a79fde2b7" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>nof_bits</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1af3c53d7f20dee84ebef076ad62e47c78" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>nof_bytes</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1ab5148e77f13bad9b692de6935a5db563" prot="private" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>offset</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1a861191dac89bf701464e5a253fc006aa" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>unpack</name></member>
+      <member refid="classsrsgnb_1_1bit__decoder_1aecbe1df2b95b00261b83e2b2caf96edf" prot="public" virt="non-virtual"><scope>srsgnb::bit_decoder</scope><name>unpack_bytes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

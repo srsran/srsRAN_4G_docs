@@ -1,0 +1,750 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pseudo__random__generator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pseudo_random_generator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pseudo__random__generator" prot="public" virt="non-virtual">srsgnb::pseudo_random_generator</basecompoundref>
+    <includes refid="pseudo__random__generator__impl_8h" local="no">pseudo_random_generator_impl.h</includes>
+    <innerclass refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s" prot="private">srsgnb::pseudo_random_generator_impl::x1_init_s</innerclass>
+    <innerclass refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s" prot="private">srsgnb::pseudo_random_generator_impl::x2_init_s</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Parameters for parallel generation of the state sequences.</header>
+      <description><para>The parallel generation of the state sequences <formula id="234">$x_1(n)$</formula> and <formula id="235">$x_2(n)$</formula>, as defined in TS38.211 Section 5.2.1, exploits the fact that these sequences have a memory of 31 terms, but only the four oldest terms contribute to the the generation of the next one.</para>
+<para>Number of bits generated in parallel. </para>
+</description>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pseudo_random_generator_impl::SEQUENCE_PAR_BITS</definition>
+        <argsstring></argsstring>
+        <name>SEQUENCE_PAR_BITS</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+<para>Bitmask for the parallelized bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="42" column="29" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1aa5ca60ba6250ca183c0ff77f4b3ebdc1" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pseudo_random_generator_impl::SEQUENCE_MASK</definition>
+        <argsstring></argsstring>
+        <name>SEQUENCE_MASK</name>
+        <initializer>= ((1U &lt;&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" kindref="member">SEQUENCE_PAR_BITS</ref>) - 1U)</initializer>
+        <briefdescription>
+<para>Bitmask for the parallelized bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="44" column="29" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pseudo_random_generator_impl::SEQUENCE_SEED_LEN</definition>
+        <argsstring></argsstring>
+        <name>SEQUENCE_SEED_LEN</name>
+        <initializer>= 31</initializer>
+        <briefdescription>
+<para>Length of the generator seed in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="27" column="29" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1abe27500a26a64dbb8c101e9102c14180" compoundref="pseudo__random__generator__impl_8cpp" startline="41" endline="51">srsgnb::pseudo_random_generator_impl::x2_init_s::x2_init_s</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1a952b6ad85049d4f2ddac91412af84203" compoundref="pseudo__random__generator__impl_8cpp" startline="53" endline="64">srsgnb::pseudo_random_generator_impl::x2_init_s::get</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" compoundref="pseudo__random__generator__impl_8h" startline="121" endline="133">step_x1</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" compoundref="pseudo__random__generator__impl_8h" startline="155" endline="167">step_x2</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1a2b2edcd19bead3f5b40a70b4c3878e2e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::pseudo_random_generator_impl::SEQUENCE_NC</definition>
+        <argsstring></argsstring>
+        <name>SEQUENCE_NC</name>
+        <initializer>= 1600</initializer>
+        <briefdescription>
+<para>Parameter <formula id="231">$N_{\mathrm{C}}$</formula>, as defined in TS38.211 Section 5.2.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Corresponds to the delay between the state sequences <formula id="232">$x_1(n), x_2(n)$</formula> and the output sequence <formula id="233">$c(n) = x_1(n + N_{\mathrm{C}}) \oplus x_2(n + N_{\mathrm{C}})$</formula>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="33" column="29" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s_1a027ccdb643d61fce5157f05021f75c91" compoundref="pseudo__random__generator__impl_8cpp" startline="28" endline="34">srsgnb::pseudo_random_generator_impl::x1_init_s::x1_init_s</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1abe27500a26a64dbb8c101e9102c14180" compoundref="pseudo__random__generator__impl_8cpp" startline="41" endline="51">srsgnb::pseudo_random_generator_impl::x2_init_s::x2_init_s</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1a86d43eeb7ddb8e395fe5cac403a14f89" prot="private" static="yes" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s" kindref="compound">x1_init_s</ref></type>
+        <definition>const pseudo_random_generator_impl::x1_init_s pseudo_random_generator_impl::x1_init</definition>
+        <argsstring></argsstring>
+        <name>x1_init</name>
+        <initializer>=
+    <ref refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s" kindref="compound">pseudo_random_generator_impl::x1_init_s</ref>()</initializer>
+        <briefdescription>
+<para>Sequence <formula id="234">$x_1(n)$</formula> initializer object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="92" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="92" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" compoundref="pseudo__random__generator__impl_8cpp" startline="66" endline="70">init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1af1252f33efe60f9fbe1de0cc283b2223" prot="private" static="yes" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s" kindref="compound">x2_init_s</ref></type>
+        <definition>const pseudo_random_generator_impl::x2_init_s pseudo_random_generator_impl::x2_init</definition>
+        <argsstring></argsstring>
+        <name>x2_init</name>
+        <initializer>=
+    <ref refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s" kindref="compound">pseudo_random_generator_impl::x2_init_s</ref>()</initializer>
+        <briefdescription>
+<para>Sequence <formula id="235">$x_2(n)$</formula> initializer object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="94" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" compoundref="pseudo__random__generator__impl_8cpp" startline="66" endline="70">init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::pseudo_random_generator_impl::x1</definition>
+        <argsstring></argsstring>
+        <name>x1</name>
+        <briefdescription>
+<para>Memory register for sequence <formula id="234">$x_1(n)$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="97" column="12" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="97" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s_1a89a409cfad52b4215372d39ac9e05e8c" compoundref="pseudo__random__generator__impl_8cpp" startline="36" endline="39">srsgnb::pseudo_random_generator_impl::x1_init_s::get</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" compoundref="pseudo__random__generator__impl_8cpp" startline="66" endline="70">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86c0f58194ea40a1da9a89b1fb09c420" compoundref="pseudo__random__generator__impl_8cpp" startline="356" endline="359">get_state</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::pseudo_random_generator_impl::x2</definition>
+        <argsstring></argsstring>
+        <name>x2</name>
+        <briefdescription>
+<para>Memory register for sequence <formula id="235">$x_2(n)$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="99" column="12" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1a952b6ad85049d4f2ddac91412af84203" compoundref="pseudo__random__generator__impl_8cpp" startline="53" endline="64">srsgnb::pseudo_random_generator_impl::x2_init_s::get</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" compoundref="pseudo__random__generator__impl_8cpp" startline="66" endline="70">init</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86c0f58194ea40a1da9a89b1fb09c420" compoundref="pseudo__random__generator__impl_8cpp" startline="356" endline="359">get_state</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t srsgnb::pseudo_random_generator_impl::step_par_x1</definition>
+        <argsstring>(uint32_t state)</argsstring>
+        <name>step_par_x1</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Advances sequence <formula id="234">$x_1(n)$</formula> SEQUENCE_PAR_BITS steps simultaneously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current 32-bit long state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New 32-bit long state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="104" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="104" bodyend="116"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa5ca60ba6250ca183c0ff77f4b3ebdc1" compoundref="pseudo__random__generator__impl_8h" startline="44">SEQUENCE_MASK</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" compoundref="pseudo__random__generator__impl_8h" startline="27">SEQUENCE_SEED_LEN</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t srsgnb::pseudo_random_generator_impl::step_x1</definition>
+        <argsstring>(uint32_t state)</argsstring>
+        <name>step_x1</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Advances sequence <formula id="234">$x_1(n)$</formula> one steps. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current 32-bit long state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New 32-bit long state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="121" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="121" bodyend="133"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" compoundref="pseudo__random__generator__impl_8h" startline="27">SEQUENCE_SEED_LEN</references>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s_1a027ccdb643d61fce5157f05021f75c91" compoundref="pseudo__random__generator__impl_8cpp" startline="28" endline="34">srsgnb::pseudo_random_generator_impl::x1_init_s::x1_init_s</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t srsgnb::pseudo_random_generator_impl::step_par_x2</definition>
+        <argsstring>(uint32_t state)</argsstring>
+        <name>step_par_x2</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Advances sequence <formula id="235">$x_2(n)$</formula> SEQUENCE_PAR_BITS steps simultaneously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current 32-bit long state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New 32-bit long state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="138" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="138" bodyend="150"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa5ca60ba6250ca183c0ff77f4b3ebdc1" compoundref="pseudo__random__generator__impl_8h" startline="44">SEQUENCE_MASK</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" compoundref="pseudo__random__generator__impl_8h" startline="27">SEQUENCE_SEED_LEN</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" compoundref="pseudo__random__generator__impl_8cpp" startline="159" endline="237">apply_xor_byte</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t srsgnb::pseudo_random_generator_impl::step_x2</definition>
+        <argsstring>(uint32_t state)</argsstring>
+        <name>step_x2</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Advances sequence <formula id="235">$x_2(n)$</formula> one steps. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current 32-bit long state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New 32-bit long state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="155" column="26" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="155" bodyend="167"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" compoundref="pseudo__random__generator__impl_8h" startline="27">SEQUENCE_SEED_LEN</references>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1abe27500a26a64dbb8c101e9102c14180" compoundref="pseudo__random__generator__impl_8cpp" startline="41" endline="51">srsgnb::pseudo_random_generator_impl::x2_init_s::x2_init_s</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" compoundref="pseudo__random__generator__impl_8cpp" startline="78" endline="97">advance</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" compoundref="pseudo__random__generator__impl_8cpp" startline="107" endline="158">generate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" compoundref="pseudo__random__generator__impl_8cpp" startline="239" endline="296">apply_xor_bit</referencedby>
+        <referencedby refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" compoundref="pseudo__random__generator__impl_8cpp" startline="297" endline="355">apply_xor</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a2589e8ec8d96e6b36a8c6c34c5d71afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pseudo_random_generator_impl::pseudo_random_generator_impl</definition>
+        <argsstring>()=default</argsstring>
+        <name>pseudo_random_generator_impl</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="171" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::init</definition>
+        <argsstring>(unsigned c_init) override</argsstring>
+        <name>init</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1a662fdf3f32930a82bd68345a1744ee36">init</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>c_init</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the pseudo-random generator with the given seed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">c_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization seed (parameter <formula id="76">$c_{\mathrm{init}}$</formula> in TS38.211 Section 5.2.1). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="174" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="66" bodyend="70"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86d43eeb7ddb8e395fe5cac403a14f89" compoundref="pseudo__random__generator__impl_8h" startline="92">x1_init</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s_1a89a409cfad52b4215372d39ac9e05e8c" compoundref="pseudo__random__generator__impl_8cpp" startline="36" endline="39">srsgnb::pseudo_random_generator_impl::x1_init_s::get</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1af1252f33efe60f9fbe1de0cc283b2223" compoundref="pseudo__random__generator__impl_8h" startline="94">x2_init</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s_1a952b6ad85049d4f2ddac91412af84203" compoundref="pseudo__random__generator__impl_8cpp" startline="53" endline="64">srsgnb::pseudo_random_generator_impl::x2_init_s::get</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a8930064bb345d3d62ad215cbe67345be" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::init</definition>
+        <argsstring>(const state_s &amp;c_init) override</argsstring>
+        <name>init</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1aca5ef7554f5068bc7e33105c07243a26">init</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s" kindref="compound">state_s</ref> &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the pseudo-random generator at the given state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Generator internal state description. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="177" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="72" bodyend="76"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s_1a3668324960bb1d3afcac19a653f2ea01" compoundref="pseudo__random__generator_8h" startline="33">srsgnb::pseudo_random_generator::state_s::x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s_1a56469ec2649a65fea2f2e6e161beb88a" compoundref="pseudo__random__generator_8h" startline="35">srsgnb::pseudo_random_generator::state_s::x2</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a86c0f58194ea40a1da9a89b1fb09c420" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1pseudo__random__generator_1_1state__s" kindref="compound">state_s</ref></type>
+        <definition>pseudo_random_generator::state_s pseudo_random_generator_impl::get_state</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_state</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1a2e84e10e471391640a2759d5adbe8f3c">get_state</reimplements>
+        <briefdescription>
+<para>Returns the current state of the pseudo-random generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="180" column="11" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="356" bodyend="359"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::advance</definition>
+        <argsstring>(unsigned count) override</argsstring>
+        <name>advance</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1a0c01e57d497085eb57cb1c99fed9d8a1">advance</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Advances the pseudo-random generator state without generating sequence bits or applying any mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of state advance steps (corresponds to the number of sequence bits that would be generated by the same state advance). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="183" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="78" bodyend="97"/>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" compoundref="pseudo__random__generator__impl_8h" startline="121" endline="133">step_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" compoundref="pseudo__random__generator__impl_8h" startline="155" endline="167">step_x2</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::apply_xor_byte</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in) override</argsstring>
+        <name>apply_xor_byte</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1ab928995ab31e27fe3198e3544c2e33d1">apply_xor_byte</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a byte buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence. Both input and output sequence are represented in packed format (each entry corresponds to 8 bits).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="186" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="159" bodyend="237"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa5ca60ba6250ca183c0ff77f4b3ebdc1" compoundref="pseudo__random__generator__impl_8h" startline="44">SEQUENCE_MASK</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <references refid="namespacesrsgnb_1a68609cb80f5f8f752b020809bdc050f0" compoundref="math__utils_8h" startline="116" endline="150">srsgnb::reverse_byte</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::apply_xor_bit</definition>
+        <argsstring>(span&lt; uint8_t &gt; out, span&lt; const uint8_t &gt; in) override</argsstring>
+        <name>apply_xor_bit</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1acaec03e84cc9cf65fe857629690220e0">apply_xor_bit</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a bit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence. Both input and output sequence are represented in unpacked format (each entry corresponds to 1 bit).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="189" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="239" bodyend="296"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" compoundref="pseudo__random__generator__impl_8h" startline="121" endline="133">step_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" compoundref="pseudo__random__generator__impl_8h" startline="155" endline="167">step_x2</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::apply_xor</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; out, span&lt; const log_likelihood_ratio &gt; in) override</argsstring>
+        <name>apply_xor</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1adb832c6f2ecfdba67cc50210352fe1fa">apply_xor</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>XOR-applies the generated sequence to a buffer of log-likelihood ratios. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The generated sequence is used to scramble (bit-wise XOR each element) the input sequence of soft bits. <simplesect kind="note"><para>Here, the XOR operation between a log-likelihood ratio <formula id="77">$\ell$</formula> and a (pseudo-random) bit <formula id="65">$b$</formula> returns <formula id="77">$\ell$</formula> if <formula id="78">$b = 0$</formula> and <formula id="79">$-\ell$</formula> if <formula id="80">$b = 1$</formula>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ouput data sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>Input and output sequences should have the same length. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="192" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="297" bodyend="355"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" compoundref="pseudo__random__generator__impl_8h" startline="121" endline="133">step_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" compoundref="pseudo__random__generator__impl_8h" startline="155" endline="167">step_x2</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pseudo_random_generator_impl::generate</definition>
+        <argsstring>(span&lt; float &gt; buffer, float value) override</argsstring>
+        <name>generate</name>
+        <reimplements refid="classsrsgnb_1_1pseudo__random__generator_1abeffc99fcef15e1de5896ebe056d9850">generate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; float &gt;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Generates a floating-point pseudo-random sequence with the given amplitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The elements of the generated sequence will have the form <formula id="81">$\pm a$</formula>, where <formula id="64">$a$</formula> denotes the amplitude.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence amplitude. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sequence length is inferred from the size of the output container. </para>
+</simplesect>
+<simplesect kind="remark"><para>This method modifies the internal state of the pseudo-random generator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="195" column="8" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.cpp" bodystart="107" bodyend="158"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" compoundref="pseudo__random__generator__impl_8h" startline="42">SEQUENCE_PAR_BITS</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" compoundref="pseudo__random__generator__impl_8h" startline="97">x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" compoundref="pseudo__random__generator__impl_8h" startline="99">x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" compoundref="pseudo__random__generator__impl_8h" startline="104" endline="116">step_par_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" compoundref="pseudo__random__generator__impl_8h" startline="138" endline="150">step_par_x2</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" compoundref="pseudo__random__generator__impl_8h" startline="121" endline="133">step_x1</references>
+        <references refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" compoundref="pseudo__random__generator__impl_8h" startline="155" endline="167">step_x2</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SSE-optimized implementation of the pseudo-random generator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pseudo_random_generator_impl</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pseudo_random_generator</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pseudo_random_generator_impl</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-x1_init</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-x2_init</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::pseudo_random_generator_impl::x2_init_s</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x2__init__s"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pseudo_random_generator</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::pseudo_random_generator_impl::x1_init_s</label>
+        <link refid="classsrsgnb_1_1pseudo__random__generator__impl_1_1x1__init__s"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" line="24" column="1" bodyfile="lib/phy/upper/sequence_generators/pseudo_random_generator_impl.h" bodystart="23" bodyend="196"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a18467fd029acc4f602c10f95f74ca1cb" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>advance</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a9b86d8909b11e1f9415a59e362e79751" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>apply_xor</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa6dea6ec9aed8d04091c0827133b6cb9" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>apply_xor_bit</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a6d343fa858f7d79f8df98e12611c8429" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>apply_xor_byte</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1ab342c0fa23bc900d75e7c49290df8818" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>generate</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1adc8fa5c4507d0990d393b551b266d8fd" prot="public" virt="virtual" ambiguityscope="srsgnb::pseudo_random_generator::"><scope>srsgnb::pseudo_random_generator_impl</scope><name>generate</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86c0f58194ea40a1da9a89b1fb09c420" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>get_state</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a98de4e3f0fd3f38fc88e711b0bf5ce38" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8930064bb345d3d62ad215cbe67345be" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a2589e8ec8d96e6b36a8c6c34c5d71afa" prot="public" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>pseudo_random_generator_impl</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa5ca60ba6250ca183c0ff77f4b3ebdc1" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>SEQUENCE_MASK</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a2b2edcd19bead3f5b40a70b4c3878e2e" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>SEQUENCE_NC</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a8bb7ca1a3381338375df6cf212f52980" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>SEQUENCE_PAR_BITS</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a19c2eedfb84b2b6e6777a1bfdf502a97" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>SEQUENCE_SEED_LEN</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1ae4d7adbd41b28412a27ba1f7f28822e3" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>step_par_x1</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a1628c831f2352f4670edd441c37ca8c9" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>step_par_x2</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1ad0ba9a6a8da646f7e1e74ecbdf761878" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>step_x1</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a57afb6927d4aab767f544ddee98e7bdc" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>step_x2</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a61f14ccfb370332e88d178dab31968a3" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>x1</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1a86d43eeb7ddb8e395fe5cac403a14f89" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>x1_init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1aa87a0796169fa27fb5f884bdb15d40eb" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>x2</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator__impl_1af1252f33efe60f9fbe1de0cc283b2223" prot="private" virt="non-virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>x2_init</name></member>
+      <member refid="classsrsgnb_1_1pseudo__random__generator_1a41d077e82c92da8c7931a75d816217bf" prot="public" virt="virtual"><scope>srsgnb::pseudo_random_generator_impl</scope><name>~pseudo_random_generator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1detail_1_1type__storage" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::detail::type_storage</compoundname>
+    <includes refid="type__storage_8h" local="no">type_storage.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>MinSize</declname>
+        <defname>MinSize</defname>
+        <defval>0</defval>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>AlignSize</declname>
+        <defname>AlignSize</defname>
+        <defval>0</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structsrsgnb_1_1detail_1_1type__storage_1a9234da7a5bad5b953cd5021c404e48be" prot="public" static="no">
+        <type>T</type>
+        <definition>using srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="20" column="3" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1type__storage_1a136691ff3d2927625c0de04d9c637554" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::obj_size</definition>
+        <argsstring></argsstring>
+        <name>obj_size</name>
+        <initializer>= sizeof(T) &gt; MinSize ? sizeof(T) : MinSize</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="40" column="27" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1type__storage_1a4ac69e4358ca94de84f8c2c9cae4aaa9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::align_size</definition>
+        <argsstring></argsstring>
+        <name>align_size</name>
+        <initializer>= alignof(T) &gt; AlignSize ? alignof(T) : AlignSize</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="41" column="27" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1type__storage_1a3cd3dcfe8c45b15adcbb97e9e2ad5e16" prot="public" static="no" mutable="no">
+        <type>std::aligned_storage_t&lt; obj_size, align_size &gt;</type>
+        <definition>std::aligned_storage_t&lt;obj_size, align_size&gt; srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+<para>Embedded memory buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="43" column="26" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1type__storage_1aced6cc9a70e4995417f332fb218d7eda" compoundref="type__storage_8h" startline="24" endline="27">srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;::emplace</referencedby>
+        <referencedby refid="structsrsgnb_1_1detail_1_1type__storage_1a442ad8d5c5ba339f02de12293b9588a2" compoundref="type__storage_8h" startline="33" endline="33">srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;::get</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1aced6cc9a70e4995417f332fb218d7eda" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::emplace</definition>
+        <argsstring>(Args &amp;&amp;... args) noexcept(std::is_nothrow_constructible&lt; T, Args &amp;&amp;... &gt;::value)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Emplace object in embedded buffer via ctor call T(Args&amp;&amp;...). UB if object was already created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="24" column="8" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1af422d48858d0de73ea04bd274c0ef17c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::destroy</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>destroy</name>
+        <briefdescription>
+<para>Destroy object stored in embedded buffer. UB if object was not previously created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="29" column="8" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1a442ad8d5c5ba339f02de12293b9588a2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::get</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+<para>Get created object handle. UB if object is not created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="33" column="11" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="33" bodyend="33"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1type__storage_1af422d48858d0de73ea04bd274c0ef17c" compoundref="type__storage_8h" startline="29" endline="29">srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;::destroy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1ad180ca0a9cb09452325c7ed1f5ad7da1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::get</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="34" column="11" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1a84e520912b934a7501a5391cb5e98933" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::addr</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="36" column="14" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1abf90bd1f2c5d408fca70967416d7b789" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void* srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::addr</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="37" column="14" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1type__storage_1aabc51fa159027536e3a455238d58fd7d" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;::operator void *</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator void *</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/detail/type_storage.h" line="38" column="15" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Helper class to store, construct, destruct and access an object stored in a memory buffer. This class shouldn&apos;t be used outside of library code, as it is inherently unsafe. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of object stored </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MinSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lower bound for the embedded buffer size </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>AlignSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lower bound for the alignment of the embedded buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::detail::type_storage&lt; T, MinSize, AlignSize &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/detail/type_storage.h" line="19" column="19" bodyfile="include/srsgnb/adt/detail/type_storage.h" bodystart="19" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a84e520912b934a7501a5391cb5e98933" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>addr</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1abf90bd1f2c5d408fca70967416d7b789" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>addr</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a4ac69e4358ca94de84f8c2c9cae4aaa9" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>align_size</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a3cd3dcfe8c45b15adcbb97e9e2ad5e16" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>buffer</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1af422d48858d0de73ea04bd274c0ef17c" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>destroy</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1aced6cc9a70e4995417f332fb218d7eda" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>emplace</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a442ad8d5c5ba339f02de12293b9588a2" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>get</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1ad180ca0a9cb09452325c7ed1f5ad7da1" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>get</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a136691ff3d2927625c0de04d9c637554" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>obj_size</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1aabc51fa159027536e3a455238d58fd7d" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>operator void *</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1type__storage_1a9234da7a5bad5b953cd5021c404e48be" prot="public" virt="non-virtual"><scope>srsgnb::detail::type_storage</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

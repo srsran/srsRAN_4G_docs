@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::fapi_adaptor::pdsch_pdu_registry</compoundname>
+    <includes refid="mac__to__fapi__translator_8h" local="no">mac_to_fapi_translator.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68" prot="public" static="no" strong="no">
+        <type></type>
+        <name>pdsch_pdu_type</name>
+        <enumvalue id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a251b94e3d94bd2c8d2dc8904ba80c458" prot="public">
+          <name>sib</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a950f1cb211481e42628f22115e59adfb" prot="public">
+          <name>rar</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a3c71dccacb0b6cf7ef538de37deb095e" prot="public">
+          <name>ue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a89287f550743c8544ea4d1edb8afc855" prot="public">
+          <name>last</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Labels for the different types of PDSCH PDUs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="31" column="22" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a121fd1032c36478af8b4384c995bf60e" prot="private" static="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; unsigned, MAX_DL_PDUS_PER_SLOT &gt;</type>
+        <definition>using srsgnb::fapi_adaptor::pdsch_pdu_registry::pdu_vector =  static_vector&lt;unsigned, MAX_DL_PDUS_PER_SLOT&gt;</definition>
+        <argsstring></argsstring>
+        <name>pdu_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="70" column="3" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a4088a5e0f2892b1bfa87132635909aba" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1static__vector" kindref="compound">pdu_vector</ref>, last &gt;</type>
+        <definition>std::array&lt;pdu_vector, last&gt; srsgnb::fapi_adaptor::pdsch_pdu_registry::pdus</definition>
+        <argsstring></argsstring>
+        <name>pdus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="71" column="14" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a36bafe879efa9be0f95499176bd0dc2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::fapi_adaptor::pdsch_pdu_registry::register_pdu</definition>
+        <argsstring>(unsigned fapi_pdu_index, pdsch_pdu_type type)</argsstring>
+        <name>register_pdu</name>
+        <param>
+          <type>unsigned</type>
+          <declname>fapi_pdu_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68" kindref="member">pdsch_pdu_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Records a PDU in the registry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fapi_pdu_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the FAPI PDU. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDSCH PDU type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="37" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="37" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a094c38764f94e81fc056e815c706669d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::fapi_adaptor::pdsch_pdu_registry::get_nof_pdus</definition>
+        <argsstring>(pdsch_pdu_type type) const</argsstring>
+        <name>get_nof_pdus</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68" kindref="member">pdsch_pdu_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of recorded PDUs of the given type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDSCH PDU type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of PDUs of the given type present in the registry. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="47" column="12" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="47" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1abdf2b4921a73e52286f64d4b3d217e29" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::fapi_adaptor::pdsch_pdu_registry::get_fapi_pdu_index</definition>
+        <argsstring>(unsigned mac_pdu_index, pdsch_pdu_type type) const</argsstring>
+        <name>get_fapi_pdu_index</name>
+        <param>
+          <type>unsigned</type>
+          <declname>mac_pdu_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68" kindref="member">pdsch_pdu_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Returns the FAPI PDU index for the given PDU type and MAC PDU index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mac_pdu_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the MAC PDU. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDSCH PDU type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Index of the FAPI PDU associated to the MAC PDU. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="58" column="12" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="58" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a4221d5e9e42dae9b0a7c028f344cec0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::fapi_adaptor::pdsch_pdu_registry::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Resets the registry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="67" column="8" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="67" bodyend="67"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1mac__to__fapi__translator_1a62207674eb2b94fb467b2accc6ee507f" compoundref="mac__to__fapi__translator_8h" startline="99" endline="103">srsgnb::fapi_adaptor::mac_to_fapi_translator::handle_new_slot</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PDSCH PDU registry. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class stores the index positions of the PDSCH PDUs carried in the FAPI DL_TTI.request. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::fapi_adaptor::pdsch_pdu_registry</label>
+        <link refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" line="28" column="1" bodyfile="lib/fapi_adaptor/mac/mac_to_fapi_translator.h" bodystart="27" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1abdf2b4921a73e52286f64d4b3d217e29" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>get_fapi_pdu_index</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a094c38764f94e81fc056e815c706669d" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>get_nof_pdus</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a89287f550743c8544ea4d1edb8afc855" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>last</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>pdsch_pdu_type</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a121fd1032c36478af8b4384c995bf60e" prot="private" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>pdu_vector</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a4088a5e0f2892b1bfa87132635909aba" prot="private" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>pdus</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a950f1cb211481e42628f22115e59adfb" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>rar</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a36bafe879efa9be0f95499176bd0dc2f" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>register_pdu</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1a4221d5e9e42dae9b0a7c028f344cec0e" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>reset</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a251b94e3d94bd2c8d2dc8904ba80c458" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>sib</name></member>
+      <member refid="classsrsgnb_1_1fapi__adaptor_1_1pdsch__pdu__registry_1ab62920c5877c4ba63116a079e63a4b68a3c71dccacb0b6cf7ef538de37deb095e" prot="public" virt="non-virtual"><scope>srsgnb::fapi_adaptor::pdsch_pdu_registry</scope><name>ue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1downlink__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::downlink_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1downlink__processor__single__executor__impl" prot="public" virt="non-virtual">srsgnb::downlink_processor_single_executor_impl</derivedcompoundref>
+    <includes refid="downlink__processor_8h" local="no">downlink_processor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1ada7382b745d65dabbf3bdf3662be509f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::downlink_processor::~downlink_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~downlink_processor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="36" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1af0ade1a25e42e95a912670af0e49da6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::process_pdcch</definition>
+        <argsstring>(const pdcch_processor::pdu_t &amp;pdu)=0</argsstring>
+        <name>process_pdcch</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a53227edd4ce38455ad9a43b6e5f9a292">process_pdcch</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__processor_1_1pdu__t" kindref="compound">pdcch_processor::pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Process the given PDCCH PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDCCH PDU to process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="41" column="16"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1fapi__to__phy__translator_1aff16ea9b0c27d5279edb644296e00530" compoundref="fapi__to__phy__translator_8cpp" startline="85" endline="117">srsgnb::fapi_adaptor::fapi_to_phy_translator::dl_tti_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1ae660934ca2cd88e28f6d3c9291d931ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::process_pdsch</definition>
+        <argsstring>(const static_vector&lt; span&lt; const uint8_t &gt;, pdsch_processor::MAX_NOF_TRANSPORT_BLOCKS &gt; &amp;data, const pdsch_processor::pdu_t &amp;pdu)=0</argsstring>
+        <name>process_pdsch</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a684de28891246b05ed6b3ff4e8109226">process_pdsch</reimplementedby>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;, <ref refid="classsrsgnb_1_1pdsch__processor_1a8c4a7df76e6e76d9104b610b473e8489" kindref="member">pdsch_processor::MAX_NOF_TRANSPORT_BLOCKS</ref> &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdsch_processor::pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Process the given PDSCH PDU and its related data, which it is given in data parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Contains the data of the PDSCH. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDSCH PDU to process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="47" column="16"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1fapi__to__phy__translator_1a93eb39a0b5b3da625d4b9c98d19dbf7c" compoundref="fapi__to__phy__translator_8cpp" startline="145" endline="161">srsgnb::fapi_adaptor::fapi_to_phy_translator::tx_data_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1aff7fbbd9fd9ae6a89a802ee71d64d9bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::process_ssb</definition>
+        <argsstring>(const ssb_processor::pdu_t &amp;pdu)=0</argsstring>
+        <name>process_ssb</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a213c7fbda264c76ceb2da92cf666242b">process_ssb</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ssb__processor_1_1pdu__t" kindref="compound">ssb_processor::pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Process the given SSB PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SSB PDU to process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="53" column="16"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1fapi__to__phy__translator_1aff16ea9b0c27d5279edb644296e00530" compoundref="fapi__to__phy__translator_8cpp" startline="85" endline="117">srsgnb::fapi_adaptor::fapi_to_phy_translator::dl_tti_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1a8b1403119fc9977ec633d6ac6c2d0ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::process_nzp_csi_rs</definition>
+        <argsstring>(const csi_rs_processor::config_t &amp;config)=0</argsstring>
+        <name>process_nzp_csi_rs</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a885c55911e271b2ec7d3a6565d84be57">process_nzp_csi_rs</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1csi__rs__processor_1_1config__t" kindref="compound">csi_rs_processor::config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Process the given CSI-RS configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NZP-CSI-RS configuration to process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="58" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::configure_resource_grid</definition>
+        <argsstring>(const resource_grid_context &amp;context, resource_grid &amp;grid)=0</argsstring>
+        <name>configure_resource_grid</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1adde15e64264a5cddff9e6ca30101b5a5">configure_resource_grid</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Configures the resource grid of the <ref refid="classsrsgnb_1_1downlink__processor" kindref="compound">downlink_processor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid context that contains the information of the processing slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid that will contain the data of the processed downlink channels.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para><itemizedlist>
+<listitem><para>Calling this method is mandatory before processing any PDU.</para>
+</listitem><listitem><para>The resource grid number of ports and bandwidth must be sufficient to accommodate all the PDUs. </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="69" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1downlink__processor_1ab1f4b871d0d2c21532fac0361e786b51" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::downlink_processor::finish_processing_pdus</definition>
+        <argsstring>()=0</argsstring>
+        <name>finish_processing_pdus</name>
+        <reimplementedby refid="classsrsgnb_1_1downlink__processor__single__executor__impl_1a5f715c2e2a134109281eccd42ca3f027">finish_processing_pdus</reimplementedby>
+        <briefdescription>
+<para>Stops accepting PDUs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When this method is called, the interface will not expect to process more PDUs, so once it finishes to process all the enqueued PDUs, the resource grid will be sent to the lower bound gateway using the <computeroutput>context</computeroutput> from <ref refid="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" kindref="member">configure_resource_grid()</ref> to provide the processing context of the resource grid in the lower physical layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/downlink_processor.h" line="77" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Downlink processor class that groups and process all the downlink channels within a slot. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The downlink processor process all the given downlink PDUs and sends the configured resource grid through a gateway when every PDU has finished processing and the <ref refid="classsrsgnb_1_1downlink__processor_1ab1f4b871d0d2c21532fac0361e786b51" kindref="member">finish_processing_pdus()</ref> has been called. Prior to start processing PDUs, <ref refid="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" kindref="member">configure_resource_grid()</ref> must be called in order to configure the resource grid and the context for the downlink processor.</para>
+<para><simplesect kind="note"><para>Undefined behavior can be caused by:<itemizedlist>
+<listitem><para>Calling any process method prior to <ref refid="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" kindref="member">configure_resource_grid()</ref>.</para>
+</listitem><listitem><para>Calling <ref refid="classsrsgnb_1_1downlink__processor_1ab1f4b871d0d2c21532fac0361e786b51" kindref="member">finish_processing_pdus()</ref> without calling <ref refid="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" kindref="member">configure_resource_grid()</ref> in a slot context. </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::downlink_processor</label>
+        <link refid="classsrsgnb_1_1downlink__processor"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::downlink_processor_single_executor_impl</label>
+        <link refid="classsrsgnb_1_1downlink__processor__single__executor__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::downlink_processor</label>
+        <link refid="classsrsgnb_1_1downlink__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/downlink_processor.h" line="34" column="1" bodyfile="include/srsgnb/phy/upper/downlink_processor.h" bodystart="33" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1downlink__processor_1aec9b1856ac9a55e5271050de729bc78d" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>configure_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1ab1f4b871d0d2c21532fac0361e786b51" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>finish_processing_pdus</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1a8b1403119fc9977ec633d6ac6c2d0ba7" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>process_nzp_csi_rs</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1af0ade1a25e42e95a912670af0e49da6d" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>process_pdcch</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1ae660934ca2cd88e28f6d3c9291d931ce" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>process_pdsch</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1aff7fbbd9fd9ae6a89a802ee71d64d9bf" prot="public" virt="pure-virtual"><scope>srsgnb::downlink_processor</scope><name>process_ssb</name></member>
+      <member refid="classsrsgnb_1_1downlink__processor_1ada7382b745d65dabbf3bdf3662be509f" prot="public" virt="virtual"><scope>srsgnb::downlink_processor</scope><name>~downlink_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classdetail_1_1dynamic__arg__list" kind="class" language="C++" prot="public">
+    <compoundname>detail::dynamic_arg_list</compoundname>
+    <innerclass refid="structdetail_1_1dynamic__arg__list_1_1node" prot="private">detail::dynamic_arg_list::node</innerclass>
+    <innerclass refid="structdetail_1_1dynamic__arg__list_1_1pooled__node" prot="private">detail::dynamic_arg_list::pooled_node</innerclass>
+    <innerclass refid="structdetail_1_1dynamic__arg__list_1_1typed__node" prot="private">detail::dynamic_arg_list::typed_node</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classdetail_1_1dynamic__arg__list_1af4c6fc1d2bf02aa745401183361ad818" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr std::size_t</type>
+        <definition>constexpr std::size_t detail::dynamic_arg_list::max_pool_string_size</definition>
+        <argsstring></argsstring>
+        <name>max_pool_string_size</name>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1282" column="32" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdetail_1_1dynamic__arg__list_1abf077dcda64d7b3d586b3d2bda8cb065" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr std::size_t</type>
+        <definition>constexpr std::size_t detail::dynamic_arg_list::max_pool_node_size</definition>
+        <argsstring></argsstring>
+        <name>max_pool_node_size</name>
+        <initializer>= sizeof(<ref refid="structdetail_1_1dynamic__arg__list_1_1pooled__node" kindref="compound">pooled_node</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1327" column="32" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1327" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdetail_1_1dynamic__arg__list_1a46d467de3b89f026974354e830e12ef0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structdetail_1_1dynamic__arg__list_1_1node" kindref="compound">node</ref>&lt;&gt; &gt;</type>
+        <definition>std::unique_ptr&lt;node&lt;&gt; &gt; detail::dynamic_arg_list::head_</definition>
+        <argsstring></argsstring>
+        <name>head_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1324" column="19" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1324" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classdetail_1_1dynamic__arg__list_1a903384c6598e1b3a2fd3e9dd9b5775d7" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * detail::dynamic_arg_list::allocate_from_pool</definition>
+        <argsstring>(std::size_t sz)</argsstring>
+        <name>allocate_from_pool</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1294" column="15" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dynamic__arg__list_1a3be8b426d682a896e6a08d2efc14957d" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void detail::dynamic_arg_list::free_from_pool</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>free_from_pool</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1295" column="15" bodyfile="lib/srslog/bundled/fmt/format.cc" bodystart="134" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdetail_1_1dynamic__arg__list_1af3ffb6d10dc88a9881b2bdf3597bab8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* detail::dynamic_arg_list::push_small_string</definition>
+        <argsstring>(const char *str, std::size_t sz)</argsstring>
+        <name>push_small_string</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1329" column="14" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1329" bodyend="1335"/>
+      </memberdef>
+      <memberdef kind="function" id="classdetail_1_1dynamic__arg__list_1a26779951bee7eb7118c7c54baf4b8a55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Arg</type>
+          </param>
+        </templateparamlist>
+        <type>const T &amp;</type>
+        <definition>const T&amp; detail::dynamic_arg_list::push</definition>
+        <argsstring>(const Arg &amp;arg)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const Arg &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1337" column="25" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1337" bodyend="1343"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>detail::dynamic_arg_list</label>
+        <link refid="classdetail_1_1dynamic__arg__list"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1280" column="23" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1280" bodyend="1344"/>
+    <listofallmembers>
+      <member refid="classdetail_1_1dynamic__arg__list_1a903384c6598e1b3a2fd3e9dd9b5775d7" prot="private" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>allocate_from_pool</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1a3be8b426d682a896e6a08d2efc14957d" prot="private" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>free_from_pool</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1a46d467de3b89f026974354e830e12ef0" prot="private" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>head_</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1abf077dcda64d7b3d586b3d2bda8cb065" prot="public" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>max_pool_node_size</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1af4c6fc1d2bf02aa745401183361ad818" prot="public" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>max_pool_string_size</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1a26779951bee7eb7118c7c54baf4b8a55" prot="public" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>push</name></member>
+      <member refid="classdetail_1_1dynamic__arg__list_1af3ffb6d10dc88a9881b2bdf3597bab8e" prot="public" virt="non-virtual"><scope>detail::dynamic_arg_list</scope><name>push_small_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::srs_du::f1ap_ue_context_manager</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__du_1_1f1__interface" prot="public" virt="non-virtual">srsgnb::srs_du::f1_interface</derivedcompoundref>
+    <includes refid="f1ap__du_8h" local="no">f1ap_du.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a57e95b83e0fad1a775878b0cd26bac70" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::srs_du::f1ap_ue_context_manager::~f1ap_ue_context_manager</definition>
+        <argsstring>()=default</argsstring>
+        <name>~f1ap_ue_context_manager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="124" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a25430477cdd2dca33dbfc64b2fd12ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__create__response" kindref="compound">f1ap_ue_create_response</ref> &gt;</type>
+        <definition>virtual async_task&lt;f1ap_ue_create_response&gt; srsgnb::srs_du::f1ap_ue_context_manager::handle_ue_creation_request</definition>
+        <argsstring>(const f1ap_ue_create_request &amp;msg)=0</argsstring>
+        <name>handle_ue_creation_request</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1ac5b989f1b44881f157309a2c6f54b056">handle_ue_creation_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__create__request" kindref="compound">f1ap_ue_create_request</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiates creation of UE context in F1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="127" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aecc8872082f5c4d57628eb413e5d83bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::srs_du::f1ap_ue_context_manager::handle_ue_context_release_request</definition>
+        <argsstring>(const f1ap_ue_context_release_request_message &amp;request)=0</argsstring>
+        <name>handle_ue_context_release_request</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a07d20e6c9c96bbba5e882dccc10fb47d">handle_ue_context_release_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__release__request__message" kindref="compound">f1ap_ue_context_release_request_message</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Initiates UE context release request procedure as per TS 38.473 section 8.3.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Release Request message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="131" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1adacfedfd82cb7a605e887e7025568de0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__response__message" kindref="compound">f1ap_ue_context_modification_response_message</ref> &gt;</type>
+        <definition>virtual async_task&lt;f1ap_ue_context_modification_response_message&gt; srsgnb::srs_du::f1ap_ue_context_manager::handle_ue_context_modification</definition>
+        <argsstring>(const f1ap_ue_context_modification_required_message &amp;msg)=0</argsstring>
+        <name>handle_ue_context_modification</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a0c3422bc000808f4944d3d59a37cb9f4">handle_ue_context_modification</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__required__message" kindref="compound">f1ap_ue_context_modification_required_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiates the UE Context Modification Required procedure as per TS 38.473 section 8.3.5. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Modification Required message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__context__modification__response__message" kindref="compound">f1ap_ue_context_modification_response_message</ref> struct with the success member set to &apos;true&apos; in case of a successful outcome, &apos;false&apos; otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="138" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa9239a467500198a2f0df535f36cce23" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::srs_du::f1ap_ue_context_manager::handle_ue_inactivity_notification</definition>
+        <argsstring>(const f1ap_ue_inactivity_notification_message &amp;msg)=0</argsstring>
+        <name>handle_ue_inactivity_notification</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a1eb66364a3f751b77dccab453ade0ad3">handle_ue_inactivity_notification</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__ue__inactivity__notification__message" kindref="compound">f1ap_ue_inactivity_notification_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Indicate an UE activity event as per TS 38.473 section 8.3.6. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Inactivity Nofication message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="142" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa547f320e77e3c3ca09b78b477caf7d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::srs_du::f1ap_ue_context_manager::handle_notify</definition>
+        <argsstring>(const f1ap_notify_message &amp;msg)=0</argsstring>
+        <name>handle_notify</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a3abdc5dba66665fdc83bf4d294d457af">handle_notify</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1ap__notify__message" kindref="compound">f1ap_notify_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Initiate the Notify procedure as per TS 38.473 section 8.3.7. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Notify message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="146" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handle F1AP UE context management procedures as defined in TS 38.473 section 8.3. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_ue_context_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_du::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1__interface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_du::f1ap_du_impl</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_ue_context_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="122" column="1" bodyfile="include/srsgnb/f1_interface/du/f1ap_du.h" bodystart="121" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa547f320e77e3c3ca09b78b477caf7d5" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>handle_notify</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1adacfedfd82cb7a605e887e7025568de0" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>handle_ue_context_modification</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aecc8872082f5c4d57628eb413e5d83bd" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>handle_ue_context_release_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a25430477cdd2dca33dbfc64b2fd12ac7" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>handle_ue_creation_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1aa9239a467500198a2f0df535f36cce23" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>handle_ue_inactivity_notification</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager_1a57e95b83e0fad1a775878b0cd26bac70" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_ue_context_manager</scope><name>~f1ap_ue_context_manager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

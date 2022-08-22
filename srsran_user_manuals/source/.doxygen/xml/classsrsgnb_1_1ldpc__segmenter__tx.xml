@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__segmenter__tx" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_segmenter_tx</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__segmenter__impl" prot="public" virt="non-virtual">srsgnb::ldpc_segmenter_impl</derivedcompoundref>
+    <includes refid="ldpc__segmenter__tx_8h" local="no">ldpc_segmenter_tx.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__tx_1a70e0aba0ed3c3a12e56974fce954e2c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_segmenter_tx::~ldpc_segmenter_tx</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_segmenter_tx</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h" line="27" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__tx_1a3d9629affea42304538aded797e2ab06" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_segmenter_tx::segment</definition>
+        <argsstring>(static_vector&lt; described_segment, MAX_NOF_SEGMENTS &gt; &amp;described_segments, span&lt; const uint8_t &gt; transport_block, const segmenter_config &amp;cfg)=0</argsstring>
+        <name>segment</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76">segment</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1ad41ed02f6daa58503e9ea995271fac42" kindref="member">described_segment</ref>, <ref refid="namespacesrsgnb_1a64a27ddc884f4517e79d5435a337e554" kindref="member">MAX_NOF_SEGMENTS</ref> &gt; &amp;</type>
+          <declname>described_segments</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>transport_block</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Adds the CRC to the a transport block, carries out segmentation and computes all codeblock metadata for later use (encoder and rate matching). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>First, the transport block CRC is attached, as per TS38.212 Section 7.2.1. Then, the transport block is split into a number of segments and, if needed, a CRC is attached to each segment_tx. This is done according to TS38.212 Section 5.2.2. The function also computes other segment_tx metadata (e.g., coded and rate-matched length) according to TS38.212 Section 5.4.2.1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">described_segments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Segments (unpacked, one bit per entry) and corresponding metadata. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">transport_block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transport block to segment_tx (packed, one byte per entry). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters affecting splitting and codeblock metadata. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h" line="40" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Carries out the segmentation of a transport block into a number of codeblocks. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_tx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__tx"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_segmenter_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_tx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__tx"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h" line="24" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_tx.h" bodystart="23" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__tx_1a3d9629affea42304538aded797e2ab06" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_segmenter_tx</scope><name>segment</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__tx_1a70e0aba0ed3c3a12e56974fce954e2c4" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_tx</scope><name>~ldpc_segmenter_tx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

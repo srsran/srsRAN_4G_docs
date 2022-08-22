@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__encoder__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::polar_encoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1polar__encoder" prot="public" virt="non-virtual">srsgnb::polar_encoder</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1a927668d1fe2b764afe95d360408ee105" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t srsgnb::polar_encoder_impl::max_code_size_log</definition>
+        <argsstring></argsstring>
+        <name>max_code_size_log</name>
+        <briefdescription>
+<para>The <formula id="14">$ log_2$</formula> of the maximum supported number of bits of the encoder input/output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="21" column="11" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1abb2038a2d937548f8c7c2466b69b729d" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::polar_encoder_impl::max_code_size</definition>
+        <argsstring></argsstring>
+        <name>max_code_size</name>
+        <briefdescription>
+<para>Number of bits of the encoder input/output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="23" column="12" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1a4eaafb3a096b76bef0e82d2321bb686c" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::polar_encoder_impl::max_code_half_size</definition>
+        <argsstring></argsstring>
+        <name>max_code_half_size</name>
+        <briefdescription>
+<para>Half of the number of bits of the encoder input/output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="24" column="12" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="24" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" compoundref="polar__encoder__impl_8cpp" startline="29" endline="59">encode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; uint16_t &gt;</type>
+        <definition>srsvec::aligned_vec&lt;uint16_t&gt; srsgnb::polar_encoder_impl::i_even</definition>
+        <argsstring></argsstring>
+        <name>i_even</name>
+        <briefdescription>
+<para>Pointer to the even positions of the encoder input/output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="25" column="23" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="25" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" compoundref="polar__encoder__impl_8cpp" startline="29" endline="59">encode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; uint16_t &gt;</type>
+        <definition>srsvec::aligned_vec&lt;uint16_t&gt; srsgnb::polar_encoder_impl::i_odd</definition>
+        <argsstring></argsstring>
+        <name>i_odd</name>
+        <briefdescription>
+<para>Pointer to the odd positions of the encoder input/output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="26" column="23" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" compoundref="polar__encoder__impl_8cpp" startline="29" endline="59">encode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; uint8_t &gt;</type>
+        <definition>srsvec::aligned_vec&lt;uint8_t&gt; srsgnb::polar_encoder_impl::tmp</definition>
+        <argsstring></argsstring>
+        <name>tmp</name>
+        <briefdescription>
+<para>Pointer to a temporary buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="27" column="24" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" compoundref="polar__encoder__impl_8cpp" startline="29" endline="59">encode</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__encoder__impl_1aff5f05f69c9ee296c2bf09e200f872fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>polar_encoder_impl::polar_encoder_impl</definition>
+        <argsstring>(unsigned code_size_log)</argsstring>
+        <name>polar_encoder_impl</name>
+        <param>
+          <type>unsigned</type>
+          <declname>code_size_log</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="30" column="3" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.cpp" bodystart="15" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__encoder__impl_1aaccb6ee7224b99678e5afb225136a740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_encoder_impl::~polar_encoder_impl</definition>
+        <argsstring>()=default</argsstring>
+        <name>~polar_encoder_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="31" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void polar_encoder_impl::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, unsigned code_size_log) override</argsstring>
+        <name>encode</name>
+        <reimplements refid="classsrsgnb_1_1polar__encoder_1a43b8d6b4bf540202818d47bc3ec5a126">encode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>code_size_log</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encodes the input vector into a codeword with the specified polar encoder. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoder input vector. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">code_size_log</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <formula id="14">$ log_2$</formula> of the number of bits of the encoder input/output vector. It cannot be larger than the maximum code_size_log specified in q.code_size_log of the srsran_polar_encoder_t structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoder output vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="32" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.cpp" bodystart="29" bodyend="59"/>
+        <references refid="classsrsgnb_1_1polar__encoder__impl_1a4eaafb3a096b76bef0e82d2321bb686c" compoundref="polar__encoder__impl_8h" startline="24">max_code_half_size</references>
+        <references refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" compoundref="polar__encoder__impl_8h" startline="27">tmp</references>
+        <references refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" compoundref="polar__encoder__impl_8h" startline="25">i_even</references>
+        <references refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" compoundref="polar__encoder__impl_8h" startline="26">i_odd</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::polar_encoder</label>
+        <link refid="classsrsgnb_1_1polar__encoder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_encoder_impl</label>
+        <link refid="classsrsgnb_1_1polar__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>srsgnb::span&lt; uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::polar_encoder</label>
+        <link refid="classsrsgnb_1_1polar__encoder"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::srsvec::aligned_vec&lt; uint16_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::srsvec::aligned_vec&lt; uint8_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_encoder_impl</label>
+        <link refid="classsrsgnb_1_1polar__encoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-i_odd</edgelabel>
+          <edgelabel>-i_even</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-tmp</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::span&lt; uint16_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" line="19" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_encoder_impl.h" bodystart="18" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" prot="public" virt="virtual"><scope>srsgnb::polar_encoder_impl</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>i_even</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>i_odd</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1a4eaafb3a096b76bef0e82d2321bb686c" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>max_code_half_size</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1abb2038a2d937548f8c7c2466b69b729d" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>max_code_size</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1a927668d1fe2b764afe95d360408ee105" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>max_code_size_log</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1aff5f05f69c9ee296c2bf09e200f872fc" prot="public" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>polar_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" prot="private" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>tmp</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder_1a049c93ff050f15d076576e740655ac70" prot="public" virt="virtual"><scope>srsgnb::polar_encoder_impl</scope><name>~polar_encoder</name></member>
+      <member refid="classsrsgnb_1_1polar__encoder__impl_1aaccb6ee7224b99678e5afb225136a740" prot="public" virt="non-virtual"><scope>srsgnb::polar_encoder_impl</scope><name>~polar_encoder_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

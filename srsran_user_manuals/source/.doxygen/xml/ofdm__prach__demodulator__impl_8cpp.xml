@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ofdm__prach__demodulator__impl_8cpp" kind="file" language="C++">
+    <compoundname>ofdm_prach_demodulator_impl.cpp</compoundname>
+    <includes refid="ofdm__prach__demodulator__impl_8h" local="yes">ofdm_prach_demodulator_impl.h</includes>
+    <includes refid="constants_8h" local="yes">srsgnb/phy/constants.h</includes>
+    <includes refid="prach__frequency__mapping_8h" local="yes">srsgnb/ran/prach/prach_frequency_mapping.h</includes>
+    <includes refid="prach__preamble__information_8h" local="yes">srsgnb/ran/prach/prach_preamble_information.h</includes>
+    <includes refid="copy_8h" local="yes">srsgnb/srsvec/copy.h</includes>
+    <incdepgraph>
+      <node id="50">
+        <label>atomic</label>
+      </node>
+      <node id="28">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/generic_functions/dft_processor.h</label>
+        <link refid="dft__processor_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/ran/prach/prach_subcarrier_spacing.h</label>
+        <link refid="prach__subcarrier__spacing_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/support/error_handling.h</label>
+        <link refid="error__handling_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="24">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="46">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/phy/support/prach_buffer.h</label>
+        <link refid="prach__buffer_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="30">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb/ran/prach/prach_preamble_format.h</label>
+        <link refid="prach__preamble__format_8h_source"/>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>pthread.h</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="49">
+        <label>tuple</label>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="53">
+        <label>srsgnb/ran/prach/prach_frequency_mapping.h</label>
+        <link refid="prach__frequency__mapping_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/ran/prach/prach_preamble_information.h</label>
+        <link refid="prach__preamble__information_8h_source"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="23">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>cstddef</label>
+      </node>
+      <node id="39">
+        <label>chrono</label>
+      </node>
+      <node id="2">
+        <label>ofdm_prach_demodulator_impl.h</label>
+        <link refid="ofdm__prach__demodulator__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/srsvec/types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/phy/lower/modulation/ofdm_prach_demodulator.h</label>
+        <link refid="ofdm__prach__demodulator_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="45">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/lower/modulation/ofdm_prach_demodulator_impl.cpp</label>
+        <link refid="ofdm__prach__demodulator__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>srsgnb/srsvec/copy.h</label>
+        <link refid="copy_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ofdm_prach_demodulator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/constants.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/prach/prach_frequency_mapping.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/prach/prach_preamble_information.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/copy.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" kindref="member">ofdm_prach_demodulator_impl::demodulate</ref>(<ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration" kindref="compound">ofdm_prach_demodulator::configuration</ref>&amp;<sp/>config)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>srsgnb_assert(config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a4a92e2b395a9470801278d81c92d326d" kindref="member">format</ref>.<ref refid="classsrsgnb_1_1preamble__format_1afb08b63336460076b20ceff3ebf5ec08" kindref="member">is_long_preamble</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Only<sp/>PRACH<sp/>long<sp/>preamble<sp/>formats<sp/>are<sp/>implemented.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1prach__preamble__information" kindref="compound">prach_preamble_information</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preamble_info<sp/>=<sp/><ref refid="namespacesrsgnb_1a7b1cf34a338e96f95b01b1569c2cb014" kindref="member">get_prach_preamble_long_info</ref>(config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a4a92e2b395a9470801278d81c92d326d" kindref="member">format</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1prach__frequency__mapping__information" kindref="compound">prach_frequency_mapping_information</ref><sp/>freq_mapping_info<sp/>=</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a67fbfc584f45a838f893a16659889a12" kindref="member">prach_frequency_mapping_get</ref>(preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1aca9f183785e4cf0ad35575f928854b1e" kindref="member">scs</ref>,<sp/>config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1ae23c117f2330e912ada0a58f6610c2b0" kindref="member">pusch_scs</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>srsgnb_assert(freq_mapping_info.<ref refid="structsrsgnb_1_1prach__frequency__mapping__information_1adc552642e4e942ab2b6617760c422435" kindref="member">nof_rb_ra</ref><sp/>!=<sp/><ref refid="namespacesrsgnb_1a13d0955c3694d41b59a80b830b15adba" kindref="member">PRACH_FREQUENCY_MAPPING_INFORMATION_RESERVED</ref>.<ref refid="structsrsgnb_1_1prach__frequency__mapping__information_1adc552642e4e942ab2b6617760c422435" kindref="member">nof_rb_ra</ref>,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>PRACH<sp/>and<sp/>PUSCH<sp/>subcarrier<sp/>spacing<sp/>combination<sp/>resulted<sp/>in<sp/>a<sp/>reserved<sp/>configuration.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>srsgnb_assert(freq_mapping_info.<ref refid="structsrsgnb_1_1prach__frequency__mapping__information_1a01dcc8f59a579dc3753ba99397b33c69" kindref="member">k_bar</ref><sp/>!=<sp/><ref refid="namespacesrsgnb_1a13d0955c3694d41b59a80b830b15adba" kindref="member">PRACH_FREQUENCY_MAPPING_INFORMATION_RESERVED</ref>.<ref refid="structsrsgnb_1_1prach__frequency__mapping__information_1a01dcc8f59a579dc3753ba99397b33c69" kindref="member">k_bar</ref>,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>PRACH<sp/>and<sp/>PUSCH<sp/>subcarrier<sp/>spacing<sp/>combination<sp/>resulted<sp/>in<sp/>a<sp/>reserved<sp/>configuration.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1dft__processor" kindref="compound">dft_processor</ref>&amp;<sp/>dft<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1aca9f183785e4cf0ad35575f928854b1e" kindref="member">scs</ref><sp/>==<sp/>prach_subcarrier_spacing::kHz1_25)<sp/>?<sp/>*<ref refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1a85465804a9c15dcf852dd22c7cc724d9" kindref="member">dft_1_25kHz</ref><sp/>:<sp/>*<ref refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1af77925b6760159ee3242371c1827c91c" kindref="member">dft_5kHz</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prach_scs_Hz<sp/><sp/><sp/><sp/><sp/>=<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1aca9f183785e4cf0ad35575f928854b1e" kindref="member">scs</ref>.<ref refid="classsrsgnb_1_1prach__subcarrier__spacing_1a04728cf26656e0cef59be695d5b0df2c" kindref="member">to_Hz</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pusch_scs_Hz<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1a1e7bf788a6e1125670387568e03b4b89" kindref="member">scs_to_khz</ref>(config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1ae23c117f2330e912ada0a58f6610c2b0" kindref="member">pusch_scs</ref>)<sp/>*<sp/>1000;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofdm_symbol_len<sp/><sp/>=<sp/>dft.<ref refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00" kindref="member">get_size</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampling_rate_Hz<sp/>=<sp/>ofdm_symbol_len<sp/>*<sp/>prach_scs_Hz;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time_sequence_length<sp/>=<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a43681ad254b496aa14a36ce3419657db" kindref="member">symbol_length</ref>.<ref refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" kindref="member">to_samples</ref>(sampling_rate_Hz);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cyclic_prefix_length<sp/>=<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a433d320f24c22e31e614054183b08c15" kindref="member">cp_length</ref>.<ref refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" kindref="member">to_samples</ref>(sampling_rate_Hz);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_symbols<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>time_sequence_length<sp/>/<sp/>ofdm_symbol_len;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>the<sp/>input<sp/>size<sp/>matches<sp/>the<sp/>PRACH<sp/>receive<sp/>window.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>srsgnb_assert(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>&gt;=<sp/>time_sequence_length<sp/>+<sp/>cyclic_prefix_length,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>number<sp/>of<sp/>input<sp/>samples<sp/>{}<sp/>is<sp/>lesser<sp/>than<sp/>the<sp/>PRACH<sp/>receive<sp/>window<sp/>length<sp/>{}.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time_sequence_length<sp/>+<sp/>cyclic_prefix_length);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prepare<sp/>PRACH<sp/>resource<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>K<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pusch_scs_Hz<sp/>/<sp/>prach_scs_Hz;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>prach_grid_size<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a1399c2c4775b476b2fb9a53d8489b281" kindref="member">nof_prb_ul_grid</ref><sp/>*<sp/>K<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>srsgnb_assert(</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dft.<ref refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00" kindref="member">get_size</ref>()<sp/>&gt;<sp/>prach_grid_size,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;DFT<sp/>size<sp/>{}<sp/>for<sp/>PRACH<sp/>SCS<sp/>{}<sp/>is<sp/>not<sp/>sufficient<sp/>for<sp/>K={},<sp/>N_RB={}.<sp/>The<sp/>minimum<sp/>expected<sp/>DFT<sp/>size<sp/>is<sp/>{}.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dft.<ref refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00" kindref="member">get_size</ref>(),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prach_scs_Hz,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>K,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a1399c2c4775b476b2fb9a53d8489b281" kindref="member">nof_prb_ul_grid</ref>,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prach_grid_size);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>initial<sp/>subcarrier.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>k_start<sp/>=<sp/>K<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref><sp/>*<sp/>config.<ref refid="structsrsgnb_1_1ofdm__prach__demodulator_1_1configuration_1a6bd5da56d28344d19dff0e81adf008d5" kindref="member">rb_offset</ref><sp/>+<sp/>freq_mapping_info.<ref refid="structsrsgnb_1_1prach__frequency__mapping__information_1a01dcc8f59a579dc3753ba99397b33c69" kindref="member">k_bar</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>srsgnb_assert(k_start<sp/>+<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref><sp/>&lt;<sp/>prach_grid_size,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Start<sp/>subcarrier<sp/>{}<sp/>plus<sp/>sequence<sp/>length<sp/>{}<sp/>exceeds<sp/>PRACH<sp/>grid<sp/>size<sp/>{}.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>k_start,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref>,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prach_grid_size);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>cyclic<sp/>prefix.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>input<sp/>=<sp/>input.<ref refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" kindref="member">last</ref>(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>-<sp/>cyclic_prefix_length);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Process<sp/>each<sp/>PRACH<sp/>symbol.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol<sp/>=<sp/>0;<sp/>symbol<sp/>!=<sp/>nof_symbols;<sp/>++symbol)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Load<sp/>symbol<sp/>time-domain<sp/>in<sp/>the<sp/>DFT.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>srsvec::copy(dft.<ref refid="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de" kindref="member">get_input</ref>(),<sp/>input.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(ofdm_symbol_len));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>DFT.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>dft_output<sp/>=<sp/>dft.<ref refid="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>destination<sp/>PRACH<sp/>symbol<sp/>in<sp/>the<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/>prach_symbol<sp/>=<sp/>buffer.<ref refid="classsrsgnb_1_1prach__buffer_1a750234bb9365a62b88e2bd1ba09ad354" kindref="member">get_symbol</ref>(symbol);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>views<sp/>of<sp/>the<sp/>lower<sp/>and<sp/>upper<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>lower_grid<sp/>=<sp/>dft_output.<ref refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" kindref="member">last</ref>(prach_grid_size<sp/>/<sp/>2);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>upper_grid<sp/>=<sp/>dft_output.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(prach_grid_size<sp/>/<sp/>2);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>sequence<sp/>map<sp/>starts<sp/>at<sp/>the<sp/>lower<sp/>half<sp/>of<sp/>the<sp/>frequency<sp/>band.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(k_start<sp/>&lt;<sp/>prach_grid_size<sp/>/<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>subcarrier<sp/>to<sp/>fill<sp/>in<sp/>the<sp/>lower<sp/>half<sp/>of<sp/>the<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>std::min(prach_grid_size<sp/>/<sp/>2<sp/>-<sp/>k_start,<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Copy<sp/>first<sp/>N<sp/>subcarriers<sp/>of<sp/>the<sp/>sequence<sp/>in<sp/>the<sp/>lower<sp/>half<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srsvec::copy(prach_symbol.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(N),<sp/>lower_grid.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(k_start,<sp/>N));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Copy<sp/>the<sp/>remainder<sp/>of<sp/>the<sp/>sequence<sp/>in<sp/>the<sp/>upper<sp/>half<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srsvec::copy(prach_symbol.<ref refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" kindref="member">last</ref>(preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref><sp/>-<sp/>N),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upper_grid.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref><sp/>-<sp/>N));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Copy<sp/>the<sp/>sequence<sp/>in<sp/>the<sp/>upper<sp/>half<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srsvec::copy(prach_symbol,<sp/>upper_grid.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(k_start<sp/>-<sp/>prach_grid_size<sp/>/<sp/>2,<sp/>preamble_info.<ref refid="structsrsgnb_1_1prach__preamble__information_1a9d6a1cc3d5a364b7fd8c186a770eabf2" kindref="member">sequence_length</ref>));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Advance<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>input<sp/>=<sp/>input.<ref refid="classsrsgnb_1_1span_1acb878c9e21d2f073cad3b36e19463ec8" kindref="member">last</ref>(input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>-<sp/>ofdm_symbol_len);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/lower/modulation/ofdm_prach_demodulator_impl.cpp"/>
+  </compounddef>
+</doxygen>

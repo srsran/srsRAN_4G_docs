@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__processor__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::prach_processor_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1prach__processor" prot="public" virt="non-virtual">srsgnb::prach_processor</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1prach__processor__baseband" prot="private" virt="non-virtual">srsgnb::prach_processor_baseband</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1prach__processor__request__handler" prot="private" virt="non-virtual">srsgnb::prach_processor_request_handler</basecompoundref>
+    <includes refid="prach__processor__impl_8h" local="no">prach_processor_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__impl_1a590277345c8aae67987fd7997d3ae089" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1prach__processor__worker" kindref="compound">prach_processor_worker</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;prach_processor_worker&gt; &gt; srsgnb::prach_processor_impl::workers</definition>
+        <argsstring></argsstring>
+        <name>workers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="30" column="15" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1prach__processor__impl_1a73a9660bdc0d8e02336d321404856842" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> *</type>
+        <definition>prach_processor_notifier* srsgnb::prach_processor_impl::notifier</definition>
+        <argsstring></argsstring>
+        <name>notifier</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="31" column="55" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1a6caa02af337a7295edfb708f26fc963f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::prach_processor_impl::handle_request</definition>
+        <argsstring>(prach_buffer &amp;buffer, const prach_buffer_context &amp;context) override</argsstring>
+        <name>handle_request</name>
+        <reimplements refid="classsrsgnb_1_1prach__processor__request__handler_1a21d0cb026bd9f6381d3a51bef2e3b143">handle_request</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Handles a new PRACH request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The PRACH buffer and context provided to this method are forwarded to a dedicated block that takes care of the request asynchronously. A notification through the <ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> interface will inform the client that the request has been processed and that the PRACH demodulated sequence is available in <computeroutput>buffer</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination PRACH buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="34" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="34" bodyend="50"/>
+        <references refid="classsrsgnb_1_1prach__processor__notifier_1aee837503cafd24478d982dbbb5b6a073">srsgnb::prach_processor_notifier::on_prach_request_overflow</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1affeb2e72ae314dc2dd9d6ac87e9a7c17" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::prach_processor_impl::process_symbol</definition>
+        <argsstring>(span&lt; const cf_t &gt; samples, const symbol_context &amp;context) override</argsstring>
+        <name>process_symbol</name>
+        <reimplements refid="classsrsgnb_1_1prach__processor__baseband_1aff583eea93a3b4b52269d97dafabc887">process_symbol</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__processor__baseband_1_1symbol__context" kindref="compound">symbol_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Processes a baseband OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Baseband samples to process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM Symbol context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="53" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="53" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1a9da3ee654e611f70d0e016be3266fa48" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::prach_processor_impl::prach_processor_impl</definition>
+        <argsstring>(std::vector&lt; std::unique_ptr&lt; prach_processor_worker &gt;&gt; &amp;&amp;workers_)</argsstring>
+        <name>prach_processor_impl</name>
+        <param>
+          <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1prach__processor__worker" kindref="compound">prach_processor_worker</ref> &gt;&gt; &amp;&amp;</type>
+          <declname>workers_</declname>
+        </param>
+        <briefdescription>
+<para>Creates a PRACH processor containing workers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="64" column="12" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="64" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1ad2e176e6da0fbb6392dffb0f4131d817" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::prach_processor_impl::connect</definition>
+        <argsstring>(prach_processor_notifier &amp;notifier_) override</argsstring>
+        <name>connect</name>
+        <reimplements refid="classsrsgnb_1_1prach__processor_1a7e985982665431ef6565b89a0b638562">connect</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> &amp;</type>
+          <declname>notifier</declname>
+        </param>
+        <briefdescription>
+<para>Connects the PRACH processor with a notifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="74" column="8" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1a268a0a81505df2ae8cf9a88288b2727c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1prach__processor__request__handler" kindref="compound">prach_processor_request_handler</ref> &amp;</type>
+        <definition>prach_processor_request_handler&amp; srsgnb::prach_processor_impl::get_request_handler</definition>
+        <argsstring>() override</argsstring>
+        <name>get_request_handler</name>
+        <reimplements refid="classsrsgnb_1_1prach__processor_1a075b82d3fb2a30986ac1e1b2410989dd">get_request_handler</reimplements>
+        <briefdescription>
+<para>Gets the PRACH processor request handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A reference to the internal PRACH processor request handler. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="83" column="35" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="83" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__impl_1adfa4e5c71bc38663d5714899c596e8ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1prach__processor__baseband" kindref="compound">prach_processor_baseband</ref> &amp;</type>
+        <definition>prach_processor_baseband&amp; srsgnb::prach_processor_impl::get_baseband</definition>
+        <argsstring>() override</argsstring>
+        <name>get_baseband</name>
+        <reimplements refid="classsrsgnb_1_1prach__processor_1a3958e5f29f99f25ddc85aa595498801d">get_baseband</reimplements>
+        <briefdescription>
+<para>Gets the PRACH processor baseband interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A reference to the internal PRACH processor baseband interface. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="90" column="28" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="90" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PRACH processor implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Acts as a PRACH processor worker pool which assigns the PRACH occasion requests to the first available worker. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::prach_processor</label>
+        <link refid="classsrsgnb_1_1prach__processor"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::prach_processor_baseband</label>
+        <link refid="classsrsgnb_1_1prach__processor__baseband"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::prach_processor_request_handler</label>
+        <link refid="classsrsgnb_1_1prach__processor__request__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::prach_processor_impl</label>
+        <link refid="classsrsgnb_1_1prach__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::prach_processor</label>
+        <link refid="classsrsgnb_1_1prach__processor"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::prach_processor_baseband</label>
+        <link refid="classsrsgnb_1_1prach__processor__baseband"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::prach_processor_request_handler</label>
+        <link refid="classsrsgnb_1_1prach__processor__request__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::prach_processor_impl</label>
+        <link refid="classsrsgnb_1_1prach__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::prach_processor_notifier</label>
+        <link refid="classsrsgnb_1_1prach__processor__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/processors/prach/prach_processor_impl.h" line="28" column="1" bodyfile="lib/phy/lower/processors/prach/prach_processor_impl.h" bodystart="25" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1ad2e176e6da0fbb6392dffb0f4131d817" prot="public" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>connect</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1adfa4e5c71bc38663d5714899c596e8ae" prot="public" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>get_baseband</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1a268a0a81505df2ae8cf9a88288b2727c" prot="public" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>get_request_handler</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1a6caa02af337a7295edfb708f26fc963f" prot="private" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>handle_request</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1a73a9660bdc0d8e02336d321404856842" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_impl</scope><name>notifier</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1a9da3ee654e611f70d0e016be3266fa48" prot="public" virt="non-virtual"><scope>srsgnb::prach_processor_impl</scope><name>prach_processor_impl</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1affeb2e72ae314dc2dd9d6ac87e9a7c17" prot="private" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>process_symbol</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__impl_1a590277345c8aae67987fd7997d3ae089" prot="private" virt="non-virtual"><scope>srsgnb::prach_processor_impl</scope><name>workers</name></member>
+      <member refid="classsrsgnb_1_1prach__processor_1a7dbb65aca0ecec2840d772c5fbf9f5b7" prot="public" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>~prach_processor</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__baseband_1a3ecd01cd5eef45a2de6fb383ae778aa6" prot="private" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>~prach_processor_baseband</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__request__handler_1a9f74eb59b9728d5e6b55ee9a60a1b50d" prot="private" virt="virtual"><scope>srsgnb::prach_processor_impl</scope><name>~prach_processor_request_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

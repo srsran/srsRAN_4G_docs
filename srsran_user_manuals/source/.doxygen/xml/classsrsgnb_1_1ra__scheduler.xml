@@ -1,0 +1,754 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ra__scheduler" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ra_scheduler</compoundname>
+    <includes refid="ra__scheduler_8h" local="no">ra_scheduler.h</includes>
+    <innerclass refid="structsrsgnb_1_1ra__scheduler_1_1msg3__alloc__candidate" prot="private">srsgnb::ra_scheduler::msg3_alloc_candidate</innerclass>
+    <innerclass refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3" prot="private">srsgnb::ra_scheduler::pending_msg3</innerclass>
+    <innerclass refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" prot="private">srsgnb::ra_scheduler::pending_rar_t</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1adb24c651667acdb51d326c384654f3f5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::ra_scheduler::MAX_MSG3_LIST</definition>
+        <argsstring></argsstring>
+        <name>MAX_MSG3_LIST</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+<para>Implementation-defined limit for maximum Msg3s to be allocated in a given RAR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="36" column="27" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1adbf15d9756db8db431a332414711b3b4" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::ra_scheduler::MAX_NOF_MSG3</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_MSG3</name>
+        <initializer>= 1024</initializer>
+        <briefdescription>
+<para>Implementation-defined limit for maximum number of concurrent Msg3s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="38" column="27" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ra__scheduler_1aa7f5ee78860e7768890012a950bb289c" compoundref="ra__scheduler_8cpp" startline="320" endline="410">fill_rar_grant</referencedby>
+        <referencedby refid="classsrsgnb_1_1ra__scheduler_1a94702d805bb68afd2e7b87e0cd192ba2" compoundref="ra__scheduler_8cpp" startline="418" endline="433">log_rar_helper</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1ac5563a7027dc3f59f4e1b3a058f048ad" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+        <definition>const cell_configuration&amp; srsgnb::ra_scheduler::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="93" column="28" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1ab5dc1c04f8ba70c50d390a0cff0b390f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1pdcch__scheduler" kindref="compound">pdcch_scheduler</ref> &amp;</type>
+        <definition>pdcch_scheduler&amp; srsgnb::ra_scheduler::pdcch_sch</definition>
+        <argsstring></argsstring>
+        <name>pdcch_sch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="94" column="28" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1a9468e64c15bd46f1381b3e40092b03a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::ra_scheduler::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <initializer>= srslog::fetch_basic_logger(&quot;MAC&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="97" column="24" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1a90221d222617b8db2b9eddbf9e77d67b" prot="private" static="no" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::ra_scheduler::ra_win_nof_slots</definition>
+        <argsstring></argsstring>
+        <name>ra_win_nof_slots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="98" column="25" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1a82ccddb3d979f6523956de800a31d647" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1bwp__configuration" kindref="compound">bwp_configuration</ref></type>
+        <definition>bwp_configuration srsgnb::ra_scheduler::initial_active_dl_bwp</definition>
+        <argsstring></argsstring>
+        <name>initial_active_dl_bwp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="99" column="25" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1afe7b8341c30467df5381ea21b37b8986" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__event__list" kindref="compound">slot_event_list</ref>&lt; <ref refid="structsrsgnb_1_1rach__indication__message" kindref="compound">rach_indication_message</ref> &gt;</type>
+        <definition>slot_event_list&lt;rach_indication_message&gt; srsgnb::ra_scheduler::pending_rachs</definition>
+        <argsstring></argsstring>
+        <name>pending_rachs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="102" column="19" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1ab396c51da5f619803bd3d8c86b362b9b" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; <ref refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" kindref="compound">pending_rar_t</ref> &gt;</type>
+        <definition>std::deque&lt;pending_rar_t&gt; srsgnb::ra_scheduler::pending_rars</definition>
+        <argsstring></argsstring>
+        <name>pending_rars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="103" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ra__scheduler_1aacc85620cfb52b0f77d8bb801b803570" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3" kindref="compound">pending_msg3</ref> &gt;</type>
+        <definition>std::vector&lt;pending_msg3&gt; srsgnb::ra_scheduler::pending_msg3s</definition>
+        <argsstring></argsstring>
+        <name>pending_msg3s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="104" column="30" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1aefb99d44ba7369e158a7b3f758dffad9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ra_scheduler::ra_scheduler</definition>
+        <argsstring>(const cell_configuration &amp;cfg_, pdcch_scheduler &amp;pdcch_sched_)</argsstring>
+        <name>ra_scheduler</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+          <declname>cfg_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pdcch__scheduler" kindref="compound">pdcch_scheduler</ref> &amp;</type>
+          <declname>pdcch_sched_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="41" column="12" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="52" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a458acf6cb413052be3cfa62d81d67387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::handle_rach_indication</definition>
+        <argsstring>(const rach_indication_message &amp;msg)</argsstring>
+        <name>handle_rach_indication</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rach__indication__message" kindref="compound">rach_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enqueue RACH indication <simplesect kind="remark"><para>See TS 38.321, 5.1.3 - RAP transmission. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="45" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a218ba7f4d2fe7d8d8f3f6b6e8eb82066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::run_slot</definition>
+        <argsstring>(cell_resource_allocator &amp;res_alloc)</argsstring>
+        <name>run_slot</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+          <declname>res_alloc</declname>
+        </param>
+        <briefdescription>
+<para>Allocate pending RARs + Msg3s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="48" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="139" bodyend="225"/>
+        <references refid="structsrsgnb_1_1cell__resource__allocator_1a349d7be901f4a276bd9f45b0811be3a4" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="229" endline="229">srsgnb::cell_resource_allocator::slot_tx</references>
+        <references refid="classsrsgnb_1_1cell__configuration_1ae70e713efb04880a3c22b81ff8a23208" compoundref="lib_2scheduler_2cell_2cell__configuration_8h" startline="60" endline="65">srsgnb::cell_configuration::is_dl_enabled</references>
+        <references refid="structsrsgnb_1_1pdcch__config__common_1ade67a3376dc53058290c2f3af227b5e3" compoundref="bwp__configuration_8h" startline="93">srsgnb::pdcch_config_common::ra_search_space_id</references>
+        <references refid="namespacesrsgnb_1a5bcb84db93ea7deff3c22938b2567a25" compoundref="pdcch__config__helpers_8h" startline="25" endline="36">srsgnb::is_pdcch_monitoring_active</references>
+        <references refid="structsrsgnb_1_1pdcch__config__common_1a39db8799331983e1abf5abab0a37425c" compoundref="bwp__configuration_8h" startline="88">srsgnb::pdcch_config_common::search_spaces</references>
+        <references refid="namespacesrsgnb_1ad4f660af5791f7af81a8de014e465019" compoundref="config__helpers_8h" startline="20" endline="27">srsgnb::get_pusch_time_domain_resource_table</references>
+        <references refid="namespacesrsgnb_1a890506b2184eacc8a9091b7349eda0bf" compoundref="ra__scheduler_8cpp" startline="21" endline="35">srsgnb::get_msg3_delay</references>
+        <references refid="classsrsgnb_1_1interval_1ac280e002d3db0cc5815bf63dbc770955" compoundref="interval_8h" startline="99" endline="99">srsgnb::interval&lt; T &gt;::contains</references>
+        <references refid="classsrsgnb_1_1ra__scheduler_1aa3f2f6f48a91de48e48819b317045439" compoundref="ra__scheduler_8cpp" startline="227" endline="318">schedule_rar</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1aa8c053c654e0187a85c4cdf9778b1ff5" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1bwp__configuration" kindref="compound">bwp_configuration</ref> &amp;</type>
+        <definition>const bwp_configuration&amp; srsgnb::ra_scheduler::get_dl_bwp_cfg</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dl_bwp_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="67" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a92de44fde0d2ca76a949cbb6f95cc5c4" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1pdsch__config__common" kindref="compound">pdsch_config_common</ref> &amp;</type>
+        <definition>const pdsch_config_common&amp; srsgnb::ra_scheduler::get_pdsch_cfg</definition>
+        <argsstring>() const</argsstring>
+        <name>get_pdsch_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="68" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a15aa4f6c10ded54bcd0f5e46f7ede145" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1bwp__configuration" kindref="compound">bwp_configuration</ref> &amp;</type>
+        <definition>const bwp_configuration&amp; srsgnb::ra_scheduler::get_ul_bwp_cfg</definition>
+        <argsstring>() const</argsstring>
+        <name>get_ul_bwp_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="69" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a546df67ab8d6278183e3bc1d3808408c" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1pusch__config__common" kindref="compound">pusch_config_common</ref> &amp;</type>
+        <definition>const pusch_config_common&amp; srsgnb::ra_scheduler::get_pusch_cfg</definition>
+        <argsstring>() const</argsstring>
+        <name>get_pusch_cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="70" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1aa329a71c7e50939db8df2d094050b365" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ra_scheduler::handle_rach_indication_impl</definition>
+        <argsstring>(const rach_indication_message &amp;msg)</argsstring>
+        <name>handle_rach_indication_impl</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rach__indication__message" kindref="compound">rach_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="72" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="74" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1ac42122dd4d9e1c2580ebae2beb32a4e3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::log_postponed_rar</definition>
+        <argsstring>(const pending_rar_t &amp;rar, const char *cause_str) const</argsstring>
+        <name>log_postponed_rar</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" kindref="compound">pending_rar_t</ref> &amp;</type>
+          <declname>rar</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>cause_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="74" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="412" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a40d8f41a27ea91d799f4e5e2877aaba5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::log_rars</definition>
+        <argsstring>(const cell_resource_allocator &amp;res_alloc) const</argsstring>
+        <name>log_rars</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+          <declname>res_alloc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="75" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="435" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1a94702d805bb68afd2e7b87e0cd192ba2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::log_rar_helper</definition>
+        <argsstring>(fmt::memory_buffer &amp;fmtbuf, const rar_information &amp;rar) const</argsstring>
+        <name>log_rar_helper</name>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>fmtbuf</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rar__information" kindref="compound">rar_information</ref> &amp;</type>
+          <declname>rar</declname>
+        </param>
+        <briefdescription>
+<para>Helper to log single RAR grant. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="76" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="418" bodyend="433"/>
+        <references refid="structsrsgnb_1_1pdcch__dl__information_1a0fff3781f4ea2a6c31cd8d8caf1302ad" compoundref="scheduler__slot__handler_8h" startline="103">srsgnb::pdcch_dl_information::ctx</references>
+        <references refid="structsrsgnb_1_1dci__dl__context__information_1a106400b42c3d9db75aafe6791fa8acfd" compoundref="scheduler__slot__handler_8h" startline="83">srsgnb::dci_dl_context_information::rnti</references>
+        <references refid="classsrsgnb_1_1ra__scheduler_1adbf15d9756db8db431a332414711b3b4" compoundref="ra__scheduler_8h" startline="38">MAX_NOF_MSG3</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1aa3f2f6f48a91de48e48819b317045439" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned ra_scheduler::schedule_rar</definition>
+        <argsstring>(const pending_rar_t &amp;rar, cell_resource_allocator &amp;res_alloc)</argsstring>
+        <name>schedule_rar</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" kindref="compound">pending_rar_t</ref> &amp;</type>
+          <declname>rar</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+          <declname>res_alloc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find and allocate DL and UL resources for pending RAR and associated Msg3 grants. <simplesect kind="return"><para>The number of allocated Msg3 grants. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="80" column="12" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="227" bodyend="318"/>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a8724d6f3f22a6c17ae31694f3b528153" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="181">srsgnb::cell_slot_resource_allocator::result</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a4fbc52d52b7913aeb1c98bde41727557" compoundref="scheduler__slot__handler_8h" startline="231">srsgnb::dl_sched_result::rar_grants</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a3b8afa3e317da218903a0ce0013aecf9" compoundref="scheduler__slot__handler_8h" startline="222">srsgnb::dl_sched_result::dl_pdcchs</references>
+        <references refid="structsrsgnb_1_1pdsch__config__common_1a9ae93edd088068b36ce29029781ed84b" compoundref="bwp__configuration_8h" startline="133">srsgnb::pdsch_config_common::pdsch_td_alloc_list</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1af1df59d8b7ca78390815806e0a552d8e" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="184">srsgnb::cell_slot_resource_allocator::dl_res_grid</references>
+        <references refid="classsrsgnb_1_1cell__slot__resource__grid_1a987bac26435410ebf28670b492e71123" compoundref="resource__grid_8cpp" startline="130" endline="134">srsgnb::cell_slot_resource_grid::used_crbs</references>
+        <references refid="namespacesrsgnb_1a7c24c2d559727ab4fb6e0e4db881f0b4" compoundref="rb__find__algorithm_8h" startline="44" endline="62">srsgnb::find_empty_interval_of_length</references>
+        <references refid="classsrsgnb_1_1interval_1afaa426e56c4e96208758552d97a7b43c" compoundref="interval_8h" startline="45" endline="45">srsgnb::interval&lt; T &gt;::length</references>
+        <references refid="namespacesrsgnb_1ad4f660af5791f7af81a8de014e465019" compoundref="config__helpers_8h" startline="20" endline="27">srsgnb::get_pusch_time_domain_resource_table</references>
+        <references refid="namespacesrsgnb_1a890506b2184eacc8a9091b7349eda0bf" compoundref="ra__scheduler_8cpp" startline="21" endline="35">srsgnb::get_msg3_delay</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a05be11a3c949d1b681c5221c7254c79d" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="178">srsgnb::cell_slot_resource_allocator::slot</references>
+        <references refid="structsrsgnb_1_1ul__sched__result_1ac88b1e019615e31f6add6d928d7bf464" compoundref="scheduler__slot__handler_8h" startline="267">srsgnb::ul_sched_result::puschs</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1ae2c31e191e96a239397221f0a5a1ff4f" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="187">srsgnb::cell_slot_resource_allocator::ul_res_grid</references>
+        <references refid="classsrsgnb_1_1interval_1a04b106d6ce5ebfe0b68bc8abe6a2f5ec" compoundref="interval_8h" startline="66" endline="70">srsgnb::interval&lt; T &gt;::resize</references>
+        <referencedby refid="classsrsgnb_1_1ra__scheduler_1a218ba7f4d2fe7d8d8f3f6b6e8eb82066" compoundref="ra__scheduler_8cpp" startline="139" endline="225">run_slot</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ra__scheduler_1aa7f5ee78860e7768890012a950bb289c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ra_scheduler::fill_rar_grant</definition>
+        <argsstring>(cell_resource_allocator &amp;res_alloc, const pending_rar_t &amp;pending_rar, crb_interval rar_crbs, span&lt; const msg3_alloc_candidate &gt; msg3_candidates)</argsstring>
+        <name>fill_rar_grant</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+          <declname>res_alloc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" kindref="compound">pending_rar_t</ref> &amp;</type>
+          <declname>pending_rar</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+          <declname>rar_crbs</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1ra__scheduler_1_1msg3__alloc__candidate" kindref="compound">msg3_alloc_candidate</ref> &gt;</type>
+          <declname>msg3_candidates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedule RAR grant and associated Msg3 grants in the provided scheduling resources. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>res_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cell Resource Allocator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pending RAR with an associated RA-RNTI that is going to be scheduled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rar_crbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CRBs of the RAR to be scheduled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg3_candidates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of Msg3s with respective resource information (e.g. RBs and symbols) to allocate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="87" column="8" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.cpp" bodystart="320" bodyend="410"/>
+        <references refid="structsrsgnb_1_1pdsch__config__common_1a9ae93edd088068b36ce29029781ed84b" compoundref="bwp__configuration_8h" startline="133">srsgnb::pdsch_config_common::pdsch_td_alloc_list</references>
+        <references refid="namespacesrsgnb_1adaef08fc34c2214394a362de4f1182bc" compoundref="bwp__helpers_8h" startline="44" endline="51">srsgnb::crb_to_prb</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a8724d6f3f22a6c17ae31694f3b528153" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="181">srsgnb::cell_slot_resource_allocator::result</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a3b8afa3e317da218903a0ce0013aecf9" compoundref="scheduler__slot__handler_8h" startline="222">srsgnb::dl_sched_result::dl_pdcchs</references>
+        <references refid="structsrsgnb_1_1pdcch__dl__information_1aa4376bf19e46fb9eafb348de9fc6a52b" compoundref="scheduler__slot__handler_8h" startline="105">srsgnb::pdcch_dl_information::dci</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1acba9ef194160776a49afd7feca63dca0" compoundref="dci__packing_8h" startline="96">srsgnb::dci_1_0_ra_rnti_configuration::N_rb_dl_bwp</references>
+        <references refid="structsrsgnb_1_1bwp__configuration_1af8ceaeaae0eccfbacd463cfc855e28d1" compoundref="bwp__configuration_8h" startline="112">srsgnb::bwp_configuration::crbs</references>
+        <references refid="classsrsgnb_1_1interval_1afaa426e56c4e96208758552d97a7b43c" compoundref="interval_8h" startline="45" endline="45">srsgnb::interval&lt; T &gt;::length</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1aae1e821d0357c41c254d1f4cd72506f0" compoundref="dci__packing_8h" startline="99">srsgnb::dci_1_0_ra_rnti_configuration::frequency_resource</references>
+        <references refid="namespacesrsgnb_1aede2872e435490d81f52241b47f934a5" compoundref="resource__allocation__frequency_8cpp" startline="17" endline="26">srsgnb::ra_frequency_type1_get_riv</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1a9cf11a883c741540be4f3ad67b9a7567" compoundref="dci__packing_8h" startline="101">srsgnb::dci_1_0_ra_rnti_configuration::time_resource</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1a56917eb7d59f37c3bd6d6a138d075bec" compoundref="dci__packing_8h" startline="103">srsgnb::dci_1_0_ra_rnti_configuration::vrb_to_prb_mapping</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1ac395c86cd70487b6e58848370d5b93f6" compoundref="dci__packing_8h" startline="105">srsgnb::dci_1_0_ra_rnti_configuration::modulation_coding_scheme</references>
+        <references refid="structsrsgnb_1_1dci__1__0__ra__rnti__configuration_1a564e29c8e1a7112de70662426b7b6525" compoundref="dci__packing_8h" startline="108">srsgnb::dci_1_0_ra_rnti_configuration::tb_scaling</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1af1df59d8b7ca78390815806e0a552d8e" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="184">srsgnb::cell_slot_resource_allocator::dl_res_grid</references>
+        <references refid="classsrsgnb_1_1cell__slot__resource__grid_1abf35ef94e4fda289536095561faded14" compoundref="resource__grid_8cpp" startline="110" endline="116">srsgnb::cell_slot_resource_grid::fill</references>
+        <references refid="structsrsgnb_1_1dl__sched__result_1a4fbc52d52b7913aeb1c98bde41727557" compoundref="scheduler__slot__handler_8h" startline="231">srsgnb::dl_sched_result::rar_grants</references>
+        <references refid="structsrsgnb_1_1pdcch__dl__information_1a0fff3781f4ea2a6c31cd8d8caf1302ad" compoundref="scheduler__slot__handler_8h" startline="103">srsgnb::pdcch_dl_information::ctx</references>
+        <references refid="structsrsgnb_1_1dci__dl__context__information_1a106400b42c3d9db75aafe6791fa8acfd" compoundref="scheduler__slot__handler_8h" startline="83">srsgnb::dci_dl_context_information::rnti</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1a359ca9ef3e308169802b324e4c1c8296" compoundref="scheduler__slot__handler_8h" startline="127">srsgnb::pdsch_codeword::mcs_table</references>
+        <references refid="namespacesrsgnb_1a21ef16d6a637e18275f487d9e9d6934eafe97d5927e34d78b68330ae92f2773cb">srsgnb::qam64</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1a71ab8ab9e68f088d280d2d4f96b28091" compoundref="scheduler__slot__handler_8h" startline="125">srsgnb::pdsch_codeword::mcs_index</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1a0ab5fcd8dc9e596260bf8809f1a2b43a" compoundref="scheduler__slot__handler_8h" startline="129">srsgnb::pdsch_codeword::rv_index</references>
+        <references refid="namespacesrsgnb_1a3e9b74a378fe34278fcb9800bad5194d" compoundref="pdsch__mcs_8cpp" startline="16" endline="70">srsgnb::pdsch_mcs_get_config</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1ab63b5e2c849b3732ecb650fd1e203cb3" compoundref="scheduler__slot__handler_8h" startline="122">srsgnb::pdsch_codeword::qam_mod</references>
+        <references refid="structsrsgnb_1_1sch__mcs__description_1a27b873fa09cae4d03163fc6073c358c1" compoundref="sch__mcs_8h" startline="27">srsgnb::sch_mcs_description::modulation</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1ad6b4fac257c496c94be162da554c7dfa" compoundref="scheduler__slot__handler_8h" startline="120">srsgnb::pdsch_codeword::target_code_rate</references>
+        <references refid="structsrsgnb_1_1sch__mcs__description_1a8fb74b1f181ee52ebe29476f78f964e8" compoundref="sch__mcs_8h" startline="29">srsgnb::sch_mcs_description::target_code_rate</references>
+        <references refid="structsrsgnb_1_1pdsch__codeword_1aa8560f6d98a0f35cb27a6093b69fe67e" compoundref="scheduler__slot__handler_8h" startline="131">srsgnb::pdsch_codeword::tb_size_bytes</references>
+        <references refid="namespacesrsgnb_1a4c96541c857fc1232a058629534d341e" compoundref="dmrs__helpers_8h" startline="41" endline="79">srsgnb::make_dmrs_info_common</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="structsrsgnb_1_1pusch__config__common_1a605245abaef61a7bf04b5ff774e7f0b9" compoundref="bwp__configuration_8h" startline="187">srsgnb::pusch_config_common::pusch_td_alloc_list</references>
+        <references refid="namespacesrsgnb_1a890506b2184eacc8a9091b7349eda0bf" compoundref="ra__scheduler_8cpp" startline="21" endline="35">srsgnb::get_msg3_delay</references>
+        <references refid="classsrsgnb_1_1ra__scheduler_1adbf15d9756db8db431a332414711b3b4" compoundref="ra__scheduler_8h" startline="38">MAX_NOF_MSG3</references>
+        <references refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3_1a532255393e9e615ed1d5c34b2defda69" compoundref="ra__scheduler_8h" startline="60">srsgnb::ra_scheduler::pending_msg3::harq</references>
+        <references refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" compoundref="harq__process_8h" startline="48" endline="51">srsgnb::harq_process::empty</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61391ed7d44d3aae421439e8aad97e39" compoundref="phy__time__unit_8h" startline="103" endline="106">srsgnb::phy_time_unit::to_Ta</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1ae2c31e191e96a239397221f0a5a1ff4f" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="187">srsgnb::cell_slot_resource_allocator::ul_res_grid</references>
+        <references refid="structsrsgnb_1_1ul__sched__result_1ac88b1e019615e31f6add6d928d7bf464" compoundref="scheduler__slot__handler_8h" startline="267">srsgnb::ul_sched_result::puschs</references>
+        <references refid="classsrsgnb_1_1ul__harq__process_1adf213efc4c2782c0320adaf717a2ac39" compoundref="harq__process_8cpp" startline="139" endline="142">srsgnb::ul_harq_process::new_tx</references>
+        <references refid="structsrsgnb_1_1cell__slot__resource__allocator_1a05be11a3c949d1b681c5221c7254c79d" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="178">srsgnb::cell_slot_resource_allocator::slot</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Scheduler for PRACH occasions, RAR PDSCHs and Msg3 PUSCH grants. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="14">
+        <label>srsgnb::bounded_integer&lt; uint8_t, 0, 23 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::optional&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="3">
+        <label>T</label>
+      </node>
+      <node id="12">
+        <label>srsgnb::ssb_configuration</label>
+        <link refid="structsrsgnb_1_1ssb__configuration"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>+k_ssb</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>+offset_to_point_A</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::crb_interval</label>
+        <link refid="structsrsgnb_1_1crb__interval"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>srsgnb::frequency_info_ul</label>
+        <link refid="structsrsgnb_1_1frequency__info__ul"/>
+      </node>
+      <node id="30">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="29">
+        <label>srsgnb::optional&lt; srsgnb::coreset_configuration &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::optional&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb::bwp_downlink_common</label>
+        <link refid="structsrsgnb_1_1bwp__downlink__common"/>
+        <childnode refid="27" relation="usage">
+          <edgelabel>+pdsch_common</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>+pdcch_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb::pdcch_config_common</label>
+        <link refid="structsrsgnb_1_1pdcch__config__common"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>+coreset0</edgelabel>
+          <edgelabel>+common_coreset</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::bwp_uplink_common</label>
+        <link refid="structsrsgnb_1_1bwp__uplink__common"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+generic_params</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>+pusch_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+rach_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb::ssb_offset_to_pointA</label>
+        <link refid="classsrsgnb_1_1ssb__offset__to__pointA"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::interval&lt; unsigned &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+      </node>
+      <node id="25">
+        <label>srsgnb::frequency_info_dl</label>
+        <link refid="structsrsgnb_1_1frequency__info__dl"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::cell_configuration</label>
+        <link refid="classsrsgnb_1_1cell__configuration"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+tdd_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>+dl_carrier</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>+ssb_cfg</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>+ul_cfg_common</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>+dl_cfg_common</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::tdd_ul_dl_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="32">
+        <label>srsgnb::pdcch_scheduler</label>
+        <link refid="classsrsgnb_1_1pdcch__scheduler"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::carrier_configuration</label>
+        <link refid="structsrsgnb_1_1carrier__configuration"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::dl_config_common</label>
+        <link refid="structsrsgnb_1_1dl__config__common"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>+freq_info_dl</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>+init_dl_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::ul_config_common</label>
+        <link refid="structsrsgnb_1_1ul__config__common"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>+freq_info_ul</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>+init_ul_bwp</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ra_scheduler</label>
+        <link refid="classsrsgnb_1_1ra__scheduler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-initial_active_dl_bwp</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>-pending_rachs</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>-pdcch_sch</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb::pdsch_config_common</label>
+        <link refid="structsrsgnb_1_1pdsch__config__common"/>
+      </node>
+      <node id="23">
+        <label>srsgnb::detail::type_storage&lt; srsgnb::rach_config_common &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1type__storage"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::bwp_configuration</label>
+        <link refid="structsrsgnb_1_1bwp__configuration"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+crbs</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="13">
+        <label>srsgnb::ssb_subcarrier_offset</label>
+        <link refid="classsrsgnb_1_1ssb__subcarrier__offset"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>srsgnb::bounded_integer&lt; uint16_t, 0, 2199 &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__integer"/>
+      </node>
+      <node id="20">
+        <label>srsgnb::optional&lt; srsgnb::pusch_config_common &gt;</label>
+        <link refid="classsrsgnb_1_1optional"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>+storage</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>srsgnb::slot_event_list&lt; srsgnb::rach_indication_message &gt;</label>
+        <link refid="classsrsgnb_1_1slot__event__list"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="34" column="1" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="33" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ra__scheduler_1ac5563a7027dc3f59f4e1b3a058f048ad" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aa7f5ee78860e7768890012a950bb289c" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>fill_rar_grant</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aa8c053c654e0187a85c4cdf9778b1ff5" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>get_dl_bwp_cfg</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a92de44fde0d2ca76a949cbb6f95cc5c4" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>get_pdsch_cfg</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a546df67ab8d6278183e3bc1d3808408c" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>get_pusch_cfg</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a15aa4f6c10ded54bcd0f5e46f7ede145" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>get_ul_bwp_cfg</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a458acf6cb413052be3cfa62d81d67387" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>handle_rach_indication</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aa329a71c7e50939db8df2d094050b365" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>handle_rach_indication_impl</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a82ccddb3d979f6523956de800a31d647" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>initial_active_dl_bwp</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1ac42122dd4d9e1c2580ebae2beb32a4e3" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>log_postponed_rar</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a94702d805bb68afd2e7b87e0cd192ba2" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>log_rar_helper</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a40d8f41a27ea91d799f4e5e2877aaba5" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>log_rars</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a9468e64c15bd46f1381b3e40092b03a9" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1adb24c651667acdb51d326c384654f3f5" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>MAX_MSG3_LIST</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1adbf15d9756db8db431a332414711b3b4" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>MAX_NOF_MSG3</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1ab5dc1c04f8ba70c50d390a0cff0b390f" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>pdcch_sch</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aacc85620cfb52b0f77d8bb801b803570" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>pending_msg3s</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1afe7b8341c30467df5381ea21b37b8986" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>pending_rachs</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1ab396c51da5f619803bd3d8c86b362b9b" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>pending_rars</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aefb99d44ba7369e158a7b3f758dffad9" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>ra_scheduler</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a90221d222617b8db2b9eddbf9e77d67b" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>ra_win_nof_slots</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1a218ba7f4d2fe7d8d8f3f6b6e8eb82066" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>run_slot</name></member>
+      <member refid="classsrsgnb_1_1ra__scheduler_1aa3f2f6f48a91de48e48819b317045439" prot="private" virt="non-virtual"><scope>srsgnb::ra_scheduler</scope><name>schedule_rar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

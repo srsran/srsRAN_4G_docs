@@ -1,0 +1,752 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1timer__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::timer_manager</compoundname>
+    <includes refid="timers_8h" local="no">timers.h</includes>
+    <innerclass refid="structsrsgnb_1_1timer__manager_1_1timer__handle" prot="private">srsgnb::timer_manager::timer_handle</innerclass>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1timer__manager_1ad7541cf6206a5aa74ecda87301eedd1b" prot="private" static="no">
+        <type>uint32_t</type>
+        <definition>using srsgnb::timer_manager::timer_tick_t =  uint32_t</definition>
+        <argsstring></argsstring>
+        <name>timer_tick_t</name>
+        <briefdescription>
+<para>This type represents a tick. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="48" column="3" bodyfile="include/srsgnb/support/timers.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a1b7ee95aa830d9b53526321617729d2e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::timer_manager::WHEEL_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>WHEEL_SHIFT</name>
+        <initializer>= 16U</initializer>
+        <briefdescription>
+<para>Wheel configuration parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="51" column="27" bodyfile="include/srsgnb/support/timers.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1aa8da1a151e3e3c77810d4e49833ee1f5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::timer_manager::WHEEL_SIZE</definition>
+        <argsstring></argsstring>
+        <name>WHEEL_SIZE</name>
+        <initializer>= 1U &lt;&lt; <ref refid="classsrsgnb_1_1timer__manager_1a1b7ee95aa830d9b53526321617729d2e" kindref="member">WHEEL_SHIFT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="52" column="27" bodyfile="include/srsgnb/support/timers.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1ad1408fa6627d3bff33bb76e43ec76881" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srsgnb::timer_manager::WHEEL_MASK</definition>
+        <argsstring></argsstring>
+        <name>WHEEL_MASK</name>
+        <initializer>= WHEEL_SIZE - 1U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="53" column="27" bodyfile="include/srsgnb/support/timers.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a3e5715911a8e3461eea7d2351b3db689" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t srsgnb::timer_manager::STOPPED_FLAG</definition>
+        <argsstring></argsstring>
+        <name>STOPPED_FLAG</name>
+        <initializer>= 0U</initializer>
+        <briefdescription>
+<para>Timer state constant definitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="56" column="44" bodyfile="include/srsgnb/support/timers.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a5afb6bfc940df4521405899b914a153d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t srsgnb::timer_manager::RUNNING_FLAG</definition>
+        <argsstring></argsstring>
+        <name>RUNNING_FLAG</name>
+        <initializer>= static_cast&lt;uint64_t&gt;(1U) &lt;&lt; 63U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="57" column="44" bodyfile="include/srsgnb/support/timers.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a15d9e737bd02458d7f6541c093753f6f" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t srsgnb::timer_manager::EXPIRED_FLAG</definition>
+        <argsstring></argsstring>
+        <name>EXPIRED_FLAG</name>
+        <initializer>= static_cast&lt;uint64_t&gt;(1U) &lt;&lt; 62U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="58" column="44" bodyfile="include/srsgnb/support/timers.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1acdfef9d1e823377c6d1971e741cd9ba4" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+        <definition>constexpr timer_tick_difference_t srsgnb::timer_manager::MAX_TIMER_DURATION</definition>
+        <argsstring></argsstring>
+        <name>MAX_TIMER_DURATION</name>
+        <initializer>= 0x3fffffffU</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="59" column="44" bodyfile="include/srsgnb/support/timers.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsrsgnb_1_1timer__manager_1abf15e4ba4b26bb5301fc9a93f615e81e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class unique_timer</definition>
+        <argsstring></argsstring>
+        <name>unique_timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="214" column="3" bodyfile="include/srsgnb/support/timers.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1aadb235d6dff2a283459d5de61c99d096" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classsrsgnb_1_1timer__manager_1ad7541cf6206a5aa74ecda87301eedd1b" kindref="member">timer_tick_t</ref> &gt;</type>
+        <definition>std::atomic&lt;timer_tick_t&gt; srsgnb::timer_manager::cur_time</definition>
+        <argsstring></argsstring>
+        <name>cur_time</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Current timer absolute tick. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="231" column="15" bodyfile="include/srsgnb/support/timers.h" bodystart="231" bodyend="-1"/>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a41ca1b9aefcc2235ff9c14a879777598" compoundref="timers_8h" startline="105" endline="114">srsgnb::timer_manager::timer_handle::time_elapsed</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" compoundref="timers_8cpp" startline="30" endline="64">tick_all</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a7570c249e8d97d56cb6888cc1e7e42c4" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::timer_manager::nof_timers_running</definition>
+        <argsstring></argsstring>
+        <name>nof_timers_running</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of created timer_impl objects that are currently running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="234" column="10" bodyfile="include/srsgnb/support/timers.h" bodystart="234" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a5bd7117f536a063bf7c930d78725f7b3" compoundref="timers_8h" startline="187" endline="191">nof_running_timers</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a2cea24916ec7f51c060d8d0d9056a827" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::timer_manager::nof_free_timers</definition>
+        <argsstring></argsstring>
+        <name>nof_free_timers</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of created timer_impl objects that can be reused. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="237" column="10" bodyfile="include/srsgnb/support/timers.h" bodystart="237" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1ae603a3775b8ae946627d63be96c5cade" compoundref="timers_8h" startline="180" endline="184">nof_timers</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a33435921c533ec2d8e13a71df9c37b11" compoundref="timers_8cpp" startline="15" endline="28">timer_manager</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; <ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &gt;</type>
+        <definition>std::deque&lt;timer_handle&gt; srsgnb::timer_manager::timer_list</definition>
+        <argsstring></argsstring>
+        <name>timer_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>List of created timer_impl objects. Note: Using a deque to maintain reference validity on emplace_back. Also, this deque will only grow. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="241" column="14" bodyfile="include/srsgnb/support/timers.h" bodystart="241" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1ae603a3775b8ae946627d63be96c5cade" compoundref="timers_8h" startline="180" endline="184">nof_timers</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a33435921c533ec2d8e13a71df9c37b11" compoundref="timers_8cpp" startline="15" endline="28">timer_manager</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" compoundref="timers_8cpp" startline="30" endline="64">tick_all</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1ad6f2634b2d83a3a80e9aab6ddbd24ca5" compoundref="timers_8cpp" startline="66" endline="74">stop_all</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1aafaa2f899c8b9ec316637456e42c767f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1intrusive__forward__list" kindref="compound">srsgnb::intrusive_forward_list</ref>&lt; <ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &gt;</type>
+        <definition>srsgnb::intrusive_forward_list&lt;timer_handle&gt; srsgnb::timer_manager::free_list</definition>
+        <argsstring></argsstring>
+        <name>free_list</name>
+        <briefdescription>
+<para>Free list of timer_impl objects in timer_list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="244" column="34" bodyfile="include/srsgnb/support/timers.h" bodystart="244" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a33435921c533ec2d8e13a71df9c37b11" compoundref="timers_8cpp" startline="15" endline="28">timer_manager</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1abbb77a8ff0c11a924eb89df623d23ced" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classsrsgnb_1_1intrusive__double__linked__list" kindref="compound">srsgnb::intrusive_double_linked_list</ref>&lt; <ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;srsgnb::intrusive_double_linked_list&lt;timer_handle&gt; &gt; srsgnb::timer_manager::time_wheel</definition>
+        <argsstring></argsstring>
+        <name>time_wheel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer wheel, which is circularly indexed via a running timer timeout. Collisions are resolved via an intrusive list in timer_impl. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="248" column="15" bodyfile="include/srsgnb/support/timers.h" bodystart="248" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" compoundref="timers_8cpp" startline="30" endline="64">tick_all</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::timer_manager::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+<para>Protects the addition/modification/removal of timers in <ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="251" column="22" bodyfile="include/srsgnb/support/timers.h" bodystart="251" bodyend="-1"/>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a47b1ef33e298a0ddeb62907c04ef25a1" compoundref="timers_8h" startline="117" endline="125">srsgnb::timer_manager::timer_handle::set</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1ae603a3775b8ae946627d63be96c5cade" compoundref="timers_8h" startline="180" endline="184">nof_timers</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a5bd7117f536a063bf7c930d78725f7b3" compoundref="timers_8h" startline="187" endline="191">nof_running_timers</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" compoundref="timers_8cpp" startline="30" endline="64">tick_all</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1ad6f2634b2d83a3a80e9aab6ddbd24ca5" compoundref="timers_8cpp" startline="66" endline="74">stop_all</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1a798e1c41078738724133fd7dca01cebd" compoundref="timers_8cpp" startline="95" endline="99">destroy_timer</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1abe6f79ef4b9bddc3d33b23b7acf28023" compoundref="timers_8cpp" startline="117" endline="121">start_run</referencedby>
+        <referencedby refid="classsrsgnb_1_1timer__manager_1abf7b9d907216ac0bf2bce5ba464abdfd" compoundref="timers_8cpp" startline="150" endline="154">stop_timer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a02a6ebeac0cbcf740fa2199b6003691f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool srsgnb::timer_manager::decode_is_running_flag</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>decode_is_running_flag</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Miscellaneous decoding helper functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="62" column="34" bodyfile="include/srsgnb/support/timers.h" bodystart="62" bodyend="62"/>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1aaf0bd6ffa1ddcda6c711209427f41638" compoundref="timers_8h" startline="93" endline="93">srsgnb::timer_manager::timer_handle::is_running</referencedby>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a41ca1b9aefcc2235ff9c14a879777598" compoundref="timers_8h" startline="105" endline="114">srsgnb::timer_manager::timer_handle::time_elapsed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1aefff5ac96e64015248442d5d90d717ea" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool srsgnb::timer_manager::decode_is_expired_flag</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>decode_is_expired_flag</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="63" column="34" bodyfile="include/srsgnb/support/timers.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a6a1f3db28ebd0dfd8c05975a7b31d9fe" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+        <definition>static timer_tick_difference_t srsgnb::timer_manager::decode_duration</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>decode_duration</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="64" column="34" bodyfile="include/srsgnb/support/timers.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ad65adc0eda120de1fc17c75f10f44b90" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1timer__manager_1ad7541cf6206a5aa74ecda87301eedd1b" kindref="member">timer_tick_t</ref></type>
+        <definition>static timer_tick_t srsgnb::timer_manager::decode_timeout</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>decode_timeout</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="65" column="34" bodyfile="include/srsgnb/support/timers.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ad3ac47f47a2d6477554c37a3bc83d9b4" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>static uint64_t srsgnb::timer_manager::encode_state</definition>
+        <argsstring>(uint64_t mode_flag, timer_tick_difference_t duration, timer_tick_t timeout)</argsstring>
+        <name>encode_state</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>mode_flag</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager_1ad7541cf6206a5aa74ecda87301eedd1b" kindref="member">timer_tick_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="66" column="19" bodyfile="include/srsgnb/support/timers.h" bodystart="66" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a33435921c533ec2d8e13a71df9c37b11" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>timer_manager::timer_manager</definition>
+        <argsstring>(size_t capacity=64)</argsstring>
+        <name>timer_manager</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+          <defval>64</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default ctor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>capacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of timers to pre-reserve and speed up timer construction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="168" column="12" bodyfile="lib/support/timers.cpp" bodystart="15" bodyend="28"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" compoundref="timers_8h" startline="241">timer_list</references>
+        <references refid="classsrsgnb_1_1timer__manager_1aafaa2f899c8b9ec316637456e42c767f" compoundref="timers_8h" startline="244">free_list</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a2cea24916ec7f51c060d8d0d9056a827" compoundref="timers_8h" startline="237">nof_free_timers</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::tick_all</definition>
+        <argsstring>()</argsstring>
+        <name>tick_all</name>
+        <briefdescription>
+<para>Advances one tick all running timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="171" column="8" bodyfile="lib/support/timers.cpp" bodystart="30" bodyend="64"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <references refid="classsrsgnb_1_1timer__manager_1aadb235d6dff2a283459d5de61c99d096" compoundref="timers_8h" startline="231">cur_time</references>
+        <references refid="classsrsgnb_1_1timer__manager_1abbb77a8ff0c11a924eb89df623d23ced" compoundref="timers_8h" startline="248">time_wheel</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" compoundref="timers_8h" startline="241">timer_list</references>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1adc10791286b613301aa5dc6de0565564" compoundref="timers_8h" startline="80">srsgnb::timer_manager::timer_handle::state</references>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a1253585a231d4f4df237fa791353642f" compoundref="timers_8h" startline="82">srsgnb::timer_manager::timer_handle::callback</references>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a6d16e60172cd416d33b87530a9116b15" compoundref="timers_8h" startline="75">srsgnb::timer_manager::timer_handle::id</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ad6f2634b2d83a3a80e9aab6ddbd24ca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::stop_all</definition>
+        <argsstring>()</argsstring>
+        <name>stop_all</name>
+        <briefdescription>
+<para>Stops all running timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="174" column="8" bodyfile="lib/support/timers.cpp" bodystart="66" bodyend="74"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" compoundref="timers_8h" startline="241">timer_list</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ae639690242d02464d5e1f5dbcfb1b916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1unique__timer" kindref="compound">unique_timer</ref></type>
+        <definition>unique_timer timer_manager::create_unique_timer</definition>
+        <argsstring>()</argsstring>
+        <name>create_unique_timer</name>
+        <briefdescription>
+<para>Creates a new instance of a unique timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="177" column="16" bodyfile="lib/support/timers.cpp" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ae603a3775b8ae946627d63be96c5cade" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::timer_manager::nof_timers</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_timers</name>
+        <briefdescription>
+<para>Returns the number of timers handled by this instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="180" column="10" bodyfile="include/srsgnb/support/timers.h" bodystart="180" bodyend="184"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" compoundref="timers_8h" startline="241">timer_list</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a2cea24916ec7f51c060d8d0d9056a827" compoundref="timers_8h" startline="237">nof_free_timers</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a5bd7117f536a063bf7c930d78725f7b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::timer_manager::nof_running_timers</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_running_timers</name>
+        <briefdescription>
+<para>Returns the number of running timers handled by this instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="187" column="10" bodyfile="include/srsgnb/support/timers.h" bodystart="187" bodyend="191"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <references refid="classsrsgnb_1_1timer__manager_1a7570c249e8d97d56cb6888cc1e7e42c4" compoundref="timers_8h" startline="234">nof_timers_running</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a4da91953b1c785aaef192ab2e1ad2eb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::timer_manager::defer_callback</definition>
+        <argsstring>(timer_tick_difference_t duration, F f)</argsstring>
+        <name>defer_callback</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>Defer the call of the provided callback until duration ticks have elapsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="195" column="8" bodyfile="include/srsgnb/support/timers.h" bodystart="195" bodyend="205"/>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a6fa83bcc9f314a7e096aa380b1907111" compoundref="timers_8h" startline="146" endline="146">srsgnb::timer_manager::timer_handle::destroy</references>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a47b1ef33e298a0ddeb62907c04ef25a1" compoundref="timers_8h" startline="117" endline="125">srsgnb::timer_manager::timer_handle::set</references>
+        <references refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a88ab054d7ed6484c518ba213ed50babe" compoundref="timers_8h" startline="140" endline="140">srsgnb::timer_manager::timer_handle::run</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a55b8c87b6d367b0ff4b0357761a9e58e" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+        <definition>static constexpr timer_tick_difference_t srsgnb::timer_manager::max_timer_duration</definition>
+        <argsstring>()</argsstring>
+        <name>max_timer_duration</name>
+        <briefdescription>
+<para>Returns the maximum allowed duration value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="208" column="44" bodyfile="include/srsgnb/support/timers.h" bodystart="208" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1acf6866ee542ab2bfff2e7858a44582cf" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr size_t</type>
+        <definition>static constexpr size_t srsgnb::timer_manager::get_wheel_size</definition>
+        <argsstring>()</argsstring>
+        <name>get_wheel_size</name>
+        <briefdescription>
+<para>Returns the size of the internal timer wheel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="211" column="27" bodyfile="include/srsgnb/support/timers.h" bodystart="211" bodyend="211"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a0f5b63a96c49c608a2ef7098b706e476" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+        <definition>timer_manager::timer_handle &amp; timer_manager::create_timer</definition>
+        <argsstring>()</argsstring>
+        <name>create_timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="216" column="16" bodyfile="lib/support/timers.cpp" bodystart="76" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a798e1c41078738724133fd7dca01cebd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::destroy_timer</definition>
+        <argsstring>(timer_handle &amp;timer)</argsstring>
+        <name>destroy_timer</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <briefdescription>
+<para>Called when timer is removed. The timer object gets registered in free list for reuse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="219" column="8" bodyfile="lib/support/timers.cpp" bodystart="95" bodyend="99"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a6fa83bcc9f314a7e096aa380b1907111" compoundref="timers_8h" startline="146" endline="146">srsgnb::timer_manager::timer_handle::destroy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1afe6e52693e611ac15d4b570af3568db8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::destroy_timer_nolock</definition>
+        <argsstring>(timer_handle &amp;timer)</argsstring>
+        <name>destroy_timer_nolock</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="220" column="8" bodyfile="lib/support/timers.cpp" bodystart="101" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1abe6f79ef4b9bddc3d33b23b7acf28023" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::start_run</definition>
+        <argsstring>(timer_handle &amp;timer, timer_tick_difference_t duration=0)</argsstring>
+        <name>start_run</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+          <declname>duration</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Called when timer is started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="223" column="8" bodyfile="lib/support/timers.cpp" bodystart="117" bodyend="121"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a88ab054d7ed6484c518ba213ed50babe" compoundref="timers_8h" startline="140" endline="140">srsgnb::timer_manager::timer_handle::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1ad792a597fdc56bf5283a8f6663e9fb96" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::start_run_nolock</definition>
+        <argsstring>(timer_handle &amp;timer, timer_tick_difference_t duration=0)</argsstring>
+        <name>start_run_nolock</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0be707e6e824031784f5a15d82d7b055" kindref="member">timer_tick_difference_t</ref></type>
+          <declname>duration</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="224" column="8" bodyfile="lib/support/timers.cpp" bodystart="123" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1abf7b9d907216ac0bf2bce5ba464abdfd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::stop_timer</definition>
+        <argsstring>(timer_handle &amp;timer, bool expiry)</argsstring>
+        <name>stop_timer</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expiry</declname>
+        </param>
+        <briefdescription>
+<para>Called when user manually stops timer (as an alternative to expiry). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="227" column="8" bodyfile="lib/support/timers.cpp" bodystart="150" bodyend="154"/>
+        <references refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" compoundref="timers_8h" startline="251">mutex</references>
+        <referencedby refid="structsrsgnb_1_1timer__manager_1_1timer__handle_1a87a9c78111cedbac320d5e4e0671010b" compoundref="timers_8h" startline="143" endline="143">srsgnb::timer_manager::timer_handle::stop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1timer__manager_1a6df8db8e170163c32faf88e0cd585c76" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer_manager::stop_timer_nolock</definition>
+        <argsstring>(timer_handle &amp;timer, bool expiry)</argsstring>
+        <name>stop_timer_nolock</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1timer__manager_1_1timer__handle" kindref="compound">timer_handle</ref> &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expiry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/timers.h" line="228" column="8" bodyfile="lib/support/timers.cpp" bodystart="156" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Class that manages the creation/destruction/start/stop/timeout of unique_timers. Each <ref refid="classsrsgnb_1_1unique__timer" kindref="compound">unique_timer</ref> duration, and callback can be set via the set(...) method. A timer can be started/stopped via run()/stop() methods. The timers access/alteration is thread-safe. Just beware non-atomic uses of its getters. Internal Data structures:<itemizedlist>
+<listitem><para>timer_list - std::deque that stores timer objects via push_back() to keep pointer/reference validity. The timer index in the timer_list matches the timer object id field. This deque will only grow in size. Erased timers are just tagged in the deque as empty, and can be reused for the creation of new timers. To avoid unnecessary runtime allocations, the user can set an initial capacity.</para>
+</listitem><listitem><para>free_list - intrusive forward linked list to keep track of the empty timers and speed up new timer creation.</para>
+</listitem><listitem><para>A large circular vector of size WHEEL_SIZE which works as a time wheel, storing and circularly indexing the currently running timers by their respective timeout value. For a number of running timers N, and uniform distribution of timeout values, the <ref refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" kindref="member">tick_all()</ref> complexity should be O(N/WHEEL_SIZE). Thus, the performance should improve with a larger WHEEL_SIZE, at the expense of more used memory. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/timers.h" line="46" column="1" bodyfile="include/srsgnb/support/timers.h" bodystart="45" bodyend="252"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1timer__manager_1a0f5b63a96c49c608a2ef7098b706e476" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>create_timer</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ae639690242d02464d5e1f5dbcfb1b916" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>create_unique_timer</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1aadb235d6dff2a283459d5de61c99d096" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>cur_time</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a6a1f3db28ebd0dfd8c05975a7b31d9fe" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>decode_duration</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1aefff5ac96e64015248442d5d90d717ea" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>decode_is_expired_flag</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a02a6ebeac0cbcf740fa2199b6003691f" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>decode_is_running_flag</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad65adc0eda120de1fc17c75f10f44b90" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>decode_timeout</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a4da91953b1c785aaef192ab2e1ad2eb0" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>defer_callback</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a798e1c41078738724133fd7dca01cebd" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>destroy_timer</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1afe6e52693e611ac15d4b570af3568db8" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>destroy_timer_nolock</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad3ac47f47a2d6477554c37a3bc83d9b4" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>encode_state</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a15d9e737bd02458d7f6541c093753f6f" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>EXPIRED_FLAG</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1aafaa2f899c8b9ec316637456e42c767f" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>free_list</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1acf6866ee542ab2bfff2e7858a44582cf" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>get_wheel_size</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1acdfef9d1e823377c6d1971e741cd9ba4" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>MAX_TIMER_DURATION</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a55b8c87b6d367b0ff4b0357761a9e58e" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>max_timer_duration</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a5c55558493f009113a1a299b15abc215" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a2cea24916ec7f51c060d8d0d9056a827" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>nof_free_timers</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a5bd7117f536a063bf7c930d78725f7b3" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>nof_running_timers</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ae603a3775b8ae946627d63be96c5cade" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>nof_timers</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a7570c249e8d97d56cb6888cc1e7e42c4" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>nof_timers_running</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a5afb6bfc940df4521405899b914a153d" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>RUNNING_FLAG</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1abe6f79ef4b9bddc3d33b23b7acf28023" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>start_run</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad792a597fdc56bf5283a8f6663e9fb96" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>start_run_nolock</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad6f2634b2d83a3a80e9aab6ddbd24ca5" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>stop_all</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1abf7b9d907216ac0bf2bce5ba464abdfd" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>stop_timer</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a6df8db8e170163c32faf88e0cd585c76" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>stop_timer_nolock</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a3e5715911a8e3461eea7d2351b3db689" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>STOPPED_FLAG</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a4eab9dd69c7aed074af7ff84805f43a3" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>tick_all</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1abbb77a8ff0c11a924eb89df623d23ced" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>time_wheel</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a42e763a005d591ff29899e41ee09b0da" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>timer_list</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a33435921c533ec2d8e13a71df9c37b11" prot="public" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>timer_manager</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad7541cf6206a5aa74ecda87301eedd1b" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>timer_tick_t</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1abf15e4ba4b26bb5301fc9a93f615e81e" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>unique_timer</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1ad1408fa6627d3bff33bb76e43ec76881" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>WHEEL_MASK</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1a1b7ee95aa830d9b53526321617729d2e" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>WHEEL_SHIFT</name></member>
+      <member refid="classsrsgnb_1_1timer__manager_1aa8da1a151e3e3c77810d4e49833ee1f5" prot="private" virt="non-virtual"><scope>srsgnb::timer_manager</scope><name>WHEEL_SIZE</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

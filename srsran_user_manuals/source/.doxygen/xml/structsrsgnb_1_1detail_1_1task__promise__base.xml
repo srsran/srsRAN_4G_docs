@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1detail_1_1task__promise__base" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::detail::task_promise_base</compoundname>
+    <derivedcompoundref refid="structsrsgnb_1_1detail_1_1promise__data" prot="public" virt="non-virtual">srsgnb::detail::promise_data&lt; result_type, detail::task_promise_base &gt;</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1task__promise__base_1aea0fce33b26e63908a8500cb7f162f27" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::task_promise_base::has_value</definition>
+        <argsstring></argsstring>
+        <name>has_value</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>If result of task has been stored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/detail/base_task.h" line="22" column="17" bodyfile="include/srsgnb/support/async/detail/base_task.h" bodystart="22" bodyend="-1"/>
+        <referencedby refid="structsrsgnb_1_1detail_1_1task__promise__base_1a5de310fdf7be3b502802b1c35fec7f37" compoundref="base__task_8h" startline="26" endline="26">ready</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1task__promise__base_1a4a7b617bf869109b6f7113e57c029b8b" prot="public" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1coro__handle" kindref="compound">coro_handle</ref></type>
+        <definition>coro_handle srsgnb::detail::task_promise_base::continuation</definition>
+        <argsstring></argsstring>
+        <name>continuation</name>
+        <briefdescription>
+<para>Pending continuation task. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/detail/base_task.h" line="23" column="4" bodyfile="include/srsgnb/support/async/detail/base_task.h" bodystart="23" bodyend="-1"/>
+        <referencedby refid="structsrsgnb_1_1eager__async__task_1_1promise__type_1_1final__awaiter_1a4b74baf1f9b6fb778ecdfb85ff0b1c67" compoundref="eager__async__task_8h" startline="35" endline="38">srsgnb::eager_async_task&lt; R &gt;::promise_type::final_awaiter::await_suspend</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1task__promise__base_1a5de310fdf7be3b502802b1c35fec7f37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::task_promise_base::ready</definition>
+        <argsstring>() const</argsstring>
+        <name>ready</name>
+        <briefdescription>
+<para>Check if return has been stored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/detail/base_task.h" line="26" column="8" bodyfile="include/srsgnb/support/async/detail/base_task.h" bodystart="26" bodyend="26"/>
+        <references refid="structsrsgnb_1_1detail_1_1task__promise__base_1aea0fce33b26e63908a8500cb7f162f27" compoundref="base__task_8h" startline="22">has_value</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::detail::promise_data&lt; result_type, detail::task_promise_base &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1promise__data"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::detail::task_promise_base</label>
+        <link refid="structsrsgnb_1_1detail_1_1task__promise__base"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::eager_async_task&lt; R &gt;::promise_type</label>
+        <link refid="structsrsgnb_1_1eager__async__task_1_1promise__type"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::async_task&lt; R &gt;::promise_type</label>
+        <link refid="structsrsgnb_1_1async__task_1_1promise__type"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::coro_handle&lt; Promise &gt;</label>
+        <link refid="structsrsgnb_1_1coro__handle"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::detail::task_promise_base</label>
+        <link refid="structsrsgnb_1_1detail_1_1task__promise__base"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+continuation</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/detail/base_task.h" line="21" column="24" bodyfile="include/srsgnb/support/async/detail/base_task.h" bodystart="21" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1detail_1_1task__promise__base_1a4a7b617bf869109b6f7113e57c029b8b" prot="public" virt="non-virtual"><scope>srsgnb::detail::task_promise_base</scope><name>continuation</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1task__promise__base_1aea0fce33b26e63908a8500cb7f162f27" prot="public" virt="non-virtual"><scope>srsgnb::detail::task_promise_base</scope><name>has_value</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1task__promise__base_1a5de310fdf7be3b502802b1c35fec7f37" prot="public" virt="non-virtual"><scope>srsgnb::detail::task_promise_base</scope><name>ready</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

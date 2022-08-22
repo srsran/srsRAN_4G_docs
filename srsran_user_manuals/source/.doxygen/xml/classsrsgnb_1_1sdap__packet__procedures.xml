@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sdap__packet__procedures" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::sdap_packet_procedures</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1sdap__ul__packet__procedure" prot="public" virt="non-virtual">srsgnb::sdap_ul_packet_procedure</derivedcompoundref>
+    <includes refid="sdap__packet__procedures_8h" local="no">sdap_packet_procedures.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__packet__procedures_1ad4aa7a8c0e854fb4ac19bbb8c206351a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::sdap_packet_procedures::~sdap_packet_procedures</definition>
+        <argsstring>()=default</argsstring>
+        <name>~sdap_packet_procedures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/sdap/sdap_packet_procedures.h" line="24" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sdap__packet__procedures_1a43362fa28f4aa6694769eac0fd5964b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::sdap_packet_procedures::handle_ul_data_packet</definition>
+        <argsstring>(byte_buffer &amp;data)=0</argsstring>
+        <name>handle_ul_data_packet</name>
+        <reimplementedby refid="classsrsgnb_1_1sdap__ul__packet__procedure_1aa25f1699e5de5bbb4386dea44f53d966">handle_ul_data_packet</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles the input UL data packet. We may have other packet categories which could be handled by adding new methods to this interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/sdap/sdap_packet_procedures.h" line="28" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Collection of packet related procedures of the SDAP interface. This class looks similar to SDAP_input_gateway, however clients are not the same. The first is intended for clients of outer modules that need to pass packets into SDAP, while this interface is intended to process concrete UL data packets, which may be a subcategory of all packets. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::sdap_packet_procedures</label>
+        <link refid="classsrsgnb_1_1sdap__packet__procedures"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::sdap_ul_packet_procedure</label>
+        <link refid="classsrsgnb_1_1sdap__ul__packet__procedure"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::sdap_packet_procedures</label>
+        <link refid="classsrsgnb_1_1sdap__packet__procedures"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/sdap/sdap_packet_procedures.h" line="22" column="1" bodyfile="include/srsgnb/sdap/sdap_packet_procedures.h" bodystart="21" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sdap__packet__procedures_1a43362fa28f4aa6694769eac0fd5964b1" prot="public" virt="pure-virtual"><scope>srsgnb::sdap_packet_procedures</scope><name>handle_ul_data_packet</name></member>
+      <member refid="classsrsgnb_1_1sdap__packet__procedures_1ad4aa7a8c0e854fb4ac19bbb8c206351a" prot="public" virt="virtual"><scope>srsgnb::sdap_packet_procedures</scope><name>~sdap_packet_procedures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

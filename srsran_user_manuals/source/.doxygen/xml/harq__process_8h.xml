@@ -1,0 +1,774 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="harq__process_8h" kind="file" language="C++">
+    <compoundname>harq_process.h</compoundname>
+    <includes refid="static__vector_8h" local="yes">srsgnb/adt/static_vector.h</includes>
+    <includes refid="rnti_8h" local="yes">srsgnb/ran/rnti.h</includes>
+    <includes refid="slot__point_8h" local="yes">srsgnb/ran/slot_point.h</includes>
+    <includes refid="sched__consts_8h" local="yes">srsgnb/scheduler/sched_consts.h</includes>
+    <includes refid="scheduler__dci_8h" local="yes">srsgnb/scheduler/scheduler_dci.h</includes>
+    <includes local="no">array</includes>
+    <includedby refid="ra__scheduler_8h" local="yes">lib/scheduler/common_scheduling/ra_scheduler.h</includedby>
+    <includedby refid="ue_8h" local="yes">lib/scheduler/ue_scheduling/ue.h</includedby>
+    <includedby refid="harq__process_8cpp" local="yes">lib/scheduler/ue_scheduling/harq_process.cpp</includedby>
+    <incdepgraph>
+      <node id="43">
+        <label>atomic</label>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/resource_allocation/rb_interval.h</label>
+        <link refid="rb__interval_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>functional</label>
+      </node>
+      <node id="30">
+        <label>limits</label>
+      </node>
+      <node id="20">
+        <label>iterator</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>cmath</label>
+      </node>
+      <node id="42">
+        <label>cassert</label>
+      </node>
+      <node id="3">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>stdexcept</label>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lib/scheduler/ue_scheduling/harq_process.h</label>
+        <link refid="harq__process_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb/ran/rnti.h</label>
+        <link refid="rnti_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="52">
+        <label>prb_grant.h</label>
+        <link refid="prb__grant_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>srsgnb/ran/slot_point.h</label>
+        <link refid="slot__point_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/ran/pdcch/dci_packing.h</label>
+        <link refid="dci__packing_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>pthread.h</label>
+      </node>
+      <node id="56">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>cstdio</label>
+      </node>
+      <node id="41">
+        <label>tuple</label>
+      </node>
+      <node id="13">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>utility</label>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>array</label>
+      </node>
+      <node id="47">
+        <label>srsgnb/scheduler/sched_consts.h</label>
+        <link refid="sched__consts_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>srsgnb/adt/interval.h</label>
+        <link refid="interval_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>resource_block_group.h</label>
+        <link refid="resource__block__group_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="28">
+        <label>cerrno</label>
+      </node>
+      <node id="61">
+        <label>srsgnb/ran/pdcch/aggregation_level.h</label>
+        <link refid="aggregation__level_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstddef</label>
+      </node>
+      <node id="32">
+        <label>chrono</label>
+      </node>
+      <node id="14">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/ran/sliv.h</label>
+        <link refid="sliv_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>srsgnb/ran/pdcch/pdcch_constants.h</label>
+        <link refid="pdcch__constants_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>srsgnb/ran/resource_block.h</label>
+        <link refid="resource__block_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>type_traits</label>
+      </node>
+      <node id="57">
+        <label>complex</label>
+      </node>
+      <node id="27">
+        <label>algorithm</label>
+      </node>
+      <node id="10">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>cstring</label>
+      </node>
+      <node id="38">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb/srslog/bundled/fmt/core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/scheduler/scheduler_dci.h</label>
+        <link refid="scheduler__dci_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="58">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="10">
+        <label>lib/scheduler/ue_scheduling/ue_scheduler_impl.h</label>
+        <link refid="ue__scheduler__impl_8h_source"/>
+      </node>
+      <node id="1">
+        <label>lib/scheduler/ue_scheduling/harq_process.h</label>
+        <link refid="harq__process_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>lib/scheduler/ue_scheduling/ue.h</label>
+        <link refid="ue_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>lib/scheduler/ue_scheduling/ue_event_manager.h</label>
+        <link refid="ue__event__manager_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h</label>
+        <link refid="ue__cell__grid__allocator_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>lib/scheduler/policy/ue_allocator.h</label>
+        <link refid="ue__allocator_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>lib/scheduler/policy/scheduler_policy_factory.h</label>
+        <link refid="scheduler__policy__factory_8h_source"/>
+      </node>
+      <node id="2">
+        <label>lib/scheduler/common_scheduling/ra_scheduler.h</label>
+        <link refid="ra__scheduler_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>lib/scheduler/policy/scheduler_policy.h</label>
+        <link refid="scheduler__policy_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>lib/scheduler/ue_scheduling/ue_scheduler.h</label>
+        <link refid="ue__scheduler_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>lib/scheduler/cell/scheduler_cell_manager.h</label>
+        <link refid="scheduler__cell__manager_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>lib/scheduler/scheduler_impl.h</label>
+        <link refid="scheduler__impl_8h_source"/>
+      </node>
+      <node id="9">
+        <label>lib/scheduler/policy/scheduler_time_rr.h</label>
+        <link refid="scheduler__time__rr_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsrsgnb_1_1harq__process" prot="public">srsgnb::harq_process</innerclass>
+    <innerclass refid="structsrsgnb_1_1harq__process_1_1tb__t" prot="protected">srsgnb::harq_process::tb_t</innerclass>
+    <innerclass refid="classsrsgnb_1_1dl__harq__process" prot="public">srsgnb::dl_harq_process</innerclass>
+    <innerclass refid="classsrsgnb_1_1ul__harq__process" prot="public">srsgnb::ul_harq_process</innerclass>
+    <innerclass refid="classsrsgnb_1_1harq__entity" prot="public">srsgnb::harq_entity</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/adt/static_vector.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/rnti.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/ran/slot_point.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/scheduler/sched_consts.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/scheduler/scheduler_dci.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>{<sp/>MAX_HARQ_ID<sp/>=<sp/>15,<sp/>MAX_NOF_HARQS<sp/>=<sp/>16<sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>to_harq_id(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>h_id)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(h_id);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classsrsgnb_1_1harq__process" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1harq__process" kindref="compound">harq_process</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process" kindref="compound">harq_process</ref>(<ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>id_)<sp/>:<sp/>pid(id_)<sp/>{}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1a17d105bd5fb2e0ec9500e1b98025e3f4" kindref="member">slot_indication</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/>slot_rx);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1a3012eb99be935c3a99ae300089695d0b" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>set_tbs(uint32_t<sp/>tbs);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>Has<sp/>to<sp/>be<sp/>used<sp/>before<sp/>first<sp/>tx<sp/>is<sp/>dispatched</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>set_mcs(uint32_t<sp/>mcs);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="49"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::all_of(tb.begin(),<sp/>tb.end(),<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1harq__process_1_1tb__t" kindref="compound">tb_t</ref>&amp;<sp/>t)<sp/>{<sp/>return<sp/>t.state<sp/>==<sp/>tb_t::state_t::empty;<sp/>});</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_idx)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[tb_idx].state<sp/>==<sp/>tb_t::state_t::empty;<sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="56"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::any_of(tb.begin(),<sp/>tb.end(),<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1harq__process_1_1tb__t" kindref="compound">tb_t</ref>&amp;<sp/>t)<sp/>{<sp/>return<sp/>t.state<sp/>==<sp/>tb_t::state_t::pending_retx;<sp/>});</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_idx)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[tb_idx].state<sp/>==<sp/>tb_t::state_t::pending_retx;<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classsrsgnb_1_1harq__process_1a5c49790c298e708bd9cf615211b4c1eb" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classsrsgnb_1_1harq__process_1a5c49790c298e708bd9cf615211b4c1eb" kindref="member">nof_retx</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[0].n_rtx;<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classsrsgnb_1_1harq__process_1ae50f94aa3bbce526ae7718cb6509845f" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1harq__process_1ae50f94aa3bbce526ae7718cb6509845f" kindref="member">max_nof_retx</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>max_retx;<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tbs(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[tb_index].tbs;<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ndi(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[tb_index].ndi;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mcs(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>tb_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tb[tb_index].mcs;<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>prb_grant&amp;<sp/>prbs()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>prbs_;<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>slot_point<sp/><sp/><sp/><sp/><sp/><sp/><sp/>harq_slot_tx()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>slot_point<sp/><sp/><sp/><sp/><sp/><sp/><sp/>harq_slot_ack()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ack_info(uint32_t<sp/>tb_idx,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ack);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>pid;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_tx_common(slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/>slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>prb_grant&amp;<sp/>grant,<sp/>uint32_t<sp/>mcs,<sp/>uint32_t<sp/>max_retx);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_retx_common(slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/>slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>prb_grant&amp;<sp/>grant);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_retx_common(slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/>slot_point<sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="structsrsgnb_1_1harq__process_1_1tb__t" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1harq__process_1_1tb__t" kindref="compound">tb_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>state_t<sp/>{<sp/>empty,<sp/>pending_retx,<sp/>waiting_ack<sp/>}<sp/>state<sp/>=<sp/>state_t::empty;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ack_state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>ndi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>n_rtx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>mcs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>tbs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>uint32_t<sp/>max_retx<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="95" refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>;</highlight></codeline>
+<codeline lineno="98" refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1prb__grant" kindref="compound">prb_grant</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prbs_;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;tb_t, MAX_NOF_LAYERS&gt;</ref><sp/>tb{1};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="classsrsgnb_1_1dl__harq__process" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process" kindref="compound">harq_process</ref></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>(<ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>id_);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process_1aeecd0e551fa443bcba4ec8e5c10d6918" kindref="member">new_tx</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1prb__grant" kindref="compound">prb_grant</ref>&amp;<sp/>grant,<sp/>uint32_t<sp/>mcs,<sp/>uint32_t<sp/>max_retx);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process_1a06863446acd3162c05e3068a7412171c" kindref="member">new_retx</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a419e0f936431b5c261152388e71f4e00" kindref="member">slot_ack</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1prb__grant" kindref="compound">prb_grant</ref>&amp;<sp/>grant);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="classsrsgnb_1_1ul__harq__process" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__process" kindref="compound">harq_process</ref></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>(<ref refid="namespacesrsgnb_1a5ca7f9bafa9885386c1b0a3f75d02c20" kindref="member">harq_id_t</ref><sp/>id_)<sp/>:<sp/><ref refid="classsrsgnb_1_1harq__process" kindref="compound">harq_process</ref>(id_)<sp/>{}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process_1adf213efc4c2782c0320adaf717a2ac39" kindref="member">new_tx</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1prb__grant" kindref="compound">prb_grant</ref>&amp;<sp/>grant,<sp/>uint32_t<sp/>mcs,<sp/>uint32_t<sp/>max_retx);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process_1a2c85f1dcc0599a1e6fd52a8b5d25d1b0" kindref="member">new_retx</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="classsrsgnb_1_1harq__process_1a2a313d20439d3efb9457cbaa91138745" kindref="member">slot_tx</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1prb__grant" kindref="compound">prb_grant</ref>&amp;<sp/>grant);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="classsrsgnb_1_1harq__entity" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1harq__entity" kindref="compound">harq_entity</ref></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__entity" kindref="compound">harq_entity</ref>(<ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref><sp/>rnti,<sp/>uint32_t<sp/>nprb,<sp/>uint32_t<sp/>nof_harq_procs,<sp/><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref>&amp;<sp/>logger);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1harq__entity_1ab3ebe332aabe0df8b75070e40bcdad17" kindref="member">slot_indication</ref>(<ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/>slot_rx_);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dl_ack_info(uint32_t<sp/>pid,<sp/>uint32_t<sp/>tb_idx,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ack)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dl_harqs[pid].ack_info(tb_idx,<sp/>ack);<sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ul_crc_info(uint32_t<sp/>pid,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ack)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ul_harqs[pid].ack_info(0,<sp/>ack);<sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_dl_harqs()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dl_harqs.size();<sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nof_ul_harqs()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ul_harqs.size();<sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/>dl_harq(uint32_t<sp/>pid)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dl_harqs[pid];<sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>dl_harq(uint32_t<sp/>pid)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dl_harqs[pid];<sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/>ul_harq(uint32_t<sp/>pid)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ul_harqs[pid];<sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ul_harq(uint32_t<sp/>pid)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ul_harqs[pid];<sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_pending_dl_retx()</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_dl([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_pending_dl_retx()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="154"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_dl([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_pending_ul_retx()</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_ul([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_pending_ul_retx()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="162"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_ul([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1aadbf1cc23b2d5c394883581431c2ab58" kindref="member">has_pending_retx</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_empty_dl_harq()</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_dl([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_empty_dl_harq()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="170"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_dl([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_empty_ul_harq()</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_ul([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_empty_ul_harq()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="178"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>find_ul([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>&amp;<sp/>h)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h.<ref refid="classsrsgnb_1_1harq__process_1af540d4e4b2a5da1f6bf200b0bdd500db" kindref="member">empty</ref>();<sp/>});</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Predicate&gt;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_dl(Predicate<sp/>p)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>std::find_if(dl_harqs.begin(),<sp/>dl_harqs.end(),<sp/>p);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>dl_harqs.end())<sp/>?<sp/>nullptr<sp/>:<sp/>&amp;(*it);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Predicate&gt;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1dl__harq__process" kindref="compound">dl_harq_process</ref>*<sp/>find_dl(Predicate<sp/>p)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="191"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>std::find_if(dl_harqs.begin(),<sp/>dl_harqs.end(),<sp/>p);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>dl_harqs.end())<sp/>?<sp/>nullptr<sp/>:<sp/>&amp;(*it);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Predicate&gt;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_ul(Predicate<sp/>p)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>std::find_if(ul_harqs.begin(),<sp/>ul_harqs.end(),<sp/>p);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>ul_harqs.end())<sp/>?<sp/>nullptr<sp/>:<sp/>&amp;(*it);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Predicate&gt;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref>*<sp/>find_ul(Predicate<sp/>p)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="203"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>std::find_if(ul_harqs.begin(),<sp/>ul_harqs.end(),<sp/>p);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>ul_harqs.end())<sp/>?<sp/>nullptr<sp/>:<sp/>&amp;(*it);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rnti;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref>&amp;<sp/>logger;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slot_rx<sp/>is<sp/>the<sp/>slot<sp/>index<sp/>at<sp/>which<sp/>the<sp/>scheduler<sp/>is<sp/>currently<sp/>working</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slot_rx;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>std::vector&lt;dl_harq_process&gt;<sp/>dl_harqs;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>std::vector&lt;ul_harq_process&gt;<sp/>ul_harqs;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="lib/scheduler/ue_scheduling/harq_process.h"/>
+  </compounddef>
+</doxygen>

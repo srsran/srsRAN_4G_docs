@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ue__event__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ue_event_manager</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1scheduler__ue__configurator" prot="public" virt="non-virtual">srsgnb::scheduler_ue_configurator</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1scheduler__feedback__handler" prot="public" virt="non-virtual">srsgnb::scheduler_feedback_handler</basecompoundref>
+    <includes refid="ue__event__manager_8h" local="no">ue_event_manager.h</includes>
+    <innerclass refid="structsrsgnb_1_1ue__event__manager_1_1carrier__event__t" prot="private">srsgnb::ue_event_manager::carrier_event_t</innerclass>
+    <innerclass refid="structsrsgnb_1_1ue__event__manager_1_1common__event__t" prot="private">srsgnb::ue_event_manager::common_event_t</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a886522be8653b53fedccb38e94f5aa35" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+        <definition>ue_list&amp; srsgnb::ue_event_manager::ue_db</definition>
+        <argsstring></argsstring>
+        <name>ue_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="69" column="32" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a48099f5ceffce4fef87adcc262f7bb20" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1sched__configuration__notifier" kindref="compound">sched_configuration_notifier</ref> &amp;</type>
+        <definition>sched_configuration_notifier&amp; srsgnb::ue_event_manager::mac_notifier</definition>
+        <argsstring></argsstring>
+        <name>mac_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="70" column="32" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a647080e1404a32cfd53d7a6898abc504" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::ue_event_manager::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="71" column="32" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a147f71dca2e5b99e0411688cfd52ce05" prot="private" static="no" mutable="no">
+        <type>std::array&lt; const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> *, MAX_NOF_DU_UES &gt;</type>
+        <definition>std::array&lt;const cell_configuration*, MAX_NOF_DU_UES&gt; srsgnb::ue_event_manager::cells</definition>
+        <argsstring></argsstring>
+        <name>cells</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>List of added and configured cells. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="74" column="14" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="74" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ue__event__manager_1aea55ca234cb3558acf5e581a596a4360" compoundref="ue__event__manager_8cpp" startline="64" endline="82">handle_add_ue_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a5f71d0f78b0083a7342f9cc0057f90c5" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1slot__event__list" kindref="compound">slot_event_list</ref>&lt; <ref refid="structsrsgnb_1_1ue__event__manager_1_1carrier__event__t" kindref="compound">carrier_event_t</ref> &gt;, MAX_NOF_DU_CELLS &gt;</type>
+        <definition>std::array&lt;slot_event_list&lt;carrier_event_t&gt;, MAX_NOF_DU_CELLS&gt; srsgnb::ue_event_manager::cell_specific_events</definition>
+        <argsstring></argsstring>
+        <name>cell_specific_events</name>
+        <briefdescription>
+<para>Pending Events list per cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="77" column="14" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a3a92d0d951673d195c129a6fee7feac4" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__event__list" kindref="compound">slot_event_list</ref>&lt; <ref refid="structsrsgnb_1_1ue__event__manager_1_1common__event__t" kindref="compound">common_event_t</ref> &gt;</type>
+        <definition>slot_event_list&lt;common_event_t&gt; srsgnb::ue_event_manager::common_events</definition>
+        <argsstring></argsstring>
+        <name>common_events</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pending Events list common to all cells. We use this list for events that require synchronization across UE carriers when CA is enabled (e.g. SR, BSR, reconfig). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="81" column="19" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="81" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ue__event__manager_1aea55ca234cb3558acf5e581a596a4360" compoundref="ue__event__manager_8cpp" startline="64" endline="82">handle_add_ue_request</referencedby>
+        <referencedby refid="classsrsgnb_1_1ue__event__manager_1a5e57e27a666b21af6fef398919462ec2" compoundref="ue__event__manager_8cpp" startline="116" endline="124">handle_sr_indication</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__event__manager_1a69ce52826259abb94a3372ac144a1a16" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+        <definition>slot_point srsgnb::ue_event_manager::last_sl</definition>
+        <argsstring></argsstring>
+        <name>last_sl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="82" column="35" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a635338b8b4423130f685c1c8638da9ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ue_event_manager::ue_event_manager</definition>
+        <argsstring>(ue_list &amp;ue_db_, sched_configuration_notifier &amp;mac_notifier_)</argsstring>
+        <name>ue_event_manager</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+          <declname>ue_db_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sched__configuration__notifier" kindref="compound">sched_configuration_notifier</ref> &amp;</type>
+          <declname>mac_notifier_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="28" column="3" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1ac39d8fd4e52766506a5c0bdc37a9e9e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::add_cell_config</definition>
+        <argsstring>(const cell_configuration &amp;cell_cfg_)</argsstring>
+        <name>add_cell_config</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1cell__configuration" kindref="compound">cell_configuration</ref> &amp;</type>
+          <declname>cell_cfg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="30" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1aea55ca234cb3558acf5e581a596a4360" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::handle_add_ue_request</definition>
+        <argsstring>(const sched_ue_creation_request_message &amp;ue_request) override</argsstring>
+        <name>handle_add_ue_request</name>
+        <reimplements refid="classsrsgnb_1_1scheduler__ue__configurator_1a119d6c8256dd4e460ae6489c5a6ce9c5">handle_add_ue_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sched__ue__creation__request__message" kindref="compound">sched_ue_creation_request_message</ref> &amp;</type>
+          <declname>ue_request</declname>
+        </param>
+        <briefdescription>
+<para>UE Add/Mod/Remove interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="33" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="64" bodyend="82"/>
+        <references refid="classsrsgnb_1_1ue__event__manager_1a147f71dca2e5b99e0411688cfd52ce05" compoundref="ue__event__manager_8h" startline="74">cells</references>
+        <references refid="classsrsgnb_1_1ue__event__manager_1a3a92d0d951673d195c129a6fee7feac4" compoundref="ue__event__manager_8h" startline="81">common_events</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a8eff61bbfe89bfecaaf4c9f61ba5ff2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::handle_ue_reconfiguration_request</definition>
+        <argsstring>(const sched_ue_reconfiguration_message &amp;ue_request) override</argsstring>
+        <name>handle_ue_reconfiguration_request</name>
+        <reimplements refid="classsrsgnb_1_1scheduler__ue__configurator_1a2262b14943aca276b739a3bb4e7d1223">handle_ue_reconfiguration_request</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sched__ue__reconfiguration__message" kindref="compound">sched_ue_reconfiguration_message</ref> &amp;</type>
+          <declname>ue_request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="34" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="84" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1ae9577d520e364fdefc9040cb8a749164" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::handle_ue_delete_request</definition>
+        <argsstring>(du_ue_index_t ue_index) override</argsstring>
+        <name>handle_ue_delete_request</name>
+        <reimplements refid="classsrsgnb_1_1scheduler__ue__configurator_1ac33463cc46b72fd95c39f5eddd5377f3">handle_ue_delete_request</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="35" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="100" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a5e57e27a666b21af6fef398919462ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::handle_sr_indication</definition>
+        <argsstring>(const sr_indication_message &amp;sr) override</argsstring>
+        <name>handle_sr_indication</name>
+        <reimplements refid="classsrsgnb_1_1scheduler__feedback__handler_1adfeb55eaa7993608bef3d4c7dad0daa6">handle_sr_indication</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1sr__indication__message" kindref="compound">sr_indication_message</ref> &amp;</type>
+          <declname>sr</declname>
+        </param>
+        <briefdescription>
+<para>Scheduler feedback handler interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="38" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="116" bodyend="124"/>
+        <references refid="classsrsgnb_1_1ue__event__manager_1a3a92d0d951673d195c129a6fee7feac4" compoundref="ue__event__manager_8h" startline="81">common_events</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a86f3c92f1cbf15119333841f98348144" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::handle_ul_bsr_indication</definition>
+        <argsstring>(const ul_bsr_indication_message &amp;bsr) override</argsstring>
+        <name>handle_ul_bsr_indication</name>
+        <reimplements refid="classsrsgnb_1_1scheduler__feedback__handler_1a60c2a96eefff212bef2a132195044a5b">handle_ul_bsr_indication</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ul__bsr__indication__message" kindref="compound">ul_bsr_indication_message</ref> &amp;</type>
+          <declname>bsr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="39" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="126" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a8086d93a08ad2471d45d8f6e069a8988" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::run</definition>
+        <argsstring>(slot_point sl, du_cell_index_t cell_index)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+<para>Process events for a given slot and cell index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="42" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="195" bodyend="204"/>
+        <referencedby refid="classsrsgnb_1_1ue__scheduler__impl_1a4e3f3b5e0894c9473ce0f73862788e5a" compoundref="ue__scheduler__impl_8cpp" startline="43" endline="50">srsgnb::ue_scheduler_impl::run_slot</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a82f0fb5f7233ea8093f48d354d2565e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::process_common</definition>
+        <argsstring>(slot_point sl, du_cell_index_t cell_index)</argsstring>
+        <name>process_common</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>sl</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="62" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="136" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a045f787dbe8114e9b5f3f047aeb1b2b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::process_cell_specific</definition>
+        <argsstring>(du_cell_index_t cell_index)</argsstring>
+        <name>process_cell_specific</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="63" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="173" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1aa3784a54eeb44a11b5ece2bf99686bea" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ue_event_manager::cell_exists</definition>
+        <argsstring>(du_cell_index_t cell_index) const</argsstring>
+        <name>cell_exists</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="64" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1a06ea9c2552cf1b4a2bd0d3b0a5d2628b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::log_invalid_ue_index</definition>
+        <argsstring>(du_ue_index_t ue_index) const</argsstring>
+        <name>log_invalid_ue_index</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="66" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__event__manager_1ad6fb37d5b54810b33a049d2f04619a76" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_event_manager::log_invalid_cc</definition>
+        <argsstring>(du_ue_index_t ue_index, du_cell_index_t cell_index) const</argsstring>
+        <name>log_invalid_cc</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="67" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.cpp" bodystart="223" bodyend="226"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class used to manage events that arrive to the scheduler and are directed at UEs. This class acts as a facade for several of the <ref refid="classsrsgnb_1_1ue__scheduler" kindref="compound">ue_scheduler</ref> subcomponents, managing the asynchronous configuration of the UEs and logging in a thread-safe manner. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::scheduler_ue_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__ue__configurator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue_event_manager</label>
+        <link refid="classsrsgnb_1_1ue__event__manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::scheduler_feedback_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__feedback__handler"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>srsgnb::slot_event_list&lt; srsgnb::ue_event_manager::common_event_t &gt;</label>
+        <link refid="classsrsgnb_1_1slot__event__list"/>
+      </node>
+      <node id="5">
+        <label>T</label>
+      </node>
+      <node id="4">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::scheduler_ue_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__ue__configurator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue_event_manager</label>
+        <link refid="classsrsgnb_1_1ue__event__manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-mac_notifier</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-last_sl</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-common_events</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::stable_id_map&lt; du_ue_index_t, ue, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1stable__id__map"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::sched_configuration_notifier</label>
+        <link refid="classsrsgnb_1_1sched__configuration__notifier"/>
+      </node>
+      <node id="6">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::scheduler_feedback_handler</label>
+        <link refid="classsrsgnb_1_1scheduler__feedback__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/ue_scheduling/ue_event_manager.h" line="26" column="1" bodyfile="lib/scheduler/ue_scheduling/ue_event_manager.h" bodystart="25" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ue__event__manager_1ac39d8fd4e52766506a5c0bdc37a9e9e3" prot="public" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>add_cell_config</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1aa3784a54eeb44a11b5ece2bf99686bea" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>cell_exists</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a5f71d0f78b0083a7342f9cc0057f90c5" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>cell_specific_events</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a147f71dca2e5b99e0411688cfd52ce05" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>cells</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a3a92d0d951673d195c129a6fee7feac4" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>common_events</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1aea55ca234cb3558acf5e581a596a4360" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>handle_add_ue_request</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a5e57e27a666b21af6fef398919462ec2" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>handle_sr_indication</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1ae9577d520e364fdefc9040cb8a749164" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>handle_ue_delete_request</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a8eff61bbfe89bfecaaf4c9f61ba5ff2b" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>handle_ue_reconfiguration_request</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a86f3c92f1cbf15119333841f98348144" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>handle_ul_bsr_indication</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a69ce52826259abb94a3372ac144a1a16" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>last_sl</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1ad6fb37d5b54810b33a049d2f04619a76" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>log_invalid_cc</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a06ea9c2552cf1b4a2bd0d3b0a5d2628b" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>log_invalid_ue_index</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a647080e1404a32cfd53d7a6898abc504" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a48099f5ceffce4fef87adcc262f7bb20" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>mac_notifier</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a045f787dbe8114e9b5f3f047aeb1b2b1" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>process_cell_specific</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a82f0fb5f7233ea8093f48d354d2565e9" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>process_common</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a8086d93a08ad2471d45d8f6e069a8988" prot="public" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>run</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a886522be8653b53fedccb38e94f5aa35" prot="private" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>ue_db</name></member>
+      <member refid="classsrsgnb_1_1ue__event__manager_1a635338b8b4423130f685c1c8638da9ef" prot="public" virt="non-virtual"><scope>srsgnb::ue_event_manager</scope><name>ue_event_manager</name></member>
+      <member refid="classsrsgnb_1_1scheduler__feedback__handler_1a555e803f2f799a35a4783922b88d2bff" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>~scheduler_feedback_handler</name></member>
+      <member refid="classsrsgnb_1_1scheduler__ue__configurator_1a56dbca1e6c811340c2074513cfeb5224" prot="public" virt="virtual"><scope>srsgnb::ue_event_manager</scope><name>~scheduler_ue_configurator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

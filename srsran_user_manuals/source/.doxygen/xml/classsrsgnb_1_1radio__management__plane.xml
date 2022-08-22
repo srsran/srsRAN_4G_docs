@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__management__plane" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::radio_management_plane</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1radio__base" prot="public" virt="non-virtual">srsgnb::radio_base</basecompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__session__uhd__impl" prot="private" virt="non-virtual">srsgnb::radio_session_uhd_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1radio__session__zmq__impl" prot="public" virt="non-virtual">srsgnb::radio_session_zmq_impl</derivedcompoundref>
+    <includes refid="radio__management__plane_8h" local="no">radio_management_plane.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__management__plane_1aea9ce148eb2556ddade57d0a8d2ae21e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool srsgnb::radio_management_plane::set_tx_gain</definition>
+        <argsstring>(unsigned port_id, double gain_dB)=0</argsstring>
+        <name>set_tx_gain</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a5a3071ec7d3d11c7bb070542467257e5">set_tx_gain</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__uhd__impl_1a3e0c7cadaa6c584c4f096699b4ef0f71">set_tx_gain</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>port_id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gain_dB</declname>
+        </param>
+        <briefdescription>
+<para>Set the transmission gain of a given port in runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the new gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the operation is successful. Otherwise, false. </para>
+</simplesect>
+<simplesect kind="note"><para>The port identifier is indexed from stream ascending order and then port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_management_plane.h" line="26" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__management__plane_1a52e1e4cdd875dd410ea11033c87c837c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool srsgnb::radio_management_plane::set_rx_gain</definition>
+        <argsstring>(unsigned port_id, double gain_dB)=0</argsstring>
+        <name>set_rx_gain</name>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a3d5b7a088e6e51879164afd52e8a97da">set_rx_gain</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1radio__session__uhd__impl_1a3b4f17aa37e7b085f0fb039e40380cd6">set_rx_gain</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>port_id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gain_dB</declname>
+        </param>
+        <briefdescription>
+<para>Set the reception gain of a given port in runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the new gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the operation is successful. Otherwise, false. </para>
+</simplesect>
+<simplesect kind="note"><para>The port identifier is indexed from stream ascending order and then port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/radio/radio_management_plane.h" line="33" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Defines a radio baseband unit management plane interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_session_uhd_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__uhd__impl"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_session_zmq_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__zmq__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_management_plane</label>
+        <link refid="classsrsgnb_1_1radio__management__plane"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_management_plane</label>
+        <link refid="classsrsgnb_1_1radio__management__plane"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/radio/radio_management_plane.h" line="19" column="1" bodyfile="include/srsgnb/radio/radio_management_plane.h" bodystart="18" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__base_1a6047b6af462d6d66e17f14a8866baa2f" prot="public" virt="non-virtual"><scope>srsgnb::radio_management_plane</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a613d0276dd7140594f971ebcd34bdf7e" prot="public" virt="non-virtual"><scope>srsgnb::radio_management_plane</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1af9f80899d387af47e827bfecd21fa7b0" prot="protected" virt="non-virtual"><scope>srsgnb::radio_management_plane</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1aeea2df1e0ec39aa2a831f24553ce546f" prot="public" virt="non-virtual"><scope>srsgnb::radio_management_plane</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a0c96363513155999b85983f2f22b56cb" prot="public" virt="non-virtual"><scope>srsgnb::radio_management_plane</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__management__plane_1a52e1e4cdd875dd410ea11033c87c837c" prot="public" virt="pure-virtual"><scope>srsgnb::radio_management_plane</scope><name>set_rx_gain</name></member>
+      <member refid="classsrsgnb_1_1radio__management__plane_1aea9ce148eb2556ddade57d0a8d2ae21e" prot="public" virt="pure-virtual"><scope>srsgnb::radio_management_plane</scope><name>set_tx_gain</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a84b9fc81012bc2e40c2a9c04843ed8ab" prot="public" virt="virtual"><scope>srsgnb::radio_management_plane</scope><name>~radio_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

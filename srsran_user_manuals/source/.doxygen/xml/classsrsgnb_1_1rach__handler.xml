@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rach__handler" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::rach_handler</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1rach__handler__configurator" prot="public" virt="non-virtual">srsgnb::rach_handler_configurator</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1rach__handler_1a5422ef5e8cde5a597f5f355378839c49" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1scheduler__configurator" kindref="compound">scheduler_configurator</ref> &amp;</type>
+        <definition>scheduler_configurator&amp; srsgnb::rach_handler::sched</definition>
+        <argsstring></argsstring>
+        <name>sched</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="119" column="50" bodyfile="lib/mac/rach_handler.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rach__handler_1a941dacd2028028b4f42f31bd7864f388" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rnti__allocator" kindref="compound">rnti_allocator</ref></type>
+        <definition>rnti_allocator srsgnb::rach_handler::rnti_alloc</definition>
+        <argsstring></argsstring>
+        <name>rnti_alloc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="120" column="51" bodyfile="lib/mac/rach_handler.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rach__handler_1afd2efaa0e9d4bcf6e78c8e5b02c119ff" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="classsrsgnb_1_1cell__rach__handler" kindref="compound">cell_rach_handler</ref>, MAX_NOF_DU_CELLS &gt;</type>
+        <definition>slot_array&lt;cell_rach_handler, MAX_NOF_DU_CELLS&gt; srsgnb::rach_handler::cells</definition>
+        <argsstring></argsstring>
+        <name>cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="121" column="14" bodyfile="lib/mac/rach_handler.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rach__handler_1a9e614bf0f11bdce4227ce85ccc757d5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::rach_handler::rach_handler</definition>
+        <argsstring>(scheduler_configurator &amp;sched_, du_rnti_table &amp;rnti_table_)</argsstring>
+        <name>rach_handler</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1scheduler__configurator" kindref="compound">scheduler_configurator</ref> &amp;</type>
+          <declname>sched_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref> &amp;</type>
+          <declname>rnti_table_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="102" column="3" bodyfile="lib/mac/rach_handler.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rach__handler_1a8df7e72146de0fd53f0f7ef85c99b809" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::rach_handler::add_cell</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>add_cell</name>
+        <reimplements refid="classsrsgnb_1_1rach__handler__configurator_1a4845345f4c9a2e8fe57bca06c45d8897">add_cell</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="104" column="8" bodyfile="lib/mac/rach_handler.h" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rach__handler_1a248ff0df13275f14c4ea966ffa5dac16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::rach_handler::remove_cell</definition>
+        <argsstring>(du_cell_index_t cell_index) override</argsstring>
+        <name>remove_cell</name>
+        <reimplements refid="classsrsgnb_1_1rach__handler__configurator_1a16165d31d63830ac11bf74ad66be76ee">remove_cell</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="110" column="8" bodyfile="lib/mac/rach_handler.h" bodystart="110" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rach__handler_1a43114a4b3b1e5ff3e99812ce091f76be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1mac__cell__rach__handler" kindref="compound">mac_cell_rach_handler</ref> &amp;</type>
+        <definition>mac_cell_rach_handler&amp; srsgnb::rach_handler::get_cell</definition>
+        <argsstring>(du_cell_index_t cell_index)</argsstring>
+        <name>get_cell</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="116" column="25" bodyfile="lib/mac/rach_handler.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::rach_handler</label>
+        <link refid="classsrsgnb_1_1rach__handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::rach_handler_configurator</label>
+        <link refid="classsrsgnb_1_1rach__handler__configurator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rach_handler</label>
+        <link refid="classsrsgnb_1_1rach__handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-sched</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-cells</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-rnti_alloc</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::rnti_allocator</label>
+        <link refid="classsrsgnb_1_1rnti__allocator"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::rach_handler_configurator</label>
+        <link refid="classsrsgnb_1_1rach__handler__configurator"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::scheduler_configurator</label>
+        <link refid="classsrsgnb_1_1scheduler__configurator"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::du_rnti_table</label>
+        <link refid="classsrsgnb_1_1du__rnti__table"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::cell_rach_handler &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::slot_array&lt; srsgnb::cell_rach_handler, MAX_NOF_DU_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::cell_rach_handler &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/rach_handler.h" line="100" column="1" bodyfile="lib/mac/rach_handler.h" bodystart="99" bodyend="122"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rach__handler_1a8df7e72146de0fd53f0f7ef85c99b809" prot="public" virt="virtual"><scope>srsgnb::rach_handler</scope><name>add_cell</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1afd2efaa0e9d4bcf6e78c8e5b02c119ff" prot="private" virt="non-virtual"><scope>srsgnb::rach_handler</scope><name>cells</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1a43114a4b3b1e5ff3e99812ce091f76be" prot="public" virt="non-virtual"><scope>srsgnb::rach_handler</scope><name>get_cell</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1a9e614bf0f11bdce4227ce85ccc757d5c" prot="public" virt="non-virtual"><scope>srsgnb::rach_handler</scope><name>rach_handler</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1a248ff0df13275f14c4ea966ffa5dac16" prot="public" virt="virtual"><scope>srsgnb::rach_handler</scope><name>remove_cell</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1a941dacd2028028b4f42f31bd7864f388" prot="private" virt="non-virtual"><scope>srsgnb::rach_handler</scope><name>rnti_alloc</name></member>
+      <member refid="classsrsgnb_1_1rach__handler_1a5422ef5e8cde5a597f5f355378839c49" prot="private" virt="non-virtual"><scope>srsgnb::rach_handler</scope><name>sched</name></member>
+      <member refid="classsrsgnb_1_1rach__handler__configurator_1a469faf640ba2ae661aaf07df591f8a1b" prot="public" virt="virtual"><scope>srsgnb::rach_handler</scope><name>~rach_handler_configurator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

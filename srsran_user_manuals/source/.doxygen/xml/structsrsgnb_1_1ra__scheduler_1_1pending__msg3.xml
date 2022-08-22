@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1ra__scheduler_1_1pending__msg3" kind="struct" language="C++" prot="private">
+    <compoundname>srsgnb::ra_scheduler::pending_msg3</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__msg3_1a6e11f11b30829631ec4adfd8db554fad" prot="public" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1rach__indication__message" kindref="compound">rach_indication_message</ref></type>
+        <definition>rach_indication_message srsgnb::ra_scheduler::pending_msg3::ind_msg</definition>
+        <argsstring></argsstring>
+        <name>ind_msg</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="58" column="29" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__msg3_1a532255393e9e615ed1d5c34b2defda69" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1ul__harq__process" kindref="compound">ul_harq_process</ref></type>
+        <definition>ul_harq_process srsgnb::ra_scheduler::pending_msg3::harq</definition>
+        <argsstring></argsstring>
+        <name>harq</name>
+        <initializer>{MAX_HARQ_ID}</initializer>
+        <briefdescription>
+<para>UL Harq used to schedule Msg3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="60" column="21" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="60" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ra__scheduler_1aa7f5ee78860e7768890012a950bb289c" compoundref="ra__scheduler_8cpp" startline="320" endline="410">srsgnb::ra_scheduler::fill_rar_grant</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="8">
+        <label>srsgnb::bounded_bitset&lt; MAX_NOF_RBGS, true &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::prb_grant</label>
+        <link refid="structsrsgnb_1_1prb__grant"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-alloc</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::rach_indication_message</label>
+        <link refid="structsrsgnb_1_1rach__indication__message"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>+timing_advance</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+slot_rx</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::interval&lt; unsigned &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::prb_interval</label>
+        <link refid="structsrsgnb_1_1prb__interval"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ra_scheduler::pending_msg3</label>
+        <link refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+harq</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>+ind_msg</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srsgnb::phy_time_unit</label>
+        <link refid="classsrsgnb_1_1phy__time__unit"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ul_harq_process</label>
+        <link refid="classsrsgnb_1_1ul__harq__process"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::prb_grant::alloc_t</label>
+        <link refid="unionsrsgnb_1_1prb__grant_1_1alloc__t"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>+rbgs</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+interv</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::harq_process</label>
+        <link refid="classsrsgnb_1_1harq__process"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#tb</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>#slot_ack</edgelabel>
+          <edgelabel>#slot_tx</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>#prbs_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::static_vector&lt; srsgnb::harq_process::tb_t, MAX_NOF_LAYERS &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="57" column="21" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="57" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3_1a532255393e9e615ed1d5c34b2defda69" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_msg3</scope><name>harq</name></member>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__msg3_1a6e11f11b30829631ec4adfd8db554fad" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_msg3</scope><name>ind_msg</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

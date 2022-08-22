@@ -1,0 +1,1068 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacesrslog" kind="namespace" language="C++">
+    <compoundname>srslog</compoundname>
+    <innerclass refid="classsrslog_1_1backend__worker" prot="public">srslog::backend_worker</innerclass>
+    <innerclass refid="structsrslog_1_1basic__logger__channels" prot="public">srslog::basic_logger_channels</innerclass>
+    <innerclass refid="classsrslog_1_1buffered__file__sink" prot="public">srslog::buffered_file_sink</innerclass>
+    <innerclass refid="structsrslog_1_1context" prot="public">srslog::context</innerclass>
+    <innerclass refid="classsrslog_1_1file__sink" prot="public">srslog::file_sink</innerclass>
+    <innerclass refid="classsrslog_1_1json__formatter" prot="public">srslog::json_formatter</innerclass>
+    <innerclass refid="classsrslog_1_1log__backend__impl" prot="public">srslog::log_backend_impl</innerclass>
+    <innerclass refid="classsrslog_1_1log__channel" prot="public">srslog::log_channel</innerclass>
+    <innerclass refid="structsrslog_1_1log__channel__config" prot="public">srslog::log_channel_config</innerclass>
+    <innerclass refid="classsrslog_1_1log__formatter" prot="public">srslog::log_formatter</innerclass>
+    <innerclass refid="structsrslog_1_1metric" prot="public">srslog::metric</innerclass>
+    <innerclass refid="structsrslog_1_1metric__kind__selector" prot="public">srslog::metric_kind_selector</innerclass>
+    <innerclass refid="structsrslog_1_1metric__kind__selector_3_01metric_3_01Ty_00_01Name_00_01Units_01_4_00_01typename2201137cad85797e73eaa824703fccbe" prot="public">srslog::metric_kind_selector&lt; metric&lt; Ty, Name, Units &gt;, typename std::enable_if&lt; std::is_arithmetic&lt; Ty &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structsrslog_1_1metric__list" prot="public">srslog::metric_list</innerclass>
+    <innerclass refid="structsrslog_1_1metric__set" prot="public">srslog::metric_set</innerclass>
+    <innerclass refid="structsrslog_1_1metric__value__formatter" prot="public">srslog::metric_value_formatter</innerclass>
+    <innerclass refid="structsrslog_1_1metric__value__formatter_3_01metric_3_01Ty_00_01Name_00_01Units_01_4_01_4" prot="public">srslog::metric_value_formatter&lt; metric&lt; Ty, Name, Units &gt; &gt;</innerclass>
+    <innerclass refid="classsrslog_1_1object__repository" prot="public">srslog::object_repository</innerclass>
+    <innerclass refid="classsrslog_1_1sink" prot="public">srslog::sink</innerclass>
+    <innerclass refid="classsrslog_1_1srslog__instance" prot="public">srslog::srslog_instance</innerclass>
+    <innerclass refid="classsrslog_1_1stream__sink" prot="public">srslog::stream_sink</innerclass>
+    <innerclass refid="classsrslog_1_1syslog__sink" prot="public">srslog::syslog_sink</innerclass>
+    <innerclass refid="classsrslog_1_1text__formatter" prot="public">srslog::text_formatter</innerclass>
+    <innernamespace refid="namespacesrslog_1_1detail">srslog::detail</innernamespace>
+    <innernamespace refid="namespacesrslog_1_1file__utils">srslog::file_utils</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="context_8h_1afef9c6375d509fc210a53b8429f0f0ce" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>metric_kind</name>
+        <enumvalue id="context_8h_1afef9c6375d509fc210a53b8429f0f0cea49057168d24dc9566533ec48326ced2c" prot="public">
+          <name>numeric</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="context_8h_1afef9c6375d509fc210a53b8429f0f0ceab45cffe084dd3d20d928bee85e7b0f21" prot="public">
+          <name>string</name>
+          <briefdescription>
+<para>Metric represents a numeric value. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Metric represents a string. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Metric formatting kinds for textual conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/context.h" line="20" column="23" bodyfile="include/srsgnb/srslog/context.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="enum" id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>basic_levels</name>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84acb5e100e5a9a3e7f6d1fd97512215282" prot="public">
+          <name>error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84a7b83d3f08fa392b79e3f553b585971cd" prot="public">
+          <name>warning</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84acaf9b6b99962bf5c2264824231d7a40c" prot="public">
+          <name>info</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84aad42f6697b035b7580e4fef93be20b4d" prot="public">
+          <name>debug</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="logger_8h_1a2f24235d23f40dcc7be241dd20d53e84af447f5c03508de4d88e340390ba7c78f" prot="public">
+          <name>LAST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Basic logger with four levels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Common logger types. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="139" column="24" bodyfile="include/srsgnb/srslog/logger.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="enum" id="shared__types_8h_1abaa7a7501dbd413398b3d6f951f58773" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>backend_priority</name>
+        <enumvalue id="shared__types_8h_1abaa7a7501dbd413398b3d6f951f58773afea087517c26fadd409bd4b9dc642555" prot="public">
+          <name>normal</name>
+          <briefdescription>
+<para>Default priority of the operating system. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1abaa7a7501dbd413398b3d6f951f58773a8d966b2253a917086c8604959e152243" prot="public">
+          <name>high</name>
+          <briefdescription>
+<para>Thread will be given a high priority. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1abaa7a7501dbd413398b3d6f951f58773aaa4cea18ae7516f9a3c28d597055082f" prot="public">
+          <name>very_high</name>
+          <briefdescription>
+<para>Thread will be given a very high priority. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Backend priority levels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/shared_types.h" line="22" column="28" bodyfile="include/srsgnb/srslog/shared_types.h" bodystart="22" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="enum" id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>syslog_local_type</name>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a5383337459a9ea598578681bcb0480db" prot="public">
+          <name>local0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a0b38c3f207fab673809810d9e049414c" prot="public">
+          <name>local1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a35e9bee79b773c9023fe5f1df96624f0" prot="public">
+          <name>local2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2ae1bc28e8f1beac9d97588c9447c48353" prot="public">
+          <name>local3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a9bd88603540bcee76ec0374a17bd6730" prot="public">
+          <name>local4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a1274d108a43d042dccf76d44de99e186" prot="public">
+          <name>local5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a51ba87b7504c20a3ebbce00aacf4b5e1" prot="public">
+          <name>local6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="shared__types_8h_1ac63a825d4f47c99e518bee30c3567bb2a1830d14f102923840362ae13e7f7f937" prot="public">
+          <name>local7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>syslog log local types </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/shared_types.h" line="32" column="29" bodyfile="include/srsgnb/srslog/shared_types.h" bodystart="32" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="enum" id="stream__sink_8h_1ace9d9fc68d9ff222dc0768295504c7e1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>sink_stream_type</name>
+        <enumvalue id="stream__sink_8h_1ace9d9fc68d9ff222dc0768295504c7e1a64322f5f3ff7f9f717279e1b017a997e" prot="public">
+          <name>stdout</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="stream__sink_8h_1ace9d9fc68d9ff222dc0768295504c7e1a41be535153c4b535bc9d0a610d3bd66b" prot="public">
+          <name>stderr</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Standard stream types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/sinks/stream_sink.h" line="18" column="28" bodyfile="lib/srslog/sinks/stream_sink.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="context_8h_1a7756cbe0fe0d67feb9ae24228235f253" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structsrslog_1_1context" kindref="compound">context</ref>&lt; typename std::decay&lt; Ts &gt;::type... &gt;</type>
+        <definition>using srslog::build_context_type = typedef context&lt;typename std::decay&lt;Ts&gt;::type...&gt;</definition>
+        <argsstring></argsstring>
+        <name>build_context_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds a context type using a list of metric set types. eg: using my_context_t = srslog::build_context_type&lt;set1_t, set2_t&gt;; NOTE: Adding duplicated types into the list is not allowed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/context.h" line="171" column="1" bodyfile="include/srsgnb/srslog/context.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="logger_8h_1a544e29a66f96eb150fb15dbcf2fe2ced" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">detail::logger_impl</ref>&lt; T, Enum &gt;</type>
+        <definition>using srslog::build_logger_type = typedef detail::logger_impl&lt;T, Enum&gt;</definition>
+        <argsstring></argsstring>
+        <name>build_logger_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The build_logger_type type alias allows developers to define new logger types in an application.</para>
+<para>To create a new logger type simply follow these steps: 1) Define an enum class where each element will represent a logging level. Order the elements from highest to lowest logging level. First element should be &quot;none&quot;, which represents a disabled logger. The last element should be called LAST as it is a sentinel value. 2) Define a struct composed by only <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> references. Declare the members in the same order as done in the enum. 3) Define the new logger type by using the build_logger_type alias. Pass the previous defined types as template parameters.</para>
+<para>Example to declare a logger with three logging levels: error, warning and info, being error the highest logging level and info the lowest: 1) Define the logging level enum: enum class three_level_logger_levels { none, error, warning, info, LAST }; 2) Define the struct of three channels (same order as in the enum): struct three_level_logger { <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref>  <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref>  <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref>  }; 3) Define the new logger type: using my_new_logger = build_logger_type&lt;three_level_logger, three_level_logger_levels&gt;; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="132" column="1" bodyfile="include/srsgnb/srslog/logger.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="logger_8h_1a89b5529471f90d5a87a25d5fb327f817" prot="public" static="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">build_logger_type</ref>&lt; <ref refid="structsrslog_1_1basic__logger__channels" kindref="compound">basic_logger_channels</ref>, basic_levels &gt;</type>
+        <definition>using srslog::basic_logger = typedef build_logger_type&lt;basic_logger_channels, basic_levels&gt;</definition>
+        <argsstring></argsstring>
+        <name>basic_logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="146" column="1" bodyfile="include/srsgnb/srslog/logger.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="shared__types_8h_1aeef1a25fb1b5027288884a431890e33e" prot="public" static="no">
+        <type>std::function&lt; void(const std::string &amp;)&gt;</type>
+        <definition>using srslog::error_handler = typedef std::function&lt;void(const std::string&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>error_handler</name>
+        <briefdescription>
+<para>Generic error handler callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/shared_types.h" line="19" column="1" bodyfile="include/srsgnb/srslog/shared_types.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="event__trace_8h_1a946c60f818b3d826b1f5a0f0ba376150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::event_trace_init</definition>
+        <argsstring>()</argsstring>
+        <name>event_trace_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The event tracing framework allows to trace any kind of event inside an application. To enable event tracing the ENABLE_SRSLOG_EVENT_TRACE macro symbol should be defined, otherwise calls to the tracing framework will be ignored. This is important to avoid the overhead of tracing when it is not required. For details about each event trace type please refer to: <ulink url="https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit">https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit</ulink> Initializes the event trace framework saving the trace events to a &quot;event_trace.log&quot; file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/event_trace.h" line="30" column="6" bodyfile="lib/srslog/event_trace.cpp" bodystart="28" bodyend="45" declfile="include/srsgnb/srslog/event_trace.h" declline="30" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="event__trace_8h_1a0dd303fae83828d4ee378345cec28035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::event_trace_init</definition>
+        <argsstring>(log_channel &amp;c)</argsstring>
+        <name>event_trace_init</name>
+        <param>
+          <type><ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the event trace framework using the specified log channel to log all trace events. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/event_trace.h" line="34" column="6" bodyfile="lib/srslog/event_trace.cpp" bodystart="47" bodyend="53" declfile="include/srsgnb/srslog/event_trace.h" declline="34" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="event__trace_8h_1a67cfe514d89a22663b1e341f0587f6d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::event_trace_init</definition>
+        <argsstring>(const std::string &amp;filename, std::size_t capacity=1024 *1024)</argsstring>
+        <name>event_trace_init</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>capacity</declname>
+          <defval>1024 *1024</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the event trace framework. The event trace data will be written into the specified filename after capacity bytes of data have been generated or at program exit. Returns true on success, otherwise false. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/event_trace.h" line="40" column="6" bodyfile="lib/srslog/event_trace.cpp" bodystart="55" bodyend="75" declfile="include/srsgnb/srslog/event_trace.h" declline="40" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="logger_8h_1a0921e1312e0de12d19f1cc898958d9dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>basic_levels</type>
+        <definition>basic_levels srslog::str_to_basic_level</definition>
+        <argsstring>(std::string s)</argsstring>
+        <name>str_to_basic_level</name>
+        <param>
+          <type>std::string</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Translates a string to the corresponding logger basic level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="149" column="21" bodyfile="include/srsgnb/srslog/logger.h" bodystart="149" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="logger_8h_1ada7ef73c4b346e5eb9876cfc5d1d563a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* srslog::basic_level_to_string</definition>
+        <argsstring>(basic_levels level)</argsstring>
+        <name>basic_level_to_string</name>
+        <param>
+          <type>basic_levels</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Translates a logger basic level to the corresponding string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/logger.h" line="172" column="19" bodyfile="include/srsgnb/srslog/logger.h" bodystart="172" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a92ad8357c6a61d0342715fdedd2b17d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> *</type>
+        <definition>log_channel * srslog::find_log_channel</definition>
+        <argsstring>(const std::string &amp;id)</argsstring>
+        <name>find_log_channel</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: All functions are thread safe unless otherwise specified. Log channel management functions. Finds a log channel with the specified id string in the repository. On success returns a pointer to the requested log channel, otherwise nullptr.</para>
+<para>Log channel management function implementations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="29" column="13" bodyfile="lib/srslog/srslog.cpp" bodystart="40" bodyend="43" declfile="include/srsgnb/srslog/srslog.h" declline="29" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a72d4a47f68245076fdac9f070fc540c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> &amp;</type>
+        <definition>log_channel &amp; srslog::fetch_log_channel</definition>
+        <argsstring>(const std::string &amp;id)</argsstring>
+        <name>fetch_log_channel</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> with the specified id that writes to the default sink using the default log channel configuration. NOTE: Any &apos;#&apos; characters in the id will get removed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="34" column="13" bodyfile="lib/srslog/srslog.cpp" bodystart="45" bodyend="57" declfile="include/srsgnb/srslog/srslog.h" declline="34" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a7ac88c2d34ede7e8394cb57051cd5460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> &amp;</type>
+        <definition>log_channel &amp; srslog::fetch_log_channel</definition>
+        <argsstring>(const std::string &amp;id, sink &amp;s, log_channel_config config)</argsstring>
+        <name>fetch_log_channel</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrslog_1_1log__channel__config" kindref="compound">log_channel_config</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a <ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> with the specified id that writes to the specified sink. NOTE: Any &apos;#&apos; characters in the id will get removed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="39" column="13" bodyfile="lib/srslog/srslog.cpp" bodystart="59" bodyend="71" declfile="include/srsgnb/srslog/srslog.h" declline="39" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a1c83f08fb622ebdf2565d1d7e472779f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1log__channel" kindref="compound">log_channel</ref> *</type>
+        <definition>log_channel * srslog::create_log_channel</definition>
+        <argsstring>(const std::string &amp;id, sink &amp;s)</argsstring>
+        <name>create_log_channel</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new log channel instance with the specified id string and sink, then registers it in the log channel repository so that it can be later retrieved in other parts of the application. Returns a pointer to the newly created channel, otherwise when a channel is already registered with the same id it returns nullptr. NOTE: The input id string should not contain any &apos;#&apos; characters otherwise nullptr is returned. NOTE: Deprecated, use fetch_log_channel instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="49" column="13" bodyfile="lib/srslog/srslog.cpp" bodystart="365" bodyend="372" declfile="include/srsgnb/srslog/srslog.h" declline="49" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a09c20c3b17519c97a8d2ba157b1d3540" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* srslog::find_logger</definition>
+        <argsstring>(const std::string &amp;id)</argsstring>
+        <name>find_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds a logger with the specified id string and type in the repository. On success returns a pointer to the requested logger, otherwise nullptr. NOTE: T should be a type that is a logger. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="67" column="10" bodyfile="include/srsgnb/srslog/srslog.h" bodystart="67" bodyend="73"/>
+        <references refid="classsrslog_1_1srslog__instance_1adedc20b552bfedd56cfa321904a456ee" compoundref="srslog__instance_8h" startline="51" endline="55">srslog::srslog_instance::get</references>
+        <references refid="classsrslog_1_1object__repository_1aefba74e68ddc74ebe79e089d04312ef0" compoundref="object__repository_8h" startline="54" endline="59">srslog::object_repository&lt; K, V &gt;::find</references>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a7c6cd017ea70905a8cb4486b7a7fdda6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">basic_logger</ref> &amp;</type>
+        <definition>basic_logger &amp; srslog::fetch_basic_logger</definition>
+        <argsstring>(const std::string &amp;id, bool should_print_context=true)</argsstring>
+        <name>fetch_basic_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>should_print_context</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a basic logger (see basic_logger type) with the specified id string. All logger channels will write into the default sink. The context value of the logger can be printed on each log entry by setting to true the should_print_context argument. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="79" column="14" bodyfile="lib/srslog/srslog.cpp" bodystart="304" bodyend="313" declfile="include/srsgnb/srslog/srslog.h" declline="79" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1aca914c2ce2b461b62dfb2723df730913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">basic_logger</ref> &amp;</type>
+        <definition>basic_logger &amp; srslog::fetch_basic_logger</definition>
+        <argsstring>(const std::string &amp;id, sink &amp;s, bool should_print_context=true)</argsstring>
+        <name>fetch_basic_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>should_print_context</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a basic logger (see basic_logger type) with the specified id string. All logger channels will write into the specified sink. The context value of the logger can be printed on each log entry by setting to true the should_print_context argument. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="85" column="14" bodyfile="lib/srslog/srslog.cpp" bodystart="315" bodyend="324" declfile="include/srsgnb/srslog/srslog.h" declline="85" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a22630d99c74c1fd5d1574212b5749851" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; srslog::fetch_logger</definition>
+        <argsstring>(const std::string &amp;id, Args &amp;&amp;... args)</argsstring>
+        <name>fetch_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a logger instance with the specified id string, type and channel references. NOTE: T should be a type that is a logger. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="91" column="10" bodyfile="include/srsgnb/srslog/srslog.h" bodystart="91" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1ad179db9a6fea451e2989677341b35900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">basic_logger</ref> *</type>
+        <definition>basic_logger * srslog::create_basic_logger</definition>
+        <argsstring>(const std::string &amp;id, sink &amp;s, bool should_print_context=true)</argsstring>
+        <name>create_basic_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>should_print_context</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new basic logger instance (see basic_logger type) with the specified id string and sink, registering it into the logger repository so that it can be later retrieved in other parts of the application. The context value of the logger can be printed on each log entry by setting to true the should_print_context argument. All logger channels will write into the specified sink. Returns a pointer to the newly created logger, otherwise when a logger is already registered with the same id it returns nullptr. NOTE: Deprecated, use fetch_basic_logger instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="111" column="14" bodyfile="lib/srslog/srslog.cpp" bodystart="397" bodyend="428" declfile="include/srsgnb/srslog/srslog.h" declline="111" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1addbe61eeebecd284aedecc7a9be9eaa1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* srslog::create_logger</definition>
+        <argsstring>(const std::string &amp;id, Args &amp;&amp;... args)</argsstring>
+        <name>create_logger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new logger instance with the specified id string, type and channel references, registering it into the logger repository so that it can be later retrieved in other parts of the application. Returns a pointer to the newly created logger, otherwise when a logger is already registered with the same id it returns nullptr. NOTE: T should be a type that is a logger. NOTE: Deprecated, use fetch_logger instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="121" column="10" bodyfile="include/srsgnb/srslog/srslog.h" bodystart="121" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1aefdd9a58c2b2885ec468ae3abd80cfa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::set_default_log_formatter</definition>
+        <argsstring>(std::unique_ptr&lt; log_formatter &gt; f)</argsstring>
+        <name>set_default_log_formatter</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Formatter management functions. Installs the specified formatter to be used as the default one by new sinks. The initial default formatter formats plain text.</para>
+<para>Formatter management functions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="136" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="77" bodyend="80" declfile="include/srsgnb/srslog/srslog.h" declline="136" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1ad5a7547e404f0bc584bd6a70da6cb657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; log_formatter &gt; srslog::get_default_log_formatter</definition>
+        <argsstring>()</argsstring>
+        <name>get_default_log_formatter</name>
+        <briefdescription>
+<para>Returns the instance of the default formatter being used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="139" column="17" bodyfile="lib/srslog/srslog.cpp" bodystart="82" bodyend="85" declfile="include/srsgnb/srslog/srslog.h" declline="139" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a40c6d308d4a5050c458b0a3b23ec0e2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; log_formatter &gt; srslog::create_text_formatter</definition>
+        <argsstring>()</argsstring>
+        <name>create_text_formatter</name>
+        <briefdescription>
+<para>Creates a new instance of a plain text formatter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="142" column="17" bodyfile="lib/srslog/srslog.cpp" bodystart="87" bodyend="90" declfile="include/srsgnb/srslog/srslog.h" declline="142" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a810127ddf1d2fcb2a11742f94122c436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; log_formatter &gt; srslog::create_json_formatter</definition>
+        <argsstring>()</argsstring>
+        <name>create_json_formatter</name>
+        <briefdescription>
+<para>Creates a new instance of a JSON formatter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="145" column="17" bodyfile="lib/srslog/srslog.cpp" bodystart="92" bodyend="95" declfile="include/srsgnb/srslog/srslog.h" declline="145" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a1d3a09079d5f4719cfa542e7bb17efed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::set_default_sink</definition>
+        <argsstring>(sink &amp;s)</argsstring>
+        <name>set_default_sink</name>
+        <param>
+          <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sink management functions. Installs the specified sink to be used as the default one by new log channels and loggers. The initial default sink writes to stdout with a text formatter.</para>
+<para>Sink management function implementations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="154" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="101" bodyend="104" declfile="include/srsgnb/srslog/srslog.h" declline="154" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a0623fc7d81853101ea2ba91af52cacd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+        <definition>sink &amp; srslog::get_default_sink</definition>
+        <argsstring>()</argsstring>
+        <name>get_default_sink</name>
+        <briefdescription>
+<para>Returns the instance of the default sink being used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="157" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="106" bodyend="109" declfile="include/srsgnb/srslog/srslog.h" declline="157" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a749ff4d70c896d2116b8e37dbcc5f1a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> *</type>
+        <definition>sink * srslog::find_sink</definition>
+        <argsstring>(const std::string &amp;id)</argsstring>
+        <name>find_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds a sink with the specified id string in the repository. On success returns a pointer to the requested sink, otherwise nullptr. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="161" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="111" bodyend="115" declfile="include/srsgnb/srslog/srslog.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a7bb4851a82eba1da59777a916b577435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+        <definition>sink &amp; srslog::fetch_stdout_sink</definition>
+        <argsstring>(const std::string &amp;id=&quot;stdout&quot;, std::unique_ptr&lt; log_formatter &gt; f=get_default_log_formatter())</argsstring>
+        <name>fetch_stdout_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+          <defval>&quot;stdout&quot;</defval>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+          <declname>f</declname>
+          <defval>get_default_log_formatter()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a sink that writes to the stdout stream. You may use different ids if you need to create multiple stdout sinks with different formatters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="166" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="117" bodyend="131" declfile="include/srsgnb/srslog/srslog.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a621fabd5f188dfb4507fb7f95cbd4c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+        <definition>sink &amp; srslog::fetch_stderr_sink</definition>
+        <argsstring>(const std::string &amp;id=&quot;stderr&quot;, std::unique_ptr&lt; log_formatter &gt; f=get_default_log_formatter())</argsstring>
+        <name>fetch_stderr_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+          <defval>&quot;stderr&quot;</defval>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+          <declname>f</declname>
+          <defval>get_default_log_formatter()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a sink that writes to the stderr stream. You may use different ids if you need to create multiple stderr sinks with different formatters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="172" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="133" bodyend="147" declfile="include/srsgnb/srslog/srslog.h" declline="172" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a32cd2feb425304352c404a0bb3820bd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+        <definition>sink &amp; srslog::fetch_file_sink</definition>
+        <argsstring>(const std::string &amp;path, size_t max_size=0, bool force_flush=false, std::unique_ptr&lt; log_formatter &gt; f=get_default_log_formatter())</argsstring>
+        <name>fetch_file_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_size</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>force_flush</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+          <declname>f</declname>
+          <defval>get_default_log_formatter()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a sink that writes into a file in the specified path. Specifying a max_size value different to zero will make the sink create a new file each time the current file exceeds this value. The units of max_size are bytes. Setting force_flush to true will flush the sink after every write. NOTE: Any &apos;#&apos; characters in the path will get removed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="181" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="149" bodyend="168" declfile="include/srsgnb/srslog/srslog.h" declline="181" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a7eb515b75d44f0e4605e51f3f9e489e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &amp;</type>
+        <definition>sink &amp; srslog::fetch_syslog_sink</definition>
+        <argsstring>(const std::string &amp;preamble_=&quot;&quot;, syslog_local_type log_local_=syslog_local_type::local0, std::unique_ptr&lt; log_formatter &gt; f=get_default_log_formatter())</argsstring>
+        <name>fetch_syslog_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>preamble_</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>syslog_local_type</type>
+          <declname>log_local_</declname>
+          <defval>syslog_local_type::local0</defval>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+          <declname>f</declname>
+          <defval>get_default_log_formatter()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an instance of a sink that writes into syslog preamble: The string prepended to every message, If ident is &quot;&quot;, the program name is used. log_local: custom unused facilities that syslog provides which can be used by the user NOTE: Any &apos;#&apos; characters in the path will get removed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="190" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="170" bodyend="187" declfile="include/srsgnb/srslog/srslog.h" declline="190" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a052d09ff6ba29cfbb6c7fa4ab55fba98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::install_custom_sink</definition>
+        <argsstring>(const std::string &amp;id, std::unique_ptr&lt; sink &gt; s)</argsstring>
+        <name>install_custom_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> &gt;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs a custom user defined sink in the framework getting associated to the specified id. Returns true on success, otherwise false. WARNING: This function is an advanced feature and users should really know what they are doing when using it. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="198" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="189" bodyend="199" declfile="include/srsgnb/srslog/srslog.h" declline="198" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1ad760e2151e622885672d4dfc8d48def4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> *</type>
+        <definition>sink * srslog::create_file_sink</definition>
+        <argsstring>(const std::string &amp;path, size_t max_size=0)</argsstring>
+        <name>create_file_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new sink that writes into the a file in the specified path and registers it into a sink repository so that it can be later retrieved in other parts of the application. Returns a pointer to the newly created sink or nullptr if a sink with the same path was already registered. Specifying a max_size value different to zero will make the sink create a new file each time the current file exceeds this value. The units of max_size are bytes. NOTE: Deprecated, use fetch_file_sink instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="208" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="384" bodyend="395" declfile="include/srsgnb/srslog/srslog.h" declline="208" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a03e25eac8a5194da24a61c1d822784a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> *</type>
+        <definition>sink * srslog::create_stdout_sink</definition>
+        <argsstring>(const std::string &amp;name=&quot;stdout&quot;)</argsstring>
+        <name>create_stdout_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+          <defval>&quot;stdout&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new sink that writes into the stdout stream and registers it into a sink repository so that it can be later retrieved in other parts of the application. Different stdout sinks can be created by providing different names. Returns a pointer to the newly created sink or nullptr if a sink with the same name was already registered. NOTE: Deprecated, use get_stdout_sink instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="216" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="374" bodyend="377" declfile="include/srsgnb/srslog/srslog.h" declline="216" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a1993dfa16168200c10f5c7a663b76c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1sink" kindref="compound">sink</ref> *</type>
+        <definition>sink * srslog::create_stderr_sink</definition>
+        <argsstring>(const std::string &amp;name=&quot;stderr&quot;)</argsstring>
+        <name>create_stderr_sink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+          <defval>&quot;stderr&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new sink that writes into the stderr stream and registers it into a sink repository so that it can be later retrieved in other parts of the application. Different stderr sinks can be created by providing different names. Returns a pointer to the newly created sink or nullptr if a sink with the same name was already registered. NOTE: Deprecated, use get_stderr_sink instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="224" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="379" bodyend="382" declfile="include/srsgnb/srslog/srslog.h" declline="224" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a6a7c7c3e1d4bdf3c1ebe9a69378c6a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::init</definition>
+        <argsstring>(backend_priority priority=backend_priority::normal)</argsstring>
+        <name>init</name>
+        <param>
+          <type>backend_priority</type>
+          <declname>priority</declname>
+          <defval>backend_priority::normal</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Framework configuration and control functions. This function initializes the logging framework. It must be called before any log entry is generated. NOTE: Calling this function more than once has no side effects.</para>
+<para>Framework configuration and control function implementations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="233" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="205" bodyend="208" declfile="include/srsgnb/srslog/srslog.h" declline="233" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1a87b0feff706ec57dfdeb274d43d72863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::flush</definition>
+        <argsstring>()</argsstring>
+        <name>flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flushes the contents of all the registered sinks. The caller thread will block until the operation is completed. NOTE: This function does nothing if init() has not been called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="238" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="210" bodyend="243" declfile="include/srsgnb/srslog/srslog.h" declline="238" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="srslog_8h_1af10e6d28e5102d0a6a8156a6ac39c823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::set_error_handler</definition>
+        <argsstring>(error_handler handler)</argsstring>
+        <name>set_error_handler</name>
+        <param>
+          <type>error_handler</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs the specified error handler to receive any error messages generated by the framework. NOTE: This function should be called before init() and is NOT thread safe. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/srslog.h" line="243" column="6" bodyfile="lib/srslog/srslog.cpp" bodystart="245" bodyend="248" declfile="include/srsgnb/srslog/srslog.h" declline="243" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="event__trace_8cpp_1a2806d7ab3f3c1eaf24ad0706d376df35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::trace_duration_begin</definition>
+        <argsstring>(const std::string &amp;category, const std::string &amp;name)</argsstring>
+        <name>trace_duration_begin</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>category</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/event_trace.cpp" line="88" column="6" bodyfile="lib/srslog/event_trace.cpp" bodystart="88" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="event__trace_8cpp_1aac8f98c047129b542615897470087126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::trace_duration_end</definition>
+        <argsstring>(const std::string &amp;category, const std::string &amp;name)</argsstring>
+        <name>trace_duration_end</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>category</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/event_trace.cpp" line="99" column="6" bodyfile="lib/srslog/event_trace.cpp" bodystart="99" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/srsgnb/srslog/context.h" line="17" column="16"/>
+  </compounddef>
+</doxygen>

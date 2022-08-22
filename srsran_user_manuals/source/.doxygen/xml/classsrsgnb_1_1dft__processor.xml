@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dft__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::dft_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1dft__processor__fftw__impl" prot="public" virt="non-virtual">srsgnb::dft_processor_fftw_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1dft__processor__fftx__impl" prot="public" virt="non-virtual">srsgnb::dft_processor_fftx_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1dft__processor__generic__impl" prot="public" virt="non-virtual">srsgnb::dft_processor_generic_impl</derivedcompoundref>
+    <includes refid="dft__processor_8h" local="no">dft_processor.h</includes>
+    <innerclass refid="structsrsgnb_1_1dft__processor_1_1configuration" prot="public">srsgnb::dft_processor::configuration</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>direction</name>
+        <enumvalue id="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431fa4c5d06b02c97731aaa976179c62dcf76" prot="public">
+          <name>DIRECT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Converts a time domain signal into frequency domain. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="remark"><para>For the FFTW based libraries, it is equivalent to <computeroutput>FFTW_FORWARD</computeroutput> sign. </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431fa1955bdc302911f376074eb9b02e56639" prot="public">
+          <name>INVERSE</name>
+          <briefdescription>
+<para>Converts a frequency domain signal into frequency (inverse DFT). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="remark"><para>For the FFTW based libraries, it is equivalent to <computeroutput>FFTW_BACKWARD</computeroutput> sign. </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Indicates the DFT direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="26" column="23" bodyfile="include/srsgnb/phy/generic_functions/dft_processor.h" bodystart="26" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1a990a33ef2371f2b8a180ff733593b35a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string srsgnb::dft_processor::direction_to_string</definition>
+        <argsstring>(direction dir)</argsstring>
+        <name>direction_to_string</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" kindref="member">direction</ref></type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+<para>Converts a DFT direction to string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="44" column="22" bodyfile="include/srsgnb/phy/generic_functions/dft_processor.h" bodystart="44" bodyend="44"/>
+        <references refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431fa4c5d06b02c97731aaa976179c62dcf76">DIRECT</references>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">srsgnb::dft_processor_fftw_impl::dft_processor_fftw_impl</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1a8dbf07069cd6d18e7dbc74dc83ad5a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::dft_processor::~dft_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~dft_processor</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="47" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1abdbea8c489a465d688bed034fa078711" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" kindref="member">direction</ref></type>
+        <definition>virtual direction srsgnb::dft_processor::get_direction</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_direction</name>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftx__impl_1a623ecb4d0eae76882ec0f2603ae8fe6d">get_direction</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__generic__impl_1a23ef97e4986f706d3117ba697b1cbc08">get_direction</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a58e23041784e630add53af4474e2d3f2">get_direction</reimplementedby>
+        <briefdescription>
+<para>Gets the DFT direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="50" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::dft_processor::get_size</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_size</name>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftx__impl_1a453213f18257488fc6ef08fbc638db14">get_size</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__generic__impl_1a2523ad69634a735ccfaa494f06c7c497">get_size</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a7ec69bb8432b381bdd364c318eaf1490">get_size</reimplementedby>
+        <briefdescription>
+<para>Gets the DFT number of points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="53" column="20"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">srsgnb::ofdm_prach_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>virtual span&lt;cf_t&gt; srsgnb::dft_processor::get_input</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_input</name>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftx__impl_1a4f4b869dbda4d85bdf4e1676d4ab393e">get_input</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__generic__impl_1ab3b61d1358cb164d5b62dc7a79542afc">get_input</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a855255f911a18aab6130b2e869e44f33">get_input</reimplementedby>
+        <briefdescription>
+<para>Gets a view of the internal input DFT buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="56" column="16"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">srsgnb::ofdm_prach_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>virtual span&lt;const cf_t&gt; srsgnb::dft_processor::run</definition>
+        <argsstring>()=0</argsstring>
+        <name>run</name>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftx__impl_1a7df4096d77804f0253b8f70764874cb5">run</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__generic__impl_1ac9938d3915c621b312004257d9854f97">run</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ada651ca0253e33c5bf0e1909ebffbbf2">run</reimplementedby>
+        <briefdescription>
+<para>Executes the DFT from the internal input data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A view of the internal output DFT buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="60" column="16"/>
+        <referencedby refid="classsrsgnb_1_1ofdm__prach__demodulator__impl_1ad6c351530f5dc139e1f2971dbaeb9482" compoundref="ofdm__prach__demodulator__impl_8cpp" startline="19" endline="105">srsgnb::ofdm_prach_demodulator_impl::demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a Discrete Fourier Transform (DFT) processor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="remark"><para>The DFT processor allocates the input and output buffers for optimization purposes. </para>
+</simplesect>
+<simplesect kind="remark"><para>The input buffer is available using <ref refid="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de" kindref="member">get_input()</ref>. </para>
+</simplesect>
+<simplesect kind="remark"><para>The output buffer is available using <ref refid="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3" kindref="member">run()</ref>. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::dft_processor_fftw_impl</label>
+        <link refid="classsrsgnb_1_1dft__processor__fftw__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::dft_processor</label>
+        <link refid="classsrsgnb_1_1dft__processor"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::dft_processor_fftx_impl</label>
+        <link refid="classsrsgnb_1_1dft__processor__fftx__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::dft_processor_generic_impl</label>
+        <link refid="classsrsgnb_1_1dft__processor__generic__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::dft_processor</label>
+        <link refid="classsrsgnb_1_1dft__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/generic_functions/dft_processor.h" line="23" column="1" bodyfile="include/srsgnb/phy/generic_functions/dft_processor.h" bodystart="22" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor</scope><name>direction</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a990a33ef2371f2b8a180ff733593b35a" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor</scope><name>direction_to_string</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1abdbea8c489a465d688bed034fa078711" prot="public" virt="pure-virtual"><scope>srsgnb::dft_processor</scope><name>get_direction</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de" prot="public" virt="pure-virtual"><scope>srsgnb::dft_processor</scope><name>get_input</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00" prot="public" virt="pure-virtual"><scope>srsgnb::dft_processor</scope><name>get_size</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3" prot="public" virt="pure-virtual"><scope>srsgnb::dft_processor</scope><name>run</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a8dbf07069cd6d18e7dbc74dc83ad5a59" prot="public" virt="virtual"><scope>srsgnb::dft_processor</scope><name>~dft_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

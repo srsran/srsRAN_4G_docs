@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1stable__id__map" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::stable_id_map</compoundname>
+    <includes refid="stable__id__map_8h" local="no">stable_id_map.h</includes>
+    <innerclass refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" prot="private">srsgnb::stable_id_map::iter_impl</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename IdType</type>
+      </param>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>MAX_SIZE</declname>
+        <defname>MAX_SIZE</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1stable__id__map_1a0c969a19c421a58faca2202f87bd6053" prot="private" static="no">
+        <type>std::array&lt; std::unique_ptr&lt; T &gt;, MAX_SIZE &gt;</type>
+        <definition>using srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::container_t =  std::array&lt;std::unique_ptr&lt;T&gt;, MAX_SIZE&gt;</definition>
+        <argsstring></argsstring>
+        <name>container_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="28" column="3" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1stable__id__map_1ae1663952143b7443a6041b0eaaca78d2" prot="public" static="no">
+        <type>T</type>
+        <definition>using srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="73" column="3" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1stable__id__map_1a2455dbe2cdf789bf853faeaa839929bf" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">iter_impl</ref>&lt; T &gt;</type>
+        <definition>using srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::iterator =  iter_impl&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="74" column="3" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1stable__id__map_1ab7209e56ce96787dfd971f9a44fbebe2" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">iter_impl</ref>&lt; const T &gt;</type>
+        <definition>using srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::const_iterator =  iter_impl&lt;const T&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="75" column="3" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1stable__id__map_1a7ca671e1a4c8b4ed057418484d369e25" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::nof_elems</definition>
+        <argsstring></argsstring>
+        <name>nof_elems</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="140" column="44" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1stable__id__map_1a02a0614e40b241587fe26997b7abba4c" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::unique_ptr&lt; T &gt;, MAX_SIZE &gt;</type>
+        <definition>std::array&lt;std::unique_ptr&lt;T&gt;, MAX_SIZE&gt; srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::elems</definition>
+        <argsstring></argsstring>
+        <name>elems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="141" column="14" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1acdcd84f321853d6eacf2e55840622dd7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::contains</definition>
+        <argsstring>(IdType id) const</argsstring>
+        <name>contains</name>
+        <param>
+          <type>IdType</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="77" column="8" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1af9f682259f3c23b362043be115499059" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::insert</definition>
+        <argsstring>(IdType id_value, std::unique_ptr&lt; T &gt; u)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>IdType</type>
+          <declname>id_value</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; T &gt;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="83" column="8" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="83" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1af617dc4dcd64d337ea9506bc0fdc04f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::emplace</definition>
+        <argsstring>(IdType id_value, Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>IdType</type>
+          <declname>id_value</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="91" column="8" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1aaa831852b487a4db8362954d7078105a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::erase</definition>
+        <argsstring>(IdType id_value)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>IdType</type>
+          <declname>id_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="98" column="8" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="98" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a46eaf211d9993739401131a267d1c3d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="108" column="8" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="108" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a73a26a805fbb6067ba60d8130bce38dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::operator[]</definition>
+        <argsstring>(IdType id_value)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>IdType</type>
+          <declname>id_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="116" column="5" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="116" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1af40615ef6dba266a728bb4247ad2b3df" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::operator[]</definition>
+        <argsstring>(IdType id_value) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>IdType</type>
+          <declname>id_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="122" column="11" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="122" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1aaa801a6d44e158c29f570e430dec0359" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="128" column="10" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a927521c8b60da214e04990e123aa5769" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="129" column="10" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a307bb15bd1c4cc13d9b02c6ef62a96a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="131" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1ac22224d94225643800292d268adc0ece" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="132" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a17196d9fc9df7add0356a0f8ace76485" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="133" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a17c3ec4f8e14e7bc5a523a1adea4e741" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="134" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1ab988d72e346cdae5fa5181465b2db9c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">iterator</ref></type>
+        <definition>iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::lower_bound</definition>
+        <argsstring>(IdType id)</argsstring>
+        <name>lower_bound</name>
+        <param>
+          <type>IdType</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="136" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1stable__id__map_1a874708bce1845caba03137f1b09ebb83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1stable__id__map_1_1iter__impl" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;::lower_bound</definition>
+        <argsstring>(IdType id) const</argsstring>
+        <name>lower_bound</name>
+        <param>
+          <type>IdType</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/stable_id_map.h" line="137" column="18" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="137" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Container type that associates Id types to container elements. Pointer/References/Iterators remain valid throughout the object lifetime. This container is efficient memory-wise, avoiding reserving space for elements T before those elements are actually created. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>IdType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MAX_SIZE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::stable_id_map&lt; IdType, T, MAX_SIZE &gt;</label>
+        <link refid="classsrsgnb_1_1stable__id__map"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/stable_id_map.h" line="27" column="1" bodyfile="include/srsgnb/adt/stable_id_map.h" bodystart="26" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1stable__id__map_1a307bb15bd1c4cc13d9b02c6ef62a96a4" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a17196d9fc9df7add0356a0f8ace76485" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a46eaf211d9993739401131a267d1c3d7" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1ab7209e56ce96787dfd971f9a44fbebe2" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>const_iterator</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a0c969a19c421a58faca2202f87bd6053" prot="private" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>container_t</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1acdcd84f321853d6eacf2e55840622dd7" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>contains</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a02a0614e40b241587fe26997b7abba4c" prot="private" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>elems</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1af617dc4dcd64d337ea9506bc0fdc04f1" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>emplace</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a927521c8b60da214e04990e123aa5769" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>empty</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1ac22224d94225643800292d268adc0ece" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a17c3ec4f8e14e7bc5a523a1adea4e741" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1aaa831852b487a4db8362954d7078105a" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>erase</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1af9f682259f3c23b362043be115499059" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>insert</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a2455dbe2cdf789bf853faeaa839929bf" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>iterator</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1ab988d72e346cdae5fa5181465b2db9c1" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>lower_bound</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a874708bce1845caba03137f1b09ebb83" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>lower_bound</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a7ca671e1a4c8b4ed057418484d369e25" prot="private" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>nof_elems</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1a73a26a805fbb6067ba60d8130bce38dc" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1af40615ef6dba266a728bb4247ad2b3df" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1aaa801a6d44e158c29f570e430dec0359" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>size</name></member>
+      <member refid="classsrsgnb_1_1stable__id__map_1ae1663952143b7443a6041b0eaaca78d2" prot="public" virt="non-virtual"><scope>srsgnb::stable_id_map</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

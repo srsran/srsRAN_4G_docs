@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1blocking__task__worker" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>srsgnb::blocking_task_worker</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1task__executor" prot="public" virt="non-virtual">srsgnb::task_executor</basecompoundref>
+    <includes refid="blocking__task__worker_8h" local="no">blocking_task_worker.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1blocking__task__worker_1a5cbf9b07cf698bbe5eafdc8c2d8cfb60" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dyn__blocking__queue" kindref="compound">dyn_blocking_queue</ref>&lt; <ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref> &gt;</type>
+        <definition>dyn_blocking_queue&lt;unique_task&gt; srsgnb::blocking_task_worker::pending_tasks</definition>
+        <argsstring></argsstring>
+        <name>pending_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="51" column="22" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1blocking__task__worker_1a359cc0de621de21460849d4904489b88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::blocking_task_worker::blocking_task_worker</definition>
+        <argsstring>(size_t q_size)</argsstring>
+        <name>blocking_task_worker</name>
+        <param>
+          <type>size_t</type>
+          <declname>q_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="23" column="3" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1blocking__task__worker_1a63ef06b19c2c4368c66fd6b049e7c741" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::blocking_task_worker::execute</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>execute</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313">execute</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatches a task to be executed. According to this policy, executor may invoke task inplace if it deemed safe to do so. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="25" column="8" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="25" bodyend="25"/>
+        <referencedby refid="classsrsgnb_1_1blocking__task__worker_1af97cf84d1fac64ec28d7b67212f70ce5" compoundref="blocking__task__worker_8h" startline="27" endline="27">defer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1blocking__task__worker_1af97cf84d1fac64ec28d7b67212f70ce5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::blocking_task_worker::defer</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>defer</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">defer</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches a task to be later executed. The task always gets enqueued for later invocation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="27" column="8" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="27" bodyend="27"/>
+        <references refid="classsrsgnb_1_1blocking__task__worker_1a63ef06b19c2c4368c66fd6b049e7c741" compoundref="blocking__task__worker_8h" startline="25" endline="25">execute</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1blocking__task__worker_1aebc71fcbf6c3dcf7ca9bb5f6f2b13806" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::blocking_task_worker::request_stop</definition>
+        <argsstring>()</argsstring>
+        <name>request_stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="29" column="8" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1blocking__task__worker_1aac0d956d487c8f305c7ffc78019968f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::blocking_task_worker::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="38" column="8" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="38" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contrarily to other type of workers, this worker runs in the same thread where run() is called. run() is blocking. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::blocking_task_worker</label>
+        <link refid="classsrsgnb_1_1blocking__task__worker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::blocking_task_worker</label>
+        <link refid="classsrsgnb_1_1blocking__task__worker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-pending_tasks</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::dyn_blocking_queue&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::dyn_circular_buffer&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; srsgnb::unique_function &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srsgnb::unique_function &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/executors/blocking_task_worker.h" line="21" column="1" bodyfile="include/srsgnb/support/executors/blocking_task_worker.h" bodystart="20" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1a359cc0de621de21460849d4904489b88" prot="public" virt="non-virtual"><scope>srsgnb::blocking_task_worker</scope><name>blocking_task_worker</name></member>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1af97cf84d1fac64ec28d7b67212f70ce5" prot="public" virt="virtual"><scope>srsgnb::blocking_task_worker</scope><name>defer</name></member>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1a63ef06b19c2c4368c66fd6b049e7c741" prot="public" virt="virtual"><scope>srsgnb::blocking_task_worker</scope><name>execute</name></member>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1a5cbf9b07cf698bbe5eafdc8c2d8cfb60" prot="private" virt="non-virtual"><scope>srsgnb::blocking_task_worker</scope><name>pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1aebc71fcbf6c3dcf7ca9bb5f6f2b13806" prot="public" virt="non-virtual"><scope>srsgnb::blocking_task_worker</scope><name>request_stop</name></member>
+      <member refid="classsrsgnb_1_1blocking__task__worker_1aac0d956d487c8f305c7ffc78019968f9" prot="public" virt="non-virtual"><scope>srsgnb::blocking_task_worker</scope><name>run</name></member>
+      <member refid="classsrsgnb_1_1task__executor_1a63fc9cba063ea0763800f710c6c44926" prot="public" virt="virtual"><scope>srsgnb::blocking_task_worker</scope><name>~task_executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

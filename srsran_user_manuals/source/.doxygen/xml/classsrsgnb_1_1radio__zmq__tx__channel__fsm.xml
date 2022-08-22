@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__zmq__tx__channel__fsm" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::radio_zmq_tx_channel_fsm</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3f" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>states</name>
+        <enumvalue id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fadd652546039b18970b8dcf2cff824268" prot="private">
+          <name>UNINITIALIZED</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Indicates it failed to initialize. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa99f60a648ed68151ec688a129e200b05" prot="private">
+          <name>WAIT_REQUEST</name>
+          <briefdescription>
+<para>Indicates it has been successfully initialized and it is waiting for request. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0802bc8bd85529346284f5d51cf72f07" prot="private">
+          <name>WAIT_DATA</name>
+          <briefdescription>
+<para>Indicates it has been successfully initialized and it is waiting for data to transmit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0f7d8d046ef87d6e314593b390cd6400" prot="private">
+          <name>WAIT_STOP</name>
+          <briefdescription>
+<para>Signals a stop to the asynchronous thread. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa09d4d696b4e935115b9313e3c412509a" prot="private">
+          <name>STOPPED</name>
+          <briefdescription>
+<para>Indicates it is stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Describes the possible states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="21" column="20" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="21" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3f" kindref="member">states</ref></type>
+        <definition>states srsgnb::radio_zmq_tx_channel_fsm::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= <ref refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fadd652546039b18970b8dcf2cff824268" kindref="member">states::UNINITIALIZED</ref></initializer>
+        <briefdescription>
+<para>Indicates the current state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="35" column="10" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a9cc0057a91261052ecc648e2c0b0b334" compoundref="radio__zmq__tx__channel__fsm_8h" startline="42" endline="42">is_running_unprotected</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1adfbf2ae39073f6595522606b45b10b66" compoundref="radio__zmq__tx__channel__fsm_8h" startline="46" endline="50">init_successful</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a835e2ec34ea436c0547afcc1dd794539" compoundref="radio__zmq__tx__channel__fsm_8h" startline="53" endline="58">on_error</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a40c52e33b773f234ba6fdcd11fcd2f34" compoundref="radio__zmq__tx__channel__fsm_8h" startline="61" endline="67">request_received</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a789f4db8c3533d7b82a3d2d10794998e" compoundref="radio__zmq__tx__channel__fsm_8h" startline="70" endline="76">data_sent</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a345184a2e9af959d48b6e6e447cc6b7b" compoundref="radio__zmq__tx__channel__fsm_8h" startline="79" endline="85">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a777afaf02285baff68b725549889dcb3" compoundref="radio__zmq__tx__channel__fsm_8h" startline="88" endline="94">wait_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ad39525912552fb75c4389767a44bbcae" compoundref="radio__zmq__tx__channel__fsm_8h" startline="97" endline="102">async_task_stopped</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a103b1904de9e84706fe2cadeab7a5b5c" compoundref="radio__zmq__tx__channel__fsm_8h" startline="112" endline="116">has_pending_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::radio_zmq_tx_channel_fsm::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+<para>Protects the state and transitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="37" column="22" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1adfbf2ae39073f6595522606b45b10b66" compoundref="radio__zmq__tx__channel__fsm_8h" startline="46" endline="50">init_successful</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a835e2ec34ea436c0547afcc1dd794539" compoundref="radio__zmq__tx__channel__fsm_8h" startline="53" endline="58">on_error</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a40c52e33b773f234ba6fdcd11fcd2f34" compoundref="radio__zmq__tx__channel__fsm_8h" startline="61" endline="67">request_received</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a789f4db8c3533d7b82a3d2d10794998e" compoundref="radio__zmq__tx__channel__fsm_8h" startline="70" endline="76">data_sent</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a345184a2e9af959d48b6e6e447cc6b7b" compoundref="radio__zmq__tx__channel__fsm_8h" startline="79" endline="85">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a777afaf02285baff68b725549889dcb3" compoundref="radio__zmq__tx__channel__fsm_8h" startline="88" endline="94">wait_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ad39525912552fb75c4389767a44bbcae" compoundref="radio__zmq__tx__channel__fsm_8h" startline="97" endline="102">async_task_stopped</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a4b703092e69e17762c55dd238faa849b" compoundref="radio__zmq__tx__channel__fsm_8h" startline="105" endline="109">is_running</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a103b1904de9e84706fe2cadeab7a5b5c" compoundref="radio__zmq__tx__channel__fsm_8h" startline="112" endline="116">has_pending_request</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a3cf613d1154ce25d3de583aa898c74f2" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable srsgnb::radio_zmq_tx_channel_fsm::cvar</definition>
+        <argsstring></argsstring>
+        <name>cvar</name>
+        <briefdescription>
+<para>Condition variable to wait for certain states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="39" column="27" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a835e2ec34ea436c0547afcc1dd794539" compoundref="radio__zmq__tx__channel__fsm_8h" startline="53" endline="58">on_error</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a777afaf02285baff68b725549889dcb3" compoundref="radio__zmq__tx__channel__fsm_8h" startline="88" endline="94">wait_stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ad39525912552fb75c4389767a44bbcae" compoundref="radio__zmq__tx__channel__fsm_8h" startline="97" endline="102">async_task_stopped</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a9cc0057a91261052ecc648e2c0b0b334" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_tx_channel_fsm::is_running_unprotected</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running_unprotected</name>
+        <briefdescription>
+<para>Same than <ref refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a4b703092e69e17762c55dd238faa849b" kindref="member">is_running()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="42" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="42" bodyend="42"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa99f60a648ed68151ec688a129e200b05">WAIT_REQUEST</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0802bc8bd85529346284f5d51cf72f07">WAIT_DATA</references>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a345184a2e9af959d48b6e6e447cc6b7b" compoundref="radio__zmq__tx__channel__fsm_8h" startline="79" endline="85">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a4b703092e69e17762c55dd238faa849b" compoundref="radio__zmq__tx__channel__fsm_8h" startline="105" endline="109">is_running</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1adfbf2ae39073f6595522606b45b10b66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::init_successful</definition>
+        <argsstring>()</argsstring>
+        <name>init_successful</name>
+        <briefdescription>
+<para>Notifies that the transmit stream has been initialized successfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="46" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="46" bodyend="50"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa99f60a648ed68151ec688a129e200b05">WAIT_REQUEST</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a835e2ec34ea436c0547afcc1dd794539" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::on_error</definition>
+        <argsstring>()</argsstring>
+        <name>on_error</name>
+        <briefdescription>
+<para>Notifies that the stream detected an error it cannot recover from. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="53" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="53" bodyend="58"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa09d4d696b4e935115b9313e3c412509a">STOPPED</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a3cf613d1154ce25d3de583aa898c74f2" compoundref="radio__zmq__tx__channel__fsm_8h" startline="39">cvar</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a40c52e33b773f234ba6fdcd11fcd2f34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::request_received</definition>
+        <argsstring>()</argsstring>
+        <name>request_received</name>
+        <briefdescription>
+<para>Notifies that a request was received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="61" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="61" bodyend="67"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa99f60a648ed68151ec688a129e200b05">WAIT_REQUEST</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0802bc8bd85529346284f5d51cf72f07">WAIT_DATA</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a789f4db8c3533d7b82a3d2d10794998e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::data_sent</definition>
+        <argsstring>()</argsstring>
+        <name>data_sent</name>
+        <briefdescription>
+<para>Notifies a block of data was send. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="70" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="70" bodyend="76"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0802bc8bd85529346284f5d51cf72f07">WAIT_DATA</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa99f60a648ed68151ec688a129e200b05">WAIT_REQUEST</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a345184a2e9af959d48b6e6e447cc6b7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Notifies a stop was signaled and wait for asynchronous executor to stop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="79" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="79" bodyend="85"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a9cc0057a91261052ecc648e2c0b0b334" compoundref="radio__zmq__tx__channel__fsm_8h" startline="42" endline="42">is_running_unprotected</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0f7d8d046ef87d6e314593b390cd6400">WAIT_STOP</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a777afaf02285baff68b725549889dcb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::wait_stop</definition>
+        <argsstring>()</argsstring>
+        <name>wait_stop</name>
+        <briefdescription>
+<para>Waits for the asynchronous tasks notifies that has stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="88" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="88" bodyend="94"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa09d4d696b4e935115b9313e3c412509a">STOPPED</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a3cf613d1154ce25d3de583aa898c74f2" compoundref="radio__zmq__tx__channel__fsm_8h" startline="39">cvar</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ad39525912552fb75c4389767a44bbcae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::radio_zmq_tx_channel_fsm::async_task_stopped</definition>
+        <argsstring>()</argsstring>
+        <name>async_task_stopped</name>
+        <briefdescription>
+<para>Notifies the asynchronous task has stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="97" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="97" bodyend="102"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa09d4d696b4e935115b9313e3c412509a">STOPPED</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a3cf613d1154ce25d3de583aa898c74f2" compoundref="radio__zmq__tx__channel__fsm_8h" startline="39">cvar</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a4b703092e69e17762c55dd238faa849b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_tx_channel_fsm::is_running</definition>
+        <argsstring>() const</argsstring>
+        <name>is_running</name>
+        <briefdescription>
+<para>Indicates whether the current state is operational. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="105" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="105" bodyend="109"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a9cc0057a91261052ecc648e2c0b0b334" compoundref="radio__zmq__tx__channel__fsm_8h" startline="42" endline="42">is_running_unprotected</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a103b1904de9e84706fe2cadeab7a5b5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_zmq_tx_channel_fsm::has_pending_request</definition>
+        <argsstring>() const</argsstring>
+        <name>has_pending_request</name>
+        <briefdescription>
+<para>Indicates whether it has a pending request. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="112" column="8" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="112" bodyend="116"/>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" compoundref="radio__zmq__tx__channel__fsm_8h" startline="37">mutex</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" compoundref="radio__zmq__tx__channel__fsm_8h" startline="35">state</references>
+        <references refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3fa0802bc8bd85529346284f5d51cf72f07">WAIT_DATA</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::radio_zmq_tx_channel_fsm</label>
+        <link refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" line="18" column="1" bodyfile="lib/radio/zmq/radio_zmq_tx_channel_fsm.h" bodystart="17" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ad39525912552fb75c4389767a44bbcae" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>async_task_stopped</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a3cf613d1154ce25d3de583aa898c74f2" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>cvar</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a789f4db8c3533d7b82a3d2d10794998e" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>data_sent</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a103b1904de9e84706fe2cadeab7a5b5c" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>has_pending_request</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1adfbf2ae39073f6595522606b45b10b66" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>init_successful</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a4b703092e69e17762c55dd238faa849b" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>is_running</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a9cc0057a91261052ecc648e2c0b0b334" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>is_running_unprotected</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a099c26b19dd74a1b556cd1e1705d155f" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a835e2ec34ea436c0547afcc1dd794539" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>on_error</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a40c52e33b773f234ba6fdcd11fcd2f34" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>request_received</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1ae05d81083ca61ae33724a867702a30ed" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>state</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a590598c58d24a7b728b60830f458ad3f" prot="private" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>states</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a345184a2e9af959d48b6e6e447cc6b7b" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__zmq__tx__channel__fsm_1a777afaf02285baff68b725549889dcb3" prot="public" virt="non-virtual"><scope>srsgnb::radio_zmq_tx_channel_fsm</scope><name>wait_stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

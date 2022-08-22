@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdsch__processor__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pdsch_processor_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pdsch__processor" prot="public" virt="non-virtual">srsgnb::pdsch_processor</basecompoundref>
+    <includes refid="pdsch__processor__impl_8h" local="no">pdsch_processor_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__processor__impl_1a64d3c53fd7b6de0c56d6a504be04f99d" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdsch__encoder" kindref="compound">pdsch_encoder</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pdsch_encoder&gt; srsgnb::pdsch_processor_impl::encoder</definition>
+        <argsstring></argsstring>
+        <name>encoder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="23" column="68" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__processor__impl_1a00798bde2c393987aeb94d0197adcba8" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdsch__modulator" kindref="compound">pdsch_modulator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pdsch_modulator&gt; srsgnb::pdsch_processor_impl::modulator</definition>
+        <argsstring></argsstring>
+        <name>modulator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="24" column="66" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__processor__impl_1a48a2d230ad5e5ad28c5db3529e705d45" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dmrs__pdsch__processor" kindref="compound">dmrs_pdsch_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;dmrs_pdsch_processor&gt; srsgnb::pdsch_processor_impl::dmrs</definition>
+        <argsstring></argsstring>
+        <name>dmrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="25" column="61" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdsch__processor__impl_1a23df15b9e9976cf254ec8b314bc9a27f" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; uint8_t, <ref refid="classsrsgnb_1_1pdsch__processor_1a804f2c495fd830d4c04cce70718625a0" kindref="member">MAX_CODEWORD_SIZE</ref> &gt;, <ref refid="classsrsgnb_1_1pdsch__processor_1a8c4a7df76e6e76d9104b610b473e8489" kindref="member">MAX_NOF_TRANSPORT_BLOCKS</ref> &gt;</type>
+        <definition>std::array&lt;static_vector&lt;uint8_t, MAX_CODEWORD_SIZE&gt;, MAX_NOF_TRANSPORT_BLOCKS&gt; srsgnb::pdsch_processor_impl::codewords</definition>
+        <argsstring></argsstring>
+        <name>codewords</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="26" column="14" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1ad7f3fc8d1b12b86035f4802afa77c4b5" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned int pdsch_processor_impl::compute_nof_data_re</definition>
+        <argsstring>(const pdu_t &amp;pdu)</argsstring>
+        <name>compute_nof_data_re</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Computes the number of RE used for mapping PDSCH data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of RE excludes the elements described by <computeroutput>pdu</computeroutput> reserved and the RE used for DMRS.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Describes a PDSCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of resource elements. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="34" column="19" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.cpp" bodystart="16" bodyend="38"/>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a8007352409e3e4501f4c72345d24a2a7" compoundref="pdsch__processor_8h" startline="128">srsgnb::pdsch_processor::pdu_t::reserved</references>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a8f5e432aaa7eb45a4e6cb30156fd712f" compoundref="re__pattern_8cpp" startline="71" endline="115">srsgnb::re_pattern_list::merge</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a6808f427f1617fa264978a84d0d42e3d" compoundref="pdsch__processor_8h" startline="91">srsgnb::pdsch_processor::pdu_t::dmrs</references>
+        <references refid="classsrsgnb_1_1dmrs__type_1aa69ed66127c1e0fa6f7c4b0714f98b46" compoundref="dmrs__mapping_8h" startline="67" endline="97">srsgnb::dmrs_type::get_dmrs_pattern</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afa619b77955dcca4657652d0c334f1a3" compoundref="pdsch__processor_8h" startline="58">srsgnb::pdsch_processor::pdu_t::bwp_start_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afd72f29ed1c401ec4bdee99e8939d37b" compoundref="pdsch__processor_8h" startline="56">srsgnb::pdsch_processor::pdu_t::bwp_size_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aa08031b38f6850d306b54c03678eb852" compoundref="pdsch__processor_8h" startline="106">srsgnb::pdsch_processor::pdu_t::nof_cdm_groups_without_data</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aef048b86fabbc30c0606a2f094575cf6" compoundref="pdsch__processor_8h" startline="89">srsgnb::pdsch_processor::pdu_t::dmrs_symbol_mask</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a509dce4c37193d84419ed25a67de362c" compoundref="pdsch__processor_8h" startline="108">srsgnb::pdsch_processor::pdu_t::freq_alloc</references>
+        <references refid="classsrsgnb_1_1rb__allocation_1a4742e3a79eea3d38e3aaba7d17301ac4" compoundref="rb__allocation_8cpp" startline="113" endline="129">srsgnb::rb_allocation::get_prb_mask</references>
+        <references refid="classsrsgnb_1_1rb__allocation_1ab044a4da9226fa0c0906f863bf28805f" compoundref="rb__allocation_8h" startline="151" endline="151">srsgnb::rb_allocation::get_nof_rb</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ab4b0c457b965eb8562a91c75a22eee66" compoundref="pdsch__processor_8h" startline="112">srsgnb::pdsch_processor::pdu_t::nof_symbols</references>
+        <references refid="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" compoundref="re__pattern_8cpp" startline="144" endline="173">srsgnb::re_pattern_list::get_inclusion_count</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a96ee21bb52499094fca931d050c653a5" compoundref="pdsch__processor_8h" startline="110">srsgnb::pdsch_processor::pdu_t::start_symbol_index</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" compoundref="pdsch__processor__impl_8cpp" startline="120" endline="174">process</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1abf69b73a2c47ea0539fa4e32ca622e64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+        <definition>span&lt; const uint8_t &gt; pdsch_processor_impl::encode</definition>
+        <argsstring>(span&lt; const uint8_t &gt; data, unsigned codeword_id, unsigned nof_layers, unsigned Nre, const pdu_t &amp;pdu)</argsstring>
+        <name>encode</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>codeword_id</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_layers</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>Nre</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a codeword as per TS 38.212 section 7.2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the data to transmit as packed bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">codeword_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the codeword identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_layers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the number of layers the codeword is mapped on to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">Nre</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the number of resource elements used for PDSCH mapping. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the PDSCH processor PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A view of the encoded codeword. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="45" column="3" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.cpp" bodystart="40" bodyend="68"/>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ac86372c9796ce0326d7763d2e8fe327e" compoundref="pdsch__processor_8h" startline="62">srsgnb::pdsch_processor::pdu_t::codewords</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab487592b6cd65f8bf5f6af724b9434a4" compoundref="codeblock__metadata_8h" startline="98">srsgnb::segmenter_config::base_graph</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a142fa1dabe0e7bd6764140dacaa56a8b" compoundref="pdsch__processor_8h" startline="120">srsgnb::pdsch_processor::pdu_t::ldpc_base_graph</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ad6828b547d88df9adb164f5d691a2bed" compoundref="codeblock__metadata_8h" startline="100">srsgnb::segmenter_config::rv</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1ab662b8463df7ff8f3c5243886aa78d37" compoundref="codeblock__metadata_8h" startline="102">srsgnb::segmenter_config::mod</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a4d655ca8029e15e5a557c94c893ff154" compoundref="codeblock__metadata_8h" startline="105">srsgnb::segmenter_config::Nref</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ab25f2e6c26e1cee73864e3e0b8d4fcfb" compoundref="pdsch__processor_8h" startline="126">srsgnb::pdsch_processor::pdu_t::tbs_lbrm_bytes</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a6bfa68d482a2158b1ccf1281ed8cb192" compoundref="codeblock__metadata_8h" startline="107">srsgnb::segmenter_config::nof_layers</references>
+        <references refid="structsrsgnb_1_1segmenter__config_1a5e38374e1a32e36cfa863643065563f1" compoundref="codeblock__metadata_8h" startline="109">srsgnb::segmenter_config::nof_ch_symbols</references>
+        <references refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" compoundref="modulation__scheme_8h" startline="63" endline="76">srsgnb::get_bits_per_symbol</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" compoundref="pdsch__processor__impl_8cpp" startline="120" endline="174">process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1a8a503b40c2e25533e55efbdf0dfd2bb1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdsch_processor_impl::modulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const span&lt; const uint8_t &gt;&gt; temp_codewords, const pdu_t &amp;pdu)</argsstring>
+        <name>modulate</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;&gt;</type>
+          <declname>temp_codewords</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Modulates a PDSCH transmission as per TS 38.211 section 7.3.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">temp_codewords</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the encoded codewords. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the PDSCH processor PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="51" column="8" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.cpp" bodystart="70" bodyend="93"/>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0841e19be0c378121d993d43329ab90d" compoundref="pdsch__modulator_8h" startline="42">srsgnb::pdsch_modulator::config_t::rnti</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a1dfe7913e02a2bd01783e171cd9b9902" compoundref="pdsch__processor_8h" startline="54">srsgnb::pdsch_processor::pdu_t::rnti</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a3c4aad47ad5b44562441185f7a09d13b" compoundref="pdsch__modulator_8h" startline="44">srsgnb::pdsch_modulator::config_t::bwp_size_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afd72f29ed1c401ec4bdee99e8939d37b" compoundref="pdsch__processor_8h" startline="56">srsgnb::pdsch_processor::pdu_t::bwp_size_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" compoundref="pdsch__modulator_8h" startline="46">srsgnb::pdsch_modulator::config_t::bwp_start_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afa619b77955dcca4657652d0c334f1a3" compoundref="pdsch__processor_8h" startline="58">srsgnb::pdsch_processor::pdu_t::bwp_start_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a52192bb9bf4069d7ee10c77a9e647764" compoundref="pdsch__modulator_8h" startline="48">srsgnb::pdsch_modulator::config_t::modulation1</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ac86372c9796ce0326d7763d2e8fe327e" compoundref="pdsch__processor_8h" startline="62">srsgnb::pdsch_processor::pdu_t::codewords</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a462cd64cf3f52bc89e520e0bd7bdfc41" compoundref="pdsch__modulator_8h" startline="50">srsgnb::pdsch_modulator::config_t::modulation2</references>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4acfd8f331d281b0da79e7c6ed6988243c">srsgnb::BPSK</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1ad68c28a8ed04bf320b35e2ae6dcfc6ed" compoundref="pdsch__modulator_8h" startline="52">srsgnb::pdsch_modulator::config_t::freq_allocation</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a509dce4c37193d84419ed25a67de362c" compoundref="pdsch__processor_8h" startline="108">srsgnb::pdsch_processor::pdu_t::freq_alloc</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0f8a414100a214faea082751e7475d0a" compoundref="pdsch__modulator_8h" startline="54">srsgnb::pdsch_modulator::config_t::start_symbol_index</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a96ee21bb52499094fca931d050c653a5" compoundref="pdsch__processor_8h" startline="110">srsgnb::pdsch_processor::pdu_t::start_symbol_index</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a242e5cd858ebf4e4bc45685089143911" compoundref="pdsch__modulator_8h" startline="56">srsgnb::pdsch_modulator::config_t::nof_symbols</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ab4b0c457b965eb8562a91c75a22eee66" compoundref="pdsch__processor_8h" startline="112">srsgnb::pdsch_processor::pdu_t::nof_symbols</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a90f518fbd1998e23b1fb1aee0d893c90" compoundref="pdsch__modulator_8h" startline="58">srsgnb::pdsch_modulator::config_t::dmrs_symb_pos</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aef048b86fabbc30c0606a2f094575cf6" compoundref="pdsch__processor_8h" startline="89">srsgnb::pdsch_processor::pdu_t::dmrs_symbol_mask</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1abb9e4b7ca2074de290bfb6e2074f41b1" compoundref="pdsch__modulator_8h" startline="62">srsgnb::pdsch_modulator::config_t::nof_cdm_groups_without_data</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aa08031b38f6850d306b54c03678eb852" compoundref="pdsch__processor_8h" startline="106">srsgnb::pdsch_processor::pdu_t::nof_cdm_groups_without_data</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a21dc3a9012b066711717cf15460fcb56" compoundref="pdsch__modulator_8h" startline="64">srsgnb::pdsch_modulator::config_t::n_id</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aa7ee8297c43918d78f2d409f8d91c80c" compoundref="pdsch__processor_8h" startline="68">srsgnb::pdsch_processor::pdu_t::n_id</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a9646c81b3c6c3b8c06c9806eac252409" compoundref="pdsch__modulator_8h" startline="66">srsgnb::pdsch_modulator::config_t::scaling</references>
+        <references refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" compoundref="math__utils_8h" startline="78" endline="81">srsgnb::convert_dB_to_amplitude</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aaf33e58382c973341e86e52858d8416d" compoundref="pdsch__processor_8h" startline="132">srsgnb::pdsch_processor::pdu_t::ratio_pdsch_data_to_sss_dB</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a9c32676cdfbd0fbb74700868f9bd5ca9" compoundref="pdsch__modulator_8h" startline="68">srsgnb::pdsch_modulator::config_t::reserved</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a8007352409e3e4501f4c72345d24a2a7" compoundref="pdsch__processor_8h" startline="128">srsgnb::pdsch_processor::pdu_t::reserved</references>
+        <references refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1aedd57d350c1c72aaa18dcef606a6f6d1" compoundref="pdsch__modulator_8h" startline="72">srsgnb::pdsch_modulator::config_t::ports</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aca6478971877d24f891d856b5773864f" compoundref="pdsch__processor_8h" startline="70">srsgnb::pdsch_processor::pdu_t::ports</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" compoundref="pdsch__processor__impl_8cpp" startline="120" endline="174">process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1a3f0f8272b6e750713823e32f4eece25c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdsch_processor_impl::put_dmrs</definition>
+        <argsstring>(resource_grid_writer &amp;grid, const pdu_t &amp;pdu)</argsstring>
+        <name>put_dmrs</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Generates and maps DMRS for the PDSCH transmission as per TS 38.211 section 7.4.1.1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the PDSCH processor PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="56" column="8" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.cpp" bodystart="95" bodyend="118"/>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a509dce4c37193d84419ed25a67de362c" compoundref="pdsch__processor_8h" startline="108">srsgnb::pdsch_processor::pdu_t::freq_alloc</references>
+        <references refid="classsrsgnb_1_1rb__allocation_1a4742e3a79eea3d38e3aaba7d17301ac4" compoundref="rb__allocation_8cpp" startline="113" endline="129">srsgnb::rb_allocation::get_prb_mask</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afa619b77955dcca4657652d0c334f1a3" compoundref="pdsch__processor_8h" startline="58">srsgnb::pdsch_processor::pdu_t::bwp_start_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1afd72f29ed1c401ec4bdee99e8939d37b" compoundref="pdsch__processor_8h" startline="56">srsgnb::pdsch_processor::pdu_t::bwp_size_rb</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aae717c85fd4711e35a886144378a4d56">srsgnb::pdsch_processor::pdu_t::ref_point</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a971c0b2c880a49db32011d4353681f90a171cb11e1935a34a95b4d3cc2282fa3e" compoundref="pdsch__processor_8h" startline="86">srsgnb::pdsch_processor::pdu_t::PRB0</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1aff8adde88729734c4decf54aaf07cf37" compoundref="dmrs__pdsch__processor_8h" startline="28">srsgnb::dmrs_pdsch_processor::config_t::slot</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a29bea40154bc84ae01e79466d9031b54" compoundref="pdsch__processor_8h" startline="52">srsgnb::pdsch_processor::pdu_t::slot</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a016c2f2cb86ac9cec76748f15f7a164a" compoundref="dmrs__pdsch__processor_8h" startline="30">srsgnb::dmrs_pdsch_processor::config_t::reference_point_k_rb</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a8caf17c2bb3b73d1b254b1f62a03682c" compoundref="dmrs__pdsch__processor_8h" startline="32">srsgnb::dmrs_pdsch_processor::config_t::type</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a6808f427f1617fa264978a84d0d42e3d" compoundref="pdsch__processor_8h" startline="91">srsgnb::pdsch_processor::pdu_t::dmrs</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2a5a78ceb9195746e575e326c982081e" compoundref="dmrs__pdsch__processor_8h" startline="34">srsgnb::dmrs_pdsch_processor::config_t::scrambling_id</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a338e076911c79e3d8d84e649e46ed63b" compoundref="pdsch__processor_8h" startline="97">srsgnb::pdsch_processor::pdu_t::scrambling_id</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1aed0ff9547bba6a2efdb71a898770bd83" compoundref="dmrs__pdsch__processor_8h" startline="36">srsgnb::dmrs_pdsch_processor::config_t::n_scid</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a22d5c577fdc63165fba7aa6ef200e747" compoundref="pdsch__processor_8h" startline="104">srsgnb::pdsch_processor::pdu_t::n_scid</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2d5bc8f912609768bb75b667d3df3136" compoundref="dmrs__pdsch__processor_8h" startline="38">srsgnb::dmrs_pdsch_processor::config_t::amplitude</references>
+        <references refid="namespacesrsgnb_1a689d6727d950c0f5972c629939e4ebb4" compoundref="math__utils_8h" startline="78" endline="81">srsgnb::convert_dB_to_amplitude</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1a0ff04f76719a2c87e58f28ee6eafa8af" compoundref="pdsch__processor_8h" startline="130">srsgnb::pdsch_processor::pdu_t::ratio_pdsch_dmrs_to_sss_dB</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1ae86a5550fc2d74a37157e0faf6b12cc8" compoundref="dmrs__pdsch__processor_8h" startline="40">srsgnb::dmrs_pdsch_processor::config_t::symbols_mask</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aef048b86fabbc30c0606a2f094575cf6" compoundref="pdsch__processor_8h" startline="89">srsgnb::pdsch_processor::pdu_t::dmrs_symbol_mask</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a433a601174a9345c5af8d39fe6b63415" compoundref="dmrs__pdsch__processor_8h" startline="42">srsgnb::dmrs_pdsch_processor::config_t::rb_mask</references>
+        <references refid="structsrsgnb_1_1dmrs__pdsch__processor_1_1config__t_1a2cc0e2321a915b9c9d3d72c71c80b228" compoundref="dmrs__pdsch__processor_8h" startline="44">srsgnb::dmrs_pdsch_processor::config_t::ports</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aca6478971877d24f891d856b5773864f" compoundref="pdsch__processor_8h" startline="70">srsgnb::pdsch_processor::pdu_t::ports</references>
+        <referencedby refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" compoundref="pdsch__processor__impl_8cpp" startline="120" endline="174">process</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1a11d919804b43674b16e3575c1ea28bb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pdsch_processor_impl::pdsch_processor_impl</definition>
+        <argsstring>(std::unique_ptr&lt; pdsch_encoder &gt; encoder_, std::unique_ptr&lt; pdsch_modulator &gt; modulator_, std::unique_ptr&lt; dmrs_pdsch_processor &gt; dmrs_)</argsstring>
+        <name>pdsch_processor_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdsch__encoder" kindref="compound">pdsch_encoder</ref> &gt;</type>
+          <declname>encoder_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pdsch__modulator" kindref="compound">pdsch_modulator</ref> &gt;</type>
+          <declname>modulator_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1dmrs__pdsch__processor" kindref="compound">dmrs_pdsch_processor</ref> &gt;</type>
+          <declname>dmrs_</declname>
+        </param>
+        <briefdescription>
+<para>Creates a generic PDSCH processor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the necessary configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="61" column="3" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="61" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pdsch_processor_impl::process</definition>
+        <argsstring>(resource_grid_writer &amp;grid, static_vector&lt; span&lt; const uint8_t &gt;, MAX_NOF_TRANSPORT_BLOCKS &gt; data, const pdu_t &amp;pdu) override</argsstring>
+        <name>process</name>
+        <reimplements refid="classsrsgnb_1_1pdsch__processor_1a413ddf8e84abb610d9de1a9a944dd657">process</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;, <ref refid="classsrsgnb_1_1pdsch__processor_1a8c4a7df76e6e76d9104b610b473e8489" kindref="member">MAX_NOF_TRANSPORT_BLOCKS</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t" kindref="compound">pdu_t</ref> &amp;</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>Processes a PDSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the codewords to transmit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the necessary parameters to process the PDSCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The number of transport blocks must be equal to the number of codewords in <computeroutput>pdu</computeroutput>. </para>
+</simplesect>
+<simplesect kind="remark"><para>The size of each transport block is determined by <computeroutput> data[TB index].size() </computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="72" column="8" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.cpp" bodystart="120" bodyend="174"/>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aca6478971877d24f891d856b5773864f" compoundref="pdsch__processor_8h" startline="70">srsgnb::pdsch_processor::pdu_t::ports</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ac86372c9796ce0326d7763d2e8fe327e" compoundref="pdsch__processor_8h" startline="62">srsgnb::pdsch_processor::pdu_t::codewords</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1ab25f2e6c26e1cee73864e3e0b8d4fcfb" compoundref="pdsch__processor_8h" startline="126">srsgnb::pdsch_processor::pdu_t::tbs_lbrm_bytes</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1af9ba28b20140035abdc4c29d3b9cbac6" compoundref="ldpc_8h" startline="97">srsgnb::ldpc::MAX_CODEBLOCK_SIZE</references>
+        <references refid="structsrsgnb_1_1pdsch__processor_1_1pdu__t_1aa08031b38f6850d306b54c03678eb852" compoundref="pdsch__processor_8h" startline="106">srsgnb::pdsch_processor::pdu_t::nof_cdm_groups_without_data</references>
+        <references refid="classsrsgnb_1_1pdsch__processor__impl_1ad7f3fc8d1b12b86035f4802afa77c4b5" compoundref="pdsch__processor__impl_8cpp" startline="16" endline="38">compute_nof_data_re</references>
+        <references refid="classsrsgnb_1_1pdsch__modulator_1ad655d16ba8a8a7b8956efe95e8b6695f" compoundref="pdsch__modulator_8h" startline="34">srsgnb::pdsch_modulator::MAX_NOF_CODEWORDS</references>
+        <references refid="classsrsgnb_1_1pdsch__processor__impl_1abf69b73a2c47ea0539fa4e32ca622e64" compoundref="pdsch__processor__impl_8cpp" startline="40" endline="68">encode</references>
+        <references refid="classsrsgnb_1_1pdsch__processor__impl_1a8a503b40c2e25533e55efbdf0dfd2bb1" compoundref="pdsch__processor__impl_8cpp" startline="70" endline="93">modulate</references>
+        <references refid="classsrsgnb_1_1pdsch__processor__impl_1a3f0f8272b6e750713823e32f4eece25c" compoundref="pdsch__processor__impl_8cpp" startline="95" endline="118">put_dmrs</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a generic PDSCH processor. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdsch_processor_impl</label>
+        <link refid="classsrsgnb_1_1pdsch__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdsch_processor</label>
+        <link refid="classsrsgnb_1_1pdsch__processor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdsch_processor_impl</label>
+        <link refid="classsrsgnb_1_1pdsch__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdsch_processor</label>
+        <link refid="classsrsgnb_1_1pdsch__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pdsch_processor_impl.h" line="21" column="1" bodyfile="lib/phy/upper/channel_processors/pdsch_processor_impl.h" bodystart="20" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a23df15b9e9976cf254ec8b314bc9a27f" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>codewords</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1ad7f3fc8d1b12b86035f4802afa77c4b5" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>compute_nof_data_re</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a48a2d230ad5e5ad28c5db3529e705d45" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>dmrs</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1abf69b73a2c47ea0539fa4e32ca622e64" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a64d3c53fd7b6de0c56d6a504be04f99d" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>encoder</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor_1a804f2c495fd830d4c04cce70718625a0" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>MAX_CODEWORD_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor_1a07ccf9f8e464156013f09a4009eb125f" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>MAX_LAYER_PER_CODEWORD</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor_1a8c4a7df76e6e76d9104b610b473e8489" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>MAX_NOF_TRANSPORT_BLOCKS</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor_1a255af40bb27ce879ea66ba905f6d1d45" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>MAX_NRE_PER_RB</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a8a503b40c2e25533e55efbdf0dfd2bb1" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a00798bde2c393987aeb94d0197adcba8" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>modulator</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a11d919804b43674b16e3575c1ea28bb7" prot="public" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>pdsch_processor_impl</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a944f97851d3e931ae64809a1c31c1cdf" prot="public" virt="virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>process</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor__impl_1a3f0f8272b6e750713823e32f4eece25c" prot="private" virt="non-virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>put_dmrs</name></member>
+      <member refid="classsrsgnb_1_1pdsch__processor_1aa0f9a0b116716f60c70b25da6c4ce52d" prot="public" virt="virtual"><scope>srsgnb::pdsch_processor_impl</scope><name>~pdsch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

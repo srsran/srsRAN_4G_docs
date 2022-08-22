@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dft__processor__fftw__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::dft_processor_fftw_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1dft__processor" prot="public" virt="non-virtual">srsgnb::dft_processor</basecompoundref>
+    <includes refid="dft__processor__fftw__impl_8h" local="no">dft_processor_fftw_impl.h</includes>
+    <innerclass refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename" prot="private">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1adb7a9722009124b84c6ec2f2c6d2f476" prot="private" static="yes" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex dft_processor_fftw_impl::mutex_init</definition>
+        <argsstring></argsstring>
+        <name>mutex_init</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Protects the FFTW library from simultaneous plan creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="67" column="21" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" compoundref="dft__processor__fftw__impl_8cpp" startline="104" endline="128">~dft_processor_fftw_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1ac19f01246d3344a229fd5beb3a481e3a" prot="private" static="yes" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename" kindref="compound">fftw_wisdom_filename</ref></type>
+        <definition>dft_processor_fftw_impl::fftw_wisdom_filename dft_processor_fftw_impl::wisdom_filename</definition>
+        <argsstring></argsstring>
+        <name>wisdom_filename</name>
+        <initializer>=
+    <ref refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename" kindref="compound">dft_processor_fftw_impl::fftw_wisdom_filename</ref>()</initializer>
+        <briefdescription>
+<para>If wisdom was loaded earlier by any instance, it contains the FFTW wisdom file name. Otherwise, it is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="69" column="31" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" compoundref="dft__processor__fftw__impl_8cpp" startline="104" endline="128">~dft_processor_fftw_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1a8b5c6f380f619677d89b65c1cfa4d22b" prot="private" static="yes" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned dft_processor_fftw_impl::fftw_count</definition>
+        <argsstring></argsstring>
+        <name>fftw_count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Counts the number of FFTW instances. Used to clean up the FFTW context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="71" column="19" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" compoundref="dft__processor__fftw__impl_8cpp" startline="104" endline="128">~dft_processor_fftw_impl</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1aec322cf6f2b942083880c447d4fba21f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" kindref="member">direction</ref></type>
+        <definition>direction srsgnb::dft_processor_fftw_impl::dir</definition>
+        <argsstring></argsstring>
+        <name>dir</name>
+        <briefdescription>
+<para>Stores the DFT direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="73" column="13" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a58e23041784e630add53af4474e2d3f2" compoundref="dft__processor__fftw__impl_8h" startline="93" endline="93">get_direction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1ae6cb0573f9a50f6ebd11d9604d0fa2b9" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>srsvec::aligned_vec&lt;cf_t&gt; srsgnb::dft_processor_fftw_impl::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <briefdescription>
+<para>DFT input buffer ownership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="75" column="23" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a7ec69bb8432b381bdd364c318eaf1490" compoundref="dft__processor__fftw__impl_8h" startline="96" endline="96">get_size</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1a855255f911a18aab6130b2e869e44f33" compoundref="dft__processor__fftw__impl_8h" startline="99" endline="99">get_input</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1aa3b90bb88ef2965df59cd529ea6b30c1" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srsvec_1_1aligned__vec" kindref="compound">srsvec::aligned_vec</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>srsvec::aligned_vec&lt;cf_t&gt; srsgnb::dft_processor_fftw_impl::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <briefdescription>
+<para>DFT output buffer ownership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="77" column="23" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="77" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ada651ca0253e33c5bf0e1909ebffbbf2" compoundref="dft__processor__fftw__impl_8cpp" startline="130" endline="137">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1dft__processor__fftw__impl_1aea1cb9ced59fc45c0a00057ed32449e9" prot="private" static="no" mutable="no">
+        <type>fftwf_plan</type>
+        <definition>fftwf_plan srsgnb::dft_processor_fftw_impl::plan</definition>
+        <argsstring></argsstring>
+        <name>plan</name>
+        <briefdescription>
+<para>FFTW actual plan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="79" column="14" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="79" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" compoundref="dft__processor__fftw__impl_8cpp" startline="61" endline="102">dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" compoundref="dft__processor__fftw__impl_8cpp" startline="104" endline="128">~dft_processor_fftw_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1dft__processor__fftw__impl_1ada651ca0253e33c5bf0e1909ebffbbf2" compoundref="dft__processor__fftw__impl_8cpp" startline="130" endline="137">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dft_processor_fftw_impl::dft_processor_fftw_impl</definition>
+        <argsstring>(const dft_processor_fftw_configuration &amp;fftw_config, const configuration &amp;dft_config)</argsstring>
+        <name>dft_processor_fftw_impl</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dft__processor__fftw__configuration" kindref="compound">dft_processor_fftw_configuration</ref> &amp;</type>
+          <declname>fftw_config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dft__processor_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>dft_config</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a DFT processor based on the FFTW library. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The FFTW wisdom is loaded with the first instance. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fftw_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the FFTW specific parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dft_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the generic DFT processor parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="86" column="3" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.cpp" bodystart="61" bodyend="102"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1adb7a9722009124b84c6ec2f2c6d2f476" compoundref="dft__processor__fftw__impl_8h" startline="67">mutex_init</references>
+        <references refid="structsrsgnb_1_1dft__processor__fftw__configuration_1a77a5c46f289b70d20c9765a9fb7eb3b8" compoundref="dft__processor__fftw__impl_8h" startline="25">srsgnb::dft_processor_fftw_configuration::avoid_wisdom</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac19f01246d3344a229fd5beb3a481e3a" compoundref="dft__processor__fftw__impl_8h" startline="69">wisdom_filename</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename_1a441be9fa2899cc44b8d4ef8027fd8fef" compoundref="dft__processor__fftw__impl_8h" startline="60" endline="60">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename::empty</references>
+        <references refid="structsrsgnb_1_1dft__processor__fftw__configuration_1a172bab2fb18f174e717f0d197f7721c8" compoundref="dft__processor__fftw__impl_8h" startline="27">srsgnb::dft_processor_fftw_configuration::wisdom_filename</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename_1a45d7606dc6f0a0ffb51b036913337555" compoundref="dft__processor__fftw__impl_8h" startline="63" endline="63">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename::get</references>
+        <references refid="structsrsgnb_1_1dft__processor_1_1configuration_1a7af6f2e0a9224522625e24cf32440300" compoundref="dft__processor_8h" startline="38">srsgnb::dft_processor::configuration::size</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1ae6cb0573f9a50f6ebd11d9604d0fa2b9" compoundref="dft__processor__fftw__impl_8h" startline="75">input</references>
+        <references refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" compoundref="span_8h" startline="176" endline="176">srsgnb::span&lt; T &gt;::data</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aa3b90bb88ef2965df59cd529ea6b30c1" compoundref="dft__processor__fftw__impl_8h" startline="77">output</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aec322cf6f2b942083880c447d4fba21f" compoundref="dft__processor__fftw__impl_8h" startline="73">dir</references>
+        <references refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431fa4c5d06b02c97731aaa976179c62dcf76">srsgnb::dft_processor::DIRECT</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aea1cb9ced59fc45c0a00057ed32449e9" compoundref="dft__processor__fftw__impl_8h" startline="79">plan</references>
+        <references refid="classsrsgnb_1_1dft__processor_1a990a33ef2371f2b8a180ff733593b35a" compoundref="dft__processor_8h" startline="44" endline="44">srsgnb::dft_processor::direction_to_string</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1a8b5c6f380f619677d89b65c1cfa4d22b" compoundref="dft__processor__fftw__impl_8h" startline="71">fftw_count</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dft_processor_fftw_impl::~dft_processor_fftw_impl</definition>
+        <argsstring>() override</argsstring>
+        <name>~dft_processor_fftw_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Frees the input and output buffers, destroys the FFTW plan, saves the wisdom if it is the first instance to be destroyed and cleans up the FFTW context if it is the last instance to be destroyed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="90" column="3" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.cpp" bodystart="104" bodyend="128"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1adb7a9722009124b84c6ec2f2c6d2f476" compoundref="dft__processor__fftw__impl_8h" startline="67">mutex_init</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac19f01246d3344a229fd5beb3a481e3a" compoundref="dft__processor__fftw__impl_8h" startline="69">wisdom_filename</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename_1a441be9fa2899cc44b8d4ef8027fd8fef" compoundref="dft__processor__fftw__impl_8h" startline="60" endline="60">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename::empty</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename_1a45d7606dc6f0a0ffb51b036913337555" compoundref="dft__processor__fftw__impl_8h" startline="63" endline="63">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename::get</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename_1abdb1b9be55d4594877301e6c9ef605c0" compoundref="dft__processor__fftw__impl_8h" startline="57" endline="57">srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename::clear</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aea1cb9ced59fc45c0a00057ed32449e9" compoundref="dft__processor__fftw__impl_8h" startline="79">plan</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1a8b5c6f380f619677d89b65c1cfa4d22b" compoundref="dft__processor__fftw__impl_8h" startline="71">fftw_count</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1a58e23041784e630add53af4474e2d3f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" kindref="member">direction</ref></type>
+        <definition>direction srsgnb::dft_processor_fftw_impl::get_direction</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_direction</name>
+        <reimplements refid="classsrsgnb_1_1dft__processor_1abdbea8c489a465d688bed034fa078711">get_direction</reimplements>
+        <briefdescription>
+<para>Gets the DFT direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="93" column="13" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="93" bodyend="93"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aec322cf6f2b942083880c447d4fba21f" compoundref="dft__processor__fftw__impl_8h" startline="73">dir</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1a7ec69bb8432b381bdd364c318eaf1490" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int srsgnb::dft_processor_fftw_impl::get_size</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_size</name>
+        <reimplements refid="classsrsgnb_1_1dft__processor_1ac87df1a2bc7e6205b441c381e68b8a00">get_size</reimplements>
+        <briefdescription>
+<para>Gets the DFT number of points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="96" column="16" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="96" bodyend="96"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1ae6cb0573f9a50f6ebd11d9604d0fa2b9" compoundref="dft__processor__fftw__impl_8h" startline="75">input</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1a855255f911a18aab6130b2e869e44f33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>span&lt;cf_t&gt; srsgnb::dft_processor_fftw_impl::get_input</definition>
+        <argsstring>() override</argsstring>
+        <name>get_input</name>
+        <reimplements refid="classsrsgnb_1_1dft__processor_1a38e90f55afc94b676e7ee2a7e4cec5de">get_input</reimplements>
+        <briefdescription>
+<para>Gets a view of the internal input DFT buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="99" column="8" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="99" bodyend="99"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1ae6cb0573f9a50f6ebd11d9604d0fa2b9" compoundref="dft__processor__fftw__impl_8h" startline="75">input</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dft__processor__fftw__impl_1ada651ca0253e33c5bf0e1909ebffbbf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>span&lt; const cf_t &gt; dft_processor_fftw_impl::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <reimplements refid="classsrsgnb_1_1dft__processor_1a2ad33106e36c2a7ab883fa795d81e3d3">run</reimplements>
+        <briefdescription>
+<para>Executes the DFT from the internal input data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A view of the internal output DFT buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="102" column="8" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.cpp" bodystart="130" bodyend="137"/>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aea1cb9ced59fc45c0a00057ed32449e9" compoundref="dft__processor__fftw__impl_8h" startline="79">plan</references>
+        <references refid="classsrsgnb_1_1dft__processor__fftw__impl_1aa3b90bb88ef2965df59cd529ea6b30c1" compoundref="dft__processor__fftw__impl_8h" startline="77">output</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a DFT processor class configuration based on the FFTW library. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::dft_processor_fftw_impl</label>
+        <link refid="classsrsgnb_1_1dft__processor__fftw__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::dft_processor</label>
+        <link refid="classsrsgnb_1_1dft__processor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::dft_processor_fftw_impl</label>
+        <link refid="classsrsgnb_1_1dft__processor__fftw__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-wisdom_filename</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-input</edgelabel>
+          <edgelabel>-output</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::dft_processor</label>
+        <link refid="classsrsgnb_1_1dft__processor"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::dft_processor_fftw_impl::fftw_wisdom_filename</label>
+        <link refid="classsrsgnb_1_1dft__processor__fftw__impl_1_1fftw__wisdom__filename"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::span&lt; cf_t &gt;</label>
+        <link refid="classsrsgnb_1_1span"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::srsvec::aligned_vec&lt; cf_t &gt;</label>
+        <link refid="classsrsgnb_1_1srsvec_1_1aligned__vec"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/generic_functions/dft_processor_fftw_impl.h" line="32" column="1" bodyfile="lib/phy/generic_functions/dft_processor_fftw_impl.h" bodystart="31" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac20cf8ef7569a264c9673861e219791c" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>dft_processor_fftw_impl</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1aec322cf6f2b942083880c447d4fba21f" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>dir</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1afbdf25102ee173cf9db93060ddf0431f" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>direction</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a990a33ef2371f2b8a180ff733593b35a" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>direction_to_string</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1a8b5c6f380f619677d89b65c1cfa4d22b" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>fftw_count</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1a58e23041784e630add53af4474e2d3f2" prot="public" virt="virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>get_direction</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1a855255f911a18aab6130b2e869e44f33" prot="public" virt="virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>get_input</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1a7ec69bb8432b381bdd364c318eaf1490" prot="public" virt="virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>get_size</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1ae6cb0573f9a50f6ebd11d9604d0fa2b9" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>input</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1adb7a9722009124b84c6ec2f2c6d2f476" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>mutex_init</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1aa3b90bb88ef2965df59cd529ea6b30c1" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>output</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1aea1cb9ced59fc45c0a00057ed32449e9" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>plan</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1ada651ca0253e33c5bf0e1909ebffbbf2" prot="public" virt="virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>run</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1ac19f01246d3344a229fd5beb3a481e3a" prot="private" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>wisdom_filename</name></member>
+      <member refid="classsrsgnb_1_1dft__processor_1a8dbf07069cd6d18e7dbc74dc83ad5a59" prot="public" virt="virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>~dft_processor</name></member>
+      <member refid="classsrsgnb_1_1dft__processor__fftw__impl_1ad83c7f0d17bb4d292db084683df1999a" prot="public" virt="non-virtual"><scope>srsgnb::dft_processor_fftw_impl</scope><name>~dft_processor_fftw_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__decoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_decoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__decoder__impl" prot="public" virt="non-virtual">srsgnb::ldpc_decoder_impl</derivedcompoundref>
+    <includes refid="ldpc__decoder_8h" local="no">ldpc_decoder.h</includes>
+    <innerclass refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" prot="public">srsgnb::ldpc_decoder::configuration</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder_1a6b4bb879131080885aed983a3ac2c918" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_decoder::~ldpc_decoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_decoder</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h" line="29" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder_1a31232f12c31f8ea8bb6bf63f0da9ab24" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1optional" kindref="compound">optional</ref>&lt; unsigned &gt;</type>
+        <definition>virtual optional&lt;unsigned&gt; srsgnb::ldpc_decoder::decode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const log_likelihood_ratio &gt; input, crc_calculator *crc, const configuration &amp;cfg)=0</argsstring>
+        <name>decode</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767">decode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> *</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The CRC is verified after each iteration allowing, when successful, an early stop of the decoding process.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconstructed message of information bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log-likelihood ratios of the codeblock to be decoded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">crc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a CRC calculator for early stopping. Set to <computeroutput>nullptr</computeroutput> for disabling early stopping. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the decoding is successful, returns the number of LDPC iterations needed by the decoder. Otherwise, no value is returned. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h" line="58" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC decoder interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_decoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_decoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::ldpc_decoder_generic</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__generic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h" line="26" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_decoder.h" bodystart="25" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__decoder_1a31232f12c31f8ea8bb6bf63f0da9ab24" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_decoder</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder_1a6b4bb879131080885aed983a3ac2c918" prot="public" virt="virtual"><scope>srsgnb::ldpc_decoder</scope><name>~ldpc_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

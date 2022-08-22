@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__rate__matcher" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_rate_matcher</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__rate__matcher__impl" prot="public" virt="non-virtual">srsgnb::ldpc_rate_matcher_impl</derivedcompoundref>
+    <includes refid="ldpc__rate__matcher_8h" local="no">ldpc_rate_matcher.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher_1a383e533d645196a63c911e67a5aea55c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_rate_matcher::~ldpc_rate_matcher</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_rate_matcher</name>
+        <briefdescription>
+<para>Default virtual destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h" line="25" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__rate__matcher_1a5937011ac61f2781cd6e6181eecbe5f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_rate_matcher::rate_match</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, const codeblock_metadata::tb_common_metadata &amp;cfg)=0</argsstring>
+        <name>rate_match</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__rate__matcher__impl_1aa3bd50a08db612abd4fc6a3e8c35fa6d">rate_match</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Carries out the rate matching of a codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate matched codeblock. Each <computeroutput>uint8_t</computeroutput> entry corresponds to a single bit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Original, full codeblock (may contain filler bits). Each <computeroutput>uint8_t</computeroutput> entry corresponds to a single bit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The sizes of <computeroutput>input</computeroutput> and <computeroutput>output</computeroutput> determine the behavior of the rate matching algorithm. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h" line="35" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC rate matching (i.e., bit selection and bit interleaving) interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_matcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_rate_matcher_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_rate_matcher</label>
+        <link refid="classsrsgnb_1_1ldpc__rate__matcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h" line="22" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_rate_matcher.h" bodystart="21" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher_1a5937011ac61f2781cd6e6181eecbe5f5" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_rate_matcher</scope><name>rate_match</name></member>
+      <member refid="classsrsgnb_1_1ldpc__rate__matcher_1a383e533d645196a63c911e67a5aea55c" prot="public" virt="virtual"><scope>srsgnb::ldpc_rate_matcher</scope><name>~ldpc_rate_matcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

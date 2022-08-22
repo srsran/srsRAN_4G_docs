@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__processor__request__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::prach_processor_request_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1prach__processor__impl" prot="private" virt="non-virtual">srsgnb::prach_processor_impl</derivedcompoundref>
+    <includes refid="prach__processor__request__handler_8h" local="no">prach_processor_request_handler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__request__handler_1a9f74eb59b9728d5e6b55ee9a60a1b50d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::prach_processor_request_handler::~prach_processor_request_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~prach_processor_request_handler</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_request_handler.h" line="25" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__request__handler_1a21d0cb026bd9f6381d3a51bef2e3b143" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::prach_processor_request_handler::handle_request</definition>
+        <argsstring>(prach_buffer &amp;buffer, const prach_buffer_context &amp;context)=0</argsstring>
+        <name>handle_request</name>
+        <reimplementedby refid="classsrsgnb_1_1prach__processor__impl_1a6caa02af337a7295edfb708f26fc963f">handle_request</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Handles a new PRACH request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The PRACH buffer and context provided to this method are forwarded to a dedicated block that takes care of the request asynchronously. A notification through the <ref refid="classsrsgnb_1_1prach__processor__notifier" kindref="compound">prach_processor_notifier</ref> interface will inform the client that the request has been processed and that the PRACH demodulated sequence is available in <computeroutput>buffer</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination PRACH buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_request_handler.h" line="35" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lower physical layer PRACH processor - Request handler interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class provides an interface for requesting the capture and demodulation of PRACH occasions. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::prach_processor_request_handler</label>
+        <link refid="classsrsgnb_1_1prach__processor__request__handler"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::prach_processor_impl</label>
+        <link refid="classsrsgnb_1_1prach__processor__impl"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::prach_processor_request_handler</label>
+        <link refid="classsrsgnb_1_1prach__processor__request__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_request_handler.h" line="22" column="1" bodyfile="include/srsgnb/phy/lower/processors/prach/prach_processor_request_handler.h" bodystart="21" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__processor__request__handler_1a21d0cb026bd9f6381d3a51bef2e3b143" prot="public" virt="pure-virtual"><scope>srsgnb::prach_processor_request_handler</scope><name>handle_request</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__request__handler_1a9f74eb59b9728d5e6b55ee9a60a1b50d" prot="public" virt="virtual"><scope>srsgnb::prach_processor_request_handler</scope><name>~prach_processor_request_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

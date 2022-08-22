@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1json__formatter" kind="class" language="C++" prot="public">
+    <compoundname>srslog::json_formatter</compoundname>
+    <basecompoundref refid="classsrslog_1_1log__formatter" prot="public" virt="non-virtual">srslog::log_formatter</basecompoundref>
+    <includes refid="json__formatter_8h" local="no">json_formatter.h</includes>
+    <innerclass refid="structsrslog_1_1json__formatter_1_1scope" prot="private">srslog::json_formatter::scope</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1json__formatter_1a8080103e1a4bd26969dfe72036cb8867" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srslog::json_formatter::nest_level</definition>
+        <argsstring></argsstring>
+        <name>nest_level</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="119" column="22" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1json__formatter_1ad3c33f0f42de0cbb9e79b1007e67a8e5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structsrslog_1_1json__formatter_1_1scope" kindref="compound">scope</ref> &gt;</type>
+        <definition>std::vector&lt;scope&gt; srslog::json_formatter::scope_stack</definition>
+        <argsstring></argsstring>
+        <name>scope_stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="120" column="15" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1aa378fd4a1f30c382e6f14e1eff27dfbf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::json_formatter::json_formatter</definition>
+        <argsstring>()</argsstring>
+        <name>json_formatter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="25" column="3" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a447f1e537fb58ad8c8bf011718925556" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrslog_1_1log__formatter" kindref="compound">log_formatter</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; log_formatter &gt; json_formatter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1adadc5f9d8687d2c4907ae94b90a4263d">clone</reimplements>
+        <briefdescription>
+<para>Returns a copy of the formatter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="27" column="19" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1aae3b1fb09cd00a6dbd0d76c390f19675" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format</definition>
+        <argsstring>(detail::log_entry_metadata &amp;&amp;metadata, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a6f291cfae7f93a705ac70d6a3a4ed22b">format</reimplements>
+        <param>
+          <type><ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;&amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Formats the log entry into the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="29" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="21" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a4147ef012504f27c14252d9f6373bae5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_context_begin</definition>
+        <argsstring>(const detail::log_entry_metadata &amp;md, fmt::string_view ctx_name, unsigned size, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_context_begin</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a797b93e2e8f4c0393843b1e296b7ee62">format_context_begin</reimplements>
+        <param>
+          <type>const <ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;</type>
+          <declname>md</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>ctx_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes should implement the following callbacks to format metric objects. Each callback is invoked at a different place of the formatting algorithm. This callback gets called at the beginning of the context formatting algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="32" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="52" bodyend="81"/>
+        <references refid="classsrslog_1_1json__formatter_1a49304c1ec2d03905200233c822a3d65e" compoundref="json__formatter_8h" startline="61" endline="61">push_scope</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a3e193e1dd3e11c880b627d9b0bbbf648" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_context_end</definition>
+        <argsstring>(const detail::log_entry_metadata &amp;md, fmt::string_view ctx_name, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_context_end</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a528314c1e0e86b45684b656b3f41b45f">format_context_end</reimplements>
+        <param>
+          <type>const <ref refid="structsrslog_1_1detail_1_1log__entry__metadata" kindref="compound">detail::log_entry_metadata</ref> &amp;</type>
+          <declname>md</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>ctx_name</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called at the end of the context formatting algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="37" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="83" bodyend="92"/>
+        <references refid="classsrslog_1_1json__formatter_1abea87196ac1c6878f6a592e57496c8d6" compoundref="json__formatter_8h" startline="67" endline="71">pop_scope</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_metric_set_begin</definition>
+        <argsstring>(fmt::string_view set_name, unsigned size, unsigned level, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_metric_set_begin</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a3e06b51c3c8697ed56863802d421cb26">format_metric_set_begin</reimplements>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>set_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the beginning of a metric set formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="41" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="94" bodyend="115"/>
+        <references refid="classsrslog_1_1json__formatter_1aea66d4f04255989afd28c95b920ddbc6" compoundref="json__formatter_8h" startline="89" endline="93">in_list_scope</references>
+        <references refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" compoundref="json__formatter_8h" startline="106" endline="106">indents</references>
+        <references refid="classsrslog_1_1json__formatter_1a0a08314ea06c2820fb9e098a007dba86" compoundref="json__formatter_8h" startline="96" endline="96">increment_nest_level</references>
+        <references refid="classsrslog_1_1json__formatter_1aaed06de0b6380644ad4bd7c07c875678" compoundref="json__formatter_8h" startline="74" endline="79">consume_element</references>
+        <references refid="classsrslog_1_1json__formatter_1a49304c1ec2d03905200233c822a3d65e" compoundref="json__formatter_8h" startline="61" endline="61">push_scope</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_metric_set_end</definition>
+        <argsstring>(fmt::string_view set_name, unsigned level, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_metric_set_end</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1ab6d16cd54a9e800913413026ccaaa27c">format_metric_set_end</reimplements>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>set_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called at the beginning of a metric set formatting end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="46" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="117" bodyend="126"/>
+        <references refid="classsrslog_1_1json__formatter_1abea87196ac1c6878f6a592e57496c8d6" compoundref="json__formatter_8h" startline="67" endline="71">pop_scope</references>
+        <references refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" compoundref="json__formatter_8h" startline="106" endline="106">indents</references>
+        <references refid="classsrslog_1_1json__formatter_1a4be915f35226f54fc4b61a2a1c195db7" compoundref="json__formatter_8h" startline="82" endline="86">needs_comma</references>
+        <references refid="classsrslog_1_1json__formatter_1aea66d4f04255989afd28c95b920ddbc6" compoundref="json__formatter_8h" startline="89" endline="93">in_list_scope</references>
+        <references refid="classsrslog_1_1json__formatter_1a292db4860d68b5adefdede73f99469d4" compoundref="json__formatter_8h" startline="99" endline="103">decrement_nest_level</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_list_begin</definition>
+        <argsstring>(fmt::string_view list_name, unsigned size, unsigned level, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_list_begin</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a42508277147d638ee6292977416955de">format_list_begin</reimplements>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>list_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the beginning of a metric list formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="49" column="3" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="148" bodyend="157"/>
+        <references refid="classsrslog_1_1json__formatter_1aaed06de0b6380644ad4bd7c07c875678" compoundref="json__formatter_8h" startline="74" endline="79">consume_element</references>
+        <references refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" compoundref="json__formatter_8h" startline="106" endline="106">indents</references>
+        <references refid="classsrslog_1_1json__formatter_1a4ae3e91b7f2bcf52c28bbb94fb7f5e71" compoundref="json__formatter_8h" startline="64" endline="64">push_list_scope</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_list_end</definition>
+        <argsstring>(fmt::string_view list_name, unsigned level, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_list_end</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1ab3d4ee84ca514370b6869f79dd0ef292">format_list_end</reimplements>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>list_name</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This callback gets called at the end of a metric list formatting procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="51" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="159" bodyend="163"/>
+        <references refid="classsrslog_1_1json__formatter_1abea87196ac1c6878f6a592e57496c8d6" compoundref="json__formatter_8h" startline="67" endline="71">pop_scope</references>
+        <references refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" compoundref="json__formatter_8h" startline="106" endline="106">indents</references>
+        <references refid="classsrslog_1_1json__formatter_1a4be915f35226f54fc4b61a2a1c195db7" compoundref="json__formatter_8h" startline="82" endline="86">needs_comma</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void json_formatter::format_metric</definition>
+        <argsstring>(fmt::string_view metric_name, fmt::string_view metric_value, fmt::string_view metric_units, metric_kind kind, unsigned level, fmt::memory_buffer &amp;buffer) override</argsstring>
+        <name>format_metric</name>
+        <reimplements refid="classsrslog_1_1log__formatter_1a8d3d8fa5eb01f13723e1120ae6aa3366">format_metric</reimplements>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_name</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_value</declname>
+        </param>
+        <param>
+          <type>fmt::string_view</type>
+          <declname>metric_units</declname>
+        </param>
+        <param>
+          <type>metric_kind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>fmt::memory_buffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>This callback gets called for each metric. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="53" column="8" bodyfile="lib/srslog/formatters/json_formatter.cpp" bodystart="128" bodyend="146"/>
+        <references refid="classsrslog_1_1json__formatter_1aaed06de0b6380644ad4bd7c07c875678" compoundref="json__formatter_8h" startline="74" endline="79">consume_element</references>
+        <references refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" compoundref="json__formatter_8h" startline="106" endline="106">indents</references>
+        <references refid="classsrslog_1_1json__formatter_1a4be915f35226f54fc4b61a2a1c195db7" compoundref="json__formatter_8h" startline="82" endline="86">needs_comma</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a49304c1ec2d03905200233c822a3d65e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::push_scope</definition>
+        <argsstring>(unsigned size)</argsstring>
+        <name>push_scope</name>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a new entry in the scope stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="61" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="61" bodyend="61"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1a4147ef012504f27c14252d9f6373bae5" compoundref="json__formatter_8cpp" startline="52" endline="81">format_context_begin</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" compoundref="json__formatter_8cpp" startline="94" endline="115">format_metric_set_begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a4ae3e91b7f2bcf52c28bbb94fb7f5e71" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::push_list_scope</definition>
+        <argsstring>(unsigned size)</argsstring>
+        <name>push_list_scope</name>
+        <param>
+          <type>unsigned</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a new list entry in the scope stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="64" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="64" bodyend="64"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f" compoundref="json__formatter_8cpp" startline="148" endline="157">format_list_begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1abea87196ac1c6878f6a592e57496c8d6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::pop_scope</definition>
+        <argsstring>()</argsstring>
+        <name>pop_scope</name>
+        <briefdescription>
+<para>Pops the topmost entry in the scope stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="67" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="67" bodyend="71"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1a3e193e1dd3e11c880b627d9b0bbbf648" compoundref="json__formatter_8cpp" startline="83" endline="92">format_context_end</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" compoundref="json__formatter_8cpp" startline="117" endline="126">format_metric_set_end</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081" compoundref="json__formatter_8cpp" startline="159" endline="163">format_list_end</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1aaed06de0b6380644ad4bd7c07c875678" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::consume_element</definition>
+        <argsstring>()</argsstring>
+        <name>consume_element</name>
+        <briefdescription>
+<para>Consumes an element in the current scope. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="74" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="74" bodyend="79"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" compoundref="json__formatter_8cpp" startline="94" endline="115">format_metric_set_begin</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4" compoundref="json__formatter_8cpp" startline="128" endline="146">format_metric</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f" compoundref="json__formatter_8cpp" startline="148" endline="157">format_list_begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a4be915f35226f54fc4b61a2a1c195db7" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::json_formatter::needs_comma</definition>
+        <argsstring>() const</argsstring>
+        <name>needs_comma</name>
+        <briefdescription>
+<para>Returns true if the current element needs a comma. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="82" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="82" bodyend="86"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" compoundref="json__formatter_8cpp" startline="117" endline="126">format_metric_set_end</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4" compoundref="json__formatter_8cpp" startline="128" endline="146">format_metric</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081" compoundref="json__formatter_8cpp" startline="159" endline="163">format_list_end</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1aea66d4f04255989afd28c95b920ddbc6" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::json_formatter::in_list_scope</definition>
+        <argsstring>() const</argsstring>
+        <name>in_list_scope</name>
+        <briefdescription>
+<para>Returns true if the current scope is a list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="89" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="89" bodyend="93"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" compoundref="json__formatter_8cpp" startline="94" endline="115">format_metric_set_begin</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" compoundref="json__formatter_8cpp" startline="117" endline="126">format_metric_set_end</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a0a08314ea06c2820fb9e098a007dba86" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::increment_nest_level</definition>
+        <argsstring>()</argsstring>
+        <name>increment_nest_level</name>
+        <briefdescription>
+<para>Increments the nesting level by one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="96" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="96" bodyend="96"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" compoundref="json__formatter_8cpp" startline="94" endline="115">format_metric_set_begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a292db4860d68b5adefdede73f99469d4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::json_formatter::decrement_nest_level</definition>
+        <argsstring>()</argsstring>
+        <name>decrement_nest_level</name>
+        <briefdescription>
+<para>Decrements the nesting level by one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="99" column="8" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="99" bodyend="103"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" compoundref="json__formatter_8cpp" startline="117" endline="126">format_metric_set_end</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srslog::json_formatter::indents</definition>
+        <argsstring>(unsigned level) const</argsstring>
+        <name>indents</name>
+        <param>
+          <type>unsigned</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Return the number of space chars to indent the specified level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/srslog/formatters/json_formatter.h" line="106" column="12" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="106" bodyend="106"/>
+        <referencedby refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" compoundref="json__formatter_8cpp" startline="94" endline="115">format_metric_set_begin</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" compoundref="json__formatter_8cpp" startline="117" endline="126">format_metric_set_end</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4" compoundref="json__formatter_8cpp" startline="128" endline="146">format_metric</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f" compoundref="json__formatter_8cpp" startline="148" endline="157">format_list_begin</referencedby>
+        <referencedby refid="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081" compoundref="json__formatter_8cpp" startline="159" endline="163">format_list_end</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>JSON formatter class implementation. Formats each log entry and context into its own JSON object making the formatter stateless so that new entries do not depend on the state of previous ones. The output is ready for JSON streaming following the &quot;Concatenated JSON&quot; style. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srslog::json_formatter</label>
+        <link refid="classsrslog_1_1json__formatter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srslog::log_formatter</label>
+        <link refid="classsrslog_1_1log__formatter"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::json_formatter</label>
+        <link refid="classsrslog_1_1json__formatter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srslog::log_formatter</label>
+        <link refid="classsrslog_1_1log__formatter"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/srslog/formatters/json_formatter.h" line="23" column="1" bodyfile="lib/srslog/formatters/json_formatter.h" bodystart="22" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1json__formatter_1a447f1e537fb58ad8c8bf011718925556" prot="public" virt="virtual"><scope>srslog::json_formatter</scope><name>clone</name></member>
+      <member refid="classsrslog_1_1json__formatter_1aaed06de0b6380644ad4bd7c07c875678" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>consume_element</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a292db4860d68b5adefdede73f99469d4" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>decrement_nest_level</name></member>
+      <member refid="classsrslog_1_1json__formatter_1aae3b1fb09cd00a6dbd0d76c390f19675" prot="public" virt="virtual"><scope>srslog::json_formatter</scope><name>format</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a4147ef012504f27c14252d9f6373bae5" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_context_begin</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a3e193e1dd3e11c880b627d9b0bbbf648" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_context_end</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a6ba50ee854d86f203319f0e579f7cf11" prot="public" virt="non-virtual"><scope>srslog::json_formatter</scope><name>format_ctx</name></member>
+      <member refid="classsrslog_1_1json__formatter_1ac0f073b4e71071262d49b1df55ad070f" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_list_begin</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a0ac08ce0b76377b7909907346450b081" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_list_end</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a02ffdd0a97a0f09ef373cb12c74a6cf4" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_metric</name></member>
+      <member refid="classsrslog_1_1json__formatter_1aa1ccb7214fc94275a1da5fb4813a221f" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_metric_set_begin</name></member>
+      <member refid="classsrslog_1_1json__formatter_1ad4bee8429db80df3f14dc4e506d5dd83" prot="private" virt="virtual"><scope>srslog::json_formatter</scope><name>format_metric_set_end</name></member>
+      <member refid="classsrslog_1_1json__formatter_1aea66d4f04255989afd28c95b920ddbc6" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>in_list_scope</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a0a08314ea06c2820fb9e098a007dba86" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>increment_nest_level</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a1a4d91d0d707257cf6ace4b089a8c6e4" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>indents</name></member>
+      <member refid="classsrslog_1_1log__formatter_1acb44c1c992a0aac3a3bf77db1f691706" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>iterate_tuple</name></member>
+      <member refid="classsrslog_1_1json__formatter_1aa378fd4a1f30c382e6f14e1eff27dfbf" prot="public" virt="non-virtual"><scope>srslog::json_formatter</scope><name>json_formatter</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a4be915f35226f54fc4b61a2a1c195db7" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>needs_comma</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a8080103e1a4bd26969dfe72036cb8867" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>nest_level</name></member>
+      <member refid="classsrslog_1_1json__formatter_1abea87196ac1c6878f6a592e57496c8d6" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>pop_scope</name></member>
+      <member refid="classsrslog_1_1log__formatter_1ad54acad0cb838ab60df9e608da5dd1d9" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a7fdf28694b9cd137dd54f1f3e28d64db" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a1aba9ea86f241bf3534f658efb87c9da" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>process_element</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a4ae3e91b7f2bcf52c28bbb94fb7f5e71" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>push_list_scope</name></member>
+      <member refid="classsrslog_1_1json__formatter_1a49304c1ec2d03905200233c822a3d65e" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>push_scope</name></member>
+      <member refid="classsrslog_1_1json__formatter_1ad3c33f0f42de0cbb9e79b1007e67a8e5" prot="private" virt="non-virtual"><scope>srslog::json_formatter</scope><name>scope_stack</name></member>
+      <member refid="classsrslog_1_1log__formatter_1a129200d002c2631f31d82973ce713b06" prot="public" virt="virtual"><scope>srslog::json_formatter</scope><name>~log_formatter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1du__ue__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_du::du_ue_manager</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer" prot="public" virt="non-virtual">srsgnb::srs_du::ue_manager_ctrl_configurer</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1ae80df2d207e0c869959e99b979f1ca98" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1srs__du_1_1du__manager__config__t" kindref="compound">du_manager_config_t</ref> &amp;</type>
+        <definition>du_manager_config_t&amp; srsgnb::srs_du::du_ue_manager::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="40" column="24" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a21db8fd991b7c6e32e07a1997f7af196" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::srs_du::du_ue_manager::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="41" column="24" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a8be7f1f9f536c84f916c5dc1785634fd" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref>, MAX_NOF_DU_UES &gt;</type>
+        <definition>slot_array&lt;du_ue_context, MAX_NOF_DU_UES&gt; srsgnb::srs_du::du_ue_manager::ue_db</definition>
+        <argsstring></argsstring>
+        <name>ue_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="43" column="14" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1afe2ae0e393645b0511b3a020257cb2a2" prot="private" static="no" mutable="no">
+        <type>std::array&lt; int, MAX_NOF_DU_UES &gt;</type>
+        <definition>std::array&lt;int, MAX_NOF_DU_UES&gt; srsgnb::srs_du::du_ue_manager::rnti_to_ue_index</definition>
+        <argsstring></argsstring>
+        <name>rnti_to_ue_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="44" column="24" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a447de08b52c6505a4ab5cf51a97a0a54" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="classsrsgnb_1_1async__task__sequencer" kindref="compound">async_task_sequencer</ref>, MAX_NOF_DU_UES &gt;</type>
+        <definition>slot_array&lt;async_task_sequencer, MAX_NOF_DU_UES&gt; srsgnb::srs_du::du_ue_manager::ue_ctrl_loop</definition>
+        <argsstring></argsstring>
+        <name>ue_ctrl_loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="47" column="14" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1acd102afd6cf0fb41887bdcd4d4dd459d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>du_ue_manager::du_ue_manager</definition>
+        <argsstring>(du_manager_config_t &amp;cfg_)</argsstring>
+        <name>du_ue_manager</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1srs__du_1_1du__manager__config__t" kindref="compound">du_manager_config_t</ref> &amp;</type>
+          <declname>cfg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="27" column="12" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="18" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a1ec520890d75bb0f16c495fdab712ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void du_ue_manager::handle_ue_create_request</definition>
+        <argsstring>(const ul_ccch_indication_message &amp;msg)</argsstring>
+        <name>handle_ue_create_request</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ul__ccch__indication__message" kindref="compound">ul_ccch_indication_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="29" column="8" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="28" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a18762be43c984f9066c1280fee27e9c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void du_ue_manager::handle_ue_delete_request</definition>
+        <argsstring>(const du_ue_delete_message &amp;msg)</argsstring>
+        <name>handle_ue_delete_request</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1du__ue__delete__message" kindref="compound">du_ue_delete_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="30" column="8" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a32523bbbf4020360927749d7e6ca0926" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref>, MAX_NOF_DU_UES &gt; &amp;</type>
+        <definition>const slot_array&lt;du_ue_context, MAX_NOF_DU_UES&gt;&amp; srsgnb::srs_du::du_ue_manager::get_ues</definition>
+        <argsstring>()</argsstring>
+        <name>get_ues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="32" column="20" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1aab9c1de53b26aff229b58732ee2c7551" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref> *</type>
+        <definition>du_ue_context * du_ue_manager::add_ue</definition>
+        <argsstring>(du_ue_context ue_ctx) override</argsstring>
+        <name>add_ue</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer_1ad0b0ad98667df17a1dfcfa15cf9eb8c6">add_ue</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref></type>
+          <declname>ue_ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="35" column="17" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="63" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a54e0adc25bc6481e5c5351e7dc32c983" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref> *</type>
+        <definition>du_ue_context * du_ue_manager::find_ue</definition>
+        <argsstring>(du_ue_index_t ue_index) override</argsstring>
+        <name>find_ue</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer_1ae5afd9e30c4b88bf7f4f3142b75d51cc">find_ue</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="36" column="17" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a0a5944a264bfc6b9ed879a59e506dc81" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1srs__du_1_1du__ue__context" kindref="compound">du_ue_context</ref> *</type>
+        <definition>du_ue_context * du_ue_manager::find_rnti</definition>
+        <argsstring>(rnti_t rnti) override</argsstring>
+        <name>find_rnti</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer_1a2c62f0d69732138c5c10bdde3adecfb0">find_rnti</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="37" column="17" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a8fa968663ed58c0a7e8ced15eaafdb60" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void du_ue_manager::remove_ue</definition>
+        <argsstring>(du_ue_index_t ue_index) override</argsstring>
+        <name>remove_ue</name>
+        <reimplements refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer_1a495ab8abe17a7fb140b26fe9f215914c">remove_ue</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/du_ue_manager.h" line="38" column="18" bodyfile="lib/du_manager/du_ue_manager.cpp" bodystart="85" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_du::ue_manager_ctrl_configurer</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::du_ue_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1du__ue__manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="4">
+        <label>T</label>
+      </node>
+      <node id="6">
+        <label>srsgnb::srs_du::du_manager_config_t</label>
+        <link refid="structsrsgnb_1_1srs__du_1_1du__manager__config__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+logger</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+f1c_msg_handler</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>+f1ap_ue_ctx_mng</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>+f1ap_conn_mng</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>+timers</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>+mac_ue_ctrl</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>+setup_params</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>+f1ap_rrc</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>+mac_cell_mng</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>+du_mng_exec</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>+mac_ue_mng</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::srs_du::f1ap_ue_context_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__ue__context__manager"/>
+      </node>
+      <node id="19">
+        <label>srsgnb::slot_array&lt; srsgnb::srs_du::du_ue_context, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="20" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::srs_du::du_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="13">
+        <label>srsgnb::mac_ue_control_information_handler</label>
+        <link refid="classsrsgnb_1_1mac__ue__control__information__handler"/>
+      </node>
+      <node id="9">
+        <label>srsgnb::srs_du::f1ap_connection_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_du::ue_manager_ctrl_configurer</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::async_task_sequencer &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="20">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::srs_du::du_ue_context &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>srsgnb::srs_du::du_setup_params</label>
+        <link refid="structsrsgnb_1_1srs__du_1_1du__setup__params"/>
+      </node>
+      <node id="12">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="16">
+        <label>srsgnb::mac_cell_manager</label>
+        <link refid="classsrsgnb_1_1mac__cell__manager"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::f1c_message_handler</label>
+        <link refid="classsrsgnb_1_1f1c__message__handler"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::mac_ue_configurator</label>
+        <link refid="classsrsgnb_1_1mac__ue__configurator"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::srs_du::f1ap_rrc_message_transfer_procedure_handler</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__rrc__message__transfer__procedure__handler"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::du_ue_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1du__ue__manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>-ue_db</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-ue_ctrl_loop</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::async_task_sequencer &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>srsgnb::slot_array&lt; srsgnb::async_task_sequencer, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="23" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/du_manager/du_ue_manager.h" line="25" column="1" bodyfile="lib/du_manager/du_ue_manager.h" bodystart="24" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1aab9c1de53b26aff229b58732ee2c7551" prot="private" virt="virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>add_ue</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1ae80df2d207e0c869959e99b979f1ca98" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1acd102afd6cf0fb41887bdcd4d4dd459d" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>du_ue_manager</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a0a5944a264bfc6b9ed879a59e506dc81" prot="private" virt="virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>find_rnti</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a54e0adc25bc6481e5c5351e7dc32c983" prot="private" virt="virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>find_ue</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a32523bbbf4020360927749d7e6ca0926" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>get_ues</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a1ec520890d75bb0f16c495fdab712ad3" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>handle_ue_create_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a18762be43c984f9066c1280fee27e9c7" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>handle_ue_delete_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a21db8fd991b7c6e32e07a1997f7af196" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a8fa968663ed58c0a7e8ced15eaafdb60" prot="private" virt="virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>remove_ue</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1afe2ae0e393645b0511b3a020257cb2a2" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>rnti_to_ue_index</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a447de08b52c6505a4ab5cf51a97a0a54" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>ue_ctrl_loop</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1du__ue__manager_1a8be7f1f9f536c84f916c5dc1785634fd" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>ue_db</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1ue__manager__ctrl__configurer_1ab3c5440a0344c04734ae9a923ebb5584" prot="public" virt="virtual"><scope>srsgnb::srs_du::du_ue_manager</scope><name>~ue_manager_ctrl_configurer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

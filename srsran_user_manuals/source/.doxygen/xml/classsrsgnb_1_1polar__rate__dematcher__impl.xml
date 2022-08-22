@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__rate__dematcher__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::polar_rate_dematcher_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1polar__rate__dematcher" prot="public" virt="non-virtual">srsgnb::polar_rate_dematcher</basecompoundref>
+    <includes refid="polar__rate__dematcher__impl_8h" local="no">polar_rate_dematcher_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__rate__dematcher__impl_1a378d1561572e01d5807d3948cd789478" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref>, <ref refid="classsrsgnb_1_1polar__code_1ab452540a8033c3fd2ed17c3d8791716f" kindref="member">polar_code::NMAX</ref>+<ref refid="classsrsgnb_1_1polar__code_1a7e43e3e1aad84316117e0576a540b034" kindref="member">polar_code::EMAX</ref> &gt;</type>
+        <definition>std::array&lt;log_likelihood_ratio, polar_code::NMAX + polar_code::EMAX&gt; srsgnb::polar_rate_dematcher_impl::y_e</definition>
+        <argsstring></argsstring>
+        <name>y_e</name>
+        <briefdescription>
+<para>Internal buffer that contains both codeblock and rate-matched codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="28" column="14" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__rate__dematcher__impl_1a2697b8b60f425cfa5990bf401382e00c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> *</type>
+        <definition>log_likelihood_ratio* srsgnb::polar_rate_dematcher_impl::e</definition>
+        <argsstring></argsstring>
+        <name>e</name>
+        <initializer>= &amp;<ref refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a378d1561572e01d5807d3948cd789478" kindref="member">y_e</ref>[<ref refid="classsrsgnb_1_1polar__code_1ab452540a8033c3fd2ed17c3d8791716f" kindref="member">polar_code::NMAX</ref>]</initializer>
+        <briefdescription>
+<para>Pointer to the rate-matched part of the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="30" column="24" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__dematcher__impl_1a19c0452583069e3111de653ab4be11f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_rate_dematcher_impl::polar_rate_dematcher_impl</definition>
+        <argsstring>()=default</argsstring>
+        <name>polar_rate_dematcher_impl</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="34" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__dematcher__impl_1a1cc3b9d8340214d67bc991b6fd86e789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_rate_dematcher_impl::~polar_rate_dematcher_impl</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~polar_rate_dematcher_impl</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="36" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__dematcher__impl_1a1c064d328d38282721eadb9dc9215ba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void polar_rate_dematcher_impl::rate_dematch</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; output, span&lt; const log_likelihood_ratio &gt; input, const polar_code &amp;code) override</argsstring>
+        <name>rate_dematch</name>
+        <reimplements refid="classsrsgnb_1_1polar__rate__dematcher_1a393004acd3ee6865d8cf9e50ea96bca2">rate_dematch</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref> &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Carries out the actual rate-dematching. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rate-dematched codeword resulting from the rate-dematching operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The LLRs obtained from the channel samples that correspond to the codeword to be, first, rate-dematched and, second, decoded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">E</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate-matched codeword length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><formula id="15">$log_2$</formula> of the codeword length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message size (including CRC). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="39" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.cpp" bodystart="90" bodyend="108"/>
+        <references refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da">srsgnb::E</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Polar code rate dematching implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It reverts the rate matching procedure described in TS38.212 Section 5.4.1. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::polar_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1polar__rate__dematcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_rate_dematcher_impl</label>
+        <link refid="classsrsgnb_1_1polar__rate__dematcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::polar_rate_dematcher</label>
+        <link refid="classsrsgnb_1_1polar__rate__dematcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_rate_dematcher_impl</label>
+        <link refid="classsrsgnb_1_1polar__rate__dematcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-e</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::log_likelihood_ratio</label>
+        <link refid="classsrsgnb_1_1log__likelihood__ratio"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" line="25" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_dematcher_impl.h" bodystart="24" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a2697b8b60f425cfa5990bf401382e00c" prot="private" virt="non-virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>e</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a19c0452583069e3111de653ab4be11f7" prot="public" virt="non-virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>polar_rate_dematcher_impl</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a1c064d328d38282721eadb9dc9215ba4" prot="public" virt="virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>rate_dematch</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a378d1561572e01d5807d3948cd789478" prot="private" virt="non-virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>y_e</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher_1a119f077d52259bb72b558ca2c89e6477" prot="public" virt="virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>~polar_rate_dematcher</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__dematcher__impl_1a1cc3b9d8340214d67bc991b6fd86e789" prot="public" virt="non-virtual"><scope>srsgnb::polar_rate_dematcher_impl</scope><name>~polar_rate_dematcher_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

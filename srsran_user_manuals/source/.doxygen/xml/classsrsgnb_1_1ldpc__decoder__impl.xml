@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__decoder__impl" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_decoder_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__decoder" prot="public" virt="non-virtual">srsgnb::ldpc_decoder</basecompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__decoder__avx2" prot="public" virt="non-virtual">srsgnb::ldpc_decoder_avx2</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__decoder__generic" prot="public" virt="non-virtual">srsgnb::ldpc_decoder_generic</derivedcompoundref>
+    <includes refid="ldpc__decoder__impl_8h" local="no">ldpc_decoder_impl.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a5bb04eb605184aa38a2d787e0f2beea1" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="classsrsgnb_1_1ldpc__graph__impl" kindref="compound">ldpc_graph_impl</ref> *</type>
+        <definition>const ldpc_graph_impl* srsgnb::ldpc_decoder_impl::current_graph</definition>
+        <argsstring></argsstring>
+        <name>current_graph</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>Pointer to the Tanner graph (~ parity check matrix) used by the encoding algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="66" column="25" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a9b30631abc1a8be118efc9e3119f89fc" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::lifting_size</definition>
+        <argsstring></argsstring>
+        <name>lifting_size</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>Lifting size as a natural number (as opposed to an element from <ref refid="namespacesrsgnb_1_1ldpc_1a9cbabc9c9ab5373aede3e7fded3ea060" kindref="member">srsgnb::ldpc::lifting_size_t</ref>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="68" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__decoder__generic_1adbfc3b27d50ba2c9ee10859b27c22b2d" compoundref="ldpc__decoder__impl_8h" startline="99" endline="99">srsgnb::ldpc_decoder_generic::select_strategy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a6aebc01d58316785e991717b04f00545" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::bg_N_full</definition>
+        <argsstring></argsstring>
+        <name>bg_N_full</name>
+        <initializer>= 68</initializer>
+        <briefdescription>
+<para>Total number of base graph variable nodes in the current graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="70" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1afe6b0159883603c3cbb94ed10b5111c2" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::bg_N_short</definition>
+        <argsstring></argsstring>
+        <name>bg_N_short</name>
+        <initializer>= 66</initializer>
+        <briefdescription>
+<para>Number of base graph variable nodes after shortening. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="72" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a385d627c89f533a782c0d7c42a9b0399" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::bg_N_high_rate</definition>
+        <argsstring></argsstring>
+        <name>bg_N_high_rate</name>
+        <initializer>= 26</initializer>
+        <briefdescription>
+<para>Number of base graph variable nodes in the high-rate region. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="74" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="74" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__decoder__generic_1adbfc3b27d50ba2c9ee10859b27c22b2d" compoundref="ldpc__decoder__impl_8h" startline="99" endline="99">srsgnb::ldpc_decoder_generic::select_strategy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1ab65164816541a911e2226e6b1ec4aec7" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::bg_M</definition>
+        <argsstring></argsstring>
+        <name>bg_M</name>
+        <initializer>= 46</initializer>
+        <briefdescription>
+<para>Number of base graph check nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="76" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1aaed7f0eee0d26bdba7b143211c5b08a1" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::bg_K</definition>
+        <argsstring></argsstring>
+        <name>bg_K</name>
+        <initializer>= 22</initializer>
+        <briefdescription>
+<para>Number of base graph variable nodes corresponding to information bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="78" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a6205d470aa0a153591f8e887d13cdbd8" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::codeblock_length</definition>
+        <argsstring></argsstring>
+        <name>codeblock_length</name>
+        <initializer>= 52</initializer>
+        <briefdescription>
+<para>Number of used variable nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Instead of using all the variable nodes and setting to zero all the punctured LLRs, the decoder will work only with the enough variable nodes to accommodate all LLRs provided by the input vector. It is a multiple of the lifting size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="84" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1ab5256771588daa36043ea80cfc1e4fa3" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t srsgnb::ldpc_decoder_impl::nof_significant_bits</definition>
+        <argsstring></argsstring>
+        <name>nof_significant_bits</name>
+        <initializer>= 44</initializer>
+        <briefdescription>
+<para>Number of significant (not filler) bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="86" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a968c8a5dcd18b5576b7b6981338e76e5" prot="protected" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::ldpc_decoder_impl::max_iterations</definition>
+        <argsstring></argsstring>
+        <name>max_iterations</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+<para>Maximum number of iterations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="89" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ldpc__decoder__impl_1a011794d915ee577bea4689400d02499f" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::ldpc_decoder_impl::scaling_factor</definition>
+        <argsstring></argsstring>
+        <name>scaling_factor</name>
+        <initializer>= 0.8</initializer>
+        <briefdescription>
+<para>Scaling factor of the normalized min-sum algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="92" column="9" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1ac258aaae5fc4040a283eb8dd86b304c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::ldpc_decoder_impl::ldpc_decoder_impl</definition>
+        <argsstring>()=default</argsstring>
+        <name>ldpc_decoder_impl</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="31" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1optional" kindref="compound">optional</ref>&lt; unsigned &gt;</type>
+        <definition>optional&lt; unsigned &gt; ldpc_decoder_impl::decode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const log_likelihood_ratio &gt; input, crc_calculator *crc, const configuration &amp;cfg) override</argsstring>
+        <name>decode</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__decoder_1a31232f12c31f8ea8bb6bf63f0da9ab24">decode</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1crc__calculator" kindref="compound">crc_calculator</ref> *</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a codeblock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The CRC is verified after each iteration allowing, when successful, an early stop of the decoding process.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconstructed message of information bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log-likelihood ratios of the codeblock to be decoded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">crc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a CRC calculator for early stopping. Set to <computeroutput>nullptr</computeroutput> for disabling early stopping. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the decoding is successful, returns the number of LDPC iterations needed by the decoder. Otherwise, no value is returned. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="34" column="12" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp" bodystart="46" bodyend="110"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1crc__calculator_1a730d0a1d0d7188041b6047c945512da8">srsgnb::crc_calculator::calculate_bit</references>
+        <references refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" compoundref="span_8h" startline="192" endline="196">srsgnb::span&lt; T &gt;::first</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1a5720f300e42f160026b7f6dd4e15a9a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ldpc_decoder_impl::init</definition>
+        <argsstring>(const configuration &amp;cfg)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ldpc__decoder_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the decoder inner variables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="41" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.cpp" bodystart="19" bodyend="44"/>
+        <references refid="namespacesrsgnb_1_1ldpc_1a82c307d48e5817771bd4dc4a5f6c990a" compoundref="ldpc__luts__impl_8cpp" startline="4539" endline="4542">srsgnb::ldpc::get_lifting_size_position</references>
+        <references refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a4721b01e555c5a57851145e0931985c4" compoundref="ldpc__decoder_8h" startline="42">srsgnb::ldpc_decoder::configuration::block_conf</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a5798b610430ed92783d691f8565bab17" compoundref="codeblock__metadata_8h" startline="63">srsgnb::codeblock_metadata::tb_common</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a20ffa0ce3e6b27b6aa3ac51ee6bbc4ed" compoundref="codeblock__metadata_8h" startline="36">srsgnb::codeblock_metadata::tb_common_metadata::lifting_size</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata_1a2ca5177a80e975fb733a6fee5af5550a" compoundref="codeblock__metadata_8h" startline="34">srsgnb::codeblock_metadata::tb_common_metadata::base_graph</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1ab5cd7213af3d1e82a40997d6d3acca03" compoundref="ldpc_8h" startline="82">srsgnb::ldpc::NOF_LIFTING_SIZES</references>
+        <references refid="namespacesrsgnb_1_1ldpc_1a3edd55d7b04c252fa99398df0d9ee6ff" compoundref="ldpc__graph__impl_8h" startline="159">srsgnb::ldpc::graph_array</references>
+        <references refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1a50c7fafdfec86b48f5843729f8558c43" compoundref="ldpc__decoder_8h" startline="44">srsgnb::ldpc_decoder::configuration::algorithm_conf</references>
+        <references refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details_1a5e538a7b4316afe43b9d6640fe2b566d" compoundref="ldpc__decoder_8h" startline="36">srsgnb::ldpc_decoder::configuration::algorithm_details::max_iterations</references>
+        <references refid="structsrsgnb_1_1ldpc__decoder_1_1configuration_1_1algorithm__details_1a514c2c9fee5204d8348aeaa5060ac722" compoundref="ldpc__decoder_8h" startline="38">srsgnb::ldpc_decoder::configuration::algorithm_details::scaling_factor</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1a75debd7490b96e3a4f508ff45cd1b8f2" compoundref="codeblock__metadata_8h" startline="65">srsgnb::codeblock_metadata::cb_specific</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1a93aea6bdc206b70253f66e216324fcb9" compoundref="codeblock__metadata_8h" startline="59">srsgnb::codeblock_metadata::cb_specific_metadata::nof_crc_bits</references>
+        <references refid="structsrsgnb_1_1codeblock__metadata_1_1cb__specific__metadata_1aa68dc0a42212b3bddf98e1f2e4cde65d" compoundref="codeblock__metadata_8h" startline="55">srsgnb::codeblock_metadata::cb_specific_metadata::nof_filler_bits</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1a7db1bff3d0305d15159d999f1e621292" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::select_strategy</definition>
+        <argsstring>()=0</argsstring>
+        <name>select_strategy</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1adbfc3b27d50ba2c9ee10859b27c22b2d">select_strategy</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1a49e6cfda6c75da6a5a83537387e7b0ec">select_strategy</reimplementedby>
+        <briefdescription>
+<para>Selects the appropriate decoding strategy and initializes concrete implementation registers and variables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="44" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1ab6782e5db22dc1bf1c80a53f878b5adf" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::load_soft_bits</definition>
+        <argsstring>(span&lt; const log_likelihood_ratio &gt; llrs)=0</argsstring>
+        <name>load_soft_bits</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1a109c53d3e128f880125c799378d2e396">load_soft_bits</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1abe039fa55dfec4c4575301badde2aec4">load_soft_bits</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>llrs</declname>
+        </param>
+        <briefdescription>
+<para>Loads the input log-likelihood ratios into the soft-bit, variable-node register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="47" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1af10e5d55a4f8fb64447640744e64a5c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::update_variable_to_check_messages</definition>
+        <argsstring>(unsigned check_node)=0</argsstring>
+        <name>update_variable_to_check_messages</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1af6e86738011dabd1e6d8ad4234a727a5">update_variable_to_check_messages</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1a7a0081297252064206c82d75cdb14b8f">update_variable_to_check_messages</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the messages going from variable nodes to check nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the messages are directed to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="51" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1ad16ce5a388c4f921fdf5a7480d9cac3e" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::update_check_to_variable_messages</definition>
+        <argsstring>(unsigned check_node)=0</argsstring>
+        <name>update_check_to_variable_messages</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1a500cb077147fb9be4d751bfc4b2235b6">update_check_to_variable_messages</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1aa6ea5e662d3bd5aef8c747cb45faabcf">update_check_to_variable_messages</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the messages going from check nodes to variable nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the messages are coming from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="55" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1a5850b9fba087b09bf0d950da39238d37" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::update_soft_bits</definition>
+        <argsstring>(unsigned check_node)=0</argsstring>
+        <name>update_soft_bits</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1a93107a25f420a286904a62e746280cac">update_soft_bits</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1aa527a95ddef58266389905d35e3f8d67">update_soft_bits</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>check_node</declname>
+        </param>
+        <briefdescription>
+<para>Updates the soft bits corresponding to the variable nodes connected to the same base graph check node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">check_node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The check node (in the base graph) the variables nodes are connected to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__decoder__impl_1a1b1ec8323236a9900e00726f00ba75bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_decoder_impl::get_hard_bits</definition>
+        <argsstring>(span&lt; uint8_t &gt; out)=0</argsstring>
+        <name>get_hard_bits</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__generic_1a0d39947ea370fb3395306c7124ced052">get_hard_bits</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__decoder__avx2_1a2fff365ae145d8921d2fae2ab3a93680">get_hard_bits</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Converts soft bits into hard bits and returns the decoded message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="62" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Template LDPC decoder. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_decoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__avx2"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::ldpc_decoder_generic</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__generic"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::ldpc_decoder</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_graph_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__graph__impl"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_decoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__decoder__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>#current_graph</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" line="28" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_decoder_impl.h" bodystart="27" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1aaed7f0eee0d26bdba7b143211c5b08a1" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>bg_K</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ab65164816541a911e2226e6b1ec4aec7" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>bg_M</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a6aebc01d58316785e991717b04f00545" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>bg_N_full</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a385d627c89f533a782c0d7c42a9b0399" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>bg_N_high_rate</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1afe6b0159883603c3cbb94ed10b5111c2" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>bg_N_short</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a6205d470aa0a153591f8e887d13cdbd8" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>codeblock_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a5bb04eb605184aa38a2d787e0f2beea1" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>current_graph</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" prot="public" virt="virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a1b1ec8323236a9900e00726f00ba75bd" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>get_hard_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a5720f300e42f160026b7f6dd4e15a9a2" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ac258aaae5fc4040a283eb8dd86b304c4" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>ldpc_decoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a9b30631abc1a8be118efc9e3119f89fc" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ab6782e5db22dc1bf1c80a53f878b5adf" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>load_soft_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a968c8a5dcd18b5576b7b6981338e76e5" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>max_iterations</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ab5256771588daa36043ea80cfc1e4fa3" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>nof_significant_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a011794d915ee577bea4689400d02499f" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>scaling_factor</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a7db1bff3d0305d15159d999f1e621292" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>select_strategy</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1ad16ce5a388c4f921fdf5a7480d9cac3e" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>update_check_to_variable_messages</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1a5850b9fba087b09bf0d950da39238d37" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>update_soft_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder__impl_1af10e5d55a4f8fb64447640744e64a5c3" prot="private" virt="pure-virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>update_variable_to_check_messages</name></member>
+      <member refid="classsrsgnb_1_1ldpc__decoder_1a6b4bb879131080885aed983a3ac2c918" prot="public" virt="virtual"><scope>srsgnb::ldpc_decoder_impl</scope><name>~ldpc_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

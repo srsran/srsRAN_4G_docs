@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__encoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_encoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__encoder__impl" prot="public" virt="non-virtual">srsgnb::ldpc_encoder_impl</derivedcompoundref>
+    <includes refid="ldpc__encoder_8h" local="no">ldpc_encoder.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder_1aa8ba035bdec794b74614dbeb381a5674" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_encoder::~ldpc_encoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_encoder</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h" line="26" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder_1a8c9293e816350c558ef9ea279187ec00" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_encoder::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, const codeblock_metadata::tb_common_metadata &amp;cfg)=0</argsstring>
+        <name>encode</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__encoder__impl_1a7b07f2de9d496971220825ce198c0789">encode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1codeblock__metadata_1_1tb__common__metadata" kindref="compound">codeblock_metadata::tb_common_metadata</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resulting codeblock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message: original information bits (can contain filler_bit). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Encoder configuration for the current codeblock. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The length of the output codeblock is deduced from the size of parameter <computeroutput>output</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h" line="35" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC encoder interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>srsgnb::ldpc_encoder_generic</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__generic"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_encoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_encoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h" line="23" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_encoder.h" bodystart="22" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__encoder_1a8c9293e816350c558ef9ea279187ec00" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_encoder</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder_1aa8ba035bdec794b74614dbeb381a5674" prot="public" virt="virtual"><scope>srsgnb::ldpc_encoder</scope><name>~ldpc_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

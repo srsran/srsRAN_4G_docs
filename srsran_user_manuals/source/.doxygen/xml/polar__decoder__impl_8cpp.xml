@@ -1,0 +1,820 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="polar__decoder__impl_8cpp" kind="file" language="C++">
+    <compoundname>polar_decoder_impl.cpp</compoundname>
+    <includes refid="polar__decoder__impl_8h" local="yes">polar_decoder_impl.h</includes>
+    <includes refid="binary_8h" local="yes">srsgnb/srsvec/binary.h</includes>
+    <includes refid="zero_8h" local="yes">srsgnb/srsvec/zero.h</includes>
+    <incdepgraph>
+      <node id="47">
+        <label>atomic</label>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp</label>
+        <link refid="polar__decoder__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="22">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="48">
+        <label>numeric</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="27">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/srsvec/binary.h</label>
+        <link refid="binary_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_code.h</label>
+        <link refid="polar__code_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_decoder.h</label>
+        <link refid="polar__decoder_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_encoder.h</label>
+        <link refid="polar__encoder_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>pthread.h</label>
+      </node>
+      <node id="52">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="46">
+        <label>tuple</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>cstddef</label>
+      </node>
+      <node id="54">
+        <label>srsgnb/srsvec/zero.h</label>
+        <link refid="zero_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>chrono</label>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/srsvec/types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="53">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>srsgnb/phy/upper/log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>srsgnb/srsvec/aligned_vec.h</label>
+        <link refid="aligned__vec_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>polar_decoder_impl.h</label>
+        <link refid="polar__decoder__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="polar__decoder__impl_8cpp_1a94220deafa7b79ae5a51809a1c18eb94" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void vec_function_f</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; z, span&lt; const log_likelihood_ratio &gt; x, span&lt; const log_likelihood_ratio &gt; y)</argsstring>
+        <name>vec_function_f</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Polar decoder function <formula id="214">$f$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Vectorial form of the soft xor operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" line="21" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="21" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="polar__decoder__impl_8cpp_1ac03b183db2350c0a546c56b3104b00e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref></type>
+        <definition>static log_likelihood_ratio switch_combine</definition>
+        <argsstring>(log_likelihood_ratio x, log_likelihood_ratio y, uint8_t b)</argsstring>
+        <name>switch_combine</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Combines two log-likelihood ratio: constructively (sum) if b = 0, destructively (difference) if b = 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" line="30" column="29" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="polar__decoder__impl_8cpp_1a402cde48b9a431ad2075d285ef662ea4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void vec_function_g</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; z, span&lt; const log_likelihood_ratio &gt; x, span&lt; const log_likelihood_ratio &gt; y, span&lt; const uint8_t &gt; b)</argsstring>
+        <name>vec_function_g</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Polar decoder function <formula id="215">$g$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Vectorial form of switch_combine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" line="38" column="13" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="38" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="polar__decoder__impl_8cpp_1ae028f44ee9523bbea9a507b6f315a8dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void vec_hard_bit</definition>
+        <argsstring>(span&lt; log_likelihood_ratio &gt; x, span&lt; uint8_t &gt; z)</argsstring>
+        <name>vec_hard_bit</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Vectorial form of soft-to-hard bit conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" line="52" column="13" bodyfile="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp" bodystart="52" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="polar__decoder__impl_8h" kindref="compound">polar_decoder_impl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/binary.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/zero.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">vec_function_f(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>z,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>x,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>y)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>srsgnb_assert(y.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>spans<sp/>must<sp/>have<sp/>the<sp/>same<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>srsgnb_assert(z.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>and<sp/>output<sp/>spans<sp/>must<sp/>have<sp/>the<sp/>same<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>std::transform(x.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>x.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>y.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>z.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio_1a7c41114f18fb209fbbd1bd362b397e30" kindref="member">log_likelihood_ratio::soft_xor</ref>);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>switch_combine(<ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>x,<sp/><ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>y,<sp/>uint8_t<sp/>b)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((b<sp/>==<sp/>0)<sp/>?<sp/>(x<sp/>+<sp/>y)<sp/>:<sp/>(x<sp/>-<sp/>y));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>vec_function_g(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>z,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>x,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>y,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>srsgnb_assert((y.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>())<sp/>&amp;&amp;<sp/>(b.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()),<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>spans<sp/>must<sp/>have<sp/>the<sp/>same<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>srsgnb_assert(z.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>and<sp/>output<sp/>spans<sp/>must<sp/>have<sp/>the<sp/>same<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>len<sp/>=<sp/>x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>();<sp/>i<sp/>!=<sp/>len;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>z[i]<sp/>=<sp/>switch_combine(y[i],<sp/>x[i],<sp/>b[i]);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>vec_hard_bit(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>x,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>z)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>assert(x.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>==<sp/>z.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>());</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>std::transform(x.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>x.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/>z.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>[](<ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref><sp/>a)<sp/>{<sp/>return<sp/>a.to_hard_bit();<sp/>});</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a9e6f12d0f153365c9519e9941e3cc116" refkind="member"><highlight class="normal"><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a9e6f12d0f153365c9519e9941e3cc116" kindref="member">polar_decoder_impl::tmp_node_s::tmp_node_s</ref>(uint8_t<sp/>nMax)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>max_code_size<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>nMax);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nMax_1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>nMax<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>max_code_half_size<sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>nMax_1);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a37f4df752d2393cb035682725a043b08" kindref="member">is_not_rate_0</ref>.resize(2UL<sp/>*<sp/>max_code_size);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a6d17669982ac4d61e65994285347469f" kindref="member">is_rate_1</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(&amp;<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a37f4df752d2393cb035682725a043b08" kindref="member">is_not_rate_0</ref>[max_code_size],<sp/>max_code_size);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1afa43760fee5a44ec4eee8549a8e96a46" kindref="member">i_odd</ref>.resize(max_code_half_size);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a898dc81bc6296607636808528afd9481" kindref="member">i_even</ref>.resize(max_code_half_size);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a5b030ae5e928a39180d1825884b17c6b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a5b030ae5e928a39180d1825884b17c6b" kindref="member">polar_decoder_impl::tmp_node_s::compute</ref>(std::vector&lt;node_rate*&gt;&amp;<sp/>node_type,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><sp/><sp/><sp/><sp/>frozen_set,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code_size_log)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Stage<sp/>index.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>uint8_t<sp/>s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_size<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>code_size_log);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>code_size_log_1<sp/>=<sp/>code_size_log<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_half_size<sp/><sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>code_size_log_1);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>srsvec::zero(i_even.first(code_half_size));</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>srsvec::zero(i_odd.first(code_half_size));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>!=<sp/>code_half_size;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>i_even[i]<sp/>=<sp/>2<sp/>*<sp/>i;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>i_odd[i]<sp/><sp/>=<sp/>2<sp/>*<sp/>i<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>node_type<sp/>=<sp/>is_not_rate_0_node:<sp/>0<sp/>if<sp/>rate<sp/>0,<sp/>1<sp/>if<sp/>not<sp/>rate<sp/>0.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>std::fill_n(is_not_rate_0.begin(),<sp/>code_size,<sp/>1);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>std::fill_n(is_rate_1.begin(),<sp/>code_size,<sp/>1);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>fs<sp/>:<sp/>frozen_set)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>is_not_rate_0[fs]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>is_rate_1[fs]<sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>to:<sp/>0<sp/>if<sp/>rate-0;<sp/>2<sp/>if<sp/>rate-r;<sp/>3<sp/>if<sp/>rate<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>node_type[s][j]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96" kindref="member">node_rate</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(3<sp/>*<sp/>is_not_rate_0[j]);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(s<sp/>=<sp/>1;<sp/>s<sp/>!=<sp/>(uint8_t)(code_size_log<sp/>+<sp/>1);<sp/>++s)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>code_size_log_s<sp/>=<sp/>code_size_log<sp/>-<sp/>s;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>code_stage_size<sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>code_size_log_s);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_stage_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_not_rate_0[j]<sp/>=<sp/>is_not_rate_0[i_even[j]]<sp/>|<sp/>is_not_rate_0[i_odd[j]];<sp/></highlight><highlight class="comment">//<sp/>bitor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_rate_1[j]<sp/><sp/><sp/><sp/><sp/>=<sp/>is_rate_1[i_even[j]]<sp/>&amp;<sp/>is_rate_1[i_odd[j]];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bitand</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>to:<sp/>0<sp/>if<sp/>rate-0;<sp/>2<sp/>if<sp/>rate-r;<sp/>3<sp/>if<sp/>rate<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node_type[s][j]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96" kindref="member">node_rate</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2<sp/>*<sp/>is_not_rate_0[j]<sp/>+<sp/>is_rate_1[j]);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" refkind="member"><highlight class="normal"><ref refid="classsrsgnb_1_1polar__decoder__impl_1a2f82f18e4436729d2f0e8d022d965116" kindref="member">polar_decoder_impl::polar_decoder_impl</ref>(std::unique_ptr&lt;polar_encoder&gt;<sp/>enc_,<sp/>uint8_t<sp/>nMax)<sp/>:</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a039bff0e7ecb9eba499a9c66502251a8" kindref="member">tmp_node_type</ref>(nMax),<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a763eecd770cae60aa980822ed7265868" kindref="member">enc</ref>(std::move(enc_))</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>.resize(nMax<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[0]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>1;<sp/>i<sp/>!=<sp/>nMax<sp/>+<sp/>1;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[i]<sp/>=<sp/>2<sp/>*<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[i<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>.resize(nMax<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocates<sp/>memory<sp/>for<sp/>estimated<sp/>bits<sp/>per<sp/>stage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>uint16_t<sp/>est_bits_size<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[nMax];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.resize(est_bits_size);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>memory<sp/>for<sp/>LLR<sp/>pointers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>.resize(nMax<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>.resize(nMax<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>each<sp/>n,<sp/>n<sp/>=<sp/>0<sp/>to<sp/>n<sp/>=<sp/>nMax,<sp/>we<sp/>need<sp/>an<sp/>LLR<sp/>buffer<sp/>of<sp/>size<sp/>2^n.<sp/>Thus,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>total<sp/>memory<sp/>needed<sp/>is<sp/>2^(nMax+1)-1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>n_llr_all_stages<sp/>=<sp/>nMax<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>uint16_t<sp/>llr_all_stages<sp/><sp/><sp/>=<sp/>(1U<sp/>&lt;&lt;<sp/>n_llr_all_stages)<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ad8d45ebff14608c56c30d4927a83a87e" kindref="member">llr_alloc</ref>.resize(llr_all_stages);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[0]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ad8d45ebff14608c56c30d4927a83a87e" kindref="member">llr_alloc</ref>.data();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>all<sp/>LLR<sp/>pointers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>[0]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[0]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>s<sp/>=<sp/>1;<sp/>s<sp/>!=<sp/>n_llr_all_stages;<sp/>++s)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[s]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[0]<sp/>+<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[s];</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>[s]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[0]<sp/>+<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[s]<sp/>+<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[s<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a99cee7a5bd9219e4e930f16aa8f80e95" kindref="member">node_type_alloc</ref>.resize(llr_all_stages);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>.resize(nMax<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>[0]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a99cee7a5bd9219e4e930f16aa8f80e95" kindref="member">node_type_alloc</ref>.data();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>all<sp/>node<sp/>type<sp/>pointers<sp/>(stage<sp/>0<sp/>is<sp/>the<sp/>first,<sp/>opposite<sp/>to<sp/>LLRs).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>s<sp/>=<sp/>1;<sp/>s<sp/>!=<sp/>nMax<sp/>+<sp/>1;<sp/>++s)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>[s]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>[s<sp/>-<sp/>1]<sp/>+<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[nMax<sp/>-<sp/>s<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" kindref="member">polar_decoder_impl::init</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_decoded,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>input_llr,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code_size_log,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frozen_set)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" kindref="member">code_size_log</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>code_size_log;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_size<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[code_size_log];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_half_size<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[code_size_log<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializes<sp/>the<sp/>data_decoded_vector<sp/>to<sp/>all<sp/>zeros.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>srsvec::zero(data_decoded.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(code_size));</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>est_bit<sp/>vector<sp/>to<sp/>all<sp/>zeros.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>srsvec::zero(<ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(code_size));</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializes<sp/>LLR<sp/>buffer<sp/>for<sp/>the<sp/>last<sp/>stage/level<sp/>with<sp/>the<sp/>input<sp/>LLRs<sp/>values.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>!=<sp/>code_half_size;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[code_size_log][i]<sp/>=<sp/>input_llr[i];</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>[code_size_log][i]<sp/>=<sp/>input_llr[i<sp/>+<sp/>code_half_size];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializes<sp/>the<sp/>state<sp/>of<sp/>the<sp/>decoding<sp/>tree:<sp/>start<sp/>from<sp/>the<sp/>only<sp/>one<sp/>node<sp/>at<sp/>the<sp/>last<sp/>stage<sp/>+<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref><sp/>=<sp/>code_size_log<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>srsvec::zero(<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>.<ref refid="classsrsgnb_1_1span_1aadc9956ed7b3870d1e25e82e4f34e782" kindref="member">first</ref>(code_size_log<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" kindref="member">flag_finished</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Computes<sp/>the<sp/>node<sp/>types<sp/>for<sp/>the<sp/>decoding<sp/>tree.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a039bff0e7ecb9eba499a9c66502251a8" kindref="member">tmp_node_type</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1tmp__node__s_1a5b030ae5e928a39180d1825884b17c6b" kindref="member">compute</ref>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>,<sp/>frozen_set,<sp/>code_size_log);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" kindref="member">polar_decoder_impl::rate_0_node</ref>()</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Binary<sp/>log<sp/>of<sp/>the<sp/>code<sp/>size.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>code_size_log<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" kindref="member">code_size_log</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_size<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[code_size_log];</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>uint16_t<sp/>bit_pos<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[0];</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>stage<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bit_pos<sp/>==<sp/>code_size<sp/>-<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" kindref="member">flag_finished</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>active<sp/>node<sp/>at<sp/>all<sp/>the<sp/>stages.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>stage;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[i]<sp/>+=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[stage<sp/>-<sp/>i];</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" kindref="member">polar_decoder_impl::rate_1_node</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>message)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>the<sp/>SSC<sp/>decoder,<sp/>rate<sp/>1<sp/>nodes<sp/>are<sp/>always<sp/>at<sp/>stage<sp/>0.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>uint8_t<sp/>stage<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>uint16_t<sp/>bit_pos<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[0];</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_size<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[<ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1ac4b8c042021575dc2546a69d07b0bd56" kindref="member">code_size_log</ref>];</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_stage_size<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[stage];</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codeword<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(bit_pos,<sp/>code_stage_size);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref><sp/>LLR<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;log_likelihood_ratio&gt;</ref>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[stage],<sp/>code_stage_size);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>vec_hard_bit(LLR,<sp/>codeword);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stage<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>message_stage<sp/>=<sp/>message.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(bit_pos,<sp/>code_stage_size);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a763eecd770cae60aa980822ed7265868" kindref="member">enc</ref>-&gt;encode(message_stage,<sp/>codeword,<sp/>stage);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>message[bit_pos]<sp/>=<sp/>codeword[0];</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>active<sp/>node<sp/>at<sp/>all<sp/>the<sp/>stages.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>stage;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[i]<sp/>+=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[stage<sp/>-<sp/>i];</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>this<sp/>is<sp/>the<sp/>last<sp/>bit.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[0]<sp/>==<sp/>code_size)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" kindref="member">flag_finished</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" kindref="member">polar_decoder_impl::rate_r_node</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>message)</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>uint8_t*<sp/>estbits0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>uint8_t*<sp/>estbits1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>uint16_t<sp/>bit_pos<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>int16_t<sp/><sp/>offset0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>int16_t<sp/><sp/>offset1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>stage<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>uint16_t<sp/>stage_size<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[stage];</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>uint16_t<sp/>stage_half_size<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1a39f8cb7a55b5adf5795b512797ae2aea" kindref="member">code_stage_size</ref>[stage<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>vec_function_f({<ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[stage<sp/>-<sp/>1],<sp/>stage_half_size},<sp/>{<ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[stage],<sp/>stage_half_size},<sp/>{<ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>[stage],<sp/>stage_half_size});</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Move<sp/>to<sp/>the<sp/>child<sp/>node<sp/>to<sp/>the<sp/>left<sp/>(up)<sp/>of<sp/>the<sp/>tree.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" kindref="member">simplified_node</ref>(message);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" kindref="member">flag_finished</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Just<sp/>in<sp/>case:<sp/>for<sp/>5G<sp/>frozen<sp/>sets,<sp/>the<sp/>code<sp/>should<sp/>never<sp/>end<sp/>here.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>bit_pos<sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[0];</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>offset0<sp/><sp/>=<sp/>bit_pos<sp/>-<sp/>stage_half_size;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>estbits0<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.<ref refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" kindref="member">data</ref>()<sp/>+<sp/>offset0;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/>vec_function_g({<ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[stage<sp/>-<sp/>1],<sp/>stage_half_size},</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<ref refid="classsrsgnb_1_1polar__decoder__impl_1a04a3e5a861332bafa3f3b556757765fc" kindref="member">llr0</ref>[stage],<sp/>stage_half_size},</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<ref refid="classsrsgnb_1_1polar__decoder__impl_1a0810b18e70eaed2d8d5eeea97b72418e" kindref="member">llr1</ref>[stage],<sp/>stage_half_size},</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{estbits0,<sp/>stage_half_size});</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Move<sp/>to<sp/>the<sp/>child<sp/>node<sp/>to<sp/>the<sp/>right<sp/>(down)<sp/>of<sp/>the<sp/>tree.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" kindref="member">simplified_node</ref>(message);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a0b0e60fbed13858c3278b5597c9a97f8" kindref="member">flag_finished</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>bit_pos<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[0];</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>offset0<sp/><sp/>=<sp/>bit_pos<sp/>-<sp/>stage_size;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>offset1<sp/><sp/>=<sp/>offset0<sp/>+<sp/>stage_half_size;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>estbits0<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.<ref refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" kindref="member">data</ref>()<sp/>+<sp/>offset0;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>estbits1<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a6c91bb3e8a2e413cdd47b56d01582153" kindref="member">est_bit</ref>.<ref refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" kindref="member">data</ref>()<sp/>+<sp/>offset1;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>srsvec::binary_xor(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(estbits0,<sp/>stage_half_size),</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(estbits1,<sp/>stage_half_size),</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref>(estbits0,<sp/>stage_half_size));</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>this<sp/>node<sp/>index<sp/>and<sp/>return<sp/>to<sp/>the<sp/>father<sp/>node.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>++<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[stage];</highlight></codeline>
+<codeline lineno="291"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" kindref="member">polar_decoder_impl::simplified_node</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>message)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Move<sp/>to<sp/>the<sp/>child<sp/>node.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>--<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/>uint8_t<sp/><sp/>stage<sp/><sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>uint16_t<sp/>bit_pos<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1a1171478a19f02f152776fb6415cd6fb9" kindref="member">active_node_per_stage</ref>[stage];</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>[stage][bit_pos])<sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96ab0d4b8031a43337bf349e61dec1e13b5" kindref="member">RATE_1</ref>:</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1aead52b3b5a95a2065f33346d47743553" kindref="member">rate_1_node</ref>(message);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96afc55273e974b456b5ae94a56bb910b2c" kindref="member">RATE_0</ref>:</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a21df3c542abaf0ddd147fb0eb35b9c69" kindref="member">rate_0_node</ref>();</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1af994bad7e3c1a748ab1dc89e66223d96a8de7d280746b003e2d86cfaef541415c" kindref="member">RATE_R</ref>:</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a5e129182f5013265956ded0f6a0940ab" kindref="member">rate_r_node</ref>(message);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srsgnb_assertion_failure(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>wrong<sp/>node<sp/>type<sp/>{}.&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a35658219eaf23c56f28bc41342584b2d" kindref="member">param</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1params__s_1acc94561aaa76a68aba6a21f43073a590" kindref="member">node_type</ref>[stage][bit_pos]);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Go<sp/>back<sp/>to<sp/>the<sp/>parent<sp/>node.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/>++<ref refid="classsrsgnb_1_1polar__decoder__impl_1ac10a8a604d64af8dc1235ede54994fdb" kindref="member">state</ref>.<ref refid="structsrsgnb_1_1polar__decoder__impl_1_1state__s_1ac09f36eb7e32d7ddf1f5c8c662b3874b" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318" refid="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a7dadaf8cd881d4da5802bcc78eb5324a" kindref="member">polar_decoder_impl::decode</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_decoded,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const log_likelihood_ratio&gt;</ref><sp/>input_llr,</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code)</highlight></codeline>
+<codeline lineno="321"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint16_t&gt;</ref><sp/>frozen_set<sp/>=<sp/>code.get_F_set();</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a469dee8915213006d3066de1ad8a6fe1" kindref="member">init</ref>(data_decoded,<sp/>input_llr,<sp/>code.get_n(),<sp/>frozen_set);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1polar__decoder__impl_1a783f59053be2303d3c4a22d24131bd1d" kindref="member">simplified_node</ref>(data_decoded);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/polar/polar_decoder_impl.cpp"/>
+  </compounddef>
+</doxygen>

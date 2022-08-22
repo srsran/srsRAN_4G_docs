@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="uplink__request__processor__impl_8cpp" kind="file" language="C++">
+    <compoundname>uplink_request_processor_impl.cpp</compoundname>
+    <includes refid="uplink__request__processor__impl_8h" local="yes">uplink_request_processor_impl.h</includes>
+    <includes refid="prach__buffer__pool_8h" local="yes">srsgnb/phy/support/prach_buffer_pool.h</includes>
+    <includes refid="upper__phy__rx__symbol__request__notifier_8h" local="yes">srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>srsgnb/phy/support/prach_buffer_pool.h</label>
+        <link refid="prach__buffer__pool_8h_source"/>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/uplink_request_processor_impl.cpp</label>
+        <link refid="uplink__request__processor__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uplink_request_processor_impl.h</label>
+        <link refid="uplink__request__processor__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/uplink_request_processor.h</label>
+        <link refid="uplink__request__processor_8h_source"/>
+      </node>
+      <node id="5">
+        <label>srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h</label>
+        <link refid="upper__phy__rx__symbol__request__notifier_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;uplink_request_processor_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/phy/support/prach_buffer_pool.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="upper__phy__rx__symbol__request__notifier_8h" kindref="compound">srsgnb/phy/upper/upper_phy_rx_symbol_request_notifier.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">uplink_request_processor_impl::uplink_request_processor_impl(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier" kindref="compound">upper_phy_rx_symbol_request_notifier</ref>&amp;<sp/>symbol_request_notifier,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1prach__buffer__pool" kindref="compound">prach_buffer_pool</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prach_memory_pool)<sp/>:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>symbol_request_notifier(symbol_request_notifier),<sp/>prach_memory_pool(prach_memory_pool)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classsrsgnb_1_1uplink__request__processor__impl_1af1cd84a583bad0fb93386d2429cd8d59" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1uplink__request__processor__impl_1af1cd84a583bad0fb93386d2429cd8d59" kindref="member">uplink_request_processor_impl::process_prach_request</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref>&amp;<sp/>context)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Grab<sp/>a<sp/>PRACH<sp/>buffer<sp/>from<sp/>the<sp/>pool.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref>&amp;<sp/>buffer<sp/>=<sp/><ref refid="classsrsgnb_1_1uplink__request__processor__impl_1ab39d6a3ae8484a6a53d011e647652754" kindref="member">prach_memory_pool</ref>.<ref refid="classsrsgnb_1_1prach__buffer__pool_1aebdf6d2962d31f40069c5d841bba0d49" kindref="member">get_prach_buffer</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Notify<sp/>the<sp/>PRACH<sp/>capture<sp/>request<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1uplink__request__processor__impl_1a6db591ac331977d3a751d355a2cbb97f" kindref="member">symbol_request_notifier</ref>.<ref refid="classsrsgnb_1_1upper__phy__rx__symbol__request__notifier_1a53a2c8dd43730fdf501d174e6a60bd6a" kindref="member">on_prach_capture_request</ref>(context,<sp/>buffer);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/uplink_request_processor_impl.cpp"/>
+  </compounddef>
+</doxygen>

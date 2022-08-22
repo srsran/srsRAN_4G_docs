@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsystem__error" kind="class" language="C++" prot="public">
+    <compoundname>system_error</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">runtime_error</basecompoundref>
+    <includes refid="format_8h" local="no">format.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsystem__error_1a35ed90a7a994961cdb27b5a004b0e9de" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int system_error::error_code_</definition>
+        <argsstring></argsstring>
+        <name>error_code_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2960" column="7" bodyfile="include/srsgnb/srslog/bundled/fmt/format.h" bodystart="2960" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsystem__error_1a6d1b7b8b441acfbd486a6fd389df93dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>FMT_FUNC void system_error::init</definition>
+        <argsstring>(int err_code, string_view format_str, format_args args)</argsstring>
+        <name>init</name>
+        <param>
+          <type>int</type>
+          <declname>err_code</declname>
+        </param>
+        <param>
+          <type><ref refid="classbasic__string__view" kindref="compound">string_view</ref></type>
+          <declname>format_str</declname>
+        </param>
+        <param>
+          <type><ref refid="structformat__args" kindref="compound">format_args</ref></type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2957" column="8" bodyfile="include/srsgnb/srslog/bundled/fmt/format-inl.h" bodystart="224" bodyend="231"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsystem__error_1a0a883f3911253771f2e8fea883ccb21d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>system_error::system_error</definition>
+        <argsstring>()</argsstring>
+        <name>system_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2962" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/format.h" bodystart="2962" bodyend="2962"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsystem__error_1a6761fd4c8604a59a7c79f6bfdfaf25cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>system_error::system_error</definition>
+        <argsstring>(int error_code, string_view message, const Args &amp;... args)</argsstring>
+        <name>system_error</name>
+        <param>
+          <type>int</type>
+          <declname>error_code</declname>
+        </param>
+        <param>
+          <type><ref refid="classbasic__string__view" kindref="compound">string_view</ref></type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const Args &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>\rst Constructs a :class:<computeroutput>fmt::system_error</computeroutput> object with a description formatted with <computeroutput>fmt::format_system_error</computeroutput>. <emphasis>message</emphasis> and additional arguments passed into the constructor are formatted similarly to <computeroutput>fmt::format</computeroutput>.</para>
+<para>Example**::</para>
+<para>This throws a <ref refid="classsystem__error" kindref="compound">system_error</ref> with the description cannot open file &apos;madeup&apos;: No such file or directory or similar (system message may vary). const char *filename = &quot;madeup&quot;; std::FILE *file = std::fopen(filename, &quot;r&quot;); if (!file) throw fmt::system_error(errno, &quot;cannot open file &apos;{}&apos;&quot;, filename); \endrst </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2984" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/format.h" bodystart="2984" bodyend="2987"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a2186379ae268a19237c14490f47f2d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>system_error::system_error</definition>
+        <argsstring>(const system_error &amp;)=default</argsstring>
+        <name>system_error</name>
+        <param>
+          <type>const <ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2988" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a089787f3f3767761c975ed645494b470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;</type>
+        <definition>system_error&amp; system_error::operator=</definition>
+        <argsstring>(const system_error &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2989" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a2b935364ad1420e10498b04b1fd0ed0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>system_error::system_error</definition>
+        <argsstring>(system_error &amp;&amp;)=default</argsstring>
+        <name>system_error</name>
+        <param>
+          <type><ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2990" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a3f659b17bf85c47c74c24578c5abb857" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;</type>
+        <definition>system_error&amp; system_error::operator=</definition>
+        <argsstring>(system_error &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsystem__error" kindref="compound">system_error</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2991" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a901000abfbaa25c1028aa2bba824ff59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMT_API FMT_FUNC system_error::~system_error</definition>
+        <argsstring>() FMT_NOEXCEPT FMT_OVERRIDE</argsstring>
+        <name>~system_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2992" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsystem__error_1a9c095f54f80c8393f6bf24eb9d188ec4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int system_error::error_code</definition>
+        <argsstring>() const</argsstring>
+        <name>error_code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2994" column="7" bodyfile="include/srsgnb/srslog/bundled/fmt/format.h" bodystart="2994" bodyend="2994"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An error returned by an operating system or a language runtime, for example a file opening error. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>system_error</label>
+        <link refid="classsystem__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>system_error</label>
+        <link refid="classsystem__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/bundled/fmt/format.h" line="2955" column="40" bodyfile="include/srsgnb/srslog/bundled/fmt/format.h" bodystart="2955" bodyend="2995"/>
+    <listofallmembers>
+      <member refid="classsystem__error_1a9c095f54f80c8393f6bf24eb9d188ec4" prot="public" virt="non-virtual"><scope>system_error</scope><name>error_code</name></member>
+      <member refid="classsystem__error_1a35ed90a7a994961cdb27b5a004b0e9de" prot="protected" virt="non-virtual"><scope>system_error</scope><name>error_code_</name></member>
+      <member refid="classsystem__error_1a6d1b7b8b441acfbd486a6fd389df93dd" prot="private" virt="non-virtual"><scope>system_error</scope><name>init</name></member>
+      <member refid="classsystem__error_1a089787f3f3767761c975ed645494b470" prot="public" virt="non-virtual"><scope>system_error</scope><name>operator=</name></member>
+      <member refid="classsystem__error_1a3f659b17bf85c47c74c24578c5abb857" prot="public" virt="non-virtual"><scope>system_error</scope><name>operator=</name></member>
+      <member refid="classsystem__error_1a0a883f3911253771f2e8fea883ccb21d" prot="protected" virt="non-virtual"><scope>system_error</scope><name>system_error</name></member>
+      <member refid="classsystem__error_1a6761fd4c8604a59a7c79f6bfdfaf25cb" prot="public" virt="non-virtual"><scope>system_error</scope><name>system_error</name></member>
+      <member refid="classsystem__error_1a2186379ae268a19237c14490f47f2d7a" prot="public" virt="non-virtual"><scope>system_error</scope><name>system_error</name></member>
+      <member refid="classsystem__error_1a2b935364ad1420e10498b04b1fd0ed0b" prot="public" virt="non-virtual"><scope>system_error</scope><name>system_error</name></member>
+      <member refid="classsystem__error_1a901000abfbaa25c1028aa2bba824ff59" prot="public" virt="non-virtual"><scope>system_error</scope><name>~system_error</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

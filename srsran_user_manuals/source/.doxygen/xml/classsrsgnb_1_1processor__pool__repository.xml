@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1processor__pool__repository" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::processor_pool_repository</compoundname>
+    <includes refid="processor__pool__helpers_8h" local="no">processor_pool_helpers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1processor__pool__repository_1a37c60c3b7144b5f741e48a4566d3841c" prot="private" static="no">
+        <type>std::vector&lt; std::unique_ptr&lt; T &gt; &gt;</type>
+        <definition>using srsgnb::processor_pool_repository&lt; T &gt;::processor_pool =  std::vector&lt;std::unique_ptr&lt;T&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>processor_pool</name>
+        <briefdescription>
+<para>Container of processors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each entry corresponds to a different slot. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/processor_pool_helpers.h" line="29" column="3" bodyfile="lib/phy/upper/processor_pool_helpers.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1processor__pool__repository_1a9077cdb54122530b02ad620fd3011761" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1processor__pool__repository_1a37c60c3b7144b5f741e48a4566d3841c" kindref="member">processor_pool</ref>, <ref refid="namespacesrsgnb_1aa4e1861ad81105adc74ceabe7e465a46" kindref="member">NOF_NUMEROLOGIES</ref> &gt;</type>
+        <definition>std::array&lt;processor_pool, NOF_NUMEROLOGIES&gt; srsgnb::processor_pool_repository&lt; T &gt;::numerologies</definition>
+        <argsstring></argsstring>
+        <name>numerologies</name>
+        <briefdescription>
+<para>Container of processor pools. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each entry corresponds to a different numerology. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/processor_pool_helpers.h" line="34" column="14" bodyfile="lib/phy/upper/processor_pool_helpers.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1processor__pool__repository_1a4c5990aff2d60da9f733912128b700be" compoundref="processor__pool__helpers_8h" startline="38" endline="48">srsgnb::processor_pool_repository&lt; T &gt;::get_processor</referencedby>
+        <referencedby refid="classsrsgnb_1_1processor__pool__repository_1aca44acb737536eb2cfbab929ef718527" compoundref="processor__pool__helpers_8h" startline="54" endline="63">srsgnb::processor_pool_repository&lt; T &gt;::insert</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1processor__pool__repository_1a4c5990aff2d60da9f733912128b700be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; srsgnb::processor_pool_repository&lt; T &gt;::get_processor</definition>
+        <argsstring>(slot_point slot)</argsstring>
+        <name>get_processor</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+          <declname>slot</declname>
+        </param>
+        <briefdescription>
+<para>Returns a reference to a processor using the given slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/processor_pool_helpers.h" line="38" column="5" bodyfile="lib/phy/upper/processor_pool_helpers.h" bodystart="38" bodyend="48"/>
+        <references refid="classsrsgnb_1_1slot__point_1a7a7cfffb183af6291f83ab1d12ac37d6" compoundref="slot__point_8h" startline="86" endline="86">srsgnb::slot_point::numerology</references>
+        <references refid="namespacesrsgnb_1aa4e1861ad81105adc74ceabe7e465a46" compoundref="subcarrier__spacing_8h" startline="19">srsgnb::NOF_NUMEROLOGIES</references>
+        <references refid="classsrsgnb_1_1processor__pool__repository_1a9077cdb54122530b02ad620fd3011761" compoundref="processor__pool__helpers_8h" startline="34">srsgnb::processor_pool_repository&lt; T &gt;::numerologies</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1processor__pool__repository_1aca44acb737536eb2cfbab929ef718527" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::processor_pool_repository&lt; T &gt;::insert</definition>
+        <argsstring>(subcarrier_spacing scs, processor_pool &amp;&amp;obj)</argsstring>
+        <name>insert</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+          <declname>scs</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1processor__pool__repository_1a37c60c3b7144b5f741e48a4566d3841c" kindref="member">processor_pool</ref> &amp;&amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Associates the given processor pool with this repository. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subcarrier spacing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New processor pool for the given numerology. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/processor_pool_helpers.h" line="54" column="8" bodyfile="lib/phy/upper/processor_pool_helpers.h" bodystart="54" bodyend="63"/>
+        <references refid="namespacesrsgnb_1a1aaa9631bfc12855cc12d7ae3f6ce3a8" compoundref="subcarrier__spacing_8h" startline="38" endline="41">srsgnb::to_numerology_value</references>
+        <references refid="namespacesrsgnb_1aa4e1861ad81105adc74ceabe7e465a46" compoundref="subcarrier__spacing_8h" startline="19">srsgnb::NOF_NUMEROLOGIES</references>
+        <references refid="classsrsgnb_1_1processor__pool__repository_1a9077cdb54122530b02ad620fd3011761" compoundref="processor__pool__helpers_8h" startline="34">srsgnb::processor_pool_repository&lt; T &gt;::numerologies</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Repository of processor pools. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores channel processor pools, organized according to the underlying numerology. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the processor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::processor_pool_repository&lt; T &gt;</label>
+        <link refid="classsrsgnb_1_1processor__pool__repository"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/processor_pool_helpers.h" line="25" column="1" bodyfile="lib/phy/upper/processor_pool_helpers.h" bodystart="24" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1processor__pool__repository_1a4c5990aff2d60da9f733912128b700be" prot="public" virt="non-virtual"><scope>srsgnb::processor_pool_repository</scope><name>get_processor</name></member>
+      <member refid="classsrsgnb_1_1processor__pool__repository_1aca44acb737536eb2cfbab929ef718527" prot="public" virt="non-virtual"><scope>srsgnb::processor_pool_repository</scope><name>insert</name></member>
+      <member refid="classsrsgnb_1_1processor__pool__repository_1a9077cdb54122530b02ad620fd3011761" prot="private" virt="non-virtual"><scope>srsgnb::processor_pool_repository</scope><name>numerologies</name></member>
+      <member refid="classsrsgnb_1_1processor__pool__repository_1a37c60c3b7144b5f741e48a4566d3841c" prot="private" virt="non-virtual"><scope>srsgnb::processor_pool_repository</scope><name>processor_pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

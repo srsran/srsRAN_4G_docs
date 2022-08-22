@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t" kind="struct" language="C++" prot="private">
+    <compoundname>srsgnb::ra_scheduler::pending_rar_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a4b34183406f3fd6fdbc9cad38aa44c3e" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+        <definition>rnti_t srsgnb::ra_scheduler::pending_rar_t::ra_rnti</definition>
+        <argsstring></argsstring>
+        <name>ra_rnti</name>
+        <initializer>= INVALID_RNTI</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="52" column="42" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a8f235a8c3f4adcbd1d26e14c150b683c" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+        <definition>slot_point srsgnb::ra_scheduler::pending_rar_t::prach_slot_rx</definition>
+        <argsstring></argsstring>
+        <name>prach_slot_rx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="53" column="42" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a4f8d86109175a5308bb139bd8af5c09d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a07a2abca7d74448142de4d755b8d9b83" kindref="member">slot_interval</ref></type>
+        <definition>slot_interval srsgnb::ra_scheduler::pending_rar_t::rar_window</definition>
+        <argsstring></argsstring>
+        <name>rar_window</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="54" column="42" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1afaa8fbd19869edfa3f3d73395fb6f423" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref>, <ref refid="classsrsgnb_1_1ra__scheduler_1adb24c651667acdb51d326c384654f3f5" kindref="member">MAX_MSG3_LIST</ref> &gt;</type>
+        <definition>static_vector&lt;rnti_t, MAX_MSG3_LIST&gt; srsgnb::ra_scheduler::pending_rar_t::tc_rntis</definition>
+        <argsstring></argsstring>
+        <name>tc_rntis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="55" column="19" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::interval&lt; slot_point &gt;</label>
+        <link refid="classsrsgnb_1_1interval"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-start_</edgelabel>
+          <edgelabel>-stop_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::static_vector&lt; rnti_t, MAX_MSG3_LIST &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ra_scheduler::pending_rar_t</label>
+        <link refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+tc_rntis</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+prach_slot_rx</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+rar_window</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/common_scheduling/ra_scheduler.h" line="51" column="22" bodyfile="lib/scheduler/common_scheduling/ra_scheduler.h" bodystart="51" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a8f235a8c3f4adcbd1d26e14c150b683c" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_rar_t</scope><name>prach_slot_rx</name></member>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a4b34183406f3fd6fdbc9cad38aa44c3e" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_rar_t</scope><name>ra_rnti</name></member>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1a4f8d86109175a5308bb139bd8af5c09d" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_rar_t</scope><name>rar_window</name></member>
+      <member refid="structsrsgnb_1_1ra__scheduler_1_1pending__rar__t_1afaa8fbd19869edfa3f3d73395fb6f423" prot="public" virt="non-virtual"><scope>srsgnb::ra_scheduler::pending_rar_t</scope><name>tc_rntis</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

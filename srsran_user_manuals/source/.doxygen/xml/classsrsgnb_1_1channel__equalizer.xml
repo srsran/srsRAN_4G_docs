@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1channel__equalizer" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::channel_equalizer</compoundname>
+    <includes refid="channel__equalizer_8h" local="no">channel_equalizer.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1channel__equalizer_1a283fbebe8dfda9ff8271862ed2b2a36c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::channel_equalizer::~channel_equalizer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~channel_equalizer</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="186" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1channel__equalizer_1ac8122b26f1e2a337785efccb71584920" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::channel_equalizer::equalize</definition>
+        <argsstring>(re_measurement&lt; cf_t &gt; &amp;mod_symbols, re_measurement&lt; float &gt; &amp;noise_vars, const re_measurement&lt; cf_t &gt; &amp;ch_symbols, const channel_estimate &amp;ch_estimates)</argsstring>
+        <name>equalize</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt; &amp;</type>
+          <declname>mod_symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; float &gt; &amp;</type>
+          <declname>noise_vars</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt; &amp;</type>
+          <declname>ch_symbols</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>ch_estimates</declname>
+        </param>
+        <briefdescription>
+<para>Equalizes the MIMO channel and combines Tx<ndash/>Rx paths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For each transmit layer, the contributions of all receive ports are combined with weights obtained from the estimated channel coefficients. The variance of the point-to-point equivalent noise perturbing each modulated symbol is also estimated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">mod_symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estimated modulation symbols. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">noise_vars</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estimated noise variances (after equalization). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ch_symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel symbols, i.e., complex samples from the receive ports. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ch_estimate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel coefficients (typically provided by the channel estimator). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="198" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Channel equalizer interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::channel_equalizer</label>
+        <link refid="classsrsgnb_1_1channel__equalizer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/equalization/channel_equalizer.h" line="183" column="1" bodyfile="include/srsgnb/phy/upper/equalization/channel_equalizer.h" bodystart="182" bodyend="202"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1channel__equalizer_1ac8122b26f1e2a337785efccb71584920" prot="public" virt="virtual"><scope>srsgnb::channel_equalizer</scope><name>equalize</name></member>
+      <member refid="classsrsgnb_1_1channel__equalizer_1a283fbebe8dfda9ff8271862ed2b2a36c" prot="public" virt="virtual"><scope>srsgnb::channel_equalizer</scope><name>~channel_equalizer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

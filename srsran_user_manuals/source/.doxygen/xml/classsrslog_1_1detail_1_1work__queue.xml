@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1work__queue" kind="class" language="C++" prot="public">
+    <compoundname>srslog::detail::work_queue</compoundname>
+    <includes refid="work__queue_8h" local="no">work_queue.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>capacity</declname>
+        <defname>capacity</defname>
+        <defval>SRSLOG_QUEUE_CAPACITY</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1work__queue_1a81484b5145f81c993ce20f45cd28303c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dyn__circular__buffer" kindref="compound">srsgnb::dyn_circular_buffer</ref>&lt; T &gt;</type>
+        <definition>srsgnb::dyn_circular_buffer&lt;T&gt; srslog::detail::work_queue&lt; T, capacity &gt;::queue</definition>
+        <argsstring></argsstring>
+        <name>queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="27" column="31" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1work__queue_1a200f690147f39cc6ad0979b42ee0126f" prot="private" static="no" mutable="yes">
+        <type><ref refid="classsrslog_1_1detail_1_1mutex" kindref="compound">mutex</ref></type>
+        <definition>mutex srslog::detail::work_queue&lt; T, capacity &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="28" column="34" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1work__queue_1a40664f16583a267a68464e158eda8fa9" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t srslog::detail::work_queue&lt; T, capacity &gt;::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <initializer>= capacity * 0.98</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="29" column="34" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a945fa750fea79288c6017ee535640aba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::work_queue&lt; T, capacity &gt;::work_queue</definition>
+        <argsstring>()</argsstring>
+        <name>work_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="32" column="3" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a10a5b2178d4c8d6a8fb53f3fdd86b0ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::work_queue&lt; T, capacity &gt;::work_queue</definition>
+        <argsstring>(const work_queue &amp;)=delete</argsstring>
+        <name>work_queue</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1work__queue" kindref="compound">work_queue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="34" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a276bf5c0040d9c8be4cbf7844e292061" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1work__queue" kindref="compound">work_queue</ref> &amp;</type>
+        <definition>work_queue&amp; srslog::detail::work_queue&lt; T, capacity &gt;::operator=</definition>
+        <argsstring>(const work_queue &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1work__queue" kindref="compound">work_queue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a678909d9fcf19ebb86436e6960c6bec4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::detail::work_queue&lt; T, capacity &gt;::push</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new element into the back of the queue. Returns false when the queue is full, otherwise true. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="39" column="8" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="39" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1ad446dbd27784c776555a3435f792e11c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::detail::work_queue&lt; T, capacity &gt;::push</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new element into the back of the queue. Returns false when the queue is full, otherwise true. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="55" column="8" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="55" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1aaf5e213319509d20a86af2d2802858a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::pair&lt; bool, T &gt;</type>
+        <definition>std::pair&lt;bool, T&gt; srslog::detail::work_queue&lt; T, capacity &gt;::try_pop</definition>
+        <argsstring>()</argsstring>
+        <name>try_pop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extracts the top most element from the queue if it exists. Returns a pair with a bool indicating if the pop has been successful. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="71" column="13" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="71" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a40fabef705f59a5740cc953c385eef14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srslog::detail::work_queue&lt; T, capacity &gt;::get_capacity</definition>
+        <argsstring>() const</argsstring>
+        <name>get_capacity</name>
+        <briefdescription>
+<para>Capacity of the queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="90" column="10" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="90" bodyend="90"/>
+        <referencedby refid="classsrslog_1_1backend__worker_1a2e4eaa33e2fb58377adc4942a031909d" compoundref="backend__worker_8h" startline="87" endline="96">srslog::backend_worker::report_queue_on_full_once</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1work__queue_1a6a8ee71888ffe4d3e326c49940fdf587" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srslog::detail::work_queue&lt; T, capacity &gt;::is_almost_full</definition>
+        <argsstring>() const</argsstring>
+        <name>is_almost_full</name>
+        <briefdescription>
+<para>Returns true when the queue is almost full, otherwise returns false. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="93" column="8" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="93" bodyend="98"/>
+        <referencedby refid="classsrslog_1_1backend__worker_1a2e4eaa33e2fb58377adc4942a031909d" compoundref="backend__worker_8h" startline="87" endline="96">srslog::backend_worker::report_queue_on_full_once</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Thread safe generic data type work queue. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srslog::detail::work_queue&lt; T, capacity &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1work__queue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/detail/support/work_queue.h" line="26" column="1" bodyfile="include/srsgnb/srslog/detail/support/work_queue.h" bodystart="25" bodyend="99"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a40fabef705f59a5740cc953c385eef14" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>get_capacity</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a6a8ee71888ffe4d3e326c49940fdf587" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>is_almost_full</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a200f690147f39cc6ad0979b42ee0126f" prot="private" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>m</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a276bf5c0040d9c8be4cbf7844e292061" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a678909d9fcf19ebb86436e6960c6bec4" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>push</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1ad446dbd27784c776555a3435f792e11c" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>push</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a81484b5145f81c993ce20f45cd28303c" prot="private" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>queue</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a40664f16583a267a68464e158eda8fa9" prot="private" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>threshold</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1aaf5e213319509d20a86af2d2802858a6" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>try_pop</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a945fa750fea79288c6017ee535640aba" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>work_queue</name></member>
+      <member refid="classsrslog_1_1detail_1_1work__queue_1a10a5b2178d4c8d6a8fb53f3fdd86b0ba" prot="public" virt="non-virtual"><scope>srslog::detail::work_queue</scope><name>work_queue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

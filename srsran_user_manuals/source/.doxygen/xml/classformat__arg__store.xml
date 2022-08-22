@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classformat__arg__store" kind="class" language="C++" prot="public">
+    <compoundname>format_arg_store</compoundname>
+    <includes refid="core_8h" local="no">core.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Context</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classformat__arg__store_1adca76a9694514be48ffbc8253f2c8d68" prot="private" static="no">
+        <type>conditional_t&lt; is_packed, <ref refid="classdetail_1_1value" kindref="compound">detail::value</ref>&lt; Context &gt;, <ref refid="classbasic__format__arg" kindref="compound">basic_format_arg</ref>&lt; Context &gt; &gt;</type>
+        <definition>using format_arg_store&lt; Context, Args &gt;::value_type =  conditional_t&lt;is_packed, detail::value&lt;Context&gt;, basic_format_arg&lt;Context&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1423" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1424" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classformat__arg__store_1ae02d97eac035816ed9368edfdc908d4e" prot="private" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t format_arg_store&lt; Context, Args &gt;::num_args</definition>
+        <argsstring></argsstring>
+        <name>num_args</name>
+        <initializer>= sizeof...(Args)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1419" column="23" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classformat__arg__store_1ad87a1b7409c355e2221f9f8e58d77c94" prot="private" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t format_arg_store&lt; Context, Args &gt;::num_named_args</definition>
+        <argsstring></argsstring>
+        <name>num_named_args</name>
+        <initializer>= detail::count_named_args&lt;Args...&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1420" column="23" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classformat__arg__store_1a888a530af0dcf680153a13f7453871eb" prot="private" static="yes" mutable="no">
+        <type>const bool</type>
+        <definition>const bool format_arg_store&lt; Context, Args &gt;::is_packed</definition>
+        <argsstring></argsstring>
+        <name>is_packed</name>
+        <initializer>= num_args &lt;= detail::max_packed_args</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1421" column="21" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classformat__arg__store_1acd47df094f80be88aa89975b342523bc" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned long long</type>
+        <definition>constexpr unsigned long long format_arg_store&lt; Context, Args &gt;::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <initializer>=
+      (is_packed ? detail::encode_types&lt;Context, Args...&gt;()
+                 : detail::is_unpacked_bit | num_args) |
+      (num_named_args != 0
+           ? static_cast&lt;unsigned long long&gt;(detail::has_named_args_bit)
+           : 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1432" column="39" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1432" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classformat__arg__store_1a8c4455204a76935307f85e89fad3492f" prot="private" static="no" mutable="no">
+        <type><ref refid="structdetail_1_1arg__data" kindref="compound">detail::arg_data</ref>&lt; value_type, typename Context::char_type, num_args, num_named_args &gt;</type>
+        <definition>detail::arg_data&lt;value_type, typename Context::char_type, num_args, num_named_args&gt; format_arg_store&lt; Context, Args &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1428" column="7" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1428" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classformat__arg__store_1ab8e9e33cc7b78829001a86ef6110ebb6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class basic_format_args&lt; Context &gt;</definition>
+        <argsstring></argsstring>
+        <name>basic_format_args&lt; Context &gt;</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1428" column="7" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1430" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classformat__arg__store_1a785430d11d4e8e5dcd9f231e7d69695e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>format_arg_store&lt; Context, Args &gt;::format_arg_store</definition>
+        <argsstring>(const Args &amp;... args)</argsstring>
+        <name>format_arg_store</name>
+        <param>
+          <type>const Args &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1440" column="3" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1440" bodyend="1449"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>\rst An array of references to arguments. It can be implicitly converted into <computeroutput>~fmt<ref refid="classbasic__format__args" kindref="compound">basic_format_args</ref></computeroutput> for passing into type-erased formatting functions such as <computeroutput>~fmt::vformat</computeroutput>. \endrst </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>format_arg_store&lt; Context, Args &gt;</label>
+        <link refid="classformat__arg__store"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-data_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>detail::named_arg_info&lt; typename Context::char_type &gt;</label>
+        <link refid="structdetail_1_1named__arg__info"/>
+      </node>
+      <node id="2">
+        <label>detail::arg_data&lt; value_type, typename Context::char_type, num_args, num_named_args &gt;</label>
+        <link refid="structdetail_1_1arg__data"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+named_args_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/bundled/fmt/core.h" line="1417" column="1" bodyfile="include/srsgnb/srslog/bundled/fmt/core.h" bodystart="1412" bodyend="1450"/>
+    <listofallmembers>
+      <member refid="classformat__arg__store_1ab8e9e33cc7b78829001a86ef6110ebb6" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>basic_format_args&lt; Context &gt;</name></member>
+      <member refid="classformat__arg__store_1a8c4455204a76935307f85e89fad3492f" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>data_</name></member>
+      <member refid="classformat__arg__store_1acd47df094f80be88aa89975b342523bc" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>desc</name></member>
+      <member refid="classformat__arg__store_1a785430d11d4e8e5dcd9f231e7d69695e" prot="public" virt="non-virtual"><scope>format_arg_store</scope><name>format_arg_store</name></member>
+      <member refid="classformat__arg__store_1a888a530af0dcf680153a13f7453871eb" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>is_packed</name></member>
+      <member refid="classformat__arg__store_1ae02d97eac035816ed9368edfdc908d4e" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>num_args</name></member>
+      <member refid="classformat__arg__store_1ad87a1b7409c355e2221f9f8e58d77c94" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>num_named_args</name></member>
+      <member refid="classformat__arg__store_1adca76a9694514be48ffbc8253f2c8d68" prot="private" virt="non-virtual"><scope>format_arg_store</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1uplink__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::uplink_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1uplink__processor__single__executor__impl" prot="public" virt="non-virtual">srsgnb::uplink_processor_single_executor_impl</derivedcompoundref>
+    <includes refid="uplink__processor_8h" local="no">uplink_processor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__processor_1ac25aab50dad20992c88fe1025cf7603a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::uplink_processor::~uplink_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~uplink_processor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_processor.h" line="34" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__processor_1ade2071bad7b827fe337948b29c537154" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::uplink_processor::process_prach</definition>
+        <argsstring>(const prach_buffer &amp;buffer, const prach_buffer_context &amp;context)=0</argsstring>
+        <name>process_prach</name>
+        <reimplementedby refid="classsrsgnb_1_1uplink__processor__single__executor__impl_1acf2041c12bebdf54cf03a4ea8b27ff09">process_prach</reimplementedby>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Processes the PRACH using the given configuration and context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The PRACH detection results will be notified by the <ref refid="classsrsgnb_1_1upper__phy__rx__results__notifier" kindref="compound">upper_phy_rx_results_notifier</ref> with event <ref refid="classsrsgnb_1_1upper__phy__rx__results__notifier_1af771d644eb1f4ff3f74401e9b25fde17" kindref="member">on_new_prach_results</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel symbols the PRACH detection is performed on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context used by the underlying PRACH detector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_processor.h" line="43" column="16"/>
+        <referencedby refid="classsrsgnb_1_1upper__phy__rx__symbol__handler__impl_1ab43b9899f037dd093195faf2b57560b4" compoundref="upper__phy__rx__symbol__handler__impl_8cpp" startline="31" endline="39">srsgnb::upper_phy_rx_symbol_handler_impl::handle_rx_prach_window</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Uplink processor interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The uplink processor is in charge of handling incoming requests to process the physical uplink channels within a certain slot.</para>
+<para>Requests are dispatched asynchronously as they get enqueued for execution, and generate an event through the <ref refid="classsrsgnb_1_1upper__phy__rx__results__notifier" kindref="compound">upper_phy_rx_results_notifier</ref> interface upon completion. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::uplink_processor_single_executor_impl</label>
+        <link refid="classsrsgnb_1_1uplink__processor__single__executor__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::uplink_processor</label>
+        <link refid="classsrsgnb_1_1uplink__processor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::uplink_processor</label>
+        <link refid="classsrsgnb_1_1uplink__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/uplink_processor.h" line="32" column="1" bodyfile="include/srsgnb/phy/upper/uplink_processor.h" bodystart="31" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1uplink__processor_1ade2071bad7b827fe337948b29c537154" prot="public" virt="pure-virtual"><scope>srsgnb::uplink_processor</scope><name>process_prach</name></member>
+      <member refid="classsrsgnb_1_1uplink__processor_1ac25aab50dad20992c88fe1025cf7603a" prot="public" virt="virtual"><scope>srsgnb::uplink_processor</scope><name>~uplink_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

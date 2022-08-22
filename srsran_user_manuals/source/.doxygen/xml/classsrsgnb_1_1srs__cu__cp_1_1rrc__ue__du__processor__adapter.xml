@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::rrc_ue_du_processor_notifier</basecompoundref>
+    <includes refid="rrc__ue__adapters_8h" local="no">rrc_ue_adapters.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a604dfaaf73e1733479e4085ea1d35982" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface" kindref="compound">du_processor_rrc_ue_interface</ref> *</type>
+        <definition>du_processor_rrc_ue_interface* srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter::du_processor_rrc_ue_handler</definition>
+        <argsstring></argsstring>
+        <name>du_processor_rrc_ue_handler</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/rrc_ue_adapters.h" line="63" column="33" bodyfile="lib/cu_cp/adapters/rrc_ue_adapters.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a4b5c40740122f14aaf3284851574cad2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter::connect_du_processor</definition>
+        <argsstring>(du_processor_rrc_ue_interface &amp;du_processor_rrc_ue_)</argsstring>
+        <name>connect_du_processor</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface" kindref="compound">du_processor_rrc_ue_interface</ref> &amp;</type>
+          <declname>du_processor_rrc_ue_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/rrc_ue_adapters.h" line="50" column="8" bodyfile="lib/cu_cp/adapters/rrc_ue_adapters.h" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a56b9473cbf37f9f967902b273be42ee9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter::on_create_srb</definition>
+        <argsstring>(const srb_creation_message &amp;msg) override</argsstring>
+        <name>on_create_srb</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier_1a52e191b2d580c9c97a6266fff65fa33b">on_create_srb</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1srb__creation__message" kindref="compound">srb_creation_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Notify about the need to create an SRB. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SRB creation message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/rrc_ue_adapters.h" line="55" column="8" bodyfile="lib/cu_cp/adapters/rrc_ue_adapters.h" bodystart="55" bodyend="55"/>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface_1a067cb1dd316c1f417feb413db0ae6a05">srsgnb::srs_cu_cp::du_processor_srb_interface::create_srb</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a9571319891829cd85a96abf7d3fe3e2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter::on_ue_context_release_command</definition>
+        <argsstring>(const ue_context_release_command_message &amp;msg) override</argsstring>
+        <name>on_ue_context_release_command</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier_1a598cd0f196d37f6b038cc6a37d16f46d">on_ue_context_release_command</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1ue__context__release__command__message" kindref="compound">ue_context_release_command_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Notify about a UE Context Release Command. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UE Context Release Command message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/rrc_ue_adapters.h" line="57" column="8" bodyfile="lib/cu_cp/adapters/rrc_ue_adapters.h" bodystart="57" bodyend="60"/>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface_1a092783a4047cada4dabefda04af2dcfa">srsgnb::srs_cu_cp::du_processor_rrc_ue_interface::handle_ue_context_release_command</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Adapter between RRC UE and DU processor. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::srs_cu_cp::du_processor_rrc_ue_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__rrc__ue__interface"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-du_processor_rrc_ue_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::srs_cu_cp::du_processor_srb_interface</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1du__processor__srb__interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/cu_cp/adapters/rrc_ue_adapters.h" line="48" column="1" bodyfile="lib/cu_cp/adapters/rrc_ue_adapters.h" bodystart="47" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a4b5c40740122f14aaf3284851574cad2" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</scope><name>connect_du_processor</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a604dfaaf73e1733479e4085ea1d35982" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</scope><name>du_processor_rrc_ue_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a56b9473cbf37f9f967902b273be42ee9" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</scope><name>on_create_srb</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__adapter_1a9571319891829cd85a96abf7d3fe3e2e" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</scope><name>on_ue_context_release_command</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__du__processor__notifier_1a6a8b6eb8f493043f392c1dca8d146e86" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::rrc_ue_du_processor_adapter</scope><name>~rrc_ue_du_processor_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

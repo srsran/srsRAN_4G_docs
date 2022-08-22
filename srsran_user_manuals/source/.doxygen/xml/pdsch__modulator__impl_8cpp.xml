@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pdsch__modulator__impl_8cpp" kind="file" language="C++">
+    <compoundname>pdsch_modulator_impl.cpp</compoundname>
+    <includes refid="pdsch__modulator__impl_8h" local="yes">pdsch_modulator_impl.h</includes>
+    <includes refid="sc__prod_8h" local="yes">srsgnb/srsvec/sc_prod.h</includes>
+    <includes refid="math__utils_8h" local="yes">srsgnb/support/math_utils.h</includes>
+    <incdepgraph>
+      <node id="46">
+        <label>atomic</label>
+      </node>
+      <node id="54">
+        <label>srsgnb/adt/bounded_bitset.h</label>
+        <link refid="bounded__bitset_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>srsgnb/ran/subcarrier_spacing.h</label>
+        <link refid="subcarrier__spacing_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="41">
+        <label>srsgnb/srslog/detail/support/memory_buffer.h</label>
+        <link refid="memory__buffer_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="66">
+        <label>srsgnb/adt/byte_buffer.h</label>
+        <link refid="byte__buffer_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>cassert</label>
+      </node>
+      <node id="24">
+        <label>detail/type_storage.h</label>
+        <link refid="type__storage_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="69">
+        <label>numeric</label>
+      </node>
+      <node id="43">
+        <label>srsgnb/srslog/context.h</label>
+        <link refid="context_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="27">
+        <label>srsgnb/support/srsgnb_assert.h</label>
+        <link refid="srsgnb__assert_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>srsgnb/ran/modulation_scheme.h</label>
+        <link refid="modulation__scheme_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>srsgnb/srslog/detail/support/error_string.h</label>
+        <link refid="error__string_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>srsgnb/phy/upper/channel_modulation/modulation_mapper.h</label>
+        <link refid="modulation__mapper_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>srsgnb/phy/upper/rb_allocation.h</label>
+        <link refid="rb__allocation_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>srsgnb/phy/support/resource_grid.h</label>
+        <link refid="include_2srsgnb_2phy_2support_2resource__grid_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>srsgnb/phy/constants.h</label>
+        <link refid="constants_8h_source"/>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_processors/pdsch_modulator_impl.cpp</label>
+        <link refid="pdsch__modulator__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pdsch_modulator_impl.h</label>
+        <link refid="pdsch__modulator__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>srsgnb/srslog/detail/log_entry.h</label>
+        <link refid="log__entry_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>srsgnb/phy/upper/sequence_generators/pseudo_random_generator.h</label>
+        <link refid="pseudo__random__generator_8h"/>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>srsgnb/srsvec/detail/traits.h</label>
+        <link refid="traits_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>srsgnb/srslog/shared_types.h</label>
+        <link refid="shared__types_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>srsgnb/srslog/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>srsgnb/support/math_utils.h</label>
+        <link refid="math__utils_8h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>pthread.h</label>
+      </node>
+      <node id="48">
+        <label>srsgnb/adt/complex.h</label>
+        <link refid="complex_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="45">
+        <label>tuple</label>
+      </node>
+      <node id="31">
+        <label>srsgnb/srslog/log_channel.h</label>
+        <link refid="log__channel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="58">
+        <label>srsgnb/ran/cyclic_prefix.h</label>
+        <link refid="cyclic__prefix_8h"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>srsgnb/phy/upper/dmrs_mapping.h</label>
+        <link refid="dmrs__mapping_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>utility</label>
+      </node>
+      <node id="37">
+        <label>srsgnb/srslog/detail/support/thread_utils.h</label>
+        <link refid="thread__utils_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="53">
+        <label>srsgnb/phy/upper/re_pattern.h</label>
+        <link refid="re__pattern_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>srsgnb/srslog/detail/support/tmpl_utils.h</label>
+        <link refid="tmpl__utils_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>srsgnb/adt/static_vector.h</label>
+        <link refid="static__vector_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>srsgnb/ran/frequency_range.h</label>
+        <link refid="frequency__range_8h_source"/>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>cstddef</label>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_processors/pdsch_modulator.h</label>
+        <link refid="pdsch__modulator_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>chrono</label>
+      </node>
+      <node id="32">
+        <label>srsgnb/srslog/detail/log_backend.h</label>
+        <link refid="log__backend_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>srsgnb/adt/optional.h</label>
+        <link refid="optional_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>srsgnb/srslog/detail/log_entry_metadata.h</label>
+        <link refid="log__entry__metadata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>srsgnb/srslog/logger.h</label>
+        <link refid="logger_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>srsgnb/srslog/srslog.h</label>
+        <link refid="srslog_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>srsgnb/srsvec/sc_prod.h</label>
+        <link refid="sc__prod_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>srsgnb/srsvec/types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="59">
+        <label>srsgnb/ran/phy_time_unit.h</label>
+        <link refid="phy__time__unit_8h_source"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>complex</label>
+      </node>
+      <node id="64">
+        <label>srsgnb/phy/upper/vrb_to_prb_mapper.h</label>
+        <link refid="vrb__to__prb__mapper_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="29">
+        <label>srsgnb/srslog/detail/support/any.h</label>
+        <link refid="any_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>srsgnb/phy/upper/log_likelihood_ratio.h</label>
+        <link refid="log__likelihood__ratio_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="42">
+        <label>srsgnb/srslog/formatter.h</label>
+        <link refid="formatter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="56">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pdsch_modulator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/sc_prod.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="math__utils_8h" kindref="compound">srsgnb/support/math_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classsrsgnb_1_1pdsch__modulator__impl_1aa2002fd301437648cb96c5ec51e63cf9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1aa2002fd301437648cb96c5ec51e63cf9" kindref="member">pdsch_modulator_impl::scramble</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>b_hat,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>q,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/>config)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>initial<sp/>scrambling<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>c_init<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0841e19be0c378121d993d43329ab90d" kindref="member">rnti</ref>)<sp/>&lt;&lt;<sp/>15U)<sp/>+<sp/>(q<sp/>&lt;&lt;<sp/>14U)<sp/>+<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a21dc3a9012b066711717cf15460fcb56" kindref="member">n_id</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>scrambling<sp/>sequence.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>scrambler-&gt;init(c_init);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>scrambling<sp/>sequence.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>scrambler-&gt;apply_xor_bit(b_hat,<sp/>b);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsrsgnb_1_1pdsch__modulator__impl_1a2f2e28f7bb6ba7a82593f282288c51fa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a2f2e28f7bb6ba7a82593f282288c51fa" kindref="member">pdsch_modulator_impl::modulate</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d_pdsch,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>b_hat,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref><sp/><sp/><sp/>modulation,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaling)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Modulate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>modulator-&gt;modulate(b_hat,<sp/>d_pdsch,<sp/>modulation);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>scaling<sp/>only<sp/>if<sp/>the<sp/>value<sp/>is<sp/>valid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::isnormal(scaling))<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>srsvec::sc_prod(d_pdsch,<sp/>scaling,<sp/>d_pdsch);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classsrsgnb_1_1pdsch__modulator__impl_1a6205d56ba1878caddbd02053fcb50232" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a6205d56ba1878caddbd02053fcb50232" kindref="member">pdsch_modulator_impl::layer_map</ref>(<ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt;<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref>,<sp/><ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref>&gt;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x_pdsch,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt;<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref>,<sp/>MAX_NOF_CODEWORDS&gt;<sp/>d_pdsch)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Deduce<sp/>number<sp/>of<sp/>codeword<sp/>from<sp/>input<sp/>parameter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_codewords<sp/>=<sp/>d_pdsch.size();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Deduce<sp/>number<sp/>of<sp/>layer<sp/>from<sp/>input<sp/>parameter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers<sp/>=<sp/>x_pdsch.size();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>number<sp/>of<sp/>layers<sp/>the<sp/>codeword<sp/>0<sp/>is<sp/>mapped<sp/>to.<sp/>It<sp/>is<sp/>the<sp/>number<sp/>of<sp/>layers<sp/>divided<sp/>by<sp/>the<sp/>number<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>codewords,<sp/>rounding<sp/>down<sp/>(floor).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers_cw0<sp/>=<sp/>nof_layers<sp/>/<sp/>nof_codewords;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>number<sp/>of<sp/>layers<sp/>the<sp/>codeword<sp/>1<sp/>is<sp/>mapped.<sp/>It<sp/>is<sp/>the<sp/>unused<sp/>number<sp/>of<sp/>layers<sp/>from<sp/>the<sp/>previous</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>codeword.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers_cw1<sp/>=<sp/>nof_layers<sp/>-<sp/>nof_layers_cw0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>M_layer_symb<sp/><sp/><sp/>=<sp/>d_pdsch.size()<sp/>*<sp/>d_pdsch[0].size();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>only<sp/>one<sp/>layer,<sp/>transfer<sp/>reference.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nof_layers<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>x_pdsch[0]<sp/>=<sp/>d_pdsch[0];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>each<sp/>layer<sp/>reference.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>layer<sp/>=<sp/>0;<sp/>layer<sp/>!=<sp/>nof_layers_cw0;<sp/>++layer)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>temp_x[layer].resize(M_layer_symb);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>x_pdsch[layer]<sp/>=<sp/>temp_x[layer];</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>TS<sp/>38.211<sp/>Table<sp/>7.3.1.3-1:<sp/>Codeword-to-layer<sp/>mapping<sp/>for<sp/>spatial<sp/>multiplexing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>!=<sp/>M_layer_symb;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>layer<sp/>mapping<sp/>for<sp/>codeword<sp/>0.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>layer<sp/>=<sp/>0;<sp/>layer<sp/>!=<sp/>nof_layers_cw0;<sp/>++layer)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>x_pdsch[layer][i]<sp/>=<sp/>d_pdsch[0][nof_layers_cw0<sp/>*<sp/>i<sp/>+<sp/>layer];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>layer<sp/>mapping<sp/>for<sp/>codeword<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>layer<sp/>=<sp/>0;<sp/>layer<sp/>!=<sp/>nof_layers_cw1;<sp/>++layer)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>x_pdsch[layer<sp/>+<sp/>nof_layers_cw0][i]<sp/>=<sp/>d_pdsch[1][nof_layers_cw1<sp/>*<sp/>i<sp/>+<sp/>layer];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classsrsgnb_1_1pdsch__modulator__impl_1a145754bd9128828ee0e7770563b5534b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a145754bd9128828ee0e7770563b5534b" kindref="member">pdsch_modulator_impl::map_to_contiguous_prb</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grid,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt;<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref>,<sp/><ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref>&gt;<sp/>x_pdsch,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Stores<sp/>the<sp/>resource<sp/>grid<sp/>allocation<sp/>mask,<sp/>common<sp/>for<sp/>all<sp/>ports.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>std::array&lt;std::array&lt;bool,<sp/>NRE<sp/>*<sp/>MAX_RB&gt;,<sp/><ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref>&gt;<sp/>allocation_mask;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>First<sp/>symbol<sp/>used<sp/>in<sp/>this<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>start_symbol_index<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0f8a414100a214faea082751e7475d0a" kindref="member">start_symbol_index</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>end<sp/>symbol<sp/>index<sp/>(excluded)<sp/>and<sp/>assert<sp/>it<sp/>does<sp/>not<sp/>exceed<sp/>the<sp/>slot<sp/>boundary.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>end_symbol_index<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0f8a414100a214faea082751e7475d0a" kindref="member">start_symbol_index</ref><sp/>+<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a242e5cd858ebf4e4bc45685089143911" kindref="member">nof_symbols</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>srsgnb_assert(end_symbol_index<sp/>&lt;=<sp/><ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref>,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>time<sp/>allocation<sp/>of<sp/>the<sp/>transmission<sp/>(%d:%d)<sp/>exceeds<sp/>the<sp/>slot<sp/>boundary.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_symbol_index,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end_symbol_index);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>contiguous<sp/>allocation<sp/>parameters<sp/>in<sp/>the<sp/>overall<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>re_index_begin<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1ad68c28a8ed04bf320b35e2ae6dcfc6ed" kindref="member">freq_allocation</ref>.<ref refid="classsrsgnb_1_1rb__allocation_1a2c63757dc8d9d86f4f24d8b848f93d8b" kindref="member">get_prb_begin</ref>(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref>)<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>re_index_end<sp/><sp/><sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1ad68c28a8ed04bf320b35e2ae6dcfc6ed" kindref="member">freq_allocation</ref>.<ref refid="classsrsgnb_1_1rb__allocation_1ab89c4464249b9d5bbd423db57dd89b2e" kindref="member">get_prb_end</ref>(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref>)<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>DMRS<sp/>RE<sp/>pattern.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref><sp/>dmrs_pattern<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a7c01375967b9b02f79e6febfe6a2fea3" kindref="member">dmrs_config_type</ref>.<ref refid="classsrsgnb_1_1dmrs__type_1aa69ed66127c1e0fa6f7c4b0714f98b46" kindref="member">get_dmrs_pattern</ref>(</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a3c4aad47ad5b44562441185f7a09d13b" kindref="member">bwp_size_rb</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1abb9e4b7ca2074de290bfb6e2074f41b1" kindref="member">nof_cdm_groups_without_data</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a90f518fbd1998e23b1fb1aee0d893c90" kindref="member">dmrs_symb_pos</ref>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>frequency<sp/>allocation<sp/>mask<sp/>for<sp/>each<sp/>symbol<sp/>in<sp/>the<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol_idx<sp/>=<sp/>start_symbol_index;<sp/>symbol_idx<sp/>!=<sp/>end_symbol_index;<sp/>++symbol_idx)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>mask,<sp/>skip<sp/>initialization.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;bool&gt;</ref><sp/>symbol_mask<sp/>=<sp/>allocation_mask[symbol_idx];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>unused<sp/>region.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>re_index_begin,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>re_index_end,<sp/>symbol_mask.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>allocated<sp/>mask.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>re_index_begin,<sp/>symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>re_index_end,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exclude<sp/>DMRS.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pattern.<ref refid="structsrsgnb_1_1re__pattern_1a84ec64f68577a00dea6ac8098724a0e5" kindref="member">get_exclusion_mask</ref>(symbol_mask,<sp/>symbol_idx);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exclude<sp/>reserved<sp/>RE.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a9c32676cdfbd0fbb74700868f9bd5ca9" kindref="member">reserved</ref>.<ref refid="classsrsgnb_1_1re__pattern__list_1a3d8a7970d989ef36777022267f6dff69" kindref="member">get_exclusion_mask</ref>(symbol_mask,<sp/>symbol_idx);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>number<sp/>of<sp/>layers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers<sp/>=<sp/>x_pdsch.size();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterate<sp/>for<sp/>each<sp/>layer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>layer_idx<sp/>=<sp/>0;<sp/>layer_idx<sp/>!=<sp/>nof_layers;<sp/>++layer_idx)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>buffer<sp/>with<sp/>the<sp/>RE<sp/>to<sp/>map.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>x_buffer<sp/>=<sp/>x_pdsch[layer_idx];</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>port<sp/>from<sp/>the<sp/>layer<sp/>index.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>port_idx<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1aedd57d350c1c72aaa18dcef606a6f6d1" kindref="member">ports</ref>[layer_idx];</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterate<sp/>for<sp/>each<sp/>symbol.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol_idx<sp/>=<sp/>start_symbol_index;<sp/>symbol_idx<sp/>!=<sp/>end_symbol_index;<sp/>++symbol_idx)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>mask<sp/>for<sp/>the<sp/>OFDM<sp/>symbol.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const bool&gt;</ref><sp/>mask<sp/>=<sp/>allocation_mask[symbol_idx];</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>RE<sp/>in<sp/>resource<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>x_buffer<sp/>=<sp/>grid.<ref refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32" kindref="member">put</ref>(port_idx,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>symbol_idx,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref><sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mask.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref><sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a3c4aad47ad5b44562441185f7a09d13b" kindref="member">bwp_size_rb</ref><sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>),</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x_buffer);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>all<sp/>the<sp/>resource<sp/>elements<sp/>for<sp/>the<sp/>layer<sp/>have<sp/>been<sp/>mapped.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>srsgnb_assert(x_buffer.<ref refid="classsrsgnb_1_1span_1a595cf1b0fe0385603307ba67012f820c" kindref="member">empty</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;{}<sp/>elements<sp/>are<sp/>not<sp/>mapped<sp/>in<sp/>layer<sp/>{}.&quot;</highlight><highlight class="normal">,<sp/>x_buffer.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>(),<sp/>layer_idx);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="classsrsgnb_1_1pdsch__modulator__impl_1adb89f3b5110d488d6a098b43a60bc53c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1adb89f3b5110d488d6a098b43a60bc53c" kindref="member">pdsch_modulator_impl::map_to_prb_other</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grid,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt;<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref>,<sp/><ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref>&gt;<sp/>x_pdsch,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" kindref="compound">config_t</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>PRB<sp/>mapping<sp/>indices<sp/>including<sp/>VRB-to-PRB<sp/>mapping.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint16_t, MAX_RB&gt;</ref><sp/>prb_indices<sp/>=</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1ad68c28a8ed04bf320b35e2ae6dcfc6ed" kindref="member">freq_allocation</ref>.<ref refid="classsrsgnb_1_1rb__allocation_1a9e9c90b67ebb0b15838289d73ce6475c" kindref="member">get_prb_indices</ref>(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a3c4aad47ad5b44562441185f7a09d13b" kindref="member">bwp_size_rb</ref>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Stores<sp/>the<sp/>resource<sp/>grid<sp/>allocation<sp/>mask,<sp/>common<sp/>for<sp/>all<sp/>ports.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>std::array&lt;std::array&lt;bool,<sp/>NRE<sp/>*<sp/>MAX_RB&gt;,<sp/><ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref>&gt;<sp/>allocation_mask<sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>First<sp/>symbol<sp/>used<sp/>in<sp/>this<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>start_symbol_index<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0f8a414100a214faea082751e7475d0a" kindref="member">start_symbol_index</ref>;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>end<sp/>symbol<sp/>index<sp/>(excluded)<sp/>and<sp/>assert<sp/>it<sp/>does<sp/>not<sp/>exceed<sp/>the<sp/>slot<sp/>boundary.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>end_symbol_index<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0f8a414100a214faea082751e7475d0a" kindref="member">start_symbol_index</ref><sp/>+<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a242e5cd858ebf4e4bc45685089143911" kindref="member">nof_symbols</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>srsgnb_assert(end_symbol_index<sp/>&lt;=<sp/><ref refid="namespacesrsgnb_1a368f9716311e0bea205a7b8a9b255c20" kindref="member">MAX_NSYMB_PER_SLOT</ref>,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>time<sp/>allocation<sp/>of<sp/>the<sp/>transmission<sp/>(%d:%d)<sp/>exceeds<sp/>the<sp/>slot<sp/>boundary.&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_symbol_index,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end_symbol_index);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>DMRS<sp/>RE<sp/>pattern.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref><sp/>dmrs_pattern<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a7c01375967b9b02f79e6febfe6a2fea3" kindref="member">dmrs_config_type</ref>.<ref refid="classsrsgnb_1_1dmrs__type_1aa69ed66127c1e0fa6f7c4b0714f98b46" kindref="member">get_dmrs_pattern</ref>(</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a0262ee0eabdad36865cb07c7b92bd53d" kindref="member">bwp_start_rb</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a3c4aad47ad5b44562441185f7a09d13b" kindref="member">bwp_size_rb</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1abb9e4b7ca2074de290bfb6e2074f41b1" kindref="member">nof_cdm_groups_without_data</ref>,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a90f518fbd1998e23b1fb1aee0d893c90" kindref="member">dmrs_symb_pos</ref>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>frequency<sp/>allocation<sp/>mask<sp/>for<sp/>each<sp/>symbol<sp/>in<sp/>the<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol_idx<sp/>=<sp/>start_symbol_index;<sp/>symbol_idx<sp/>!=<sp/>end_symbol_index;<sp/>++symbol_idx)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>mask,<sp/>skip<sp/>initialization.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;bool&gt;</ref><sp/>symbol_mask<sp/>=<sp/>allocation_mask[symbol_idx];</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Populate<sp/>all<sp/>the<sp/>subcarriers<sp/>as<sp/>false.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fill(symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>(),<sp/>symbol_mask.<ref refid="classsrsgnb_1_1span_1a90e1d530a1fce8c5e5f992aca6ef19ec" kindref="member">end</ref>(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterate<sp/>all<sp/>the<sp/>PRB<sp/>used<sp/>in<sp/>this<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>prb_idx<sp/>:<sp/>prb_indices)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>all<sp/>the<sp/>RE<sp/>in<sp/>the<sp/>PRB<sp/>to<sp/>active.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::fill(symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>prb_idx<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,<sp/>symbol_mask.<ref refid="classsrsgnb_1_1span_1add5e683519422d8051fb3e3ff5baae58" kindref="member">begin</ref>()<sp/>+<sp/>(prb_idx<sp/>+<sp/>1)<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exclude<sp/>DMRS.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>dmrs_pattern.<ref refid="structsrsgnb_1_1re__pattern_1a84ec64f68577a00dea6ac8098724a0e5" kindref="member">get_exclusion_mask</ref>(symbol_mask,<sp/>symbol_idx);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exclude<sp/>reserved<sp/>RE.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a9c32676cdfbd0fbb74700868f9bd5ca9" kindref="member">reserved</ref>.<ref refid="classsrsgnb_1_1re__pattern__list_1a3d8a7970d989ef36777022267f6dff69" kindref="member">get_exclusion_mask</ref>(symbol_mask,<sp/>symbol_idx);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>number<sp/>of<sp/>layers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers<sp/>=<sp/>x_pdsch.size();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Map<sp/>the<sp/>PDSCH<sp/>REs<sp/>for<sp/>all<sp/>the<sp/>layers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>layer_idx<sp/>=<sp/>0;<sp/>layer_idx<sp/>!=<sp/>nof_layers;<sp/>++layer_idx)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>buffer<sp/>with<sp/>the<sp/>RE<sp/>to<sp/>map.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const cf_t&gt;</ref><sp/>x_buffer<sp/>=<sp/>x_pdsch[layer_idx];</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>port<sp/>from<sp/>the<sp/>layer<sp/>index.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>port_idx<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1aedd57d350c1c72aaa18dcef606a6f6d1" kindref="member">ports</ref>[layer_idx];</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Map<sp/>the<sp/>REs<sp/>for<sp/>each<sp/>symbol<sp/>in<sp/>the<sp/>layer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>symbol_idx<sp/>=<sp/>start_symbol_index;<sp/>symbol_idx<sp/>!=<sp/>end_symbol_index;<sp/>++symbol_idx)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>whole<sp/>symbol<sp/>allocation<sp/>mask.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const bool&gt;</ref><sp/>rb_mask_symbol<sp/>=<sp/>allocation_mask[symbol_idx];</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>7.3.1.5<sp/>Mapping<sp/>to<sp/>VRB<sp/>and<sp/>7.3.1.6<sp/>Mapping<sp/>VRB-to-PRB.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>prb_idx<sp/>:<sp/>prb_indices)<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>RB<sp/>mask<sp/>for<sp/>the<sp/>PRB.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const bool&gt;</ref><sp/>rb_mask<sp/>=<sp/>rb_mask_symbol.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(prb_idx<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>PRB<sp/>in<sp/>resource<sp/>grid.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x_buffer<sp/>=<sp/>grid.<ref refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32" kindref="member">put</ref>(port_idx,<sp/>symbol_idx,<sp/>prb_idx<sp/>*<sp/><ref refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" kindref="member">NRE</ref>,<sp/>rb_mask,<sp/>x_buffer);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="classsrsgnb_1_1pdsch__modulator__impl_1a99d144ad4330e7b1851df0de1b8ca6f0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a2f2e28f7bb6ba7a82593f282288c51fa" kindref="member">pdsch_modulator_impl::modulate</ref>(<ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">srsgnb::resource_grid_writer</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>grid,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span</ref>&lt;</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span&lt;const uint8_t&gt;</ref>&gt;<sp/>codewords,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t" kindref="compound">srsgnb::pdsch_modulator::config_t</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Deduce<sp/>the<sp/>number<sp/>of<sp/>layers<sp/>from<sp/>the<sp/>number<sp/>of<sp/>ports</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_layers<sp/>=<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1aedd57d350c1c72aaa18dcef606a6f6d1" kindref="member">ports</ref>.size();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>srsgnb_assert(nof_layers<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>layers<sp/>is<sp/>zero.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Deduce<sp/>the<sp/>number<sp/>of<sp/>codewords<sp/>and<sp/>assert<sp/>it<sp/>is<sp/>coherent<sp/>with<sp/>the<sp/>number<sp/>of<sp/>layers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_codewords<sp/>=<sp/>(nof_layers<sp/>&gt;=<sp/>4<sp/>?<sp/>2<sp/>:<sp/>1);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>srsgnb_assert(</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>codewords.size()<sp/>==<sp/>nof_codewords,<sp/></highlight><highlight class="stringliteral">&quot;For<sp/>%d<sp/>layers,<sp/>%d<sp/>codewords<sp/>are<sp/>required&quot;</highlight><highlight class="normal">,<sp/>nof_layers,<sp/>codewords.size());</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>temporal<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1ae10c5f1c3f7b81b81bcc27d12ba93081" kindref="member">temp_d</ref>.resize(nof_codewords);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>temp_x.resize(nof_layers);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Process<sp/>codewords.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;span&lt;cf_t&gt;</ref>,<sp/><ref refid="classsrsgnb_1_1pdsch__modulator_1ad655d16ba8a8a7b8956efe95e8b6695f" kindref="member">MAX_NOF_CODEWORDS</ref>&gt;<sp/>d_pdsch(nof_codewords);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>cw_idx<sp/>=<sp/>0;<sp/>cw_idx<sp/>!=<sp/>nof_codewords;<sp/>++cw_idx)<sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Select<sp/>modulation<sp/>and<sp/>order.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4" kindref="member">modulation_scheme</ref><sp/>mod<sp/>=<sp/>(cw_idx<sp/>==<sp/>0)<sp/>?<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a52192bb9bf4069d7ee10c77a9e647764" kindref="member">modulation1</ref><sp/>:<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a462cd64cf3f52bc89e520e0bd7bdfc41" kindref="member">modulation2</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Qm<sp/><sp/>=<sp/><ref refid="namespacesrsgnb_1a0d8c69bda1d828c45f83f9e92e23b0b1" kindref="member">get_bits_per_symbol</ref>(mod);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>number<sp/>of<sp/>REs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_bits<sp/>=<sp/>codewords[cw_idx].size();</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nof_re<sp/><sp/><sp/>=<sp/>nof_bits<sp/>/<sp/>Qm;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>temporal<sp/>storage<sp/>for<sp/>scrambled<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;uint8_t, MAX_CODEWORD_SIZE&gt;</ref><sp/>d(nof_bits);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Scramble.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1aa2002fd301437648cb96c5ec51e63cf9" kindref="member">scramble</ref>(d,<sp/>codewords[cw_idx],<sp/>cw_idx,<sp/>config);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prepare<sp/>destination<sp/>buffer<sp/>view.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1ae10c5f1c3f7b81b81bcc27d12ba93081" kindref="member">temp_d</ref>[cw_idx].resize(nof_re);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>d_pdsch[cw_idx]<sp/>=<sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1ae10c5f1c3f7b81b81bcc27d12ba93081" kindref="member">temp_d</ref>[cw_idx];</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modulate<sp/>codeword.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a2f2e28f7bb6ba7a82593f282288c51fa" kindref="member">modulate</ref>(d_pdsch[cw_idx],<sp/>d,<sp/>mod,<sp/>config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1a9646c81b3c6c3b8c06c9806eac252409" kindref="member">scaling</ref>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>layer<sp/>mapping.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector&lt;span&lt;cf_t&gt;</ref>,<sp/><ref refid="namespacesrsgnb_1ad5f97b253a73d08e22686b95802f6182" kindref="member">MAX_PORTS</ref>&gt;<sp/>x_pdsch(nof_layers);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a6205d56ba1878caddbd02053fcb50232" kindref="member">layer_map</ref>(x_pdsch,<sp/>d_pdsch);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Map<sp/>resource<sp/>elements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(config.<ref refid="structsrsgnb_1_1pdsch__modulator_1_1config__t_1ad68c28a8ed04bf320b35e2ae6dcfc6ed" kindref="member">freq_allocation</ref>.<ref refid="classsrsgnb_1_1rb__allocation_1a536c619a116091af2f8f15ce8727f07b" kindref="member">is_contiguous</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1a145754bd9128828ee0e7770563b5534b" kindref="member">map_to_contiguous_prb</ref>(grid,<sp/>x_pdsch,<sp/>config);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1pdsch__modulator__impl_1adb89f3b5110d488d6a098b43a60bc53c" kindref="member">map_to_prb_other</ref>(grid,<sp/>x_pdsch,<sp/>config);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_processors/pdsch_modulator_impl.cpp"/>
+  </compounddef>
+</doxygen>

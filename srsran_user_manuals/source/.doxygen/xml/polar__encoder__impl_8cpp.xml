@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="polar__encoder__impl_8cpp" kind="file" language="C++">
+    <compoundname>polar_encoder_impl.cpp</compoundname>
+    <includes refid="polar__encoder__impl_8h" local="yes">polar_encoder_impl.h</includes>
+    <incdepgraph>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="22">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/polar/polar_encoder_impl.cpp</label>
+        <link refid="polar__encoder__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_coding/polar/polar_encoder.h</label>
+        <link refid="polar__encoder_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="2">
+        <label>polar_encoder_impl.h</label>
+        <link refid="polar__encoder__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="23">
+        <label>srsgnb/srsvec/aligned_vec.h</label>
+        <link refid="aligned__vec_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;polar_encoder_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">polar_encoder_impl::polar_encoder_impl(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>code_size_log_)<sp/>:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>max_code_size_log(static_cast&lt;uint8_t&gt;(code_size_log_)),</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>max_code_size(1U<sp/>&lt;&lt;<sp/>max_code_size_log),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>max_code_half_size(max_code_size<sp/>/<sp/>2),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>i_even(max_code_half_size),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>i_odd(max_code_half_size),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>tmp(max_code_size)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>!=<sp/>max_code_size<sp/>/<sp/>2;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>i_even[i]<sp/>=<sp/>2<sp/>*<sp/>i;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>i_odd[i]<sp/><sp/>=<sp/>2<sp/>*<sp/>i<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1a5f9661419821b47b239b45849829f94b" kindref="member">polar_encoder_impl::encode</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;uint8_t&gt;</ref><sp/>output,<sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>input,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>code_size_log)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>stage<sp/>also<sp/>initializes<sp/>output<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>uint16_t<sp/>code_half_size<sp/>=<sp/>1U<sp/>&lt;&lt;<sp/>(code_size_log<sp/>-<sp/>1U);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>it<sp/>does<sp/>not<sp/>exceed<sp/>the<sp/>maximum<sp/>allocated<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>assert(code_half_size<sp/>&lt;=<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1a4eaafb3a096b76bef0e82d2321bb686c" kindref="member">max_code_half_size</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_half_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[j]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>input[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[j<sp/>+<sp/>code_half_size]<sp/>=<sp/>input[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_half_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]]<sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]]<sp/>^<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];<sp/></highlight><highlight class="comment">//<sp/>bitXor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>remaining<sp/>stages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>1;<sp/>i<sp/>!=<sp/>code_size_log;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_half_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[j]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[j<sp/>+<sp/>code_half_size]<sp/>=<sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>code_half_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]]<sp/><sp/>=<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>output[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]]<sp/>=<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1a783d1f9830e680b1a1de990fdf9db346" kindref="member">i_even</ref>[j]]<sp/>^<sp/><ref refid="classsrsgnb_1_1polar__encoder__impl_1ac151ed3ec2d42e3251fa7d1ca9f3c5a7" kindref="member">tmp</ref>[<ref refid="classsrsgnb_1_1polar__encoder__impl_1ae06af3751359867c7326b0a3c44784ab" kindref="member">i_odd</ref>[j]];<sp/></highlight><highlight class="comment">//<sp/>bitXor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/polar/polar_encoder_impl.cpp"/>
+  </compounddef>
+</doxygen>

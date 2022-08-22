@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__symbol__modulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ofdm_symbol_modulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ofdm__symbol__modulator__impl" prot="public" virt="non-virtual">srsgnb::ofdm_symbol_modulator_impl</derivedcompoundref>
+    <includes refid="ofdm__modulator_8h" local="no">ofdm_modulator.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__modulator_1a8cccb399a105c55938359800db0bc758" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ofdm_symbol_modulator::~ofdm_symbol_modulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ofdm_symbol_modulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_modulator.h" line="45" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__modulator_1afb89f906a70898cbf50d3378732a9749" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::ofdm_symbol_modulator::get_symbol_size</definition>
+        <argsstring>(unsigned symbol_index) const =0</argsstring>
+        <name>get_symbol_size</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__symbol__modulator__impl_1a7a8dc4e2f6ea7e3ca0ad65eb86e76a96">get_symbol_size</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a symbol size including cyclic prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index within the subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples for the given symbol index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_modulator.h" line="50" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__modulator_1a7e98fbf7c0b6510873dd951555a62b73" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ofdm_symbol_modulator::modulate</definition>
+        <argsstring>(span&lt; cf_t &gt; output, const resource_grid_reader &amp;grid, unsigned port_index, unsigned symbol_index)=0</argsstring>
+        <name>modulate</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__symbol__modulator__impl_1a1cff8fbd637007a914121b91a99affc9">modulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Modulates an OFDM signal with symbol granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the time domain modulated signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the input as frequency-domain signal corresponding to one slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port index to modulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within the subframe to modulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The input size must be consistent with the configured bandwidth. </para>
+</simplesect>
+<simplesect kind="note"><para>The output size must be equal to the the symbol size. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_modulator.h" line="60" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes an OFDM modulator that modulates at symbol granularity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="remark"><para>Performs OFDM modulation as per TS 38.211 section 5.3.1 OFDM baseband signal generation for all channels except PRACH. </para>
+</simplesect>
+<simplesect kind="remark"><para>In addition to modulation, it applies phase compensation as per TS 38.211 section 5.4 Modulation and upconversion </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ofdm_symbol_modulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__modulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_modulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__modulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_modulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__modulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/modulation/ofdm_modulator.h" line="42" column="1" bodyfile="include/srsgnb/phy/lower/modulation/ofdm_modulator.h" bodystart="41" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__symbol__modulator_1afb89f906a70898cbf50d3378732a9749" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_symbol_modulator</scope><name>get_symbol_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__modulator_1a7e98fbf7c0b6510873dd951555a62b73" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_symbol_modulator</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__modulator_1a8cccb399a105c55938359800db0bc758" prot="public" virt="virtual"><scope>srsgnb::ofdm_symbol_modulator</scope><name>~ofdm_symbol_modulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

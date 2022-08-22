@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1manual__task__worker" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::manual_task_worker</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1task__executor" prot="public" virt="non-virtual">srsgnb::task_executor</basecompoundref>
+    <includes refid="manual__task__worker_8h" local="no">manual_task_worker.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1manual__task__worker_1a52fd2f3d6a8ec344c8b90b36d7f2a98c" prot="private" static="no" mutable="no">
+        <type>std::thread::id</type>
+        <definition>std::thread::id srsgnb::manual_task_worker::t_id</definition>
+        <argsstring></argsstring>
+        <name>t_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="104" column="35" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1manual__task__worker_1ac5b6a07994fac3bb8954fb536480b19c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1dyn__blocking__queue" kindref="compound">dyn_blocking_queue</ref>&lt; <ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref> &gt;</type>
+        <definition>dyn_blocking_queue&lt;unique_task&gt; srsgnb::manual_task_worker::pending_tasks</definition>
+        <argsstring></argsstring>
+        <name>pending_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="105" column="22" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a9eccb61530b2206f0778c8d855d203a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::manual_task_worker::manual_task_worker</definition>
+        <argsstring>(size_t q_size)</argsstring>
+        <name>manual_task_worker</name>
+        <param>
+          <type>size_t</type>
+          <declname>q_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="23" column="3" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a6331e0d73c37d7fe05a1e29099edd96b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::thread::id</type>
+        <definition>std::thread::id srsgnb::manual_task_worker::get_thread_id</definition>
+        <argsstring>() const</argsstring>
+        <name>get_thread_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="25" column="19" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1aba2f13de4b6013fc2c8a44ce1e8ca520" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::manual_task_worker::execute</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>execute</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1a8d790d26b7d6b9a1b326fbc44b5ab313">execute</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatches a task to be executed. According to this policy, executor may invoke task inplace if it deemed safe to do so. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="27" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="27" bodyend="34"/>
+        <references refid="classsrsgnb_1_1manual__task__worker_1a616c700a34285faed8e11a97c46ac275" compoundref="manual__task__worker_8h" startline="36" endline="36">defer</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a616c700a34285faed8e11a97c46ac275" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::manual_task_worker::defer</definition>
+        <argsstring>(unique_task task) override</argsstring>
+        <name>defer</name>
+        <reimplements refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">defer</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a6adb9f62765e5ba93085cd5f6f66f740" kindref="member">unique_task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches a task to be later executed. The task always gets enqueued for later invocation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="36" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="36" bodyend="36"/>
+        <referencedby refid="classsrsgnb_1_1manual__task__worker_1aba2f13de4b6013fc2c8a44ce1e8ca520" compoundref="manual__task__worker_8h" startline="27" endline="34">execute</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1ad364ab676d19486f243c7ae15b2cb419" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::has_pending_tasks</definition>
+        <argsstring>() const</argsstring>
+        <name>has_pending_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="38" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1aa2ed9aacd272797046358e1c055c1d8c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::is_stopped</definition>
+        <argsstring>() const</argsstring>
+        <name>is_stopped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="40" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1af940c19bc8e4db7bec6c74227dae8c4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::manual_task_worker::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="42" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a10395773c794fa60588edcf458ff4d5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::manual_task_worker::request_stop</definition>
+        <argsstring>()</argsstring>
+        <name>request_stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="49" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a019c371621d2cca1dab32a75a4338be9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::run_pending_tasks</definition>
+        <argsstring>()</argsstring>
+        <name>run_pending_tasks</name>
+        <briefdescription>
+<para>Run all pending tasks until queue is emptied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="55" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="55" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a31c1a1ad66fa8abbad52985340eafce8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::try_run_next</definition>
+        <argsstring>()</argsstring>
+        <name>try_run_next</name>
+        <briefdescription>
+<para>Run next pending task if it is enqueued. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="71" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="71" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1ac2560f936bc7885228123d43c2a8b2a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::run_next_blocking</definition>
+        <argsstring>()</argsstring>
+        <name>run_next_blocking</name>
+        <briefdescription>
+<para>Run next pending task once it is enqueued. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="84" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="84" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a05f23ad92e6102198d952f892c76bff5" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::manual_task_worker::has_thread_id</definition>
+        <argsstring>() const</argsstring>
+        <name>has_thread_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="97" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1manual__task__worker_1a93510671f4e629c2aae11dcda34bc319" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::manual_task_worker::assert_thread_id</definition>
+        <argsstring>()</argsstring>
+        <name>assert_thread_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/executors/manual_task_worker.h" line="99" column="8" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="99" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Task worker that implements the executor interface and requires manual calls to run pending deferred tasks. Useful for unit testing. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::manual_task_worker</label>
+        <link refid="classsrsgnb_1_1manual__task__worker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::dyn_blocking_queue&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::detail::noop_operator</label>
+        <link refid="structsrsgnb_1_1detail_1_1noop__operator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::manual_task_worker</label>
+        <link refid="classsrsgnb_1_1manual__task__worker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-pending_tasks</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::dyn_circular_buffer&lt; srsgnb::unique_function &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; srsgnb::unique_function &gt;, detail::noop_operator, detail::noop_operator &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srsgnb::unique_function &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/executors/manual_task_worker.h" line="21" column="1" bodyfile="include/srsgnb/support/executors/manual_task_worker.h" bodystart="20" bodyend="106"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a93510671f4e629c2aae11dcda34bc319" prot="private" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>assert_thread_id</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a616c700a34285faed8e11a97c46ac275" prot="public" virt="virtual"><scope>srsgnb::manual_task_worker</scope><name>defer</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1aba2f13de4b6013fc2c8a44ce1e8ca520" prot="public" virt="virtual"><scope>srsgnb::manual_task_worker</scope><name>execute</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a6331e0d73c37d7fe05a1e29099edd96b" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>get_thread_id</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1ad364ab676d19486f243c7ae15b2cb419" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>has_pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a05f23ad92e6102198d952f892c76bff5" prot="private" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>has_thread_id</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1aa2ed9aacd272797046358e1c055c1d8c" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>is_stopped</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a9eccb61530b2206f0778c8d855d203a7" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>manual_task_worker</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1ac5b6a07994fac3bb8954fb536480b19c" prot="private" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a10395773c794fa60588edcf458ff4d5b" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>request_stop</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1ac2560f936bc7885228123d43c2a8b2a5" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>run_next_blocking</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a019c371621d2cca1dab32a75a4338be9" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>run_pending_tasks</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1af940c19bc8e4db7bec6c74227dae8c4f" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a52fd2f3d6a8ec344c8b90b36d7f2a98c" prot="private" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>t_id</name></member>
+      <member refid="classsrsgnb_1_1manual__task__worker_1a31c1a1ad66fa8abbad52985340eafce8" prot="public" virt="non-virtual"><scope>srsgnb::manual_task_worker</scope><name>try_run_next</name></member>
+      <member refid="classsrsgnb_1_1task__executor_1a63fc9cba063ea0763800f710c6c44926" prot="public" virt="virtual"><scope>srsgnb::manual_task_worker</scope><name>~task_executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1822 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1bounded__bitset" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::bounded_bitset</compoundname>
+    <includes refid="bounded__bitset_8h" local="no">bounded_bitset.h</includes>
+    <templateparamlist>
+      <param>
+        <type>size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>reversed</declname>
+        <defname>reversed</defname>
+        <defval>false</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1bounded__bitset_1ac596f817e35c4beedd0c616b6ee1dc0e" prot="private" static="no">
+        <type>uint64_t</type>
+        <definition>using srsgnb::bounded_bitset&lt; N, reversed &gt;::word_t =  uint64_t</definition>
+        <argsstring></argsstring>
+        <name>word_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="206" column="3" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1bounded__bitset_1a9fcfd2843af09b29b1cf0cec03f0ec40" prot="private" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::bits_per_word</definition>
+        <argsstring></argsstring>
+        <name>bits_per_word</name>
+        <initializer>= 8 * sizeof(word_t)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="207" column="23" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsrsgnb_1_1bounded__bitset_1a6df2d27a117f983d68d7506d0932acf8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>size_t</type>
+            <declname>N2</declname>
+            <defname>N2</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>reversed2</declname>
+            <defname>reversed2</defname>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class bounded_bitset</definition>
+        <argsstring></argsstring>
+        <name>bounded_bitset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="723" column="3" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="723" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1bounded__bitset_1a615be774632d9e42d96489f81e688914" prot="private" static="no" mutable="no">
+        <type>std::array&lt; word_t,(N - 1)/bits_per_word+1 &gt;</type>
+        <definition>std::array&lt;word_t, (N - 1) / bits_per_word + 1&gt; srsgnb::bounded_bitset&lt; N, reversed &gt;::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <initializer>= {0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="725" column="14" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="725" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1bounded__bitset_1aeaa9fee985ab1e606f54e91db606f68e" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::cur_size</definition>
+        <argsstring></argsstring>
+        <name>cur_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="726" column="51" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="726" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aea0ece1c00866029ed7e13f7e08644b7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::bounded_bitset&lt; N, reversed &gt;::bounded_bitset</definition>
+        <argsstring>()=default</argsstring>
+        <name>bounded_bitset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="210" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a97b5c140c3bf35524eb0c18b134d1a13" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::bounded_bitset&lt; N, reversed &gt;::bounded_bitset</definition>
+        <argsstring>(size_t cur_size_)</argsstring>
+        <name>bounded_bitset</name>
+        <param>
+          <type>size_t</type>
+          <declname>cur_size_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="212" column="22" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a7db4a016d2162a7aa02ebff1b6930e6e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Iterator</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; std::is_convertible&lt; typename std::iterator_traits&lt; Iterator &gt;::value_type, bool &gt;::value, bool &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::bounded_bitset&lt; N, reversed &gt;::bounded_bitset</definition>
+        <argsstring>(Iterator begin, Iterator end)</argsstring>
+        <name>bounded_bitset</name>
+        <param>
+          <type>Iterator</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>Iterator</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a bitset using iterators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The constructed bitset size is equal to <computeroutput> end - begin </computeroutput> size. The values in the list are mapped one to one starting from begin.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Iterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean iterator type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">begin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Begin iterator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End iterator. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="226" column="13" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="226" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ae133ddc824fc5624c284384117f526c0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr srsgnb::bounded_bitset&lt; N, reversed &gt;::bounded_bitset</definition>
+        <argsstring>(std::initializer_list&lt; const bool &gt; values)</argsstring>
+        <name>bounded_bitset</name>
+        <param>
+          <type>std::initializer_list&lt; const bool &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a bitset from an initializer list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The constructed bitset size is equal to <computeroutput>values</computeroutput> size. The values in the list are mapped one to one.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean initializer list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="237" column="13" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="237" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a5fc3c696fe29cd4275460b7ebdfb7ce4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Current size of the <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="248" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="248" bodyend="248"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a28067d9a1c62435d18c5ac6cf0642c49" compoundref="bounded__bitset_8h" startline="304" endline="309">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::push_back</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a8bb3b1a08877033b44f0c6ad6e076a16" compoundref="bounded__bitset_8h" startline="404" endline="404">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::find_lowest</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1ae9ecd17ccf96c1e7a343e75bac5689f5" compoundref="bounded__bitset_8h" startline="475" endline="488">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::all</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a74545186bfbbbf9519ac15da5f6c692c" compoundref="bounded__bitset_8h" startline="503" endline="503">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::find_highest</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" compoundref="bounded__bitset_8h" startline="561" endline="587">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::is_contiguous</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a3f15613054464e6f85c25244643421f8" compoundref="bounded__bitset_8h" startline="602" endline="613">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::operator==</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1ac7f21bf08442e9afc0727cf2b4411d80" compoundref="bounded__bitset_8h" startline="620" endline="630">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::operator|=</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1aab6e6f675f949a0d5346ae9e3d55c383" compoundref="bounded__bitset_8h" startline="635" endline="645">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::operator&amp;=</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a06a43396dd6b863b9afa2da2a59bb56e" compoundref="bounded__bitset_8h" startline="661" endline="679">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::to_string</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a6fee80b0e9a17208ca9de4a0869c535b" compoundref="bounded__bitset_8h" startline="684" endline="688">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::to_uint64</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a499bfbd9d35f85f3212aba9cc1a9d9ae" compoundref="bounded__bitset_8h" startline="693" endline="698">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::from_uint64</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a511e7e076b37354738405afddd275b71" compoundref="bounded__bitset_8h" startline="705" endline="719">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::to_hex</referencedby>
+        <referencedby refid="namespacesrsgnb_1afc2d178f9bf858393460f3f5fe0f5736" compoundref="bounded__bitset_8h" startline="937" endline="946">srsgnb::fliplr</referencedby>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__dci__pdu__builder_1ad7a70eb5694a7586c1a911122435868f" compoundref="message__builders_8h" startline="209" endline="225">srsgnb::fapi::dl_dci_pdu_builder::set_payload</referencedby>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__pdcch__pdu__builder_1a58952aa194f2e942d17d1417332558f4" compoundref="message__builders_8h" startline="310" endline="335">srsgnb::fapi::dl_pdcch_pdu_builder::set_coreset_parameters</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a2c63757dc8d9d86f4f24d8b848f93d8b" compoundref="rb__allocation_8h" startline="127" endline="135">srsgnb::rb_allocation::get_prb_begin</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1ab89c4464249b9d5bbd423db57dd89b2e" compoundref="rb__allocation_8h" startline="140" endline="148">srsgnb::rb_allocation::get_prb_end</referencedby>
+        <referencedby refid="structsrsgnb_1_1prb__grant_1ab98341ff4461bd86abc490843b8c64b9" compoundref="prb__grant_8h" startline="114" endline="122">srsgnb::prb_grant::operator&amp;=</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9bc5e2a809540b3284ee3a111556a6b4" compoundref="rb__allocation_8cpp" startline="15" endline="42">srsgnb::rb_allocation::get_contiguous_prb_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a075985c56ef0e385f9c1c69039d72672" compoundref="rb__allocation_8cpp" startline="44" endline="60">srsgnb::rb_allocation::get_other_prb_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a4742e3a79eea3d38e3aaba7d17301ac4" compoundref="rb__allocation_8cpp" startline="113" endline="129">srsgnb::rb_allocation::get_prb_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9e9c90b67ebb0b15838289d73ce6475c" compoundref="rb__allocation_8cpp" startline="131" endline="153">srsgnb::rb_allocation::get_prb_indices</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" compoundref="re__pattern_8cpp" startline="144" endline="173">srsgnb::re_pattern_list::get_inclusion_count</referencedby>
+        <referencedby refid="namespacesrsgnb_1ac256a6ea6adc1dfe53431799cab8eb68" compoundref="dmrs__helper_8h" startline="32" endline="82">srsgnb::dmrs_sequence_generate</referencedby>
+        <referencedby refid="namespacesrsgnb_1afabee33f3d756f808b6730caa4c30db5" compoundref="prb__grant_8cpp" startline="16" endline="34">srsgnb::convert_rbgs_to_prbs</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" compoundref="resource__grid_8cpp" startline="60" endline="68">srsgnb::carrier_subslot_resource_grid::used_crbs</referencedby>
+        <referencedby refid="namespacesrsgnb_1a20af606a25f23562c41bb0dc51ca20c7" compoundref="rb__find__algorithm_8h" startline="25" endline="33">srsgnb::find_next_empty_interval</referencedby>
+        <referencedby refid="namespacesrsgnb_1a7c24c2d559727ab4fb6e0e4db881f0b4" compoundref="rb__find__algorithm_8h" startline="44" endline="62">srsgnb::find_empty_interval_of_length</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aec43054ba69cc9b7c7a47079dc1f1283" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::resize</definition>
+        <argsstring>(size_t new_size)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_size</declname>
+        </param>
+        <briefdescription>
+<para>Resize of the <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>. If <computeroutput> new_size &gt; max_size() </computeroutput>, an assertion is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="251" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="251" bodyend="262"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a7db4a016d2162a7aa02ebff1b6930e6e" compoundref="bounded__bitset_8h" startline="226" endline="230">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::bounded_bitset</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a28067d9a1c62435d18c5ac6cf0642c49" compoundref="bounded__bitset_8h" startline="304" endline="309">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::push_back</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1af2620345786af61e5ed75adadf1e6156" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::set</definition>
+        <argsstring>(size_t pos, bool val)</argsstring>
+        <name>set</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Set bit with provided index to either true or false. Assertion is triggered if pos &gt;= max_size(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in bitset. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to set the bit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="267" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="267" bodyend="275"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a7db4a016d2162a7aa02ebff1b6930e6e" compoundref="bounded__bitset_8h" startline="226" endline="230">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::bounded_bitset</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a28067d9a1c62435d18c5ac6cf0642c49" compoundref="bounded__bitset_8h" startline="304" endline="309">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::push_back</referencedby>
+        <referencedby refid="namespacesrsgnb_1afc2d178f9bf858393460f3f5fe0f5736" compoundref="bounded__bitset_8h" startline="937" endline="946">srsgnb::fliplr</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a5bbd852135056417380efef6f789ad98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::set</definition>
+        <argsstring>(size_t pos)</argsstring>
+        <name>set</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Set bit with provided index to true. Assertion is triggered if pos &gt;= N. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in bitset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="279" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="279" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a7d779cc2893c04ebb8264356f1596ab2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::reset</definition>
+        <argsstring>(size_t pos)</argsstring>
+        <name>reset</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Set bit with provided index to false. Assertion is triggered if pos &gt;= N. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in bitset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="287" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="287" bodyend="291"/>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a11e0edbed29b3a1f9fdd4791596023db" compoundref="resource__grid_8cpp" startline="28" endline="31">srsgnb::carrier_subslot_resource_grid::clear</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a6de56a1ffa93ed25a261db85e51334ab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::reset</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Reset all bits in the <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref> to false. The size of the bitset is maintained. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="294" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="294" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a28067d9a1c62435d18c5ac6cf0642c49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::push_back</definition>
+        <argsstring>(bool val)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>bool</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Appends a bit with value <computeroutput>val</computeroutput> to the set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assertion is triggered if the resultant size exceeds the maximum size of the bitset. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="304" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="304" bodyend="309"/>
+        <referencedby refid="namespacesrsgnb_1ae3d59219a86271fe4a2d2623fda5915a" compoundref="dci__packing_8cpp" startline="16" endline="66">srsgnb::dci_1_0_p_rnti_pack</referencedby>
+        <referencedby refid="namespacesrsgnb_1ab271e68693127a36a613fe0b2c66454f" compoundref="dci__packing_8cpp" startline="68" endline="95">srsgnb::dci_1_0_si_rnti_pack</referencedby>
+        <referencedby refid="namespacesrsgnb_1a2401e3b23a5b3ce37bfc76c167f294ee" compoundref="dci__packing_8cpp" startline="97" endline="121">srsgnb::dci_1_0_ra_rnti_pack</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a94bbefb1b17f89d5f73801aa70adf072" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Integer</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::push_back</definition>
+        <argsstring>(Integer val, unsigned nof_bits)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>Integer</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_bits</declname>
+        </param>
+        <briefdescription>
+<para>Appends <computeroutput>nof_bits</computeroutput> bits to the set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The least <computeroutput>nof_bits</computeroutput> significant bits of <computeroutput>val</computeroutput> are appended to the set, starting from the most significant bit and finishing with the least significant bit.</para>
+<para>Assertion is triggered if the resultant size exceeds the maximum size of the bitset. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="318" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="318" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aec33b2aa0ad1fe21801ba05f9fcc61d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::test</definition>
+        <argsstring>(size_t pos) const</argsstring>
+        <name>test</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Check if bit with provided index is set to true. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in bitset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns true if bit at position pos is set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="331" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="331" bodyend="335"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a06a43396dd6b863b9afa2da2a59bb56e" compoundref="bounded__bitset_8h" startline="661" endline="679">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::to_string</referencedby>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__dci__pdu__builder_1ad7a70eb5694a7586c1a911122435868f" compoundref="message__builders_8h" startline="209" endline="225">srsgnb::fapi::dl_dci_pdu_builder::set_payload</referencedby>
+        <referencedby refid="classsrsgnb_1_1fapi_1_1dl__pdcch__pdu__builder_1a58952aa194f2e942d17d1417332558f4" compoundref="message__builders_8h" startline="310" endline="335">srsgnb::fapi::dl_pdcch_pdu_builder::set_coreset_parameters</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a075985c56ef0e385f9c1c69039d72672" compoundref="rb__allocation_8cpp" startline="44" endline="60">srsgnb::rb_allocation::get_other_prb_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9e9c90b67ebb0b15838289d73ce6475c" compoundref="rb__allocation_8cpp" startline="131" endline="153">srsgnb::rb_allocation::get_prb_indices</referencedby>
+        <referencedby refid="classsrsgnb_1_1re__pattern__list_1a6abc7e3880486673129696217a78890e" compoundref="re__pattern_8cpp" startline="144" endline="173">srsgnb::re_pattern_list::get_inclusion_count</referencedby>
+        <referencedby refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" compoundref="resource__grid__helpers_8h" startline="48" endline="83">srsgnb::get_rg_subc_mask</referencedby>
+        <referencedby refid="namespacesrsgnb_1ac256a6ea6adc1dfe53431799cab8eb68" compoundref="dmrs__helper_8h" startline="32" endline="82">srsgnb::dmrs_sequence_generate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ab7d6397fb374a0408e54c6d570900bb8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+        <definition>bounded_bitset&lt;N, reversed&gt;&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::flip</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>flip</name>
+        <briefdescription>
+<para>Toggle values of bits in bitset. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns this object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="339" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="339" bodyend="346"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a4e15c10cdb01c007b1430988eb83a15e" compoundref="bounded__bitset_8h" startline="649" endline="654">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::operator~</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a7e3a54e061a9173d147eb8b202867fc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+        <definition>bounded_bitset&lt;N, reversed&gt;&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::fill</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value=true)</argsstring>
+        <name>fill</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Fills range of bits to either true or false. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">startpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting bit index that will be set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">endpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End bit index (excluding) where the bits stop being set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set bit range values to either true or false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a reference to this object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="353" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="353" bodyend="364"/>
+        <referencedby refid="structsrsgnb_1_1prb__grant_1ab98341ff4461bd86abc490843b8c64b9" compoundref="prb__grant_8h" startline="114" endline="122">srsgnb::prb_grant::operator&amp;=</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9bc5e2a809540b3284ee3a111556a6b4" compoundref="rb__allocation_8cpp" startline="15" endline="42">srsgnb::rb_allocation::get_contiguous_prb_mask</referencedby>
+        <referencedby refid="namespacesrsgnb_1afabee33f3d756f808b6730caa4c30db5" compoundref="prb__grant_8cpp" startline="16" endline="34">srsgnb::convert_rbgs_to_prbs</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a27ccc216d3099e49700aa3a0f1362ed9" compoundref="resource__grid_8cpp" startline="33" endline="43">srsgnb::carrier_subslot_resource_grid::fill</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" compoundref="resource__grid_8cpp" startline="60" endline="68">srsgnb::carrier_subslot_resource_grid::used_crbs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a303fd8436c800ab55b92a3de190200a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>size_t</type>
+            <declname>N2</declname>
+            <defname>N2</defname>
+            <defval>N</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N2, reversed &gt;</type>
+        <definition>bounded_bitset&lt;N2, reversed&gt; srsgnb::bounded_bitset&lt; N, reversed &gt;::slice</definition>
+        <argsstring>(size_t startpos, size_t endpos) const</argsstring>
+        <name>slice</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <briefdescription>
+<para>Returns bounded_bitset&lt;&gt; that represents a slice or subview of the original <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>. Unless it is specified, the returned slice has the same template parameters &quot;N&quot; and &quot;reversed&quot; of &quot;this&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">startpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit index where the subview starts. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">endpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit index where the subview stops. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="372" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="372" bodyend="399"/>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" compoundref="resource__grid_8cpp" startline="60" endline="68">srsgnb::carrier_subslot_resource_grid::used_crbs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a8bb3b1a08877033b44f0c6ad6e076a16" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_lowest</definition>
+        <argsstring>(bool value=true) const noexcept</argsstring>
+        <name>find_lowest</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Finds the lowest bit with value set to the value passed as argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit value to find, either true (1) or false (0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns the lowest found bit index or -1 in case no bit was found with the provided value argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="404" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="404" bodyend="404"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a8bb3b1a08877033b44f0c6ad6e076a16" compoundref="bounded__bitset_8h" startline="404" endline="404">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::find_lowest</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" compoundref="bounded__bitset_8h" startline="561" endline="587">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::is_contiguous</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a2c63757dc8d9d86f4f24d8b848f93d8b" compoundref="rb__allocation_8h" startline="127" endline="135">srsgnb::rb_allocation::get_prb_begin</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9bc5e2a809540b3284ee3a111556a6b4" compoundref="rb__allocation_8cpp" startline="15" endline="42">srsgnb::rb_allocation::get_contiguous_prb_mask</referencedby>
+        <referencedby refid="namespacesrsgnb_1adf0de14f34490ba84d770e68336cd6cf" compoundref="resource__grid__helpers_8h" startline="23" endline="34">srsgnb::get_rg_subc_mask_reference</referencedby>
+        <referencedby refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" compoundref="resource__grid__helpers_8h" startline="48" endline="83">srsgnb::get_rg_subc_mask</referencedby>
+        <referencedby refid="namespacesrsgnb_1afabee33f3d756f808b6730caa4c30db5" compoundref="prb__grant_8cpp" startline="16" endline="34">srsgnb::convert_rbgs_to_prbs</referencedby>
+        <referencedby refid="namespacesrsgnb_1a20af606a25f23562c41bb0dc51ca20c7" compoundref="rb__find__algorithm_8h" startline="25" endline="33">srsgnb::find_next_empty_interval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ac43a0bb2d5561ed97fef93382264c675" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_lowest</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value=true) const noexcept</argsstring>
+        <name>find_lowest</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Finds, within a range of bit indexes, the lowest bit with value set to the value passed as argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">startpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">endpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit value to find, either true (1) or false (0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns the lowest found bit index or -1 in case no bit was found with the provided value argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="411" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="411" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1affd02728557a76e4b83530572d2f3e76" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::for_each</definition>
+        <argsstring>(size_t startpos, size_t endpos, const T &amp;&amp;function, bool value=true) const noexcept</argsstring>
+        <name>for_each</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>const T &amp;&amp;</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="425" column="15" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="425" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ae9ecd17ccf96c1e7a343e75bac5689f5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::all</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>all</name>
+        <briefdescription>
+<para>Checks if all bits in the bitset are set to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if all bits are 1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="475" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="475" bodyend="488"/>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1aed60a3357ae8744b9fb69c6629a1fd95" compoundref="resource__grid_8cpp" startline="70" endline="83">srsgnb::carrier_subslot_resource_grid::all_set</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a7624f493781ea38d7ed7d75447bf8f65" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::all</definition>
+        <argsstring>(size_t start, size_t stop) const</argsstring>
+        <name>all</name>
+        <param>
+          <type>size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stop</declname>
+        </param>
+        <briefdescription>
+<para>Checks if all bits within a bit index range are set to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if all the bits within the range are 1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="492" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="492" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a74545186bfbbbf9519ac15da5f6c692c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_highest</definition>
+        <argsstring>(bool value=true) const noexcept</argsstring>
+        <name>find_highest</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Finds the highest bit with value set to the value passed as argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit value to find, either true (1) or false (0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns the lowest found bit index or -1 in case no bit was found with the provided value argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="503" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="503" bodyend="503"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a74545186bfbbbf9519ac15da5f6c692c" compoundref="bounded__bitset_8h" startline="503" endline="503">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::find_highest</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" compoundref="bounded__bitset_8h" startline="561" endline="587">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::is_contiguous</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1ab89c4464249b9d5bbd423db57dd89b2e" compoundref="rb__allocation_8h" startline="140" endline="148">srsgnb::rb_allocation::get_prb_end</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9bc5e2a809540b3284ee3a111556a6b4" compoundref="rb__allocation_8cpp" startline="15" endline="42">srsgnb::rb_allocation::get_contiguous_prb_mask</referencedby>
+        <referencedby refid="namespacesrsgnb_1a91f1622ff821b787192eb0b889692a87" compoundref="resource__grid__helpers_8h" startline="48" endline="83">srsgnb::get_rg_subc_mask</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a7158269bcdbef4b0f2591adde1c7cc0d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_highest</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value=true) const noexcept</argsstring>
+        <name>find_highest</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Finds, within a range of bit indexes, the highest bit with value set to the value passed as argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">startpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">endpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit value to find, either true (1) or false (0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns the lowest found bit index or -1 in case no bit was found with the provided value argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="510" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="510" bodyend="522"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a9213f1b2bdbdd6f211245e06ebe94099" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::any</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>any</name>
+        <briefdescription>
+<para>Checks if at least one bit in the bitset is set to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if at least one bit is 1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="526" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="526" bodyend="534"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1ae7bc41c97f416df162913385bdff69f8" compoundref="bounded__bitset_8h" startline="548" endline="548">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::none</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a9240696310f6958a03f53bd94b1fa412" compoundref="resource__grid_8cpp" startline="45" endline="58">srsgnb::carrier_subslot_resource_grid::collides</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a632322b0e6ea304b6201a54110614348" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::any</definition>
+        <argsstring>(size_t start, size_t stop) const</argsstring>
+        <name>any</name>
+        <param>
+          <type>size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stop</declname>
+        </param>
+        <briefdescription>
+<para>Checks if at least one bit in the bitset is set to 1 within a bit index range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if at least one bit equal to 1 was found within the range. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="538" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="538" bodyend="544"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ae7bc41c97f416df162913385bdff69f8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::none</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>none</name>
+        <briefdescription>
+<para>Checks if at no bit in the bitset is set to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if no bit equal to 1 was found. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="548" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="548" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::is_contiguous</definition>
+        <argsstring>(bool value=true) const noexcept</argsstring>
+        <name>is_contiguous</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Determines whether all bits with value set to <computeroutput>value</computeroutput> are contiguous. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Bits with the same value are contiguous if:<orderedlist>
+<listitem><para>one bit with <computeroutput>value</computeroutput> is found,</para>
+</listitem><listitem><para>no bit with <computeroutput>value</computeroutput> is found, and</para>
+</listitem><listitem><para>all bits with <computeroutput>value</computeroutput> are consecutive.</para>
+</listitem></orderedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">startpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">endpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End bit index for the search. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bit value to find, either true (1) or false (0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns the lowest found bit index or -1 in case no bit was found with the provided value argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="561" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="561" bodyend="587"/>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a536c619a116091af2f8f15ce8727f07b" compoundref="rb__allocation_8h" startline="122" endline="122">srsgnb::rb_allocation::is_contiguous</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a4742e3a79eea3d38e3aaba7d17301ac4" compoundref="rb__allocation_8cpp" startline="113" endline="129">srsgnb::rb_allocation::get_prb_mask</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ac144398b8b6c75c17e986b6027a7fea4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::count</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>count</name>
+        <briefdescription>
+<para>Counts the number of bits set to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns the number of bits set to 1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="591" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="591" bodyend="598"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" compoundref="bounded__bitset_8h" startline="561" endline="587">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::is_contiguous</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1ab044a4da9226fa0c0906f863bf28805f" compoundref="rb__allocation_8h" startline="151" endline="151">srsgnb::rb_allocation::get_nof_rb</referencedby>
+        <referencedby refid="classsrsgnb_1_1rb__allocation_1a9bc5e2a809540b3284ee3a111556a6b4" compoundref="rb__allocation_8cpp" startline="15" endline="42">srsgnb::rb_allocation::get_contiguous_prb_mask</referencedby>
+        <referencedby refid="classsrsgnb_1_1dmrs__pdcch__processor__impl_1abf53c113b1b9347f7e3157bf114e5d1e" compoundref="dmrs__pdcch__processor__impl_8cpp" startline="51" endline="78">srsgnb::dmrs_pdcch_processor_impl::map</referencedby>
+        <referencedby refid="classsrsgnb_1_1dmrs__pdsch__processor__impl_1abd59f0a94a5a45c82d5e767bc5ba25a9" compoundref="dmrs__pdsch__processor__impl_8cpp" startline="134" endline="169">srsgnb::dmrs_pdsch_processor_impl::map</referencedby>
+        <referencedby refid="namespacesrsgnb_1a477d949f11fc791bf27454f2e8672ebc" compoundref="cce__to__prb__mapping_8cpp" startline="167" endline="187">srsgnb::cce_to_prb_mapping_interleaved</referencedby>
+        <referencedby refid="namespacesrsgnb_1a5f8601e7f87ff7ac0726c767b145ae1c" compoundref="config__helpers_8h" startline="30" endline="37">srsgnb::get_coreset_nof_prbs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a3f15613054464e6f85c25244643421f8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::operator==</definition>
+        <argsstring>(const bounded_bitset&lt; N, reversed &gt; &amp;other) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Compares two bitsets. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if both bitsets are equal in size and values of bits. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="602" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="602" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aaec3ea73a8e246f195e1eeeac41515e0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::operator!=</definition>
+        <argsstring>(const bounded_bitset&lt; N, reversed &gt; &amp;other) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="615" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="615" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ac7f21bf08442e9afc0727cf2b4411d80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+        <definition>bounded_bitset&lt;N, reversed&gt;&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::operator|=</definition>
+        <argsstring>(const bounded_bitset&lt; N, reversed &gt; &amp;other)</argsstring>
+        <name>operator|=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Applies bitwise OR operation lhs |= rhs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitset which corresponds to the rhs of the operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This object updated after the bitwise OR operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="620" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="620" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aab6e6f675f949a0d5346ae9e3d55c383" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+        <definition>bounded_bitset&lt;N, reversed&gt;&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::operator&amp;=</definition>
+        <argsstring>(const bounded_bitset&lt; N, reversed &gt; &amp;other)</argsstring>
+        <name>operator&amp;=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Applies bitwise AND operation lhs &amp;= rhs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitset which corresponds to the rhs of the operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This object updated after the bitwise AND operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="635" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="635" bodyend="645"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a4e15c10cdb01c007b1430988eb83a15e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; N, reversed &gt;</type>
+        <definition>bounded_bitset&lt;N, reversed&gt; srsgnb::bounded_bitset&lt; N, reversed &gt;::operator~</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator~</name>
+        <briefdescription>
+<para>Flips values of bits in the bitset. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns reference to this object, updated after the flip operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="649" column="18" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="649" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a06a43396dd6b863b9afa2da2a59bb56e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OutputIt</type>
+          </param>
+        </templateparamlist>
+        <type>OutputIt</type>
+        <definition>OutputIt srsgnb::bounded_bitset&lt; N, reversed &gt;::to_string</definition>
+        <argsstring>(OutputIt &amp;&amp;mem_buffer) const</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>OutputIt &amp;&amp;</type>
+          <declname>mem_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Formatting helper for bitset. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OutputIt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output fmt memory buffer type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mem_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fmt memory buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The memory buffer passed as argument. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="661" column="12" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="661" bodyend="679"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a6fee80b0e9a17208ca9de4a0869c535b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t srsgnb::bounded_bitset&lt; N, reversed &gt;::to_uint64</definition>
+        <argsstring>() const</argsstring>
+        <name>to_uint64</name>
+        <briefdescription>
+<para>Conversion of <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref> to unsigned integer of 64 bits. If bitset size is larger than 64 bits, an assertion is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Unsigned integer representation of the <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="684" column="12" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="684" bodyend="688"/>
+        <referencedby refid="namespacesrsgnb_1a2932e903fa0b2f74ed093619577ff78e" compoundref="config__helpers_8h" startline="40" endline="48">srsgnb::get_coreset_start_crb</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a499bfbd9d35f85f3212aba9cc1a9d9ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::from_uint64</definition>
+        <argsstring>(uint64_t v)</argsstring>
+        <name>from_uint64</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Conversion of unsigned integer of 64 bits to <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>. If passed bitmap doesn&apos;t fit in the bitset, an assertion is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer bitmap that is going to be stored in the bitset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="693" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="693" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a511e7e076b37354738405afddd275b71" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OutputIt</type>
+          </param>
+        </templateparamlist>
+        <type>OutputIt</type>
+        <definition>OutputIt srsgnb::bounded_bitset&lt; N, reversed &gt;::to_hex</definition>
+        <argsstring>(OutputIt &amp;&amp;mem_buffer) const noexcept</argsstring>
+        <name>to_hex</name>
+        <param>
+          <type>OutputIt &amp;&amp;</type>
+          <declname>mem_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Formatting of <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref> to hex format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>OutputIt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fmt memory buffer type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mem_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fmt memory buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The input fmt memory buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="705" column="12" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="705" bodyend="719"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1af72e3028139b8a919583649884718c9e" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>static constexpr bool srsgnb::bounded_bitset&lt; N, reversed &gt;::bit_order</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>bit_order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="243" column="25" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="243" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a6a08199ec1951eb6d45cfb79bb4cef35" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr size_t</type>
+        <definition>static constexpr size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::max_size</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>max_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="245" column="27" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="245" bodyend="245"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a56c1ddcd9baab6a7ad5849d2a5323268" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::sanitize_</definition>
+        <argsstring>()</argsstring>
+        <name>sanitize_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="728" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="728" bodyend="735"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a652f3dfc44a96f327bd920ece23f4dbd" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::get_bitidx_</definition>
+        <argsstring>(size_t bitpos) const noexcept</argsstring>
+        <name>get_bitidx_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="737" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="737" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a3482763f2d4ef8d26dc4f0bbf5f4a0a8" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::test_</definition>
+        <argsstring>(size_t bitpos) const noexcept</argsstring>
+        <name>test_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="739" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="739" bodyend="743"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a5e66cae100707739c3debb695e9dd81a" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::set_</definition>
+        <argsstring>(size_t bitpos) noexcept</argsstring>
+        <name>set_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="745" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="745" bodyend="749"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ad867027ff27b836781c4624b78f7a0af" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::reset_</definition>
+        <argsstring>(size_t bitpos) noexcept</argsstring>
+        <name>reset_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="751" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="751" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a1fc0937f9fef53fd1f20488e1ca3c48a" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::nof_words_</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>nof_words_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="757" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="757" bodyend="757"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a0b2577fa13098bcedaa255c30c25a45f" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>word_t &amp;</type>
+        <definition>word_t&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::get_word_</definition>
+        <argsstring>(size_t bitidx) noexcept</argsstring>
+        <name>get_word_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitidx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="759" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="759" bodyend="759"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a8055620bc4f649ab2ff396a25c3fca55" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const word_t &amp;</type>
+        <definition>const word_t&amp; srsgnb::bounded_bitset&lt; N, reversed &gt;::get_word_</definition>
+        <argsstring>(size_t bitidx) const</argsstring>
+        <name>get_word_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitidx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="761" column="16" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="761" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a73d0577dc98f0d764a7d4891f1dc49e7" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::word_idx_</definition>
+        <argsstring>(size_t bitidx) const</argsstring>
+        <name>word_idx_</name>
+        <param>
+          <type>size_t</type>
+          <declname>bitidx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="763" column="10" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="763" bodyend="763"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a8bc5f54771d5357bee7cc5985817183c" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::assert_within_bounds_</definition>
+        <argsstring>(size_t pos, bool strict) const noexcept</argsstring>
+        <name>assert_within_bounds_</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="765" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="765" bodyend="771"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aec2afedf36497e711d63b76f5ad2417d" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::bounded_bitset&lt; N, reversed &gt;::assert_range_bounds_</definition>
+        <argsstring>(size_t startpos, size_t endpos) const noexcept</argsstring>
+        <name>assert_range_bounds_</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="773" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="773" bodyend="780"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1aae772be202312517329fe228b3d06d10" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_last_</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value) const noexcept</argsstring>
+        <name>find_last_</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="786" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="786" bodyend="810"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a715b67b6d23f4919a45a0cd5be7b10b3" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_first_</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value) const noexcept</argsstring>
+        <name>find_first_</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="812" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="812" bodyend="836"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a52d56a1464e76493630be3f6e612fb6a" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int srsgnb::bounded_bitset&lt; N, reversed &gt;::find_first_reversed_</definition>
+        <argsstring>(size_t startpos, size_t endpos, bool value) const noexcept</argsstring>
+        <name>find_first_reversed_</name>
+        <param>
+          <type>size_t</type>
+          <declname>startpos</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>endpos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="838" column="7" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="838" bodyend="864"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1ae2345af1523afeddead5e95ed8e2f7cf" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::find_first_word_</definition>
+        <argsstring>(size_t start, size_t stop, const C &amp;c) const</argsstring>
+        <name>find_first_word_</name>
+        <param>
+          <type>size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>const C &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterates the bitset word-wise, and for each word, compute the mask of active bits, and call callback that receives as an argument the word index and the active-bit mask. If the callback returns true, the iteration stops and the function returns true.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first bit index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>end bit index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback with signature &quot;bool(size_t word_index, word_t active_mask)&quot; called for each word of the bitset. When this callback returns true, the iteration is stopped. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if iteration was stopped early. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="876" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="876" bodyend="880"/>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a7e3a54e061a9173d147eb8b202867fc5" compoundref="bounded__bitset_8h" startline="353" endline="364">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::fill</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a7624f493781ea38d7ed7d75447bf8f65" compoundref="bounded__bitset_8h" startline="492" endline="498">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::all</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1a632322b0e6ea304b6201a54110614348" compoundref="bounded__bitset_8h" startline="538" endline="544">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::any</referencedby>
+        <referencedby refid="classsrsgnb_1_1bounded__bitset_1ae2345af1523afeddead5e95ed8e2f7cf" compoundref="bounded__bitset_8h" startline="876" endline="880">srsgnb::bounded_bitset&lt; uci_constants::MAX_NOF_HARQ_ACK_BITS &gt;::find_first_word_</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a273b50c76ef3f44207fb61770b3e3a5c" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::find_first_word_</definition>
+        <argsstring>(size_t start, size_t stop, const C &amp;c, std::true_type t) const</argsstring>
+        <name>find_first_word_</name>
+        <param>
+          <type>size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>const C &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>std::true_type</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="883" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="883" bodyend="889"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a2541c7bc2bfefa64fc198f7c09d8438c" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::bounded_bitset&lt; N, reversed &gt;::find_first_word_</definition>
+        <argsstring>(size_t start, size_t stop, const C &amp;c, std::false_type t) const</argsstring>
+        <name>find_first_word_</name>
+        <param>
+          <type>size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>const C &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>std::false_type</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="892" column="8" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="892" bodyend="909"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a9b4efe13c2cab57dd53ccfc2ecd8031f" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>word_t</type>
+        <definition>static word_t srsgnb::bounded_bitset&lt; N, reversed &gt;::maskbit</definition>
+        <argsstring>(size_t pos) noexcept</argsstring>
+        <name>maskbit</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="782" column="17" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="782" bodyend="782"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1bounded__bitset_1a2d962394888fb1af2bc0b5f07c7ab11c" prot="private" static="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t srsgnb::bounded_bitset&lt; N, reversed &gt;::max_nof_words_</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>max_nof_words_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/bounded_bitset.h" line="784" column="17" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="784" bodyend="784"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents a dynamically-sized bitset with an upper bound capacity of N bits. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref> is represented internally via an array of unsigned integers, with each integer storing a bitmap. This class also offers many standard logic manipulation methods, like ::any(), operators &amp;=, &amp;, |=, |, etc. and utility methods to convert the bitset into strings or integers. <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Upper bound for bitset size in number of bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reversed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit index order in memory. If set to false, the LSB of the first word corresponds to bit index 0. If set to true, the MSB of the last word corresponds to bit index 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::bounded_bitset&lt; N, reversed &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/bounded_bitset.h" line="205" column="1" bodyfile="include/srsgnb/adt/bounded_bitset.h" bodystart="204" bodyend="910"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ae9ecd17ccf96c1e7a343e75bac5689f5" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>all</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a7624f493781ea38d7ed7d75447bf8f65" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>all</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a9213f1b2bdbdd6f211245e06ebe94099" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>any</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a632322b0e6ea304b6201a54110614348" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>any</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aec2afedf36497e711d63b76f5ad2417d" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>assert_range_bounds_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a8bc5f54771d5357bee7cc5985817183c" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>assert_within_bounds_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1af72e3028139b8a919583649884718c9e" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bit_order</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a9fcfd2843af09b29b1cf0cec03f0ec40" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bits_per_word</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a6df2d27a117f983d68d7506d0932acf8" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bounded_bitset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aea0ece1c00866029ed7e13f7e08644b7" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bounded_bitset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a97b5c140c3bf35524eb0c18b134d1a13" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bounded_bitset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a7db4a016d2162a7aa02ebff1b6930e6e" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bounded_bitset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ae133ddc824fc5624c284384117f526c0" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>bounded_bitset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a615be774632d9e42d96489f81e688914" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ac144398b8b6c75c17e986b6027a7fea4" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>count</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aeaa9fee985ab1e606f54e91db606f68e" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>cur_size</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a7e3a54e061a9173d147eb8b202867fc5" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>fill</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a715b67b6d23f4919a45a0cd5be7b10b3" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_first_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a52d56a1464e76493630be3f6e612fb6a" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_first_reversed_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ae2345af1523afeddead5e95ed8e2f7cf" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_first_word_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a273b50c76ef3f44207fb61770b3e3a5c" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_first_word_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a2541c7bc2bfefa64fc198f7c09d8438c" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_first_word_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a74545186bfbbbf9519ac15da5f6c692c" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_highest</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a7158269bcdbef4b0f2591adde1c7cc0d" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_highest</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aae772be202312517329fe228b3d06d10" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_last_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a8bb3b1a08877033b44f0c6ad6e076a16" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_lowest</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ac43a0bb2d5561ed97fef93382264c675" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>find_lowest</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ab7d6397fb374a0408e54c6d570900bb8" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>flip</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1affd02728557a76e4b83530572d2f3e76" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>for_each</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a499bfbd9d35f85f3212aba9cc1a9d9ae" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>from_uint64</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a652f3dfc44a96f327bd920ece23f4dbd" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>get_bitidx_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a0b2577fa13098bcedaa255c30c25a45f" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>get_word_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a8055620bc4f649ab2ff396a25c3fca55" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>get_word_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1afa969406028f34c1dcb2f8b466df4321" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>is_contiguous</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a9b4efe13c2cab57dd53ccfc2ecd8031f" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>maskbit</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a2d962394888fb1af2bc0b5f07c7ab11c" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>max_nof_words_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a6a08199ec1951eb6d45cfb79bb4cef35" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>max_size</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a1fc0937f9fef53fd1f20488e1ca3c48a" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>nof_words_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ae7bc41c97f416df162913385bdff69f8" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>none</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aaec3ea73a8e246f195e1eeeac41515e0" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>operator!=</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aab6e6f675f949a0d5346ae9e3d55c383" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>operator&amp;=</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a3f15613054464e6f85c25244643421f8" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>operator==</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ac7f21bf08442e9afc0727cf2b4411d80" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>operator|=</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a4e15c10cdb01c007b1430988eb83a15e" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>operator~</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a28067d9a1c62435d18c5ac6cf0642c49" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>push_back</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a94bbefb1b17f89d5f73801aa70adf072" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>push_back</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a7d779cc2893c04ebb8264356f1596ab2" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>reset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a6de56a1ffa93ed25a261db85e51334ab" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>reset</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ad867027ff27b836781c4624b78f7a0af" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>reset_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aec43054ba69cc9b7c7a47079dc1f1283" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>resize</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a56c1ddcd9baab6a7ad5849d2a5323268" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>sanitize_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1af2620345786af61e5ed75adadf1e6156" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>set</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a5bbd852135056417380efef6f789ad98" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>set</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a5e66cae100707739c3debb695e9dd81a" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>set_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a5fc3c696fe29cd4275460b7ebdfb7ce4" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>size</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a303fd8436c800ab55b92a3de190200a6" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>slice</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1aec33b2aa0ad1fe21801ba05f9fcc61d9" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>test</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a3482763f2d4ef8d26dc4f0bbf5f4a0a8" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>test_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a511e7e076b37354738405afddd275b71" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>to_hex</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a06a43396dd6b863b9afa2da2a59bb56e" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>to_string</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a6fee80b0e9a17208ca9de4a0869c535b" prot="public" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>to_uint64</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1a73d0577dc98f0d764a7d4891f1dc49e7" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>word_idx_</name></member>
+      <member refid="classsrsgnb_1_1bounded__bitset_1ac596f817e35c4beedd0c616b6ee1dc0e" prot="private" virt="non-virtual"><scope>srsgnb::bounded_bitset</scope><name>word_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1csi__rs__processor__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::csi_rs_processor_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1csi__rs__processor" prot="public" virt="non-virtual">srsgnb::csi_rs_processor</basecompoundref>
+    <includes refid="csi__rs__processor__impl_8h" local="no">csi_rs_processor_impl.h</includes>
+    <innerclass refid="structsrsgnb_1_1csi__rs__processor__impl_1_1cdm__sequence" prot="private">srsgnb::csi_rs_processor_impl::cdm_sequence</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1a1f37207558c085f89129202bf69c004d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::csi_rs_processor_impl::MAX_SUBCS_PRB</definition>
+        <argsstring></argsstring>
+        <name>MAX_SUBCS_PRB</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>Maximum number of PRB subcarriers that the CSI-RS can occupy, deduced from TS 38.211 Table 7.4.1.5.3-1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="25" column="29" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1a6140392e70b40b63feb7ad83d6b9e4b9" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::csi_rs_processor_impl::CSI_RS_MAX_PORTS</definition>
+        <argsstring></argsstring>
+        <name>CSI_RS_MAX_PORTS</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+<para>Maximum currently supported ports for the CSI-RS generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="27" column="29" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1a91357efbcda735b756d1224e38ccd196" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::csi_rs_processor_impl::MAX_SEQ_LEN</definition>
+        <argsstring></argsstring>
+        <name>MAX_SEQ_LEN</name>
+        <initializer>= <ref refid="classsrsgnb_1_1csi__rs__processor__impl_1a1f37207558c085f89129202bf69c004d" kindref="member">MAX_SUBCS_PRB</ref> * <ref refid="namespacesrsgnb_1a093e25254bb1f64f3af8faafd11a9120" kindref="member">MAX_RB</ref></initializer>
+        <briefdescription>
+<para>Maximum sequence length for one OFDM symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="29" column="29" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1a236bdcec17462bf4dd3e6b9b38b8a849" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; const <ref refid="structsrsgnb_1_1csi__rs__processor__impl_1_1cdm__sequence" kindref="compound">cdm_sequence</ref>, 2 &gt;</type>
+        <definition>const std::array&lt; const csi_rs_processor_impl::cdm_sequence, 2 &gt; csi_rs_processor_impl::fd_cdm2_table</definition>
+        <argsstring></argsstring>
+        <name>fd_cdm2_table</name>
+        <initializer>= {{
+    {{+1.0f, +1.0f}, {0, 0, 0, 0}},
+    {{+1.0f, -1.0f}, {0, 0, 0, 0}},
+}}</initializer>
+        <briefdescription>
+<para>FD-CDM2 sequence table, as defined in TS 38.211 Table 7.4.1.5.3-3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="41" column="27" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1csi__rs__processor__impl_1a63f9f6281757db403a365317d75a8503" compoundref="csi__rs__processor__impl_8cpp" startline="705" endline="767">apply_cdm</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1a9594c6b8deed4cb1d918d4848d0776c3" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; const <ref refid="structsrsgnb_1_1csi__rs__processor__impl_1_1cdm__sequence" kindref="compound">cdm_sequence</ref>, 4 &gt;</type>
+        <definition>const std::array&lt; const csi_rs_processor_impl::cdm_sequence, 4 &gt; csi_rs_processor_impl::cdm4_fd2_td2_table</definition>
+        <argsstring></argsstring>
+        <name>cdm4_fd2_td2_table</name>
+        <initializer>= {{
+    {{+1.0f, +1.0f}, {+1.0f, +1.0f, 0, 0}},
+    {{+1.0f, -1.0f}, {+1.0f, +1.0f, 0, 0}},
+    {{+1.0f, +1.0f}, {+1.0f, -1.0f, 0, 0}},
+    {{+1.0f, -1.0f}, {+1.0f, -1.0f, 0, 0}},
+}}</initializer>
+        <briefdescription>
+<para>CDM4-FD2-TD2 sequence table, as defined in TS 38.211 Table 7.4.1.5.3-4. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="43" column="27" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1csi__rs__processor__impl_1a63f9f6281757db403a365317d75a8503" compoundref="csi__rs__processor__impl_8cpp" startline="705" endline="767">apply_cdm</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1ac2507d024357c8e4e7a9f119d9d233bf" prot="private" static="yes" mutable="no">
+        <type>const std::array&lt; const <ref refid="structsrsgnb_1_1csi__rs__processor__impl_1_1cdm__sequence" kindref="compound">cdm_sequence</ref>, 8 &gt;</type>
+        <definition>const std::array&lt; const csi_rs_processor_impl::cdm_sequence, 8 &gt; csi_rs_processor_impl::cdm8_fd2_td4_table</definition>
+        <argsstring></argsstring>
+        <name>cdm8_fd2_td4_table</name>
+        <initializer>= {{
+    {{+1.0f, +1.0f}, {+1.0f, +1.0f, +1.0f, +1.0f}},
+    {{+1.0f, -1.0f}, {+1.0f, +1.0f, +1.0f, +1.0f}},
+    {{+1.0f, +1.0f}, {+1.0f, -1.0f, +1.0f, -1.0f}},
+    {{+1.0f, -1.0f}, {+1.0f, -1.0f, +1.0f, -1.0f}},
+    {{+1.0f, +1.0f}, {+1.0f, +1.0f, -1.0f, -1.0f}},
+    {{+1.0f, -1.0f}, {+1.0f, +1.0f, -1.0f, -1.0f}},
+    {{+1.0f, +1.0f}, {+1.0f, -1.0f, -1.0f, +1.0f}},
+    {{+1.0f, -1.0f}, {+1.0f, -1.0f, -1.0f, +1.0f}},
+}}</initializer>
+        <briefdescription>
+<para>CDM8-FD2-TD4 sequence table, as defined in TS 38.211 Table 7.4.1.5.3-5. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="45" column="27" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1csi__rs__processor__impl_1a63f9f6281757db403a365317d75a8503" compoundref="csi__rs__processor__impl_8cpp" startline="705" endline="767">apply_cdm</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1csi__rs__processor__impl_1aef8c68d7d16368ba38879047c210113b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::csi_rs_processor_impl::prg</definition>
+        <argsstring></argsstring>
+        <name>prg</name>
+        <briefdescription>
+<para>Pseudo-random sequece generator for the NZP-CSI-RS signal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="48" column="19" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1csi__rs__processor__impl_1affdb13875a9f5e03379ffa0987993681" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::csi_rs_processor_impl::generate_sequence</definition>
+        <argsstring>(span&lt; cf_t &gt; sequence, unsigned symbol, const config_t &amp;config) const</argsstring>
+        <name>generate_sequence</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>sequence</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1csi__rs__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates the NZP-CSI-RS sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method implements the NZP-CSI-RS sequence generation, as described in TS 38.211 Section 7.4.1.5.2. The generated sequence does not include the CDM processing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The returned NZP-CSI-RS sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The symbol index within the slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the higher layer parameters necessary to generate the sequence.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The generated sequence length is determined by the size of the provided <computeroutput>sequence</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="60" column="8" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.cpp" bodystart="588" bodyend="616"/>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a657b86be63d18ccf6aa8384bbc71b83a" compoundref="csi__rs__processor_8h" startline="57">srsgnb::csi_rs_processor::config_t::slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a3c10067548735ef432b9c9186f127b8e" compoundref="slot__point_8h" startline="90" endline="90">srsgnb::slot_point::slot_index</references>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a84cdfa52bcd0b506f409f6bca2ccc7ed" compoundref="csi__rs__processor_8h" startline="59">srsgnb::csi_rs_processor::config_t::cp</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1adb5502b42f98263c96921073aca1aa38" compoundref="csi__rs__processor_8h" startline="83">srsgnb::csi_rs_processor::config_t::scrambling_id</references>
+        <references refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" compoundref="math__utils_8h" startline="44" endline="47">srsgnb::pow2</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a7897d3e26fcf51f13e20128173aa49da" compoundref="csi__rs__processor_8h" startline="85">srsgnb::csi_rs_processor::config_t::amplitude</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1csi__rs__processor__impl_1a7425b83569913fb6791e0e1a0de5343f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::csi_rs_processor_impl::build_grid_allocation</definition>
+        <argsstring>(span&lt; re_pattern &gt; pattern_list, const config_t &amp;config)</argsstring>
+        <name>build_grid_allocation</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="structsrsgnb_1_1re__pattern" kindref="compound">re_pattern</ref> &gt;</type>
+          <declname>pattern_list</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1csi__rs__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates the resource grid allocation patterns for the CSI-RS signals. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method implements the CSI-RS signal mapping as described in TS 38.211 Section 7.4.1.5.3.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pattern_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a list of RE patterns that contain the CSI-RS mapping for each port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the higher layer parameters that determine the resource grid mapping.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This method expects <computeroutput>pattern_list</computeroutput> to contain as many RE patterns as the number of ports in the config. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="70" column="8" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.cpp" bodystart="480" bodyend="545"/>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a07491c15fe48364f1aa7f61b75fc03b1" compoundref="csi__rs__processor_8h" startline="92">srsgnb::csi_rs_processor::config_t::ports</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1ace173cd1a39281ef1d8061094b1a3f01" compoundref="csi__rs__processor_8h" startline="65">srsgnb::csi_rs_processor::config_t::csi_rs_mapping_table_row</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1ac5195bee9d28b6e55416e785d960da68" compoundref="csi__rs__processor_8h" startline="67">srsgnb::csi_rs_processor::config_t::freq_allocation_ref_idx</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a93ed8965a2530153ef04d424dc3b20df" compoundref="csi__rs__processor_8h" startline="71">srsgnb::csi_rs_processor::config_t::symbol_l0</references>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1csi__rs__processor__impl_1a63f9f6281757db403a365317d75a8503" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void csi_rs_processor_impl::apply_cdm</definition>
+        <argsstring>(span&lt; cf_t &gt; seq_out, span&lt; const cf_t &gt; seq_in, const csi_rs_cdm_type cdm, const unsigned cdm_idx, const unsigned l_idx)</argsstring>
+        <name>apply_cdm</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>seq_out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>seq_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesrsgnb_1a1f9422ae18765516037c1ecc2c135066" kindref="member">csi_rs_cdm_type</ref></type>
+          <declname>cdm</declname>
+        </param>
+        <param>
+          <type>const unsigned</type>
+          <declname>cdm_idx</declname>
+        </param>
+        <param>
+          <type>const unsigned</type>
+          <declname>l_idx</declname>
+        </param>
+        <briefdescription>
+<para>Applies the CDM codes to the NZP-CSI-RS sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This helper method takes an NZP-CSI-RS sequence pertaining to a single OFDM symbol, and applies the corresponding CDM code, as defined in TS 38.211 Section 7.4.1.5.3.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">seq_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The returned NZP-CSI-RS sequence with CDM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cdm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CDM type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cdm_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The applied CDM sequence. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <formula id="25">$l&apos;$</formula> symbol index within the <formula id="241">$w_t$</formula> TD-CDM sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="82" column="8" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.cpp" bodystart="705" bodyend="767"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="namespacesrsgnb_1a1f9422ae18765516037c1ecc2c135066a3e8a0604885219c8f0c36b2dbca5d651">srsgnb::FD_CDM2</references>
+        <references refid="classsrsgnb_1_1csi__rs__processor__impl_1a236bdcec17462bf4dd3e6b9b38b8a849" compoundref="csi__rs__processor__impl_8h" startline="41">fd_cdm2_table</references>
+        <references refid="namespacesrsgnb_1a1f9422ae18765516037c1ecc2c135066a587dd1a22ebf3b43974590cb70cf8aa1">srsgnb::CDM4_FD2_TD2</references>
+        <references refid="namespacesrsgnb_1a1f9422ae18765516037c1ecc2c135066ae18065a8375b6043db818ecbf9c95584">srsgnb::CDM8_FD2_TD4</references>
+        <references refid="classsrsgnb_1_1csi__rs__processor__impl_1a9594c6b8deed4cb1d918d4848d0776c3" compoundref="csi__rs__processor__impl_8h" startline="43">cdm4_fd2_td2_table</references>
+        <references refid="classsrsgnb_1_1csi__rs__processor__impl_1ac2507d024357c8e4e7a9f119d9d233bf" compoundref="csi__rs__processor__impl_8h" startline="45">cdm8_fd2_td4_table</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1csi__rs__processor__impl_1a7a9c5b3132eff30c3baa10dcc651f25e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::csi_rs_processor_impl::csi_rs_processor_impl</definition>
+        <argsstring>(std::unique_ptr&lt; pseudo_random_generator &gt; prg_)</argsstring>
+        <name>csi_rs_processor_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>prg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="89" column="3" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1csi__rs__processor__impl_1a30c332617ff3e1d643e6a61e5dfe86db" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::csi_rs_processor_impl::map</definition>
+        <argsstring>(resource_grid_writer &amp;grid, const config_t &amp;config) override</argsstring>
+        <name>map</name>
+        <reimplements refid="classsrsgnb_1_1csi__rs__processor_1a0362a37da10864ccf6fe236034248a89">map</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1csi__rs__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates and maps the NZP-CSI-RS, according to TS 38.211, Section 7.4.1.5. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required configuration to generate and map the signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="94" column="8" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.cpp" bodystart="652" bodyend="703"/>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a07491c15fe48364f1aa7f61b75fc03b1" compoundref="csi__rs__processor_8h" startline="92">srsgnb::csi_rs_processor::config_t::ports</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a38677b588aba7ebb876c17307764a7fa" compoundref="csi__rs__processor_8h" startline="77">srsgnb::csi_rs_processor::config_t::cdm</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a761e2dd7d37ec73a3023b3e6c2b15bb0" compoundref="csi__rs__processor_8h" startline="89">srsgnb::csi_rs_processor::config_t::pmi</references>
+        <references refid="structsrsgnb_1_1re__pattern_1aa1e788415a4c3bf1b29716f60154e52d" compoundref="re__pattern_8h" startline="32">srsgnb::re_pattern::symbols</references>
+        <references refid="namespacesrsgnb_1a524380b60d9cee8d38b67a46de799154" compoundref="cyclic__prefix_8h" startline="99" endline="105">srsgnb::get_nsymb_per_slot</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a84cdfa52bcd0b506f409f6bca2ccc7ed" compoundref="csi__rs__processor_8h" startline="59">srsgnb::csi_rs_processor::config_t::cp</references>
+        <references refid="structsrsgnb_1_1re__pattern_1a8fc78e95d1602645c2317f3b7970731f" compoundref="re__pattern_8cpp" startline="23" endline="45">srsgnb::re_pattern::get_inclusion_mask</references>
+        <references refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" compoundref="span_8h" startline="207" endline="211">srsgnb::span&lt; T &gt;::subspan</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a82796fa9348f23fea723fe31ee2f7494" compoundref="csi__rs__processor_8h" startline="61">srsgnb::csi_rs_processor::config_t::start_rb</references>
+        <references refid="namespacesrsgnb_1a1691e371d39f897676e1185dce645bb1" compoundref="constants_8h" startline="19">srsgnb::NRE</references>
+        <references refid="structsrsgnb_1_1csi__rs__processor_1_1config__t_1a5c71e1490ade09ca09a255489469724e" compoundref="csi__rs__processor_8h" startline="63">srsgnb::csi_rs_processor::config_t::nof_rb</references>
+        <references refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32">srsgnb::resource_grid_writer::put</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Defines a NZP-CSI-RS signal generator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::csi_rs_processor</label>
+        <link refid="classsrsgnb_1_1csi__rs__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::csi_rs_processor_impl</label>
+        <link refid="classsrsgnb_1_1csi__rs__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::csi_rs_processor</label>
+        <link refid="classsrsgnb_1_1csi__rs__processor"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::csi_rs_processor_impl</label>
+        <link refid="classsrsgnb_1_1csi__rs__processor__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" line="22" column="1" bodyfile="lib/phy/upper/signal_processors/csi_rs_processor_impl.h" bodystart="21" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a63f9f6281757db403a365317d75a8503" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>apply_cdm</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a7425b83569913fb6791e0e1a0de5343f" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>build_grid_allocation</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a9594c6b8deed4cb1d918d4848d0776c3" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>cdm4_fd2_td2_table</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1ac2507d024357c8e4e7a9f119d9d233bf" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>cdm8_fd2_td4_table</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a6140392e70b40b63feb7ad83d6b9e4b9" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>CSI_RS_MAX_PORTS</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a7a9c5b3132eff30c3baa10dcc651f25e" prot="public" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>csi_rs_processor_impl</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a236bdcec17462bf4dd3e6b9b38b8a849" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>fd_cdm2_table</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1affdb13875a9f5e03379ffa0987993681" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>generate_sequence</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a30c332617ff3e1d643e6a61e5dfe86db" prot="public" virt="virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>map</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor_1a791950158e33c7b8822171fdc9e5df43" prot="public" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>MAX_NOF_K_INDEXES</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a91357efbcda735b756d1224e38ccd196" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>MAX_SEQ_LEN</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1a1f37207558c085f89129202bf69c004d" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>MAX_SUBCS_PRB</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor__impl_1aef8c68d7d16368ba38879047c210113b" prot="private" virt="non-virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>prg</name></member>
+      <member refid="classsrsgnb_1_1csi__rs__processor_1a7eb85d483d1f47cbbc4b53bb9d0f9786" prot="public" virt="virtual"><scope>srsgnb::csi_rs_processor_impl</scope><name>~csi_rs_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

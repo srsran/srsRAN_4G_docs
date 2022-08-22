@@ -1,0 +1,789 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1byte__buffer__segment" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::byte_buffer_segment</compoundname>
+    <includes refid="byte__buffer_8h" local="no">byte_buffer.h</includes>
+    <innerclass refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage" prot="public">srsgnb::byte_buffer_segment::metadata_storage</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1byte__buffer__segment_1ab5857246cd0faa9df18999331ca1726c" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>using srsgnb::byte_buffer_segment::value_type =  uint8_t</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="32" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1byte__buffer__segment_1a774cbcf01b3acca551f9e36c5c97f6f5" prot="public" static="no">
+        <type>uint8_t *</type>
+        <definition>using srsgnb::byte_buffer_segment::iterator =  uint8_t*</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="33" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsrsgnb_1_1byte__buffer__segment_1a94241a8a04c6490a0e2f628a198b52e3" prot="public" static="no">
+        <type>const uint8_t *</type>
+        <definition>using srsgnb::byte_buffer_segment::const_iterator =  const uint8_t*</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="34" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1ad48e988f89736ddde162735c513a4c88" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::byte_buffer_segment::SEGMENT_SIZE</definition>
+        <argsstring></argsstring>
+        <name>SEGMENT_SIZE</name>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="29" column="27" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1a0cda83a892d1da1cf8e353c1646645c6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::byte_buffer_segment::DEFAULT_HEADROOM</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_HEADROOM</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="30" column="27" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1ab2725a8ebd4658fe67500dedda8e911c" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage" kindref="compound">metadata_storage</ref></type>
+        <definition>metadata_storage srsgnb::byte_buffer_segment::metadata_</definition>
+        <argsstring></argsstring>
+        <name>metadata_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="206" column="37" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1a9d5024697fc245be7169bcfcf011c458" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, SEGMENT_SIZE &gt;</type>
+        <definition>std::array&lt;uint8_t, SEGMENT_SIZE&gt; srsgnb::byte_buffer_segment::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="207" column="14" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1ad925770ecaaacf60ba8cdd514fd9a52e" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* srsgnb::byte_buffer_segment::payload_data_</definition>
+        <argsstring></argsstring>
+        <name>payload_data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="208" column="36" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1byte__buffer__segment_1a856052dcc283eae8f64c836c6399f9ba" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* srsgnb::byte_buffer_segment::payload_data_end_</definition>
+        <argsstring></argsstring>
+        <name>payload_data_end_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="209" column="36" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a204a0a9c212f4a42db6c8b66077bc8fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::byte_buffer_segment::byte_buffer_segment</definition>
+        <argsstring>(size_t headroom=DEFAULT_HEADROOM)</argsstring>
+        <name>byte_buffer_segment</name>
+        <param>
+          <type>size_t</type>
+          <declname>headroom</declname>
+          <defval>DEFAULT_HEADROOM</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="41" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="41" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a8685bed08784bead27abba2668fcce55" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::byte_buffer_segment::byte_buffer_segment</definition>
+        <argsstring>(const byte_buffer_segment &amp;other) noexcept</argsstring>
+        <name>byte_buffer_segment</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="48" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ab7f28cbff823579add334e834bd0cb9a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::byte_buffer_segment::byte_buffer_segment</definition>
+        <argsstring>(byte_buffer_segment &amp;&amp;other) noexcept</argsstring>
+        <name>byte_buffer_segment</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="56" column="3" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="56" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ad93da6eff67c9d791a4b69108f26e1fe" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;</type>
+        <definition>byte_buffer_segment&amp; srsgnb::byte_buffer_segment::operator=</definition>
+        <argsstring>(const byte_buffer_segment &amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="64" column="23" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="64" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ab0424d6aebdae3f4a519cb3760ece4a8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;</type>
+        <definition>byte_buffer_segment&amp; srsgnb::byte_buffer_segment::operator=</definition>
+        <argsstring>(byte_buffer_segment &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="73" column="23" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="73" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1accc270fbbb423a04c5468d4acf15b8e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::byte_buffer_segment::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Checks whether segment has no payload. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="84" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ac8d4e465bcc450fb22a5519270cfdd5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::byte_buffer_segment::headroom</definition>
+        <argsstring>() const</argsstring>
+        <name>headroom</name>
+        <briefdescription>
+<para>Returns how much space in bytes there is at the head of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="87" column="10" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="87" bodyend="87"/>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1a4bfebeb1a6c81da7b9b6d31f168a6c99" compoundref="byte__buffer_8h" startline="119" endline="124">prepend</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1a39138edd998ca789b1fe1a6d61b24351" compoundref="byte__buffer_8h" startline="128" endline="132">reserve_prepend</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1a42b6c83bc239fb44b991bd8124ceeee0" compoundref="byte__buffer_8h" startline="149" endline="153">resize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1aac9a16d6995efe3c2dffdcfe79c8c63d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::byte_buffer_segment::length</definition>
+        <argsstring>() const</argsstring>
+        <name>length</name>
+        <briefdescription>
+<para>Returns size in bytes of segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="90" column="10" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="90" bodyend="90"/>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1a65d7ad1ad946eb687b1c8e753d440b09" compoundref="byte__buffer_8h" startline="135" endline="139">trim_head</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1a07141ea1a5024ee86f14f7d992dd764e" compoundref="byte__buffer_8h" startline="142" endline="146">trim_tail</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a3356d4c78747efbdeea3a610e6152585" compoundref="byte__buffer_8h" startline="498" endline="506">srsgnb::byte_buffer::trim_tail</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a2b3e9910568a2a13414a29966bce35f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::byte_buffer_segment::tailroom</definition>
+        <argsstring>() const</argsstring>
+        <name>tailroom</name>
+        <briefdescription>
+<para>Returns how much space in bytes there is at the tail of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="93" column="10" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="93" bodyend="93"/>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1aaaea66e00022e9c938bd8cec6fec78a4" compoundref="byte__buffer_8h" startline="100" endline="108">append</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a43805fbaf448988220ddc9385b3db2dd" compoundref="byte__buffer_8h" startline="362" endline="377">srsgnb::byte_buffer::append</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a89eb43226b396cbeb1d9007761a6fc7d" compoundref="byte__buffer_8h" startline="557" endline="587">srsgnb::byte_buffer::resize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ad1d0aa7629be1d015c1c3419cf2bb195" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::append</definition>
+        <argsstring>(span&lt; const uint8_t &gt; bytes)</argsstring>
+        <name>append</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Appends a span of bytes at the tail of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="96" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="96" bodyend="96"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1ad1d0aa7629be1d015c1c3419cf2bb195" compoundref="byte__buffer_8h" startline="96" endline="96">append</references>
+        <referencedby refid="classsrsgnb_1_1byte__buffer__segment_1ad1d0aa7629be1d015c1c3419cf2bb195" compoundref="byte__buffer_8h" startline="96" endline="96">append</referencedby>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a43805fbaf448988220ddc9385b3db2dd" compoundref="byte__buffer_8h" startline="362" endline="377">srsgnb::byte_buffer::append</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1aaaea66e00022e9c938bd8cec6fec78a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename It</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::append</definition>
+        <argsstring>(It it_begin, It it_end)</argsstring>
+        <name>append</name>
+        <param>
+          <type>It</type>
+          <declname>it_begin</declname>
+        </param>
+        <param>
+          <type>It</type>
+          <declname>it_end</declname>
+        </param>
+        <briefdescription>
+<para>Appends a iterator range of bytes at the tail of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="100" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="100" bodyend="108"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1a2b3e9910568a2a13414a29966bce35f2" compoundref="byte__buffer_8h" startline="93" endline="93">tailroom</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ac0fa3f5de9e35204c21cda5177e95cb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::append</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>append</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+<para>Appends single byte at the tail of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="111" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="111" bodyend="116"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1a2b3e9910568a2a13414a29966bce35f2" compoundref="byte__buffer_8h" startline="93" endline="93">tailroom</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a4bfebeb1a6c81da7b9b6d31f168a6c99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::prepend</definition>
+        <argsstring>(span&lt; const uint8_t &gt; bytes)</argsstring>
+        <name>prepend</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Prepends segment with provided span of bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="119" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="119" bodyend="124"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1ac8d4e465bcc450fb22a5519270cfdd5f" compoundref="byte__buffer_8h" startline="87" endline="87">headroom</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a39138edd998ca789b1fe1a6d61b24351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::reserve_prepend</definition>
+        <argsstring>(size_t nof_bytes)</argsstring>
+        <name>reserve_prepend</name>
+        <param>
+          <type>size_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reserves headroom space in segment. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nof_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to reserve. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="128" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="128" bodyend="132"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1ac8d4e465bcc450fb22a5519270cfdd5f" compoundref="byte__buffer_8h" startline="87" endline="87">headroom</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a65d7ad1ad946eb687b1c8e753d440b09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::trim_head</definition>
+        <argsstring>(size_t nof_bytes)</argsstring>
+        <name>trim_head</name>
+        <param>
+          <type>size_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Removes &quot;nof_bytes&quot; from the head of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="135" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="135" bodyend="139"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1aac9a16d6995efe3c2dffdcfe79c8c63d" compoundref="byte__buffer_8h" startline="90" endline="90">length</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a07141ea1a5024ee86f14f7d992dd764e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::trim_tail</definition>
+        <argsstring>(size_t nof_bytes)</argsstring>
+        <name>trim_tail</name>
+        <param>
+          <type>size_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Removes &quot;nof_bytes&quot; from the tail of the segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="142" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="142" bodyend="146"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1aac9a16d6995efe3c2dffdcfe79c8c63d" compoundref="byte__buffer_8h" startline="90" endline="90">length</references>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a3356d4c78747efbdeea3a610e6152585" compoundref="byte__buffer_8h" startline="498" endline="506">srsgnb::byte_buffer::trim_tail</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a42b6c83bc239fb44b991bd8124ceeee0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::byte_buffer_segment::resize</definition>
+        <argsstring>(size_t nof_bytes)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Resizes payload of segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="149" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="149" bodyend="153"/>
+        <references refid="classsrsgnb_1_1byte__buffer__segment_1ac8d4e465bcc450fb22a5519270cfdd5f" compoundref="byte__buffer_8h" startline="87" endline="87">headroom</references>
+        <referencedby refid="classsrsgnb_1_1byte__buffer_1a89eb43226b396cbeb1d9007761a6fc7d" compoundref="byte__buffer_8h" startline="557" endline="587">srsgnb::byte_buffer::resize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1aca4275a4f0944905f39fae3187afead5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t &amp;</type>
+        <definition>uint8_t&amp; srsgnb::byte_buffer_segment::operator[]</definition>
+        <argsstring>(size_t idx)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="155" column="11" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="155" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a1ef6d267cff81c61b1aef5f924afd99c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t &amp;</type>
+        <definition>const uint8_t&amp; srsgnb::byte_buffer_segment::operator[]</definition>
+        <argsstring>(size_t idx) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="160" column="17" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="160" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a23169d296b0df8555471d8a16447c8a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* srsgnb::byte_buffer_segment::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="166" column="17" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="166" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a685e82db973a0eda12ac28714a8cf533" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t* srsgnb::byte_buffer_segment::data</definition>
+        <argsstring>()</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="167" column="17" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a57e920bd4cda7d5beb4662f13562a41b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t &amp;</type>
+        <definition>uint8_t&amp; srsgnb::byte_buffer_segment::back</definition>
+        <argsstring>()</argsstring>
+        <name>back</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="169" column="11" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="169" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a7baa521c3b04bb213616ce693c052c14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t &amp;</type>
+        <definition>const uint8_t&amp; srsgnb::byte_buffer_segment::back</definition>
+        <argsstring>() const</argsstring>
+        <name>back</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="174" column="17" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="174" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ae8b71f73109b1213949e459be2d73928" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator srsgnb::byte_buffer_segment::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="180" column="18" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a589dc341bef020fae3f10b047e69a8c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator srsgnb::byte_buffer_segment::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="181" column="18" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a084ddc8de3b8f11b68f307b63ef4acd0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator srsgnb::byte_buffer_segment::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="182" column="18" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a3c2201f5970970a846712a93f388d1f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator srsgnb::byte_buffer_segment::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="183" column="18" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1afac02f047aae15e22afeadb5e3317d69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage" kindref="compound">metadata_storage</ref> &amp;</type>
+        <definition>metadata_storage&amp; srsgnb::byte_buffer_segment::metadata</definition>
+        <argsstring>()</argsstring>
+        <name>metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="185" column="26" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1af66ce94571335177ecadca8ce739785e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage" kindref="compound">metadata_storage</ref> &amp;</type>
+        <definition>const metadata_storage&amp; srsgnb::byte_buffer_segment::metadata</definition>
+        <argsstring>() const</argsstring>
+        <name>metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="186" column="26" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="186" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1aa90dc2957c1007a6a19f4dbcafacbe56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> *</type>
+        <definition>byte_buffer_segment* srsgnb::byte_buffer_segment::next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="188" column="29" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a41e1c90e5865892b3e0a79a5412f6d7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classsrsgnb_1_1byte__buffer__segment" kindref="compound">byte_buffer_segment</ref> *</type>
+        <definition>const byte_buffer_segment* srsgnb::byte_buffer_segment::next</definition>
+        <argsstring>() const</argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="189" column="29" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1a744a19223c3c8a4221c3aea9389b1d12" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Container</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::byte_buffer_segment::operator==</definition>
+        <argsstring>(const Container &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Container &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="192" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="192" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ac16651ea4711eb0aaada2a7d94206349" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Container</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::byte_buffer_segment::operator!=</definition>
+        <argsstring>(const Container &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const Container &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="198" column="8" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="198" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1ac48ed7579ae0945ea37ec7d1ae250094" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t srsgnb::byte_buffer_segment::capacity</definition>
+        <argsstring>()</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="81" column="17" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1byte__buffer__segment_1aef6a9f8c8ee0a924bf3b9e0f0ea940cf" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::byte_buffer_segment::tailroom_start</definition>
+        <argsstring>() const</argsstring>
+        <name>tailroom_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/byte_buffer.h" line="204" column="10" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="204" bodyend="204"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Memory segment of fixed size specified by SEGMENT_SIZE. Each segment buffer is divided into three parts [ HEADROOM | PAYLOAD | TAILROOM ] A segment also contains a header region that is used to create an intrusive linked list. Bytes can be added in the HEADROOM region via <ref refid="classsrsgnb_1_1byte__buffer__segment_1a4bfebeb1a6c81da7b9b6d31f168a6c99" kindref="member">prepend()</ref> or in the TAILROOM via <ref refid="classsrsgnb_1_1byte__buffer__segment_1ad1d0aa7629be1d015c1c3419cf2bb195" kindref="member">append()</ref> </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/byte_buffer.h" line="27" column="1" bodyfile="include/srsgnb/adt/byte_buffer.h" bodystart="26" bodyend="210"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ad1d0aa7629be1d015c1c3419cf2bb195" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>append</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1aaaea66e00022e9c938bd8cec6fec78a4" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>append</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ac0fa3f5de9e35204c21cda5177e95cb0" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>append</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a57e920bd4cda7d5beb4662f13562a41b" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>back</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a7baa521c3b04bb213616ce693c052c14" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>back</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ae8b71f73109b1213949e459be2d73928" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a084ddc8de3b8f11b68f307b63ef4acd0" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>begin</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a9d5024697fc245be7169bcfcf011c458" prot="private" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>buffer</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a204a0a9c212f4a42db6c8b66077bc8fa" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>byte_buffer_segment</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a8685bed08784bead27abba2668fcce55" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>byte_buffer_segment</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ab7f28cbff823579add334e834bd0cb9a" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>byte_buffer_segment</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ac48ed7579ae0945ea37ec7d1ae250094" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>capacity</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a94241a8a04c6490a0e2f628a198b52e3" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>const_iterator</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a23169d296b0df8555471d8a16447c8a8" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>data</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a685e82db973a0eda12ac28714a8cf533" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>data</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a0cda83a892d1da1cf8e353c1646645c6" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>DEFAULT_HEADROOM</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1accc270fbbb423a04c5468d4acf15b8e2" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>empty</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a589dc341bef020fae3f10b047e69a8c2" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a3c2201f5970970a846712a93f388d1f0" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>end</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ac8d4e465bcc450fb22a5519270cfdd5f" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>headroom</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a774cbcf01b3acca551f9e36c5c97f6f5" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>iterator</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1aac9a16d6995efe3c2dffdcfe79c8c63d" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>length</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1afac02f047aae15e22afeadb5e3317d69" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>metadata</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1af66ce94571335177ecadca8ce739785e" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>metadata</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ab2725a8ebd4658fe67500dedda8e911c" prot="private" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>metadata_</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1aa90dc2957c1007a6a19f4dbcafacbe56" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>next</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a41e1c90e5865892b3e0a79a5412f6d7a" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>next</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ac16651ea4711eb0aaada2a7d94206349" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator!=</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ad93da6eff67c9d791a4b69108f26e1fe" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ab0424d6aebdae3f4a519cb3760ece4a8" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a744a19223c3c8a4221c3aea9389b1d12" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator==</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1aca4275a4f0944905f39fae3187afead5" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a1ef6d267cff81c61b1aef5f924afd99c" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>operator[]</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ad925770ecaaacf60ba8cdd514fd9a52e" prot="private" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>payload_data_</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a856052dcc283eae8f64c836c6399f9ba" prot="private" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>payload_data_end_</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a4bfebeb1a6c81da7b9b6d31f168a6c99" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>prepend</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a39138edd998ca789b1fe1a6d61b24351" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>reserve_prepend</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a42b6c83bc239fb44b991bd8124ceeee0" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>resize</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ad48e988f89736ddde162735c513a4c88" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>SEGMENT_SIZE</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a2b3e9910568a2a13414a29966bce35f2" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>tailroom</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1aef6a9f8c8ee0a924bf3b9e0f0ea940cf" prot="private" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>tailroom_start</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a65d7ad1ad946eb687b1c8e753d440b09" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>trim_head</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1a07141ea1a5024ee86f14f7d992dd764e" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>trim_tail</name></member>
+      <member refid="classsrsgnb_1_1byte__buffer__segment_1ab5857246cd0faa9df18999331ca1726c" prot="public" virt="non-virtual"><scope>srsgnb::byte_buffer_segment</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

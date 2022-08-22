@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_du::mac_sdu_tx_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1mac__sdu__tx__builder" prot="public" virt="non-virtual">srsgnb::mac_sdu_tx_builder</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a5c718f000968cff7ea19ecda2b347d09" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rlc__tx__pdu__transmitter" kindref="compound">rlc_tx_pdu_transmitter</ref> &amp;</type>
+        <definition>rlc_tx_pdu_transmitter&amp; srsgnb::srs_du::mac_sdu_tx_adapter::rlc_handler</definition>
+        <argsstring></argsstring>
+        <name>rlc_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="40" column="26" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a1a14fd625fb20ab5c4bce0ef8d0d3859" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_du::mac_sdu_tx_adapter::mac_sdu_tx_adapter</definition>
+        <argsstring>(rlc_tx_pdu_transmitter &amp;rlc_tx)</argsstring>
+        <name>mac_sdu_tx_adapter</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rlc__tx__pdu__transmitter" kindref="compound">rlc_tx_pdu_transmitter</ref> &amp;</type>
+          <declname>rlc_tx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="33" column="12" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a9a74c081094614d7ad9eb97f0e53566c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__slice__chain" kindref="compound">byte_buffer_slice_chain</ref></type>
+        <definition>byte_buffer_slice_chain srsgnb::srs_du::mac_sdu_tx_adapter::on_new_tx_sdu</definition>
+        <argsstring>(unsigned nof_bytes) override</argsstring>
+        <name>on_new_tx_sdu</name>
+        <reimplements refid="classsrsgnb_1_1mac__sdu__tx__builder_1a3a16214c27595746d1935250400c2d14">on_new_tx_sdu</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called by MAC to generate an MAC Tx SDU for the respective logical channel. <simplesect kind="return"><para>Generated MAC SDU. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="35" column="27" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="35" bodyend="35"/>
+        <references refid="classsrsgnb_1_1rlc__tx__pdu__transmitter_1a1985838f9e457439b8de6a7152f46566">srsgnb::rlc_tx_pdu_transmitter::pull_pdu</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1aec783b0f91d69e72db2cc25b470e29d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::srs_du::mac_sdu_tx_adapter::on_buffer_state_update</definition>
+        <argsstring>() override</argsstring>
+        <name>on_buffer_state_update</name>
+        <reimplements refid="classsrsgnb_1_1mac__sdu__tx__builder_1a5f3f82e1c2ca28604f0afd887f24fd74">on_buffer_state_update</reimplements>
+        <briefdescription>
+<para>Called by MAC to obtain the DL BSR for the respective logical channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/du_manager/adapters/mac_adapters.h" line="37" column="12" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="37" bodyend="37"/>
+        <references refid="classsrsgnb_1_1rlc__tx__pdu__transmitter_1a4788ef0e6787f3fdbaa1dc4c9f5ee6d0">srsgnb::rlc_tx_pdu_transmitter::get_buffer_state</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::mac_sdu_tx_builder</label>
+        <link refid="classsrsgnb_1_1mac__sdu__tx__builder"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::mac_sdu_tx_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::mac_sdu_tx_builder</label>
+        <link refid="classsrsgnb_1_1mac__sdu__tx__builder"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::rlc_tx_pdu_transmitter</label>
+        <link refid="classsrsgnb_1_1rlc__tx__pdu__transmitter"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::mac_sdu_tx_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-rlc_handler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/du_manager/adapters/mac_adapters.h" line="31" column="1" bodyfile="lib/du_manager/adapters/mac_adapters.h" bodystart="30" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a1a14fd625fb20ab5c4bce0ef8d0d3859" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::mac_sdu_tx_adapter</scope><name>mac_sdu_tx_adapter</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1aec783b0f91d69e72db2cc25b470e29d7" prot="public" virt="virtual"><scope>srsgnb::srs_du::mac_sdu_tx_adapter</scope><name>on_buffer_state_update</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a9a74c081094614d7ad9eb97f0e53566c" prot="public" virt="virtual"><scope>srsgnb::srs_du::mac_sdu_tx_adapter</scope><name>on_new_tx_sdu</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1mac__sdu__tx__adapter_1a5c718f000968cff7ea19ecda2b347d09" prot="private" virt="non-virtual"><scope>srsgnb::srs_du::mac_sdu_tx_adapter</scope><name>rlc_handler</name></member>
+      <member refid="classsrsgnb_1_1mac__sdu__tx__builder_1a50b1af18a852f1dc35d01ecae592d431" prot="public" virt="virtual"><scope>srsgnb::srs_du::mac_sdu_tx_adapter</scope><name>~mac_sdu_tx_builder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

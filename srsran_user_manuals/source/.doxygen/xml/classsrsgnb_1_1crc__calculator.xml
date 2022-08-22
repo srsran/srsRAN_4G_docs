@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1crc__calculator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::crc_calculator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1crc__calculator__impl" prot="public" virt="non-virtual">srsgnb::crc_calculator_impl</derivedcompoundref>
+    <includes refid="crc__calculator_8h" local="no">crc_calculator.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1crc__calculator_1aa4a939a4ff302fbc7d005353a60b0ddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::crc_calculator::~crc_calculator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~crc_calculator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" line="35" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1crc__calculator_1a903204d4a874c9e094f516107331c24a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref></type>
+        <definition>virtual crc_calculator_checksum_t srsgnb::crc_calculator::calculate_byte</definition>
+        <argsstring>(span&lt; const uint8_t &gt; data)=0</argsstring>
+        <name>calculate_byte</name>
+        <reimplementedby refid="classsrsgnb_1_1crc__calculator__impl_1a916a41d12c0b39d94bdd497d98cf7988">calculate_byte</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the checksum from a byte buffer (8 packed bits in every input byte). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The resulting CRC checksum. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" line="40" column="37"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__segmenter__impl_1ac42240fce4bb7e502661967508115d76" compoundref="ldpc__segmenter__impl_8cpp" startline="133" endline="209">srsgnb::ldpc_segmenter_impl::segment</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1crc__calculator_1a730d0a1d0d7188041b6047c945512da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref></type>
+        <definition>virtual crc_calculator_checksum_t srsgnb::crc_calculator::calculate_bit</definition>
+        <argsstring>(span&lt; const uint8_t &gt; data)=0</argsstring>
+        <name>calculate_bit</name>
+        <reimplementedby refid="classsrsgnb_1_1crc__calculator__impl_1ab8940795248617961d7b0662f6e54504">calculate_bit</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the checksum from a bit buffer (1 bit in for every input byte). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The resulting CRC checksum. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" line="45" column="37"/>
+        <referencedby refid="classsrsgnb_1_1ldpc__decoder__impl_1a534a3ef7bf924ae15f8b7f56a69ab767" compoundref="ldpc__decoder__impl_8cpp" startline="46" endline="110">srsgnb::ldpc_decoder_impl::decode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1crc__calculator_1aae990630ae02a065ba61852ba31f9fb4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespacesrsgnb_1ac9b644248e8f38499883fd5d1efb6b6f" kindref="member">crc_generator_poly</ref></type>
+        <definition>virtual crc_generator_poly srsgnb::crc_calculator::get_generator_poly</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_generator_poly</name>
+        <reimplementedby refid="classsrsgnb_1_1crc__calculator__impl_1adbb44628bf3e511e23ce75c4c6407433">get_generator_poly</reimplementedby>
+        <briefdescription>
+<para>Returns the identifier of the generator polynomial. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" line="48" column="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Calculates the CRC, as per TS38.212 Section 5.1. Interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::crc_calculator</label>
+        <link refid="classsrsgnb_1_1crc__calculator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::crc_calculator_impl</label>
+        <link refid="classsrsgnb_1_1crc__calculator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::crc_calculator</label>
+        <link refid="classsrsgnb_1_1crc__calculator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" line="33" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/crc_calculator.h" bodystart="32" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1crc__calculator_1a730d0a1d0d7188041b6047c945512da8" prot="public" virt="pure-virtual"><scope>srsgnb::crc_calculator</scope><name>calculate_bit</name></member>
+      <member refid="classsrsgnb_1_1crc__calculator_1a903204d4a874c9e094f516107331c24a" prot="public" virt="pure-virtual"><scope>srsgnb::crc_calculator</scope><name>calculate_byte</name></member>
+      <member refid="classsrsgnb_1_1crc__calculator_1aae990630ae02a065ba61852ba31f9fb4" prot="public" virt="pure-virtual"><scope>srsgnb::crc_calculator</scope><name>get_generator_poly</name></member>
+      <member refid="classsrsgnb_1_1crc__calculator_1aa4a939a4ff302fbc7d005353a60b0ddc" prot="public" virt="virtual"><scope>srsgnb::crc_calculator</scope><name>~crc_calculator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

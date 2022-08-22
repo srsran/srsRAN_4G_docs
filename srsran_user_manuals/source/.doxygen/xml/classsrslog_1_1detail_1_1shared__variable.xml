@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1shared__variable" kind="class" language="C++" prot="public">
+    <compoundname>srslog::detail::shared_variable</compoundname>
+    <includes refid="thread__utils_8h" local="no">thread_utils.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1shared__variable_1a64fadad88aef35261512550e07fc8000" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T srslog::detail::shared_variable&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="73" column="17" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1shared__variable_1a9b711650613158ee36ccab8d5bd6e76a" prot="private" static="no" mutable="yes">
+        <type><ref refid="classsrslog_1_1detail_1_1mutex" kindref="compound">mutex</ref></type>
+        <definition>mutex srslog::detail::shared_variable&lt; T &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="74" column="17" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1shared__variable_1a3745c1757c5c927c01a4d96e12e26412" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::shared_variable&lt; T &gt;::shared_variable</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>shared_variable</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="77" column="3" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1shared__variable_1a627b274a547873fcfd1cf56efa03d1e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::shared_variable&lt; T &gt;::shared_variable</definition>
+        <argsstring>(const shared_variable &amp;)=delete</argsstring>
+        <name>shared_variable</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1shared__variable" kindref="compound">shared_variable</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="79" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1shared__variable_1afa259a9340f8fb92b3945f127fe22c64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1shared__variable" kindref="compound">shared_variable</ref> &amp;</type>
+        <definition>shared_variable&amp; srslog::detail::shared_variable&lt; T &gt;::operator=</definition>
+        <argsstring>(const shared_variable &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrslog_1_1detail_1_1shared__variable" kindref="compound">shared_variable</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="80" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1shared__variable_1a6f95db09e562273fa3f9a3cfb41c6b4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrslog_1_1detail_1_1shared__variable" kindref="compound">shared_variable</ref>&lt; T &gt; &amp;</type>
+        <definition>shared_variable&lt;T&gt;&amp; srslog::detail::shared_variable&lt; T &gt;::operator=</definition>
+        <argsstring>(const T &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Set this shared variable to a new value guarded by the associated mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="83" column="19" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="83" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1shared__variable_1aca86f4eb38eed8c23c6361ad617b546a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::shared_variable&lt; T &gt;::operator T</definition>
+        <argsstring>() const</argsstring>
+        <name>operator T</name>
+        <briefdescription>
+<para>Get the value of this shared variable guarded by the associated mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="91" column="3" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="91" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class allows accessing and modifying data atomically. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="1">
+        <label>srslog::detail::shared_variable&lt; T &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1shared__variable"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/detail/support/thread_utils.h" line="72" column="1" bodyfile="include/srsgnb/srslog/detail/support/thread_utils.h" bodystart="71" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1a9b711650613158ee36ccab8d5bd6e76a" prot="private" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>m</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1aca86f4eb38eed8c23c6361ad617b546a" prot="public" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>operator T</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1afa259a9340f8fb92b3945f127fe22c64" prot="public" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1a6f95db09e562273fa3f9a3cfb41c6b4f" prot="public" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>operator=</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1a3745c1757c5c927c01a4d96e12e26412" prot="public" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>shared_variable</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1a627b274a547873fcfd1cf56efa03d1e5" prot="public" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>shared_variable</name></member>
+      <member refid="classsrslog_1_1detail_1_1shared__variable_1a64fadad88aef35261512550e07fc8000" prot="private" virt="non-virtual"><scope>srslog::detail::shared_variable</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

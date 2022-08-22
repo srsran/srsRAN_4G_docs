@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="upper__phy__timing__handler_8h" kind="file" language="C++">
+    <compoundname>upper_phy_timing_handler.h</compoundname>
+    <includedby refid="phy__timing__adapter_8h" local="yes">include/srsgnb/phy/adapters/phy_timing_adapter.h</includedby>
+    <includedby refid="upper__phy__impl_8h" local="yes">lib/phy/upper/upper_phy_impl.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/srsgnb/phy/upper/upper_phy_timing_handler.h</label>
+        <link refid="upper__phy__timing__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/srsgnb/phy/adapters/phy_timing_adapter.h</label>
+        <link refid="phy__timing__adapter_8h_source"/>
+      </node>
+      <node id="3">
+        <label>lib/phy/upper/upper_phy_impl.h</label>
+        <link refid="upper__phy__impl_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structsrsgnb_1_1upper__phy__timing__context" prot="public">srsgnb::upper_phy_timing_context</innerclass>
+    <innerclass refid="classsrsgnb_1_1upper__phy__timing__handler" prot="public">srsgnb::upper_phy_timing_handler</innerclass>
+    <innernamespace refid="namespacesrsgnb">srsgnb</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">slot_point;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="structsrsgnb_1_1upper__phy__timing__context" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsrsgnb_1_1upper__phy__timing__context" kindref="compound">upper_phy_timing_context</ref><sp/>{</highlight></codeline>
+<codeline lineno="20" refid="structsrsgnb_1_1upper__phy__timing__context_1a7739ba3d6edff68d5cf940101d6b6fa5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref><sp/><ref refid="structsrsgnb_1_1upper__phy__timing__context_1a7739ba3d6edff68d5cf940101d6b6fa5" kindref="member">slot</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classsrsgnb_1_1upper__phy__timing__handler" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrsgnb_1_1upper__phy__timing__handler" kindref="compound">upper_phy_timing_handler</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1upper__phy__timing__handler_1aa6e6fafa5d2ae4623345dec86dceb21e" kindref="member">~upper_phy_timing_handler</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1upper__phy__timing__handler_1a76163c3920fe2fc719180c7e295e0230" kindref="member">handle_tti_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1upper__phy__timing__context" kindref="compound">upper_phy_timing_context</ref>&amp;<sp/>context)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1upper__phy__timing__handler_1aedb1b57a268df2f4b0096287229ab531" kindref="member">handle_ul_half_slot_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1upper__phy__timing__context" kindref="compound">upper_phy_timing_context</ref>&amp;<sp/>context)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1upper__phy__timing__handler_1a3a211803604fcdb99635b07625889d34" kindref="member">handle_ul_full_slot_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsrsgnb_1_1upper__phy__timing__context" kindref="compound">upper_phy_timing_context</ref>&amp;<sp/>context)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>srsgnb</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/srsgnb/phy/upper/upper_phy_timing_handler.h"/>
+  </compounddef>
+</doxygen>

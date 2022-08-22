@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrslog_1_1detail_1_1dyn__arg__store__pool" kind="class" language="C++" prot="public">
+    <compoundname>srslog::detail::dyn_arg_store_pool</compoundname>
+    <includes refid="dyn__arg__store__pool_8h" local="no">dyn_arg_store_pool.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1abf7894136674996b5da7d172d83522a8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; &gt;</type>
+        <definition>std::vector&lt;fmt::dynamic_format_arg_store&lt;fmt::format_context&gt; &gt; srslog::detail::dyn_arg_store_pool::pool</definition>
+        <argsstring></argsstring>
+        <name>pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="66" column="15" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1ad34e396969d067b70202de9fc1dad306" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; * &gt;</type>
+        <definition>std::vector&lt;fmt::dynamic_format_arg_store&lt;fmt::format_context&gt;*&gt; srslog::detail::dyn_arg_store_pool::free_list</definition>
+        <argsstring></argsstring>
+        <name>free_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="67" column="15" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a55c06b010b4e45c222a5bcca94b99c4c" prot="private" static="no" mutable="yes">
+        <type><ref refid="classsrslog_1_1detail_1_1mutex" kindref="compound">mutex</ref></type>
+        <definition>mutex srslog::detail::dyn_arg_store_pool::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="68" column="68" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a79dd6bea58ecee1637a04429df795640" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srslog::detail::dyn_arg_store_pool::dyn_arg_store_pool</definition>
+        <argsstring>()</argsstring>
+        <name>dyn_arg_store_pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="26" column="3" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="26" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a18bc9a24e7b708c9d4eb09e90f56050c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; *</type>
+        <definition>fmt::dynamic_format_arg_store&lt;fmt::format_context&gt;* srslog::detail::dyn_arg_store_pool::alloc</definition>
+        <argsstring>()</argsstring>
+        <name>alloc</name>
+        <briefdescription>
+<para>Returns a pointer to a free dyn arg store object, otherwise returns nullptr. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="40" column="33" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="40" bodyend="51"/>
+        <referencedby refid="classsrslog_1_1log__backend__impl_1ad021171dd5d4ee853cdf6767bc561e55" compoundref="log__backend__impl_8h" startline="41" endline="41">srslog::log_backend_impl::alloc_arg_store</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a2e3de258ca7aa659a4d05f6237109cf2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srslog::detail::dyn_arg_store_pool::dealloc</definition>
+        <argsstring>(fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; *p)</argsstring>
+        <name>dealloc</name>
+        <param>
+          <type>fmt::dynamic_format_arg_store&lt; fmt::format_context &gt; *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Deallocate the given dyn arg store object returning it to the pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="54" column="8" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="54" bodyend="63"/>
+        <referencedby refid="classsrslog_1_1backend__worker_1a68febbe4e5dd044586026be12418d7a9" compoundref="backend__worker_8cpp" startline="120" endline="141">srslog::backend_worker::process_log_entry</referencedby>
+        <referencedby refid="classsrslog_1_1log__backend__impl_1a6f0f1d0b28ba221d4bd79bcf102f5da9" compoundref="log__backend__impl_8h" startline="31" endline="39">srslog::log_backend_impl::push</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Keeps a pool of <ref refid="classdynamic__format__arg__store" kindref="compound">dynamic_format_arg_store</ref> objects. The main reason for this class is that the arg store objects are implemented with std::vectors, so we want to avoid allocating memory each time we create a new object. Instead, reserve memory for each vector during initialization and recycle the objects. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="1">
+        <label>srslog::detail::dyn_arg_store_pool</label>
+        <link refid="classsrslog_1_1detail_1_1dyn__arg__store__pool"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" line="24" column="1" bodyfile="include/srsgnb/srslog/detail/support/dyn_arg_store_pool.h" bodystart="23" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a18bc9a24e7b708c9d4eb09e90f56050c" prot="public" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>alloc</name></member>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a2e3de258ca7aa659a4d05f6237109cf2" prot="public" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>dealloc</name></member>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a79dd6bea58ecee1637a04429df795640" prot="public" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>dyn_arg_store_pool</name></member>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1ad34e396969d067b70202de9fc1dad306" prot="private" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>free_list</name></member>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1a55c06b010b4e45c222a5bcca94b99c4c" prot="private" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>m</name></member>
+      <member refid="classsrslog_1_1detail_1_1dyn__arg__store__pool_1abf7894136674996b5da7d172d83522a8" prot="private" virt="non-virtual"><scope>srslog::detail::dyn_arg_store_pool</scope><name>pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__modulator__factory" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ofdm_modulator_factory</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ofdm__modulator__factory__impl" prot="public" virt="non-virtual">srsgnb::ofdm_modulator_factory_impl</derivedcompoundref>
+    <includes refid="modulation__factories_8h" local="no">modulation_factories.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__modulator__factory_1adf7fd8619bcaa5273e47ccab8dfe543d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ofdm_modulator_factory::~ofdm_modulator_factory</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ofdm_modulator_factory</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/modulation_factories.h" line="25" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__modulator__factory_1a17d2715e8763d8e80ba45c8eb400bc16" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__symbol__modulator" kindref="compound">ofdm_symbol_modulator</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;ofdm_symbol_modulator&gt; srsgnb::ofdm_modulator_factory::create_ofdm_symbol_modulator</definition>
+        <argsstring>(const ofdm_modulator_configuration &amp;config)=0</argsstring>
+        <name>create_ofdm_symbol_modulator</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__modulator__factory__impl_1ac57c747be4c734e2ef24fcbbca045f2b">create_ofdm_symbol_modulator</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ofdm__modulator__configuration" kindref="compound">ofdm_modulator_configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Creates an OFDM modulator that modulates with symbol granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A unique pointer to an OFDM symbol modulator if the provided parameters are valid, <computeroutput>nullptr</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/modulation_factories.h" line="31" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__modulator__factory_1a243aef525ac8eee64ed625541deeb03f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__slot__modulator" kindref="compound">ofdm_slot_modulator</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;ofdm_slot_modulator&gt; srsgnb::ofdm_modulator_factory::create_ofdm_slot_modulator</definition>
+        <argsstring>(const ofdm_modulator_configuration &amp;config)=0</argsstring>
+        <name>create_ofdm_slot_modulator</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__modulator__factory__impl_1a6de8cb59171a88dcd7cb2d4503cb674b">create_ofdm_slot_modulator</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ofdm__modulator__configuration" kindref="compound">ofdm_modulator_configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Creates an OFDM modulator that modulates with slot granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A unique pointer to an OFDM slot modulator if the provided parameters are valid, <computeroutput>nullptr</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/modulation_factories.h" line="37" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes an OFDM modulator factory. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ofdm_modulator_factory_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__modulator__factory__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::ofdm_modulator_factory</label>
+        <link refid="classsrsgnb_1_1ofdm__modulator__factory"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ofdm_modulator_factory</label>
+        <link refid="classsrsgnb_1_1ofdm__modulator__factory"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/modulation/modulation_factories.h" line="22" column="1" bodyfile="include/srsgnb/phy/lower/modulation/modulation_factories.h" bodystart="21" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__modulator__factory_1a243aef525ac8eee64ed625541deeb03f" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_modulator_factory</scope><name>create_ofdm_slot_modulator</name></member>
+      <member refid="classsrsgnb_1_1ofdm__modulator__factory_1a17d2715e8763d8e80ba45c8eb400bc16" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_modulator_factory</scope><name>create_ofdm_symbol_modulator</name></member>
+      <member refid="classsrsgnb_1_1ofdm__modulator__factory_1adf7fd8619bcaa5273e47ccab8dfe543d" prot="public" virt="virtual"><scope>srsgnb::ofdm_modulator_factory</scope><name>~ofdm_modulator_factory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

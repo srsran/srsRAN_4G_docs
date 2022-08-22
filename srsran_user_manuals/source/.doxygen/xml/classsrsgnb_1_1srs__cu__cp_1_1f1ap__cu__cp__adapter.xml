@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::f1c_du_management_notifier</basecompoundref>
+    <includes refid="f1ap__adapters_8h" local="no">f1ap_adapters.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1af3d2c7f2dd6fb6fb41f09941d4c1125d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1cu__cp__du__handler" kindref="compound">cu_cp_du_handler</ref> *</type>
+        <definition>cu_cp_du_handler* srsgnb::srs_cu_cp::f1ap_cu_cp_adapter::du_handler</definition>
+        <argsstring></argsstring>
+        <name>du_handler</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/f1ap_adapters.h" line="36" column="20" bodyfile="lib/cu_cp/adapters/f1ap_adapters.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1a046735fa08bc16f7b5b44c702527b6bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::f1ap_cu_cp_adapter::connect_cu_cp</definition>
+        <argsstring>(cu_cp_du_handler &amp;cu_cp_mng_)</argsstring>
+        <name>connect_cu_cp</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1srs__cu__cp_1_1cu__cp__du__handler" kindref="compound">cu_cp_du_handler</ref> &amp;</type>
+          <declname>cu_cp_mng_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/f1ap_adapters.h" line="27" column="8" bodyfile="lib/cu_cp/adapters/f1ap_adapters.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1a0383ba20720ea4d6a14d7bea81cca095" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::srs_cu_cp::f1ap_cu_cp_adapter::on_du_remove_request_received</definition>
+        <argsstring>(const du_index_t du_index) override</argsstring>
+        <name>on_du_remove_request_received</name>
+        <reimplements refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier_1a79037948dbc314c29210af77044e4999">on_du_remove_request_received</reimplements>
+        <param>
+          <type>const du_index_t</type>
+          <declname>du_index</declname>
+        </param>
+        <briefdescription>
+<para>Notifies about a successful F1 Removal procedure. The corresponding DU processor will be removed now. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">du_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the DU processor to delete. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/cu_cp/adapters/f1ap_adapters.h" line="29" column="8" bodyfile="lib/cu_cp/adapters/f1ap_adapters.h" bodystart="29" bodyend="33"/>
+        <references refid="classsrsgnb_1_1srs__cu__cp_1_1cu__cp__du__handler_1aca6a00d84ef64932676ced21902e68ea">srsgnb::srs_cu_cp::cu_cp_du_handler::handle_du_remove_request</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Adapter between F1AP and CU-CP, to handle DU specific procedure outcomes (e.g. F1 Remove) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::f1c_du_management_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::f1c_du_management_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_cu_cp::cu_cp_du_handler</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1cu__cp__du__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-du_handler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/cu_cp/adapters/f1ap_adapters.h" line="25" column="1" bodyfile="lib/cu_cp/adapters/f1ap_adapters.h" bodystart="24" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1a046735fa08bc16f7b5b44c702527b6bf" prot="public" virt="non-virtual"><scope>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</scope><name>connect_cu_cp</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1af3d2c7f2dd6fb6fb41f09941d4c1125d" prot="private" virt="non-virtual"><scope>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</scope><name>du_handler</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1f1ap__cu__cp__adapter_1a0383ba20720ea4d6a14d7bea81cca095" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</scope><name>on_du_remove_request_received</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1f1c__du__management__notifier_1a4cbdb01ef2c9ddb725aea54e8508b4ee" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::f1ap_cu_cp_adapter</scope><name>~f1c_du_management_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

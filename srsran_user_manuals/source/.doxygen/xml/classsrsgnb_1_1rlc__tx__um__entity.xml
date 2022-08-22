@@ -1,0 +1,608 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rlc__tx__um__entity" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::rlc_tx_um_entity</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1rlc__tx__entity" prot="public" virt="non-virtual">srsgnb::rlc_tx_entity</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1acfe42302985d7c5ce773eb35fd79a537" prot="private" static="no" mutable="no">
+        <type>const <ref refid="structsrsgnb_1_1rlc__tx__um__config" kindref="compound">rlc_tx_um_config</ref></type>
+        <definition>const rlc_tx_um_config srsgnb::rlc_tx_um_entity::cfg</definition>
+        <argsstring></argsstring>
+        <name>cfg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="38" column="26" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a00fb2559e867179ef3d208049e02856b" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1rlc__tx__um__state" kindref="compound">rlc_tx_um_state</ref></type>
+        <definition>rlc_tx_um_state srsgnb::rlc_tx_um_entity::st</definition>
+        <argsstring></argsstring>
+        <name>st</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="41" column="19" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1ad10039a0aacfac239439605dd73925fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1rlc__sdu__queue" kindref="compound">rlc_sdu_queue</ref></type>
+        <definition>rlc_sdu_queue srsgnb::rlc_tx_um_entity::sdu_queue</definition>
+        <argsstring></argsstring>
+        <name>sdu_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="44" column="17" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a3c5644881d6a0f6e6aa209c731c34cec" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1rlc__sdu" kindref="compound">rlc_sdu</ref></type>
+        <definition>rlc_sdu srsgnb::rlc_tx_um_entity::sdu</definition>
+        <argsstring></argsstring>
+        <name>sdu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="45" column="17" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1af782babbafcf64abbaac03731304ef7d" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_um_entity::next_so</definition>
+        <argsstring></argsstring>
+        <name>next_so</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="46" column="17" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a398abf8b6545f8a6730a873e85ae563d" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::rlc_tx_um_entity::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="49" column="14" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a482a3843f54b7654efd26a830f0287fb" prot="private" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t srsgnb::rlc_tx_um_entity::mod</definition>
+        <argsstring></argsstring>
+        <name>mod</name>
+        <briefdescription>
+<para>Tx counter modulus. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="52" column="18" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a73a405db98e7600a68eed0034a57a61e" prot="private" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t srsgnb::rlc_tx_um_entity::head_len_full</definition>
+        <argsstring></argsstring>
+        <name>head_len_full</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="55" column="18" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1ae1db359e25cb1089cb2b89c2926a998d" prot="private" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t srsgnb::rlc_tx_um_entity::head_len_first</definition>
+        <argsstring></argsstring>
+        <name>head_len_first</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="56" column="18" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rlc__tx__um__entity_1a75d4f47e783a22eeca05713a8b49c04d" prot="private" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t srsgnb::rlc_tx_um_entity::head_len_not_first</definition>
+        <argsstring></argsstring>
+        <name>head_len_not_first</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="57" column="18" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1a0a741ed236bfd947c3d5a587120234df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rlc_tx_um_entity::rlc_tx_um_entity</definition>
+        <argsstring>(du_ue_index_t du_index, lcid_t lcid, const rlc_tx_um_config &amp;config, rlc_tx_upper_layer_control_notifier &amp;upper_cn, rlc_tx_buffer_state_update_notifier &amp;buffer_state_notif)</argsstring>
+        <name>rlc_tx_um_entity</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>du_index</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a27826553cbb7866e22f1ed49d585339e" kindref="member">lcid_t</ref></type>
+          <declname>lcid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rlc__tx__um__config" kindref="compound">rlc_tx_um_config</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rlc__tx__upper__layer__control__notifier" kindref="compound">rlc_tx_upper_layer_control_notifier</ref> &amp;</type>
+          <declname>upper_cn</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rlc__tx__buffer__state__update__notifier" kindref="compound">rlc_tx_buffer_state_update_notifier</ref> &amp;</type>
+          <declname>buffer_state_notif</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="60" column="3" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="15" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1a2cd5e9b56c067ab08b0c77321f45a7b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rlc_tx_um_entity::handle_sdu</definition>
+        <argsstring>(rlc_sdu sdu) override</argsstring>
+        <name>handle_sdu</name>
+        <reimplements refid="classsrsgnb_1_1rlc__tx__sdu__handler_1a8f0140b6c5710145a56405ec42fc1d4c">handle_sdu</reimplements>
+        <param>
+          <type><ref refid="structsrsgnb_1_1rlc__sdu" kindref="compound">rlc_sdu</ref></type>
+          <declname>sdu</declname>
+        </param>
+        <briefdescription>
+<para>Interface for higher layers to pass SDUs into RLC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sdu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDU to be handled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="67" column="8" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="30" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1a8ef69b2957e7eaf48a7d9b160edf93c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1byte__buffer__slice__chain" kindref="compound">byte_buffer_slice_chain</ref></type>
+        <definition>byte_buffer_slice_chain rlc_tx_um_entity::pull_pdu</definition>
+        <argsstring>(uint32_t nof_bytes) override</argsstring>
+        <name>pull_pdu</name>
+        <reimplements refid="classsrsgnb_1_1rlc__tx__pdu__transmitter_1a1985838f9e457439b8de6a7152f46566">pull_pdu</reimplements>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Pulls a PDU from the lower end of the RLC TX entity An empty PDU is returned if nof_bytes is insufficient or the TX buffer is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nof_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Limits the maximum size of the requested PDU. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One PDU </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="70" column="27" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="49" bodyend="145"/>
+        <references refid="structsrsgnb_1_1rlc__um__pdu__header_1add2ab9ba161248eb6371ab142fa66810" compoundref="rlc__um__pdu_8h" startline="53">srsgnb::rlc_um_pdu_header::sn</references>
+        <references refid="structsrsgnb_1_1rlc__tx__um__state_1a863e17f92b11949ecb8ea40b4949d5f0" compoundref="rlc__tx__um__entity_8h" startline="31">srsgnb::rlc_tx_um_state::tx_next</references>
+        <references refid="structsrsgnb_1_1rlc__um__pdu__header_1a8c1c835fb3b5d02fe8c5dca3f37bd30f" compoundref="rlc__um__pdu_8h" startline="52">srsgnb::rlc_um_pdu_header::sn_size</references>
+        <references refid="structsrsgnb_1_1rlc__tx__um__config_1a3d3a13f89a779f02e086f9a9a93183a2" compoundref="rlc__config_8h" startline="126">srsgnb::rlc_tx_um_config::sn_field_length</references>
+        <references refid="structsrsgnb_1_1rlc__um__pdu__header_1abc9cc205f312e98ea5466948d17838e7" compoundref="rlc__um__pdu_8h" startline="54">srsgnb::rlc_um_pdu_header::so</references>
+        <references refid="classsrsgnb_1_1rlc__tx__um__entity_1ad0c2798ce8abefb1313d5b2ac414a2bf" compoundref="rlc__tx__um__entity_8cpp" startline="148" endline="185">get_si_and_expected_header_size</references>
+        <references refid="structsrsgnb_1_1rlc__um__pdu__header_1a87dbaa3f68bc52d6c284e392693121a9" compoundref="rlc__um__pdu_8h" startline="51">srsgnb::rlc_um_pdu_header::si</references>
+        <references refid="classsrsgnb_1_1byte__buffer_1a69d1b655e9e1cd9997eac6dce6afc23b" compoundref="byte__buffer_8h" startline="512" endline="512">srsgnb::byte_buffer::length</references>
+        <references refid="classsrsgnb_1_1byte__buffer__slice_1aaf4046087e8623465b0f957fd193b1e8" compoundref="byte__buffer_8h" startline="753" endline="757">srsgnb::byte_buffer_slice::make_slice</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1ad537c8977ec07d1075bd3cbca4cd5b1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rlc_tx_um_entity::get_buffer_state</definition>
+        <argsstring>() override</argsstring>
+        <name>get_buffer_state</name>
+        <reimplements refid="classsrsgnb_1_1rlc__tx__pdu__transmitter_1a4788ef0e6787f3fdbaa1dc4c9f5ee6d0">get_buffer_state</reimplements>
+        <briefdescription>
+<para>Get the buffer status information This function provides the current buffer state of the RLC TX entity. This is the gross total size required to fully flush the TX entity (potentially by multiple calls to pull_pdu). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Provides the current buffer state </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="71" column="27" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="188" bodyend="192"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1ad0c2798ce8abefb1313d5b2ac414a2bf" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rlc_tx_um_entity::get_si_and_expected_header_size</definition>
+        <argsstring>(uint32_t so, uint32_t sdu_len, uint32_t nof_bytes, rlc_si_field &amp;si, uint32_t &amp;head_len) const</argsstring>
+        <name>get_si_and_expected_header_size</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>so</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sdu_len</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nof_bytes</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0a246fa8059639a178e17af4df90c173" kindref="member">rlc_si_field</ref> &amp;</type>
+          <declname>si</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>head_len</declname>
+        </param>
+        <briefdescription>
+<para>Helper to get SI of an PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="74" column="8" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="148" bodyend="185"/>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__um__entity_1a8ef69b2957e7eaf48a7d9b160edf93c0" compoundref="rlc__tx__um__entity_8cpp" startline="49" endline="145">pull_pdu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1aaea9315db131b76677704605f143fb61" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rlc_tx_um_entity::handle_buffer_state_update</definition>
+        <argsstring>()</argsstring>
+        <name>handle_buffer_state_update</name>
+        <briefdescription>
+<para>Called when buffer state needs to be updated and forwarded to lower layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="81" column="8" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="194" bodyend="199"/>
+        <references refid="classsrsgnb_1_1rlc__tx__buffer__state__update__notifier_1a928e0d6dcbfb7a0a3320cae973e17932">srsgnb::rlc_tx_buffer_state_update_notifier::on_buffer_state_update</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1a93394db873535fa4cf8467c9d975e98f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rlc_tx_um_entity::get_buffer_state_nolock</definition>
+        <argsstring>()</argsstring>
+        <name>get_buffer_state_nolock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="83" column="12" bodyfile="lib/rlc/rlc_tx_um_entity.cpp" bodystart="201" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__tx__um__entity_1abfdf4975a5d5b6f94fedf74f20beb7f1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::rlc_tx_um_entity::log_state</definition>
+        <argsstring>(srslog::basic_levels level)</argsstring>
+        <name>log_state</name>
+        <param>
+          <type>srslog::basic_levels</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_um_entity.h" line="85" column="8" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::rlc_tx_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::rlc_bearer_tx_metrics</label>
+        <link refid="classsrsgnb_1_1rlc__bearer__tx__metrics"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::rlc_tx_pdu_transmitter</label>
+        <link refid="classsrsgnb_1_1rlc__tx__pdu__transmitter"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::rlc_tx_sdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__tx__sdu__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_tx_um_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__um__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="23">
+        <label>srsgnb::dyn_blocking_queue&lt; srsgnb::rlc_sdu, srsgnb::rlc_sdu_queue::push_callback, srsgnb::rlc_sdu_queue::pop_callback &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__blocking__queue"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>T</label>
+      </node>
+      <node id="25">
+        <label>srsgnb::rlc_sdu_queue::pop_callback</label>
+        <link refid="structsrsgnb_1_1rlc__sdu__queue_1_1pop__callback"/>
+      </node>
+      <node id="24">
+        <label>srsgnb::detail::base_blocking_queue&lt; dyn_circular_buffer&lt; srsgnb::rlc_sdu &gt;, srsgnb::rlc_sdu_queue::push_callback, srsgnb::rlc_sdu_queue::pop_callback &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>+pop_func</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>#circ_buffer</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>+push_func</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::rlc_tx_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__entity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>#buffer_state_notifier</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>#upper_cn</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>#logger</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::rlc_bearer_tx_metrics</label>
+        <link refid="classsrsgnb_1_1rlc__bearer__tx__metrics"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-metrics</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>srsgnb::rlc_tx_um_config</label>
+        <link refid="structsrsgnb_1_1rlc__tx__um__config"/>
+      </node>
+      <node id="22">
+        <label>srsgnb::rlc_sdu_queue</label>
+        <link refid="classsrsgnb_1_1rlc__sdu__queue"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>-queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::rlc_tx_buffer_state_update_notifier</label>
+        <link refid="classsrsgnb_1_1rlc__tx__buffer__state__update__notifier"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::rlc_tx_pdu_transmitter</label>
+        <link refid="classsrsgnb_1_1rlc__tx__pdu__transmitter"/>
+      </node>
+      <node id="17">
+        <label>srsgnb::byte_buffer_segment</label>
+        <link refid="classsrsgnb_1_1byte__buffer__segment"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>-metadata_</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::byte_buffer</label>
+        <link refid="classsrsgnb_1_1byte__buffer"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>-tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::rlc_tx_sdu_handler</label>
+        <link refid="classsrsgnb_1_1rlc__tx__sdu__handler"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::byte_buffer_segment::metadata_storage</label>
+        <link refid="structsrsgnb_1_1byte__buffer__segment_1_1metadata__storage"/>
+      </node>
+      <node id="28">
+        <label>srsgnb::rlc_sdu_queue::push_callback</label>
+        <link refid="structsrsgnb_1_1rlc__sdu__queue_1_1push__callback"/>
+      </node>
+      <node id="13">
+        <label>srsgnb::rlc_sdu</label>
+        <link refid="structsrsgnb_1_1rlc__sdu"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>+buf</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>srsgnb::detail::base_circular_buffer&lt; std::vector&lt; detail::type_storage&lt; srsgnb::rlc_sdu &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__circular__buffer"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_tx_um_entity</label>
+        <link refid="classsrsgnb_1_1rlc__tx__um__entity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-sdu</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>-cfg</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>-st</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-sdu_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="21">
+        <label>srsgnb::rlc_tx_um_state</label>
+        <link refid="structsrsgnb_1_1rlc__tx__um__state"/>
+      </node>
+      <node id="16">
+        <label>srsgnb::byte_buffer::iterator_impl&lt; T &gt;</label>
+        <link refid="structsrsgnb_1_1byte__buffer_1_1iterator__impl"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>-current_segment</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::rlc_tx_upper_layer_control_notifier</label>
+        <link refid="classsrsgnb_1_1rlc__tx__upper__layer__control__notifier"/>
+      </node>
+      <node id="14">
+        <label>srsgnb::byte_buffer_slice</label>
+        <link refid="classsrsgnb_1_1byte__buffer__slice"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-sliced_view</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>-buf</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>srsgnb::byte_buffer_view</label>
+        <link refid="classsrsgnb_1_1byte__buffer__view"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>#it_end</edgelabel>
+          <edgelabel>#it</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::rlc_bearer_tx_metrics_container</label>
+        <link refid="structsrsgnb_1_1rlc__bearer__tx__metrics__container"/>
+      </node>
+      <node id="26">
+        <label>srsgnb::dyn_circular_buffer&lt; srsgnb::rlc_sdu &gt;</label>
+        <link refid="classsrsgnb_1_1dyn__circular__buffer"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::bearer_logger</label>
+        <link refid="classsrsgnb_1_1bearer__logger"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/rlc/rlc_tx_um_entity.h" line="35" column="1" bodyfile="lib/rlc/rlc_tx_um_entity.h" bodystart="34" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rlc__tx__entity_1adeaa6f950e5e93b62648a9eab780d66d" prot="protected" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>buffer_state_notifier</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1acfe42302985d7c5ce773eb35fd79a537" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>cfg</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1a9ceee853a70254b037a0be3c5d1e6ac7" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>get_and_reset_metrics</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1ad537c8977ec07d1075bd3cbca4cd5b1f" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>get_buffer_state</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a93394db873535fa4cf8467c9d975e98f" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>get_buffer_state_nolock</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1ae39a9e824b7dcde08c2e6cab3bcc1f02" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>get_metrics</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1ad0c2798ce8abefb1313d5b2ac414a2bf" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>get_si_and_expected_header_size</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1aaea9315db131b76677704605f143fb61" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>handle_buffer_state_update</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a2cd5e9b56c067ab08b0c77321f45a7b9" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>handle_sdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1ae1db359e25cb1089cb2b89c2926a998d" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>head_len_first</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a73a405db98e7600a68eed0034a57a61e" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>head_len_full</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a75d4f47e783a22eeca05713a8b49c04d" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>head_len_not_first</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1abfdf4975a5d5b6f94fedf74f20beb7f1" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>log_state</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__entity_1a4608983200d86175a185104744f799d1" prot="protected" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1a3fda1134cb2d93a9ea5f3869aeb7185f" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>metrics</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1aeed70aeb2db753ccfe7517d8975697cd" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>metrics_add_lost_sdus</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1a0a0fa2c793f61452e7eb6c81bcd766a1" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>metrics_add_pdus</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1aa3474cf81f3535b7ce9b0087ab750976" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>metrics_add_sdus</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1adf36ebaf8aac61626b4dd7a98cc7949a" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>metrics_mutex</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a482a3843f54b7654efd26a830f0287fb" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>mod</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a398abf8b6545f8a6730a873e85ae563d" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1af782babbafcf64abbaac03731304ef7d" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>next_so</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a8ef69b2957e7eaf48a7d9b160edf93c0" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>pull_pdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__bearer__tx__metrics_1a4ee2e7e7bebe3cfc8c7e635a5cc62fb5" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>reset_metrics</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__entity_1ab8d437677cc4af33b4a4262834607c67" prot="protected" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>rlc_tx_entity</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a0a741ed236bfd947c3d5a587120234df" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>rlc_tx_um_entity</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a3c5644881d6a0f6e6aa209c731c34cec" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>sdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1ad10039a0aacfac239439605dd73925fc" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>sdu_queue</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__um__entity_1a00fb2559e867179ef3d208049e02856b" prot="private" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>st</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__entity_1afcc9ffecd18aee3dff5165a14d14da30" prot="protected" virt="non-virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>upper_cn</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__pdu__transmitter_1a7620d8fd2ad281a9505b92fb14b5c393" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>~rlc_tx_pdu_transmitter</name></member>
+      <member refid="classsrsgnb_1_1rlc__tx__sdu__handler_1a6ac90b3ec025fdaf78dc89064052678b" prot="public" virt="virtual"><scope>srsgnb::rlc_tx_um_entity</scope><name>~rlc_tx_sdu_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

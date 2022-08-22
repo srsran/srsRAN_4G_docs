@@ -1,0 +1,1170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1lower__phy__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::lower_phy_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1lower__phy" prot="public" virt="non-virtual">srsgnb::lower_phy</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1lower__phy__controller" prot="public" virt="non-virtual">srsgnb::lower_phy_controller</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1lower__phy__rg__handler" prot="public" virt="non-virtual">srsgnb::lower_phy_rg_handler</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1lower__phy__request__handler" prot="public" virt="non-virtual">srsgnb::lower_phy_request_handler</basecompoundref>
+    <includes refid="lower__phy__impl_8h" local="no">lower_phy_impl.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a14adf824e86b4fed79c15812e8b7a45c" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::lower_phy_impl::NOF_RG_BUFFER</definition>
+        <argsstring></argsstring>
+        <name>NOF_RG_BUFFER</name>
+        <initializer>= 40</initializer>
+        <briefdescription>
+<para>Number of resource grid buffers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="87" column="29" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::lower_phy_impl::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+<para>Logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="90" column="24" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="90" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">realtime_process_loop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aeca7e99b708a3979abde4b78e60ab1c8" compoundref="lower__phy__impl_8cpp" startline="230" endline="236">handle_resource_grid</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a4958192cfe12c97cc9f60ab546d95b48" compoundref="lower__phy__impl_8cpp" startline="326" endline="330">start</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aadffb3ca161aa2782d41dfd7ea6de9e6" compoundref="lower__phy__impl_8cpp" startline="332" endline="337">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a2cc6bae10dab8a700ce767d9b45d16bd" compoundref="lower__phy__impl_8cpp" startline="344" endline="348">request_uplink_slot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a1d82191574fb281db619d32fc798e194" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway__transmitter" kindref="compound">baseband_gateway_transmitter</ref> &amp;</type>
+        <definition>baseband_gateway_transmitter&amp; srsgnb::lower_phy_impl::transmitter</definition>
+        <argsstring></argsstring>
+        <name>transmitter</name>
+        <briefdescription>
+<para>Baseband gateway transmitter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="92" column="32" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="92" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1ab0d77a71d80e9ad9ec88e82dd4c02dce" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway__receiver" kindref="compound">baseband_gateway_receiver</ref> &amp;</type>
+        <definition>baseband_gateway_receiver&amp; srsgnb::lower_phy_impl::receiver</definition>
+        <argsstring></argsstring>
+        <name>receiver</name>
+        <briefdescription>
+<para>Baseband gateway receiver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="94" column="29" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a9b8500222bc3f499afa2505ef0245670" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier" kindref="compound">lower_phy_rx_symbol_notifier</ref> &amp;</type>
+        <definition>lower_phy_rx_symbol_notifier&amp; srsgnb::lower_phy_impl::rx_symbol_notifier</definition>
+        <argsstring></argsstring>
+        <name>rx_symbol_notifier</name>
+        <briefdescription>
+<para>Receive symbol handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="96" column="32" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="96" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a25112fca492955b1d58d57f7e2c0504a" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__timing__notifier" kindref="compound">lower_phy_timing_notifier</ref> &amp;</type>
+        <definition>lower_phy_timing_notifier&amp; srsgnb::lower_phy_impl::timing_notifier</definition>
+        <argsstring></argsstring>
+        <name>timing_notifier</name>
+        <briefdescription>
+<para>Timing boundary handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="98" column="29" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a12d2ede4273dc1360385057f171510af" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__error__notifier" kindref="compound">lower_phy_error_notifier</ref> &amp;</type>
+        <definition>lower_phy_error_notifier&amp; srsgnb::lower_phy_impl::error_notifier</definition>
+        <argsstring></argsstring>
+        <name>error_notifier</name>
+        <briefdescription>
+<para>Error handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="100" column="28" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="100" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1circular__array" kindref="compound">circular_array</ref>&lt; <ref refid="classsrsgnb_1_1lower__phy__rg__buffer" kindref="compound">lower_phy_rg_buffer</ref>&lt; const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &gt;, <ref refid="classsrsgnb_1_1lower__phy__impl_1a14adf824e86b4fed79c15812e8b7a45c" kindref="member">NOF_RG_BUFFER</ref> &gt;</type>
+        <definition>circular_array&lt;lower_phy_rg_buffer&lt;const resource_grid_reader&gt;, NOF_RG_BUFFER&gt; srsgnb::lower_phy_impl::dl_rg_buffers</definition>
+        <argsstring></argsstring>
+        <name>dl_rg_buffers</name>
+        <briefdescription>
+<para>Container for downlink resource grids buffers. Each entry belongs to a slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="102" column="18" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="102" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aeca7e99b708a3979abde4b78e60ab1c8" compoundref="lower__phy__impl_8cpp" startline="230" endline="236">handle_resource_grid</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1circular__array" kindref="compound">circular_array</ref>&lt; <ref refid="classsrsgnb_1_1lower__phy__rg__buffer" kindref="compound">lower_phy_rg_buffer</ref>&lt; <ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &gt;, <ref refid="classsrsgnb_1_1lower__phy__impl_1a14adf824e86b4fed79c15812e8b7a45c" kindref="member">NOF_RG_BUFFER</ref> &gt;</type>
+        <definition>circular_array&lt;lower_phy_rg_buffer&lt;resource_grid&gt;, NOF_RG_BUFFER&gt; srsgnb::lower_phy_impl::ul_rg_buffers</definition>
+        <argsstring></argsstring>
+        <name>ul_rg_buffers</name>
+        <briefdescription>
+<para>Container for uplink resource grids buffers. Each entry belongs to a slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="104" column="18" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="104" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a2cc6bae10dab8a700ce767d9b45d16bd" compoundref="lower__phy__impl_8cpp" startline="344" endline="348">request_uplink_slot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a5932300b003a76418dabd9d2f6f6e354" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classsrsgnb_1_1baseband__gateway__buffer__dynamic" kindref="compound">baseband_gateway_buffer_dynamic</ref> &gt;</type>
+        <definition>std::vector&lt;baseband_gateway_buffer_dynamic&gt; srsgnb::lower_phy_impl::radio_buffers</definition>
+        <argsstring></argsstring>
+        <name>radio_buffers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Container for radio baseband buffers for each stream. Common for transmit and receive. The number of entries indicates the number of streams. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="107" column="15" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="107" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1acf0e1bd41548e3bf82f0ef691d27381c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structsrsgnb_1_1baseband__gateway__receiver_1_1metadata" kindref="compound">baseband_gateway_receiver::metadata</ref> &gt;</type>
+        <definition>std::vector&lt;baseband_gateway_receiver::metadata&gt; srsgnb::lower_phy_impl::receive_metadata</definition>
+        <argsstring></argsstring>
+        <name>receive_metadata</name>
+        <briefdescription>
+<para>Container for radio receive metadata for each stream. The number of entries indicates the number of streams. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="109" column="15" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="109" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1acc951c62e2282b000804c2c80c39eaab" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__symbol__modulator" kindref="compound">ofdm_symbol_modulator</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;ofdm_symbol_modulator&gt; &gt; srsgnb::lower_phy_impl::modulators</definition>
+        <argsstring></argsstring>
+        <name>modulators</name>
+        <briefdescription>
+<para>Container for OFDM modulators. Each entry belongs to a different sector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="111" column="15" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="111" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a9a09106f471b95d14464168d42b127f7" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1ofdm__symbol__demodulator" kindref="compound">ofdm_symbol_demodulator</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;ofdm_symbol_demodulator&gt; &gt; srsgnb::lower_phy_impl::demodulators</definition>
+        <argsstring></argsstring>
+        <name>demodulators</name>
+        <briefdescription>
+<para>Container for OFDM demodulators. Each entry belongs to a different sector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="113" column="15" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="113" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a6909843dd0ca0736e957f9822cbe2c8a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1prach__processor" kindref="compound">prach_processor</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;prach_processor&gt; srsgnb::lower_phy_impl::prach_proc</definition>
+        <argsstring></argsstring>
+        <name>prach_proc</name>
+        <briefdescription>
+<para>PRACH processor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="115" column="19" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="115" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a53845169475c076a3905bba91af9ab81" compoundref="lower__phy__impl_8cpp" startline="339" endline="342">request_prach_window</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1ac009afb8bf9ee6bd1b411a8cfd0c25a5" prot="private" static="no" mutable="no">
+        <type>const <ref refid="namespacesrsgnb_1ae5b939cbd6df410e55e6229f3f3e5f1d" kindref="member">baseband_gateway_timestamp</ref></type>
+        <definition>const baseband_gateway_timestamp srsgnb::lower_phy_impl::rx_to_tx_delay</definition>
+        <argsstring></argsstring>
+        <name>rx_to_tx_delay</name>
+        <briefdescription>
+<para>Receive-to-transmit delay in clock ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="117" column="36" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1aef423db82f784905bfe393e744959a97" prot="private" static="no" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::lower_phy_impl::max_processing_delay_slots</definition>
+        <argsstring></argsstring>
+        <name>max_processing_delay_slots</name>
+        <briefdescription>
+<para>Maximum allowed processing delay in slots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="119" column="18" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="119" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1aff250e731f9121a62158018023b45698" prot="private" static="no" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned srsgnb::lower_phy_impl::nof_symbols_per_slot</definition>
+        <argsstring></argsstring>
+        <name>nof_symbols_per_slot</name>
+        <briefdescription>
+<para>Number of symbols per slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="121" column="18" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="121" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1abdb7cd672a2e5a7177043e59b466ba82" prot="private" static="no" mutable="no">
+        <type>const std::vector&lt; <ref refid="structsrsgnb_1_1lower__phy__sector__description" kindref="compound">lower_phy_sector_description</ref> &gt;</type>
+        <definition>const std::vector&lt;lower_phy_sector_description&gt; srsgnb::lower_phy_impl::sectors</definition>
+        <argsstring></argsstring>
+        <name>sectors</name>
+        <briefdescription>
+<para>Sector configurations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="123" column="21" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="123" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a8459d158f70bced03c95cad28b70370f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+        <definition>slot_point srsgnb::lower_phy_impl::ul_slot_context</definition>
+        <argsstring></argsstring>
+        <name>ul_slot_context</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Current uplink processing slot context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="125" column="14" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="125" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a7e74644f06fc190aa62f5fa4fb01d2f9" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref></type>
+        <definition>slot_point srsgnb::lower_phy_impl::dl_slot_context</definition>
+        <argsstring></argsstring>
+        <name>dl_slot_context</name>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>Current downlink processing slot context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="127" column="14" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="127" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a6ba4469ec80f6e7950349ec8133503e0" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::lower_phy_impl::symbol_slot_idx</definition>
+        <argsstring></argsstring>
+        <name>symbol_slot_idx</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Current symbol index within the processing slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="129" column="12" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="129" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a68334bddea7be3dfdc0911a738292431" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__state__fsm" kindref="compound">lower_phy_state_fsm</ref></type>
+        <definition>lower_phy_state_fsm srsgnb::lower_phy_impl::state_fsm</definition>
+        <argsstring></argsstring>
+        <name>state_fsm</name>
+        <briefdescription>
+<para>State of the lower PHY finite-state machine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="131" column="23" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="131" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">realtime_process_loop</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1aadffb3ca161aa2782d41dfd7ea6de9e6" compoundref="lower__phy__impl_8cpp" startline="332" endline="337">stop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1lower__phy__impl_1a018dde433fd4c40c75272b42dde1e1a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1processor__notifier__adaptor" kindref="compound">processor_notifier_adaptor</ref></type>
+        <definition>processor_notifier_adaptor srsgnb::lower_phy_impl::notification_adaptor</definition>
+        <argsstring></argsstring>
+        <name>notification_adaptor</name>
+        <briefdescription>
+<para>Processor notification adaptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="133" column="30" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="133" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" compoundref="lower__phy__impl_8cpp" startline="238" endline="324">lower_phy_impl</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1ae5b939cbd6df410e55e6229f3f3e5f1d" kindref="member">baseband_gateway_timestamp</ref></type>
+        <definition>baseband_gateway_timestamp lower_phy_impl::process_ul_symbol</definition>
+        <argsstring>(unsigned symbol_idx)</argsstring>
+        <name>process_ul_symbol</name>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_idx</declname>
+        </param>
+        <briefdescription>
+<para>Processes an uplink symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within a subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The radio timestamp of the received block. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="138" column="30" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="36" bodyend="98"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" compoundref="lower__phy__impl_8h" startline="104">ul_rg_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a8459d158f70bced03c95cad28b70370f" compoundref="lower__phy__impl_8h" startline="125">ul_slot_context</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1acc951c62e2282b000804c2c80c39eaab" compoundref="lower__phy__impl_8h" startline="111">modulators</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a5932300b003a76418dabd9d2f6f6e354" compoundref="lower__phy__impl_8h" startline="107">radio_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1acf0e1bd41548e3bf82f0ef691d27381c" compoundref="lower__phy__impl_8h" startline="109">receive_metadata</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ab0d77a71d80e9ad9ec88e82dd4c02dce" compoundref="lower__phy__impl_8h" startline="94">receiver</references>
+        <references refid="classsrsgnb_1_1baseband__gateway__receiver_1acaf2b07adeeea97c157fd84cd5f0c741">srsgnb::baseband_gateway_receiver::receive</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1abdb7cd672a2e5a7177043e59b466ba82" compoundref="lower__phy__impl_8h" startline="123">sectors</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__description_1ace4c270693625b7cba594d474f71825c" compoundref="lower__phy__configuration_8h" startline="43">srsgnb::lower_phy_sector_description::port_mapping</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__port__mapping_1aabccf65acc4eab21b382a4998ef08f57" compoundref="lower__phy__configuration_8h" startline="29">srsgnb::lower_phy_sector_port_mapping::stream_id</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__port__mapping_1ad5f99676f076e6c288e3954b510ebdf4" compoundref="lower__phy__configuration_8h" startline="31">srsgnb::lower_phy_sector_port_mapping::channel_id</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a6909843dd0ca0736e957f9822cbe2c8a" compoundref="lower__phy__impl_8h" startline="115">prach_proc</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a9a09106f471b95d14464168d42b127f7" compoundref="lower__phy__impl_8h" startline="113">demodulators</references>
+        <references refid="structsrsgnb_1_1lower__phy__rx__symbol__context_1a2bfb31f8dea914128804dd5f836c1bb9" compoundref="lower__phy__rx__symbol__notifier_8h" startline="25">srsgnb::lower_phy_rx_symbol_context::sector</references>
+        <references refid="structsrsgnb_1_1lower__phy__rx__symbol__context_1a811f00baca5dc4e88fc395948a99da91" compoundref="lower__phy__rx__symbol__notifier_8h" startline="23">srsgnb::lower_phy_rx_symbol_context::slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__rx__symbol__context_1a17eb06c871bf4bc2094196e6a06db469" compoundref="lower__phy__rx__symbol__notifier_8h" startline="27">srsgnb::lower_phy_rx_symbol_context::nof_symbols</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a9b8500222bc3f499afa2505ef0245670" compoundref="lower__phy__impl_8h" startline="96">rx_symbol_notifier</references>
+        <references refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier_1abbbe47df069ba3c347cd1cef757e3a5c">srsgnb::lower_phy_rx_symbol_notifier::on_rx_symbol</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::process_dl_symbol</definition>
+        <argsstring>(unsigned symbol_idx, baseband_gateway_timestamp timestamp)</argsstring>
+        <name>process_dl_symbol</name>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_idx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1ae5b939cbd6df410e55e6229f3f3e5f1d" kindref="member">baseband_gateway_timestamp</ref></type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+<para>Processes a downlink symbol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within a subframe. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timestamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radio timestamp for the transmitted symbol. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="143" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="100" bodyend="155"/>
+        <references refid="structsrsgnb_1_1baseband__gateway__transmitter_1_1metadata_1ae8965e049c03393d7cd988216ea83437" compoundref="baseband__gateway_8h" startline="20">srsgnb::baseband_gateway_transmitter::metadata::ts</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac009afb8bf9ee6bd1b411a8cfd0c25a5" compoundref="lower__phy__impl_8h" startline="117">rx_to_tx_delay</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" compoundref="lower__phy__impl_8h" startline="102">dl_rg_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7e74644f06fc190aa62f5fa4fb01d2f9" compoundref="lower__phy__impl_8h" startline="127">dl_slot_context</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1acc951c62e2282b000804c2c80c39eaab" compoundref="lower__phy__impl_8h" startline="111">modulators</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a5932300b003a76418dabd9d2f6f6e354" compoundref="lower__phy__impl_8h" startline="107">radio_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1abdb7cd672a2e5a7177043e59b466ba82" compoundref="lower__phy__impl_8h" startline="123">sectors</references>
+        <references refid="structsrsgnb_1_1lower__phy__error__notifier_1_1late__resource__grid__context_1a2e514cbf92e1e4a2c0581ad605befe84" compoundref="lower__phy__error__notifier_8h" startline="28">srsgnb::lower_phy_error_notifier::late_resource_grid_context::sector</references>
+        <references refid="structsrsgnb_1_1lower__phy__error__notifier_1_1late__resource__grid__context_1a616cf5edec380e5449d676bb426e01c8" compoundref="lower__phy__error__notifier_8h" startline="30">srsgnb::lower_phy_error_notifier::late_resource_grid_context::slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__error__notifier_1_1late__resource__grid__context_1ad2156900f4f7380bf3e9651197143ae5" compoundref="lower__phy__error__notifier_8h" startline="32">srsgnb::lower_phy_error_notifier::late_resource_grid_context::symbol</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a12d2ede4273dc1360385057f171510af" compoundref="lower__phy__impl_8h" startline="100">error_notifier</references>
+        <references refid="classsrsgnb_1_1lower__phy__error__notifier_1a38dd257976be30572c893feb35e10415">srsgnb::lower_phy_error_notifier::on_late_resource_grid</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__description_1ace4c270693625b7cba594d474f71825c" compoundref="lower__phy__configuration_8h" startline="43">srsgnb::lower_phy_sector_description::port_mapping</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__port__mapping_1aabccf65acc4eab21b382a4998ef08f57" compoundref="lower__phy__configuration_8h" startline="29">srsgnb::lower_phy_sector_port_mapping::stream_id</references>
+        <references refid="structsrsgnb_1_1lower__phy__sector__port__mapping_1ad5f99676f076e6c288e3954b510ebdf4" compoundref="lower__phy__configuration_8h" startline="31">srsgnb::lower_phy_sector_port_mapping::channel_id</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a1d82191574fb281db619d32fc798e194" compoundref="lower__phy__impl_8h" startline="92">transmitter</references>
+        <references refid="classsrsgnb_1_1baseband__gateway__transmitter_1a8573ac4a5d5cfe5cb01f19586fbbcf38">srsgnb::baseband_gateway_transmitter::transmit</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::process_symbol</definition>
+        <argsstring>()</argsstring>
+        <name>process_symbol</name>
+        <briefdescription>
+<para>Processes uplink and downlink slots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="146" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="157" bodyend="212"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a6ba4469ec80f6e7950349ec8133503e0" compoundref="lower__phy__impl_8h" startline="129">symbol_slot_idx</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="classsrslog_1_1detail_1_1logger__impl_1a4b0da29e8e48116c01ed859f50169b56" compoundref="logger_8h" startline="65" endline="71">srslog::detail::logger_impl&lt; T, Enum &gt;::set_context</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7e74644f06fc190aa62f5fa4fb01d2f9" compoundref="lower__phy__impl_8h" startline="127">dl_slot_context</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__timing__context_1a034798fd6d0c4ac55adf72657ecdd7db" compoundref="lower__phy__timing__notifier_8h" startline="20">srsgnb::lower_phy_timing_context::slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1aef423db82f784905bfe393e744959a97" compoundref="lower__phy__impl_8h" startline="119">max_processing_delay_slots</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a25112fca492955b1d58d57f7e2c0504a" compoundref="lower__phy__impl_8h" startline="98">timing_notifier</references>
+        <references refid="classsrsgnb_1_1lower__phy__timing__notifier_1a9358476b84762bb62f60efd577c6bef9">srsgnb::lower_phy_timing_notifier::on_tti_boundary</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a8459d158f70bced03c95cad28b70370f" compoundref="lower__phy__impl_8h" startline="125">ul_slot_context</references>
+        <references refid="classsrsgnb_1_1slot__point_1a418ab7186ebd2026e89a0a131738c2d6" compoundref="slot__point_8h" startline="122" endline="122">srsgnb::slot_point::subframe_slot_index</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1aff250e731f9121a62158018023b45698" compoundref="lower__phy__impl_8h" startline="121">nof_symbols_per_slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__timing__notifier_1a96b91bd3da8d3355a3f3466667397e34">srsgnb::lower_phy_timing_notifier::on_ul_half_slot_boundary</references>
+        <references refid="classsrsgnb_1_1lower__phy__timing__notifier_1a8fc16b2e251891f60c27bf31d1468fea">srsgnb::lower_phy_timing_notifier::on_ul_full_slot_boundary</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" compoundref="lower__phy__impl_8cpp" startline="36" endline="98">process_ul_symbol</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" compoundref="lower__phy__impl_8cpp" startline="100" endline="155">process_dl_symbol</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" compoundref="lower__phy__impl_8h" startline="102">dl_rg_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" compoundref="lower__phy__impl_8h" startline="104">ul_rg_buffers</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">realtime_process_loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::realtime_process_loop</definition>
+        <argsstring>(task_executor &amp;realtime_task_executor)</argsstring>
+        <name>realtime_process_loop</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>realtime_task_executor</declname>
+        </param>
+        <briefdescription>
+<para>Runs the lower physical layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="149" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="214" bodyend="228"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" compoundref="lower__phy__impl_8cpp" startline="157" endline="212">process_symbol</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a68334bddea7be3dfdc0911a738292431" compoundref="lower__phy__impl_8h" startline="131">state_fsm</references>
+        <references refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">srsgnb::task_executor::defer</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1a6a19fe4e50ad384b592344fe33c55ab6" compoundref="lower__phy__state__fsm_8h" startline="56" endline="61">srsgnb::lower_phy_state_fsm::on_async_executor_stop</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <referencedby refid="classsrsgnb_1_1lower__phy__impl_1a4958192cfe12c97cc9f60ab546d95b48" compoundref="lower__phy__impl_8cpp" startline="326" endline="330">start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>static unsigned srsgnb::lower_phy_impl::get_rx_to_tx_delay</definition>
+        <argsstring>(unsigned ul_to_dl_subframe_offset, phy_time_unit time_advance_calibration, lower_phy_ta_offset ta_offset, sampling_rate srate)</argsstring>
+        <name>get_rx_to_tx_delay</name>
+        <param>
+          <type>unsigned</type>
+          <declname>ul_to_dl_subframe_offset</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1phy__time__unit" kindref="compound">phy_time_unit</ref></type>
+          <declname>time_advance_calibration</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a8035b0d5dfde4e910dac3930930b48b7" kindref="member">lower_phy_ta_offset</ref></type>
+          <declname>ta_offset</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sampling__rate" kindref="compound">sampling_rate</ref></type>
+          <declname>srate</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the reception-to-transmission (Rx-to-Tx) delay as a number of samples. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>On the radio channel, uplink and downlink frames coexist on the same carrier. As explained in TS38.211 Section 4.3.1, the sequence of uplink frames precedes the sequence of downlink frames by a given time <formula id="197">$T_{\mathrm{offset}} = N_{\mathrm{TA,offset}} * T_c$</formula> (recall that TS38.211 Section 4.3.1 describes the issue from the UE standpoint, hence the extra term <formula id="198">$N_{\mathrm{TA}} * T_c$</formula>). In other words, uplink frame <formula id="53">$i$</formula> starts <formula id="199">$T_{\mathrm{offset}}$</formula> units of time before the downlink frame with the same index <formula id="53">$i$</formula>. Equivalently, one can index the OFDM symbols comprising the frames and draw the same timing relationship between symbols with the same index. By increasing the granularity even further, the alignment can be thought of as if at sample level.</para>
+<para>On the other hand, for an uplink and a downlink sample to coincide on the carrier at the same time, it is required that the lower PHY processes the downlink (transmit) sample in advance with respect to the uplink (receive) one, because of the delays introduced by the underlying radio device. The Rx-to-Tx delay is thus the number of samples by which the sequence of transmitted samples must precede that of received samples, as seen by the lower PHY processor, in order to achieve the aforementioned carrier alignment between uplink and downlink frames.</para>
+<para>More specifically, let <formula id="200">$N_{\mathrm{offset}}$</formula> be the &quot;round-trip&quot; delay introduced by the radio device (i.e., it is the sum of the delay experienced by a received sample before reaching the lower PHY plus the delay undergone by a downlink sample leaving the lower PHY, before transmission). Also, let <formula id="201">$N_{\mathrm{TA, offset}}$</formula> be the time-advance offset between downlink and uplink, as defined in TS38.211 Section 4.3.1. Finally, let <formula id="202">$N_{\mathrm{cal}}$</formula> be a calibration term that takes into account time-advance impairments due radio device buffering. All three offsets are expressed as a number of samples. Then, the Rx-to-Tx delay <formula id="13">$N$</formula> is given by <formula id="203">\[ N=N_{\mathrm{offset}} - N_{\mathrm{cal}} + N_{\mathrm{TA, offset}} \]</formula> samples or, equivalently, physical layer units of time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ul_to_dl_subframe_offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UL-to-DL offset in subframes (recall, 1 subframe = 1ms). It maps to <formula id="200">$N_{\mathrm{offset}}$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_advance_calibration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time-advance radio calibration time, in physical layer units of time. It maps to <formula id="202">$N_{\mathrm{cal}}$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ta_offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time advance offset (see <ref refid="namespacesrsgnb_1a8035b0d5dfde4e910dac3930930b48b7" kindref="member">lower_phy_ta_offset</ref> for more information). It maps to <formula id="201">$N_{\mathrm{TA, offset}}$</formula>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The reception-to-transmission delay as a number of samples. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="185" column="26" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="185" bodyend="201"/>
+        <references refid="classsrsgnb_1_1phy__time__unit_1aa2d0801dc7d3037669ea179ded3a73d3" compoundref="phy__time__unit_8h" startline="149" endline="152">srsgnb::phy_time_unit::from_seconds</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a099efbe765630178ae68ac669d1cbdf8" compoundref="phy__time__unit_8h" startline="143" endline="146">srsgnb::phy_time_unit::from_units_of_Tc</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="classsrsgnb_1_1sampling__rate_1a379f90b26114f0dd517716f698afa749" compoundref="sampling__rate_8h" startline="80" endline="84">srsgnb::sampling_rate::to_Hz</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lower_phy_impl::lower_phy_impl</definition>
+        <argsstring>(lower_phy_common_configuration &amp;&amp;common_config, const lower_phy_configuration &amp;config)</argsstring>
+        <name>lower_phy_impl</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1lower__phy__common__configuration" kindref="compound">lower_phy_common_configuration</ref> &amp;&amp;</type>
+          <declname>common_config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__configuration" kindref="compound">lower_phy_configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a generic lower physical layer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">common_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the factory specific necessary parameters to construct the lower physical layer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the common lower PHY parameters to construct the lower physical layer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="208" column="12" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="238" bodyend="324"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="classsrslog_1_1detail_1_1logger__impl_1a70bfaf5c4255d339daae19d8d7194b23" compoundref="logger_8h" startline="46" endline="62">srslog::detail::logger_impl&lt; T, Enum &gt;::set_level</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1aa53725fde0e2eac296520c35bcb32e14" compoundref="lower__phy__configuration_8h" startline="106">srsgnb::lower_phy_configuration::log_level</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a3d25ca49ff6c2a4c0b56be11dbfa2ae5" compoundref="lower__phy__configuration_8h" startline="80">srsgnb::lower_phy_configuration::ul_to_dl_subframe_offset</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a4505b0965a3aabb8caa5f259f5db6cd6" compoundref="lower__phy__configuration_8h" startline="84">srsgnb::lower_phy_configuration::time_advance_calibration</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a22b74f151e06056669c17e8bdf424dc5" compoundref="phy__time__unit_8h" startline="55" endline="59">srsgnb::phy_time_unit::to_seconds</references>
+        <references refid="classsrsgnb_1_1phy__time__unit_1a61b913c2c09dea84820ff4c071dd46b5" compoundref="phy__time__unit_8h" startline="86" endline="96">srsgnb::phy_time_unit::to_samples</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a1cfa31d1f85f650941df084f7a38e39c" compoundref="lower__phy__configuration_8h" startline="67">srsgnb::lower_phy_configuration::srate</references>
+        <references refid="classsrsgnb_1_1sampling__rate_1a379f90b26114f0dd517716f698afa749" compoundref="sampling__rate_8h" startline="80" endline="84">srsgnb::sampling_rate::to_Hz</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a2fb0ada6a7a65154ff56dab7373c8753" compoundref="lower__phy__configuration_8h" startline="73">srsgnb::lower_phy_configuration::max_processing_delay_slots</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a94074347e9dc1c8df86d5b457eccb0f1" compoundref="lower__phy__configuration_8h" startline="92">srsgnb::lower_phy_configuration::bb_gateway</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a65e0359cbcf449324b6e690b7c9f2644" compoundref="lower__phy__configuration_8h" startline="98">srsgnb::lower_phy_configuration::error_notifier</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1a22b5f0b580b14efa6c9db43c953ba4a5" compoundref="lower__phy__configuration_8h" startline="94">srsgnb::lower_phy_configuration::rx_symbol_notifier</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1ac5de0c16d8dd00b06c1ac89012685cd7" compoundref="lower__phy__configuration_8h" startline="96">srsgnb::lower_phy_configuration::timing_notifier</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1acc951c62e2282b000804c2c80c39eaab" compoundref="lower__phy__impl_8h" startline="111">modulators</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1aff9c40d0d3fc85a50172fb4bd3993fa2" compoundref="lower__phy__configuration_8h" startline="102">srsgnb::lower_phy_configuration::sectors</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a9a09106f471b95d14464168d42b127f7" compoundref="lower__phy__impl_8h" startline="113">demodulators</references>
+        <references refid="structsrsgnb_1_1lower__phy__configuration_1acebe7714614b6bfd8c55bbbe4c530db0" compoundref="lower__phy__configuration_8h" startline="104">srsgnb::lower_phy_configuration::nof_channels_per_stream</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a5932300b003a76418dabd9d2f6f6e354" compoundref="lower__phy__impl_8h" startline="107">radio_buffers</references>
+        <references refid="classsrsgnb_1_1sampling__rate_1a1ad27c3aa62938dfc3f427d778d076c9" compoundref="sampling__rate_8h" startline="62" endline="66">srsgnb::sampling_rate::get_dft_size</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1acf0e1bd41548e3bf82f0ef691d27381c" compoundref="lower__phy__impl_8h" startline="109">receive_metadata</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a8459d158f70bced03c95cad28b70370f" compoundref="lower__phy__impl_8h" startline="125">ul_slot_context</references>
+        <references refid="classsrsgnb_1_1slot__point_1ad15b0688ae249ad97771acc2e199858e" compoundref="slot__point_8h" startline="99" endline="99">srsgnb::slot_point::nof_slots_per_subframe</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" compoundref="lower__phy__impl_8h" startline="102">dl_rg_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1abdb7cd672a2e5a7177043e59b466ba82" compoundref="lower__phy__impl_8h" startline="123">sectors</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1aef423db82f784905bfe393e744959a97" compoundref="lower__phy__impl_8h" startline="119">max_processing_delay_slots</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" compoundref="lower__phy__impl_8h" startline="104">ul_rg_buffers</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a68334bddea7be3dfdc0911a738292431" compoundref="lower__phy__impl_8h" startline="131">state_fsm</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1ac0b8dd4c5604ba0a5966cc55c2cf94ef" compoundref="lower__phy__state__fsm_8h" startline="47" endline="53">srsgnb::lower_phy_state_fsm::on_successful_init</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a018dde433fd4c40c75272b42dde1e1a9" compoundref="lower__phy__impl_8h" startline="133">notification_adaptor</references>
+        <references refid="classsrsgnb_1_1processor__notifier__adaptor_1a7089dd1d54686549effba949e9496b21" compoundref="processor__notifier__adaptor_8h" startline="32" endline="32">srsgnb::processor_notifier_adaptor::connect_error_notifier</references>
+        <references refid="classsrsgnb_1_1processor__notifier__adaptor_1ae97fa347dc0c0df3e658ba32018864cf" compoundref="processor__notifier__adaptor_8h" startline="26" endline="29">srsgnb::processor_notifier_adaptor::connect_rx_symbol_notifier</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a6909843dd0ca0736e957f9822cbe2c8a" compoundref="lower__phy__impl_8h" startline="115">prach_proc</references>
+        <references refid="classsrsgnb_1_1processor__notifier__adaptor_1ad18559d9e2a7dac045502f8954190bef" compoundref="processor__notifier__adaptor_8h" startline="35" endline="35">srsgnb::processor_notifier_adaptor::get_prach_notifier</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a4958192cfe12c97cc9f60ab546d95b48" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::start</definition>
+        <argsstring>(task_executor &amp;realtime_task_executor) override</argsstring>
+        <name>start</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__controller_1ad05ec18f30a8b9e21492a2b854022e90">start</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>realtime_task_executor</declname>
+        </param>
+        <briefdescription>
+<para>Starts the lower physical layer operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">realtime_task_executor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task executor for real time operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The real time task executor is exclusively dedicated to the lower physical layer operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="211" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="326" bodyend="330"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">srsgnb::task_executor::defer</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" compoundref="lower__phy__impl_8cpp" startline="214" endline="228">realtime_process_loop</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1aadffb3ca161aa2782d41dfd7ea6de9e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__controller_1ae731ffc7c887a4308c8f236ea386f834">stop</reimplements>
+        <briefdescription>
+<para>Stops the lower physical layer operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="214" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="332" bodyend="337"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a68334bddea7be3dfdc0911a738292431" compoundref="lower__phy__impl_8h" startline="131">state_fsm</references>
+        <references refid="classsrsgnb_1_1lower__phy__state__fsm_1af5e5b3e1ac491e70873cad64da2868a9" compoundref="lower__phy__state__fsm_8h" startline="64" endline="74">srsgnb::lower_phy_state_fsm::stop_and_join</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a53845169475c076a3905bba91af9ab81" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::request_prach_window</definition>
+        <argsstring>(const prach_buffer_context &amp;context, prach_buffer &amp;buffer) override</argsstring>
+        <name>request_prach_window</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__request__handler_1a0088b8c461b725313af7d0c70bef83ff">request_prach_window</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Requests the lower PHY to capture a PRACH window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The lower PHY must capture a PHY window identified by <computeroutput>context</computeroutput>. The capture must start at slot <computeroutput>context.slot</computeroutput> and symbol <computeroutput>context.start_symbol</computeroutput>. The capture must finish once <computeroutput>buffer.is_full()</computeroutput> returns true.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH window context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH buffer used to write the PRACH window. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="217" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="339" bodyend="342"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a6909843dd0ca0736e957f9822cbe2c8a" compoundref="lower__phy__impl_8h" startline="115">prach_proc</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a2cc6bae10dab8a700ce767d9b45d16bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::request_uplink_slot</definition>
+        <argsstring>(const resource_grid_context &amp;context, resource_grid &amp;grid) override</argsstring>
+        <name>request_uplink_slot</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__request__handler_1a2a589c1ca63cd05720f904dc513b81cf">request_uplink_slot</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Requests the lower PHY to provide an uplink slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The lower PHY must process the slot described by <computeroutput>context</computeroutput> and notify the demodulation per symbol basis of the requested slot.</para>
+<para>The notification contains the exact context and grid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid to store the processed slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="220" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="344" bodyend="348"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="structsrsgnb_1_1resource__grid__context_1a9fc72c4f460a3612628dad0d87995942" compoundref="resource__grid__context_8h" startline="23">srsgnb::resource_grid_context::sector</references>
+        <references refid="structsrsgnb_1_1resource__grid__context_1aa47703e440ee4ad880d5f5ec012e16ff" compoundref="resource__grid__context_8h" startline="21">srsgnb::resource_grid_context::slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" compoundref="lower__phy__impl_8h" startline="104">ul_rg_buffers</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1aeca7e99b708a3979abde4b78e60ab1c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void lower_phy_impl::handle_resource_grid</definition>
+        <argsstring>(const resource_grid_context &amp;context, const resource_grid_reader &amp;grid) override</argsstring>
+        <name>handle_resource_grid</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__rg__handler_1ab27af60810c544ffc7e344cab03c210b">handle_resource_grid</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Handles the given resource grid to be transmitted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="223" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="230" bodyend="236"/>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" compoundref="lower__phy__impl_8h" startline="90">logger</references>
+        <references refid="structsrsgnb_1_1resource__grid__context_1a9fc72c4f460a3612628dad0d87995942" compoundref="resource__grid__context_8h" startline="23">srsgnb::resource_grid_context::sector</references>
+        <references refid="structsrsgnb_1_1resource__grid__context_1aa47703e440ee4ad880d5f5ec012e16ff" compoundref="resource__grid__context_8h" startline="21">srsgnb::resource_grid_context::slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+        <references refid="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" compoundref="lower__phy__impl_8h" startline="102">dl_rg_buffers</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a063bc81343caa5554980482e86b608ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1lower__phy__request__handler" kindref="compound">lower_phy_request_handler</ref> &amp;</type>
+        <definition>lower_phy_request_handler&amp; srsgnb::lower_phy_impl::get_request_handler</definition>
+        <argsstring>() override</argsstring>
+        <name>get_request_handler</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy_1ad6c274aba77701f7706bcef66cccb59e">get_request_handler</reimplements>
+        <briefdescription>
+<para>Returns a reference to the lower PHY request handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="226" column="29" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="226" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a18bcd9d812c60578155f2dbff940bfa1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1lower__phy__rg__handler" kindref="compound">lower_phy_rg_handler</ref> &amp;</type>
+        <definition>lower_phy_rg_handler&amp; srsgnb::lower_phy_impl::get_rg_handler</definition>
+        <argsstring>() override</argsstring>
+        <name>get_rg_handler</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy_1a2a32b36b22f224fba00148d34805ac50">get_rg_handler</reimplements>
+        <briefdescription>
+<para>Returns a reference to the lower PHY resource grid handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="229" column="24" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="229" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__impl_1a8ba7180529e3cf8458fd39cb83e2b138" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1lower__phy__controller" kindref="compound">lower_phy_controller</ref> &amp;</type>
+        <definition>lower_phy_controller&amp; srsgnb::lower_phy_impl::get_controller</definition>
+        <argsstring>() override</argsstring>
+        <name>get_controller</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy_1a4e1605cd1a09e28d795b73118af27a53">get_controller</reimplements>
+        <briefdescription>
+<para>Returns a reference to the lower PHY controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.h" line="232" column="24" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="232" bodyend="232"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lower physical layer implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>srsgnb::lower_phy_rg_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__rg__handler"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::lower_phy_request_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__request__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::lower_phy_impl</label>
+        <link refid="classsrsgnb_1_1lower__phy__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::lower_phy</label>
+        <link refid="classsrsgnb_1_1lower__phy"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::lower_phy_controller</label>
+        <link refid="classsrsgnb_1_1lower__phy__controller"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::lower_phy_rg_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__rg__handler"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::baseband_gateway_receiver</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__receiver"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>srsgnb::baseband_gateway_transmitter</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__transmitter"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>T</label>
+      </node>
+      <node id="8">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::baseband_gateway_base</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__base"/>
+      </node>
+      <node id="13">
+        <label>srsgnb::processor_notifier_adaptor::prach_adaptor</label>
+        <link refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-error_notifier</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-rx_notifier</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::lower_phy_request_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__request__handler"/>
+      </node>
+      <node id="18">
+        <label>srsgnb::circular_array&lt; srsgnb::lower_phy_rg_buffer&lt; srsgnb::resource_grid &gt;, NOF_RG_BUFFER &gt;</label>
+        <link refid="classsrsgnb_1_1circular__array"/>
+      </node>
+      <node id="21">
+        <label>srsgnb::slot_point</label>
+        <link refid="classsrsgnb_1_1slot__point"/>
+      </node>
+      <node id="12">
+        <label>srsgnb::processor_notifier_adaptor</label>
+        <link refid="classsrsgnb_1_1processor__notifier__adaptor"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>-prach</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::lower_phy_impl</label>
+        <link refid="classsrsgnb_1_1lower__phy__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-receiver</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-state_fsm</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>-notification_adaptor</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>-transmitter</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>-error_notifier</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>-ul_rg_buffers</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>-dl_rg_buffers</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>-timing_notifier</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>-dl_slot_context</edgelabel>
+          <edgelabel>-ul_slot_context</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>-rx_symbol_notifier</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>srsgnb::circular_array&lt; srsgnb::lower_phy_rg_buffer&lt; const srsgnb::resource_grid_reader &gt;, NOF_RG_BUFFER &gt;</label>
+        <link refid="classsrsgnb_1_1circular__array"/>
+      </node>
+      <node id="11">
+        <label>srsgnb::lower_phy_state_fsm</label>
+        <link refid="classsrsgnb_1_1lower__phy__state__fsm"/>
+      </node>
+      <node id="20">
+        <label>srsgnb::lower_phy_timing_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__timing__notifier"/>
+      </node>
+      <node id="15">
+        <label>srsgnb::lower_phy_error_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__error__notifier"/>
+      </node>
+      <node id="10">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::lower_phy</label>
+        <link refid="classsrsgnb_1_1lower__phy"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::lower_phy_controller</label>
+        <link refid="classsrsgnb_1_1lower__phy__controller"/>
+      </node>
+      <node id="16">
+        <label>srsgnb::lower_phy_rx_symbol_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__rx__symbol__notifier"/>
+      </node>
+      <node id="14">
+        <label>srsgnb::prach_processor_notifier</label>
+        <link refid="classsrsgnb_1_1prach__processor__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/lower_phy_impl.h" line="84" column="1" bodyfile="lib/phy/lower/lower_phy_impl.h" bodystart="80" bodyend="233"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a9a09106f471b95d14464168d42b127f7" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>demodulators</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a2cfa5ca0e7906cf8c0c6427d7e30b871" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>dl_rg_buffers</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a7e74644f06fc190aa62f5fa4fb01d2f9" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>dl_slot_context</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a12d2ede4273dc1360385057f171510af" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>error_notifier</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a8ba7180529e3cf8458fd39cb83e2b138" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>get_controller</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a063bc81343caa5554980482e86b608ce" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>get_request_handler</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a18bcd9d812c60578155f2dbff940bfa1" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>get_rg_handler</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1aff8b5e8fb6a498dbcb84b5b2e5738ff8" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>get_rx_to_tx_delay</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1aeca7e99b708a3979abde4b78e60ab1c8" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>handle_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1ac964f791406897217d87eff0ee22812a" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a454a1e0e99bd18d7bea1d709691952c9" prot="public" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>lower_phy_impl</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1aef423db82f784905bfe393e744959a97" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>max_processing_delay_slots</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1acc951c62e2282b000804c2c80c39eaab" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>modulators</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a14adf824e86b4fed79c15812e8b7a45c" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>NOF_RG_BUFFER</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1aff250e731f9121a62158018023b45698" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>nof_symbols_per_slot</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a018dde433fd4c40c75272b42dde1e1a9" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>notification_adaptor</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a6909843dd0ca0736e957f9822cbe2c8a" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>prach_proc</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a69dd4e2ae333b13a69e085350c14b5f8" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>process_dl_symbol</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1ae22e6ddb99e7a53d56c6d947e5380bdc" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>process_symbol</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a1d5d874aea09db976e4ef848247f233c" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>process_ul_symbol</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a5932300b003a76418dabd9d2f6f6e354" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>radio_buffers</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1ac7ec811bd35b2c2d85037333270090c8" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>realtime_process_loop</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1acf0e1bd41548e3bf82f0ef691d27381c" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>receive_metadata</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1ab0d77a71d80e9ad9ec88e82dd4c02dce" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>receiver</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a53845169475c076a3905bba91af9ab81" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>request_prach_window</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a2cc6bae10dab8a700ce767d9b45d16bd" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>request_uplink_slot</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a9b8500222bc3f499afa2505ef0245670" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>rx_symbol_notifier</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1ac009afb8bf9ee6bd1b411a8cfd0c25a5" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>rx_to_tx_delay</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1abdb7cd672a2e5a7177043e59b466ba82" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>sectors</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a4958192cfe12c97cc9f60ab546d95b48" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>start</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a68334bddea7be3dfdc0911a738292431" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>state_fsm</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1aadffb3ca161aa2782d41dfd7ea6de9e6" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a6ba4469ec80f6e7950349ec8133503e0" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>symbol_slot_idx</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a25112fca492955b1d58d57f7e2c0504a" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>timing_notifier</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a1d82191574fb281db619d32fc798e194" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>transmitter</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a7f8fc37052c5b27d5fd57314fa58d40c" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>ul_rg_buffers</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__impl_1a8459d158f70bced03c95cad28b70370f" prot="private" virt="non-virtual"><scope>srsgnb::lower_phy_impl</scope><name>ul_slot_context</name></member>
+      <member refid="classsrsgnb_1_1lower__phy_1a7ba53abecfb85c7c8f45cb8fcd78cd97" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>~lower_phy</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__controller_1adf29ef4477e705665412257b18201246" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>~lower_phy_controller</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__request__handler_1a76cf3de7561e7709c241adfbb38dd356" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>~lower_phy_request_handler</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__rg__handler_1af3c3dde26f449ad1e83c2a9e963c55b7" prot="public" virt="virtual"><scope>srsgnb::lower_phy_impl</scope><name>~lower_phy_rg_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

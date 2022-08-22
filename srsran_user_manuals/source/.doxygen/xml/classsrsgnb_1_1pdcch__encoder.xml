@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcch__encoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pdcch_encoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pdcch__encoder__impl" prot="public" virt="non-virtual">srsgnb::pdcch_encoder_impl</derivedcompoundref>
+    <includes refid="pdcch__encoder_8h" local="no">pdcch_encoder.h</includes>
+    <innerclass refid="structsrsgnb_1_1pdcch__encoder_1_1config__t" prot="public">srsgnb::pdcch_encoder::config_t</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder_1a9d8f89a5647addb02581782d87e1c1df" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pdcch_encoder::~pdcch_encoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pdcch_encoder</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdcch_encoder.h" line="32" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcch__encoder_1a3b827ad94ea2c7ff5d3137758745386b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pdcch_encoder::encode</definition>
+        <argsstring>(span&lt; uint8_t &gt; encoded, span&lt; const uint8_t &gt; data, const config_t &amp;config)=0</argsstring>
+        <name>encode</name>
+        <reimplementedby refid="classsrsgnb_1_1pdcch__encoder__impl_1a328dbf4585eb760e2b74540640742f47">encode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>encoded</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pdcch__encoder_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a PDCCH message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- unencoded message bits </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">encoded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- encoded bits </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- encoder configuration</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>size of + 24 bits of CRC gives K parameter for the Polar encoder </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pdcch_encoder.h" line="41" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the PDCCH encoder interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pdcch_encoder_impl</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pdcch_encoder</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcch_encoder</label>
+        <link refid="classsrsgnb_1_1pdcch__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pdcch_encoder.h" line="21" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pdcch_encoder.h" bodystart="20" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcch__encoder_1a3b827ad94ea2c7ff5d3137758745386b" prot="public" virt="pure-virtual"><scope>srsgnb::pdcch_encoder</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1pdcch__encoder_1a9d8f89a5647addb02581782d87e1c1df" prot="public" virt="virtual"><scope>srsgnb::pdcch_encoder</scope><name>~pdcch_encoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

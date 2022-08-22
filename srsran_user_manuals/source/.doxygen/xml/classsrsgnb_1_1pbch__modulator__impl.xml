@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pbch__modulator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pbch_modulator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pbch__modulator" prot="public" virt="non-virtual">srsgnb::pbch_modulator</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__modulator__impl_1abf153b91ea8b9cc90da5839db18a5bbc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1modulation__mapper" kindref="compound">modulation_mapper</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;modulation_mapper&gt; srsgnb::pbch_modulator_impl::modulator</definition>
+        <argsstring></argsstring>
+        <name>modulator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="22" column="25" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pbch__modulator__impl_1a99c9f670bf9fcb097fb95c42ffd7f3dc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::pbch_modulator_impl::scrambler</definition>
+        <argsstring></argsstring>
+        <name>scrambler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="23" column="19" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__modulator__impl_1abef2c6cdf78e737ee48cfcb7ad2543f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pbch_modulator_impl::scramble</definition>
+        <argsstring>(span&lt; const uint8_t &gt; b, span&lt; uint8_t &gt; b_hat, const config_t &amp;config)</argsstring>
+        <name>scramble</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>b_hat</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Implements TS 38.211 section 7.3.3.1 Scrambling <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inputs bits to scramble </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">b_hat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output bits after scrambling </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PBCH modulator arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="29" column="8" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.cpp" bodystart="16" bodyend="26"/>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1a06998f7f74e883633d97dd3f794149d9" compoundref="pbch__modulator_8h" startline="35">srsgnb::pbch_modulator::config_t::phys_cell_id</references>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1a01a776535713e9b6adc58d2e7dccff65" compoundref="pbch__modulator_8h" startline="37">srsgnb::pbch_modulator::config_t::ssb_idx</references>
+        <references refid="classsrsgnb_1_1pbch__modulator_1a067babea20e63e4c36d658230477e6fd" compoundref="pbch__modulator_8h" startline="27">srsgnb::pbch_modulator::M_bit</references>
+        <referencedby refid="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" compoundref="pbch__modulator__impl_8cpp" startline="80" endline="96">put</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__modulator__impl_1a829f492d36b2f8607415873cc4859e43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pbch_modulator_impl::modulate</definition>
+        <argsstring>(span&lt; const uint8_t &gt; b_hat, span&lt; cf_t &gt; d_pbch)</argsstring>
+        <name>modulate</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>b_hat</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>d_pbch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Implements TS 38.211 section 7.3.3.2 Modulation <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">b_hat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inputs bits to scramble </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">d_pbch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output symbols </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="34" column="8" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.cpp" bodystart="28" bodyend="31"/>
+        <references refid="namespacesrsgnb_1a7dc7e5216033df2e1888688074e992b4a4539d029e1781f9347b6d7d173c04a6a">srsgnb::QPSK</references>
+        <referencedby refid="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" compoundref="pbch__modulator__impl_8cpp" startline="80" endline="96">put</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__modulator__impl_1a760c76d42c43c13b744ef088b79f2cde" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pbch_modulator_impl::map</definition>
+        <argsstring>(span&lt; const cf_t &gt; d_pbch, resource_grid_writer &amp;grid, const config_t &amp;config)</argsstring>
+        <name>map</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>d_pbch</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Implements TS 38.211 section 7.3.3.3 Mapping to physical resources <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">d_pbch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the symbols to map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the destination resource grid </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PBCH modulator arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="40" column="8" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.cpp" bodystart="33" bodyend="78"/>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1ad265bd75d70754b240694bef20507f65" compoundref="pbch__modulator_8h" startline="41">srsgnb::pbch_modulator::config_t::ssb_first_symbol</references>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1a130facbd8788f16a43358ac689a0da95" compoundref="pbch__modulator_8h" startline="39">srsgnb::pbch_modulator::config_t::ssb_first_subcarrier</references>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1a06998f7f74e883633d97dd3f794149d9" compoundref="pbch__modulator_8h" startline="35">srsgnb::pbch_modulator::config_t::phys_cell_id</references>
+        <references refid="namespacesrsgnb_1a385c6cfdf6d6806602dd5034aa26504f" compoundref="constants_8h" startline="28">srsgnb::SSB_BW_RE</references>
+        <references refid="structsrsgnb_1_1pbch__modulator_1_1config__t_1acd65e8429820607e73b77b81ffa160f3" compoundref="pbch__modulator_8h" startline="45">srsgnb::pbch_modulator::config_t::ports</references>
+        <references refid="classsrsgnb_1_1resource__grid__writer_1a20bb09ed9383ada65d1a69abaaa0ba32">srsgnb::resource_grid_writer::put</references>
+        <referencedby refid="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" compoundref="pbch__modulator__impl_8cpp" startline="80" endline="96">put</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__modulator__impl_1ac9b49a8ed8b4b634ba1d9c8e9388f018" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pbch_modulator_impl::pbch_modulator_impl</definition>
+        <argsstring>(std::unique_ptr&lt; modulation_mapper &gt; modulator_, std::unique_ptr&lt; pseudo_random_generator &gt; prg_)</argsstring>
+        <name>pbch_modulator_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1modulation__mapper" kindref="compound">modulation_mapper</ref> &gt;</type>
+          <declname>modulator_</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>prg_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="43" column="3" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.h" bodystart="43" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pbch_modulator_impl::put</definition>
+        <argsstring>(span&lt; const uint8_t &gt; bits, resource_grid_writer &amp;grid, const config_t &amp;config) override</argsstring>
+        <name>put</name>
+        <reimplements refid="classsrsgnb_1_1pbch__modulator_1ae709f24fba4d869c3379a9c608028444">put</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pbch__modulator_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Modulates a PBCH message according to TS38.211 Section 7.3.3. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination resource grid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="50" column="8" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.cpp" bodystart="80" bodyend="96"/>
+        <references refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" compoundref="span_8h" startline="143" endline="143">srsgnb::span&lt; T &gt;::size</references>
+        <references refid="classsrsgnb_1_1pbch__modulator_1a067babea20e63e4c36d658230477e6fd" compoundref="pbch__modulator_8h" startline="27">srsgnb::pbch_modulator::M_bit</references>
+        <references refid="classsrsgnb_1_1pbch__modulator__impl_1abef2c6cdf78e737ee48cfcb7ad2543f8" compoundref="pbch__modulator__impl_8cpp" startline="16" endline="26">scramble</references>
+        <references refid="classsrsgnb_1_1pbch__modulator__impl_1a829f492d36b2f8607415873cc4859e43" compoundref="pbch__modulator__impl_8cpp" startline="28" endline="31">modulate</references>
+        <references refid="classsrsgnb_1_1pbch__modulator__impl_1a760c76d42c43c13b744ef088b79f2cde" compoundref="pbch__modulator__impl_8cpp" startline="33" endline="78">map</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pbch_modulator_impl</label>
+        <link refid="classsrsgnb_1_1pbch__modulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pbch_modulator</label>
+        <link refid="classsrsgnb_1_1pbch__modulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pbch_modulator_impl</label>
+        <link refid="classsrsgnb_1_1pbch__modulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pbch_modulator</label>
+        <link refid="classsrsgnb_1_1pbch__modulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pbch_modulator_impl.h" line="20" column="1" bodyfile="lib/phy/upper/channel_processors/pbch_modulator_impl.h" bodystart="19" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pbch__modulator_1a067babea20e63e4c36d658230477e6fd" prot="public" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>M_bit</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator_1a1c44717f083ad564813f29ff000574d9" prot="public" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>M_symb</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1a760c76d42c43c13b744ef088b79f2cde" prot="private" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>map</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1a829f492d36b2f8607415873cc4859e43" prot="private" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>modulate</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1abf153b91ea8b9cc90da5839db18a5bbc" prot="private" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>modulator</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1ac9b49a8ed8b4b634ba1d9c8e9388f018" prot="public" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>pbch_modulator_impl</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1a498bcca23662d14d4f9caa382783addf" prot="public" virt="virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>put</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1abef2c6cdf78e737ee48cfcb7ad2543f8" prot="private" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>scramble</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator__impl_1a99c9f670bf9fcb097fb95c42ffd7f3dc" prot="private" virt="non-virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>scrambler</name></member>
+      <member refid="classsrsgnb_1_1pbch__modulator_1ad019b089f25be3b867cf9b110cf0a73f" prot="public" virt="virtual"><scope>srsgnb::pbch_modulator_impl</scope><name>~pbch_modulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

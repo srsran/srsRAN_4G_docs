@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rnti__allocator" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::rnti_allocator</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1rnti__allocator_1a4fdfd7211fad08c6852764ff6360ed01" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int srsgnb::rnti_allocator::CRNTI_RANGE</definition>
+        <argsstring></argsstring>
+        <name>CRNTI_RANGE</name>
+        <initializer>= rnti_t::MAX_CRNTI + 1 - rnti_t::MIN_CRNTI</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="42" column="27" bodyfile="lib/mac/rach_handler.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rnti__allocator_1a761847b7ca3c943bce63d09d48716886" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+        <definition>constexpr rnti_t srsgnb::rnti_allocator::INITIAL_RNTI</definition>
+        <argsstring></argsstring>
+        <name>INITIAL_RNTI</name>
+        <initializer>= <ref refid="namespacesrsgnb_1a061fb0d6bbe0a7462c555854c5dace03" kindref="member">to_rnti</ref>(0x4601)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="43" column="27" bodyfile="lib/mac/rach_handler.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1rnti__allocator_1af93c907a970a87ef8c626fd1d77876b7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref> &amp;</type>
+        <definition>du_rnti_table&amp; srsgnb::rnti_allocator::rnti_table</definition>
+        <argsstring></argsstring>
+        <name>rnti_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="45" column="17" bodyfile="lib/mac/rach_handler.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1rnti__allocator_1afdf9fe83a532af028acd662a712c01d3" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; std::underlying_type_t&lt; <ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref> &gt; &gt;</type>
+        <definition>std::atomic&lt;std::underlying_type_t&lt;rnti_t&gt; &gt; srsgnb::rnti_allocator::rnti_counter</definition>
+        <argsstring></argsstring>
+        <name>rnti_counter</name>
+        <initializer>{INITIAL_RNTI - MIN_CRNTI}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="47" column="15" bodyfile="lib/mac/rach_handler.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rnti__allocator_1afe68ba6f79e83ae36a2808a2914c1a5e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::rnti_allocator::rnti_allocator</definition>
+        <argsstring>(du_rnti_table &amp;rnti_table_)</argsstring>
+        <name>rnti_allocator</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1du__rnti__table" kindref="compound">du_rnti_table</ref> &amp;</type>
+          <declname>rnti_table_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="23" column="12" bodyfile="lib/mac/rach_handler.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rnti__allocator_1ae64a1eeb639d9abe969d0b9f545c51fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+        <definition>rnti_t srsgnb::rnti_allocator::allocate</definition>
+        <argsstring>()</argsstring>
+        <name>allocate</name>
+        <briefdescription>
+<para>Handles detected PRACHs by allocating a temporary C-RNTI and signalling the scheduler to allocate an RAR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/rach_handler.h" line="26" column="10" bodyfile="lib/mac/rach_handler.h" bodystart="26" bodyend="39"/>
+        <references refid="classsrsgnb_1_1du__rnti__table_1aaf0d7767238e29cf350ad7aac9000ccf" compoundref="du__rnti__table_8h" startline="60" endline="60">srsgnb::du_rnti_table::nof_ues</references>
+        <references refid="namespacesrsgnb_1a061fb0d6bbe0a7462c555854c5dace03" compoundref="rnti_8h" startline="38" endline="41">srsgnb::to_rnti</references>
+        <references refid="classsrsgnb_1_1du__rnti__table_1adb3ed6657140aec50361abf1ade2e647" compoundref="du__rnti__table_8h" startline="63" endline="63">srsgnb::du_rnti_table::has_rnti</references>
+        <referencedby refid="classsrsgnb_1_1cell__rach__handler_1a3f08eb6765ea83c04ab0ba19d60555dd" compoundref="rach__handler_8h" startline="61" endline="67">srsgnb::cell_rach_handler::handle_rach_indication</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rnti_allocator</label>
+        <link refid="classsrsgnb_1_1rnti__allocator"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-rnti_table</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::du_rnti_table</label>
+        <link refid="classsrsgnb_1_1du__rnti__table"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/rach_handler.h" line="21" column="1" bodyfile="lib/mac/rach_handler.h" bodystart="20" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rnti__allocator_1ae64a1eeb639d9abe969d0b9f545c51fc" prot="public" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>allocate</name></member>
+      <member refid="classsrsgnb_1_1rnti__allocator_1a4fdfd7211fad08c6852764ff6360ed01" prot="private" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>CRNTI_RANGE</name></member>
+      <member refid="classsrsgnb_1_1rnti__allocator_1a761847b7ca3c943bce63d09d48716886" prot="private" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>INITIAL_RNTI</name></member>
+      <member refid="classsrsgnb_1_1rnti__allocator_1afe68ba6f79e83ae36a2808a2914c1a5e" prot="public" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>rnti_allocator</name></member>
+      <member refid="classsrsgnb_1_1rnti__allocator_1afdf9fe83a532af028acd662a712c01d3" prot="private" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>rnti_counter</name></member>
+      <member refid="classsrsgnb_1_1rnti__allocator_1af93c907a970a87ef8c626fd1d77876b7" prot="private" virt="non-virtual"><scope>srsgnb::rnti_allocator</scope><name>rnti_table</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

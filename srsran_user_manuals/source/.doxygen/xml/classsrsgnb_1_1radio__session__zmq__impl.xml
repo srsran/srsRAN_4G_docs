@@ -1,0 +1,706 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__session__zmq__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::radio_session_zmq_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1radio__session" prot="public" virt="non-virtual">srsgnb::radio_session</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1radio__management__plane" prot="public" virt="non-virtual">srsgnb::radio_management_plane</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1baseband__gateway" prot="public" virt="non-virtual">srsgnb::baseband_gateway</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1baseband__gateway__transmitter" prot="public" virt="non-virtual">srsgnb::baseband_gateway_transmitter</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1baseband__gateway__receiver" prot="public" virt="non-virtual">srsgnb::baseband_gateway_receiver</basecompoundref>
+    <includes refid="radio__session__zmq__impl_8h" local="no">radio_session_zmq_impl.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a2c6878db8dfb74a8b30bac02baff7c3a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::radio_session_zmq_impl::DEFAULT_TRX_TIMEOUT_MS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_TRX_TIMEOUT_MS</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+<para>Default sockets send and receive timeout in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="30" column="29" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a7969ea76515227c1970abc79e43620ab" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::radio_session_zmq_impl::DEFAULT_LINGER_TIMEOUT_MS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_LINGER_TIMEOUT_MS</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Default linger timeout in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="32" column="29" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1aeb6571e65716b72190bbe73ba2114b62" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned srsgnb::radio_session_zmq_impl::DEFAULT_BUFFER_SIZE_SAMPLES</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_BUFFER_SIZE_SAMPLES</name>
+        <initializer>= 614400</initializer>
+        <briefdescription>
+<para>Default buffer size in samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="34" column="29" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a2c19948331d4192f126ce3d2ad735176" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::radio_session_zmq_impl::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+<para>Radio session logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="37" column="24" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a84a38e4a7352a27f5b04534dd30a9775" compoundref="radio__session__zmq__impl_8cpp" startline="15" endline="82">radio_session_zmq_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a0230c7a98ea4c4177416afda04323ee1" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* srsgnb::radio_session_zmq_impl::zmq_context</definition>
+        <argsstring></argsstring>
+        <name>zmq_context</name>
+        <briefdescription>
+<para>ZMQ context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="39" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a84a38e4a7352a27f5b04534dd30a9775" compoundref="radio__session__zmq__impl_8cpp" startline="15" endline="82">radio_session_zmq_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a7419b683d32c847c39fc4d42a1154d63" compoundref="radio__session__zmq__impl_8cpp" startline="84" endline="96">~radio_session_zmq_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1radio__zmq__tx__stream" kindref="compound">radio_zmq_tx_stream</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;radio_zmq_tx_stream&gt; &gt; srsgnb::radio_session_zmq_impl::tx_streams</definition>
+        <argsstring></argsstring>
+        <name>tx_streams</name>
+        <briefdescription>
+<para>Stores transmit streams. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="41" column="15" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a7419b683d32c847c39fc4d42a1154d63" compoundref="radio__session__zmq__impl_8cpp" startline="84" endline="96">~radio_session_zmq_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930" compoundref="radio__session__zmq__impl_8cpp" startline="98" endline="117">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a39d6f0fee5cf5b4fb0da98a53e85ebd4" compoundref="radio__session__zmq__impl_8cpp" startline="119" endline="133">transmit</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1ad25ae833c1f85778ddcb38ccc7156a33" compoundref="radio__session__zmq__impl_8cpp" startline="135" endline="158">receive</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a09033a7f73267369c02b0dd3db92a862" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1radio__zmq__rx__stream" kindref="compound">radio_zmq_rx_stream</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;radio_zmq_rx_stream&gt; &gt; srsgnb::radio_session_zmq_impl::rx_streams</definition>
+        <argsstring></argsstring>
+        <name>rx_streams</name>
+        <briefdescription>
+<para>Stores receive streams. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="43" column="15" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a7419b683d32c847c39fc4d42a1154d63" compoundref="radio__session__zmq__impl_8cpp" startline="84" endline="96">~radio_session_zmq_impl</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930" compoundref="radio__session__zmq__impl_8cpp" startline="98" endline="117">stop</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1ad25ae833c1f85778ddcb38ccc7156a33" compoundref="radio__session__zmq__impl_8cpp" startline="135" endline="158">receive</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__session__zmq__impl_1a2f8d498d1703aa6d1b56cf730718a197" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_session_zmq_impl::successful</definition>
+        <argsstring></argsstring>
+        <name>successful</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Indicates the session has been created succesfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="45" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__session__zmq__impl_1a41ee613312bc948d654f28eca37a8619" compoundref="radio__session__zmq__impl_8h" startline="61" endline="61">is_successful</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a84a38e4a7352a27f5b04534dd30a9775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_session_zmq_impl::radio_session_zmq_impl</definition>
+        <argsstring>(const radio_configuration::radio &amp;config, task_executor &amp;async_task_executor, radio_notification_handler &amp;notification_handler)</argsstring>
+        <name>radio_session_zmq_impl</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1radio__configuration_1_1radio" kindref="compound">radio_configuration::radio</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_task_executor</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+          <declname>notification_handler</declname>
+        </param>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required parameters to start a ZMQ radio based session. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">async_task_executor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a task executor to perform asynchronous tasks. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">notification_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides a radio event notification handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Use <ref refid="classsrsgnb_1_1radio__session__zmq__impl_1a41ee613312bc948d654f28eca37a8619" kindref="member">is_successful()</ref> to check that the instance was successfully initialized. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="53" column="3" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="15" bodyend="82"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a0230c7a98ea4c4177416afda04323ee1" compoundref="radio__session__zmq__impl_8h" startline="39">zmq_context</references>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a2c19948331d4192f126ce3d2ad735176" compoundref="radio__session__zmq__impl_8h" startline="37">logger</references>
+        <references refid="structsrsgnb_1_1radio__configuration_1_1radio_1a015012dd6373e78f21266a2332974975" compoundref="radio__configuration_8h" startline="92">srsgnb::radio_configuration::radio::tx_streams</references>
+        <references refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description_1ac550b0dfd684c25444957429a8cef9f3" compoundref="radio__zmq__tx__stream_8h" startline="30">srsgnb::radio_zmq_tx_stream::stream_description::socket_type</references>
+        <references refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description_1acfd57697c84f2479c91be532d3a07d3b" compoundref="radio__zmq__tx__stream_8h" startline="32">srsgnb::radio_zmq_tx_stream::stream_description::address</references>
+        <references refid="structsrsgnb_1_1radio__configuration_1_1stream_1ad96e955d15f39f6c83411f6b5fac352a" compoundref="radio__configuration_8h" startline="66">srsgnb::radio_configuration::stream::channels</references>
+        <references refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description_1a5c750554da35afe94df17f8750697076" compoundref="radio__zmq__tx__stream_8h" startline="34">srsgnb::radio_zmq_tx_stream::stream_description::stream_id</references>
+        <references refid="structsrsgnb_1_1radio__zmq__tx__stream_1_1stream__description_1a31d6f3a68d2d221da708d2c517e05961" compoundref="radio__zmq__tx__stream_8h" startline="36">srsgnb::radio_zmq_tx_stream::stream_description::stream_id_str</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a7419b683d32c847c39fc4d42a1154d63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_session_zmq_impl::~radio_session_zmq_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~radio_session_zmq_impl</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="58" column="3" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="84" bodyend="96"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" compoundref="radio__session__zmq__impl_8h" startline="41">tx_streams</references>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a09033a7f73267369c02b0dd3db92a862" compoundref="radio__session__zmq__impl_8h" startline="43">rx_streams</references>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a0230c7a98ea4c4177416afda04323ee1" compoundref="radio__session__zmq__impl_8h" startline="39">zmq_context</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a41ee613312bc948d654f28eca37a8619" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::radio_session_zmq_impl::is_successful</definition>
+        <argsstring>() const</argsstring>
+        <name>is_successful</name>
+        <briefdescription>
+<para>Indicates if the instance was successfully initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="61" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="61" bodyend="61"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a2f8d498d1703aa6d1b56cf730718a197" compoundref="radio__session__zmq__impl_8h" startline="45">successful</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a766a934a813d5c4472ea86a045ed01c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1radio__management__plane" kindref="compound">radio_management_plane</ref> &amp;</type>
+        <definition>radio_management_plane&amp; srsgnb::radio_session_zmq_impl::get_management_plane</definition>
+        <argsstring>() override</argsstring>
+        <name>get_management_plane</name>
+        <reimplements refid="classsrsgnb_1_1radio__session_1a305b30fe5b539ba55505724b676dc818">get_management_plane</reimplements>
+        <briefdescription>
+<para>Gets the management plane. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The reference to the management plane for this radio session. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="64" column="26" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a0ee34c6667619d2af6d6ac342e20ae74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway" kindref="compound">baseband_gateway</ref> &amp;</type>
+        <definition>baseband_gateway&amp; srsgnb::radio_session_zmq_impl::get_baseband_gateway</definition>
+        <argsstring>() override</argsstring>
+        <name>get_baseband_gateway</name>
+        <reimplements refid="classsrsgnb_1_1radio__session_1a8bc38fc466aa146d15d1c40d272618d0">get_baseband_gateway</reimplements>
+        <briefdescription>
+<para>Gets the data plane. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The reference to the data plane for this radio session. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="67" column="20" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a8ae196273e328cd6606ca39afdfd9031" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway__transmitter" kindref="compound">baseband_gateway_transmitter</ref> &amp;</type>
+        <definition>baseband_gateway_transmitter&amp; srsgnb::radio_session_zmq_impl::get_transmitter</definition>
+        <argsstring>() override</argsstring>
+        <name>get_transmitter</name>
+        <reimplements refid="classsrsgnb_1_1baseband__gateway_1a41af0ab472e1b52ade5b2ba695c80e8c">get_transmitter</reimplements>
+        <briefdescription>
+<para>Get the transmitter gateway. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="70" column="32" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1ac1b055e41b346750d2257c2e3e3b7726" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1baseband__gateway__receiver" kindref="compound">baseband_gateway_receiver</ref> &amp;</type>
+        <definition>baseband_gateway_receiver&amp; srsgnb::radio_session_zmq_impl::get_receiver</definition>
+        <argsstring>() override</argsstring>
+        <name>get_receiver</name>
+        <reimplements refid="classsrsgnb_1_1baseband__gateway_1a33e9530be5a5183bae3b6aac076c4b30">get_receiver</reimplements>
+        <briefdescription>
+<para>Get the receiver gateway. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="73" column="29" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void radio_session_zmq_impl::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classsrsgnb_1_1radio__session_1ae1e03a71412fc7f4df0991aef4ba74da">stop</reimplements>
+        <briefdescription>
+<para>Stops the radio session operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Any call to transmit or receive after calling <ref refid="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930" kindref="member">stop()</ref> will return instantly without interacting with the physical radio. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="76" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="98" bodyend="117"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" compoundref="radio__session__zmq__impl_8h" startline="41">tx_streams</references>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a09033a7f73267369c02b0dd3db92a862" compoundref="radio__session__zmq__impl_8h" startline="43">rx_streams</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a39d6f0fee5cf5b4fb0da98a53e85ebd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void radio_session_zmq_impl::transmit</definition>
+        <argsstring>(unsigned stream_id, const baseband_gateway_transmitter::metadata &amp;metadata, baseband_gateway_buffer &amp;data) override</argsstring>
+        <name>transmit</name>
+        <reimplements refid="classsrsgnb_1_1baseband__gateway__transmitter_1a8573ac4a5d5cfe5cb01f19586fbbcf38">transmit</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>stream_id</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1baseband__gateway__transmitter_1_1metadata" kindref="compound">baseband_gateway_transmitter::metadata</ref> &amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1baseband__gateway__buffer" kindref="compound">baseband_gateway_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Transmits a given baseband buffer in a given time provided in the metadata. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radio stream identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides additional parameters for transmission. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the baseband buffer to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The data buffers must the same number of channels than the stream. </para>
+</simplesect>
+<simplesect kind="note"><para>The application terminates if the stream identifier is invalid. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="79" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="119" bodyend="133"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" compoundref="radio__session__zmq__impl_8h" startline="41">tx_streams</references>
+        <references refid="structsrsgnb_1_1baseband__gateway__transmitter_1_1metadata_1ae8965e049c03393d7cd988216ea83437" compoundref="baseband__gateway_8h" startline="20">srsgnb::baseband_gateway_transmitter::metadata::ts</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1ad25ae833c1f85778ddcb38ccc7156a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structsrsgnb_1_1baseband__gateway__receiver_1_1metadata" kindref="compound">baseband_gateway_receiver::metadata</ref></type>
+        <definition>baseband_gateway_receiver::metadata radio_session_zmq_impl::receive</definition>
+        <argsstring>(baseband_gateway_buffer &amp;data, unsigned stream_id) override</argsstring>
+        <name>receive</name>
+        <reimplements refid="classsrsgnb_1_1baseband__gateway__receiver_1acaf2b07adeeea97c157fd84cd5f0c741">receive</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1baseband__gateway__buffer" kindref="compound">baseband_gateway_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>stream_id</declname>
+        </param>
+        <briefdescription>
+<para>Receives a given baseband buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the baseband buffer destination and the number of samples to receive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radio stream identifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Receive metadata. </para>
+</simplesect>
+<simplesect kind="note"><para>The data buffers must the same number of channels than the stream. </para>
+</simplesect>
+<simplesect kind="note"><para>The application terminates if the stream identifier is invalid. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="84" column="39" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="135" bodyend="158"/>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1a09033a7f73267369c02b0dd3db92a862" compoundref="radio__session__zmq__impl_8h" startline="43">rx_streams</references>
+        <references refid="structsrsgnb_1_1baseband__gateway__receiver_1_1metadata_1ab34c89a3b8e5e61168db6228281e6231" compoundref="baseband__gateway_8h" startline="39">srsgnb::baseband_gateway_receiver::metadata::ts</references>
+        <references refid="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" compoundref="radio__session__zmq__impl_8h" startline="41">tx_streams</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a5a3071ec7d3d11c7bb070542467257e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool radio_session_zmq_impl::set_tx_gain</definition>
+        <argsstring>(unsigned port_id, double gain_dB) override</argsstring>
+        <name>set_tx_gain</name>
+        <reimplements refid="classsrsgnb_1_1radio__management__plane_1aea9ce148eb2556ddade57d0a8d2ae21e">set_tx_gain</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>port_id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gain_dB</declname>
+        </param>
+        <briefdescription>
+<para>Set the transmission gain of a given port in runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the new gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the operation is successful. Otherwise, false. </para>
+</simplesect>
+<simplesect kind="note"><para>The port identifier is indexed from stream ascending order and then port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="87" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__session__zmq__impl_1a3d5b7a088e6e51879164afd52e8a97da" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool radio_session_zmq_impl::set_rx_gain</definition>
+        <argsstring>(unsigned port_id, double gain_dB) override</argsstring>
+        <name>set_rx_gain</name>
+        <reimplements refid="classsrsgnb_1_1radio__management__plane_1a52e1e4cdd875dd410ea11033c87c837c">set_rx_gain</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>port_id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gain_dB</declname>
+        </param>
+        <briefdescription>
+<para>Set the reception gain of a given port in runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the new gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the operation is successful. Otherwise, false. </para>
+</simplesect>
+<simplesect kind="note"><para>The port identifier is indexed from stream ascending order and then port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="90" column="8" bodyfile="lib/radio/zmq/radio_session_zmq_impl.cpp" bodystart="165" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a ZeroMQ radio based session. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>srsgnb::baseband_gateway_receiver</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__receiver"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::baseband_gateway_transmitter</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__transmitter"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="6">
+        <label>srsgnb::baseband_gateway_base</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__base"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::baseband_gateway</label>
+        <link refid="classsrsgnb_1_1baseband__gateway"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::radio_session</label>
+        <link refid="classsrsgnb_1_1radio__session"/>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_session_zmq_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__zmq__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_management_plane</label>
+        <link refid="classsrsgnb_1_1radio__management__plane"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>srsgnb::baseband_gateway_receiver</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__receiver"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::baseband_gateway_transmitter</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__transmitter"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>T</label>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="9">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::baseband_gateway_base</label>
+        <link refid="classsrsgnb_1_1baseband__gateway__base"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::baseband_gateway</label>
+        <link refid="classsrsgnb_1_1baseband__gateway"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::radio_session</label>
+        <link refid="classsrsgnb_1_1radio__session"/>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_session_zmq_impl</label>
+        <link refid="classsrsgnb_1_1radio__session__zmq__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_management_plane</label>
+        <link refid="classsrsgnb_1_1radio__management__plane"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/radio/zmq/radio_session_zmq_impl.h" line="27" column="1" bodyfile="lib/radio/zmq/radio_session_zmq_impl.h" bodystart="22" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ad7d655d5ab28c932e5b29068e27da211" prot="protected" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1accda6101fc317b1c9b358420deda12ad" prot="public" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a9264aa761a7ef926f38d406a43d35bf8" prot="public" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ad7d655d5ab28c932e5b29068e27da211" prot="protected" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_transmitter::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1accda6101fc317b1c9b358420deda12ad" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_transmitter::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a9264aa761a7ef926f38d406a43d35bf8" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_transmitter::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ad7d655d5ab28c932e5b29068e27da211" prot="protected" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_receiver::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1accda6101fc317b1c9b358420deda12ad" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_receiver::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a9264aa761a7ef926f38d406a43d35bf8" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_receiver::"><scope>srsgnb::radio_session_zmq_impl</scope><name>baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1aeb6571e65716b72190bbe73ba2114b62" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>DEFAULT_BUFFER_SIZE_SAMPLES</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a7969ea76515227c1970abc79e43620ab" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>DEFAULT_LINGER_TIMEOUT_MS</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a2c6878db8dfb74a8b30bac02baff7c3a" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>DEFAULT_TRX_TIMEOUT_MS</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a0ee34c6667619d2af6d6ac342e20ae74" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>get_baseband_gateway</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a766a934a813d5c4472ea86a045ed01c4" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>get_management_plane</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1ac1b055e41b346750d2257c2e3e3b7726" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>get_receiver</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a8ae196273e328cd6606ca39afdfd9031" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>get_transmitter</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a41ee613312bc948d654f28eca37a8619" prot="public" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>is_successful</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a2c19948331d4192f126ce3d2ad735176" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a6047b6af462d6d66e17f14a8866baa2f" prot="private" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a613d0276dd7140594f971ebcd34bdf7e" prot="private" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a6047b6af462d6d66e17f14a8866baa2f" prot="public" virt="non-virtual" ambiguityscope="srsgnb::radio_management_plane::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a613d0276dd7140594f971ebcd34bdf7e" prot="public" virt="non-virtual" ambiguityscope="srsgnb::radio_management_plane::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a18d0594d50b64b7dd76fba06e8aecb68" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ae1444318d5e6e60cada54c1b7d493975" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a18d0594d50b64b7dd76fba06e8aecb68" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_transmitter::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ae1444318d5e6e60cada54c1b7d493975" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_transmitter::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a18d0594d50b64b7dd76fba06e8aecb68" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_receiver::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1ae1444318d5e6e60cada54c1b7d493975" prot="public" virt="non-virtual" ambiguityscope="srsgnb::baseband_gateway_receiver::"><scope>srsgnb::radio_session_zmq_impl</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1af9f80899d387af47e827bfecd21fa7b0" prot="private" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1aeea2df1e0ec39aa2a831f24553ce546f" prot="private" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a0c96363513155999b85983f2f22b56cb" prot="private" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1af9f80899d387af47e827bfecd21fa7b0" prot="protected" virt="non-virtual" ambiguityscope="srsgnb::radio_management_plane::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1aeea2df1e0ec39aa2a831f24553ce546f" prot="public" virt="non-virtual" ambiguityscope="srsgnb::radio_management_plane::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a0c96363513155999b85983f2f22b56cb" prot="public" virt="non-virtual" ambiguityscope="srsgnb::radio_management_plane::"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a84a38e4a7352a27f5b04534dd30a9775" prot="public" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>radio_session_zmq_impl</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1ad25ae833c1f85778ddcb38ccc7156a33" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>receive</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a09033a7f73267369c02b0dd3db92a862" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>rx_streams</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a3d5b7a088e6e51879164afd52e8a97da" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>set_rx_gain</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a5a3071ec7d3d11c7bb070542467257e5" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>set_tx_gain</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a712a51bf9c23dd1f212747593e074930" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a2f8d498d1703aa6d1b56cf730718a197" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>successful</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a39d6f0fee5cf5b4fb0da98a53e85ebd4" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>transmit</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1acda9feab4d2e654f40a0787424205501" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>tx_streams</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a0230c7a98ea4c4177416afda04323ee1" prot="private" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>zmq_context</name></member>
+      <member refid="classsrsgnb_1_1baseband__gateway__base_1a72eb5319b897038e168aecde0af9fcbf" prot="public" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>~baseband_gateway_base</name></member>
+      <member refid="classsrsgnb_1_1radio__base_1a84b9fc81012bc2e40c2a9c04843ed8ab" prot="private" virt="virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>~radio_base</name></member>
+      <member refid="classsrsgnb_1_1radio__session__zmq__impl_1a7419b683d32c847c39fc4d42a1154d63" prot="public" virt="non-virtual"><scope>srsgnb::radio_session_zmq_impl</scope><name>~radio_session_zmq_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

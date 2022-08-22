@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1phy__rg__gateway__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::phy_rg_gateway_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1upper__phy__rg__gateway" prot="public" virt="non-virtual">srsgnb::upper_phy_rg_gateway</basecompoundref>
+    <includes refid="phy__rg__gateway__adapter_8h" local="no">phy_rg_gateway_adapter.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__rg__gateway__adapter_1a82730ebbe41c33fe0c0befafd2d20909" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1lower__phy__rg__handler" kindref="compound">lower_phy_rg_handler</ref> *</type>
+        <definition>lower_phy_rg_handler* srsgnb::phy_rg_gateway_adapter::rg_handler</definition>
+        <argsstring></argsstring>
+        <name>rg_handler</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" line="22" column="24" bodyfile="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phy__rg__gateway__adapter_1ae22df9c7eb9c454dd5fe8a9556b73ec7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_rg_gateway_adapter::connect</definition>
+        <argsstring>(lower_phy_rg_handler *handler)</argsstring>
+        <name>connect</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1lower__phy__rg__handler" kindref="compound">lower_phy_rg_handler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Connects the adaptor to the lower physical layer gateway. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" line="26" column="8" bodyfile="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__rg__gateway__adapter_1a45ad3ae556162bc4bb8dd94aa32745e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_rg_gateway_adapter::send</definition>
+        <argsstring>(const resource_grid_context &amp;context, const resource_grid_reader &amp;grid) override</argsstring>
+        <name>send</name>
+        <reimplements refid="classsrsgnb_1_1upper__phy__rg__gateway_1a734b3b0e9d1b49e1990cbf8da6327572">send</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Sends the given resource grid through the gateway. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context the resource grid belongs to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid reader instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" line="29" column="8" bodyfile="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" bodystart="29" bodyend="33"/>
+        <references refid="classsrsgnb_1_1lower__phy__rg__handler_1ab27af60810c544ffc7e344cab03c210b">srsgnb::lower_phy_rg_handler::handle_resource_grid</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements a generic physical layer resource grid gateway adapter. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::phy_rg_gateway_adapter</label>
+        <link refid="classsrsgnb_1_1phy__rg__gateway__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::upper_phy_rg_gateway</label>
+        <link refid="classsrsgnb_1_1upper__phy__rg__gateway"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::lower_phy_rg_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__rg__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::phy_rg_gateway_adapter</label>
+        <link refid="classsrsgnb_1_1phy__rg__gateway__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-rg_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::upper_phy_rg_gateway</label>
+        <link refid="classsrsgnb_1_1upper__phy__rg__gateway"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" line="20" column="1" bodyfile="include/srsgnb/phy/adapters/phy_rg_gateway_adapter.h" bodystart="19" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1phy__rg__gateway__adapter_1ae22df9c7eb9c454dd5fe8a9556b73ec7" prot="public" virt="non-virtual"><scope>srsgnb::phy_rg_gateway_adapter</scope><name>connect</name></member>
+      <member refid="classsrsgnb_1_1phy__rg__gateway__adapter_1a82730ebbe41c33fe0c0befafd2d20909" prot="private" virt="non-virtual"><scope>srsgnb::phy_rg_gateway_adapter</scope><name>rg_handler</name></member>
+      <member refid="classsrsgnb_1_1phy__rg__gateway__adapter_1a45ad3ae556162bc4bb8dd94aa32745e6" prot="public" virt="virtual"><scope>srsgnb::phy_rg_gateway_adapter</scope><name>send</name></member>
+      <member refid="classsrsgnb_1_1upper__phy__rg__gateway_1a505948193c25d0bd0a188c9704983066" prot="public" virt="virtual"><scope>srsgnb::phy_rg_gateway_adapter</scope><name>~upper_phy_rg_gateway</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

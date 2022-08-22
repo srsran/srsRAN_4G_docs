@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::srs_du::f1ap_connection_manager</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__du_1_1f1__interface" prot="public" virt="non-virtual">srsgnb::srs_du::f1_interface</derivedcompoundref>
+    <includes refid="f1ap__du_8h" local="no">f1ap_du.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a33f2bc019ea5d9171592f53700a1df86" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::srs_du::f1ap_connection_manager::~f1ap_connection_manager</definition>
+        <argsstring>()=default</argsstring>
+        <name>~f1ap_connection_manager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="88" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a1553307a61f2129a6c29d2cf8da167b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1async__task" kindref="compound">async_task</ref>&lt; <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__response__message" kindref="compound">f1_setup_response_message</ref> &gt;</type>
+        <definition>virtual async_task&lt;f1_setup_response_message&gt; srsgnb::srs_du::f1ap_connection_manager::handle_f1ap_setup_request</definition>
+        <argsstring>(const f1_setup_request_message &amp;request)=0</argsstring>
+        <name>handle_f1ap_setup_request</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl_1a4edccaa0aaa7ae607a52360acbbcd441">handle_f1ap_setup_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__request__message" kindref="compound">f1_setup_request_message</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Initiates the F1 Setup procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The F1SetupRequest message to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a <ref refid="structsrsgnb_1_1srs__du_1_1f1__setup__response__message" kindref="compound">f1_setup_response_message</ref> struct with the success member set to &apos;true&apos; in case of a successful outcome, &apos;false&apos; otherwise. </para>
+</simplesect>
+<simplesect kind="remark"><para>The DU transmits the F1SetupRequest as per TS 38.473 section 8.2.3 and awaits the response. If a F1SetupFailure is received the F1AP will handle the failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="95" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handle F1AP interface management procedures as defined in TS 38.473 section 8.2. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_du::f1_interface</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1__interface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_connection_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_du::f1ap_du_impl</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__du__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_connection_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/f1_interface/du/f1ap_du.h" line="86" column="1" bodyfile="include/srsgnb/f1_interface/du/f1ap_du.h" bodystart="85" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a1553307a61f2129a6c29d2cf8da167b6" prot="public" virt="pure-virtual"><scope>srsgnb::srs_du::f1ap_connection_manager</scope><name>handle_f1ap_setup_request</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__connection__manager_1a33f2bc019ea5d9171592f53700a1df86" prot="public" virt="virtual"><scope>srsgnb::srs_du::f1ap_connection_manager</scope><name>~f1ap_connection_manager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

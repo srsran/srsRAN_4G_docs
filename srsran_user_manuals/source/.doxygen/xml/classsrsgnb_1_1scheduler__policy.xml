@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1scheduler__policy" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::scheduler_policy</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1scheduler__time__rr" prot="public" virt="non-virtual">srsgnb::scheduler_time_rr</derivedcompoundref>
+    <includes refid="scheduler__policy_8h" local="no">scheduler_policy.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1scheduler__policy_1af324ea0712aae888fe4fdc14839aa906" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::scheduler_policy::~scheduler_policy</definition>
+        <argsstring>()=default</argsstring>
+        <name>~scheduler_policy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/policy/scheduler_policy.h" line="22" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1scheduler__policy_1a17b24110d96bdfc4ba73f3d53a0c9ed4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::scheduler_policy::dl_sched</definition>
+        <argsstring>(ue_pdsch_allocator &amp;pdsch_alloc, const ue_list &amp;ues)=0</argsstring>
+        <name>dl_sched</name>
+        <reimplementedby refid="classsrsgnb_1_1scheduler__time__rr_1a1393cae271334ad5aadf716fa78068ec">dl_sched</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1ue__pdsch__allocator" kindref="compound">ue_pdsch_allocator</ref> &amp;</type>
+          <declname>pdsch_alloc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+          <declname>ues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedule UE DL grants for a given slot and one or more cells. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pdsch_alloc PDSCH grant allocator. This object provides a handle to allocate PDSCH grants in the gNB resource grid and observe the current DL gNB resource grid occupancy state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of eligible UEs to be scheduled in the given slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/policy/scheduler_policy.h" line="28" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1scheduler__policy_1a693d82c8eedb9732794454f13b7c8fcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::scheduler_policy::ul_sched</definition>
+        <argsstring>(ue_pusch_allocator &amp;pusch_alloc, const ue_list &amp;ues)=0</argsstring>
+        <name>ul_sched</name>
+        <reimplementedby refid="classsrsgnb_1_1scheduler__time__rr_1a0f9451a5985e46ddaf10c27f5b758779">ul_sched</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1ue__pusch__allocator" kindref="compound">ue_pusch_allocator</ref> &amp;</type>
+          <declname>pusch_alloc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+          <declname>ues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedule UE UL grants for a given {slot, cell}. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pusch_alloc PUSCH grant allocator. This object provides a handle to allocate PUSCH grants in the gNB resource grid and observe the current UL gNB resource grid occupancy state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of eligible UEs to be scheduled in the given slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/policy/scheduler_policy.h" line="34" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface of data scheduler that is used to allocate UE DL and UL grants in a given slot The data_scheduler object will be common to all cells and slots. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::scheduler_policy</label>
+        <link refid="classsrsgnb_1_1scheduler__policy"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::scheduler_time_rr</label>
+        <link refid="classsrsgnb_1_1scheduler__time__rr"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::scheduler_policy</label>
+        <link refid="classsrsgnb_1_1scheduler__policy"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/policy/scheduler_policy.h" line="20" column="1" bodyfile="lib/scheduler/policy/scheduler_policy.h" bodystart="19" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1scheduler__policy_1a17b24110d96bdfc4ba73f3d53a0c9ed4" prot="public" virt="pure-virtual"><scope>srsgnb::scheduler_policy</scope><name>dl_sched</name></member>
+      <member refid="classsrsgnb_1_1scheduler__policy_1a693d82c8eedb9732794454f13b7c8fcb" prot="public" virt="pure-virtual"><scope>srsgnb::scheduler_policy</scope><name>ul_sched</name></member>
+      <member refid="classsrsgnb_1_1scheduler__policy_1af324ea0712aae888fe4fdc14839aa906" prot="public" virt="virtual"><scope>srsgnb::scheduler_policy</scope><name>~scheduler_policy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

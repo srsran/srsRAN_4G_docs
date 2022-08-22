@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classresource__grid__reader__empty" kind="class" language="C++" prot="public">
+    <compoundname>resource_grid_reader_empty</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1resource__grid__reader" prot="public" virt="non-virtual">srsgnb::resource_grid_reader</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classresource__grid__reader__empty_1ab6e7c255dfcd7112437b541601e5abbd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool resource_grid_reader_empty::is_empty</definition>
+        <argsstring>(unsigned) const override</argsstring>
+        <name>is_empty</name>
+        <reimplements refid="classsrsgnb_1_1resource__grid__reader_1a372a8143e5487a471f354be549bb76dd">is_empty</reimplements>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Determines whether a given port is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A port is considered empty if no <computeroutput>put</computeroutput> method have been called since last zero set.</para>
+<para>If zeros are written using any <computeroutput>put</computeroutput> method, the port is considered not empty.</para>
+<para>An invalid port index triggers an assertion.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the given port is empty. Otherwise, false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.cpp" line="21" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classresource__grid__reader__empty_1a7443067da96cb71fcc5391345b9d2a54" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void resource_grid_reader_empty::get</definition>
+        <argsstring>(span&lt; cf_t &gt; symbols, unsigned, span&lt; const resource_grid_coordinate &gt;) const override</argsstring>
+        <name>get</name>
+        <reimplements refid="classsrsgnb_1_1resource__grid__reader_1ae1d2468ab18ea5ccdecf9fbdb3345b6e">get</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="structsrsgnb_1_1resource__grid__coordinate" kindref="compound">resource_grid_coordinate</ref> &gt;</type>
+          <declname>coordinates</declname>
+        </param>
+        <briefdescription>
+<para>Gets a number of elements from the grid for a given port according to a list of coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination symbol buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">coordinates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of grid symbol<ndash/>subcarrier coordinates. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The number of elements in <computeroutput>coordinates</computeroutput> and <computeroutput>symbols</computeroutput> shall be the same. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.cpp" line="22" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classresource__grid__reader__empty_1a1735feb024771a3fd114dfd1cd125ee0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>span&lt;cf_t&gt; resource_grid_reader_empty::get</definition>
+        <argsstring>(span&lt; cf_t &gt; symbols, unsigned, unsigned, unsigned, span&lt; const bool &gt;) const override</argsstring>
+        <name>get</name>
+        <reimplements refid="classsrsgnb_1_1resource__grid__reader_1a6e86e238dfa243e7287b4eedfa38c6c6">get</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k_init</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const bool &gt;</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Gets a number of resource elements in the resource grid at the given port and symbol using a mask to indicate which subcarriers are mapped and which are not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination symbol buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">k_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial subcarrier index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean mask denoting the subcarriers to be read (if <computeroutput>true</computeroutput>), starting from <computeroutput>k_init</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <computeroutput><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;cf_t&gt;</ref></computeroutput> with the unused entries of <computeroutput>symbols</computeroutput>. </para>
+</simplesect>
+<simplesect kind="note"><para>The number of elements of <computeroutput>mask</computeroutput> shall be equal to or greater than the resource grid number of subcarriers. </para>
+</simplesect>
+<simplesect kind="note"><para>The number of elements of <computeroutput>symbol</computeroutput> shall be equal to or greater than the number of true elements in <computeroutput>mask</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.cpp" line="26" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="26" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classresource__grid__reader__empty_1a01a18faedc83d7a6836d61bad63c7122" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void resource_grid_reader_empty::get</definition>
+        <argsstring>(span&lt; cf_t &gt; symbols, unsigned, unsigned, unsigned) const override</argsstring>
+        <name>get</name>
+        <reimplements refid="classsrsgnb_1_1resource__grid__reader_1aab46566508929a7755005b347356e2e7">get</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k_init</declname>
+        </param>
+        <briefdescription>
+<para>Gets a consecutive number of resource elements for a given port and symbol <computeroutput>l</computeroutput> starting at <computeroutput>k_init</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination symbol buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Port index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">k_init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial subcarrier index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The sum of <computeroutput>k_init</computeroutput> and the number of elements in <computeroutput>symbols</computeroutput> shall not exceed the resource grid number of subcarriers. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/lower/lower_phy_impl.cpp" line="31" column="8" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::resource_grid_reader</label>
+        <link refid="classsrsgnb_1_1resource__grid__reader"/>
+      </node>
+      <node id="1">
+        <label>resource_grid_reader_empty</label>
+        <link refid="classresource__grid__reader__empty"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::resource_grid_reader</label>
+        <link refid="classsrsgnb_1_1resource__grid__reader"/>
+      </node>
+      <node id="1">
+        <label>resource_grid_reader_empty</label>
+        <link refid="classresource__grid__reader__empty"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/lower/lower_phy_impl.cpp" line="19" column="1" bodyfile="lib/phy/lower/lower_phy_impl.cpp" bodystart="18" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classresource__grid__reader__empty_1a7443067da96cb71fcc5391345b9d2a54" prot="public" virt="virtual"><scope>resource_grid_reader_empty</scope><name>get</name></member>
+      <member refid="classresource__grid__reader__empty_1a1735feb024771a3fd114dfd1cd125ee0" prot="public" virt="virtual"><scope>resource_grid_reader_empty</scope><name>get</name></member>
+      <member refid="classresource__grid__reader__empty_1a01a18faedc83d7a6836d61bad63c7122" prot="public" virt="virtual"><scope>resource_grid_reader_empty</scope><name>get</name></member>
+      <member refid="classresource__grid__reader__empty_1ab6e7c255dfcd7112437b541601e5abbd" prot="public" virt="virtual"><scope>resource_grid_reader_empty</scope><name>is_empty</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__reader_1af0da763edf3b10dd90fdae7b2383a3a5" prot="public" virt="virtual"><scope>resource_grid_reader_empty</scope><name>~resource_grid_reader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

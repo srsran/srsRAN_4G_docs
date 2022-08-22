@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1dmrs__pucch__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::dmrs_pucch_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl" prot="public" virt="non-virtual">srsgnb::dmrs_pucch_processor_format1_impl</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1dmrs__pucch__processor__format2__impl" prot="public" virt="non-virtual">srsgnb::dmrs_pucch_processor_format2_impl</derivedcompoundref>
+    <includes refid="dmrs__pucch__processor_8h" local="no">dmrs_pucch_processor.h</includes>
+    <innerclass refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t" prot="public">srsgnb::dmrs_pucch_processor::config_t</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor_1ae5bfb90f4b31b216bd3a1160a649ca48" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::dmrs_pucch_processor::~dmrs_pucch_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~dmrs_pucch_processor</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h" line="71" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1dmrs__pucch__processor_1a5bec1e0f6569f59e3a83a1af7fc898d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::dmrs_pucch_processor::estimate</definition>
+        <argsstring>(channel_estimate &amp;estimate, const resource_grid_reader &amp;grid, const config_t &amp;config)=0</argsstring>
+        <name>estimate</name>
+        <reimplementedby refid="classsrsgnb_1_1dmrs__pucch__processor__format2__impl_1a5abdc76577587c098307ff8dc50bce00">estimate</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl_1a70192cadc4585598521887b8d46274a0">estimate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimate</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1dmrs__pucch__processor_1_1config__t" kindref="compound">config_t</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Generates and maps DMRS for PUCCH according to TS 38.211 section 6.4.1.3. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">estimate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel estimation results. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the source resource grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the required configuration to estimate channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h" line="78" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a DMRS for PUCCH processor interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::dmrs_pucch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::dmrs_pucch_processor_format1_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor__format1__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::dmrs_pucch_processor_format2_impl</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor__format2__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::dmrs_pucch_processor</label>
+        <link refid="classsrsgnb_1_1dmrs__pucch__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h" line="29" column="1" bodyfile="include/srsgnb/phy/upper/signal_processors/dmrs_pucch_processor.h" bodystart="28" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor_1a5bec1e0f6569f59e3a83a1af7fc898d5" prot="public" virt="pure-virtual"><scope>srsgnb::dmrs_pucch_processor</scope><name>estimate</name></member>
+      <member refid="classsrsgnb_1_1dmrs__pucch__processor_1ae5bfb90f4b31b216bd3a1160a649ca48" prot="public" virt="virtual"><scope>srsgnb::dmrs_pucch_processor</scope><name>~dmrs_pucch_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

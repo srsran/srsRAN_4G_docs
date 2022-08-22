@@ -34,7 +34,23 @@ year = str(date.today().year)
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.seqdiag','sphinxcontrib.blockdiag','sphinx_copybutton']
+extensions = ['sphinxcontrib.seqdiag','sphinxcontrib.blockdiag','sphinx_copybutton', 'hoverxref.extension', 'breathe',]
+
+# Set up Hover Ref
+hoverxref_auto_ref = True
+
+hoverxref_role_types = {
+    'hoverxref' : 'tooltip',
+    'ref' : 'tooltip',
+}
+
+if os.environ.get('READTHEDOCS') != 'True':
+    hoverxref_api_host = 'https://readthedocs.org'
+
+#SET UP BREATHE
+breathe_projects = {"srsGNB_doxygen": ".doxygen/xml"}
+breathe_default_project = "srsGNB_doxygen"
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['.templates']

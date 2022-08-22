@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1mac__ul__ue__context" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::mac_ul_ue_context</compoundname>
+    <includes refid="mac__ul__ue__manager_8h" local="no">mac_ul_ue_manager.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__ul__ue__context_1a5267b78cd946e1f827b59025d3e40f28" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+        <definition>const du_ue_index_t srsgnb::mac_ul_ue_context::ue_index</definition>
+        <argsstring></argsstring>
+        <name>ue_index</name>
+        <initializer>= MAX_NOF_DU_UES</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ul/mac_ul_ue_manager.h" line="30" column="23" bodyfile="lib/mac/mac_ul/mac_ul_ue_manager.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__ul__ue__context_1a43a2662ff3c777be00ad3ba1ee5ab1d6" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+        <definition>const rnti_t srsgnb::mac_ul_ue_context::rnti</definition>
+        <argsstring></argsstring>
+        <name>rnti</name>
+        <initializer>= INVALID_RNTI</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ul/mac_ul_ue_manager.h" line="31" column="23" bodyfile="lib/mac/mac_ul/mac_ul_ue_manager.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1mac__ul__ue__context_1acb5a9a39a541f5c36aa517589ceb34de" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__vector" kindref="compound">slot_vector</ref>&lt; <ref refid="classsrsgnb_1_1mac__sdu__rx__notifier" kindref="compound">mac_sdu_rx_notifier</ref> * &gt;</type>
+        <definition>slot_vector&lt;mac_sdu_rx_notifier*&gt; srsgnb::mac_ul_ue_context::ul_bearers</definition>
+        <argsstring></argsstring>
+        <name>ul_bearers</name>
+        <briefdescription>
+<para>List of UL PDU notification endpoints associated to UE&apos;s logical channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ul/mac_ul_ue_manager.h" line="34" column="15" bodyfile="lib/mac/mac_ul/mac_ul_ue_manager.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1mac__ul__ue__context_1a4d6a3c1b19f06439cf74eee9fcc51823" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::mac_ul_ue_context::mac_ul_ue_context</definition>
+        <argsstring>(du_ue_index_t ue_index_, rnti_t rnti_)</argsstring>
+        <name>mac_ul_ue_context</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1aa13f1b28a1a8fe4bb461b7eeee862c0c" kindref="member">du_ue_index_t</ref></type>
+          <declname>ue_index_</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a7d970d1b6cf837cfcd3cca0714c3a46f" kindref="member">rnti_t</ref></type>
+          <declname>rnti_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/mac/mac_ul/mac_ul_ue_manager.h" line="28" column="12" bodyfile="lib/mac/mac_ul/mac_ul_ue_manager.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stores MAC UL UE context. In particular, the UL PDU notifiers for each logical channel. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::vector&lt; optional&lt; srsgnb::mac_sdu_rx_notifier * &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::slot_vector&lt; srsgnb::mac_sdu_rx_notifier * &gt;</label>
+        <link refid="classsrsgnb_1_1slot__vector"/>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::mac_ul_ue_context</label>
+        <link refid="classsrsgnb_1_1mac__ul__ue__context"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+ul_bearers</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::detail::base_slot_array&lt; std::vector&lt; optional&lt; srsgnb::mac_sdu_rx_notifier * &gt; &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/mac/mac_ul/mac_ul_ue_manager.h" line="26" column="1" bodyfile="lib/mac/mac_ul/mac_ul_ue_manager.h" bodystart="25" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1mac__ul__ue__context_1a4d6a3c1b19f06439cf74eee9fcc51823" prot="public" virt="non-virtual"><scope>srsgnb::mac_ul_ue_context</scope><name>mac_ul_ue_context</name></member>
+      <member refid="classsrsgnb_1_1mac__ul__ue__context_1a43a2662ff3c777be00ad3ba1ee5ab1d6" prot="public" virt="non-virtual"><scope>srsgnb::mac_ul_ue_context</scope><name>rnti</name></member>
+      <member refid="classsrsgnb_1_1mac__ul__ue__context_1a5267b78cd946e1f827b59025d3e40f28" prot="public" virt="non-virtual"><scope>srsgnb::mac_ul_ue_context</scope><name>ue_index</name></member>
+      <member refid="classsrsgnb_1_1mac__ul__ue__context_1acb5a9a39a541f5c36aa517589ceb34de" prot="public" virt="non-virtual"><scope>srsgnb::mac_ul_ue_context</scope><name>ul_bearers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

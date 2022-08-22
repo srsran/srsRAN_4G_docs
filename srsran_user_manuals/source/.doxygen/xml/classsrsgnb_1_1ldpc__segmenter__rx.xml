@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__segmenter__rx" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ldpc_segmenter_rx</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ldpc__segmenter__impl" prot="public" virt="non-virtual">srsgnb::ldpc_segmenter_impl</derivedcompoundref>
+    <includes refid="ldpc__segmenter__rx_8h" local="no">ldpc_segmenter_rx.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__rx_1a7e8f0e4c29facba9b1cadedfd7c642c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ldpc_segmenter_rx::~ldpc_segmenter_rx</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ldpc_segmenter_rx</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h" line="28" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__segmenter__rx_1ab1b2c52ad941ff20db66fbaea059ad28" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ldpc_segmenter_rx::segment</definition>
+        <argsstring>(static_vector&lt; described_rx_codeblock, MAX_NOF_SEGMENTS &gt; &amp;described_codeblocks, span&lt; const log_likelihood_ratio &gt; codeword_llrs, unsigned tbs, const segmenter_config &amp;cfg)=0</argsstring>
+        <name>segment</name>
+        <reimplementedby refid="classsrsgnb_1_1ldpc__segmenter__impl_1a75d65c4074bcbe5c3931bfa3544154a9">segment</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1adb47dd7548f967ed12fded0a86cae891" kindref="member">described_rx_codeblock</ref>, <ref refid="namespacesrsgnb_1a64a27ddc884f4517e79d5435a337e554" kindref="member">MAX_NOF_SEGMENTS</ref> &gt; &amp;</type>
+          <declname>described_codeblocks</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>codeword_llrs</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>tbs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1segmenter__config" kindref="compound">segmenter_config</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Splits a codeword into codeblocks and computes the metadata of all codeblocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The LLRs corresponding to the received codeword are split into codeblocks to feed the decoder. Each codeblock is described by all the metadata needed for rate-dematching and decoding, as per TS38.212 Section 5.4.2.1. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">described_codeblocks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Codeblock LLRs and corresponding metadata. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">codeword_llrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log-likelihood ratios of the received codeword. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transport block size (not including CRC), as a number of bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters affecting splitting and codeblock metadata. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The output codeblocks are just views (not copies) of the proper block of codeword log-likelihood ratios in <computeroutput>codeword_llrs</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h" line="40" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Carries out the segmentation of a codeword into a number of codeblocks. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_rx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__rx"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_segmenter_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ldpc_segmenter_rx</label>
+        <link refid="classsrsgnb_1_1ldpc__segmenter__rx"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h" line="25" column="1" bodyfile="include/srsgnb/phy/upper/channel_coding/ldpc/ldpc_segmenter_rx.h" bodystart="24" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__rx_1ab1b2c52ad941ff20db66fbaea059ad28" prot="public" virt="pure-virtual"><scope>srsgnb::ldpc_segmenter_rx</scope><name>segment</name></member>
+      <member refid="classsrsgnb_1_1ldpc__segmenter__rx_1a7e8f0e4c29facba9b1cadedfd7c642c1" prot="public" virt="virtual"><scope>srsgnb::ldpc_segmenter_rx</scope><name>~ldpc_segmenter_rx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

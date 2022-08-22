@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rx__softbuffer__pool" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::rx_softbuffer_pool</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1rx__softbuffer__pool__impl" prot="public" virt="non-virtual">srsgnb::rx_softbuffer_pool_impl</derivedcompoundref>
+    <includes refid="rx__softbuffer__pool_8h" local="no">rx_softbuffer_pool.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rx__softbuffer__pool_1a4bb85e5997fb6abec81cfcf20a640eb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::rx_softbuffer_pool::~rx_softbuffer_pool</definition>
+        <argsstring>()=default</argsstring>
+        <name>~rx_softbuffer_pool</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/rx_softbuffer_pool.h" line="48" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rx__softbuffer__pool_1a357ac9ae4e680d9ba22784f14ee933b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref> *</type>
+        <definition>virtual rx_softbuffer* srsgnb::rx_softbuffer_pool::reserve_softbuffer</definition>
+        <argsstring>(const slot_point &amp;slot, const rx_softbuffer_identifier &amp;id, unsigned nof_codeblocks)=0</argsstring>
+        <name>reserve_softbuffer</name>
+        <reimplementedby refid="classsrsgnb_1_1rx__softbuffer__pool__impl_1a7cf13a386c7023256d17f34eb30d3c8a">reserve_softbuffer</reimplementedby>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref> &amp;</type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rx__softbuffer__identifier" kindref="compound">rx_softbuffer_identifier</ref> &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_codeblocks</declname>
+        </param>
+        <briefdescription>
+<para>Reserves and gets a softbuffer for a given identifier and number of codeblocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reserves a softbuffer for the given identifier. It guarantees that reserved softbuffers keep the CRC and data values.</para>
+<para>The softbuffers are reserved until:<itemizedlist>
+<listitem><para>the softbuffer identifier is freed using <ref refid="classsrsgnb_1_1rx__softbuffer__pool_1ae5500120b97782076cc3e1f39e3b532e" kindref="member">free_softbuffer()</ref>,</para>
+</listitem><listitem><para>a softbuffer reservation is performed with the same identifier but different number of codeblocks, or</para>
+</listitem><listitem><para>softbuffer reservation expires (by means <ref refid="classsrsgnb_1_1rx__softbuffer__pool_1aa285120ad0055125fb5290aaefd68784" kindref="member">run_slot()</ref>).</para>
+</listitem></itemizedlist>
+</para>
+<para>The pool does not initialize or modify the contents of the softbuffers. The modules that use the softbuffers are responsible for initializing and modifying their contents upon new transmissions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the slot context in which the reservation occurs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifies the softbuffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nof_codeblocks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the number of codeblocks to reserve. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the reserved softbuffer if the reservation was successful. Otherwise, <computeroutput>nullptr</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/rx_softbuffer_pool.h" line="68" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rx__softbuffer__pool_1ae5500120b97782076cc3e1f39e3b532e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rx_softbuffer_pool::free_softbuffer</definition>
+        <argsstring>(const rx_softbuffer_identifier &amp;id)=0</argsstring>
+        <name>free_softbuffer</name>
+        <reimplementedby refid="classsrsgnb_1_1rx__softbuffer__pool__impl_1a4a9535122e6d370aeb7ad0cd7c6b608b">free_softbuffer</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1rx__softbuffer__identifier" kindref="compound">rx_softbuffer_identifier</ref> &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Releases the specified softbuffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifies the softbuffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>If the indicated identifier is invalid, the call is ignored. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/rx_softbuffer_pool.h" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rx__softbuffer__pool_1aa285120ad0055125fb5290aaefd68784" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rx_softbuffer_pool::run_slot</definition>
+        <argsstring>(const slot_point &amp;slot)=0</argsstring>
+        <name>run_slot</name>
+        <reimplementedby refid="classsrsgnb_1_1rx__softbuffer__pool__impl_1a50472b0945f243d2c560337367a6aff8">run_slot</reimplementedby>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1slot__point" kindref="compound">slot_point</ref> &amp;</type>
+          <declname>slot</declname>
+        </param>
+        <briefdescription>
+<para>Runs internal state machines and releases expired softbuffers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the current slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/rx_softbuffer_pool.h" line="77" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a receive softbuffer pool. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The aim of this interface is to provide the physical layer shared channel decoder with receiver softbuffers.</para>
+<para>The receiver softbuffers are selected from a pool of resources for a given <ref refid="structsrsgnb_1_1rx__softbuffer__identifier" kindref="compound">rx_softbuffer_identifier</ref> and kept persistent until the identifier is freed or expires.</para>
+<para>The pool is designed for being unique in a sector. In other words, every sector must create its own pool.</para>
+<para>The implementation must be thread safe: <ref refid="classsrsgnb_1_1rx__softbuffer__pool_1a357ac9ae4e680d9ba22784f14ee933b0" kindref="member">reserve_softbuffer()</ref>, <ref refid="classsrsgnb_1_1rx__softbuffer__pool_1ae5500120b97782076cc3e1f39e3b532e" kindref="member">free_softbuffer()</ref> and <ref refid="classsrsgnb_1_1rx__softbuffer__pool_1aa285120ad0055125fb5290aaefd68784" kindref="member">run_slot()</ref> can potentially be called from different threads. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::rx_softbuffer_pool</label>
+        <link refid="classsrsgnb_1_1rx__softbuffer__pool"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::rx_softbuffer_pool_impl</label>
+        <link refid="classsrsgnb_1_1rx__softbuffer__pool__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rx_softbuffer_pool</label>
+        <link refid="classsrsgnb_1_1rx__softbuffer__pool"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/rx_softbuffer_pool.h" line="45" column="1" bodyfile="include/srsgnb/phy/upper/rx_softbuffer_pool.h" bodystart="44" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rx__softbuffer__pool_1ae5500120b97782076cc3e1f39e3b532e" prot="public" virt="pure-virtual"><scope>srsgnb::rx_softbuffer_pool</scope><name>free_softbuffer</name></member>
+      <member refid="classsrsgnb_1_1rx__softbuffer__pool_1a357ac9ae4e680d9ba22784f14ee933b0" prot="public" virt="pure-virtual"><scope>srsgnb::rx_softbuffer_pool</scope><name>reserve_softbuffer</name></member>
+      <member refid="classsrsgnb_1_1rx__softbuffer__pool_1aa285120ad0055125fb5290aaefd68784" prot="public" virt="pure-virtual"><scope>srsgnb::rx_softbuffer_pool</scope><name>run_slot</name></member>
+      <member refid="classsrsgnb_1_1rx__softbuffer__pool_1a4bb85e5997fb6abec81cfcf20a640eb2" prot="public" virt="virtual"><scope>srsgnb::rx_softbuffer_pool</scope><name>~rx_softbuffer_pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

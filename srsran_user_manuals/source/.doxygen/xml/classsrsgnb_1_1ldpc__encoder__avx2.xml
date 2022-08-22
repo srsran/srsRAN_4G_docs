@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ldpc__encoder__avx2" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ldpc_encoder_avx2</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ldpc__encoder__impl" prot="public" virt="non-virtual">srsgnb::ldpc_encoder_impl</basecompoundref>
+    <includes refid="ldpc__encoder__impl_8h" local="no">ldpc_encoder_impl.h</includes>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1ab2665e5927a3ed1ba6c9852fc9bc53a6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::select_strategy</definition>
+        <argsstring>() override</argsstring>
+        <name>select_strategy</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a221abf52de47d01ed63aeb7f8a636e45">select_strategy</reimplements>
+        <briefdescription>
+<para>Selects the appropriate encoding strategy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="121" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1a68d5c3ffd9e20e200ec6f00061811fed" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::load_input</definition>
+        <argsstring>(span&lt; const uint8_t &gt;) override</argsstring>
+        <name>load_input</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1ae9873388b9ba573c76889711d376cd17">load_input</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Loads the input bits into the inner register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="122" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1aff2ce9744aaf639d9bffa700f695dcfa" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::preprocess_systematic_bits</definition>
+        <argsstring>() override</argsstring>
+        <name>preprocess_systematic_bits</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a721667d507fbddc9949d38c02158bf5d">preprocess_systematic_bits</reimplements>
+        <briefdescription>
+<para>Computes some intermediate variables required by the actual encoding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="123" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1ab80f444f8f29c054cafcebb9ec29cd6e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::encode_high_rate</definition>
+        <argsstring>() override</argsstring>
+        <name>encode_high_rate</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a5e27fbb5a2532296a2c493ae02c48d5a">encode_high_rate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the shortest possible codeword (systematic part plus high-rate region, that is the first 4 x lifting size redundancy bits). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="124" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1ac26c0f2cb2042f9565392b00e350a59e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::encode_ext_region</definition>
+        <argsstring>() override</argsstring>
+        <name>encode_ext_region</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1a573bbc4dfc2031ef30eaa7b8e88bc991">encode_ext_region</reimplements>
+        <briefdescription>
+<para>Computes the rest of the redundancy bits (extension region). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="125" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1ab3e7a6b8bcac4fd71342c8bdf94aa7f2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::ldpc_encoder_avx2::write_codeblock</definition>
+        <argsstring>(span&lt; uint8_t &gt;) override</argsstring>
+        <name>write_codeblock</name>
+        <reimplements refid="classsrsgnb_1_1ldpc__encoder__impl_1ac10549b2a43001922c8b2585770708ad">write_codeblock</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Moves relevant encoded bits from the internal register to the output vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="126" column="8" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="126" bodyend="126"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ldpc__encoder__avx2_1aeb5826712ff43f43f622b1d70c9842f0" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void srsgnb::ldpc_encoder_avx2::not_implemented</definition>
+        <argsstring>()</argsstring>
+        <name>not_implemented</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="128" column="15" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="128" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LDPC encoder implementation based on AVX2 intrinsics. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_encoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>srsgnb::ldpc_graph_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__graph__impl"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ldpc_encoder_avx2</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__avx2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ldpc_encoder_impl</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder__impl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#current_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ldpc_encoder</label>
+        <link refid="classsrsgnb_1_1ldpc__encoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" line="120" column="1" bodyfile="lib/phy/upper/channel_coding/ldpc/ldpc_encoder_impl.h" bodystart="119" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a87946f1ed6c1a05fcbb52549b5914b5b" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>bg_K</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a46096e7e2f130751ae67547ba22d7547" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>bg_M</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ae35e9cff490f2294e85260e69596ef44" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>bg_N_full</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a4f497e5b1e433451e709e431585f3a7b" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>bg_N_short</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a386b1cd857b3f2edc028b1a16c3b1465" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>codeblock_length</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ac780f38b1fcc6ef1eff2e14854d15a85" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>current_graph</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a7b07f2de9d496971220825ce198c0789" prot="public" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>encode</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1ac26c0f2cb2042f9565392b00e350a59e" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>encode_ext_region</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1ab80f444f8f29c054cafcebb9ec29cd6e" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>encode_high_rate</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a39f37cd89f5ccc5ec564154adb12745c" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>init</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1accc6b3e0c093f08589f2c314b439f5c8" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a0cf816ff5db187415d86d93b86cffcfb" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1acc46ac6107f1502e16906ed102f665a7" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>ldpc_encoder_impl</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1ad435bb44c37d716af620efce4bb315da" prot="protected" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>lifting_size</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1a68d5c3ffd9e20e200ec6f00061811fed" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>load_input</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1aeb5826712ff43f43f622b1d70c9842f0" prot="private" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>not_implemented</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a0200bd67c015b8c91e9bb580e89bece2" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1a83bbcd7c1e0f4afe37ff2a42b3716284" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1aff2ce9744aaf639d9bffa700f695dcfa" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>preprocess_systematic_bits</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1ab2665e5927a3ed1ba6c9852fc9bc53a6" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>select_strategy</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__avx2_1ab3e7a6b8bcac4fd71342c8bdf94aa7f2" prot="private" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>write_codeblock</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder_1aa8ba035bdec794b74614dbeb381a5674" prot="public" virt="virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>~ldpc_encoder</name></member>
+      <member refid="classsrsgnb_1_1ldpc__encoder__impl_1aaf9c0d8f92dcd10b18bdeb999e77402a" prot="public" virt="non-virtual"><scope>srsgnb::ldpc_encoder_avx2</scope><name>~ldpc_encoder_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

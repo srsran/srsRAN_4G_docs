@@ -1,0 +1,661 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1detail_1_1base__blocking__queue" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::detail::base_blocking_queue</compoundname>
+    <includes refid="circular__buffer_8h" local="no">circular_buffer.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename CircBuffer</type>
+      </param>
+      <param>
+        <type>typename PushingFunc</type>
+      </param>
+      <param>
+        <type>typename PoppingFunc</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e6fe2d8d03fb50bbd87136415e8ea1c" prot="private" static="no">
+        <type>typename CircBuffer::value_type</type>
+        <definition>using srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::T =  typename CircBuffer::value_type</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="311" column="3" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5260fae38c6e915cb4b82f4a6aa080b1" prot="public" static="no" mutable="no">
+        <type>PushingFunc</type>
+        <definition>PushingFunc srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::push_func</definition>
+        <argsstring></argsstring>
+        <name>push_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="410" column="15" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac570d14a8cbf7107a46de73f0e4cb453" prot="public" static="no" mutable="no">
+        <type>PoppingFunc</type>
+        <definition>PoppingFunc srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::pop_func</definition>
+        <argsstring></argsstring>
+        <name>pop_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="411" column="15" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="411" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac4c34c568dcc4fea1fec667f2e17ac10" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="414" column="27" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a8740dc77fe715d1ac2be1685be511b73" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::nof_waiting</definition>
+        <argsstring></argsstring>
+        <name>nof_waiting</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="415" column="27" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1adf301cb2956c5d2d2fae3006ba61574a" prot="protected" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="416" column="27" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1adef96ac83b3723fcd6269c1f80baff25" prot="protected" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::cvar_empty</definition>
+        <argsstring></argsstring>
+        <name>cvar_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="417" column="27" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ae5f1eb5fc1df4e8b97187ed912031d9d" prot="protected" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::cvar_full</definition>
+        <argsstring></argsstring>
+        <name>cvar_full</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="417" column="38" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a6d57dc31cebce8d424e6292d06ed6c3e" prot="protected" static="no" mutable="no">
+        <type>CircBuffer</type>
+        <definition>CircBuffer srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::circ_buffer</definition>
+        <argsstring></argsstring>
+        <name>circ_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="418" column="27" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ad06bd6d0908fe65f6501783514fec29f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::base_blocking_queue</definition>
+        <argsstring>(PushingFunc push_func_, PoppingFunc pop_func_, Args &amp;&amp;... args)</argsstring>
+        <name>base_blocking_queue</name>
+        <param>
+          <type>PushingFunc</type>
+          <declname>push_func_</declname>
+        </param>
+        <param>
+          <type>PoppingFunc</type>
+          <declname>pop_func_</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="315" column="3" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="315" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ada4646685db81ff80a2f7fc99e5b49a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::base_blocking_queue</definition>
+        <argsstring>(const base_blocking_queue &amp;)=delete</argsstring>
+        <name>base_blocking_queue</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="319" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a75cb81c3cb81e5aec6b0e07835d18059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::base_blocking_queue</definition>
+        <argsstring>(base_blocking_queue &amp;&amp;)=delete</argsstring>
+        <name>base_blocking_queue</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="320" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9044e8e62109a44f5d2826c5fd5a91ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;</type>
+        <definition>base_blocking_queue&amp; srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::operator=</definition>
+        <argsstring>(const base_blocking_queue &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="321" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab6e4072c4553b1a5a98ab637e0df3252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;</type>
+        <definition>base_blocking_queue&amp; srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::operator=</definition>
+        <argsstring>(base_blocking_queue &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1detail_1_1base__blocking__queue" kindref="compound">base_blocking_queue</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="322" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1abb8c59c64422e5d55c35a4c6b5f8b2b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="324" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="324" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e53eddd60f80ca160243e414eacdb7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::try_push</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>try_push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="345" column="17" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="345" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5546d3e2174ffca6383e716635580669" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1expected" kindref="compound">error_type</ref>&lt; T &gt;</type>
+        <definition>error_type&lt;T&gt; srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::try_push</definition>
+        <argsstring>(T &amp;&amp;t)</argsstring>
+        <name>try_push</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="346" column="14" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="346" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1accfa9d76a8205cb8834a35544366f7b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::push_blocking</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>push_blocking</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="347" column="17" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="347" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa6684eda66a14345d18eaf70a8bc5e78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1expected" kindref="compound">error_type</ref>&lt; T &gt;</type>
+        <definition>error_type&lt;T&gt; srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::push_blocking</definition>
+        <argsstring>(T &amp;&amp;t)</argsstring>
+        <name>push_blocking</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="348" column="14" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="348" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab37ea3d47f3c2c418a15d18135fd1731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::try_pop</definition>
+        <argsstring>(T &amp;obj)</argsstring>
+        <name>try_pop</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="349" column="17" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="349" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa820c0f028c117d26d74428a9f80fd65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::pop_blocking</definition>
+        <argsstring>(bool *success=nullptr)</argsstring>
+        <name>pop_blocking</name>
+        <param>
+          <type>bool *</type>
+          <declname>success</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="350" column="17" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="350" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1acb394f02f2d657635c5bc81b723a3fd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::pop_wait_until</definition>
+        <argsstring>(T &amp;obj, const std::chrono::steady_clock::time_point &amp;until)</argsstring>
+        <name>pop_wait_until</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>const std::chrono::steady_clock::time_point &amp;</type>
+          <declname>until</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="359" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="359" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a19b9ddf68605ad7481d16478d564b98a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="360" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="360" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a34ecbff04817ddbf3730d76ecd66508b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="367" column="10" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="367" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9b541aba601ca690ab8c3db4e64d4684" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="372" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="372" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a70730598f84f992444c87ad160fa4926" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::full</definition>
+        <argsstring>() const</argsstring>
+        <name>full</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="377" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="377" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05b9e9cb7793dcb9ad2f4304f11588e4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::max_size</definition>
+        <argsstring>() const</argsstring>
+        <name>max_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="382" column="10" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="382" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa9dff80c455b0fc5fd4f507906459ff8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::is_stopped</definition>
+        <argsstring>() const</argsstring>
+        <name>is_stopped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="387" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="387" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1aeab3ce2ccf8e6d66d4880759c3294610" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::try_call_on_front</definition>
+        <argsstring>(const F &amp;f)</argsstring>
+        <name>try_call_on_front</name>
+        <param>
+          <type>const F &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="393" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="393" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1add411f50a36bcb716f9cab2349b424b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::apply_first</definition>
+        <argsstring>(const F &amp;func)</argsstring>
+        <name>apply_first</name>
+        <param>
+          <type>const F &amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="404" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="404" bodyend="408"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05abbe6390fa5162ef63b1c36a49a8ca" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::~base_blocking_queue</definition>
+        <argsstring>()</argsstring>
+        <name>~base_blocking_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="420" column="3" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="420" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a4ecfb4a2557d80e26040f09b9cceb6a1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::push_</definition>
+        <argsstring>(const T &amp;t, bool block_mode)</argsstring>
+        <name>push_</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>block_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="422" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="422" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1a0d59c7d84d58721c1c0af48e4fcb4dbc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1expected" kindref="compound">srsgnb::error_type</ref>&lt; T &gt;</type>
+        <definition>srsgnb::error_type&lt;T&gt; srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::push_</definition>
+        <argsstring>(T &amp;&amp;t, bool block_mode)</argsstring>
+        <name>push_</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>block_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="449" column="22" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="449" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1detail_1_1base__blocking__queue_1ace038b277e6d53e22990a420eb4224f0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;::pop_</definition>
+        <argsstring>(T &amp;obj, bool block, const std::chrono::steady_clock::time_point *until=nullptr)</argsstring>
+        <name>pop_</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>block</declname>
+        </param>
+        <param>
+          <type>const std::chrono::steady_clock::time_point *</type>
+          <declname>until</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/adt/circular_buffer.h" line="475" column="8" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="475" bodyend="503"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base common class for definition of blocking queue data structures with the following features:<itemizedlist>
+<listitem><para>it stores pushed/popped samples in an internal circular buffer</para>
+</listitem><listitem><para>provides blocking and non-blocking push/pop APIs</para>
+</listitem><listitem><para>thread-safe <parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>CircBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>underlying circular buffer data type (e.g. static_circular_buffer&lt;T, N&gt; or dyn_circular_buffer&lt;T&gt;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PushingFunc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function void(const T&amp;) called while pushing an element to the queue </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PoppingFunc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function void(const T&amp;) called while popping an element from the queue </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::detail::base_blocking_queue&lt; CircBuffer, PushingFunc, PoppingFunc &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__blocking__queue"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/adt/circular_buffer.h" line="310" column="1" bodyfile="include/srsgnb/adt/circular_buffer.h" bodystart="309" bodyend="504"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac4c34c568dcc4fea1fec667f2e17ac10" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>active</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1add411f50a36bcb716f9cab2349b424b7" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>apply_first</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ad06bd6d0908fe65f6501783514fec29f" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ada4646685db81ff80a2f7fc99e5b49a5" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a75cb81c3cb81e5aec6b0e07835d18059" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>base_blocking_queue</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a6d57dc31cebce8d424e6292d06ed6c3e" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>circ_buffer</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a19b9ddf68605ad7481d16478d564b98a" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1adef96ac83b3723fcd6269c1f80baff25" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>cvar_empty</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ae5f1eb5fc1df4e8b97187ed912031d9d" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>cvar_full</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9b541aba601ca690ab8c3db4e64d4684" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>empty</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a70730598f84f992444c87ad160fa4926" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>full</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa9dff80c455b0fc5fd4f507906459ff8" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>is_stopped</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05b9e9cb7793dcb9ad2f4304f11588e4" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>max_size</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1adf301cb2956c5d2d2fae3006ba61574a" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>mutex</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a8740dc77fe715d1ac2be1685be511b73" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>nof_waiting</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9044e8e62109a44f5d2826c5fd5a91ed" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab6e4072c4553b1a5a98ab637e0df3252" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ace038b277e6d53e22990a420eb4224f0" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>pop_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa820c0f028c117d26d74428a9f80fd65" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>pop_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ac570d14a8cbf7107a46de73f0e4cb453" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>pop_func</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1acb394f02f2d657635c5bc81b723a3fd6" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>pop_wait_until</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a4ecfb4a2557d80e26040f09b9cceb6a1" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>push_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a0d59c7d84d58721c1c0af48e4fcb4dbc" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>push_</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1accfa9d76a8205cb8834a35544366f7b9" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>push_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aa6684eda66a14345d18eaf70a8bc5e78" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>push_blocking</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5260fae38c6e915cb4b82f4a6aa080b1" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>push_func</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a34ecbff04817ddbf3730d76ecd66508b" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>size</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1abb8c59c64422e5d55c35a4c6b5f8b2b7" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e6fe2d8d03fb50bbd87136415e8ea1c" prot="private" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>T</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1aeab3ce2ccf8e6d66d4880759c3294610" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>try_call_on_front</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1ab37ea3d47f3c2c418a15d18135fd1731" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>try_pop</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a9e53eddd60f80ca160243e414eacdb7c" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>try_push</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a5546d3e2174ffca6383e716635580669" prot="public" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>try_push</name></member>
+      <member refid="classsrsgnb_1_1detail_1_1base__blocking__queue_1a05abbe6390fa5162ef63b1c36a49a8ca" prot="protected" virt="non-virtual"><scope>srsgnb::detail::base_blocking_queue</scope><name>~base_blocking_queue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

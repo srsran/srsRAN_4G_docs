@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1detail_1_1coro__frame" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::detail::coro_frame</compoundname>
+    <basecompoundref refid="structsrsgnb_1_1detail_1_1base__coro__frame" prot="public" virt="non-virtual">srsgnb::detail::base_coro_frame&lt; detail::promise_of&lt; FunT &gt; &gt;</basecompoundref>
+    <includes refid="coroutine_8h" local="no">coroutine.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename FunT</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1detail_1_1coro__frame_1a813c7f57735724041be778bb5f80ab38" prot="private" static="no" mutable="no">
+        <type>std::aligned_storage_t&lt; sizeof(FunT), alignof(FunT)&gt;</type>
+        <definition>std::aligned_storage_t&lt;sizeof(FunT), alignof(FunT)&gt; srsgnb::detail::coro_frame&lt; FunT &gt;::task_storage</definition>
+        <argsstring></argsstring>
+        <name>task_storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="216" column="26" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1a1d3f4a41aa97bdd8a2e705e9587a6b1b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>srsgnb::detail::coro_frame&lt; FunT &gt;::coro_frame</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>coro_frame</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="174" column="12" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="174" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1aa392993d37e18d7582c240c4458fc22b" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::coro_frame&lt; FunT &gt;::resume</definition>
+        <argsstring>() final</argsstring>
+        <name>resume</name>
+        <briefdescription>
+<para>Resume coroutine from last suspended point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="181" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1a9e306098dbcfc3083018d58f9871e08c" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::coro_frame&lt; FunT &gt;::destroy</definition>
+        <argsstring>() noexcept final</argsstring>
+        <name>destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy coroutine frame This function can only be called when coroutine is suspended </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="185" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="185" bodyend="195"/>
+        <references refid="structsrsgnb_1_1detail_1_1awaiter__memory__storage__t_1acf6dae9cf3acc636857b5e167c015677" compoundref="awaiter__memory__storage_8h" startline="124" endline="124">srsgnb::detail::awaiter_memory_storage_t&lt; InlineBuffer &gt;::empty</references>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1ae1323d91aef42a5cc9c0ccb3888e615c" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::coro_frame&lt; FunT &gt;::on_return</definition>
+        <argsstring>() final</argsstring>
+        <name>on_return</name>
+        <briefdescription>
+<para>Destroy coroutine function object at the moment of return. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="198" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="198" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1a1596d979a52d30ef4f366fa5c911aa27" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>FunT *</type>
+        <definition>FunT* srsgnb::detail::coro_frame&lt; FunT &gt;::get_impl</definition>
+        <argsstring>()</argsstring>
+        <name>get_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="201" column="8" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="201" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="structsrsgnb_1_1detail_1_1coro__frame_1aa5df6f36de4f18dbd76b00330d39dc3a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::detail::coro_frame&lt; FunT &gt;::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/coroutine.h" line="202" column="9" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="202" bodyend="214"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Coroutine Frame. Besides the coro state and promise, it stores the coroutine function. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::detail::coro_frame&lt; FunT &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1coro__frame"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::detail::base_coro_frame&lt; detail::promise_of&lt; FunT &gt; &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1base__coro__frame"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::detail::coro_frame&lt; FunT &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1coro__frame"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::detail::base_coro_frame&lt; detail::promise_of&lt; FunT &gt; &gt;</label>
+        <link refid="structsrsgnb_1_1detail_1_1base__coro__frame"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/coroutine.h" line="172" column="42" bodyfile="include/srsgnb/support/async/coroutine.h" bodystart="172" bodyend="217"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1aa5df6f36de4f18dbd76b00330d39dc3a" prot="private" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>cancel</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1a1d3f4a41aa97bdd8a2e705e9587a6b1b" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>coro_frame</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1a9e306098dbcfc3083018d58f9871e08c" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>destroy</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a0d2af287297516efca106c8a631c1a28" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>from_promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae18e7756d831c6de498756b75ecc4963" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>future_type</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1a1596d979a52d30ef4f366fa5c911aa27" prot="private" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>get_impl</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1aa3134bd060c0b560ad8d97f3d7bba562" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>on_await_call</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a8c18d4a4403959f5ca15424db3328331" prot="private" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>on_await_suspend</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1afb4adcaf00ffaefeca4ab585feb29542" prot="private" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>on_await_suspend</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1ae1323d91aef42a5cc9c0ccb3888e615c" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>on_return</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae2a97164f35eb783b14273c6dc6d1780" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1ae3b7b32424dff5f6af3319ff2642a0d7" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>promise</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1base__coro__frame_1a689fd8cb01e59f8d6632eb6303673ffc" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>promise_type</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1aa392993d37e18d7582c240c4458fc22b" prot="public" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>resume</name></member>
+      <member refid="structsrsgnb_1_1detail_1_1coro__frame_1a813c7f57735724041be778bb5f80ab38" prot="private" virt="non-virtual"><scope>srsgnb::detail::coro_frame</scope><name>task_storage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

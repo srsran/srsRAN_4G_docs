@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1carrier__subslot__resource__grid" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::carrier_subslot_resource_grid</compoundname>
+    <includes refid="lib_2scheduler_2cell_2resource__grid_8h" local="no">resource_grid.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1carrier__subslot__resource__grid_1ac800421c1c4addfdb7f68a32a322c74c" prot="private" static="no">
+        <type><ref refid="classsrsgnb_1_1bounded__bitset" kindref="compound">bounded_bitset</ref>&lt; <ref refid="namespacesrsgnb_1aa558f255506148cec1603985918359ab" kindref="member">NOF_OFDM_SYM_PER_SLOT_NORMAL_CP</ref> *<ref refid="namespacesrsgnb_1a1d2a8109fbd41e51c8237141a29edf2a" kindref="member">MAX_NOF_PRBS</ref>, true &gt;</type>
+        <definition>using srsgnb::carrier_subslot_resource_grid::slot_rb_bitmap =  bounded_bitset&lt;NOF_OFDM_SYM_PER_SLOT_NORMAL_CP * MAX_NOF_PRBS, true&gt;</definition>
+        <argsstring></argsstring>
+        <name>slot_rb_bitmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Represents a matrix of symbol index x carrier RB index. The matrix dimensions get scaled based on the number of carrier RBs. RB index=0 corresponds to the carrier offset. Resources in the bitset are represented in the following order: [{symb=0,RB=0}, {symb=0,RB=1}, ..., {symb=1,RB=0}, ..., {symb=14,RB=carrierRBs}] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="111" column="3" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1carrier__subslot__resource__grid_1acc9086b52a79e427f51df0800fb44b11" prot="private" static="no" mutable="no">
+        <type><ref refid="structsrsgnb_1_1scs__specific__carrier" kindref="compound">scs_specific_carrier</ref></type>
+        <definition>scs_specific_carrier srsgnb::carrier_subslot_resource_grid::carrier_cfg</definition>
+        <argsstring></argsstring>
+        <name>carrier_cfg</name>
+        <briefdescription>
+<para>Carrier configuration containining numerology, carrier offset and carrier bandwidth. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="114" column="24" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1carrier__subslot__resource__grid_1ac800421c1c4addfdb7f68a32a322c74c" kindref="member">slot_rb_bitmap</ref></type>
+        <definition>slot_rb_bitmap srsgnb::carrier_subslot_resource_grid::slot_rbs</definition>
+        <argsstring></argsstring>
+        <name>slot_rbs</name>
+        <briefdescription>
+<para>symbol x RB bitmap of this carrier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="117" column="18" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a11e0edbed29b3a1f9fdd4791596023db" compoundref="resource__grid_8cpp" startline="28" endline="31">clear</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a27ccc216d3099e49700aa3a0f1362ed9" compoundref="resource__grid_8cpp" startline="33" endline="43">fill</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a9240696310f6958a03f53bd94b1fa412" compoundref="resource__grid_8cpp" startline="45" endline="58">collides</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" compoundref="resource__grid_8cpp" startline="60" endline="68">used_crbs</referencedby>
+        <referencedby refid="classsrsgnb_1_1carrier__subslot__resource__grid_1aed60a3357ae8744b9fb69c6629a1fd95" compoundref="resource__grid_8cpp" startline="70" endline="83">all_set</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a3552e08c6e4575626531bb524433f015" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>carrier_subslot_resource_grid::carrier_subslot_resource_grid</definition>
+        <argsstring>(const scs_specific_carrier &amp;carrier_cfg)</argsstring>
+        <name>carrier_subslot_resource_grid</name>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1scs__specific__carrier" kindref="compound">scs_specific_carrier</ref> &amp;</type>
+          <declname>carrier_cfg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="71" column="12" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a062a5f1f9483f14f595461028777246e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1a249e926de5b299d3da9f403c93168d98" kindref="member">subcarrier_spacing</ref></type>
+        <definition>subcarrier_spacing srsgnb::carrier_subslot_resource_grid::scs</definition>
+        <argsstring>() const</argsstring>
+        <name>scs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="73" column="22" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a759d99dc4dfb2c0e19712460948c80b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::carrier_subslot_resource_grid::nof_rbs</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_rbs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="74" column="22" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a027ade64ed29de9728a24b3ff8195162" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::carrier_subslot_resource_grid::offset</definition>
+        <argsstring>() const</argsstring>
+        <name>offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="75" column="22" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a73d2f3f3ee44d4ee66136f12a5a6deb3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+        <definition>crb_interval srsgnb::carrier_subslot_resource_grid::rb_dims</definition>
+        <argsstring>() const</argsstring>
+        <name>rb_dims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="76" column="22" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a11e0edbed29b3a1f9fdd4791596023db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void carrier_subslot_resource_grid::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clearer Carrier Resource Grid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="79" column="8" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="28" bodyend="31"/>
+        <references refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="117">slot_rbs</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a7d779cc2893c04ebb8264356f1596ab2" compoundref="bounded__bitset_8h" startline="287" endline="291">srsgnb::bounded_bitset&lt; N, reversed &gt;::reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a27ccc216d3099e49700aa3a0f1362ed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void carrier_subslot_resource_grid::fill</definition>
+        <argsstring>(ofdm_symbol_range symbols, crb_interval crbs)</argsstring>
+        <name>fill</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ofdm__symbol__range" kindref="compound">ofdm_symbol_range</ref></type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+          <declname>crbs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates the symbol x CRB range in the carrier resource grid. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM symbol interval of the allocation. Interval must fall within [0, 14). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>crbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CRB interval, where CRB=0 corresponds to the CRB closest to pointA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="84" column="8" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="33" bodyend="43"/>
+        <references refid="namespacesrsgnb_1aa558f255506148cec1603985918359ab" compoundref="frame__types_8h" startline="18">srsgnb::NOF_OFDM_SYM_PER_SLOT_NORMAL_CP</references>
+        <references refid="classsrsgnb_1_1interval_1a2a8221a632c84c0a77b8e404b3a4bbd8" compoundref="interval_8h" startline="73" endline="82">srsgnb::interval&lt; T &gt;::displace_by</references>
+        <references refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="117">slot_rbs</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a7e3a54e061a9173d147eb8b202867fc5" compoundref="bounded__bitset_8h" startline="353" endline="364">srsgnb::bounded_bitset&lt; N, reversed &gt;::fill</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a9240696310f6958a03f53bd94b1fa412" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool carrier_subslot_resource_grid::collides</definition>
+        <argsstring>(ofdm_symbol_range symbols, crb_interval crbs) const</argsstring>
+        <name>collides</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ofdm__symbol__range" kindref="compound">ofdm_symbol_range</ref></type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+          <declname>crbs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the provided symbol x CRB range collides with any other allocation in the carrier resource grid. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM symbol interval of the allocation. Interval must fall within [0, 14). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>crbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CRB interval, where CRB=0 corresponds to the CRB closest to pointA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if a collision was detected. False otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="90" column="8" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="45" bodyend="58"/>
+        <references refid="namespacesrsgnb_1aa558f255506148cec1603985918359ab" compoundref="frame__types_8h" startline="18">srsgnb::NOF_OFDM_SYM_PER_SLOT_NORMAL_CP</references>
+        <references refid="classsrsgnb_1_1interval_1a2a8221a632c84c0a77b8e404b3a4bbd8" compoundref="interval_8h" startline="73" endline="82">srsgnb::interval&lt; T &gt;::displace_by</references>
+        <references refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="117">slot_rbs</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a9213f1b2bdbdd6f211245e06ebe94099" compoundref="bounded__bitset_8h" startline="526" endline="534">srsgnb::bounded_bitset&lt; N, reversed &gt;::any</references>
+        <referencedby refid="classsrsgnb_1_1cell__slot__resource__grid_1aec6c47c9786e03e716338e9ab0d0cef8" compoundref="resource__grid_8cpp" startline="118" endline="122">srsgnb::cell_slot_resource_grid::collides</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesrsgnb_1abf86a5538874e8272b0c274211e2598b" kindref="member">crb_bitmap</ref></type>
+        <definition>crb_bitmap carrier_subslot_resource_grid::used_crbs</definition>
+        <argsstring>(crb_interval bwp_crb_lims, ofdm_symbol_range symbols) const</argsstring>
+        <name>used_crbs</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+          <declname>bwp_crb_lims</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ofdm__symbol__range" kindref="compound">ofdm_symbol_range</ref></type>
+          <declname>symbols</declname>
+        </param>
+        <briefdescription>
+<para>Calculates a bitmap where each bit set one represents a CRB that is occupied or unavailable. A CRB is considered occupied if it is outside of the provided BWP CRB boundaries or if it is already allocated in at least one OFDM symbol of the provided OFDM symbol range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bwp_crb_lims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CRB range where the BWP is located in the frequency domain, and used for the CRB to PRB conversion. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range of OFDM symbols, where the search for available CRBs is carrier out. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an CRB bitmap with bits set to one for unavailable CRBs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="99" column="14" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="60" bodyend="68"/>
+        <references refid="namespacesrsgnb_1aa558f255506148cec1603985918359ab" compoundref="frame__types_8h" startline="18">srsgnb::NOF_OFDM_SYM_PER_SLOT_NORMAL_CP</references>
+        <references refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="117">slot_rbs</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a303fd8436c800ab55b92a3de190200a6" compoundref="bounded__bitset_8h" startline="372" endline="399">srsgnb::bounded_bitset&lt; N, reversed &gt;::slice</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a7e3a54e061a9173d147eb8b202867fc5" compoundref="bounded__bitset_8h" startline="353" endline="364">srsgnb::bounded_bitset&lt; N, reversed &gt;::fill</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1a5fc3c696fe29cd4275460b7ebdfb7ce4" compoundref="bounded__bitset_8h" startline="248" endline="248">srsgnb::bounded_bitset&lt; N, reversed &gt;::size</references>
+        <referencedby refid="classsrsgnb_1_1cell__slot__resource__grid_1a987bac26435410ebf28670b492e71123" compoundref="resource__grid_8cpp" startline="130" endline="134">srsgnb::cell_slot_resource_grid::used_crbs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1carrier__subslot__resource__grid_1aed60a3357ae8744b9fb69c6629a1fd95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool carrier_subslot_resource_grid::all_set</definition>
+        <argsstring>(ofdm_symbol_range symbols, crb_interval crbs) const</argsstring>
+        <name>all_set</name>
+        <param>
+          <type><ref refid="structsrsgnb_1_1ofdm__symbol__range" kindref="compound">ofdm_symbol_range</ref></type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1crb__interval" kindref="compound">crb_interval</ref></type>
+          <declname>crbs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the provided symbol x CRB range in the carrier resource grid is set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OFDM symbol interval of the allocation. Interval must fall within [0, 14). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>crbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CRB interval, where CRB=0 corresponds to the CRB closest to pointA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if all symbols and CRBs of the provided range are set. False otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/cell/resource_grid.h" line="105" column="8" bodyfile="lib/scheduler/cell/resource_grid.cpp" bodystart="70" bodyend="83"/>
+        <references refid="namespacesrsgnb_1aa558f255506148cec1603985918359ab" compoundref="frame__types_8h" startline="18">srsgnb::NOF_OFDM_SYM_PER_SLOT_NORMAL_CP</references>
+        <references refid="classsrsgnb_1_1interval_1a2a8221a632c84c0a77b8e404b3a4bbd8" compoundref="interval_8h" startline="73" endline="82">srsgnb::interval&lt; T &gt;::displace_by</references>
+        <references refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" compoundref="lib_2scheduler_2cell_2resource__grid_8h" startline="117">slot_rbs</references>
+        <references refid="classsrsgnb_1_1bounded__bitset_1ae9ecd17ccf96c1e7a343e75bac5689f5" compoundref="bounded__bitset_8h" startline="475" endline="488">srsgnb::bounded_bitset&lt; N, reversed &gt;::all</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents the Symbol x CRB resource grid of a DL/UL Carrier. The number of CRBs of the grid will depend on the carrier bandwidth and numerology used. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::carrier_subslot_resource_grid</label>
+        <link refid="classsrsgnb_1_1carrier__subslot__resource__grid"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-slot_rbs</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-carrier_cfg</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::bounded_bitset&lt; NOF_OFDM_SYM_PER_SLOT_NORMAL_CP *MAX_NOF_PRBS, true &gt;</label>
+        <link refid="classsrsgnb_1_1bounded__bitset"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::scs_specific_carrier</label>
+        <link refid="structsrsgnb_1_1scs__specific__carrier"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/cell/resource_grid.h" line="69" column="1" bodyfile="lib/scheduler/cell/resource_grid.h" bodystart="68" bodyend="118"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1aed60a3357ae8744b9fb69c6629a1fd95" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>all_set</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1acc9086b52a79e427f51df0800fb44b11" prot="private" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>carrier_cfg</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a3552e08c6e4575626531bb524433f015" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>carrier_subslot_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a11e0edbed29b3a1f9fdd4791596023db" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>clear</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a9240696310f6958a03f53bd94b1fa412" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>collides</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a27ccc216d3099e49700aa3a0f1362ed9" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>fill</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a759d99dc4dfb2c0e19712460948c80b7" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>nof_rbs</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a027ade64ed29de9728a24b3ff8195162" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>offset</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a73d2f3f3ee44d4ee66136f12a5a6deb3" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>rb_dims</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a062a5f1f9483f14f595461028777246e" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>scs</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1ac800421c1c4addfdb7f68a32a322c74c" prot="private" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>slot_rb_bitmap</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a8f7b18c32eae595878bce6ea86818397" prot="private" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>slot_rbs</name></member>
+      <member refid="classsrsgnb_1_1carrier__subslot__resource__grid_1a7c600702eaac7a1f49c0082dfe0f96df" prot="public" virt="non-virtual"><scope>srsgnb::carrier_subslot_resource_grid</scope><name>used_crbs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

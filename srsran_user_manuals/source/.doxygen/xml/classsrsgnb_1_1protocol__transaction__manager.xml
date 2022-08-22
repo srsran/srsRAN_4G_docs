@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1protocol__transaction__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::protocol_transaction_manager</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1protocol__transaction__manager_1a432531d7b290cedfac71abf0423710c2" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+        <definition>timer_manager&amp; srsgnb::protocol_transaction_manager&lt; T, N &gt;::timer_db</definition>
+        <argsstring></argsstring>
+        <name>timer_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="101" column="17" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1protocol__transaction__manager_1abcd512f3be6af14d9daa2e145cf1b86c" prot="private" static="no" mutable="no">
+        <type>const T</type>
+        <definition>const T srsgnb::protocol_transaction_manager&lt; T, N &gt;::cancel_value</definition>
+        <argsstring></argsstring>
+        <name>cancel_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="102" column="18" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1protocol__transaction__manager_1aa320c3d862e48031c1e1301658ccc49e" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; unsigned &gt;</type>
+        <definition>std::atomic&lt;unsigned&gt; srsgnb::protocol_transaction_manager&lt; T, N &gt;::next_transaction_id</definition>
+        <argsstring></argsstring>
+        <name>next_transaction_id</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="104" column="24" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1protocol__transaction__manager_1a8a7724da865b1e79294aabec156fd57d" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1unique__timer" kindref="compound">unique_timer</ref>, N &gt;</type>
+        <definition>std::array&lt;unique_timer, N&gt; srsgnb::protocol_transaction_manager&lt; T, N &gt;::running_timers</definition>
+        <argsstring></argsstring>
+        <name>running_timers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="105" column="17" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1protocol__transaction__manager_1a380fe3fcd631bfcd9479a11ae83fc04c" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="classsrsgnb_1_1manual__event" kindref="compound">manual_event</ref>&lt; T &gt;, N &gt;</type>
+        <definition>std::array&lt;manual_event&lt;T&gt;, N&gt; srsgnb::protocol_transaction_manager&lt; T, N &gt;::slot_ar</definition>
+        <argsstring></argsstring>
+        <name>slot_ar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="106" column="14" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1protocol__transaction__manager_1a1469e88af7f8f2e43893bb4d4ce25cdf" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::protocol_transaction_manager&lt; T, N &gt;::protocol_transaction_manager</definition>
+        <argsstring>(timer_manager &amp;timer_db_, const T &amp;cancel_value_={})</argsstring>
+        <name>protocol_transaction_manager</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+          <declname>timer_db_</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>cancel_value_</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="62" column="12" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1protocol__transaction__manager_1a666d450c571b19885403563e39483eb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1protocol__transaction" kindref="compound">protocol_transaction</ref>&lt; T &gt;</type>
+        <definition>protocol_transaction&lt;T&gt; srsgnb::protocol_transaction_manager&lt; T, N &gt;::create_transaction</definition>
+        <argsstring>()</argsstring>
+        <name>create_transaction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="67" column="24" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="67" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1protocol__transaction__manager_1adb03bba852b9d67d7b530e36a269b896" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1protocol__transaction" kindref="compound">protocol_transaction</ref>&lt; T &gt;</type>
+        <definition>protocol_transaction&lt;T&gt; srsgnb::protocol_transaction_manager&lt; T, N &gt;::create_transaction</definition>
+        <argsstring>(unsigned time_to_cancel)</argsstring>
+        <name>create_transaction</name>
+        <param>
+          <type>unsigned</type>
+          <declname>time_to_cancel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="79" column="24" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="79" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1protocol__transaction__manager_1a017853763fecce7523dde38b94995392" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void srsgnb::protocol_transaction_manager&lt; T, N &gt;::set</definition>
+        <argsstring>(unsigned transaction_id, U &amp;&amp;u)</argsstring>
+        <name>set</name>
+        <param>
+          <type>unsigned</type>
+          <declname>transaction_id</declname>
+        </param>
+        <param>
+          <type>U &amp;&amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="94" column="8" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="94" bodyend="98"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::protocol_transaction_manager&lt; T, N &gt;</label>
+        <link refid="classsrsgnb_1_1protocol__transaction__manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-timer_db</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/async/protocol_transaction_manager.h" line="60" column="1" bodyfile="include/srsgnb/support/async/protocol_transaction_manager.h" bodystart="59" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1abcd512f3be6af14d9daa2e145cf1b86c" prot="private" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>cancel_value</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a666d450c571b19885403563e39483eb6" prot="public" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>create_transaction</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1adb03bba852b9d67d7b530e36a269b896" prot="public" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>create_transaction</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1aa320c3d862e48031c1e1301658ccc49e" prot="private" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>next_transaction_id</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a1469e88af7f8f2e43893bb4d4ce25cdf" prot="public" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>protocol_transaction_manager</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a8a7724da865b1e79294aabec156fd57d" prot="private" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>running_timers</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a017853763fecce7523dde38b94995392" prot="public" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>set</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a380fe3fcd631bfcd9479a11ae83fc04c" prot="private" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>slot_ar</name></member>
+      <member refid="classsrsgnb_1_1protocol__transaction__manager_1a432531d7b290cedfac71abf0423710c2" prot="private" virt="non-virtual"><scope>srsgnb::protocol_transaction_manager</scope><name>timer_db</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1resource__grid__pool__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::resource_grid_pool_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1resource__grid__pool" prot="public" virt="non-virtual">srsgnb::resource_grid_pool</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1resource__grid__pool__impl_1a10c13fe8a7d1318a5d48cb1e2054c116" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::resource_grid_pool_impl::nof_slots</definition>
+        <argsstring></argsstring>
+        <name>nof_slots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/support/resource_grid_pool_impl.h" line="23" column="12" bodyfile="lib/phy/support/resource_grid_pool_impl.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1resource__grid__pool__impl_1a869945024d8d27a645aef3e7959988f5" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::resource_grid_pool_impl::nof_sectors</definition>
+        <argsstring></argsstring>
+        <name>nof_sectors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/support/resource_grid_pool_impl.h" line="24" column="12" bodyfile="lib/phy/support/resource_grid_pool_impl.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1resource__grid__pool__impl_1a49faa2378d57b7d2748b6594714c291e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;resource_grid&gt; &gt; srsgnb::resource_grid_pool_impl::grids</definition>
+        <argsstring></argsstring>
+        <name>grids</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/support/resource_grid_pool_impl.h" line="26" column="15" bodyfile="lib/phy/support/resource_grid_pool_impl.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__pool__impl_1a871bb6175869c65452086d6e47609f14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>resource_grid_pool_impl::resource_grid_pool_impl</definition>
+        <argsstring>(unsigned nof_sectors, unsigned nof_slots, std::vector&lt; std::unique_ptr&lt; resource_grid &gt;&gt; &amp;&amp;grids_)</argsstring>
+        <name>resource_grid_pool_impl</name>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_sectors</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>nof_slots</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &gt;&gt; &amp;&amp;</type>
+          <declname>grids_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/support/resource_grid_pool_impl.h" line="29" column="3" bodyfile="lib/phy/support/resource_grid_pool_impl.cpp" bodystart="15" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1resource__grid__pool__impl_1a9cbfee396785f6d1b4f774da6eccc263" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &amp;</type>
+        <definition>resource_grid &amp; resource_grid_pool_impl::get_resource_grid</definition>
+        <argsstring>(const resource_grid_context &amp;context) override</argsstring>
+        <name>get_resource_grid</name>
+        <reimplements refid="classsrsgnb_1_1resource__grid__pool_1a4f1671e92c73e15e09d78b5d5318eb5f">get_resource_grid</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a resource grid for the given context <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the given context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/support/resource_grid_pool_impl.h" line="32" column="17" bodyfile="lib/phy/support/resource_grid_pool_impl.cpp" bodystart="23" bodyend="32"/>
+        <references refid="structsrsgnb_1_1resource__grid__context_1a9fc72c4f460a3612628dad0d87995942" compoundref="resource__grid__context_8h" startline="23">srsgnb::resource_grid_context::sector</references>
+        <references refid="structsrsgnb_1_1resource__grid__context_1aa47703e440ee4ad880d5f5ec012e16ff" compoundref="resource__grid__context_8h" startline="21">srsgnb::resource_grid_context::slot</references>
+        <references refid="classsrsgnb_1_1slot__point_1a67e682f9eef29c87118c480734b87cb1" compoundref="slot__point_8h" startline="108" endline="108">srsgnb::slot_point::system_slot</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::resource_grid_pool</label>
+        <link refid="classsrsgnb_1_1resource__grid__pool"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::resource_grid_pool_impl</label>
+        <link refid="classsrsgnb_1_1resource__grid__pool__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::resource_grid_pool</label>
+        <link refid="classsrsgnb_1_1resource__grid__pool"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::resource_grid_pool_impl</label>
+        <link refid="classsrsgnb_1_1resource__grid__pool__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/support/resource_grid_pool_impl.h" line="21" column="1" bodyfile="lib/phy/support/resource_grid_pool_impl.h" bodystart="20" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1resource__grid__pool__impl_1a9cbfee396785f6d1b4f774da6eccc263" prot="public" virt="virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>get_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__pool__impl_1a49faa2378d57b7d2748b6594714c291e" prot="private" virt="non-virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>grids</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__pool__impl_1a869945024d8d27a645aef3e7959988f5" prot="private" virt="non-virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>nof_sectors</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__pool__impl_1a10c13fe8a7d1318a5d48cb1e2054c116" prot="private" virt="non-virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>nof_slots</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__pool__impl_1a871bb6175869c65452086d6e47609f14" prot="public" virt="non-virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>resource_grid_pool_impl</name></member>
+      <member refid="classsrsgnb_1_1resource__grid__pool_1a6b9d44b3cf779e802d364fa639d1fc98" prot="public" virt="virtual"><scope>srsgnb::resource_grid_pool_impl</scope><name>~resource_grid_pool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

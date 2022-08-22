@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__slot__demodulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ofdm_slot_demodulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ofdm__slot__demodulator__impl" prot="public" virt="non-virtual">srsgnb::ofdm_slot_demodulator_impl</derivedcompoundref>
+    <includes refid="ofdm__demodulator_8h" local="no">ofdm_demodulator.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__slot__demodulator_1a49817c5875870444741efb7075523ae7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ofdm_slot_demodulator::~ofdm_slot_demodulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ofdm_slot_demodulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="72" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__slot__demodulator_1a3573d75ea86ccc59925af759dc411135" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::ofdm_slot_demodulator::get_slot_size</definition>
+        <argsstring>(unsigned slot_index) const =0</argsstring>
+        <name>get_slot_size</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__slot__demodulator__impl_1aa45ccdf34b77ff04a77460b601e4e494">get_slot_size</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>slot_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a slot size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the slot index within the subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples for the given slot index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="77" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__slot__demodulator_1a6a6d993783257679f153fdd4d2ff64e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ofdm_slot_demodulator::demodulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const cf_t &gt; input, unsigned port_index, unsigned slot_index)=0</argsstring>
+        <name>demodulate</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__slot__demodulator__impl_1a074b6bd669a83a0d65ed79b4ff753e0f">demodulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>slot_index</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates an OFDM signal with slot granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the output as frequency-domain signal corresponding to one slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the time domain modulated signal source. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port index to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot index within the subframe to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The input size must be must be equal to the slot size including the cyclic prefixes. </para>
+</simplesect>
+<simplesect kind="note"><para>The output size consistent with the configured bandwidth. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="87" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes an OFDM demodulator with slot granularity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="remark"><para>Performs OFDM demodulation as per TS 38.211 section 5.3.1 OFDM baseband signal generation for all channels except PRACH. </para>
+</simplesect>
+<simplesect kind="remark"><para>In addition to demodulation, it applies phase compensation as per TS 38.211 section 5.4 Modulation and upconversion. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ofdm_slot_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__slot__demodulator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ofdm_slot_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__slot__demodulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ofdm_slot_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__slot__demodulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="69" column="1" bodyfile="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" bodystart="68" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__slot__demodulator_1a6a6d993783257679f153fdd4d2ff64e5" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_slot_demodulator</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__slot__demodulator_1a3573d75ea86ccc59925af759dc411135" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_slot_demodulator</scope><name>get_slot_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__slot__demodulator_1a49817c5875870444741efb7075523ae7" prot="public" virt="virtual"><scope>srsgnb::ofdm_slot_demodulator</scope><name>~ofdm_slot_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

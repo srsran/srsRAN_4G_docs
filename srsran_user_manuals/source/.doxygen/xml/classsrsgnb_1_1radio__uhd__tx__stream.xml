@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1radio__uhd__tx__stream" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::radio_uhd_tx_stream</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1uhd__exception__handler" prot="public" virt="non-virtual">srsgnb::uhd_exception_handler</basecompoundref>
+    <innerclass refid="structsrsgnb_1_1radio__uhd__tx__stream_1_1stream__description" prot="public">srsgnb::radio_uhd_tx_stream::stream_description</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a6b01544939c5b44a3f68edf17beaa2f8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double srsgnb::radio_uhd_tx_stream::RECV_ASYNC_MSG_TIMEOUT_S</definition>
+        <argsstring></argsstring>
+        <name>RECV_ASYNC_MSG_TIMEOUT_S</name>
+        <initializer>= 0.001</initializer>
+        <briefdescription>
+<para>Receive asynchronous message timeout in seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="35" column="27" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1adf965a9fed2748f275591d91d9b89c80" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double srsgnb::radio_uhd_tx_stream::TRANSMIT_TIMEOUT_S</definition>
+        <argsstring></argsstring>
+        <name>TRANSMIT_TIMEOUT_S</name>
+        <initializer>= 0.001</initializer>
+        <briefdescription>
+<para>Transmit timeout in seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="37" column="27" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">transmit_block</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" compoundref="radio__uhd__tx__stream_8cpp" startline="181" endline="206">stop</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1aa9572651fd1b36e204f3cc5fb12f5083" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::radio_uhd_tx_stream::stream_id</definition>
+        <argsstring></argsstring>
+        <name>stream_id</name>
+        <briefdescription>
+<para>Indicates the stream identification for notifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="40" column="12" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a8cc76300a045d99ac20d326799d843b8" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+        <definition>task_executor&amp; srsgnb::radio_uhd_tx_stream::async_executor</definition>
+        <argsstring></argsstring>
+        <name>async_executor</name>
+        <briefdescription>
+<para>Task executor for asynchronous messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="42" column="17" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" compoundref="radio__uhd__tx__stream_8cpp" startline="64" endline="76">run_recv_async_msg</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a25350209e9ec718fc2d7a2f71fa0e898" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+        <definition>radio_notification_handler&amp; srsgnb::radio_uhd_tx_stream::notifier</definition>
+        <argsstring></argsstring>
+        <name>notifier</name>
+        <briefdescription>
+<para>Radio notification interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="44" column="30" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a4aed1303adcf403666c67da090f17f0b" prot="private" static="no" mutable="no">
+        <type>uhd::tx_streamer::sptr</type>
+        <definition>uhd::tx_streamer::sptr srsgnb::radio_uhd_tx_stream::stream</definition>
+        <argsstring></argsstring>
+        <name>stream</name>
+        <briefdescription>
+<para>Owns the UHD Tx stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="46" column="26" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">transmit_block</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" compoundref="radio__uhd__tx__stream_8cpp" startline="181" endline="206">stop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a8b80f7b3e9c7d93e24641e7918c4613e" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex srsgnb::radio_uhd_tx_stream::stream_transmit_mutex</definition>
+        <argsstring></argsstring>
+        <name>stream_transmit_mutex</name>
+        <briefdescription>
+<para>Protects concurrent stream transmit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="48" column="14" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1acd57f8fdf52aa981244e220b3b965987" compoundref="radio__uhd__tx__stream_8cpp" startline="154" endline="179">transmit</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" compoundref="radio__uhd__tx__stream_8cpp" startline="181" endline="206">stop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1adaa3ee8cd6b3442a74ef7c0c10117b2b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double srsgnb::radio_uhd_tx_stream::srate_hz</definition>
+        <argsstring></argsstring>
+        <name>srate_hz</name>
+        <briefdescription>
+<para>Sampling rate in Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="50" column="10" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1acd57f8fdf52aa981244e220b3b965987" compoundref="radio__uhd__tx__stream_8cpp" startline="154" endline="179">transmit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1a9f33c0516af8e34b479374131a7d9e50" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned srsgnb::radio_uhd_tx_stream::nof_channels</definition>
+        <argsstring></argsstring>
+        <name>nof_channels</name>
+        <briefdescription>
+<para>Indicates the number of channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="52" column="12" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">transmit_block</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" compoundref="radio__uhd__tx__stream_8cpp" startline="181" endline="206">stop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1radio__uhd__tx__stream__fsm" kindref="compound">radio_uhd_tx_stream_fsm</ref></type>
+        <definition>radio_uhd_tx_stream_fsm srsgnb::radio_uhd_tx_stream::state_fsm</definition>
+        <argsstring></argsstring>
+        <name>state_fsm</name>
+        <briefdescription>
+<para>Indicates the current internal state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="54" column="27" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="54" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" compoundref="radio__uhd__tx__stream_8cpp" startline="64" endline="76">run_recv_async_msg</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">transmit_block</referencedby>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" compoundref="radio__uhd__tx__stream_8cpp" startline="181" endline="206">stop</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_uhd_tx_stream::recv_async_msg</definition>
+        <argsstring>()</argsstring>
+        <name>recv_async_msg</name>
+        <briefdescription>
+<para>Receive asynchronous message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="57" column="8" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="15" bodyend="62"/>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a4aed1303adcf403666c67da090f17f0b" compoundref="radio__uhd__tx__stream_8h" startline="46">stream</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a6b01544939c5b44a3f68edf17beaa2f8" compoundref="radio__uhd__tx__stream_8h" startline="35">RECV_ASYNC_MSG_TIMEOUT_S</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa9572651fd1b36e204f3cc5fb12f5083" compoundref="radio__uhd__tx__stream_8h" startline="40">stream_id</references>
+        <references refid="structsrsgnb_1_1radio__notification__handler_1_1event__description_1aedcdaea9d18dbefd070a6c5f9fbef384" compoundref="radio__notification__handler_8h" startline="119">srsgnb::radio_notification_handler::event_description::stream_id</references>
+        <references refid="structsrsgnb_1_1radio__notification__handler_1_1event__description_1a71dc0ff115cf882ba0f7c89d93fce9fb" compoundref="radio__notification__handler_8h" startline="121">srsgnb::radio_notification_handler::event_description::channel_id</references>
+        <references refid="structsrsgnb_1_1radio__notification__handler_1_1event__description_1a5ba6d62c0f9564ba09c0952f89e0c48b" compoundref="radio__notification__handler_8h" startline="123">srsgnb::radio_notification_handler::event_description::source</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1_1event__source_1a5520dfc44f2b1c146c83297f03d3fad8a59f29307051c7b3fdcd5e8cb3470efe4" compoundref="radio__notification__handler_8h" startline="36">srsgnb::radio_notification_handler::event_source::TRANSMIT</references>
+        <references refid="structsrsgnb_1_1radio__notification__handler_1_1event__description_1a399d15ba991afc604b4e0305114acf6c" compoundref="radio__notification__handler_8h" startline="125">srsgnb::radio_notification_handler::event_description::type</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1_1event__type_1a45d1eb339c65c5a0dd3739035a4c07c0a96b46c92464f4aeabbda241c271b8379" compoundref="radio__notification__handler_8h" startline="75">srsgnb::radio_notification_handler::event_type::UNDEFINED</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" compoundref="radio__uhd__tx__stream_8h" startline="54">state_fsm</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream__fsm_1a6f5413408495e17e8dd682cf216a5742" compoundref="radio__uhd__tx__stream__fsm_8h" startline="81" endline="88">srsgnb::radio_uhd_tx_stream_fsm::async_event_end_of_burst_ack</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1_1event__type_1a45d1eb339c65c5a0dd3739035a4c07c0a1f741e789322fc41908eed48e72b4475" compoundref="radio__notification__handler_8h" startline="77">srsgnb::radio_notification_handler::event_type::LATE</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1_1event__type_1a45d1eb339c65c5a0dd3739035a4c07c0aad24a507d1577e45e076d096bfb9a8f6" compoundref="radio__notification__handler_8h" startline="79">srsgnb::radio_notification_handler::event_type::UNDERFLOW</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream__fsm_1a3703ec9d4ee8a8b933ff8c09dd76ddce" compoundref="radio__uhd__tx__stream__fsm_8h" startline="68" endline="77">srsgnb::radio_uhd_tx_stream_fsm::async_event_underflow</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1_1event__type_1a45d1eb339c65c5a0dd3739035a4c07c0a1d7b521adc1a1fef5c5ed67788aa49f9" compoundref="radio__notification__handler_8h" startline="83">srsgnb::radio_notification_handler::event_type::OTHER</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a25350209e9ec718fc2d7a2f71fa0e898" compoundref="radio__uhd__tx__stream_8h" startline="44">notifier</references>
+        <references refid="classsrsgnb_1_1radio__notification__handler_1a3573fbe3f45693f891e09ba19531d652">srsgnb::radio_notification_handler::on_radio_rt_event</references>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" compoundref="radio__uhd__tx__stream_8cpp" startline="64" endline="76">run_recv_async_msg</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_uhd_tx_stream::run_recv_async_msg</definition>
+        <argsstring>()</argsstring>
+        <name>run_recv_async_msg</name>
+        <briefdescription>
+<para>Runs the asynchronous message reception through the asynchronous task executor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="60" column="8" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="64" bodyend="76"/>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" compoundref="radio__uhd__tx__stream_8h" startline="54">state_fsm</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" compoundref="radio__uhd__tx__stream_8cpp" startline="15" endline="62">recv_async_msg</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a8cc76300a045d99ac20d326799d843b8" compoundref="radio__uhd__tx__stream_8h" startline="42">async_executor</references>
+        <references refid="classsrsgnb_1_1task__executor_1aef95524aeb46a16f2d4cc8413cbfd18c">srsgnb::task_executor::defer</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool radio_uhd_tx_stream::transmit_block</definition>
+        <argsstring>(unsigned &amp;nof_txd_samples, baseband_gateway_buffer &amp;data, unsigned offset, uhd::time_spec_t &amp;time_spec)</argsstring>
+        <name>transmit_block</name>
+        <param>
+          <type>unsigned &amp;</type>
+          <declname>nof_txd_samples</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1baseband__gateway__buffer" kindref="compound">baseband_gateway_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>uhd::time_spec_t &amp;</type>
+          <declname>time_spec</declname>
+        </param>
+        <briefdescription>
+<para>Transmits a single baseband block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">nof_txd_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of transmitted samples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the buffers tpo transmit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the sample offset in the transmit buffers. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_spec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the transmission timestamp. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if no exception is caught in the transmission process. Otherwise, false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="68" column="8" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="78" bodyend="111"/>
+        <references refid="classsrsgnb_1_1baseband__gateway__buffer_1a07c6a33fb40c2798a57d4c06fee735b0">srsgnb::baseband_gateway_buffer::get_nof_channels</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a9f33c0516af8e34b479374131a7d9e50" compoundref="radio__uhd__tx__stream_8h" startline="52">nof_channels</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" compoundref="radio__uhd__tx__stream_8h" startline="54">state_fsm</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream__fsm_1ad0ce4cd9106f867a4e790ad886c1f1b1" compoundref="radio__uhd__tx__stream__fsm_8h" startline="94" endline="142">srsgnb::radio_uhd_tx_stream_fsm::transmit_block</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a4aed1303adcf403666c67da090f17f0b" compoundref="radio__uhd__tx__stream_8h" startline="46">stream</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1adf965a9fed2748f275591d91d9b89c80" compoundref="radio__uhd__tx__stream_8h" startline="37">TRANSMIT_TIMEOUT_S</references>
+        <referencedby refid="classsrsgnb_1_1radio__uhd__tx__stream_1acd57f8fdf52aa981244e220b3b965987" compoundref="radio__uhd__tx__stream_8cpp" startline="154" endline="179">transmit</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1a1f5d7a33b05b509d71fed714e983f382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>radio_uhd_tx_stream::radio_uhd_tx_stream</definition>
+        <argsstring>(uhd::usrp::multi_usrp::sptr &amp;usrp, const stream_description &amp;description, task_executor &amp;async_executor_, radio_notification_handler &amp;notifier_)</argsstring>
+        <name>radio_uhd_tx_stream</name>
+        <param>
+          <type>uhd::usrp::multi_usrp::sptr &amp;</type>
+          <declname>usrp</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1radio__uhd__tx__stream_1_1stream__description" kindref="compound">stream_description</ref> &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1task__executor" kindref="compound">task_executor</ref> &amp;</type>
+          <declname>async_executor_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1radio__notification__handler" kindref="compound">radio_notification_handler</ref> &amp;</type>
+          <declname>notifier_</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an UHD transmit stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">usrp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the USRP context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the stream configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">async_executor_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the asynchronous task executor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">notifier_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the radio event notification handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="93" column="3" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="113" bodyend="152"/>
+        <references refid="structsrsgnb_1_1radio__uhd__tx__stream_1_1stream__description_1a7f4d1ac9948612c197a606fb23512bf1" compoundref="radio__uhd__tx__stream_8h" startline="79">srsgnb::radio_uhd_tx_stream::stream_description::otw_format</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1acd57f8fdf52aa981244e220b3b965987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool radio_uhd_tx_stream::transmit</definition>
+        <argsstring>(baseband_gateway_buffer &amp;data, uhd::time_spec_t time_spec)</argsstring>
+        <name>transmit</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1baseband__gateway__buffer" kindref="compound">baseband_gateway_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uhd::time_spec_t</type>
+          <declname>time_spec</declname>
+        </param>
+        <briefdescription>
+<para>Transmits baseband signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the baseband buffers to transmit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_spec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the transmission time. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the transmission was successful. Otherwise, false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="102" column="8" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="154" bodyend="179"/>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a8b80f7b3e9c7d93e24641e7918c4613e" compoundref="radio__uhd__tx__stream_8h" startline="48">stream_transmit_mutex</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" compoundref="radio__uhd__tx__stream_8cpp" startline="78" endline="111">transmit_block</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1adaa3ee8cd6b3442a74ef7c0c10117b2b" compoundref="radio__uhd__tx__stream_8h" startline="50">srate_hz</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radio_uhd_tx_stream::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stop the transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="105" column="8" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.cpp" bodystart="181" bodyend="206"/>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" compoundref="radio__uhd__tx__stream_8h" startline="54">state_fsm</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a8b80f7b3e9c7d93e24641e7918c4613e" compoundref="radio__uhd__tx__stream_8h" startline="48">stream_transmit_mutex</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a9f33c0516af8e34b479374131a7d9e50" compoundref="radio__uhd__tx__stream_8h" startline="52">nof_channels</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1a4aed1303adcf403666c67da090f17f0b" compoundref="radio__uhd__tx__stream_8h" startline="46">stream</references>
+        <references refid="classsrsgnb_1_1radio__uhd__tx__stream_1adf965a9fed2748f275591d91d9b89c80" compoundref="radio__uhd__tx__stream_8h" startline="37">TRANSMIT_TIMEOUT_S</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::uhd_exception_handler</label>
+        <link refid="classsrsgnb_1_1uhd__exception__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_uhd_tx_stream</label>
+        <link refid="classsrsgnb_1_1radio__uhd__tx__stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>srsgnb::task_executor</label>
+        <link refid="classsrsgnb_1_1task__executor"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::radio_notification_handler</label>
+        <link refid="classsrsgnb_1_1radio__notification__handler"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::radio_base</label>
+        <link refid="classsrsgnb_1_1radio__base"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::radio_uhd_tx_stream_fsm</label>
+        <link refid="classsrsgnb_1_1radio__uhd__tx__stream__fsm"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::uhd_exception_handler</label>
+        <link refid="classsrsgnb_1_1uhd__exception__handler"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::radio_uhd_tx_stream</label>
+        <link refid="classsrsgnb_1_1radio__uhd__tx__stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-state_fsm</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-async_executor</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/radio/uhd/radio_uhd_tx_stream.h" line="32" column="1" bodyfile="lib/radio/uhd/radio_uhd_tx_stream.h" bodystart="31" bodyend="106"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a8cc76300a045d99ac20d326799d843b8" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>async_executor</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1ad6ffc14d5c4b003e971ed2e442b6f938" prot="protected" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>clear_error</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1a37f010eb68991ee40a7910976d8e2dbe" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>error_message</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1ad39bf15f5000008cde0b77a7ccf747c2" prot="public" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>get_error_message</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1abf162cb896b16946f62f539892085a68" prot="protected" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>is_on_error</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1ae8d2143afae7d982096bb9d0610a68cc" prot="public" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>is_successful</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a9f33c0516af8e34b479374131a7d9e50" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>nof_channels</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a25350209e9ec718fc2d7a2f71fa0e898" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>notifier</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a1f5d7a33b05b509d71fed714e983f382" prot="public" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>radio_uhd_tx_stream</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1afaba960bdf38a8d23070bc52a521a44c" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>recv_async_msg</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a6b01544939c5b44a3f68edf17beaa2f8" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>RECV_ASYNC_MSG_TIMEOUT_S</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1ad918e27dde3d686c48c94712fe58584e" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>run_recv_async_msg</name></member>
+      <member refid="classsrsgnb_1_1uhd__exception__handler_1a1afca417ff530a6eb228cac11775c845" prot="protected" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>safe_execution</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1adaa3ee8cd6b3442a74ef7c0c10117b2b" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>srate_hz</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa077fb63dbb31e362e28a652740aecee" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>state_fsm</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a03f3b4aa01cf226094f5774462c0cb5c" prot="public" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>stop</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a4aed1303adcf403666c67da090f17f0b" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>stream</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1aa9572651fd1b36e204f3cc5fb12f5083" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>stream_id</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1a8b80f7b3e9c7d93e24641e7918c4613e" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>stream_transmit_mutex</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1acd57f8fdf52aa981244e220b3b965987" prot="public" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>transmit</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1aaaedcf40b763f6a609b376be04e4425e" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>transmit_block</name></member>
+      <member refid="classsrsgnb_1_1radio__uhd__tx__stream_1adf965a9fed2748f275591d91d9b89c80" prot="private" virt="non-virtual"><scope>srsgnb::radio_uhd_tx_stream</scope><name>TRANSMIT_TIMEOUT_S</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::srs_du::f1ap_event_manager</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1ab951f4a7421394998ab215e15e455ffd" prot="public" static="no">
+        <type><ref refid="classsrsgnb_1_1expected" kindref="compound">expected</ref>&lt; const asn1::f1ap::ue_context_mod_confirm_s *, const asn1::f1ap::ue_context_mod_refuse_s * &gt;</type>
+        <definition>using srsgnb::srs_du::f1ap_event_manager::f1ap_ue_context_modification_outcome_t =  expected&lt;const asn1::f1ap::ue_context_mod_confirm_s*, const asn1::f1ap::ue_context_mod_refuse_s*&gt;</definition>
+        <argsstring></argsstring>
+        <name>f1ap_ue_context_modification_outcome_t</name>
+        <briefdescription>
+<para>F1 UE Context Modification Outcome. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="32" column="3" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a36ffabb324d159dc6031f41f5515f5b4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t srsgnb::srs_du::f1ap_event_manager::MAX_NOF_TRANSACTIONS</definition>
+        <argsstring></argsstring>
+        <name>MAX_NOF_TRANSACTIONS</name>
+        <initializer>= 256</initializer>
+        <briefdescription>
+<para>Transaction Response Container, which gets indexed by transaction_id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="28" column="68" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a82edc54b033db92866f403369c105b65" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1protocol__transaction__manager" kindref="compound">protocol_transaction_manager</ref>&lt; <ref refid="classsrsgnb_1_1expected" kindref="compound">f1ap_outcome</ref>, <ref refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a36ffabb324d159dc6031f41f5515f5b4" kindref="member">MAX_NOF_TRANSACTIONS</ref> &gt;</type>
+        <definition>protocol_transaction_manager&lt;f1ap_outcome, MAX_NOF_TRANSACTIONS&gt; srsgnb::srs_du::f1ap_event_manager::transactions</definition>
+        <argsstring></argsstring>
+        <name>transactions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="29" column="32" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1ae5b511deff7b1e630dcf1e2ac84644e4" prot="public" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1event__signal" kindref="compound">event_signal</ref>&lt; <ref refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1ab951f4a7421394998ab215e15e455ffd" kindref="member">f1ap_ue_context_modification_outcome_t</ref> &gt;</type>
+        <definition>event_signal&lt;f1ap_ue_context_modification_outcome_t&gt; srsgnb::srs_du::f1ap_event_manager::f1ap_ue_context_modification_response</definition>
+        <argsstring></argsstring>
+        <name>f1ap_ue_context_modification_response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="34" column="16" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a6c4873c085f1e532ef22cfac848fd13e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::srs_du::f1ap_event_manager::f1ap_event_manager</definition>
+        <argsstring>(timer_manager &amp;timers)</argsstring>
+        <name>f1ap_event_manager</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1timer__manager" kindref="compound">timer_manager</ref> &amp;</type>
+          <declname>timers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="36" column="12" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::timer_manager</label>
+        <link refid="classsrsgnb_1_1timer__manager"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-free_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::expected&lt; T, E &gt;</label>
+        <link refid="classsrsgnb_1_1expected"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+unexpected</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::protocol_transaction_manager&lt; srsgnb::expected, MAX_NOF_TRANSACTIONS &gt;</label>
+        <link refid="classsrsgnb_1_1protocol__transaction__manager"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-timer_db</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-cancel_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::detail::signal_event_common</label>
+        <link refid="classsrsgnb_1_1detail_1_1signal__event__common"/>
+      </node>
+      <node id="8">
+        <label>srsgnb::event_signal&lt; srsgnb::expected &gt;</label>
+        <link refid="classsrsgnb_1_1event__signal"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-data</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>srsgnb::default_error_t</label>
+        <link refid="structsrsgnb_1_1default__error__t"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_du::f1ap_event_manager</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+transactions</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>+f1ap_ue_context_modification_response</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>srsgnb::intrusive_forward_list_element&lt; Tag &gt;</label>
+        <link refid="structsrsgnb_1_1intrusive__forward__list__element"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::intrusive_forward_list&lt; srsgnb::timer_manager::timer_handle &gt;</label>
+        <link refid="classsrsgnb_1_1intrusive__forward__list"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" line="25" column="1" bodyfile="lib/f1_interface/du/procedures/f1ap_du_event_manager.h" bodystart="24" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a6c4873c085f1e532ef22cfac848fd13e" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_event_manager</scope><name>f1ap_event_manager</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1ab951f4a7421394998ab215e15e455ffd" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_event_manager</scope><name>f1ap_ue_context_modification_outcome_t</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1ae5b511deff7b1e630dcf1e2ac84644e4" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_event_manager</scope><name>f1ap_ue_context_modification_response</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a36ffabb324d159dc6031f41f5515f5b4" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_event_manager</scope><name>MAX_NOF_TRANSACTIONS</name></member>
+      <member refid="classsrsgnb_1_1srs__du_1_1f1ap__event__manager_1a82edc54b033db92866f403369c105b65" prot="public" virt="non-virtual"><scope>srsgnb::srs_du::f1ap_event_manager</scope><name>transactions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

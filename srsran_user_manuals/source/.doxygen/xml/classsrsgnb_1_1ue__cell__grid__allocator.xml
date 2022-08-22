@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ue__cell__grid__allocator" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::ue_cell_grid_allocator</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1ue__pdsch__allocator" prot="public" virt="non-virtual">srsgnb::ue_pdsch_allocator</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1ue__pusch__allocator" prot="public" virt="non-virtual">srsgnb::ue_pusch_allocator</basecompoundref>
+    <includes refid="ue__cell__grid__allocator_8h" local="no">ue_cell_grid_allocator.h</includes>
+    <innerclass refid="structsrsgnb_1_1ue__cell__grid__allocator_1_1cell__t" prot="private">srsgnb::ue_cell_grid_allocator::cell_t</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__cell__grid__allocator_1a2acbe92305cbb9286ccd15207484de65" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+        <definition>ue_list&amp; srsgnb::ue_cell_grid_allocator::ues</definition>
+        <argsstring></argsstring>
+        <name>ues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="61" column="24" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__cell__grid__allocator_1a65ff3df579240d4a83084219829883fe" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+        <definition>srslog::basic_logger&amp; srsgnb::ue_cell_grid_allocator::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="62" column="24" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1ue__cell__grid__allocator_1a212a0fbda7464a85e1d60ac2ef0a933f" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1slot__array" kindref="compound">slot_array</ref>&lt; <ref refid="structsrsgnb_1_1ue__cell__grid__allocator_1_1cell__t" kindref="compound">cell_t</ref>, MAX_NOF_DU_CELLS &gt;</type>
+        <definition>slot_array&lt;cell_t, MAX_NOF_DU_CELLS&gt; srsgnb::ue_cell_grid_allocator::cells</definition>
+        <argsstring></argsstring>
+        <name>cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="64" column="14" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1ab0492f180790c0545f72f188c021cebb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ue_cell_grid_allocator::ue_cell_grid_allocator</definition>
+        <argsstring>(ue_list &amp;ues_, srslog::basic_logger &amp;logger_)</argsstring>
+        <name>ue_cell_grid_allocator</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b60c0be58b71d996f81318347814e55" kindref="member">ue_list</ref> &amp;</type>
+          <declname>ues_</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrslog_1_1detail_1_1logger__impl" kindref="compound">srslog::basic_logger</ref> &amp;</type>
+          <declname>logger_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="23" column="3" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.cpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1ab7445fd30de21f4e522fa6016810aa57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ue_cell_grid_allocator::add_cell</definition>
+        <argsstring>(du_cell_index_t cell_index, pdcch_scheduler &amp;pdcch_sched, cell_resource_allocator &amp;cell_alloc)</argsstring>
+        <name>add_cell</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pdcch__scheduler" kindref="compound">pdcch_scheduler</ref> &amp;</type>
+          <declname>pdcch_sched</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+          <declname>cell_alloc</declname>
+        </param>
+        <briefdescription>
+<para>Adds a new cell to the UE allocator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="26" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.cpp" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a1dee1e5d63614d00506f93f9ee574540" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::ue_cell_grid_allocator::nof_cells</definition>
+        <argsstring>() const</argsstring>
+        <name>nof_cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="28" column="10" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a0664baef61ebaa7b8aa3c696be7195fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const <ref refid="classsrsgnb_1_1cell__slot__resource__grid" kindref="compound">cell_slot_resource_grid</ref> &amp;</type>
+        <definition>const cell_slot_resource_grid&amp; srsgnb::ue_cell_grid_allocator::dl_resource_grid</definition>
+        <argsstring>(du_cell_index_t cell_index, unsigned k0) const override</argsstring>
+        <name>dl_resource_grid</name>
+        <reimplements refid="classsrsgnb_1_1ue__pdsch__allocator_1a3a1abad0b4a131cf95f85aa3de6ca9c7">dl_resource_grid</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="30" column="33" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1aac0767bdcaa0a3ece0a2d7d112a0d1ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool ue_cell_grid_allocator::allocate_pdsch</definition>
+        <argsstring>(const ue_pdsch_grant &amp;grant) override</argsstring>
+        <name>allocate_pdsch</name>
+        <reimplements refid="classsrsgnb_1_1ue__pdsch__allocator_1a830652a79a8ff3cb5611e67bdbc630e9">allocate_pdsch</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ue__pdsch__grant" kindref="compound">ue_pdsch_grant</ref> &amp;</type>
+          <declname>grant</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="35" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.cpp" bodystart="28" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a2321fdca12ae8e570a60dbaebe230300" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const <ref refid="classsrsgnb_1_1cell__slot__resource__grid" kindref="compound">cell_slot_resource_grid</ref> &amp;</type>
+        <definition>const cell_slot_resource_grid&amp; srsgnb::ue_cell_grid_allocator::ul_resource_grid</definition>
+        <argsstring>(du_cell_index_t cell_index, unsigned k2) const override</argsstring>
+        <name>ul_resource_grid</name>
+        <reimplements refid="classsrsgnb_1_1ue__pusch__allocator_1ac525c1aa71a8702eab9f6d5927584035">ul_resource_grid</reimplements>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>k2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="37" column="33" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a65e15242d69079bd53f2b112ff538fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool ue_cell_grid_allocator::allocate_pusch</definition>
+        <argsstring>(const ue_pusch_grant &amp;grant) override</argsstring>
+        <name>allocate_pusch</name>
+        <reimplements refid="classsrsgnb_1_1ue__pusch__allocator_1abcf2f4cc392aa5eedc3925f9eb3cd575">allocate_pusch</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1ue__pusch__grant" kindref="compound">ue_pusch_grant</ref> &amp;</type>
+          <declname>grant</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="42" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.cpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1ab38e8faebaae2fe0d66ffe3bd5ba9edc" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool srsgnb::ue_cell_grid_allocator::has_cell</definition>
+        <argsstring>(du_cell_index_t cell_index) const</argsstring>
+        <name>has_cell</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="51" column="8" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a746d70972d99a694461b6a7a5b96f845" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsrsgnb_1_1pdcch__scheduler" kindref="compound">pdcch_scheduler</ref> &amp;</type>
+        <definition>pdcch_scheduler&amp; srsgnb::ue_cell_grid_allocator::get_pdcch_sched</definition>
+        <argsstring>(du_cell_index_t cell_index)</argsstring>
+        <name>get_pdcch_sched</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="53" column="19" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1a803d6751abe486a0823416e095795298" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+        <definition>cell_resource_allocator&amp; srsgnb::ue_cell_grid_allocator::get_res_alloc</definition>
+        <argsstring>(du_cell_index_t cell_index)</argsstring>
+        <name>get_res_alloc</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="55" column="33" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ue__cell__grid__allocator_1aa3a58a157ea6278076bc4534ab8d42a3" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structsrsgnb_1_1cell__resource__allocator" kindref="compound">cell_resource_allocator</ref> &amp;</type>
+        <definition>const cell_resource_allocator&amp; srsgnb::ue_cell_grid_allocator::get_res_alloc</definition>
+        <argsstring>(du_cell_index_t cell_index) const</argsstring>
+        <name>get_res_alloc</name>
+        <param>
+          <type><ref refid="namespacesrsgnb_1a0b7aa50c296e2ce222601286a8655abc" kindref="member">du_cell_index_t</ref></type>
+          <declname>cell_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="56" column="33" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class implements the <ref refid="classsrsgnb_1_1ue__pdsch__allocator" kindref="compound">ue_pdsch_allocator</ref> and <ref refid="classsrsgnb_1_1ue__pusch__allocator" kindref="compound">ue_pusch_allocator</ref> interfaces, namely the methods to allocate PDSCH and PUSCH grants in different cells, and the methods to fetch the current gNB resource grid DL and UL states. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::ue_pdsch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pdsch__allocator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue_cell_grid_allocator</label>
+        <link refid="classsrsgnb_1_1ue__cell__grid__allocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::ue_pusch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pusch__allocator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>T</label>
+      </node>
+      <node id="4">
+        <label>srslog::detail::logger_impl&lt; T, Enum &gt;</label>
+        <link refid="classsrslog_1_1detail_1_1logger__impl"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-m</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::ue_pdsch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pdsch__allocator"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::ue_cell_grid_allocator</label>
+        <link refid="classsrsgnb_1_1ue__cell__grid__allocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-logger</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-ues</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-cells</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>srsgnb::slot_array&lt; srsgnb::ue_cell_grid_allocator::cell_t, MAX_NOF_DU_CELLS &gt;</label>
+        <link refid="classsrsgnb_1_1slot__array"/>
+        <childnode refid="9" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>srsgnb::detail::base_slot_array&lt; std::array&lt; optional&lt; srsgnb::ue_cell_grid_allocator::cell_t &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>srsgnb::detail::base_slot_array_view&lt; std::array&lt; optional&lt; srsgnb::ue_cell_grid_allocator::cell_t &gt;, N &gt; &gt;</label>
+        <link refid="classsrsgnb_1_1detail_1_1base__slot__array__view"/>
+      </node>
+      <node id="7">
+        <label>srsgnb::stable_id_map&lt; du_ue_index_t, ue, MAX_NOF_DU_UES &gt;</label>
+        <link refid="classsrsgnb_1_1stable__id__map"/>
+      </node>
+      <node id="6">
+        <label>srslog::detail::mutex</label>
+        <link refid="classsrslog_1_1detail_1_1mutex"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::ue_pusch_allocator</label>
+        <link refid="classsrsgnb_1_1ue__pusch__allocator"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" line="21" column="1" bodyfile="lib/scheduler/ue_scheduling/ue_cell_grid_allocator.h" bodystart="20" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1ab7445fd30de21f4e522fa6016810aa57" prot="public" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>add_cell</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1aac0767bdcaa0a3ece0a2d7d112a0d1ee" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>allocate_pdsch</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a65e15242d69079bd53f2b112ff538fb3" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>allocate_pusch</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a212a0fbda7464a85e1d60ac2ef0a933f" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>cells</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a0664baef61ebaa7b8aa3c696be7195fc" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>dl_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a746d70972d99a694461b6a7a5b96f845" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>get_pdcch_sched</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a803d6751abe486a0823416e095795298" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>get_res_alloc</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1aa3a58a157ea6278076bc4534ab8d42a3" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>get_res_alloc</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1ab38e8faebaae2fe0d66ffe3bd5ba9edc" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>has_cell</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a65ff3df579240d4a83084219829883fe" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>logger</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a1dee1e5d63614d00506f93f9ee574540" prot="public" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>nof_cells</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1ab0492f180790c0545f72f188c021cebb" prot="public" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>ue_cell_grid_allocator</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a2acbe92305cbb9286ccd15207484de65" prot="private" virt="non-virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>ues</name></member>
+      <member refid="classsrsgnb_1_1ue__cell__grid__allocator_1a2321fdca12ae8e570a60dbaebe230300" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>ul_resource_grid</name></member>
+      <member refid="classsrsgnb_1_1ue__pdsch__allocator_1a80d41bb5696b3d3c44ff58c38fb6fa36" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>~ue_pdsch_allocator</name></member>
+      <member refid="classsrsgnb_1_1ue__pusch__allocator_1a6aca4f6f644aa629ac97f30988d8c09e" prot="public" virt="virtual"><scope>srsgnb::ue_cell_grid_allocator</scope><name>~ue_pusch_allocator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

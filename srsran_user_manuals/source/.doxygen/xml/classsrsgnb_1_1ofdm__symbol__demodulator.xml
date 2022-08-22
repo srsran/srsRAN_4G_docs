@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1ofdm__symbol__demodulator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::ofdm_symbol_demodulator</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl" prot="public" virt="non-virtual">srsgnb::ofdm_symbol_demodulator_impl</derivedcompoundref>
+    <includes refid="ofdm__demodulator_8h" local="no">ofdm_demodulator.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator_1ad78210e2d96f65731a6856bde4954e93" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::ofdm_symbol_demodulator::~ofdm_symbol_demodulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ofdm_symbol_demodulator</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="45" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator_1a6c0a2f3f452ad27fb6d97aed1735a087" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned srsgnb::ofdm_symbol_demodulator::get_symbol_size</definition>
+        <argsstring>(unsigned symbol_index) const =0</argsstring>
+        <name>get_symbol_size</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1aa8e0ac68a0b3f93bb2c74d05f4f7d8f8">get_symbol_size</reimplementedby>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Gets a symbol size including cyclic prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the symbol index within the subframe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples for the given symbol index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="50" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1ofdm__symbol__demodulator_1a1a49f1dca8270ee41b77321556ab11fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::ofdm_symbol_demodulator::demodulate</definition>
+        <argsstring>(resource_grid_writer &amp;grid, span&lt; const cf_t &gt; input, unsigned port_index, unsigned symbol_index)=0</argsstring>
+        <name>demodulate</name>
+        <reimplementedby refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl_1acfc1edc79e5e564998fec17482f4aa46">demodulate</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid__writer" kindref="compound">resource_grid_writer</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>port_index</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>symbol_index</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates an OFDM signal with symbol granularity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the output as frequency-domain signal corresponding to one slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provides the time domain modulated signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">port_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates the port index to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbol_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Symbol index within the subframe to demodulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The input size must be equal to the the symbol size including the cyclic prefix. </para>
+</simplesect>
+<simplesect kind="note"><para>The output size must be consistent with the configured bandwidth. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="60" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes an OFDM demodulator that demodulates at symbol granularity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="remark"><para>Performs OFDM demodulation as per TS 38.211 section 5.3.1 OFDM baseband signal generation for all channels except PRACH. </para>
+</simplesect>
+<simplesect kind="remark"><para>In addition to demodulation, it applies phase compensation as per TS 38.211 section 5.4 Modulation and upconversion </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::ofdm_symbol_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::ofdm_symbol_demodulator</label>
+        <link refid="classsrsgnb_1_1ofdm__symbol__demodulator"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" line="42" column="1" bodyfile="include/srsgnb/phy/lower/modulation/ofdm_demodulator.h" bodystart="41" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator_1a1a49f1dca8270ee41b77321556ab11fa" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_symbol_demodulator</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator_1a6c0a2f3f452ad27fb6d97aed1735a087" prot="public" virt="pure-virtual"><scope>srsgnb::ofdm_symbol_demodulator</scope><name>get_symbol_size</name></member>
+      <member refid="classsrsgnb_1_1ofdm__symbol__demodulator_1ad78210e2d96f65731a6856bde4954e93" prot="public" virt="virtual"><scope>srsgnb::ofdm_symbol_demodulator</scope><name>~ofdm_symbol_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

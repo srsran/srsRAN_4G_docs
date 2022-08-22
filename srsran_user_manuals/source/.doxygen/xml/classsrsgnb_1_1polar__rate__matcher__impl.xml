@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1polar__rate__matcher__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::polar_rate_matcher_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1polar__rate__matcher" prot="public" virt="non-virtual">srsgnb::polar_rate_matcher</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1polar__rate__matcher__impl_1a702ec5da90511ea426304332248206ec" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, <ref refid="classsrsgnb_1_1polar__code_1a7e43e3e1aad84316117e0576a540b034" kindref="member">polar_code::EMAX</ref> &gt;</type>
+        <definition>std::array&lt;uint8_t, polar_code::EMAX&gt; srsgnb::polar_rate_matcher_impl::y_e</definition>
+        <argsstring></argsstring>
+        <name>y_e</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" line="20" column="14" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__matcher__impl_1a7e6625ed186ba8386241cd8b6990bb5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_rate_matcher_impl::polar_rate_matcher_impl</definition>
+        <argsstring>()=default</argsstring>
+        <name>polar_rate_matcher_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" line="23" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__matcher__impl_1a3237e1eccea70afd6e55f52ec98e7198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::polar_rate_matcher_impl::~polar_rate_matcher_impl</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~polar_rate_matcher_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" line="24" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1polar__rate__matcher__impl_1aa25881e05c7dc61ecf70d4f80d0f4d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void polar_rate_matcher_impl::rate_match</definition>
+        <argsstring>(span&lt; uint8_t &gt; output, span&lt; const uint8_t &gt; input, const polar_code &amp;code) override</argsstring>
+        <name>rate_match</name>
+        <reimplements refid="classsrsgnb_1_1polar__rate__matcher_1ac4f2cbf9bb9e9678546d217feea2b5d0">rate_match</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const uint8_t &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1polar__code" kindref="compound">polar_code</ref> &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Carries out the actual rate-matching. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The codeword obtained from the polar encoder. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rate-matched codeword resulting from the rate-matching operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><formula id="15">$log_2$</formula> of the codeword length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">E</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rate-matched codeword length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message size (including CRC). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer: 0 if the function executes correctly, -1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" line="26" column="8" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.cpp" bodystart="77" bodyend="97"/>
+        <references refid="namespacesrsgnb_1ac2182602fc78153abfadb424ff33f6ffa3a3ea00cfc35332cedf6e5e9a32e94da">srsgnb::E</references>
+        <references refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" compoundref="span_8h" startline="176" endline="176">srsgnb::span&lt; T &gt;::data</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::polar_rate_matcher</label>
+        <link refid="classsrsgnb_1_1polar__rate__matcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_rate_matcher_impl</label>
+        <link refid="classsrsgnb_1_1polar__rate__matcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>srsgnb::polar_rate_matcher</label>
+        <link refid="classsrsgnb_1_1polar__rate__matcher"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::polar_rate_matcher_impl</label>
+        <link refid="classsrsgnb_1_1polar__rate__matcher__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" line="18" column="1" bodyfile="lib/phy/upper/channel_coding/polar/polar_rate_matcher_impl.h" bodystart="17" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1polar__rate__matcher__impl_1a7e6625ed186ba8386241cd8b6990bb5d" prot="public" virt="non-virtual"><scope>srsgnb::polar_rate_matcher_impl</scope><name>polar_rate_matcher_impl</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__matcher__impl_1aa25881e05c7dc61ecf70d4f80d0f4d75" prot="public" virt="virtual"><scope>srsgnb::polar_rate_matcher_impl</scope><name>rate_match</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__matcher__impl_1a702ec5da90511ea426304332248206ec" prot="private" virt="non-virtual"><scope>srsgnb::polar_rate_matcher_impl</scope><name>y_e</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__matcher_1a80763189b36a4e3779c34ef94b4f54c5" prot="public" virt="virtual"><scope>srsgnb::polar_rate_matcher_impl</scope><name>~polar_rate_matcher</name></member>
+      <member refid="classsrsgnb_1_1polar__rate__matcher__impl_1a3237e1eccea70afd6e55f52ec98e7198" prot="public" virt="non-virtual"><scope>srsgnb::polar_rate_matcher_impl</scope><name>~polar_rate_matcher_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

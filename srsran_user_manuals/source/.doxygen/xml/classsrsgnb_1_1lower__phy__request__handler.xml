@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1lower__phy__request__handler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::lower_phy_request_handler</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1lower__phy__impl" prot="public" virt="non-virtual">srsgnb::lower_phy_impl</derivedcompoundref>
+    <includes refid="lower__phy__request__handler_8h" local="no">lower_phy_request_handler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__request__handler_1a76cf3de7561e7709c241adfbb38dd356" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::lower_phy_request_handler::~lower_phy_request_handler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~lower_phy_request_handler</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_request_handler.h" line="27" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__request__handler_1a0088b8c461b725313af7d0c70bef83ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::lower_phy_request_handler::request_prach_window</definition>
+        <argsstring>(const prach_buffer_context &amp;context, prach_buffer &amp;buffer)=0</argsstring>
+        <name>request_prach_window</name>
+        <reimplementedby refid="classsrsgnb_1_1lower__phy__impl_1a53845169475c076a3905bba91af9ab81">request_prach_window</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Requests the lower PHY to capture a PRACH window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The lower PHY must capture a PHY window identified by <computeroutput>context</computeroutput>. The capture must start at slot <computeroutput>context.slot</computeroutput> and symbol <computeroutput>context.start_symbol</computeroutput>. The capture must finish once <computeroutput>buffer.is_full()</computeroutput> returns true.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH window context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH buffer used to write the PRACH window. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_request_handler.h" line="36" column="16"/>
+        <referencedby refid="classsrsgnb_1_1phy__rx__symbol__request__adapter_1aee033b08d3114c5f4dd1874316497814" compoundref="phy__rx__symbol__request__adapter_8h" startline="29" endline="33">srsgnb::phy_rx_symbol_request_adapter::on_prach_capture_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1lower__phy__request__handler_1a2a589c1ca63cd05720f904dc513b81cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::lower_phy_request_handler::request_uplink_slot</definition>
+        <argsstring>(const resource_grid_context &amp;context, resource_grid &amp;grid)=0</argsstring>
+        <name>request_uplink_slot</name>
+        <reimplementedby refid="classsrsgnb_1_1lower__phy__impl_1a2cc6bae10dab8a700ce767d9b45d16bd">request_uplink_slot</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1resource__grid__context" kindref="compound">resource_grid_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1resource__grid" kindref="compound">resource_grid</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+<para>Requests the lower PHY to provide an uplink slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The lower PHY must process the slot described by <computeroutput>context</computeroutput> and notify the demodulation per symbol basis of the requested slot.</para>
+<para>The notification contains the exact context and grid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid to store the processed slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/lower_phy_request_handler.h" line="47" column="16"/>
+        <referencedby refid="classsrsgnb_1_1phy__rx__symbol__request__adapter_1a53404eeb89c2141da8f094b8a4291410" compoundref="phy__rx__symbol__request__adapter_8h" startline="36" endline="43">srsgnb::phy_rx_symbol_request_adapter::on_uplink_slot_request</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes the lower physical layer request handler. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles incoming requests and notifies their completion through the <computeroutput>phy_rx_symbol_notifier</computeroutput> interface. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::lower_phy_request_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__request__handler"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::lower_phy_impl</label>
+        <link refid="classsrsgnb_1_1lower__phy__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::lower_phy_request_handler</label>
+        <link refid="classsrsgnb_1_1lower__phy__request__handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/lower_phy_request_handler.h" line="24" column="1" bodyfile="include/srsgnb/phy/lower/lower_phy_request_handler.h" bodystart="23" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1lower__phy__request__handler_1a0088b8c461b725313af7d0c70bef83ff" prot="public" virt="pure-virtual"><scope>srsgnb::lower_phy_request_handler</scope><name>request_prach_window</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__request__handler_1a2a589c1ca63cd05720f904dc513b81cf" prot="public" virt="pure-virtual"><scope>srsgnb::lower_phy_request_handler</scope><name>request_uplink_slot</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__request__handler_1a76cf3de7561e7709c241adfbb38dd356" prot="public" virt="virtual"><scope>srsgnb::lower_phy_request_handler</scope><name>~lower_phy_request_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

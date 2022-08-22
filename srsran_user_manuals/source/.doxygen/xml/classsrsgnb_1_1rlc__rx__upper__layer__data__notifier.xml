@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::rlc_rx_upper_layer_data_notifier</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__du_1_1rlc__rx__rrc__sdu__adapter" prot="public" virt="non-virtual">srsgnb::srs_du::rlc_rx_rrc_sdu_adapter</derivedcompoundref>
+    <includes refid="rlc_8h" local="no">rlc.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1add82df87ac3369772d9d8b346e9acf42" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::rlc_rx_upper_layer_data_notifier::~rlc_rx_upper_layer_data_notifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>~rlc_rx_upper_layer_data_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="39" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1a33e9d3c04b1b0ae12ff63f9b89bbac1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rlc_rx_upper_layer_data_notifier::on_new_sdu</definition>
+        <argsstring>(byte_buffer_slice pdu)=0</argsstring>
+        <name>on_new_sdu</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1rlc__rx__rrc__sdu__adapter_1a691e0d4d641b9ac9748f44d2d9a52fb9">on_new_sdu</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer__slice" kindref="compound">byte_buffer_slice</ref></type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+<para>This method is called to pass the SDU to the upper layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="42" column="16"/>
+        <referencedby refid="classsrsgnb_1_1rlc__rx__tm__entity_1ad7a4a0be7db2ad45d7e187e410251b89" compoundref="rlc__rx__tm__entity_8h" startline="25" endline="31">srsgnb::rlc_rx_tm_entity::handle_pdu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1add9387f879a461a4209734a574b09bce" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::rlc_rx_upper_layer_data_notifier::on_ack_received</definition>
+        <argsstring>()=0</argsstring>
+        <name>on_ack_received</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__du_1_1rlc__rx__rrc__sdu__adapter_1a4d88bc3fe447c834381fb0825e242fbe">on_ack_received</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rlc/rlc.h" line="43" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface represents the data exit point of the receiving side of a RLC entity. The RLC will use this class to pass SDUs to the upper-layers. For the case of RLC AM we will use this class also to notify the upper-layers. that an SDU was fully acknowledged. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_du::rlc_rx_rrc_sdu_adapter</label>
+        <link refid="classsrsgnb_1_1srs__du_1_1rlc__rx__rrc__sdu__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::rlc_rx_upper_layer_data_notifier</label>
+        <link refid="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rlc_rx_upper_layer_data_notifier</label>
+        <link refid="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/rlc/rlc.h" line="37" column="1" bodyfile="include/srsgnb/rlc/rlc.h" bodystart="36" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1add9387f879a461a4209734a574b09bce" prot="public" virt="pure-virtual"><scope>srsgnb::rlc_rx_upper_layer_data_notifier</scope><name>on_ack_received</name></member>
+      <member refid="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1a33e9d3c04b1b0ae12ff63f9b89bbac1f" prot="public" virt="pure-virtual"><scope>srsgnb::rlc_rx_upper_layer_data_notifier</scope><name>on_new_sdu</name></member>
+      <member refid="classsrsgnb_1_1rlc__rx__upper__layer__data__notifier_1add82df87ac3369772d9d8b346e9acf42" prot="public" virt="virtual"><scope>srsgnb::rlc_rx_upper_layer_data_notifier</scope><name>~rlc_rx_upper_layer_data_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

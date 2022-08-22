@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1phy__timing__adapter" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::phy_timing_adapter</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1lower__phy__timing__notifier" prot="public" virt="non-virtual">srsgnb::lower_phy_timing_notifier</basecompoundref>
+    <includes refid="phy__timing__adapter_8h" local="no">phy_timing_adapter.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1phy__timing__adapter_1a2a019409e999d111b203a62441ab450e" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1upper__phy__timing__handler" kindref="compound">upper_phy_timing_handler</ref> *</type>
+        <definition>upper_phy_timing_handler* srsgnb::phy_timing_adapter::timing_handler</definition>
+        <argsstring></argsstring>
+        <name>timing_handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="22" column="28" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1phy__timing__adapter_1ae2594b6bad274cc9f6af3febad786085" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_timing_adapter::connect</definition>
+        <argsstring>(upper_phy_timing_handler *upper_handler)</argsstring>
+        <name>connect</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1upper__phy__timing__handler" kindref="compound">upper_phy_timing_handler</ref> *</type>
+          <declname>upper_handler</declname>
+        </param>
+        <briefdescription>
+<para>Connects the adaptor to the upper physical layer handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="26" column="8" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__timing__adapter_1a66d98af2dc46bda8b46a428b17e6d5e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_timing_adapter::on_tti_boundary</definition>
+        <argsstring>(const lower_phy_timing_context &amp;context) override</argsstring>
+        <name>on_tti_boundary</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__timing__notifier_1a9358476b84762bb62f60efd577c6bef9">on_tti_boundary</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__timing__context" kindref="compound">lower_phy_timing_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies a new TTI boundary event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Notifies that the processing of a new slot has started. It indicates in <computeroutput>context</computeroutput> the next slot available for transmission.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="29" column="8" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="29" bodyend="35"/>
+        <references refid="structsrsgnb_1_1upper__phy__timing__context_1a7739ba3d6edff68d5cf940101d6b6fa5" compoundref="upper__phy__timing__handler_8h" startline="20">srsgnb::upper_phy_timing_context::slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__timing__context_1a034798fd6d0c4ac55adf72657ecdd7db" compoundref="lower__phy__timing__notifier_8h" startline="20">srsgnb::lower_phy_timing_context::slot</references>
+        <references refid="classsrsgnb_1_1upper__phy__timing__handler_1a76163c3920fe2fc719180c7e295e0230">srsgnb::upper_phy_timing_handler::handle_tti_boundary</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__timing__adapter_1a2e8c9eafe4ff4af46647a00d572e17b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_timing_adapter::on_ul_half_slot_boundary</definition>
+        <argsstring>(const lower_phy_timing_context &amp;context) override</argsstring>
+        <name>on_ul_half_slot_boundary</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__timing__notifier_1a96b91bd3da8d3355a3f3466667397e34">on_ul_half_slot_boundary</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__timing__context" kindref="compound">lower_phy_timing_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies that an uplink half slot has been received and processed by the lower PHY. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="38" column="8" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="38" bodyend="44"/>
+        <references refid="structsrsgnb_1_1upper__phy__timing__context_1a7739ba3d6edff68d5cf940101d6b6fa5" compoundref="upper__phy__timing__handler_8h" startline="20">srsgnb::upper_phy_timing_context::slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__timing__context_1a034798fd6d0c4ac55adf72657ecdd7db" compoundref="lower__phy__timing__notifier_8h" startline="20">srsgnb::lower_phy_timing_context::slot</references>
+        <references refid="classsrsgnb_1_1upper__phy__timing__handler_1aedb1b57a268df2f4b0096287229ab531">srsgnb::upper_phy_timing_handler::handle_ul_half_slot_boundary</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1phy__timing__adapter_1ad7b2d4acd8487383f5f3a0037907753c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::phy_timing_adapter::on_ul_full_slot_boundary</definition>
+        <argsstring>(const lower_phy_timing_context &amp;context) override</argsstring>
+        <name>on_ul_full_slot_boundary</name>
+        <reimplements refid="classsrsgnb_1_1lower__phy__timing__notifier_1a8fc16b2e251891f60c27bf31d1468fea">on_ul_full_slot_boundary</reimplements>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1lower__phy__timing__context" kindref="compound">lower_phy_timing_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies that an uplink full slot has been received and processed by the lower PHY. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After this notification, the lower PHY does not report more uplink receive symbols events for the given context.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Notification context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="47" column="8" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="47" bodyend="53"/>
+        <references refid="structsrsgnb_1_1upper__phy__timing__context_1a7739ba3d6edff68d5cf940101d6b6fa5" compoundref="upper__phy__timing__handler_8h" startline="20">srsgnb::upper_phy_timing_context::slot</references>
+        <references refid="structsrsgnb_1_1lower__phy__timing__context_1a034798fd6d0c4ac55adf72657ecdd7db" compoundref="lower__phy__timing__notifier_8h" startline="20">srsgnb::lower_phy_timing_context::slot</references>
+        <references refid="classsrsgnb_1_1upper__phy__timing__handler_1a3a211803604fcdb99635b07625889d34">srsgnb::upper_phy_timing_handler::handle_ul_full_slot_boundary</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements a generic physical layer timing adapter. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::lower_phy_timing_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__timing__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::phy_timing_adapter</label>
+        <link refid="classsrsgnb_1_1phy__timing__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>srsgnb::upper_phy_timing_handler</label>
+        <link refid="classsrsgnb_1_1upper__phy__timing__handler"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::lower_phy_timing_notifier</label>
+        <link refid="classsrsgnb_1_1lower__phy__timing__notifier"/>
+      </node>
+      <node id="1">
+        <label>srsgnb::phy_timing_adapter</label>
+        <link refid="classsrsgnb_1_1phy__timing__adapter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-timing_handler</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/adapters/phy_timing_adapter.h" line="20" column="1" bodyfile="include/srsgnb/phy/adapters/phy_timing_adapter.h" bodystart="19" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1phy__timing__adapter_1ae2594b6bad274cc9f6af3febad786085" prot="public" virt="non-virtual"><scope>srsgnb::phy_timing_adapter</scope><name>connect</name></member>
+      <member refid="classsrsgnb_1_1phy__timing__adapter_1a66d98af2dc46bda8b46a428b17e6d5e8" prot="public" virt="virtual"><scope>srsgnb::phy_timing_adapter</scope><name>on_tti_boundary</name></member>
+      <member refid="classsrsgnb_1_1phy__timing__adapter_1ad7b2d4acd8487383f5f3a0037907753c" prot="public" virt="virtual"><scope>srsgnb::phy_timing_adapter</scope><name>on_ul_full_slot_boundary</name></member>
+      <member refid="classsrsgnb_1_1phy__timing__adapter_1a2e8c9eafe4ff4af46647a00d572e17b4" prot="public" virt="virtual"><scope>srsgnb::phy_timing_adapter</scope><name>on_ul_half_slot_boundary</name></member>
+      <member refid="classsrsgnb_1_1phy__timing__adapter_1a2a019409e999d111b203a62441ab450e" prot="private" virt="non-virtual"><scope>srsgnb::phy_timing_adapter</scope><name>timing_handler</name></member>
+      <member refid="classsrsgnb_1_1lower__phy__timing__notifier_1a6fafb46e53ae80ae7e4e90cdb298f3c1" prot="public" virt="virtual"><scope>srsgnb::phy_timing_adapter</scope><name>~lower_phy_timing_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

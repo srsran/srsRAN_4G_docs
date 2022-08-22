@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::srs_cu_cp::rrc_pdu_notifier</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__null__notifier" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::rrc_pdu_null_notifier</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__f1ap__adapter" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::rrc_ue_f1ap_adapter</derivedcompoundref>
+    <derivedcompoundref refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__pdcp__adapter" prot="public" virt="non-virtual">srsgnb::srs_cu_cp::rrc_ue_pdcp_adapter</derivedcompoundref>
+    <includes refid="rrc__ue__entity__interface_8h" local="no">rrc_ue_entity_interface.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier_1ad928639c6abf8f9d2f3b70024f7196d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::srs_cu_cp::rrc_pdu_notifier::~rrc_pdu_notifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>~rrc_pdu_notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rrc/rrc_ue_entity_interface.h" line="29" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier_1a1bbe7052322392b80c60df62699ac28a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::srs_cu_cp::rrc_pdu_notifier::on_new_pdu</definition>
+        <argsstring>(const rrc_pdu_message &amp;msg)=0</argsstring>
+        <name>on_new_pdu</name>
+        <reimplementedby refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__f1ap__adapter_1a80ebb66c9c1d4103092a2a69a3422ff0">on_new_pdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__null__notifier_1a371cb7e1b9aeec1ee1707f2bd4645057">on_new_pdu</reimplementedby>
+        <reimplementedby refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__pdcp__adapter_1ab91c68ce871714d74f300c78a20b5558">on_new_pdu</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__message" kindref="compound">rrc_pdu_message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Notify about a new PDU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The RRC PDU message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/rrc/rrc_ue_entity_interface.h" line="33" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface to notify about a new SRB PDU. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::srs_cu_cp::rrc_pdu_null_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__null__notifier"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>srsgnb::srs_cu_cp::rrc_ue_f1ap_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__f1ap__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::srs_cu_cp::rrc_ue_pdcp_adapter</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__ue__pdcp__adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::rrc_pdu_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::srs_cu_cp::rrc_pdu_notifier</label>
+        <link refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/rrc/rrc_ue_entity_interface.h" line="27" column="1" bodyfile="include/srsgnb/rrc/rrc_ue_entity_interface.h" bodystart="26" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier_1a1bbe7052322392b80c60df62699ac28a" prot="public" virt="pure-virtual"><scope>srsgnb::srs_cu_cp::rrc_pdu_notifier</scope><name>on_new_pdu</name></member>
+      <member refid="classsrsgnb_1_1srs__cu__cp_1_1rrc__pdu__notifier_1ad928639c6abf8f9d2f3b70024f7196d9" prot="public" virt="virtual"><scope>srsgnb::srs_cu_cp::rrc_pdu_notifier</scope><name>~rrc_pdu_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structsrsgnb_1_1rlc__tx__am__state" kind="struct" language="C++" prot="public">
+    <compoundname>srsgnb::rlc_tx_am_state</compoundname>
+    <includes refid="rlc__tx__am__entity_8h" local="no">rlc_tx_am_entity.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__tx__am__state_1a0d04905e1ff18468f8c6b5c246359be9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_am_state::tx_next_ack</definition>
+        <argsstring></argsstring>
+        <name>tx_next_ack</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>TX_Next_Ack – Acknowledgement state variable It holds the value of the SN of the next RLC SDU for which a positive acknowledgment is to be received in-sequence, and it serves as the lower edge of the transmitting window. It is initially set to 0, and is updated whenever the AM RLC entity receives a positive acknowledgment for an RLC SDU with SN = TX_Next_Ack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_am_entity.h" line="40" column="12" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__tx__am__state_1af8b0fd72d1b866b8e8305251f46986e9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_am_state::tx_next</definition>
+        <argsstring></argsstring>
+        <name>tx_next</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>TX_Next – AM send state variable It holds the value of the SN to be assigned for the next newly generated AMD PDU. It is initially set to 0, and is updated whenever the AM RLC entity constructs an AMD PDU with SN = TX_Next and contains an RLC SDU or the last segment of a RLC SDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_am_entity.h" line="46" column="12" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__am__entity_1af8fa36c12d7476fb613faa0ca8f447fa" compoundref="rlc__tx__am__entity_8cpp" startline="102" endline="165">srsgnb::rlc_tx_am_entity::build_new_pdu</referencedby>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__am__entity_1af71491ffa5dda713543171811ade22fb" compoundref="rlc__tx__am__entity_8cpp" startline="167" endline="226">srsgnb::rlc_tx_am_entity::build_new_sdu_segment</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__tx__am__state_1a5e87e66de39bba1da8cd8ca248a7050f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_am_state::poll_sn</definition>
+        <argsstring></argsstring>
+        <name>poll_sn</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>POLL_SN – Poll send state variable It holds the value of the highest SN of the AMD PDU among the AMD PDUs submitted to lower layer when POLL_SN is set according to sub clause 5.3.3.2. It is initially set to 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_am_entity.h" line="51" column="12" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__am__entity_1a2bba6bbf36fd7f28fd9aeb624fa3f085" compoundref="rlc__tx__am__entity_8cpp" startline="379" endline="452">srsgnb::rlc_tx_am_entity::get_polling_bit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__tx__am__state_1a5e34da4b2c7e833578f915e42049f8e4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_am_state::pdu_without_poll</definition>
+        <argsstring></argsstring>
+        <name>pdu_without_poll</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>PDU_WITHOUT_POLL – Counter This counter is initially set to 0. It counts the number of AMD PDUs sent since the most recent poll bit was transmitted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_am_entity.h" line="56" column="12" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__am__entity_1a2bba6bbf36fd7f28fd9aeb624fa3f085" compoundref="rlc__tx__am__entity_8cpp" startline="379" endline="452">srsgnb::rlc_tx_am_entity::get_polling_bit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structsrsgnb_1_1rlc__tx__am__state_1a4031913b049f7f519501c04410368083" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t srsgnb::rlc_tx_am_state::byte_without_poll</definition>
+        <argsstring></argsstring>
+        <name>byte_without_poll</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>BYTE_WITHOUT_POLL – Counter This counter is initially set to 0. It counts the number of data bytes sent since the most recent poll bit was transmitted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/rlc/rlc_tx_am_entity.h" line="61" column="12" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1rlc__tx__am__entity_1a2bba6bbf36fd7f28fd9aeb624fa3f085" compoundref="rlc__tx__am__entity_8cpp" startline="379" endline="452">srsgnb::rlc_tx_am_entity::get_polling_bit</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Tx state variables Ref: 3GPP TS 38.322 version 16.2.0 Section 7.1. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::rlc_tx_am_state</label>
+        <link refid="structsrsgnb_1_1rlc__tx__am__state"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/rlc/rlc_tx_am_entity.h" line="35" column="22" bodyfile="lib/rlc/rlc_tx_am_entity.h" bodystart="35" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structsrsgnb_1_1rlc__tx__am__state_1a4031913b049f7f519501c04410368083" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_am_state</scope><name>byte_without_poll</name></member>
+      <member refid="structsrsgnb_1_1rlc__tx__am__state_1a5e34da4b2c7e833578f915e42049f8e4" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_am_state</scope><name>pdu_without_poll</name></member>
+      <member refid="structsrsgnb_1_1rlc__tx__am__state_1a5e87e66de39bba1da8cd8ca248a7050f" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_am_state</scope><name>poll_sn</name></member>
+      <member refid="structsrsgnb_1_1rlc__tx__am__state_1af8b0fd72d1b866b8e8305251f46986e9" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_am_state</scope><name>tx_next</name></member>
+      <member refid="structsrsgnb_1_1rlc__tx__am__state_1a0d04905e1ff18468f8c6b5c246359be9" prot="public" virt="non-virtual"><scope>srsgnb::rlc_tx_am_state</scope><name>tx_next_ack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

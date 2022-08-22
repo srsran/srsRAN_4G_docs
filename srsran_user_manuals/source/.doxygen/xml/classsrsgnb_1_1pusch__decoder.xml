@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pusch__decoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::pusch_decoder</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1pusch__decoder__impl" prot="public" virt="non-virtual">srsgnb::pusch_decoder_impl</derivedcompoundref>
+    <includes refid="pusch__decoder_8h" local="no">pusch_decoder.h</includes>
+    <innerclass refid="structsrsgnb_1_1pusch__decoder_1_1configuration" prot="public">srsgnb::pusch_decoder::configuration</innerclass>
+    <innerclass refid="structsrsgnb_1_1pusch__decoder_1_1statistics" prot="public">srsgnb::pusch_decoder::statistics</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__decoder_1ac24c6c462379d5da1c81310625a710db" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::pusch_decoder::~pusch_decoder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~pusch_decoder</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_decoder.h" line="57" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__decoder_1a73986ae301d45eb65bc71125bf3b94ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::pusch_decoder::decode</definition>
+        <argsstring>(span&lt; uint8_t &gt; transport_block, statistics &amp;stats, rx_softbuffer *soft_codeword, span&lt; const log_likelihood_ratio &gt; llrs, const configuration &amp;cfg)=0</argsstring>
+        <name>decode</name>
+        <reimplementedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade">decode</reimplementedby>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; uint8_t &gt;</type>
+          <declname>transport_block</declname>
+        </param>
+        <param>
+          <type><ref refid="structsrsgnb_1_1pusch__decoder_1_1statistics" kindref="compound">statistics</ref> &amp;</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1rx__softbuffer" kindref="compound">rx_softbuffer</ref> *</type>
+          <declname>soft_codeword</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1span" kindref="compound">span</ref>&lt; const <ref refid="classsrsgnb_1_1log__likelihood__ratio" kindref="compound">log_likelihood_ratio</ref> &gt;</type>
+          <declname>llrs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__decoder_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>cfg</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a PUSCH codeword. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Recovers a UL-SCH transport block from a PUSCH codeword. Reverting the encoding operations described in TS 38.212 Sections 6.2.1-6.2.6, the codeword is first split into rate-matched codeblocks. Then, each codeblock is restored to its base rate, combined with previous retransmissions, and decoded. Finally, if all blocks pass the CRC check, the data bits from all codeblocks are concatenated to form the UL-SCH transport block. If applicable, a last transport-block CRC is computed and verified.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">transport_block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoded transport block, with packed (8 bits per entry) representation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">stats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoding statistics. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">soft_codeword</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A soft-buffer for combining log-likelihood ratios from different retransmissions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">llrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The received codeword, as a sequence of log-likelihood ratios. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">new_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags new data transmissions (as opposed to retransmissions of previously failed transport blocks). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blk_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transport block configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alg_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LDPC decoding algorithm configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/channel_processors/pusch_decoder.h" line="75" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PUSCH decoder interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>User interface of the PHY Uplink Shared Channel (PUSCH) decoder. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::pusch_decoder_impl</label>
+        <link refid="classsrsgnb_1_1pusch__decoder__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::pusch_decoder</label>
+        <link refid="classsrsgnb_1_1pusch__decoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pusch_decoder</label>
+        <link refid="classsrsgnb_1_1pusch__decoder"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/channel_processors/pusch_decoder.h" line="28" column="1" bodyfile="include/srsgnb/phy/upper/channel_processors/pusch_decoder.h" bodystart="27" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pusch__decoder_1a73986ae301d45eb65bc71125bf3b94ad" prot="public" virt="pure-virtual"><scope>srsgnb::pusch_decoder</scope><name>decode</name></member>
+      <member refid="classsrsgnb_1_1pusch__decoder_1ac24c6c462379d5da1c81310625a710db" prot="public" virt="virtual"><scope>srsgnb::pusch_decoder</scope><name>~pusch_decoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

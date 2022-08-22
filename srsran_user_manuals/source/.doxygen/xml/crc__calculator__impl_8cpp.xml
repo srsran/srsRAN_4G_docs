@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="crc__calculator__impl_8cpp" kind="file" language="C++">
+    <compoundname>crc_calculator_impl.cpp</compoundname>
+    <includes refid="crc__calculator__impl_8h" local="yes">crc_calculator_impl.h</includes>
+    <includes refid="bit_8h" local="yes">srsgnb/srsvec/bit.h</includes>
+    <incdepgraph>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="1">
+        <label>lib/phy/upper/channel_coding/crc_calculator_impl.cpp</label>
+        <link refid="crc__calculator__impl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>srsgnb/phy/upper/channel_coding/crc_calculator.h</label>
+        <link refid="crc__calculator_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="22">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="23">
+        <label>map</label>
+      </node>
+      <node id="5">
+        <label>srsgnb/srslog/bundled/fmt/format.h</label>
+        <link refid="format_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cstdio</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="7">
+        <label>cerrno</label>
+      </node>
+      <node id="4">
+        <label>srsgnb/adt/span.h</label>
+        <link refid="span_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>srsgnb/srsvec/bit.h</label>
+        <link refid="bit_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>crc_calculator_impl.h</label>
+        <link refid="crc__calculator__impl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>type_traits</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="16">
+        <label>cstring</label>
+      </node>
+      <node id="13">
+        <label>core.h</label>
+        <link refid="core_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2022<sp/>Software<sp/>Radio<sp/>Systems<sp/>Limited</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>By<sp/>using<sp/>this<sp/>file,<sp/>you<sp/>agree<sp/>to<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>set</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>forth<sp/>in<sp/>the<sp/>LICENSE<sp/>file<sp/>which<sp/>can<sp/>be<sp/>found<sp/>at<sp/>the<sp/>top<sp/>level<sp/>of</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;crc_calculator_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;srsgnb/srsvec/bit.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>HAVE_SSE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;immintrin.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>HAVE_SSE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesrsgnb" kindref="compound">srsgnb</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;crc_generator_poly,<sp/>crc_calculator_impl::crc_table_s&gt;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1adfcb2f6c6ec0d22bdb683e6368e36f0c" kindref="member">crc_calculator_impl::crc_tables</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC24A,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0x1864cfb,<sp/>24)},</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC24B,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0X1800063,<sp/>24)},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC24C,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0X1B2B117,<sp/>24)},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC16,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0x11021,<sp/>16)},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC11,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0xe21,<sp/>11)},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>{crc_generator_poly::CRC6,<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s" kindref="compound">crc_calculator_impl::crc_table_s</ref>(0x61,<sp/>6)}};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a325b4e61c3cdab65453f0e8bc8a7e081" refkind="member"><highlight class="normal"><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a325b4e61c3cdab65453f0e8bc8a7e081" kindref="member">crc_calculator_impl::crc_table_s::crc_table_s</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>polynom_,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>order_)<sp/>:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>order(order_),<sp/>crcmask(((((uint64_t)1UL<sp/>&lt;&lt;<sp/>(order<sp/>-<sp/>1UL))<sp/>-<sp/>1UL)<sp/>&lt;&lt;<sp/>1UL)<sp/>|<sp/>1UL),<sp/>polynom(polynom_)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>pad<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(<ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" kindref="member">order</ref><sp/>&lt;<sp/>8)<sp/>?<sp/>(8<sp/>-<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" kindref="member">order</ref>)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>ord<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" kindref="member">order</ref><sp/>+<sp/>pad<sp/>-<sp/>8;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>uint64_t<sp/>crchighbit<sp/>=<sp/>(uint64_t)1<sp/>&lt;&lt;<sp/>(<ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a01f7e2ab3837dbb66500ee400f4c6157" kindref="member">order</ref><sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>!=<sp/>256;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>remainder<sp/>=<sp/>((uint64_t)i)<sp/>&lt;&lt;<sp/>ord;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>!=<sp/>8;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>(remainder<sp/>&amp;<sp/>crchighbit)<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>remainder<sp/>&lt;&lt;=<sp/>1U;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bit)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>remainder<sp/>^=<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1afaeb367055be83e11339422607795fb9" kindref="member">polynom</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>(*this)[i]<sp/>=<sp/>(remainder<sp/>&gt;&gt;<sp/>pad)<sp/>&amp;<sp/><ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a07db8f4c9c7f11aef684732f1b51205f" kindref="member">crcmask</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classsrsgnb_1_1crc__calculator__impl_1addc1c88e1a0584219acf67a0fc353f1a" refkind="member"><highlight class="normal"><ref refid="classsrsgnb_1_1crc__calculator__impl_1addc1c88e1a0584219acf67a0fc353f1a" kindref="member">crc_calculator_impl::crc_calculator_impl</ref>(<ref refid="namespacesrsgnb_1ac9b644248e8f38499883fd5d1efb6b6f" kindref="member">crc_generator_poly</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>)<sp/>:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1adfcb2f6c6ec0d22bdb683e6368e36f0c" kindref="member">crc_tables</ref>.at(<ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>)),<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>.<ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref>),<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad99446bec7a3d73119cbd07d5f05a0e7" kindref="member">crcmask</ref>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>.<ref refid="classsrsgnb_1_1crc__calculator__impl_1ad99446bec7a3d73119cbd07d5f05a0e7" kindref="member">crcmask</ref>),<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref>(0),<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1aa23be54b6a14f4791061097e6c3c62b4" kindref="member">poly</ref>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Do<sp/>nothing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classsrsgnb_1_1crc__calculator__impl_1a04870b958fb29beccb3c9e545ace680d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a04870b958fb29beccb3c9e545ace680d" kindref="member">crc_calculator_impl::reset</ref>()</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classsrsgnb_1_1crc__calculator__impl_1a304405f3a3938659bd4d405826e8b99c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a304405f3a3938659bd4d405826e8b99c" kindref="member">crc_calculator_impl::put_byte</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>idx;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref><sp/>&gt;<sp/>8)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>more<sp/>than<sp/>8<sp/>bits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>ord<sp/>=<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref><sp/>-<sp/>8U;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>idx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&gt;&gt;<sp/>(ord))<sp/>&amp;<sp/>0xffU)<sp/>^<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>8<sp/>bits<sp/>or<sp/>less</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>ord<sp/>=<sp/>8U<sp/>-<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a861fa18ab7a1ca80e0219ed5f4a92494" kindref="member">order</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>idx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&lt;&lt;<sp/>(ord))<sp/>&amp;<sp/>0xffU)<sp/>^<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&lt;&lt;<sp/>8U)<sp/>^<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>[idx];</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classsrsgnb_1_1crc__calculator__impl_1ae3d09165abd75651f92938e497e2f20a" refkind="member"><highlight class="normal"><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ae3d09165abd75651f92938e497e2f20a" kindref="member">crc_calculator_impl::get_checksum</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="76"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&amp;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad99446bec7a3d73119cbd07d5f05a0e7" kindref="member">crcmask</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="classsrsgnb_1_1crc__calculator__impl_1a916a41d12c0b39d94bdd497d98cf7988" refkind="member"><highlight class="normal"><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a916a41d12c0b39d94bdd497d98cf7988" kindref="member">srsgnb::crc_calculator_impl::calculate_byte</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>input)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>each<sp/>byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>:<sp/>input)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>put_byte(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>get_checksum();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classsrsgnb_1_1crc__calculator__impl_1a677642cd9c9e5f8813b995c322347d2e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a677642cd9c9e5f8813b995c322347d2e" kindref="member">crc_calculator_impl::reversecrcbit</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nbits)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>uint64_t<sp/>m,<sp/>rmask<sp/>=<sp/>0x1;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(m<sp/>=<sp/>0;<sp/>m<sp/>&lt;<sp/>nbits;<sp/>m++)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((rmask<sp/>&amp;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref>)<sp/>==<sp/>0x01)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>^<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>.<ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1afaeb367055be83e11339422607795fb9" kindref="member">polynom</ref>)<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/>(<ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>&amp;<sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ad47e9eae771e988636f797d07f825f56" kindref="member">table</ref>.<ref refid="structsrsgnb_1_1crc__calculator__impl_1_1crc__table__s_1a07db8f4c9c7f11aef684732f1b51205f" kindref="member">crcmask</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classsrsgnb_1_1crc__calculator__impl_1ab8940795248617961d7b0662f6e54504" refkind="member"><highlight class="normal"><ref refid="namespacesrsgnb_1abc28dc311a6391fbac33e23e8d81f95f" kindref="member">crc_calculator_checksum_t</ref><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ab8940795248617961d7b0662f6e54504" kindref="member">crc_calculator_impl::calculate_bit</ref>(<ref refid="classsrsgnb_1_1span" kindref="compound">srsgnb::span&lt;const uint8_t&gt;</ref><sp/>input)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a04870b958fb29beccb3c9e545ace680d" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Pack<sp/>bits<sp/>into<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>nbytes<sp/>=<sp/>input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>/<sp/>8;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>res8<sp/><sp/><sp/>=<sp/>input.<ref refid="classsrsgnb_1_1span_1a6408cc7b1d5db1eac20b53b8eaa5188e" kindref="member">size</ref>()<sp/>%<sp/>8;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res8<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>a<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>CRC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nbytes<sp/>+<sp/>a;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>=<sp/>0x00;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>nbytes)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>res8;<sp/>k++)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>|=<sp/>(uint8_t)((input[i<sp/>*<sp/>8<sp/>+<sp/>k])<sp/>&lt;&lt;<sp/>(7U<sp/>-<sp/>k));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1span" kindref="compound">span&lt;const uint8_t&gt;</ref><sp/>pter<sp/>=<sp/>input.<ref refid="classsrsgnb_1_1span_1a442489925fefe9d07eb0c62aff93867e" kindref="member">subspan</ref>(8U<sp/>*<sp/>i,<sp/>8);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_SSE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>8<sp/>Bit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>__m64<sp/>mask<sp/>=<sp/>_mm_cmpgt_pi8(*((__m64*)pter.<ref refid="classsrsgnb_1_1span_1aba4308bbfa76f662c5e7cf1b4afd78c5" kindref="member">data</ref>()),<sp/>_mm_set1_pi8(0));</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reverse</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mask<sp/>=<sp/>_mm_shuffle_pi8(mask,<sp/>_mm_set_pi8(0,<sp/>1,<sp/>2,<sp/>3,<sp/>4,<sp/>5,<sp/>6,<sp/>7));</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>mask<sp/>and<sp/>write</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>=<sp/>(uint8_t)_mm_movemask_pi8(mask);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/>//<sp/>HAVE_SSE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>=<sp/>(uint8_t)(srsvec::bit_pack(pter,<sp/>8)<sp/>&amp;<sp/>0xff);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>HAVE_SSE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a304405f3a3938659bd4d405826e8b99c" kindref="member">put_byte</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a6ee2ed30bcf7bc5510a127e3780c0d75" kindref="member">crc</ref><sp/>=<sp/>(uint32_t)<ref refid="classsrsgnb_1_1crc__calculator__impl_1ae3d09165abd75651f92938e497e2f20a" kindref="member">get_checksum</ref>();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reverse<sp/>CRC<sp/>res8<sp/>positions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(a<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1a677642cd9c9e5f8813b995c322347d2e" kindref="member">reversecrcbit</ref>(8<sp/>-<sp/>res8);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsrsgnb_1_1crc__calculator__impl_1ae3d09165abd75651f92938e497e2f20a" kindref="member">get_checksum</ref>();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="lib/phy/upper/channel_coding/crc_calculator_impl.cpp"/>
+  </compounddef>
+</doxygen>

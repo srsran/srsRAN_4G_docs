@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pdcp__entity__tx" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pdcp_entity_tx</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pdcp__tx__upper__data__interface" prot="public" virt="non-virtual">srsgnb::pdcp_tx_upper_data_interface</basecompoundref>
+    <basecompoundref refid="classsrsgnb_1_1pdcp__tx__lower__interface" prot="public" virt="non-virtual">srsgnb::pdcp_tx_lower_interface</basecompoundref>
+    <includes refid="pdcp__entity__tx_8h" local="no">pdcp_entity_tx.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcp__entity__tx_1a589ad198ae3002cf60c88e72255d4b2d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1pdcp__tx__lower__notifier" kindref="compound">pdcp_tx_lower_notifier</ref> &amp;</type>
+        <definition>pdcp_tx_lower_notifier&amp; srsgnb::pdcp_entity_tx::lower_dn</definition>
+        <argsstring></argsstring>
+        <name>lower_dn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_entity_tx.h" line="30" column="34" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pdcp__entity__tx_1a1b3367b17a7db0f379bd91f41bddf2bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1pdcp__tx__upper__control__notifier" kindref="compound">pdcp_tx_upper_control_notifier</ref> &amp;</type>
+        <definition>pdcp_tx_upper_control_notifier&amp; srsgnb::pdcp_entity_tx::upper_cn</definition>
+        <argsstring></argsstring>
+        <name>upper_cn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_entity_tx.h" line="31" column="34" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcp__entity__tx_1a9a9e7f4c6b96bc1b6390f305f56bbb54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pdcp_entity_tx::pdcp_entity_tx</definition>
+        <argsstring>(pdcp_tx_lower_notifier &amp;lower_dn, pdcp_tx_upper_control_notifier &amp;upper_cn)</argsstring>
+        <name>pdcp_entity_tx</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pdcp__tx__lower__notifier" kindref="compound">pdcp_tx_lower_notifier</ref> &amp;</type>
+          <declname>lower_dn</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pdcp__tx__upper__control__notifier" kindref="compound">pdcp_tx_upper_control_notifier</ref> &amp;</type>
+          <declname>upper_cn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_entity_tx.h" line="24" column="3" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="24" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pdcp__entity__tx_1a4c2b638c177c529f735f74a1d882c84d" prot="private" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::pdcp_entity_tx::handle_sdu</definition>
+        <argsstring>(byte_buffer buf) final</argsstring>
+        <name>handle_sdu</name>
+        <reimplements refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1ae04b7a6460b582ef2348b7f137161a45">handle_sdu</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1byte__buffer" kindref="compound">byte_buffer</ref></type>
+          <declname>sdu</declname>
+        </param>
+        <briefdescription>
+<para>Handle the incoming SDU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_entity_tx.h" line="33" column="8" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="33" bodyend="40"/>
+        <references refid="classsrsgnb_1_1pdcp__tx__lower__notifier_1a8a17f3ab8a055d617e8a287bd378a53e">srsgnb::pdcp_tx_lower_notifier::on_new_pdu</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pdcp__entity__tx_1a658803c3d32345a8e157d2f026c894ff" prot="private" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>void</type>
+        <definition>void srsgnb::pdcp_entity_tx::stop_discard_timer</definition>
+        <argsstring>(uint32_t count) final</argsstring>
+        <name>stop_discard_timer</name>
+        <reimplements refid="classsrsgnb_1_1pdcp__tx__lower__interface_1aa845afec939f9255a3433adb5dd7060a">stop_discard_timer</reimplements>
+        <param>
+          <type>uint32_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/pdcp/pdcp_entity_tx.h" line="41" column="8" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class used for transmitting PDCP bearers. It provides interfaces for the PDCP bearers, for the higher and lower layers </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pdcp_entity_tx</label>
+        <link refid="classsrsgnb_1_1pdcp__entity__tx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcp_tx_upper_data_interface</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__upper__data__interface"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::pdcp_tx_lower_interface</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__lower__interface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pdcp_entity_tx</label>
+        <link refid="classsrsgnb_1_1pdcp__entity__tx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-upper_cn</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-lower_dn</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>srsgnb::pdcp_tx_upper_control_notifier</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__upper__control__notifier"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pdcp_tx_upper_data_interface</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__upper__data__interface"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::pdcp_tx_lower_interface</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__lower__interface"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::pdcp_tx_lower_notifier</label>
+        <link refid="classsrsgnb_1_1pdcp__tx__lower__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/pdcp/pdcp_entity_tx.h" line="22" column="1" bodyfile="lib/pdcp/pdcp_entity_tx.h" bodystart="21" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pdcp__entity__tx_1a4c2b638c177c529f735f74a1d882c84d" prot="private" virt="virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>handle_sdu</name></member>
+      <member refid="classsrsgnb_1_1pdcp__entity__tx_1a589ad198ae3002cf60c88e72255d4b2d" prot="private" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>lower_dn</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1aed7b929e8680d9b81310ed1590f898cb" prot="public" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::pdcp_entity_tx</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1a32bbc160fe88394e9af46ba5a18f3fe0" prot="public" virt="non-virtual" ambiguityscope="srsgnb::"><scope>srsgnb::pdcp_entity_tx</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1abf42e74e0128eb5e3b6316011711d7fa" prot="public" virt="non-virtual" ambiguityscope="srsgnb::pdcp_tx_lower_interface::"><scope>srsgnb::pdcp_entity_tx</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1a9a959063259e13108b445fbdb335d121" prot="public" virt="non-virtual" ambiguityscope="srsgnb::pdcp_tx_lower_interface::"><scope>srsgnb::pdcp_entity_tx</scope><name>operator=</name></member>
+      <member refid="classsrsgnb_1_1pdcp__entity__tx_1a9a9e7f4c6b96bc1b6390f305f56bbb54" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_entity_tx</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1a15a64be60e2fe912b328ecdd29044c7b" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_lower_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1a19a0542161c335a16a63e4b80452adce" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_lower_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1ad33ad4e518099c85d288e437ebdabd9f" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_lower_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1aa6fc5b156a3c68bf0c8ee1d214d6eaab" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_upper_data_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1ae20ef0fb1ce61f70190d267f6fbdcb79" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_upper_data_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1acc540231a69289934e76dc2502eed835" prot="public" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>pdcp_tx_upper_data_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__entity__tx_1a658803c3d32345a8e157d2f026c894ff" prot="private" virt="virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>stop_discard_timer</name></member>
+      <member refid="classsrsgnb_1_1pdcp__entity__tx_1a1b3367b17a7db0f379bd91f41bddf2bc" prot="private" virt="non-virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>upper_cn</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__lower__interface_1a12f2aa126aebbfd909bbfe5b86d5dbc8" prot="public" virt="virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>~pdcp_tx_lower_interface</name></member>
+      <member refid="classsrsgnb_1_1pdcp__tx__upper__data__interface_1a2d93e9a664f0a38c3bb082a3708bea55" prot="public" virt="virtual"><scope>srsgnb::pdcp_entity_tx</scope><name>~pdcp_tx_upper_data_interface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

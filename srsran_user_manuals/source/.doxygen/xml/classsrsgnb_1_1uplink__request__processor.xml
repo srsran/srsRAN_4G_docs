@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1uplink__request__processor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::uplink_request_processor</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1uplink__request__processor__impl" prot="public" virt="non-virtual">srsgnb::uplink_request_processor_impl</derivedcompoundref>
+    <includes refid="uplink__request__processor_8h" local="no">uplink_request_processor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__request__processor_1a8d1b3cea88251ef5a4af775b77907112" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::uplink_request_processor::~uplink_request_processor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~uplink_request_processor</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_request_processor.h" line="25" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1uplink__request__processor_1a1c6e9bf0b1de87911053cadec08cf748" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::uplink_request_processor::process_prach_request</definition>
+        <argsstring>(const prach_buffer_context &amp;context)=0</argsstring>
+        <name>process_prach_request</name>
+        <reimplementedby refid="classsrsgnb_1_1uplink__request__processor__impl_1af1cd84a583bad0fb93386d2429cd8d59">process_prach_request</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Processes the PRACH request using the given configuration and context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The PRACH detection results will be notified by the <ref refid="classsrsgnb_1_1upper__phy__rx__results__notifier_1af771d644eb1f4ff3f74401e9b25fde17" kindref="member">on_new_prach_results</ref> event notification.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context used by the underlying PRACH detector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/upper/uplink_request_processor.h" line="33" column="16"/>
+        <referencedby refid="classsrsgnb_1_1fapi__adaptor_1_1fapi__to__phy__translator_1adaf761a8eac47d983c64cee5ce5f577e" compoundref="fapi__to__phy__translator_8cpp" startline="119" endline="141">srsgnb::fapi_adaptor::fapi_to_phy_translator::ul_tti_request</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface of the uplink request processor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The uplink request processor is in charge of setting up the PHY block responsible for the execution of an uplink request (e.g., PRACH detection or PUSCH decoding). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::uplink_request_processor_impl</label>
+        <link refid="classsrsgnb_1_1uplink__request__processor__impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::uplink_request_processor</label>
+        <link refid="classsrsgnb_1_1uplink__request__processor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::uplink_request_processor</label>
+        <link refid="classsrsgnb_1_1uplink__request__processor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/upper/uplink_request_processor.h" line="22" column="1" bodyfile="include/srsgnb/phy/upper/uplink_request_processor.h" bodystart="21" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1uplink__request__processor_1a1c6e9bf0b1de87911053cadec08cf748" prot="public" virt="pure-virtual"><scope>srsgnb::uplink_request_processor</scope><name>process_prach_request</name></member>
+      <member refid="classsrsgnb_1_1uplink__request__processor_1a8d1b3cea88251ef5a4af775b77907112" prot="public" virt="virtual"><scope>srsgnb::uplink_request_processor</scope><name>~uplink_request_processor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

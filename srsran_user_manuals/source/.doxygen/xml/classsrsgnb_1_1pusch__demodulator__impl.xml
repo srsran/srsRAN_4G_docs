@@ -1,0 +1,686 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1pusch__demodulator__impl" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::pusch_demodulator_impl</compoundname>
+    <basecompoundref refid="classsrsgnb_1_1pusch__demodulator" prot="public" virt="non-virtual">srsgnb::pusch_demodulator</basecompoundref>
+    <includes refid="pusch__demodulator__impl_8h" local="no">pusch_demodulator_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a49caae6158949bc2a3c7cfdecfbd817b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1channel__equalizer" kindref="compound">channel_equalizer</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;channel_equalizer&gt; srsgnb::pusch_demodulator_impl::equalizer</definition>
+        <argsstring></argsstring>
+        <name>equalizer</name>
+        <briefdescription>
+<para>Channel equalization component, also in charge of combining contributions of all receive antenna ports. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="117" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a00f1994206e04285c14ab9995c12aa3a" compoundref="pusch__demodulator__impl_8h" startline="28" endline="36">pusch_demodulator_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a49089bc72d984f3c0e76648d0db22ec9" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1demodulation__mapper" kindref="compound">demodulation_mapper</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;demodulation_mapper&gt; srsgnb::pusch_demodulator_impl::demapper</definition>
+        <argsstring></argsstring>
+        <name>demapper</name>
+        <briefdescription>
+<para>Demodulation mapper component: transforms channel symbols into log-likelihood ratios (i.e., soft bits). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="119" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="119" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a00f1994206e04285c14ab9995c12aa3a" compoundref="pusch__demodulator__impl_8h" startline="28" endline="36">pusch_demodulator_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a971b07c1fa10e75a13faec4bc5122868" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;pseudo_random_generator&gt; srsgnb::pusch_demodulator_impl::descrambler</definition>
+        <argsstring></argsstring>
+        <name>descrambler</name>
+        <briefdescription>
+<para>Descrambler component. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="121" column="19" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="121" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a00f1994206e04285c14ab9995c12aa3a" compoundref="pusch__demodulator__impl_8h" startline="28" endline="36">pusch_demodulator_impl</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a8b5c4c80749a34844c502ceb084a783d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>re_measurement&lt;cf_t&gt; srsgnb::pusch_demodulator_impl::ch_symbols</definition>
+        <argsstring></argsstring>
+        <name>ch_symbols</name>
+        <briefdescription>
+<para>Buffer used to transfer channel modulation symbols from the resource grid to the equalizer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="124" column="18" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="124" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a65a828ac04d59406e4835d0eb7e9ab0d" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt;</type>
+        <definition>re_measurement&lt;cf_t&gt; srsgnb::pusch_demodulator_impl::mod_symbols_eq</definition>
+        <argsstring></argsstring>
+        <name>mod_symbols_eq</name>
+        <briefdescription>
+<para>Buffer used to store channel modulation symbols at the equalizer output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="126" column="18" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="126" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a56fb86ed512ecf580ef820287272cfb6" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; float &gt;</type>
+        <definition>re_measurement&lt;float&gt; srsgnb::pusch_demodulator_impl::noise_vars_eq</definition>
+        <argsstring></argsstring>
+        <name>noise_vars_eq</name>
+        <briefdescription>
+<para>Buffer used to transfer symbol noise variances at the equalizer output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="128" column="18" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="128" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1a75ac99bcda182631aaa46dd64db27dd0" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" kindref="member">MAX_NOF_DATA_LLR</ref> &gt;</type>
+        <definition>static_vector&lt;cf_t, MAX_NOF_DATA_LLR&gt; srsgnb::pusch_demodulator_impl::mod_symbols_data</definition>
+        <argsstring></argsstring>
+        <name>mod_symbols_data</name>
+        <briefdescription>
+<para>Buffer used to transfer channel modulation symbols to the demodulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="130" column="17" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="130" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1pusch__demodulator__impl_1af139d99df9305692f8e4aab686cd3e99" prot="private" static="no" mutable="no">
+        <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; float, <ref refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" kindref="member">MAX_NOF_DATA_LLR</ref> &gt;</type>
+        <definition>static_vector&lt;float, MAX_NOF_DATA_LLR&gt; srsgnb::pusch_demodulator_impl::noise_vars_data</definition>
+        <argsstring></argsstring>
+        <name>noise_vars_data</name>
+        <briefdescription>
+<para>Buffer used to transfer symbol noise variances to the demodulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="132" column="17" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="132" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a00f1994206e04285c14ab9995c12aa3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::pusch_demodulator_impl::pusch_demodulator_impl</definition>
+        <argsstring>(std::unique_ptr&lt; channel_equalizer &gt; eq, std::unique_ptr&lt; demodulation_mapper &gt; demap, std::unique_ptr&lt; pseudo_random_generator &gt; dscr)</argsstring>
+        <name>pusch_demodulator_impl</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1channel__equalizer" kindref="compound">channel_equalizer</ref> &gt;</type>
+          <declname>eq</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1demodulation__mapper" kindref="compound">demodulation_mapper</ref> &gt;</type>
+          <declname>demap</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classsrsgnb_1_1pseudo__random__generator" kindref="compound">pseudo_random_generator</ref> &gt;</type>
+          <declname>dscr</declname>
+        </param>
+        <briefdescription>
+<para>Constructor: sets up internal components and acquires their ownership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="28" column="3" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="28" bodyend="36"/>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a49caae6158949bc2a3c7cfdecfbd817b" compoundref="pusch__demodulator__impl_8h" startline="117">equalizer</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a49089bc72d984f3c0e76648d0db22ec9" compoundref="pusch__demodulator__impl_8h" startline="119">demapper</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a971b07c1fa10e75a13faec4bc5122868" compoundref="pusch__demodulator__impl_8h" startline="121">descrambler</references>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void pusch_demodulator_impl::demodulate</definition>
+        <argsstring>(data_llr_buffer &amp;data, harq_ack_llr_buffer &amp;harq_ack, csi_part1_llr &amp;csi_part1, csi_part2_llr &amp;csi_part2, const resource_grid_reader &amp;grid, const channel_estimate &amp;estimates, const configuration &amp;config) override</argsstring>
+        <name>demodulate</name>
+        <reimplements refid="classsrsgnb_1_1pusch__demodulator_1a283eb5b7b29e31834265b1f033fd8553">demodulate</reimplements>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" kindref="member">data_llr_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" kindref="member">harq_ack_llr_buffer</ref> &amp;</type>
+          <declname>harq_ack</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" kindref="member">csi_part1_llr</ref> &amp;</type>
+          <declname>csi_part1</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" kindref="member">csi_part2_llr</ref> &amp;</type>
+          <declname>csi_part2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1channel__estimate" kindref="compound">channel_estimate</ref> &amp;</type>
+          <declname>estimates</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Demodulates a PUSCH transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes log-likelihood ratios from channel samples by reversing all the operations described in TS38.211 Section 6.3.1. The method also extracts control bits that were multiplexed with PUSCH data as per TS38.212 Section 6.2.7.</para>
+<para><simplesect kind="remark"><para><itemizedlist>
+<listitem><para>The size of <computeroutput>data</computeroutput> determines the codeword size in LLR.</para>
+</listitem><listitem><para>The size of <computeroutput>harq_ack</computeroutput> determines the number of LLR for HARQ-ACK.</para>
+</listitem><listitem><para>The size of <computeroutput>csi_part1</computeroutput> determines the number of LLR for CSI Part1.</para>
+</listitem><listitem><para>The size of <computeroutput>csi_part2</computeroutput> determines the number of LLR for CSI Part2.</para>
+</listitem><listitem><para>The total number of LLR must be consistent with the number of RE allocated to the transmission.</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Codeword LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">harq_ack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HARQ-ACK LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSI Part1 LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSI Part2 LLR destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid for the current slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estimates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel estimates for the REs allocated to the PUSCH transmission. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="39" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.cpp" bodystart="18" bodyend="63"/>
+        <references refid="structsrsgnb_1_1re__measurement__dimensions_1ab81da33f5ba1529ece178679e8d9e419" compoundref="channel__equalizer_8h" startline="25">srsgnb::re_measurement_dimensions::nof_prb</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1a3135f1c6b1b7370af27fb1248ea0b887" compoundref="pusch__demodulator_8h" startline="97">srsgnb::pusch_demodulator::configuration::freq_allocation</references>
+        <references refid="classsrsgnb_1_1rb__allocation_1ab044a4da9226fa0c0906f863bf28805f" compoundref="rb__allocation_8h" startline="151" endline="151">srsgnb::rb_allocation::get_nof_rb</references>
+        <references refid="structsrsgnb_1_1re__measurement__dimensions_1acfb965ba3e4eaafe40e25559625a8602" compoundref="channel__equalizer_8h" startline="27">srsgnb::re_measurement_dimensions::nof_symbols</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1afa4310241f53837854a34a392b799ef9" compoundref="pusch__demodulator_8h" startline="101">srsgnb::pusch_demodulator::configuration::nof_symbols</references>
+        <references refid="structsrsgnb_1_1re__measurement__dimensions_1a140c4cdaccdef3820e928f1a594ba5f2" compoundref="channel__equalizer_8h" startline="33">srsgnb::re_measurement_dimensions::nof_slices</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1a66fa511d220fc481240be84772c306c7" compoundref="pusch__demodulator_8h" startline="118">srsgnb::pusch_demodulator::configuration::rx_ports</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a8b5c4c80749a34844c502ceb084a783d" compoundref="pusch__demodulator__impl_8h" startline="124">ch_symbols</references>
+        <references refid="classsrsgnb_1_1re__measurement_1a95f890bfb8bd45a85686e99e8356eaae" compoundref="channel__equalizer_8h" startline="119" endline="144">srsgnb::re_measurement&lt; measure_type &gt;::resize</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a68688f450e587f7559a853749e56c69e" compoundref="pusch__demodulator__impl_8h" startline="53" endline="56">get_ch_symbols</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1a814444900b4969bb8dfaecb36ae97e36" compoundref="pusch__demodulator_8h" startline="116">srsgnb::pusch_demodulator::configuration::nof_tx_layers</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a65a828ac04d59406e4835d0eb7e9ab0d" compoundref="pusch__demodulator__impl_8h" startline="126">mod_symbols_eq</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a56fb86ed512ecf580ef820287272cfb6" compoundref="pusch__demodulator__impl_8h" startline="128">noise_vars_eq</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a49caae6158949bc2a3c7cfdecfbd817b" compoundref="pusch__demodulator__impl_8h" startline="117">equalizer</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a33437c8ebc997fde130e6b6e835e7c5c" compoundref="pusch__demodulator__impl_8h" startline="68" endline="75">remove_dmrs</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a75ac99bcda182631aaa46dd64db27dd0" compoundref="pusch__demodulator__impl_8h" startline="130">mod_symbols_data</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1af139d99df9305692f8e4aab686cd3e99" compoundref="pusch__demodulator__impl_8h" startline="132">noise_vars_data</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a49089bc72d984f3c0e76648d0db22ec9" compoundref="pusch__demodulator__impl_8h" startline="119">demapper</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1ac531aa7825728a5b02469a3fc061fcae" compoundref="pusch__demodulator_8h" startline="95">srsgnb::pusch_demodulator::configuration::modulation</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1a002f0f4dc34ab2d4910d74c79dd99914" compoundref="pusch__demodulator_8h" startline="89">srsgnb::pusch_demodulator::configuration::rnti</references>
+        <references refid="namespacesrsgnb_1aa6e983e2bf0e5ec931e8323c27ab5032" compoundref="math__utils_8h" startline="44" endline="47">srsgnb::pow2</references>
+        <references refid="structsrsgnb_1_1pusch__demodulator_1_1configuration_1a0e039f449b6d981b6a96e0520aec8e3b" compoundref="pusch__demodulator_8h" startline="109">srsgnb::pusch_demodulator::configuration::n_id</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a971b07c1fa10e75a13faec4bc5122868" compoundref="pusch__demodulator__impl_8h" startline="121">descrambler</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1ab8ac59e0ad7dfcc6e093f4ac5929aac1" compoundref="pusch__demodulator__impl_8h" startline="85" endline="88">extract_harq_ack</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a48990f32380863dce8b5d95a8b388b6c" compoundref="pusch__demodulator__impl_8h" startline="98" endline="101">extract_csi_part1</references>
+        <references refid="classsrsgnb_1_1pusch__demodulator__impl_1a217f6015f9e8f38fcc2d0fd8122bb554" compoundref="pusch__demodulator__impl_8h" startline="111" endline="114">extract_csi_part2</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a68688f450e587f7559a853749e56c69e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pusch_demodulator_impl::get_ch_symbols</definition>
+        <argsstring>(re_measurement&lt; cf_t &gt; &amp;symbols, const resource_grid_reader &amp;grid, const configuration &amp;config)</argsstring>
+        <name>get_ch_symbols</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt; &amp;</type>
+          <declname>symbols</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1resource__grid__reader" kindref="compound">resource_grid_reader</ref> &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Gets channel symbols from the resource grid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PUSCH channel symbols, organized by receive antenna port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resource grid for the current slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="53" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="53" bodyend="56"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a33437c8ebc997fde130e6b6e835e7c5c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pusch_demodulator_impl::remove_dmrs</definition>
+        <argsstring>(static_vector&lt; cf_t, MAX_NOF_DATA_LLR &gt; &amp;symbols_out, static_vector&lt; float, MAX_NOF_DATA_LLR &gt; &amp;noise_vars_out, const re_measurement&lt; cf_t &gt; &amp;symbols_in, const re_measurement&lt; float &gt; &amp;noise_vars_in, const configuration &amp;config)</argsstring>
+        <name>remove_dmrs</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref>, <ref refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" kindref="member">MAX_NOF_DATA_LLR</ref> &gt; &amp;</type>
+          <declname>symbols_out</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1static__vector" kindref="compound">static_vector</ref>&lt; float, <ref refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" kindref="member">MAX_NOF_DATA_LLR</ref> &gt; &amp;</type>
+          <declname>noise_vars_out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; <ref refid="namespacesrsgnb_1af4b08850893ef20c607d3b426a8a32e5" kindref="member">cf_t</ref> &gt; &amp;</type>
+          <declname>symbols_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1re__measurement" kindref="compound">re_measurement</ref>&lt; float &gt; &amp;</type>
+          <declname>noise_vars_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Removes elements corresponding to DM-RS symbols and reserved positions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From the equalizer output, removes all estimated modulation symbols and noise variances corresponding to DM-RS positions. Also, performs layer demapping, thus returning two one-dimensional sequences.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">symbols_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Layer-demapped sequence of estimated modulation symbols. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">noise_vars_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Layer-demapped sequence of equivalent symbol noise variances. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">symbols_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Equalized modulation and DM-RS symbols, grouped by layer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">noise_vars_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Equivalent symbol noise variances, grouped by layer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="68" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="68" bodyend="75"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1ab8ac59e0ad7dfcc6e093f4ac5929aac1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pusch_demodulator_impl::extract_harq_ack</definition>
+        <argsstring>(harq_ack_llr_buffer &amp;harq_ack, data_llr_buffer &amp;data, const configuration &amp;config)</argsstring>
+        <name>extract_harq_ack</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" kindref="member">harq_ack_llr_buffer</ref> &amp;</type>
+          <declname>harq_ack</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" kindref="member">data_llr_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Extracts HARQ-ACK soft bits from the sequence of multiplexed data and control bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See TS38.212 Section 6.2.7. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">harq_ack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of HARQ-ACK soft bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data Sequence of data soft bits (possibly multiplexed with control ones). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The elements of <computeroutput>data</computeroutput> corresponding to HARQ-ACK bits will be set to zero (i.e., fully indeterminate data soft bit). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="85" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="85" bodyend="88"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a48990f32380863dce8b5d95a8b388b6c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pusch_demodulator_impl::extract_csi_part1</definition>
+        <argsstring>(csi_part1_llr &amp;csi_part1, data_llr_buffer &amp;data, const configuration &amp;config)</argsstring>
+        <name>extract_csi_part1</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" kindref="member">csi_part1_llr</ref> &amp;</type>
+          <declname>csi_part1</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" kindref="member">data_llr_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Extracts CSI Part1 soft bits from the sequence of multiplexed data and control bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See TS38.212 Section 6.2.7. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of CSI Part1 soft bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data Sequence of data soft bits (possibly multiplexed with control ones). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The elements of <computeroutput>data</computeroutput> corresponding to CSI Part1 bits will be set to zero (i.e., fully indeterminate data soft bit). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="98" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="98" bodyend="101"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1pusch__demodulator__impl_1a217f6015f9e8f38fcc2d0fd8122bb554" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::pusch_demodulator_impl::extract_csi_part2</definition>
+        <argsstring>(csi_part2_llr &amp;csi_part2, data_llr_buffer &amp;data, const configuration &amp;config)</argsstring>
+        <name>extract_csi_part2</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" kindref="member">csi_part2_llr</ref> &amp;</type>
+          <declname>csi_part2</declname>
+        </param>
+        <param>
+          <type><ref refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" kindref="member">data_llr_buffer</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1pusch__demodulator_1_1configuration" kindref="compound">configuration</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Extracts CSI Part2 soft bits from the sequence of multiplexed data and control bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See TS38.212 Section 6.2.7. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">csi_part1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence of CSI Part2 soft bits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[in/out]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data Sequence of data soft bits (possibly multiplexed with control ones). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>The elements of <computeroutput>data</computeroutput> corresponding to CSI Part2 bits will be set to zero (i.e., fully indeterminate data soft bit). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="111" column="8" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="111" bodyend="114"/>
+        <referencedby refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" compoundref="pusch__demodulator__impl_8cpp" startline="18" endline="63">demodulate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PUSCH demodulator implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>srsgnb::pusch_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>srsgnb::pusch_demodulator</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::pusch_demodulator_impl</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator__impl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-mod_symbols_data</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-noise_vars_data</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-mod_symbols_eq</edgelabel>
+          <edgelabel>-ch_symbols</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-noise_vars_eq</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>srsgnb::re_measurement&lt; float &gt;</label>
+        <link refid="classsrsgnb_1_1re__measurement"/>
+      </node>
+      <node id="2">
+        <label>srsgnb::pusch_demodulator</label>
+        <link refid="classsrsgnb_1_1pusch__demodulator"/>
+      </node>
+      <node id="4">
+        <label>srsgnb::static_vector&lt; float, MAX_NOF_DATA_LLR &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+      <node id="5">
+        <label>srsgnb::re_measurement&lt; cf_t &gt;</label>
+        <link refid="classsrsgnb_1_1re__measurement"/>
+      </node>
+      <node id="3">
+        <label>srsgnb::static_vector&lt; cf_t, MAX_NOF_DATA_LLR &gt;</label>
+        <link refid="classsrsgnb_1_1static__vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" line="25" column="1" bodyfile="lib/phy/upper/channel_processors/pusch_demodulator_impl.h" bodystart="24" bodyend="133"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a8b5c4c80749a34844c502ceb084a783d" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>ch_symbols</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1abece97ac21bfada13f8a55c0a7355986" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>csi_part1_llr</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1aafb488c76972af44f5bc68628362d716" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>csi_part2_llr</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a9549e957a109c7dc49e617408cb53f92" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>data_llr_buffer</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a49089bc72d984f3c0e76648d0db22ec9" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>demapper</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a1dd140986f6b6af92c25155823f25eaf" prot="public" virt="virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>demodulate</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a971b07c1fa10e75a13faec4bc5122868" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>descrambler</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a49caae6158949bc2a3c7cfdecfbd817b" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>equalizer</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a48990f32380863dce8b5d95a8b388b6c" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>extract_csi_part1</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a217f6015f9e8f38fcc2d0fd8122bb554" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>extract_csi_part2</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1ab8ac59e0ad7dfcc6e093f4ac5929aac1" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>extract_harq_ack</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a68688f450e587f7559a853749e56c69e" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>get_ch_symbols</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a8f7e4cde09f50d1e9fe15226b3adc6d0" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>harq_ack_llr_buffer</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ad106cd3a1d3365d2a1a706673756e7f6" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>MAX_CODEWORD_SIZE</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a2d7981804813f1c4a79758ccc3f40beb" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>MAX_NOF_CSI_PART1_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ad41ec4d9b988af91066d64db1c70f7da" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>MAX_NOF_CSI_PART2_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a64cf82c770d4ebe5b82b00aaff844abb" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>MAX_NOF_DATA_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1a773a9125921f44975f3a5a40cc7f4010" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>MAX_NOF_HARQ_ACK_LLR</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a75ac99bcda182631aaa46dd64db27dd0" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>mod_symbols_data</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a65a828ac04d59406e4835d0eb7e9ab0d" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>mod_symbols_eq</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1af139d99df9305692f8e4aab686cd3e99" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>noise_vars_data</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a56fb86ed512ecf580ef820287272cfb6" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>noise_vars_eq</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a00f1994206e04285c14ab9995c12aa3a" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>pusch_demodulator_impl</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator__impl_1a33437c8ebc997fde130e6b6e835e7c5c" prot="private" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>remove_dmrs</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1aa3348adea665567d5b257cc1d0ad9fc9" prot="public" virt="non-virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>UCI_ON_PUSCH_MAX_ALPHA</name></member>
+      <member refid="classsrsgnb_1_1pusch__demodulator_1ade1fee756997f27945aefa5d1ab757b7" prot="public" virt="virtual"><scope>srsgnb::pusch_demodulator_impl</scope><name>~pusch_demodulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

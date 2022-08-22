@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1sample__statistics" kind="class" language="C++" prot="public">
+    <compoundname>srsgnb::sample_statistics</compoundname>
+    <includes refid="stats_8h" local="no">stats.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>bias</name>
+        <enumvalue id="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" prot="public">
+          <name>UNBIASED</name>
+          <briefdescription>
+<para>Denotes unbiased estimators. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996aed26ce46123c73c565ae3c78f3048b00" prot="public">
+          <name>BIASED</name>
+          <briefdescription>
+<para>Denotes biased estimators. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Estimator types depending on bias. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="31" column="18" bodyfile="include/srsgnb/support/stats.h" bodystart="31" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a7d9e10741b04210d68703238f07ca7cb" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T srsgnb::sample_statistics&lt; T &gt;::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <initializer>= std::numeric_limits&lt;T&gt;::<ref refid="classsrsgnb_1_1sample__statistics_1a4d199a9ede991240f32a76aff2cbd940" kindref="member">min</ref>()</initializer>
+        <briefdescription>
+<para>Ensure the sample type is arithmetic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Records the maximum observed value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="235" column="5" bodyfile="include/srsgnb/support/stats.h" bodystart="235" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a74ba60f1ef877094f3558cca6f1a9033" compoundref="stats_8h" startline="73" endline="73">srsgnb::sample_statistics&lt; unsigned &gt;::get_max</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a4d199a9ede991240f32a76aff2cbd940" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T srsgnb::sample_statistics&lt; T &gt;::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <initializer>= std::numeric_limits&lt;T&gt;::<ref refid="classsrsgnb_1_1sample__statistics_1a7d9e10741b04210d68703238f07ca7cb" kindref="member">max</ref>()</initializer>
+        <briefdescription>
+<para>Records the minimum observed value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="237" column="5" bodyfile="include/srsgnb/support/stats.h" bodystart="237" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1ad0036c2c39a17dbf997f75a1d672d8e9" compoundref="stats_8h" startline="77" endline="77">srsgnb::sample_statistics&lt; unsigned &gt;::get_min</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a94af8d7678858da4202bf577198a7de2" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t srsgnb::sample_statistics&lt; T &gt;::nof_observations</definition>
+        <argsstring></argsstring>
+        <name>nof_observations</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Records the sample size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="239" column="10" bodyfile="include/srsgnb/support/stats.h" bodystart="239" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3aa3a6366e9fe9f33986a9668db5e313" compoundref="stats_8h" startline="80" endline="80">srsgnb::sample_statistics&lt; unsigned &gt;::get_nof_observations</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a2a79e9adaa566f0c2591e9f1775d7382" compoundref="stats_8h" startline="89" endline="95">srsgnb::sample_statistics&lt; unsigned &gt;::get_mean</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a301d5b18f308cf89b90413c3091e5b3b" compoundref="stats_8h" startline="107" endline="117">srsgnb::sample_statistics&lt; unsigned &gt;::get_variance</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a44441f7a93b2581f96fb24fa6d05e670" compoundref="stats_8h" startline="124" endline="130">srsgnb::sample_statistics&lt; unsigned &gt;::get_std</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a7009dd4e53abaec5d7ea3d6454104c63" compoundref="stats_8h" startline="143" endline="149">srsgnb::sample_statistics&lt; unsigned &gt;::get_sem</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1ae853303424755c8dceb3529be47efbfd" compoundref="stats_8h" startline="173" endline="188">srsgnb::sample_statistics&lt; unsigned &gt;::get_skewness</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a2898bf14c3999d351d0d03390e8fde3b" compoundref="stats_8h" startline="213" endline="229">srsgnb::sample_statistics&lt; unsigned &gt;::get_kurtosis</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1aef7a784e268858ae5ed1af0bee07f251" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::mean</definition>
+        <argsstring></argsstring>
+        <name>mean</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Records the mean of the sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="241" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="241" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a2a79e9adaa566f0c2591e9f1775d7382" compoundref="stats_8h" startline="89" endline="95">srsgnb::sample_statistics&lt; unsigned &gt;::get_mean</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a6957e0443350d07522d4ba4dbdb9cf5e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::centered_power_sum_ord2</definition>
+        <argsstring></argsstring>
+        <name>centered_power_sum_ord2</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Records the centered power sum of order 2 of all observations, i.e. <formula id="191">$\sum_n (X_n - \bar{X})^2$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="243" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="243" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a301d5b18f308cf89b90413c3091e5b3b" compoundref="stats_8h" startline="107" endline="117">srsgnb::sample_statistics&lt; unsigned &gt;::get_variance</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1ae853303424755c8dceb3529be47efbfd" compoundref="stats_8h" startline="173" endline="188">srsgnb::sample_statistics&lt; unsigned &gt;::get_skewness</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a2898bf14c3999d351d0d03390e8fde3b" compoundref="stats_8h" startline="213" endline="229">srsgnb::sample_statistics&lt; unsigned &gt;::get_kurtosis</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a77544063b363233dfaf9ed9cf671bdca" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::centered_power_sum_ord3</definition>
+        <argsstring></argsstring>
+        <name>centered_power_sum_ord3</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Records the centered power sum of order 3 of all observations, i.e. <formula id="192">$\sum_n (X_n - \bar{X})^3$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="245" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="245" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1ae853303424755c8dceb3529be47efbfd" compoundref="stats_8h" startline="173" endline="188">srsgnb::sample_statistics&lt; unsigned &gt;::get_skewness</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsrsgnb_1_1sample__statistics_1a305f7df95bb9a8531fb5cbf242c3b739" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::centered_power_sum_ord4</definition>
+        <argsstring></argsstring>
+        <name>centered_power_sum_ord4</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Records the centered power sum of order 4 of all observations, i.e. <formula id="193">$\sum_n (X_n - \bar{X})^4$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="247" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="247" bodyend="-1"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" compoundref="stats_8h" startline="45" endline="69">srsgnb::sample_statistics&lt; unsigned &gt;::update</referencedby>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a2898bf14c3999d351d0d03390e8fde3b" compoundref="stats_8h" startline="213" endline="229">srsgnb::sample_statistics&lt; unsigned &gt;::get_kurtosis</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a1c22abd447dbd5729762f0e20d489c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>srsgnb::sample_statistics&lt; T &gt;::sample_statistics</definition>
+        <argsstring>()=default</argsstring>
+        <name>sample_statistics</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="39" column="3"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a77fd70fb5b5ac13c1837a10aa34ba1d2" compoundref="stats_8h" startline="42" endline="42">srsgnb::sample_statistics&lt; unsigned &gt;::reset</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a77fd70fb5b5ac13c1837a10aa34ba1d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::sample_statistics&lt; T &gt;::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Clears the content of the internal registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="42" column="8" bodyfile="include/srsgnb/support/stats.h" bodystart="42" bodyend="42"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">srsgnb::pusch_decoder_impl::decode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void srsgnb::sample_statistics&lt; T &gt;::update</definition>
+        <argsstring>(T value)</argsstring>
+        <name>update</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Updates the statistics by adding an observation to the sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="45" column="8" bodyfile="include/srsgnb/support/stats.h" bodystart="45" bodyend="69"/>
+        <referencedby refid="classsrsgnb_1_1pusch__decoder__impl_1a98e7d82f83456aee2dbcb0e15b2a6ade" compoundref="pusch__decoder__impl_8cpp" startline="118" endline="210">srsgnb::pusch_decoder_impl::decode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a74ba60f1ef877094f3558cca6f1a9033" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T srsgnb::sample_statistics&lt; T &gt;::get_max</definition>
+        <argsstring>() const</argsstring>
+        <name>get_max</name>
+        <briefdescription>
+<para>Returns the maximum sample value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The function returns std::numeric_limits&lt;T&gt;::min() when the sample is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="73" column="5" bodyfile="include/srsgnb/support/stats.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1ad0036c2c39a17dbf997f75a1d672d8e9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T srsgnb::sample_statistics&lt; T &gt;::get_min</definition>
+        <argsstring>() const</argsstring>
+        <name>get_min</name>
+        <briefdescription>
+<para>Returns the minimum sample value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>The function returns std::numeric_limits&lt;T&gt;::max() when the sample is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="77" column="5" bodyfile="include/srsgnb/support/stats.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a3aa3a6366e9fe9f33986a9668db5e313" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t srsgnb::sample_statistics&lt; T &gt;::get_nof_observations</definition>
+        <argsstring>() const</argsstring>
+        <name>get_nof_observations</name>
+        <briefdescription>
+<para>Returns the sample size, i.e. the number of observations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="80" column="10" bodyfile="include/srsgnb/support/stats.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a2a79e9adaa566f0c2591e9f1775d7382" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_mean</definition>
+        <argsstring>() const</argsstring>
+        <name>get_mean</name>
+        <briefdescription>
+<para>Returns the sample mean. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is simply the arithmetic mean of the <formula id="2">$n$</formula> values in the sample. <formula id="174">\[ \mu = \frac{1}{n} \sum_{i=0}^{n-1} x_i. \]</formula> <simplesect kind="remark"><para>The function returns NAN when the sample is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="89" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="89" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a301d5b18f308cf89b90413c3091e5b3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_variance</definition>
+        <argsstring>(bias biased=bias::UNBIASED) const</argsstring>
+        <name>get_variance</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" kindref="member">bias</ref></type>
+          <declname>biased</declname>
+          <defval><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" kindref="member">bias::UNBIASED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the sample variance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The sample variance is given by <formula id="175">\[ \sigma^2 = \frac{1}{m} \sum_{i=0}^{n-1} (x_i - \mu)^2 \]</formula> where <formula id="5">$\mu$</formula> is the <ulink url="#sample_statistics::get_mean">sample mean</ulink> and where <formula id="176">$m = n$</formula> or <formula id="177">$m = n-1$</formula> for the biased and unbiased estimators, respectively, of the statistical variance <formula id="178">$\EV\Bigl[\bigl(X - \EV[X]\bigr)^2\Bigr]$</formula>. <simplesect kind="remark"><para>The function returns NAN when the sample consists of less than two observations. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="107" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="107" bodyend="117"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a44441f7a93b2581f96fb24fa6d05e670" compoundref="stats_8h" startline="124" endline="130">srsgnb::sample_statistics&lt; unsigned &gt;::get_std</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a44441f7a93b2581f96fb24fa6d05e670" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_std</definition>
+        <argsstring>(bias biased=bias::UNBIASED) const</argsstring>
+        <name>get_std</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" kindref="member">bias</ref></type>
+          <declname>biased</declname>
+          <defval><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" kindref="member">bias::UNBIASED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the sample standard deviation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is simply the squared root of the <ulink url="#sample_statistics::get_variance">sample covariance</ulink>. The <computeroutput>biased</computeroutput> flag simply denotes how the sample covariance is computed. <simplesect kind="remark"><para>The function returns NAN when the sample consists of less than two observations. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="124" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="124" bodyend="130"/>
+        <referencedby refid="classsrsgnb_1_1sample__statistics_1a7009dd4e53abaec5d7ea3d6454104c63" compoundref="stats_8h" startline="143" endline="149">srsgnb::sample_statistics&lt; unsigned &gt;::get_sem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a7009dd4e53abaec5d7ea3d6454104c63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_sem</definition>
+        <argsstring>(bias biased=bias::UNBIASED) const</argsstring>
+        <name>get_sem</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" kindref="member">bias</ref></type>
+          <declname>biased</declname>
+          <defval><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" kindref="member">bias::UNBIASED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the standard error of the sample mean. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The standard error of the mean is an estimation of the standard deviation of the <ulink url="#sample_statistics::get_mean">sample mean</ulink> (seen itself as a random quantity): <formula id="179">\[ \sigma_{\mu} = \frac{\sigma}{\sqrt{n}} \]</formula> where <formula id="2">$n$</formula> is the sample size and <formula id="180">$\sigma$</formula> is the <ulink url="#sample_statistics::get_variance">sample covariance</ulink>. The <computeroutput>biased</computeroutput> flag simply denotes how the sample covariance is computed. <simplesect kind="note"><para>It is implicitly assumed that the observations are statistically independent. </para>
+</simplesect>
+<simplesect kind="remark"><para>The function returns NAN when the sample consists of less than two observations. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="143" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="143" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1ae853303424755c8dceb3529be47efbfd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_skewness</definition>
+        <argsstring>(bias biased=bias::UNBIASED) const</argsstring>
+        <name>get_skewness</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" kindref="member">bias</ref></type>
+          <declname>biased</declname>
+          <defval><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" kindref="member">bias::UNBIASED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the sample skewness. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The skewness of a distribution with mean <formula id="181">$\mu_*$</formula> and standard deviation <formula id="182">$\sigma_*$</formula> is defined as <formula id="183">\[ s_* = \frac{\EV\bigl[(X-\mu_*)^3\bigr]}{\sigma_*^3}. \]</formula> For a sample of <formula id="2">$n$</formula> observations with <ulink url="#sample_statistics::get_mean">sample mean</ulink> <formula id="5">$\mu$</formula>, the <emphasis>biased</emphasis> sample skewness is given by the Fisher<ndash/>Pearson coefficient <formula id="184">\[ g_1 = \frac{\frac{1}{n}\sum_{i=0}^{n-1}(x_i - \mu)^3}{\Bigl[\frac{1}{n}\sum_{i=0}^{n-1}(x_i - \mu)^2\Bigr]^{3/2}}. \]</formula> The <emphasis>unbiased</emphasis> sample skewness is obtained by applying the adjustment <formula id="185">\[ G_1 = \frac{\sqrt{n(n-1)}}{n-2}g_1. \]</formula> <simplesect kind="remark"><para>The function returns NAN when the sample consists of less than three observations. </para>
+</simplesect>
+<simplesect kind="note"><para>The skewness provides a rough indication of the symmetry of the distribution of the sample around its mean. More specifically, for unimodal distributions, a negative-valued skewness means that the left tail of the distribution is longer than the right one and most of the mass is concentrated to the right of the mean. In other words, the median is higher than the mean. A positive skewness means the opposite. Symmetric distributions have null skewness. However, the opposite is not always true as, e.g., a long left tail and a fat right tail may compensate each other and give skewness equal to zero. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="173" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="173" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1sample__statistics_1a2898bf14c3999d351d0d03390e8fde3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float srsgnb::sample_statistics&lt; T &gt;::get_kurtosis</definition>
+        <argsstring>(bias biased=bias::UNBIASED) const</argsstring>
+        <name>get_kurtosis</name>
+        <param>
+          <type><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" kindref="member">bias</ref></type>
+          <declname>biased</declname>
+          <defval><ref refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996a2710b90066e0a98c178096c43fa521a4" kindref="member">bias::UNBIASED</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the sample kurtosis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The kurtosis of a distribution with mean <formula id="181">$\mu_*$</formula> and standard deviation <formula id="182">$\sigma_*$</formula> is defined as <formula id="186">\[ k_* = \frac{\EV\bigl[(X-\mu_*)^4\bigr]}{\sigma_*^4}. \]</formula> For a sample of <formula id="2">$n$</formula> observations with <ulink url="#sample_statistics::get_mean">sample mean</ulink> <formula id="5">$\mu$</formula>, the <emphasis>biased</emphasis> sample kurtosis is given by the expression <formula id="187">\[ g_2 = \frac{\frac{1}{n}\sum_{i=0}^{n-1}(x_i - \mu)^4}{\Bigl[\frac{1}{n}\sum_{i=0}^{n-1}(x_i - \mu)^2\Bigr]^{2}}. \]</formula> The <emphasis>unbiased</emphasis> sample kurtosis is obtained by applying the adjustment <formula id="188">\[ G_2 = \frac{n-1}{(n-2)(n-3)}\bigl[(n+1)g_1 - 3(n-1)\bigr] + 3. \]</formula> <simplesect kind="remark"><para>The returns NAN when the sample consists of less than four observations. </para>
+</simplesect>
+<simplesect kind="note"><para>The normal distribution has kurtosis equal to 3 (for this reason, sometimes the kurtosis is defined as <formula id="189">$g_2 - 3$</formula> to get a value of zero with the normal distribution). </para>
+</simplesect>
+<simplesect kind="note"><para>Distributions with tails that decrease slower (faster, respectively) than those of the Gaussian distribution have a kurtosis that is larger (smaller, respectively) than 3. In other words, samples with a high kurtosis suggest that the underlying distribution has fat tails and/or that there is a significant number of outliers outside the interval <formula id="190">$\mu \pm \sigma$</formula>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/support/stats.h" line="213" column="9" bodyfile="include/srsgnb/support/stats.h" bodystart="213" bodyend="229"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Keeps track of sample statistics. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type (must be arithmetic) of the sample values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::sample_statistics&lt; T &gt;</label>
+        <link refid="classsrsgnb_1_1sample__statistics"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/support/stats.h" line="28" column="1" bodyfile="include/srsgnb/support/stats.h" bodystart="27" bodyend="248"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1sample__statistics_1a597f4235fa4be6c8d206af061fa72996" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>bias</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a6957e0443350d07522d4ba4dbdb9cf5e" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>centered_power_sum_ord2</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a77544063b363233dfaf9ed9cf671bdca" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>centered_power_sum_ord3</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a305f7df95bb9a8531fb5cbf242c3b739" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>centered_power_sum_ord4</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a2898bf14c3999d351d0d03390e8fde3b" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_kurtosis</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a74ba60f1ef877094f3558cca6f1a9033" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_max</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a2a79e9adaa566f0c2591e9f1775d7382" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_mean</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1ad0036c2c39a17dbf997f75a1d672d8e9" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_min</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a3aa3a6366e9fe9f33986a9668db5e313" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_nof_observations</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a7009dd4e53abaec5d7ea3d6454104c63" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_sem</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1ae853303424755c8dceb3529be47efbfd" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_skewness</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a44441f7a93b2581f96fb24fa6d05e670" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_std</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a301d5b18f308cf89b90413c3091e5b3b" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>get_variance</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a7d9e10741b04210d68703238f07ca7cb" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>max</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1aef7a784e268858ae5ed1af0bee07f251" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>mean</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a4d199a9ede991240f32a76aff2cbd940" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>min</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a94af8d7678858da4202bf577198a7de2" prot="private" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>nof_observations</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a77fd70fb5b5ac13c1837a10aa34ba1d2" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>reset</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a1c22abd447dbd5729762f0e20d489c23" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>sample_statistics</name></member>
+      <member refid="classsrsgnb_1_1sample__statistics_1a3d30f64a52c675086cd4da76048b90aa" prot="public" virt="non-virtual"><scope>srsgnb::sample_statistics</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

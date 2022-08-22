@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrsgnb_1_1prach__processor__notifier" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>srsgnb::prach_processor_notifier</compoundname>
+    <derivedcompoundref refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor" prot="public" virt="non-virtual">srsgnb::processor_notifier_adaptor::prach_adaptor</derivedcompoundref>
+    <includes refid="prach__processor__notifier_8h" local="no">prach_processor_notifier.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__notifier_1a6b64081cbfec003636c6f2ccdb6bb547" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual srsgnb::prach_processor_notifier::~prach_processor_notifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>~prach_processor_notifier</name>
+        <briefdescription>
+<para>Default destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" line="26" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__notifier_1a933d1f253fe597d7e8db9ef93c2a83b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::prach_processor_notifier::on_prach_request_late</definition>
+        <argsstring>(const prach_buffer_context &amp;context)=0</argsstring>
+        <name>on_prach_request_late</name>
+        <reimplementedby refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor_1a9b8ef62a338aa353dc304dfb472ef68d">on_prach_request_late</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies a PRACH request outside the slot window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="classsrsgnb_1_1lower__phy__error__notifier_1a559e8133d0c8ac77a5561ecca722c733" kindref="member">lower_phy_error_notifier::on_prach_request_late</ref> for more information. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" line="32" column="16"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1a24344d58e97ee22a2b93281d4d4346dd" compoundref="prach__processor__worker_8cpp" startline="17" endline="51">srsgnb::prach_processor_worker::run_state_wait</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__notifier_1aee837503cafd24478d982dbbb5b6a073" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::prach_processor_notifier::on_prach_request_overflow</definition>
+        <argsstring>(const prach_buffer_context &amp;context)=0</argsstring>
+        <name>on_prach_request_overflow</name>
+        <reimplementedby refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor_1a317ee5bb6e14d8bf9eb45614218a25df">on_prach_request_overflow</reimplementedby>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies an excess of PRACH requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="classsrsgnb_1_1lower__phy__error__notifier_1a559e8133d0c8ac77a5561ecca722c733" kindref="member">lower_phy_error_notifier::on_prach_request_late</ref> for more information. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" line="38" column="16"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__impl_1a6caa02af337a7295edfb708f26fc963f" compoundref="prach__processor__impl_8h" startline="34" endline="50">srsgnb::prach_processor_impl::handle_request</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsrsgnb_1_1prach__processor__notifier_1adeaa262516706d8e721a86ed2b595320" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void srsgnb::prach_processor_notifier::on_rx_prach_window</definition>
+        <argsstring>(const prach_buffer &amp;buffer, const prach_buffer_context &amp;context)=0</argsstring>
+        <name>on_rx_prach_window</name>
+        <reimplementedby refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor_1aa629ebb7d7b609e58ac59bb7b9408569">on_rx_prach_window</reimplementedby>
+        <param>
+          <type>const <ref refid="classsrsgnb_1_1prach__buffer" kindref="compound">prach_buffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsrsgnb_1_1prach__buffer__context" kindref="compound">prach_buffer_context</ref> &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Notifies the completion of the PRACH request processing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="classsrsgnb_1_1lower__phy__error__notifier_1a559e8133d0c8ac77a5561ecca722c733" kindref="member">lower_phy_error_notifier::on_prach_request_late</ref> for more information. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PRACH context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" line="45" column="16"/>
+        <referencedby refid="classsrsgnb_1_1prach__processor__worker_1af0b61e18f411fda99a3cb88aba2a3db9" compoundref="prach__processor__worker_8cpp" startline="65" endline="98">srsgnb::prach_processor_worker::accumulate_samples</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lower physical layer PRACH processor - Notifier interface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Notifies a variety of PRACH-related events such as requests outside the occasion window or overflows of PRACH requests. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>srsgnb::processor_notifier_adaptor::prach_adaptor</label>
+        <link refid="classsrsgnb_1_1processor__notifier__adaptor_1_1prach__adaptor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>srsgnb::prach_processor_notifier</label>
+        <link refid="classsrsgnb_1_1prach__processor__notifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>srsgnb::prach_processor_notifier</label>
+        <link refid="classsrsgnb_1_1prach__processor__notifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" line="23" column="1" bodyfile="include/srsgnb/phy/lower/processors/prach/prach_processor_notifier.h" bodystart="22" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classsrsgnb_1_1prach__processor__notifier_1a933d1f253fe597d7e8db9ef93c2a83b2" prot="public" virt="pure-virtual"><scope>srsgnb::prach_processor_notifier</scope><name>on_prach_request_late</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__notifier_1aee837503cafd24478d982dbbb5b6a073" prot="public" virt="pure-virtual"><scope>srsgnb::prach_processor_notifier</scope><name>on_prach_request_overflow</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__notifier_1adeaa262516706d8e721a86ed2b595320" prot="public" virt="pure-virtual"><scope>srsgnb::prach_processor_notifier</scope><name>on_rx_prach_window</name></member>
+      <member refid="classsrsgnb_1_1prach__processor__notifier_1a6b64081cbfec003636c6f2ccdb6bb547" prot="public" virt="virtual"><scope>srsgnb::prach_processor_notifier</scope><name>~prach_processor_notifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
