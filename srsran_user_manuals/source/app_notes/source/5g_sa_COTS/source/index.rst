@@ -122,7 +122,7 @@ The following steps are not a requirement to run 5G SA, but may be necessary if 
 5G SIM
 =======
 
-If you are using a 5G-enabled sysmcom-ISIM then you will need to modify the 5G-related fields of the sim card. In particular you need to enable SUCI concealment. This can be done via a sim card reader using the following command:: 
+If you are using a 5G-enabled sysmcom-ISIM then you will need to modify the 5G-related fields of the sim card. In particular you need to enable SUCI concealment. This can be done via a sim card reader using the following command (First, you need to add your ADM pin to ./scripts/deactivate-5g.script):: 
 
     ./pySim-shell.py -p0 --script ./scripts/deactivate-5g.script
 
