@@ -16,6 +16,7 @@ General
    3_contributions.rst
    4_troubleshooting.rst
    5_devguide_test.rst
+   6_hidden_appendix.rst
 
 
 

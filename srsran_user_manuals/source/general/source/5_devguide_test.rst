@@ -24,15 +24,4 @@ Decodes the received MAC PDUs and forwards the resulting MAC SDUs to their respe
 
 **MAC DL processor**
 
-Manages the MAC scheduler. This is implemented in the :hoverxref:`mac_dl_processor<hoverxref:mac_dl_processor>` class. 
-
-Code Appendix
-*************
-
-.. _hoverxref:mac_dl_processor: 
-
-``mac_dl_processor``
-====================
-
-.. doxygenclass:: srsgnb::mac_dl_processor
-    :members: 
+Manages the MAC scheduler. This is implemented in the :ref:`mac_dl_processor<mac_dl_processor>` class. 
