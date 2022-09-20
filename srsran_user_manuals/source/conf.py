@@ -129,10 +129,6 @@ html_context = {
             "https://github.com/srsran/srsran",
         ),
         (
-            '<i class="fa fa-bug fa-fw"></i> Report an issue',
-            "https://github.com/srsran/srsran/issues",
-        ),
-        (
             '<i class="fa fa-envelope fa-fw"></i> Mailing list',
             "https://lists.srsran.com/mailman/listinfo/srsran-users",
         ),
