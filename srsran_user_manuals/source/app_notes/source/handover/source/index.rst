@@ -177,13 +177,15 @@ example shows how the ue.conf file must be modified::
 
 	#####################################################################
 	[rf]
-	dl_earfcn = 2850
 	freq_offset = 0
 	tx_gain = 80
 	#rx_gain = 40
 	
 	device_name = zmq
 	device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
+	
+	[rat.eutra]
+	dl_earfcn = 2850
 	#####################################################################
 	
 The default USIM configuration can be used, as it is already present in the user_db.csv file used by the EPC to authenticate the UE. If you want to use a custom USIM set up this will need to be added to the relevant section in the ue.conf file 
@@ -313,12 +315,8 @@ The EPC console should then display a confirmation that the eNB cas connected::
 
 The UE now needs to be run, this can be done with the following command:: 
 	
-	sudo srsue --rat.eutra.dl_earfcn=2850 --gw.netns=ue1
+	sudo srsue --gw.netns=ue1
 
-.. note::
-	
-	The default DL EARFCN was changed in a recent update to the UE configuration file. This is why we overwrite that 
-	value in the above command. 
 	
 The UE console should then display this:: 
 
