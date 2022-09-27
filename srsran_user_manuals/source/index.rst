@@ -37,6 +37,7 @@ All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
    
    getting_started.rst
    feature_list.rst
+   reporting_issues.rst
 
 .. toctree::
    :maxdepth: 2

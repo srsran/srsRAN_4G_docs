@@ -9,8 +9,8 @@ The docs require following Sphinx extensions:
 
 On Ubuntu, they can be installed with:
 ```
-sudo apt install python-pip
-pip install -r requirements.txt
+sudo apt install python3-pip
+pip3 install -r requirements.txt
 ```
 
 Once dependenceies are installed,

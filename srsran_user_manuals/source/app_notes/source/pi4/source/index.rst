@@ -14,14 +14,17 @@ The concept of an ultra low cost, low power and open source SDR LTE femtocell ha
 
 .. image:: .imgs/Pi4eNB.jpg
 
+.. note::
+   While not impossible, running srsUE on a small embedded device is more difficult due to increased processing requirements for synchronisation and blind signal decoding.
+
 Pi4 eNodeB Hardware Requirements
 ********************************
-The setup instructions provided below have been tested with a **Raspberry Pi 4B /4GB rev 1.2** running the Ubuntu Server 20.04 LTS aarch64 image. It has not been tested with the rev 1.1 board, boards with 2GB of RAM or alternative operating systems. The Ubuntu image can be downloaded from the official `Ubuntu website <https://ubuntu.com/download/raspberry-pi>`_. You can visually identify your Pi4 hardware revision -- `this doc from Cytron <https://tutorial.cytron.io/2020/02/22/how-to-check-if-your-raspberry-pi-4-model-b-is-rev1-2/>`_ shows you how. 
+The setup instructions provided below have been tested with a **Raspberry Pi 4B /4GB rev 1.2**. It has not been tested with the rev 1.1 board, boards with 2GB of RAM or alternative operating systems. The Ubuntu image can be downloaded from the official `Ubuntu website <https://ubuntu.com/download/raspberry-pi>`_. You can visually identify your Pi4 hardware revision -- `this doc from Cytron <https://tutorial.cytron.io/2020/02/22/how-to-check-if-your-raspberry-pi-4-model-b-is-rev1-2/>`_ shows you how. 
 
 This setup has been tested with a USRP B210, a LimeSDR-USB and a LimeSDR-Mini. 
 
 .. note::
-  When using the USRP B210, you can create a 2x2 MIMO cell with srsenb. It is also possible to run the srsepc core network on the Pi too.
+  When using the USRP B210, you can create a 2x2 MIMO cell with srsenb. It is also possible to run the srsEPC core network on the Pi too.
 
   When using either of the LimeSDRs, you can only create a 1x1 SISO cell with srsenb. The core network must be run on a separate device.
 
@@ -31,6 +34,9 @@ Due to the power requirements of the SDRs, you must use an external power source
 
 Software Setup
 **************
+
+At the time of writing this appnote, it has been tested with the srsLTE 19.12 release on top of a Ubuntu Server 20.04 LTS aarch64 image.
+The following install instructions will apply to this configuration. At the end of the document, there are some notes on how to install the latest srsRAN release on top of the latest Ubuntu Server 22.04 LTS aarch64 image.
 
 First thing is to install the SDR drivers and build srsRAN. UHD drivers are required for USRPs, SoapySDR/LimeSuite are required for the LimeSDRs. 
 
@@ -245,7 +251,20 @@ Known issues
 * For bandwidths above 6 PRB it is recommended to use srsRAN 19.12 instead of the most recent release 20.04. We have identified the issue in the PRACH handling mainly affecting low-power devices. The fix will be included in the upcoming release.
 
 
+Running on Ubuntu 22.04 LTS
+***************************
+
+As of version 22.10, srsRAN can be compiled without modification on Ubuntu 22.04 LTS. However, the new Ubuntu 22.04 LTS image differs slightly in terms of kernel config options. It also misses the SCTP kernel module in the default configuration. The latter can be installed with:
+
+.. code::
+
+  sudo apt-get install linux-modules-extra-raspi
 
 
+The second required change to pass all tests successfully is to increase the ``RLIMIT_MEMLOCK`` setting in ``/etc/security/limits.conf``. A detailed description of the underlying change is provided `here <https://github.com/srsran/srsRAN/issues/881>`_ and information about ``RLIMIT_MEMLOCK`` can be found `here <https://man7.org/linux/man-pages/man2/getrlimit.2.html>`_. To lift the limit, add the following line to ``/etc/security/limits.conf``.
 
+.. code::
 
+  *               -       memlock         unlimited
+
+With those changes srsRAN should compile and shoud pass all tests on a Ubuntu 22.04 LTS aarch64 system.

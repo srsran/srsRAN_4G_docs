@@ -52,7 +52,18 @@ In addition to using the eMBMS SIB configuration file, a number of further confi
   [expert]
   nof_phy_threads = 2
 
-Once these setting adjustments have been made, the eNodeB should be ready to run in eMBMS mode.
+Set ``m1u_if_addr`` to either a localhost address like ``127.0.1.201`` or to your local IP of the network in which the srsMBMS binary is available. Once these setting adjustments have been made, the eNodeB should be ready to run in eMBMS mode.
+
+srsMBMS configuration
+--------------------
+
+The eMBMS configuration only needs to be adjusted in case the eMBMS binary and the eNodeB are running on different machines. The parameters must be set in the ``mbms.conf``::
+
+  [mbms_gw]
+  m1u_multi_if   = 127.0.1.200
+
+Set ``m1u_if_addr`` to either a localhost address like ``127.0.1.200`` or to your local IP of the network in which the eNodeB is available.
+
 
 srsUE configuration
 --------------------
