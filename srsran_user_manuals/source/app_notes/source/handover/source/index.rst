@@ -38,6 +38,8 @@ To make a clean build execute the following commands in your terminal::
 		
 Your hardware and drivers should now be working correctly and be ready to use correctly with srsRAN. 
 
+----
+
 Intra-eNB Handover
 ******************
 Intra-eNB Handover describes the handover between cells when a UE moves from one sector to another sector which are managed by the same eNB. The following steps 
@@ -64,9 +66,11 @@ The following example shows how this is done::
 
 	#####################################################################
 	[rf]
+	#dl_earfcn = 3350
 	tx_gain = 80
 	rx_gain = 40
-	
+
+	# Example for ZMQ-based operation with TCP transport for I/Q samples
 	device_name = zmq
 	device_args = fail_on_disconnect=true,id=enb,tx_port0=tcp://*:2101,tx_port1=tcp://*:2201,rx_port0=tcp://localhost:2100,rx_port1=tcp://localhost:2200,id=enb,base_srate=23.04e6
 	#####################################################################
@@ -94,97 +98,71 @@ becomes easier to debug. The second most significant unit is used to indicate wh
 	
 **Radio Resource (RR):**
 
-The rr.conf is where the cells (sectors) are added to the eNB, this is also where the handover flags are enabled. The following shows how this is done:: 
+The rr.conf is where the cells (sectors) are added to the eNB, this is also where the handover flags are enabled. The following shows an example of the cell added to the existing rr.conf:: 
 
-	cell_list =
-	(
 	  {
-	    rf_port = 0;
-	    cell_id = 0x01;
-	    tac = 0x0007;
-	    pci = 1;
-	    root_seq_idx = 204;
-	    dl_earfcn = 2850;
-	    ho_active = true;
+		rf_port = 1;
+		cell_id = 0x02;
+		tac = 0x0007;
+		pci = 6;
+		root_seq_idx = 268;
+		dl_earfcn = 3350;
+		ho_active = true;
+  
+		// Cells available for handover (in other eNB -- S1 handover)
+		meas_cell_list =
+		(
+		);
 
-	    // Cells available for handover
-	    meas_cell_list =
-	    (
-	    );
-
-	    // Select measurement report configuration (all reports are combined with all measurement objects)
-	    meas_report_desc =
-	    (
-		{
-		  eventA = 3
-		  a3_offset = 6;
-		  hysteresis = 0;
-		  time_to_trigger = 480;
-		  trigger_quant = "RSRP";
-		  max_report_cells = 1;
-		  report_interv = 120;
-		  report_amount = 1;
-		}
-	    );
-	    meas_quant_desc = {
-		// averaging filter coefficient
-		rsrq_config = 4;
-		rsrp_config = 4;
-	     };
-	  },
-	  {
-	    rf_port = 1;
-	    cell_id = 0x02;
-	    tac = 0x0007;
-	    pci = 6;
-	    root_seq_idx = 268;
-	    dl_earfcn = 2850;
-	    ho_active = true;
-
-	    // Cells available for handover
-	    meas_cell_list =
-	    (
-	    );
-
-	    // Select measurement report configuration (all reports are combined with all measurement objects)
-	    meas_report_desc =
-	    (
-		{
-		  eventA = 3
-		  a3_offset = 6;
-		  hysteresis = 0;
-		  time_to_trigger = 480;
-		  trigger_quant = "RSRP";
-		  max_report_cells = 1;
-		  report_interv = 120;
-		  report_amount = 1;
-		}
-	    );
-	    meas_quant_desc = {
-		// averaging filter coefficient
-		rsrq_config = 4;
-		rsrp_config = 4;
-	    };
+		// Select measurement report configuration (all reports are combined with all measurement objects)
+		meas_report_desc =
+		(
+		  {
+		    eventA = 3
+		    a3_offset = 6;
+		    hysteresis = 0;
+		    time_to_trigger = 480;
+		    trigger_quant = "RSRP";
+		    max_report_cells = 1;
+		    report_interv = 120;
+		    report_amount = 1;
+		  }
+		);
+		meas_quant_desc = {
+		  // averaging filter coefficient
+		  rsrq_config = 4;
+		  rsrp_config = 4;
+		};
 	  }
-	);
 
-Note, the TAC of the cells must match that of the MME, and the EARFCN must be the same across both cells and the UE. The PCI of each cell with the same EARFCN must be different, such that *PCI%3* for the cells is not equal. 
+Note, the TAC of the cells must match that of the MME, and the EARFCN must be the same across both cells and the UE. The PCI of each cell with the same EARFCN must be different, such that *PCI%3* for the cells is not equal. It is also important to remember that the ``ho_active`` flag must be set to true in the default cell as well as the cell that has been added.  
 
 **UE:**
 
-For the UE configuration, ZMQ must be set as the default device and the appropriate TCP ports set for Tx & Rx. As well as this the EARFCN value must be checked to ensure it is the same as that set for the cells in rr.conf. The following 
+For the UE configuration, ZMQ must be set as the default device and the appropriate TCP ports set for Tx & Rx and the network namespace (``netns``) set. As well as this, the EARFCN value must be checked to ensure it is the same as that set for the cells in rr.conf. The following 
 example shows how the ue.conf file must be modified:: 
 
 	#####################################################################
 	[rf]
-	dl_earfcn = 2850
 	freq_offset = 0
 	tx_gain = 80
 	#rx_gain = 40
-	
+	#srate = 11.52e6
+
+	# Example for ZMQ-based operation with TCP transport for I/Q samples
 	device_name = zmq
 	device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
+	
 	#####################################################################
+	
+	[rat.eutra]
+	dl_earfcn = 3350
+	#nof_carriers = 1
+
+	#####################################################################
+
+	[gw]
+	netns = ue1
 	
 The default USIM configuration can be used, as it is already present in the user_db.csv file used by the EPC to authenticate the UE. If you want to use a custom USIM set up this will need to be added to the relevant section in the ue.conf file 
 and reflected in the user_db.csv to ensure the UE is authenticated correctly. 
@@ -207,6 +185,12 @@ Again for these ports the least significant unit is used to indicate whether the
 In short, the EARFCN values must be the same across the eNB, both cells and the UE, handover must be enabled in the RR config file and ZMQ made 
 the default device for both the eNB and UE. 
 
+The full config files can be downloaded here: 
+
+	- :download:`enb.conf <.config/intra/enb.conf>`
+	- :download:`rr.conf <.config/intra/rr.conf>`
+	- :download:`ue.conf <.config/intra/ue.conf>`
+
 GNU-Radio Companion
 ----------------------
 
@@ -225,7 +209,6 @@ The following table again shows the clear breakdown of how the ports are assigne
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
-	:align: center
 
     * - Port Direction
       - cell1 Port #
@@ -313,12 +296,7 @@ The EPC console should then display a confirmation that the eNB cas connected::
 
 The UE now needs to be run, this can be done with the following command:: 
 	
-	sudo srsue --rat.eutra.dl_earfcn=2850 --gw.netns=ue1
-
-.. note::
-	
-	The default DL EARFCN was changed in a recent update to the UE configuration file. This is why we overwrite that 
-	value in the above command. 
+	sudo srsue
 	
 The UE console should then display this:: 
 
@@ -453,6 +431,8 @@ If handover is successful you should see the following read out in the UE consol
 
 Handover can now be repeated as many times as needed by repeating the above steps. 
 
+----
+
 S1 Handover
 ***************
  
@@ -532,7 +512,7 @@ This differs from the USIM configuration found in ue.conf, the changes made here
 the values used for the MCC and MNC. Milenage is used here to show how the sim credentials can be changed to suit certain use-cases. 
 
 srsRAN Set-Up
-----------------------
+-------------
 
 To ensure srsRAN is correctly configured to implement S1 Handover, changes must be made to the UE and eNB configurations. 
 
@@ -540,11 +520,29 @@ To ensure srsRAN is correctly configured to implement S1 Handover, changes must 
 
 As previously outlined, the USIM credentials in the configuration file must be modified. The following sections taken from the config file show the sections that need to be modified:: 
 
+	#####################################################################
 	[rf]
-	dl_earfcn = 2850
 	freq_offset = 0
 	tx_gain = 80
 	#rx_gain = 40
+	#srate = 11.52e6
+
+	# Example for ZMQ-based operation with TCP transport for I/Q samples
+	device_name = zmq
+	device_args = tx_port=tcp://*:2001,rx_port=tcp://localhost:2000,id=ue,base_srate=23.04e6
+	
+	#####################################################################
+	
+	[rat.eutra]
+	dl_earfcn = 3350
+	#nof_carriers = 1
+
+	#####################################################################
+
+	[gw]
+	netns = ue1
+
+	#####################################################################
 	
 	[usim]
 	mode = soft
@@ -556,7 +554,7 @@ As previously outlined, the USIM credentials in the configuration file must be m
 	#reader = 
 	#pin  = 1234
 
-The downlink EARFCN is set to 2850 for this application, this is matched across the rest of the network. This sets the LTE Band and carrier frequency for the UE and eNB(s), they must match so that a connection can be successfully established and held. 
+The downlink EARFCN is set to 3350 for this application, this is matched across the rest of the network. This sets the LTE Band and carrier frequency for the UE and eNB(s), they must match so that a connection can be successfully established and held. 
 The changes made when adding the UE to the subscriber list in the EPC are also shown here, the IMSI now leads with the correct PLMN code, and the authentication algorithm is set to milenage; the opc is uncommented to enable this. 
 
 **eNB:**
@@ -592,7 +590,7 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 		tac = 0x0007;
 		pci = 1;
 		root_seq_idx = 204;
-		dl_earfcn = 2850;
+		dl_earfcn = 3350;
 		//ul_earfcn = 21400;
 		ho_active = true;
 		//meas_gap_period = 0; // 0 (inactive), 40 or 80
@@ -614,7 +612,7 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 		(
 		  {
 		    eci = 0x19B01;
-		    dl_earfcn = 2850;
+		    dl_earfcn = 3350;
 		    pci = 1;
 		    //direct_forward_path_available = false;
 		    //allowed_meas_bw = 6;
@@ -622,7 +620,7 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 		  },
 		  {
 		    eci = 0x19C01;
-		    dl_earfcn = 2850;
+		    dl_earfcn = 3350;
 		    pci = 6;
 		  }
 		);
@@ -651,7 +649,7 @@ After the rr.conf has been copied to a new file (in the same location as the exi
 	  // Add here more cells
 	);
 	
-Here the TAC is set to 7, and the DL EARFCN is set to 2850. To ensure S1 Handover is successful the cell(s) 
+Here the TAC is set to 7, and the DL EARFCN is set to 3350. To ensure S1 Handover is successful the cell(s) 
 associated with the second eNB must be added to the *meas_cell_list*. This can be seen here where a cell with *eci = 0x19C01* is included, this is the cell 
 associated with the second eNB. The cell with *eci = 0x19B01* is the cell active on the current eNB. The DL EARFCN is the same across both. 
 
@@ -667,7 +665,7 @@ Similarly to rr1.conf, a file rr2.conf must be created where the other configura
 		tac = 0x0007;
 		pci = 6;
 		root_seq_idx = 264;
-		dl_earfcn = 2850;
+		dl_earfcn = 3350;
 		//ul_earfcn = 21400;
 		ho_active = true;
 		//meas_gap_period = 0; // 0 (inactive), 40 or 80
@@ -689,7 +687,7 @@ Similarly to rr1.conf, a file rr2.conf must be created where the other configura
 		(
 		  {
 		    eci = 0x19B01;
-		    dl_earfcn = 2850;
+		    dl_earfcn = 3350;
 		    pci = 1;
 		    //direct_forward_path_available = false;
 		    //allowed_meas_bw = 6;
@@ -697,7 +695,7 @@ Similarly to rr1.conf, a file rr2.conf must be created where the other configura
 		  },
 		  {
 		    eci = 0x19C01;
-		    dl_earfcn = 2850;
+		    dl_earfcn = 3350;
 		    pci = 6;
 		  }
 		);
@@ -795,7 +793,7 @@ The script for the UE will be used to set the ZMQ device and ports, while also b
 	  fi
 	fi
 	
-	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} --rat.eutra.dl_earfcn=2850 "$@"
+	sudo srsue ue.conf ${LOG_PARAMS} ${ZMQ_ARGS} --rat.eutra.dl_earfcn=3350 "$@"
 	
 The UE does not require any other parameters to be passed when it is instantiated. 
 
@@ -815,7 +813,6 @@ The following outlines which ports belong to which network element:
     :widths: 20 20 20 20
     :header-rows: 1
     :stub-columns: 1
-	:align: center
 
     * - Port Direction
       - eNB 1 Port #
@@ -846,7 +843,7 @@ Confirming Connection
 
 To confirm the initial connection has been successful look for the following readouts on the relevant consoles. 
 
-Source eNB::
+Source eNB:: 
 
 	---  Software Radio Systems LTE eNodeB  ---                                                                                                                                                                        
 																																																					
@@ -869,7 +866,7 @@ Source eNB::
 	RACH:  tti=341, cc=0, preamble=38, offset=0, temp_crnti=0x46                                                                                                                                                       
 	User 0x46 connected
 
-Target eNB::
+Target eNB:: 
 
 	---  Software Radio Systems LTE eNodeB  ---                                                                                                                                                                        
 																																																					
@@ -892,7 +889,7 @@ Target eNB::
 	
 Note, you wont see anything on this eNB console until handover has successfully been made between the eNBs. 
 
-UE::
+UE:: 
 
 	Reading configuration file ue.conf...                                                                                                                                                                              
 																																																					
@@ -920,7 +917,7 @@ UE::
 	Network attach successful. IP: 10.45.0.7                                                                                                                                                                           
 	nTp) 6/11/2020 15:36:1 TZ:0
 	
-You should now start to send traffic between the UE and the EPC, this is done via the following command::
+You should now start to send traffic between the UE and the EPC, this is done via the following command:: 
 
 	sudo ip netns exec ue1 ping 10.45.0.1
 	
