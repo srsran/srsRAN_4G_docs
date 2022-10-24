@@ -59,7 +59,7 @@ The second step is to configure srsENB with two cells. For this, one needs to mo
       cell_id = 0x02;
       tac = 0x0007;
       pci = 4;
-      root_seq_idx = 205;
+      root_seq_idx = 268;
       dl_earfcn = 3050;
 
       // CA cells
@@ -99,6 +99,7 @@ For the UE capabilities, we need to report at least release
   [rrc]
   ue_category        = 7
   ue_category_dl     = 10
+  release            = 10
 
 With these changes, simply run srsUE as usual.
 
