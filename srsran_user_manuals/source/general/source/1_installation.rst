@@ -43,7 +43,7 @@ Installation from Source
 
     * `cmake <https://cmake.org/>`_
     * `libfftw <http://www.fftw.org/>`_
-    * `PolarSSL/mbedTLS <https://tls.mbed.org>`_
+    * `mbedTLS <https://tls.mbed.org>`_
 
   * srsUE:
 
