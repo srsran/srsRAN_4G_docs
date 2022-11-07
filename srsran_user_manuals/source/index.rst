@@ -72,7 +72,7 @@ All srsRAN software runs in linux with off-the-shelf compute and radio hardware.
    app_notes/source/2ca/source/index.rst
    app_notes/source/cv2x/source/index.rst
    app_notes/source/embms/source/index.rst
-   app_notes/source/nbiot/source/index.
+   app_notes/source/nbiot/source/index
    app_notes/source/pi4/source/index.rst
    app_notes/source/hw_packs/source/index.rst
 
