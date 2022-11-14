@@ -64,7 +64,7 @@ Features
 
 The current NR SA UE implementation includes the following features:
 
-  * DL bandwidth up to 10 MHz.
+  * DL bandwidth up to 20 MHz.
   * FPGA-accelerated L1 DSP:
 
      - Bulk of L1 DL DSP (PSS detection, FFT, channel estimation and PBCH/PDCCH/PDSCH).
@@ -91,10 +91,12 @@ NR configuration parameters) can actually be used. A list of key feature limitat
 below for the sake of thoroughness:
 
   * Only the 15 kHz subcarrier-spacing (SCS) is supported (including the SSB).
-  * Signal bandwidth limited to 10 MHz.
+  * Signal bandwidth limited to 20 MHz.
   * Only DCI formats 0_0, 1_0, 0_1 and 1_1 are supported.
-  * No cell search and reference signal measurements (PCI and SSB ARFCN for NR carrier need to be
-    known).
+  * No reference signal measurements.
+  * Cell search is skipped by default (fixed PCI and SSB ARFCN values are used for the NR carrier
+    instead); it can be enabled for the 52 PRB configuration, but is not supported for 106 PRB.
+  * PRACH is precomputed for the 106 PRB configuration (*f_idx* is fixed to *0*).
 
 Building the embedded SA UE
 ***************************
@@ -155,11 +157,11 @@ In this example, we are using the following configuration parameters:
      - 15 kHz
      - DL ARFCN: 368500 (1842.5 MHz)
      - UL ARFCN: 349500 (1747.5 MHz),
-  * 10 MHz signal bandwidth (52 PRB, for both DL and UL)
+  * 10 MHz and 20 signal bandwidths (52 PRB and 106 PRB, respectively, for both DL and UL)
   * PCI 500
   * Two CORESETs:
 
-     - CORESET0 (interleaved PDCCH, RB offset = 1)
+     - CORESET0 (interleaved PDCCH, 48 PRB allocation, RB offset = 1 (52 PRB)/28 (106 PRB))
      - UE-specific CORESET (non-interleaved, RB offset = 0)
 
 The next sections will detail how to apply such configuration to both UE and gNB.
@@ -177,12 +179,17 @@ files not included here do not require modification from the default settings.
 
 *UE configuraion file*
 
-  - :download:`embedded 5G SA SRS UE configuration file <ue.conf>`
+  - :download:`embedded 5G SA SRS UE 52 PRB configuration file <ue_52prb.conf>`
+  - :download:`embedded 5G SA SRS UE 106 PRB configuration file <ue_106prb.conf>`
 
 *Amari Callbox configuration files*
 
-  - :download:`gNB configuration file <gnb-sa-fpga.cfg>`
-  - :download:`MME configuration file <mme.cfg>`
+  - :download:`gNB 52 PRB configuration file <gnb-sa-fpga_52prb.cfg>`
+  - :download:`gNB 106 PRB configuration file <gnb-sa-fpga_106prb.cfg>`
+  - :download:`MME configuration file (common for both 52 and 106 PRB) <mme.cfg>`
+
+**NOTE:** By default cell search is skipped, but it can be enabled (10 MHz only) through a
+parameter in the UE configuration file (by setting *skip_cell_search = false*).
 
 srsUE (ZCU111 board)
 --------------------
@@ -236,7 +243,8 @@ is organized as detailed below:
 
 Build of a customized SD card is out of the scope of this application note. Nevertheless, detailed
 instructions on how to do so can be found in the FPGA code repository
-(see *lib/src/phy/ue/fpga_ue/srsRAN_RFSoC.md*).
+(see *lib/src/phy/ue/fpga_ue/srsRAN_RFSoC.md*). A ready to use image of the SD card as used by the
+5G SA mode UE in this example is also available.
 
 In case of not having physical access to the SD card in the ZCU111 used in your laboratory setup,
 you can copy the the embedded SRS UE files over the network. First, run the following commands in
@@ -294,19 +302,20 @@ reproducing the described laboratory setup:
 Callbox initialization
 ----------------------
 
-This can
-be conveniently done through a script that handles the required *insmod* calls, which has been
-included attached to this App Note
-
 Properly initializing the Amari Callbox can be conveniently done through a series of scripts
 that will make sure that all relevant configuration parameters are set as needed (e.g., CPU
-governor). These scripts have been included attached to this App note.
+governor). These scripts have been attached to this App note.
 
   - :download:`set of configuration scripts <callbox_init_scripts.tar.xz>`
 
 All scripts can be executed by a single command::
 
   sudo ./run_all.sh
+
+Then, make sure that the kernel module managing the SDR cards is properly loaded. To do so, run
+the following command in the *trx_sdr-linux-2021-03-17* path::
+
+  sudo ./trx_sdr-linux-2021-03-17/kernel/init.sh
 
 MME
 ---
@@ -315,17 +324,12 @@ MME
 version 2020-09-14 was used. Likewise, the TRX SDR Linux kernel module version 2021-03-17
 was used.*
 
-First, make sure that the kernel module managing the SDR cards is properly loaded. To do so,
-run the following command in the *trx_sdr-linux-2021-03-17* path::
-
-  sudo ./trx_sdr-linux-2021-03-17/kernel/init.sh
-
-Then make sure that the *mme.cfg* file is copied in the appropriate config folder and run the
+Make sure that the *mme.cfg* file is copied in the appropriate config folder and run the
 following command in the *ltemme-linux-2020-09-14* path::
 
   sudo ./ltemme config/mme.cfg
 
-The onsole output should be similar to::
+The console output should be similar to::
 
   LTE MME version 2020-09-14, Copyright (C) 2012-2020 Amarisoft
   This software is licensed to Software Radio Systems (SRS).
@@ -337,10 +341,11 @@ gNB
 *The commands listed below are to be run on the Amari Callbox. In our setup, the LTE eNB/gNB
 version 2021-03-17 was used.*
 
-Make sure that the *gnb-sa-fpga.cfg* file is copied in the appropriate config folder. Then, run the
-following commands in the * lteenb-linux-2021-03-17* path::
+Make sure that the *gnb-sa-fpga_52prb.cfg* and *gnb-sa-fpga_106prb.cfg* files are copied in the
+appropriate config folder. Then, run the following commands in the * lteenb-linux-2021-03-17* path
+to run the 52 PRB (10 MHz) gNB::
 
-  sudo ./lteenb config/gnb-sa-fpga.cfg
+  sudo ./lteenb config/gnb-sa-fpga_52prb.cfg
 
 The onsole output should be similar to::
 
@@ -351,6 +356,8 @@ The onsole output should be similar to::
   RF0: sample_rate=15.360 MHz dl_freq=1842.500 MHz ul_freq=1747.500 MHz (band n3) dl_ant=1 ul_ant=1
   (enb)
 
+To run the 106 PRB (20 MHz) gNB simply use *gnb-sa-fpga_106prb.cfg* in the command above.
+
 UE and ping
 -----------
 
@@ -360,19 +367,20 @@ and *run_ue.sh* files attached in this App Note.*
 
 To run the UE, first we'll need to load the custom srsUE DMA drivers for the ZCU111. This can
 be conveniently done through a script that handles the required *insmod* calls, which has been
-included attached to this App Note. Likewise, a script handling the execution of the embedded
-5G SA UE has also been attached.
+included attached to this App Note, as well as the drivers per se. Likewise, a script handling
+the execution of the embedded 5G SA UE has also been attached.
 
   - :download:`embedded srsUE DMA drivers installation script <install_srsue_drivers.sh>`
+  - :download:`srsUE DMA drivers <srsue_dma_kernel_drivers.tar.xz>`
   - :download:`embedded 5G SA UE execution script <run_ue.sh>`
 
 To load the srsUE drivers use the following command::
 
   ./install_srsue_drivers.sh
 
-Later the embedded srsUE will be executed using the following command::
+Later the 52 PRB embedded srsUE will be executed using the following command::
 
-  ./run_ue
+  ./run_ue 52
 
 Once the UE has been initialised you should see an output similar to the following::
 
@@ -395,6 +403,8 @@ Once the UE has been initialised you should see an output similar to the followi
   FPGA bitstream built on 0000/00/00 00:00:00:00 using commit 00000000
   Setting manual TX/RX offset to 65 samples
   Waiting PHY to initialize ... done!
+
+To run the 106 PRB srsUE simply use *106* as input parameter in the command above.
 
 Once the FPGA has correctly synchronized to the selected cell you should see a similar console
 output during the attach procedure::
@@ -433,6 +443,10 @@ Then we will run a client in the embedded ARM of the RFSoC (SSH to ZCU111)::
 
   iperf3 -c 192.168.4.1 -p 5003 -t 30 -b 40M -u
 
+The example above targets the 52 PRB (10 MHz) SA UE configuration and, hence, the requested traffic
+data-rate is limited to 40 Mbps (*-b 40M*). For 106 PRB (20 MHz) it can be doubled to 80  Mbps (*-b
+80M*).
+
 Similarly, to run a DL UDP iperf test, first a server will be started in the UE (RFSoC - note
 that 192.168.4.2 is the IP address assigned to the UE by the network)::
 
@@ -442,35 +456,74 @@ Then, a client will be executed in the Amari Callbox::
 
   iperf3 -c 192.168.4.1 -p 5003 -t 30 -b 40M -u
 
+As before, the command above is targeting a 52 PRB (10 MHz) SA UE configuration. Hence, for 106 PRB
+(20 MHz) the data-rate can be doubled too (*-b 80M*).
+
 Finally, it is worth mentioning that by typing **t** in the console of the embedded SRS NR SA UE,
 after the attach procedure is succesfully completed, the periodical display of relevant traffic
-metrics as part of the displayed outputs will be enabled (below some UL iperf metrics are shown as
-an example)::
+metrics as part of the displayed outputs will be enabled (below some UL iperf metrics for a 106 PRB
+configuration are shown as an example)::
 
   Enter t to stop trace.
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
   rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |   0    0.0    0.0    0%
-  nr  500     0    0   0.0 |  27    0   0.0    36k    0%    0.0 |  27   380k    27M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   379k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   379k    37M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   381k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   379k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   377k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  28   379k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   379k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   377k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   376k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  28   372k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   378k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   372k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   372k    75M    0%
   ---------Signal-----------|-----------------DL-----------------|-----------UL-----------
   rat  pci  rsrp   pl   cfo | mcs  snr  iter  brate  bler  ta_us | mcs   buff  brate  bler
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   381k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    29k    0%    0.0 |  27   381k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   379k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   380k    37M    0%
-  nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  27   378k    37M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   372k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  28   373k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   375k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   375k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   373k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  28   378k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   380k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   380k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   379k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    30k    0%    0.0 |  28   380k    75M    0%
+   nr  500     0    0   0.0 |  27    0   0.0    31k    0%    0.0 |  28   363k    75M    0%
+
+**NOTE:** Testing of the 10 MHz (52 PRB) configuration showed that slightly higher DL throughput
+can be achieved by forcing use of DCI formats 0_0 and 1_0 (set *dci_0_1_and_1_1: false* in
+*gnb-sa-fpga_52prb.cfg*).
+
+Troubleshooting and known issues
+********************************
+
+To ensure the correct behaviour of the system it is recommended that the utilized laboratory setup
+is as described in this App Note. It is also very important to validate that matching configuration
+parameters and files are used when executing both the gNB and UE applications. In more detail, the
+following pairings are required:
+  - for the 52 PRB SA network configuration use *ue_52prb.conf* (through *./run_ue 52*) and
+    *gnb-sa-fpga_52prb.cfg*.
+  - for the 106 PRB SA network configuration use *ue_106prb.conf* (through *./run_ue 106*) and
+    *gnb-sa-fpga_106prb.cfg*.
+
+Also, cell search is not supported under the 106 PRB configuration (i.e., make sure that the UE
+configuration properly sets *skip_cell_search = true*).
+
+It is a known issue that under heavy DL traffic conditions the DMA might enter into a deadlock from
+which it cannot recover. In more detail, there seems to be a bug in either the Xilinx DMA IP core,
+its related driver or the AXI interconnect management, which fails to clear a *complete bit* in the
+scatter-gather descriptor memory (meant to flag a finished transaction). Therefore, the DMA IP core
+will be lead to an invalid state when a new operation is requiring to use the same descriptor
+memory position. From the user perspective, on-screen metrics will display *NaN* (in the *dmesg*
+log there will be a message similar to *xilinx-vdma a0090000.dma: Channel 00000000eb67672b has
+errors 100, cdr 77cc3200 tdr 77cc3200*). In such occurrences, it is required to stop the UE and then
+unload and reload back both Xilinx DMA and SRS UE kernel drivers. A script automating the latter has
+been included as attachment to this App Note.
+
+- :download:`driver reloading script <reload_dma_drivers.sh>`
+
+The script can be executed through the following command::
+
+./reload_dma_drivers.sh
