@@ -3,6 +3,18 @@
 Release Notes
 =============
 
+- 22.10
+
+  * Fix DL NAS integrity checks in srsUE
+  * Remove Travis and LGTM as CI platforms
+  * Remove polarssl as optional dependency (only mbedTLS used and required for security)
+  * Allow to specify multiple PLMNs in SIB1
+  * Allow non-blocking S1AP connect and expose various other SCTP options
+  * Add support to broadcast MAC backoff indicator
+  * Seperate T300/T301 timer in srsENB
+  * Fix in eMBMS payload buffer handling
+  * Fix memleak in NR scheduler
+
 * 22.04.1
 
   * Bug-fixes in RLC AM and PDCP in NR
@@ -12,7 +24,7 @@ Release Notes
 
 - 22.04
 
-  * Add baseline 5G-SA support to srsUE and srsENB
+  * Added baseline 5G-SA support to srsUE and srsENB
   * Added dynamic loading of RF libraries
   * Added RRC Redirect to srsUE
   * Added support for A5 measurement events to srsENB
