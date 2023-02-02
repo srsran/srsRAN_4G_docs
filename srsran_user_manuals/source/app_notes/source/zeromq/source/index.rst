@@ -1,6 +1,6 @@
 .. srsRAN ZeroMQ Application Note
 
-.. _zeromq_appnote:
+.. _zeromq-appnote:
 
 srsRAN with ZMQ Virtual Radios
 ===================================
