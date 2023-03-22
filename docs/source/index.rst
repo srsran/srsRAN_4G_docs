@@ -16,7 +16,7 @@ srsRAN 4G |version| Documentation
         application notes for some of the most interesting srsRAN 4G use-cases.
 
 
-srsRAN 4G is an open-source 4G software radio suite from `SRS <https://www.srs.io>`_. 
+srsRAN 4G is an open-source 4G software radio suite from `SRS <https://www.srs.io>`_. For 5G RAN, see our new O-RAN CU/DU solution - `srsRAN Project <https://docs.srsran.com/projects/project>`_.
 
 Featuring UE, eNodeB and lightweight EPC applications, srsRAN 4G can be used to build a complete end-to-end LTE mobile wireless network. For more information, see `www.srsran.com <https://www.srsran.com>`_. 
 
