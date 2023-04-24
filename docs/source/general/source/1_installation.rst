@@ -19,9 +19,9 @@ Package Installation
 
 The srsRAN 4G software suite can be installed using packages on Ubuntu::
 
-  sudo add-apt-repository ppa:softwareradiosystems/srsran_4g
+  sudo add-apt-repository ppa:softwareradiosystems/srsran
   sudo apt-get update
-  sudo apt-get install srsran_4g -y
+  sudo apt-get install srsran -y
   
 Package installs are also available for other distributions.
 
