@@ -3,8 +3,7 @@
 .. _pi4_appnote:
 
 srsRAN 4G on Raspberry Pi 4
-========================
-
+###########################
 
 Introduction
 ************
