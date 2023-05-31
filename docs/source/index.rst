@@ -73,4 +73,9 @@ For our ORAN-native 5G CU/DU solution, see the **srsRAN Project** `documentation
    app_notes/source/pi4/source/index.rst
    app_notes/source/hw_packs/source/index.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: 5G Prototyping
 
+   app_notes/source/5g_sa_amari/source/index.rst
+   app_notes/source/5g_nsa_amari/source/index.rst

@@ -201,24 +201,8 @@ of spatial multiplexing and it will not achieve the maximum throughput.
 5G NR 
 *****
 
-srsRAN 4G 21.10 and 22.04 brought prototype 5G NSA and 5G SA capabilities to srsUE respectively. These capabilities can be enabled via the srsUE configuration file. See the links in the following sections for information on 
-5G NSA/ SA and how to enable these features on srsUE.  
+srsRAN 4G 21.10 and 22.04 brought prototype 5G NSA and 5G SA capabilities to srsUE respectively. These capabilities can be enabled via the srsUE configuration file. 
 
-5G NSA
-======
+To use srsUE in prototype 5G mode, see our :ref:`5G NSA <5g_nsa_amari_appnote>` and :ref:`5G SA <5g_sa_amari_appnote>` application notes. 
 
-For information on what 5G NSA is, and how a 5G NSA network can be configured with srsRAN 4G take a look at the following sections of our documentation: 
-
-  - :ref:`5G NSA overview <5G_NSA>`
-  - :ref:`Creating an E2E 5G NSA Network with srsRAN 4G <5g_nsa_zmq_appnote>`
-
-srsUE is also compatible with 3rd party eNB and gNB applications and equipment. An example of this can be seen in our guide outlining how to :ref:`connect srsUE to an Amarisoft Callbox <5g_nsa_amari_appnote>`. 
-
-5G SA 
-======
-
-For information on what 5G SA is, and how a 5G SA network can be configured with srsRAN 4G take a look at the following sections of our documentation: 
-
-  - :ref:`5G SA overview <5G_SA>`
-  - :ref:`Creating an E2E 5G NA Network with srsRAN 4G <5g_sa_e2e_appnote>`
 
