@@ -110,7 +110,7 @@ Install srsRAN 4G::
   sudo make install
   srsran_install_configs.sh user
 
-This installs srsRAN 4G and also copies the default srsRAN 4G config files to *~/.config/srsran_4g*.
+This installs srsRAN 4G and also copies the default srsRAN 4G config files to *~/.config/srsran*.
 
 Getting Support
 ***************
