@@ -3,6 +3,13 @@
 Release Notes
 =============
 
+- 23.11
+
+  * Update srsUE to work with 5/10/15/20 MHz bandwidth in 5G SA mode
+  * Added a new frequency estimation algorithm.
+  * Updated cmake file
+  * Other bug-fixes and improved stability and performance in all parts 
+
 * 23.04
 
   * Introduced configurable s1 connection timer

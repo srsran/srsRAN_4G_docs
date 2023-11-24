@@ -15,7 +15,8 @@ The SRS UE includes the following features:
 - LTE Release 10 aligned with features up to release 15
 - Prototype 5G NSA and SA support
 - TDD and FDD configurations
-- Tested bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
+- Tested LTE bandwidths: 1.4, 3, 5, 10, 15 and 20 MHz
+- Tested 5G SA bandwidths: 5, 10, 15 and 20 MHz
 - Transmission modes 1 (single antenna), 2 (transmit diversity), 3 (CCD) and 4 (closed-loop spatial multiplexing)
 - Manually configurable DL/UL carrier frequencies
 - Soft USIM supporting XOR/Milenage authentication

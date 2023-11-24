@@ -47,7 +47,7 @@ The current 5G SA UE application has a few feature limitations that require cert
 settings at both the gNB and the core network. The key feature limitations are as follows:
 
   - Limited to 15 kHz Sub-Carrier Spacing (SCS), which means only FDD bands can be used. 
-  - Limited to 10 MHz Bandwidth (BW) 
+  - Limited to 5, 10, 15 or 20 MHz Bandwidth (BW) 
 
 
 Configuration
