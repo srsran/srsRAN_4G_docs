@@ -37,7 +37,7 @@ After the build is complete, you can verify the correct operation with the ``pcs
 Please verify that the IMSI can be read from the card::
 
 
-    $ ./srsue/test/upper/pcsc_usim_test
+    $ ./srsue/src/stack/upper/test/pcsc_usim_test
     ..
     09:06:36.064073 [USIM] [D] SCARD: MNC length=2
     09:06:36.064079 [USIM] [D] MNC length 2
