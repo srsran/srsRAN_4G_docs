@@ -1,6 +1,6 @@
 .. _reporting_issues:
 
-Reporting issues
+Reporting Issues
 ----------------
 
 For contributing code and reporting issues we generally encourage users to directly use the Github's `pull request <https://github.com/srsran/srsran_4g/pulls>`_ or
