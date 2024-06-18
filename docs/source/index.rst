@@ -40,6 +40,7 @@ For our ORAN-native 5G CU/DU solution, see the **srsRAN Project** `documentation
    getting_started.rst
    feature_list.rst
    reporting_issues.rst
+   dev_status.rst
 
 .. toctree::
    :maxdepth: 2
