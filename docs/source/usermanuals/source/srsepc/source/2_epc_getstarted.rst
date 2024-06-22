@@ -14,9 +14,9 @@ If you are using Ubuntu, you can install from the binary packages provided::
 
 If you are using a different distribution, you can install from source using the guide provided in the project's `GitHub page <https://github.com/srsRAN/srsRAN_4G/>`_.
 
-After installing the software you can install the configuration files into the default location (``~/.config/srsran_4g``), by running::
+After installing the software you can install the configuration files into the default location (``~/.config/srsran``), by running::
 
-  srsran_4g_install_configs.sh user
+  srsran_install_configs.sh user
  
 Running the software
 ********************
