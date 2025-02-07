@@ -18,6 +18,9 @@ import os
 #auxilary libraries
 from datetime import date
 
+#Google Analytics ID
+googleanalytics_id = 'G-T9SLDCMMRZ'
+
 #variables
 year = str(date.today().year)
 
@@ -34,7 +37,7 @@ year = str(date.today().year)
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.seqdiag','sphinxcontrib.blockdiag','sphinx_copybutton', 'hoverxref.extension', 'sphinxcontrib.plantuml', 'sphinx.ext.todo', 'sphinx.ext.intersphinx',]
+extensions = ['sphinxcontrib.seqdiag','sphinxcontrib.blockdiag','sphinx_copybutton', 'hoverxref.extension', 'sphinxcontrib.plantuml', 'sphinx.ext.todo', 'sphinx.ext.intersphinx','sphinxcontrib.googleanalytics']
 
 # Set up Hover Ref
 hoverxref_auto_ref = True
